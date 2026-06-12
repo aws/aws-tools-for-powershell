@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrigger" OutputProperty="Trigger" Verb="New" Noun="Trigger" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAgentSpace" Verb="Remove" Noun="AgentSpace" ShouldProcessTarget="AgentSpaceId" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePrivateConnection" OutputProperty="*" Verb="Remove" Noun="PrivateConnection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrigger" Verb="Remove" Noun="Trigger" ShouldProcessTarget="TriggerId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrigger" OutputProperty="Trigger" Verb="Get" Noun="Trigger" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTriggers" OutputProperty="Items" Verb="Get" Noun="TriggerList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -240,6 +256,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRecommendation" OutputProperty="Recommendation" Verb="Update" Noun="Recommendation" ShouldProcessTarget="RecommendationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrigger" OutputProperty="Trigger" Verb="Update" Noun="Trigger" ShouldProcessTarget="TriggerId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

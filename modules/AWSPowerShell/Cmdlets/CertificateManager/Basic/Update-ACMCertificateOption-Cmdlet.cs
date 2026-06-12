@@ -30,10 +30,10 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Updates a certificate. You can use this function to specify whether to opt in to or
-    /// out of recording your certificate in a certificate transparency log and exporting.
-    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
-    /// Opting Out of Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate
+    /// Updates a certificate. You can use this function to specify whether to export your
+    /// certificate. Certificate transparency logging opt-out is no longer available. For
+    /// more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate
+    /// Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate
     /// Manager Exportable Managed Certificates</a>.
     /// </summary>
     [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,18 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         public System.String CertificateArn { get; set; }
         #endregion
         
-        #region Parameter Options_CertificateTransparencyLoggingPreference
-        /// <summary>
-        /// <para>
-        /// <para>You can opt out of certificate transparency logging by specifying the <c>DISABLED</c>
-        /// option. Opt in by specifying <c>ENABLED</c>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
-        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
-        #endregion
-        
         #region Parameter Options_Export
         /// <summary>
         /// <para>
@@ -88,6 +76,21 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CertificateManager.CertificateExport")]
         public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
+        #endregion
+        
+        #region Parameter Options_CertificateTransparencyLoggingPreference
+        /// <summary>
+        /// <para>
+        /// <para>This parameter has been deprecated. Certificate transparency logging opt-out is no
+        /// longer available. All public certificates are recorded in a certificate transparency
+        /// log.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Certificate transparency logging opt-out is no longer available.")]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
+        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
         #endregion
         
         #region Parameter Select
@@ -249,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateArn { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
             public System.Func<Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse, UpdateACMCertificateOptionCmdlet, object> Select { get; set; } =

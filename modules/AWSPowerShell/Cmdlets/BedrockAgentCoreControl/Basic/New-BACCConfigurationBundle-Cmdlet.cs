@@ -126,6 +126,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional KMS key ARN for encrypting component configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter CreatedBy_Name
         /// <summary>
         /// <para>
@@ -240,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.CreatedBy_Arn = this.CreatedBy_Arn;
             context.CreatedBy_Name = this.CreatedBy_Name;
             context.Description = this.Description;
+            context.KmsKeyArn = this.KmsKeyArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -317,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -384,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String CreatedBy_Arn { get; set; }
             public System.String CreatedBy_Name { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateConfigurationBundleResponse, NewBACCConfigurationBundleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

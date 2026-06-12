@@ -145,6 +145,21 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys and values to associate with the A/B test.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter GatewayFilter_TargetPath
         /// <summary>
         /// <para>
@@ -281,6 +296,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             if (this.Variant != null)
             {
                 context.Variant = new List<Amazon.BedrockAgentCore.Model.Variant>(this.Variant);
@@ -379,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Variant != null)
             {
                 request.Variants = cmdletContext.Variant;
@@ -447,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<System.String> GatewayFilter_TargetPath { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.BedrockAgentCore.Model.Variant> Variant { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.CreateABTestResponse, NewBACABTestCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

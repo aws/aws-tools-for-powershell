@@ -344,10 +344,12 @@ $DOPS_SelectMap = @{
                "New-DOPSBacklogTask",
                "New-DOPSChat",
                "New-DOPSPrivateConnection",
+               "New-DOPSTrigger",
                "Remove-DOPSAgentSpace",
                "Remove-DOPSAsset",
                "Remove-DOPSAssetFile",
                "Remove-DOPSPrivateConnection",
+               "Remove-DOPSTrigger",
                "Unregister-DOPSService",
                "Get-DOPSPrivateConnectionDetail",
                "Disable-DOPSOperatorApp",
@@ -363,6 +365,7 @@ $DOPS_SelectMap = @{
                "Get-DOPSOperatorApp",
                "Get-DOPSRecommendation",
                "Get-DOPSService",
+               "Get-DOPSTrigger",
                "Get-DOPSAgentSpaceList",
                "Get-DOPSAssetFileList",
                "Get-DOPSAssetList",
@@ -379,6 +382,7 @@ $DOPS_SelectMap = @{
                "Get-DOPSRecommendationList",
                "Get-DOPSServiceList",
                "Get-DOPSResourceTag",
+               "Get-DOPSTriggerList",
                "Get-DOPSWebhookList",
                "Register-DOPSService",
                "Send-DOPSMessage",
@@ -393,6 +397,7 @@ $DOPS_SelectMap = @{
                "Update-DOPSOperatorAppIdpConfig",
                "Update-DOPSPrivateConnectionCertificate",
                "Update-DOPSRecommendation",
+               "Update-DOPSTrigger",
                "Test-DOPSAwsAssociation")
 }
 

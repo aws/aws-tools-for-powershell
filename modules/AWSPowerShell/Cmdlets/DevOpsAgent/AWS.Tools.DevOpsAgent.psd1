@@ -118,6 +118,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DOPSResourceTag', 
         'Get-DOPSService', 
         'Get-DOPSServiceList', 
+        'Get-DOPSTrigger', 
+        'Get-DOPSTriggerList', 
         'Get-DOPSWebhookList', 
         'New-DOPSAgentSpace', 
         'New-DOPSAsset', 
@@ -125,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-DOPSBacklogTask', 
         'New-DOPSChat', 
         'New-DOPSPrivateConnection', 
+        'New-DOPSTrigger', 
         'Register-DOPSService', 
         'Remove-DOPSAgentSpace', 
         'Remove-DOPSAsset', 
@@ -132,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DOPSPrivateConnection', 
         'Remove-DOPSResourceTag', 
         'Remove-DOPSService', 
+        'Remove-DOPSTrigger', 
         'Send-DOPSMessage', 
         'Test-DOPSAwsAssociation', 
         'Unregister-DOPSService', 
@@ -143,7 +147,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-DOPSGoal', 
         'Update-DOPSOperatorAppIdpConfig', 
         'Update-DOPSPrivateConnectionCertificate', 
-        'Update-DOPSRecommendation')
+        'Update-DOPSRecommendation', 
+        'Update-DOPSTrigger')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -72,6 +72,23 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String Accept { get; set; }
         #endregion
         
+        #region Parameter Body
+        /// <summary>
+        /// <para>
+        /// <para>Provides inline input data for the inference request, in the format specified in the
+        /// <c>ContentType</c> request header. Use this parameter to send the request payload
+        /// directly in the API call instead of uploading it to Amazon S3 and referencing it with
+        /// <c>InputLocation</c>. The inline payload can be up to 128,000 bytes.</para><para><c>Body</c> and <c>InputLocation</c> are mutually exclusive. Provide exactly one
+        /// of them.</para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
+        /// Data Formats-Inference</a>.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] Body { get; set; }
+        #endregion
+        
         #region Parameter ContentType
         /// <summary>
         /// <para>
@@ -151,14 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <para>The Amazon S3 URI where the inference request payload is stored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputLocation { get; set; }
         #endregion
         
@@ -244,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Accept = this.Accept;
+            context.Body = this.Body;
             context.ContentType = this.ContentType;
             context.CustomAttribute = this.CustomAttribute;
             context.EndpointName = this.EndpointName;
@@ -256,12 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             context.Filename = this.Filename;
             context.InferenceId = this.InferenceId;
             context.InputLocation = this.InputLocation;
-            #if MODULAR
-            if (this.InputLocation == null && ParameterWasBound(nameof(this.InputLocation)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputLocation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InvocationTimeoutSecond = this.InvocationTimeoutSecond;
             context.RequestTTLSecond = this.RequestTTLSecond;
             context.S3OutputPathExtension = this.S3OutputPathExtension;
@@ -277,72 +282,89 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.SageMakerRuntime.Model.InvokeEndpointAsyncRequest();
+            System.IO.MemoryStream _BodyStream = null;
             
-            if (cmdletContext.Accept != null)
-            {
-                request.Accept = cmdletContext.Accept;
-            }
-            if (cmdletContext.ContentType != null)
-            {
-                request.ContentType = cmdletContext.ContentType;
-            }
-            if (cmdletContext.CustomAttribute != null)
-            {
-                request.CustomAttributes = cmdletContext.CustomAttribute;
-            }
-            if (cmdletContext.EndpointName != null)
-            {
-                request.EndpointName = cmdletContext.EndpointName;
-            }
-            if (cmdletContext.Filename != null)
-            {
-                request.Filename = cmdletContext.Filename;
-            }
-            if (cmdletContext.InferenceId != null)
-            {
-                request.InferenceId = cmdletContext.InferenceId;
-            }
-            if (cmdletContext.InputLocation != null)
-            {
-                request.InputLocation = cmdletContext.InputLocation;
-            }
-            if (cmdletContext.InvocationTimeoutSecond != null)
-            {
-                request.InvocationTimeoutSeconds = cmdletContext.InvocationTimeoutSecond.Value;
-            }
-            if (cmdletContext.RequestTTLSecond != null)
-            {
-                request.RequestTTLSeconds = cmdletContext.RequestTTLSecond.Value;
-            }
-            if (cmdletContext.S3OutputPathExtension != null)
-            {
-                request.S3OutputPathExtension = cmdletContext.S3OutputPathExtension;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.SageMakerRuntime.Model.InvokeEndpointAsyncRequest();
+                
+                if (cmdletContext.Accept != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.Accept = cmdletContext.Accept;
+                }
+                if (cmdletContext.Body != null)
+                {
+                    _BodyStream = new System.IO.MemoryStream(cmdletContext.Body);
+                    request.Body = _BodyStream;
+                }
+                if (cmdletContext.ContentType != null)
+                {
+                    request.ContentType = cmdletContext.ContentType;
+                }
+                if (cmdletContext.CustomAttribute != null)
+                {
+                    request.CustomAttributes = cmdletContext.CustomAttribute;
+                }
+                if (cmdletContext.EndpointName != null)
+                {
+                    request.EndpointName = cmdletContext.EndpointName;
+                }
+                if (cmdletContext.Filename != null)
+                {
+                    request.Filename = cmdletContext.Filename;
+                }
+                if (cmdletContext.InferenceId != null)
+                {
+                    request.InferenceId = cmdletContext.InferenceId;
+                }
+                if (cmdletContext.InputLocation != null)
+                {
+                    request.InputLocation = cmdletContext.InputLocation;
+                }
+                if (cmdletContext.InvocationTimeoutSecond != null)
+                {
+                    request.InvocationTimeoutSeconds = cmdletContext.InvocationTimeoutSecond.Value;
+                }
+                if (cmdletContext.RequestTTLSecond != null)
+                {
+                    request.RequestTTLSeconds = cmdletContext.RequestTTLSecond.Value;
+                }
+                if (cmdletContext.S3OutputPathExtension != null)
+                {
+                    request.S3OutputPathExtension = cmdletContext.S3OutputPathExtension;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _BodyStream != null)
+                {
+                    _BodyStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -377,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Accept { get; set; }
+            public byte[] Body { get; set; }
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }

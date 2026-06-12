@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime { get; set; }
         #endregion
         
+        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The end time of the time range. Only sessions with activity before this timestamp
+        /// are included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime { get; set; }
+        #endregion
+        
         #region Parameter Evaluator
         /// <summary>
         /// <para>
@@ -100,6 +111,33 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public Amazon.BedrockAgentCore.Model.Evaluator[] Evaluator { get; set; }
         #endregion
         
+        #region Parameter Insight
+        /// <summary>
+        /// <para>
+        /// <para>The list of insight analyses to run against sessions during the batch evaluation.
+        /// Maximum of 10 insights.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Insights")]
+        public Amazon.BedrockAgentCore.Model.Insight[] Insight { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key used to encrypt evaluation data. If provided, customer data
+        /// is encrypted at rest with the specified key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfig_CloudWatchLogs_LogGroupName
         /// <summary>
         /// <para>
@@ -114,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceConfig_CloudWatchLogs_LogGroupNames")]
         public System.String[] DataSourceConfig_CloudWatchLogs_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the online evaluation configuration to use as the
+        /// session source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
         #endregion
         
         #region Parameter DataSourceConfig_CloudWatchLogs_ServiceName
@@ -171,6 +220,32 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start time of the time range. Only sessions with activity at or after this timestamp
+        /// are included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys and values to associate with the batch evaluation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -253,6 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.DataSourceConfig_CloudWatchLogs_ServiceName = new List<System.String>(this.DataSourceConfig_CloudWatchLogs_ServiceName);
             }
+            context.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn = this.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
+            context.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = this.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime;
+            context.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = this.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime;
             context.Description = this.Description;
             if (this.EvaluationMetadata_SessionMetadata != null)
             {
@@ -261,6 +339,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (this.Evaluator != null)
             {
                 context.Evaluator = new List<Amazon.BedrockAgentCore.Model.Evaluator>(this.Evaluator);
+            }
+            if (this.Insight != null)
+            {
+                context.Insight = new List<Amazon.BedrockAgentCore.Model.Insight>(this.Insight);
+            }
+            context.KmsKeyArn = this.KmsKeyArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -290,6 +381,66 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate DataSourceConfig
             var requestDataSourceConfigIsNull = true;
             request.DataSourceConfig = new Amazon.BedrockAgentCore.Model.DataSourceConfig();
+            Amazon.BedrockAgentCore.Model.OnlineEvaluationConfigSource requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource = null;
+            
+             // populate OnlineEvaluationConfigSource
+            var requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull = true;
+            requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource = new Amazon.BedrockAgentCore.Model.OnlineEvaluationConfigSource();
+            System.String requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn = null;
+            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource.OnlineEvaluationConfigArn = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.SessionFilterConfig requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = null;
+            
+             // populate SessionFilterConfig
+            var requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = true;
+            requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = new Amazon.BedrockAgentCore.Model.SessionFilterConfig();
+            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = null;
+            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime.Value;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig.EndTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = false;
+            }
+            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = null;
+            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime.Value;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig.StartTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = false;
+            }
+             // determine if requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig should be set to null
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = null;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource.SessionFilterConfig = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull = false;
+            }
+             // determine if requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource should be set to null
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull)
+            {
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource = null;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource != null)
+            {
+                request.DataSourceConfig.OnlineEvaluationConfigSource = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource;
+                requestDataSourceConfigIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.CloudWatchLogsSource requestDataSourceConfig_dataSourceConfig_CloudWatchLogs = null;
             
              // populate CloudWatchLogs
@@ -417,6 +568,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.Evaluators = cmdletContext.Evaluator;
             }
+            if (cmdletContext.Insight != null)
+            {
+                request.Insights = cmdletContext.Insight;
+            }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -479,9 +642,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_LogGroupName { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_ServiceName { get; set; }
+            public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
+            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime { get; set; }
+            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgentCore.Model.SessionMetadataShape> EvaluationMetadata_SessionMetadata { get; set; }
             public List<Amazon.BedrockAgentCore.Model.Evaluator> Evaluator { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.Insight> Insight { get; set; }
+            public System.String KmsKeyArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse, StartBACBatchEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

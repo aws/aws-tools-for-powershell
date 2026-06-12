@@ -79,18 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         public System.String CertificateAuthorityArn { get; set; }
         #endregion
         
-        #region Parameter Options_CertificateTransparencyLoggingPreference
-        /// <summary>
-        /// <para>
-        /// <para>You can opt out of certificate transparency logging by specifying the <c>DISABLED</c>
-        /// option. Opt in by specifying <c>ENABLED</c>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
-        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
-        #endregion
-        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -243,6 +231,21 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CertificateManager.ValidationMethod")]
         public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }
+        #endregion
+        
+        #region Parameter Options_CertificateTransparencyLoggingPreference
+        /// <summary>
+        /// <para>
+        /// <para>This parameter has been deprecated. Certificate transparency logging opt-out is no
+        /// longer available. All public certificates are recorded in a certificate transparency
+        /// log.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Certificate transparency logging opt-out is no longer available.")]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateTransparencyLoggingPreference")]
+        public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
         #endregion
         
         #region Parameter Select
@@ -459,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public System.String IdempotencyToken { get; set; }
             public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
             public Amazon.CertificateManager.CertificateManagedBy ManagedBy { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }

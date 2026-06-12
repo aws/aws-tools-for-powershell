@@ -1,4 +1,26 @@
-﻿### 5.0.232 (2026-06-11 19:45Z)
+﻿### 5.0.233 (2026-06-12 19:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.269.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCConfigurationBundle: added parameter KmsKeyArn.
+    * Modified cmdlet New-BACCOnlineEvaluationConfig: added parameters ClusteringConfig_Frequency and Insight.
+    * Modified cmdlet Update-BACCConfigurationBundle: added parameter KmsKeyArn.
+    * Modified cmdlet Update-BACCOnlineEvaluationConfig: added parameters ClusteringConfig_Frequency and Insight.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet New-BACABTest: added parameter Tag.
+    * Modified cmdlet Start-BACBatchEvaluation: added parameters DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn, DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime, DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime, Insight, KmsKeyArn and Tag.
+    * Modified cmdlet Start-BACRecommendation: added parameters KmsKeyArn, RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn, RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn and Tag.
+  * Amazon DevOps Agent Service
+    * Added cmdlet Get-DOPSTrigger leveraging the GetTrigger service API.
+    * Added cmdlet Get-DOPSTriggerList leveraging the ListTriggers service API.
+    * Added cmdlet New-DOPSTrigger leveraging the CreateTrigger service API.
+    * Added cmdlet Remove-DOPSTrigger leveraging the DeleteTrigger service API.
+    * Added cmdlet Update-DOPSTrigger leveraging the UpdateTrigger service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUETable: added parameter AttributesToGet.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpointAsync: added parameter Body.
+
+### 5.0.232 (2026-06-11 19:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.268.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Modified cmdlet Invoke-AWSSSOLogin: added parameters ExecutionTimeout and UseDeviceCode.

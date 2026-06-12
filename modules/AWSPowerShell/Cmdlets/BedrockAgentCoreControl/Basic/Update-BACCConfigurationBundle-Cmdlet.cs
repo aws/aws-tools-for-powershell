@@ -129,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional KMS key ARN for encrypting component configurations. If provided, components
+        /// will be encrypted with this key. If the bundle already has a KMS key, this rotates
+        /// to the new key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter CreatedBy_Name
         /// <summary>
         /// <para>
@@ -239,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.CreatedBy_Arn = this.CreatedBy_Arn;
             context.CreatedBy_Name = this.CreatedBy_Name;
             context.Description = this.Description;
+            context.KmsKeyArn = this.KmsKeyArn;
             if (this.ParentVersionId != null)
             {
                 context.ParentVersionId = new List<System.String>(this.ParentVersionId);
@@ -316,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.ParentVersionId != null)
             {
                 request.ParentVersionIds = cmdletContext.ParentVersionId;
@@ -384,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String CreatedBy_Arn { get; set; }
             public System.String CreatedBy_Name { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public List<System.String> ParentVersionId { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdateConfigurationBundleResponse, UpdateBACCConfigurationBundleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

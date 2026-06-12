@@ -9675,6 +9675,8 @@ Set-Alias -Name Create-DOPSChat -Value New-DOPSChat
 Set-Alias -Name DOPS-CreateChat -Value New-DOPSChat
 Set-Alias -Name Create-DOPSPrivateConnection -Value New-DOPSPrivateConnection
 Set-Alias -Name DOPS-CreatePrivateConnection -Value New-DOPSPrivateConnection
+Set-Alias -Name Create-DOPSTrigger -Value New-DOPSTrigger
+Set-Alias -Name DOPS-CreateTrigger -Value New-DOPSTrigger
 Set-Alias -Name Delete-DOPSAgentSpace -Value Remove-DOPSAgentSpace
 Set-Alias -Name DOPS-DeleteAgentSpace -Value Remove-DOPSAgentSpace
 Set-Alias -Name Delete-DOPSAsset -Value Remove-DOPSAsset
@@ -9683,6 +9685,8 @@ Set-Alias -Name Delete-DOPSAssetFile -Value Remove-DOPSAssetFile
 Set-Alias -Name DOPS-DeleteAssetFile -Value Remove-DOPSAssetFile
 Set-Alias -Name Delete-DOPSPrivateConnection -Value Remove-DOPSPrivateConnection
 Set-Alias -Name DOPS-DeletePrivateConnection -Value Remove-DOPSPrivateConnection
+Set-Alias -Name Delete-DOPSTrigger -Value Remove-DOPSTrigger
+Set-Alias -Name DOPS-DeleteTrigger -Value Remove-DOPSTrigger
 Set-Alias -Name Deregister-DOPSService -Value Unregister-DOPSService
 Set-Alias -Name DOPS-DeregisterService -Value Unregister-DOPSService
 Set-Alias -Name Describe-DOPSPrivateConnection -Value Get-DOPSPrivateConnectionDetail
@@ -9702,6 +9706,7 @@ Set-Alias -Name DOPS-GetBacklogTask -Value Get-DOPSBacklogTask
 Set-Alias -Name DOPS-GetOperatorApp -Value Get-DOPSOperatorApp
 Set-Alias -Name DOPS-GetRecommendation -Value Get-DOPSRecommendation
 Set-Alias -Name DOPS-GetService -Value Get-DOPSService
+Set-Alias -Name DOPS-GetTrigger -Value Get-DOPSTrigger
 Set-Alias -Name List-DOPSAgentSpaces -Value Get-DOPSAgentSpaceList
 Set-Alias -Name List-DOPSAgentSpaceList -Value Get-DOPSAgentSpaceList
 Set-Alias -Name DOPS-ListAgentSpaces -Value Get-DOPSAgentSpaceList
@@ -9748,6 +9753,9 @@ Set-Alias -Name List-DOPSServices -Value Get-DOPSServiceList
 Set-Alias -Name List-DOPSServiceList -Value Get-DOPSServiceList
 Set-Alias -Name DOPS-ListServices -Value Get-DOPSServiceList
 Set-Alias -Name DOPS-ListTagsForResource -Value Get-DOPSResourceTag
+Set-Alias -Name List-DOPSTriggers -Value Get-DOPSTriggerList
+Set-Alias -Name List-DOPSTriggerList -Value Get-DOPSTriggerList
+Set-Alias -Name DOPS-ListTriggers -Value Get-DOPSTriggerList
 Set-Alias -Name List-DOPSWebhooks -Value Get-DOPSWebhookList
 Set-Alias -Name List-DOPSWebhookList -Value Get-DOPSWebhookList
 Set-Alias -Name DOPS-ListWebhooks -Value Get-DOPSWebhookList
@@ -9764,6 +9772,7 @@ Set-Alias -Name DOPS-UpdateGoal -Value Update-DOPSGoal
 Set-Alias -Name DOPS-UpdateOperatorAppIdpConfig -Value Update-DOPSOperatorAppIdpConfig
 Set-Alias -Name DOPS-UpdatePrivateConnectionCertificate -Value Update-DOPSPrivateConnectionCertificate
 Set-Alias -Name DOPS-UpdateRecommendation -Value Update-DOPSRecommendation
+Set-Alias -Name DOPS-UpdateTrigger -Value Update-DOPSTrigger
 Set-Alias -Name Validate-DOPSAwsAssociations -Value Test-DOPSAwsAssociation
 Set-Alias -Name Validate-DOPSAwsAssociation -Value Test-DOPSAwsAssociation
 Set-Alias -Name DOPS-ValidateAwsAssociations -Value Test-DOPSAwsAssociation

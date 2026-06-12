@@ -39,14 +39,22 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// You can have a maximum of two sets of service-specific credentials for each supported
     /// service per user.
     /// </para><para>
-    /// You can create service-specific credentials for Amazon Bedrock, Amazon CloudWatch
-    /// Logs, CodeCommit and Amazon Keyspaces (for Apache Cassandra).
-    /// </para><para>
     /// You can reset the password to a new service-generated value by calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.
     /// </para><para>
-    /// For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_bedrock.html">Service-specific
-    /// credentials for IAM users</a> in the <i>IAM User Guide</i>.
-    /// </para>
+    /// For more information about using service-specific credentials to authenticate to an
+    /// Amazon Web Services service, refer to the following docs:
+    /// </para><ul><li><para>
+    /// For service-specific credentials with CodeCommit, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">IAM
+    /// credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
+    /// keys</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para>
+    /// For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer
+    /// to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html">Use
+    /// IAM with Amazon Keyspaces (for Apache Cassandra)</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para>
+    /// For services that support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API
+    /// keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredential")]
@@ -65,8 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The number of days until the service specific credential expires. This field is only
-        /// valid for Bedrock and CloudWatch Logs API keys and must be a positive integer. When
-        /// not specified, the credential will not expire.</para>
+        /// valid for services that support long-term API keys and must be a positive integer.
+        /// When not specified, the credential will not expire.</para><para>To see which services support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API
+        /// keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

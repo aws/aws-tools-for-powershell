@@ -34,8 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// IAM user. If none exists, the operation returns an empty list. The service-specific
     /// credentials returned by this operation are used only for authenticating the IAM user
     /// to a specific service. For more information about using service-specific credentials
-    /// to authenticate to an Amazon Web Services service, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set
-    /// up service-specific credentials</a> in the CodeCommit User Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// to authenticate to an Amazon Web Services service, refer to the following docs:
+    /// 
+    ///  <ul><li><para>
+    /// For service-specific credentials with CodeCommit, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">IAM
+    /// credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
+    /// keys</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para>
+    /// For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer
+    /// to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html">Use
+    /// IAM with Amazon Keyspaces (for Apache Cassandra)</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para>
+    /// For services that support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API
+    /// keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMServiceSpecificCredentialList")]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredentialMetadata")]

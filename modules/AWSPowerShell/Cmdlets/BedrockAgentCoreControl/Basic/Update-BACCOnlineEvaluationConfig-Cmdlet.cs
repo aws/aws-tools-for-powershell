@@ -108,6 +108,36 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.Filter[] Rule_Filter { get; set; }
         #endregion
         
+        #region Parameter ClusteringConfig_Frequency
+        /// <summary>
+        /// <para>
+        /// <para>The list of frequencies at which clustering batch evaluations are triggered.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ClusteringConfig_Frequencies")]
+        public System.String[] ClusteringConfig_Frequency { get; set; }
+        #endregion
+        
+        #region Parameter Insight
+        /// <summary>
+        /// <para>
+        /// <para>The updated list of insight types to run against agent sessions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Insights")]
+        public Amazon.BedrockAgentCoreControl.Model.Insight[] Insight { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_LogGroupName
         /// <summary>
         /// <para>
@@ -241,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            if (this.ClusteringConfig_Frequency != null)
+            {
+                context.ClusteringConfig_Frequency = new List<System.String>(this.ClusteringConfig_Frequency);
+            }
             if (this.CloudWatchLogs_LogGroupName != null)
             {
                 context.CloudWatchLogs_LogGroupName = new List<System.String>(this.CloudWatchLogs_LogGroupName);
@@ -256,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Evaluator = new List<Amazon.BedrockAgentCoreControl.Model.EvaluatorReference>(this.Evaluator);
             }
             context.ExecutionStatus = this.ExecutionStatus;
+            if (this.Insight != null)
+            {
+                context.Insight = new List<Amazon.BedrockAgentCoreControl.Model.Insight>(this.Insight);
+            }
             context.OnlineEvaluationConfigId = this.OnlineEvaluationConfigId;
             #if MODULAR
             if (this.OnlineEvaluationConfigId == null && ParameterWasBound(nameof(this.OnlineEvaluationConfigId)))
@@ -288,6 +326,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate ClusteringConfig
+            var requestClusteringConfigIsNull = true;
+            request.ClusteringConfig = new Amazon.BedrockAgentCoreControl.Model.ClusteringConfig();
+            List<System.String> requestClusteringConfig_clusteringConfig_Frequency = null;
+            if (cmdletContext.ClusteringConfig_Frequency != null)
+            {
+                requestClusteringConfig_clusteringConfig_Frequency = cmdletContext.ClusteringConfig_Frequency;
+            }
+            if (requestClusteringConfig_clusteringConfig_Frequency != null)
+            {
+                request.ClusteringConfig.Frequencies = requestClusteringConfig_clusteringConfig_Frequency;
+                requestClusteringConfigIsNull = false;
+            }
+             // determine if request.ClusteringConfig should be set to null
+            if (requestClusteringConfigIsNull)
+            {
+                request.ClusteringConfig = null;
             }
             
              // populate DataSourceConfig
@@ -348,6 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ExecutionStatus != null)
             {
                 request.ExecutionStatus = cmdletContext.ExecutionStatus;
+            }
+            if (cmdletContext.Insight != null)
+            {
+                request.Insights = cmdletContext.Insight;
             }
             if (cmdletContext.OnlineEvaluationConfigId != null)
             {
@@ -478,12 +539,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public List<System.String> ClusteringConfig_Frequency { get; set; }
             public List<System.String> CloudWatchLogs_LogGroupName { get; set; }
             public List<System.String> CloudWatchLogs_ServiceName { get; set; }
             public System.String Description { get; set; }
             public System.String EvaluationExecutionRoleArn { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.EvaluatorReference> Evaluator { get; set; }
             public Amazon.BedrockAgentCoreControl.OnlineEvaluationExecutionStatus ExecutionStatus { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.Insight> Insight { get; set; }
             public System.String OnlineEvaluationConfigId { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.Filter> Rule_Filter { get; set; }
             public System.Double? SamplingConfig_SamplingPercentage { get; set; }

@@ -65,6 +65,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Boolean? AuditContext_AllColumnsRequested { get; set; }
         #endregion
         
+        #region Parameter AttributesToGet
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the table fields returned by the <c>GetTable</c> call. This parameter doesn't
+        /// accept an empty list.</para><para>The following are the valid combinations of values:</para><ul><li><para><c>DEFAULT</c> - Returns the Hive-style table definition only.</para></li><li><para><c>LATEST_ICEBERG_METADATA</c> - Returns only the latest Apache Iceberg table metadata.</para></li><li><para><c>DEFAULT</c>, <c>LATEST_ICEBERG_METADATA</c> - Returns both the Hive-style table
+        /// definition and the latest Apache Iceberg table metadata.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AttributesToGet { get; set; }
+        #endregion
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -190,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetTableResponse, GetGLUETableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AttributesToGet != null)
+            {
+                context.AttributesToGet = new List<System.String>(this.AttributesToGet);
+            }
             context.AuditContext_AdditionalAuditContext = this.AuditContext_AdditionalAuditContext;
             context.AuditContext_AllColumnsRequested = this.AuditContext_AllColumnsRequested;
             if (this.AuditContext_RequestedColumn != null)
@@ -230,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.GetTableRequest();
             
+            if (cmdletContext.AttributesToGet != null)
+            {
+                request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
             
              // populate AuditContext
             var requestAuditContextIsNull = true;
@@ -348,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToGet { get; set; }
             public System.String AuditContext_AdditionalAuditContext { get; set; }
             public System.Boolean? AuditContext_AllColumnsRequested { get; set; }
             public List<System.String> AuditContext_RequestedColumn { get; set; }

@@ -45,6 +45,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the completed batch evaluation to use as the trace source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the completed batch evaluation to use as the trace source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn { get; set; }
+        #endregion
+        
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn
         /// <summary>
         /// <para>
@@ -138,6 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filters")]
         public Amazon.BedrockAgentCore.Model.CloudWatchLogsFilter[] RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filter { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key used to encrypt recommendation data. If provided, customer
+        /// data is encrypted at rest with the specified key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_LogGroupArn
@@ -275,6 +306,21 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys and values to associate with the recommendation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text
@@ -416,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -423,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
             context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime;
             if (this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_LogGroupArn != null)
             {
@@ -449,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath = this.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath;
             context.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId = this.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId;
             context.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text = this.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text;
+            context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
             context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime;
             if (this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_LogGroupArn != null)
             {
@@ -476,6 +525,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (this.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool != null)
             {
                 context.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool = new List<Amazon.BedrockAgentCore.Model.ToolDescriptionInput>(this.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             context.Type = this.Type;
             #if MODULAR
@@ -508,6 +565,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -521,6 +582,91 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate ToolDescriptionRecommendationConfig
             var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfigIsNull = true;
             requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig = new Amazon.BedrockAgentCore.Model.ToolDescriptionRecommendationConfig();
+            Amazon.BedrockAgentCore.Model.ToolDescriptionSource requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = null;
+            
+             // populate ToolDescription
+            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = true;
+            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = new Amazon.BedrockAgentCore.Model.ToolDescriptionSource();
+            Amazon.BedrockAgentCore.Model.ToolDescriptionTextInput requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = null;
+            
+             // populate ToolDescriptionText
+            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull = true;
+            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = new Amazon.BedrockAgentCore.Model.ToolDescriptionTextInput();
+            List<Amazon.BedrockAgentCore.Model.ToolDescriptionInput> requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText.Tools = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText should be set to null
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription.ToolDescriptionText = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.ToolDescriptionConfigurationBundle requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = null;
+            
+             // populate ConfigurationBundle
+            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = true;
+            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = new Amazon.BedrockAgentCore.Model.ToolDescriptionConfigurationBundle();
+            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.BundleArn = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
+            }
+            List<Amazon.BedrockAgentCore.Model.ConfigurationBundleToolEntry> requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.Tools = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
+            }
+            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.VersionId = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle should be set to null
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription.ConfigurationBundle = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription should be set to null
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig.ToolDescription = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfigIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.AgentTracesConfig requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces = null;
             
              // populate AgentTraces
@@ -534,6 +680,31 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan != null)
             {
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces.SessionSpans = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTracesIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.BatchEvaluationTraceConfig requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation = null;
+            
+             // populate BatchEvaluation
+            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluationIsNull = true;
+            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation = new Amazon.BedrockAgentCore.Model.BatchEvaluationTraceConfig();
+            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation.BatchEvaluationArn = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluationIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation should be set to null
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluationIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces.BatchEvaluation = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation;
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTracesIsNull = false;
             }
             Amazon.BedrockAgentCore.Model.CloudWatchLogsTraceConfig requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs = null;
@@ -626,91 +797,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig.AgentTraces = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces;
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfigIsNull = false;
             }
-            Amazon.BedrockAgentCore.Model.ToolDescriptionSource requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = null;
-            
-             // populate ToolDescription
-            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = true;
-            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = new Amazon.BedrockAgentCore.Model.ToolDescriptionSource();
-            Amazon.BedrockAgentCore.Model.ToolDescriptionTextInput requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = null;
-            
-             // populate ToolDescriptionText
-            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull = true;
-            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = new Amazon.BedrockAgentCore.Model.ToolDescriptionTextInput();
-            List<Amazon.BedrockAgentCore.Model.ToolDescriptionInput> requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool = null;
-            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText.Tools = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull = false;
-            }
-             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText should be set to null
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionTextIsNull)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText = null;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription.ToolDescriptionText = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = false;
-            }
-            Amazon.BedrockAgentCore.Model.ToolDescriptionConfigurationBundle requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = null;
-            
-             // populate ConfigurationBundle
-            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = true;
-            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = new Amazon.BedrockAgentCore.Model.ToolDescriptionConfigurationBundle();
-            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn = null;
-            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.BundleArn = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
-            }
-            List<Amazon.BedrockAgentCore.Model.ConfigurationBundleToolEntry> requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool = null;
-            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.Tools = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
-            }
-            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId = null;
-            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle.VersionId = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull = false;
-            }
-             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle should be set to null
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundleIsNull)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle = null;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription.ConfigurationBundle = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull = false;
-            }
-             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription should be set to null
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescriptionIsNull)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription = null;
-            }
-            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription != null)
-            {
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig.ToolDescription = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription;
-                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfigIsNull = false;
-            }
              // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig should be set to null
             if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfigIsNull)
             {
@@ -751,6 +837,76 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig.EvaluationConfig = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_EvaluationConfig;
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfigIsNull = false;
             }
+            Amazon.BedrockAgentCore.Model.SystemPromptConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = null;
+            
+             // populate SystemPrompt
+            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = true;
+            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = new Amazon.BedrockAgentCore.Model.SystemPromptConfig();
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt.Text = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.SystemPromptConfigurationBundle requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = null;
+            
+             // populate ConfigurationBundle
+            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = true;
+            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = new Amazon.BedrockAgentCore.Model.SystemPromptConfigurationBundle();
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.BundleArn = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
+            }
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.SystemPromptJsonPath = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
+            }
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.VersionId = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle should be set to null
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt.ConfigurationBundle = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt should be set to null
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig.SystemPrompt = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfigIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.AgentTracesConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces = null;
             
              // populate AgentTraces
@@ -764,6 +920,31 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan != null)
             {
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces.SessionSpans = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTracesIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.BatchEvaluationTraceConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation = null;
+            
+             // populate BatchEvaluation
+            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluationIsNull = true;
+            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation = new Amazon.BedrockAgentCore.Model.BatchEvaluationTraceConfig();
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation.BatchEvaluationArn = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluationIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation should be set to null
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluationIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces.BatchEvaluation = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation;
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTracesIsNull = false;
             }
             Amazon.BedrockAgentCore.Model.CloudWatchLogsTraceConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs = null;
@@ -856,76 +1037,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig.AgentTraces = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces;
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfigIsNull = false;
             }
-            Amazon.BedrockAgentCore.Model.SystemPromptConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = null;
-            
-             // populate SystemPrompt
-            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = true;
-            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = new Amazon.BedrockAgentCore.Model.SystemPromptConfig();
-            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text = null;
-            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt.Text = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = false;
-            }
-            Amazon.BedrockAgentCore.Model.SystemPromptConfigurationBundle requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = null;
-            
-             // populate ConfigurationBundle
-            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = true;
-            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = new Amazon.BedrockAgentCore.Model.SystemPromptConfigurationBundle();
-            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn = null;
-            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.BundleArn = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
-            }
-            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath = null;
-            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.SystemPromptJsonPath = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
-            }
-            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId = null;
-            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle.VersionId = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull = false;
-            }
-             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle should be set to null
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundleIsNull)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle = null;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt.ConfigurationBundle = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull = false;
-            }
-             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt should be set to null
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPromptIsNull)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt = null;
-            }
-            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt != null)
-            {
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig.SystemPrompt = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_SystemPrompt;
-                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfigIsNull = false;
-            }
              // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig should be set to null
             if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfigIsNull)
             {
@@ -940,6 +1051,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestRecommendationConfigIsNull)
             {
                 request.RecommendationConfig = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Type != null)
             {
@@ -1002,7 +1117,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
+            public System.String RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn { get; set; }
             public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime { get; set; }
             public List<System.String> RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_LogGroupArn { get; set; }
             public List<Amazon.BedrockAgentCore.Model.CloudWatchLogsFilter> RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filter { get; set; }
@@ -1014,6 +1131,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath { get; set; }
             public System.String RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_VersionId { get; set; }
             public System.String RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_Text { get; set; }
+            public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation_BatchEvaluationArn { get; set; }
             public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime { get; set; }
             public List<System.String> RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_LogGroupArn { get; set; }
             public List<Amazon.BedrockAgentCore.Model.CloudWatchLogsFilter> RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filter { get; set; }
@@ -1024,6 +1142,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.ConfigurationBundleToolEntry> RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool { get; set; }
             public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_VersionId { get; set; }
             public List<Amazon.BedrockAgentCore.Model.ToolDescriptionInput> RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ToolDescriptionText_Tool { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.BedrockAgentCore.RecommendationType Type { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.StartRecommendationResponse, StartBACRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
