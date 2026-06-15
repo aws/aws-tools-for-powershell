@@ -43,7 +43,8 @@ BeforeAll {
         } elseif ($Version -and $Version.Trim() -ne '') {
             return [Version]$Version
         } else {
-            return $null
+            # No version specified: resolve latest (mimics real behavior after fix)
+            return [Version]"5.0.233"
         }
     }
 
@@ -318,6 +319,28 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             
             # Assert
             Should -Invoke -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule -ParameterFilter {
+                $Name -eq 'AWS.Tools'
+            }
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+        }
+        
+        It "Should skip installation when no version specified and latest is already installed" {
+            # Arrange - Resolve-AWSToolsVersion returns the latest version (5.0.233)
+            # and Get-AWSToolsModule shows that same version is already installed
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.233" }
+            Mock -ModuleName AWS.Tools.Installer Get-AWSToolsModule { 
+                return [PSCustomObject]@{
+                    Name = 'AWS.Tools.Common'
+                    Version = [Version]"5.0.233"
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+            
+            # Act - No -Version parameter specified
+            Install-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+            
+            # Assert - Should skip download and installation
+            Should -Invoke -ModuleName AWS.Tools.Installer Get-AWSToolsModule -ParameterFilter {
                 $Name -eq 'AWS.Tools'
             }
             Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
