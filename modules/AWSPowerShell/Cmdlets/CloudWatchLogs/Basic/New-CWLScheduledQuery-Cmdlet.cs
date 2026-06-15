@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String S3Configuration_DestinationIdentifier { get; set; }
         #endregion
         
+        #region Parameter EndTimeOffset
+        /// <summary>
+        /// <para>
+        /// <para>The time offset in seconds that defines the end of the lookback period for the query.
+        /// Together with <c>startTimeOffset</c>, this determines the time window relative to
+        /// the execution time over which the query runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? EndTimeOffset { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -118,8 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The name of the scheduled query. The name must be unique within your account and region.
-        /// Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length
-        /// must be between 1 and 255 characters.</para>
+        /// Length must be between 1 and 300 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -337,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.DestinationConfiguration_S3Configuration_KmsKeyId = this.DestinationConfiguration_S3Configuration_KmsKeyId;
             context.DestinationConfiguration_S3Configuration_OwnerAccountId = this.DestinationConfiguration_S3Configuration_OwnerAccountId;
             context.S3Configuration_RoleArn = this.S3Configuration_RoleArn;
+            context.EndTimeOffset = this.EndTimeOffset;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
             if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
@@ -473,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.DestinationConfiguration = null;
             }
+            if (cmdletContext.EndTimeOffset != null)
+            {
+                request.EndTimeOffset = cmdletContext.EndTimeOffset.Value;
+            }
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
@@ -581,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String DestinationConfiguration_S3Configuration_KmsKeyId { get; set; }
             public System.String DestinationConfiguration_S3Configuration_OwnerAccountId { get; set; }
             public System.String S3Configuration_RoleArn { get; set; }
+            public System.Int64? EndTimeOffset { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public List<System.String> LogGroupIdentifier { get; set; }
             public System.String Name { get; set; }

@@ -622,9 +622,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReplicaMode
         /// <summary>
         /// <para>
-        /// <para>The open mode of the replica database.</para><para>This parameter is only supported for Db2 DB instances and Oracle DB instances.</para><dl><dt>Db2</dt><dd><para>Standby DB replicas are included in Db2 Advanced Edition (AE) and Db2 Standard Edition
-        /// (SE). The main use case for standby replicas is cross-Region disaster recovery. Because
-        /// it doesn't accept user connections, a standby replica can't serve a read-only workload.</para><para>You can create a combination of standby and read-only DB replicas for the same primary
+        /// <para>The open mode of the replica database.</para><para>This parameter is only supported for Db2 DB instances and Oracle DB instances.</para><dl><dt>Db2</dt><dd><para>Standby DB replicas are included in Db2 Advanced Edition (AE), Db2 Community Edition
+        /// (CE), and Db2 Standard Edition (SE). The main use case for standby replicas is cross-Region
+        /// disaster recovery. Because it doesn't accept user connections, a standby replica can't
+        /// serve a read-only workload.</para><para>You can create a combination of standby and read-only DB replicas for the same primary
         /// DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working
         /// with replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User Guide</i>.</para><para>To create standby DB replicas for RDS for Db2, set this parameter to <c>mounted</c>.</para></dd><dt>Oracle</dt><dd><para>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use
         /// case for mounted replicas is cross-Region disaster recovery. The primary database

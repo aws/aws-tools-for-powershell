@@ -829,6 +829,7 @@ $DZ_SelectMap = @{
                "Remove-DZFormType",
                "Remove-DZGlossary",
                "Remove-DZGlossaryTerm",
+               "Remove-DZLineageEvent",
                "Remove-DZListing",
                "Remove-DZNotebook",
                "Remove-DZProject",

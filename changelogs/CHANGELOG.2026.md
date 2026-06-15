@@ -1,4 +1,29 @@
-﻿### 5.0.233 (2026-06-12 19:33Z)
+﻿### 5.0.234 (2026-06-15 20:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.270.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameters StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn, StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId and StorageConfiguration_StorageType.
+    * Modified cmdlet Update-MGNReplicationConfiguration: added parameters StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn, StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId and StorageConfiguration_StorageType.
+    * Modified cmdlet Update-MGNReplicationConfigurationTemplate: added parameters StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn, StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId and StorageConfiguration_StorageType.
+    * Modified cmdlet Update-MGNSourceServer: added parameters FqdnForActionFramework, Platform and UserProvidedID.
+  * Amazon Bedrock Runtime
+    * Added cmdlet Invoke-BDRRGuardrailCheck leveraging the InvokeGuardrailChecks service API.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Get-CWLScheduledQueryList: added parameter ScheduleType.
+    * Modified cmdlet New-CWLScheduledQuery: added parameter EndTimeOffset.
+    * Modified cmdlet Update-CWLScheduledQuery: added parameter EndTimeOffset.
+  * Amazon DataZone
+    * Added cmdlet Remove-DZLineageEvent leveraging the DeleteLineageEvent service API.
+  * Amazon WAF V2
+    * Added cmdlet Get-WAF2RevenueStatistic leveraging the GetRevenueStatistics service API.
+    * Added cmdlet Get-WAF2RevenueStatisticsSummary leveraging the GetRevenueStatisticsSummary service API.
+    * Added cmdlet Get-WAF2RevenueStatisticsTimeSeries leveraging the GetRevenueStatisticsTimeSeries service API.
+    * Added cmdlet Get-WAF2SettlementRecordList leveraging the ListSettlementRecords service API.
+    * Modified cmdlet New-WAF2RuleGroup: added parameters MonetizationConfig_CryptoConfig_PaymentNetwork and MonetizationConfig_CurrencyMode.
+    * Modified cmdlet New-WAF2WebACL: added parameters MonetizationConfig_CryptoConfig_PaymentNetwork and MonetizationConfig_CurrencyMode.
+    * Modified cmdlet Update-WAF2RuleGroup: added parameters MonetizationConfig_CryptoConfig_PaymentNetwork and MonetizationConfig_CurrencyMode.
+    * Modified cmdlet Update-WAF2WebACL: added parameters MonetizationConfig_CryptoConfig_PaymentNetwork and MonetizationConfig_CurrencyMode.
+
+### 5.0.233 (2026-06-12 19:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.269.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCConfigurationBundle: added parameter KmsKeyArn.

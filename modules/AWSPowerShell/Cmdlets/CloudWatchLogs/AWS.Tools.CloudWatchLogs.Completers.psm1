@@ -218,6 +218,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ScheduleType
+        "Get-CWLScheduledQueryList/ScheduleType"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.CloudWatchLogs.Scope
         "Write-CWLAccountPolicy/Scope"
         {
@@ -268,6 +275,7 @@ $CWL_map = @{
     "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","New-CWLScheduledQuery","Start-CWLQuery","Update-CWLScheduledQuery","Write-CWLQueryDefinition")
+    "ScheduleType"=@("Get-CWLScheduledQueryList")
     "Scope"=@("Write-CWLAccountPolicy")
     "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")

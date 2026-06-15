@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The database installation files (ISO and EXE) uploaded to Amazon S3 for your database
-        /// engine version to import to Amazon RDS.</para><para />
+        /// engine version to import to Amazon RDS.</para><para>For RDS for SQL Server Bring Your Own Media (<c>sqlserver-ee</c>, <c>sqlserver-se</c>),
+        /// provide the SQL Server RTM ISO file once per major version and edition combination.
+        /// Minor versions reuse the same file.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -96,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine.</para><para>RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul><para>RDS Custom for SQL Server supports the following values:</para><ul><li><para><c>custom-sqlserver-ee</c></para></li><li><para><c>custom-sqlserver-se</c></para></li><li><para><c>ccustom-sqlserver-web</c></para></li><li><para><c>custom-sqlserver-dev</c></para></li></ul><para>RDS for SQL Server supports only <c>sqlserver-dev-ee</c>.</para>
+        /// <para>The database engine.</para><para>RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul><para>RDS Custom for SQL Server supports the following values:</para><ul><li><para><c>custom-sqlserver-ee</c></para></li><li><para><c>custom-sqlserver-se</c></para></li><li><para><c>custom-sqlserver-web</c></para></li><li><para><c>custom-sqlserver-dev</c></para></li></ul><para>RDS for SQL Server supports the following values:</para><ul><li><para><c>sqlserver-ee</c> (Bring Your Own Media)</para></li><li><para><c>sqlserver-se</c> (Bring Your Own Media)</para></li><li><para><c>sqlserver-dev-ee</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,9 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of your custom engine version (CEV).</para><para>For RDS Custom for Oracle, the name format is <c>19.*customized_string*</c>. For example,
-        /// a valid CEV name is <c>19.my_cev1</c>.</para><para>For RDS for SQL Server and RDS Custom for SQL Server, the name format is <c>major
-        /// engine_version*.*minor_engine_version*.*customized_string*</c>. For example, a valid
-        /// CEV name is <c>16.00.4215.2.my_cev1</c>.</para><para>The CEV name is unique per customer per Amazon Web Services Regions.</para>
+        /// a valid CEV name is <c>19.my_cev1</c>.</para><para>For RDS Custom for SQL Server and RDS for SQL Server <c>sqlserver-dev-ee</c>, the
+        /// name format is <c>*major_engine_version*.*minor_engine_version*.*customized_string*</c>.
+        /// For example, a valid CEV name is <c>16.00.4215.2.my_cev1</c>.</para><para>For RDS for SQL Server Bring Your Own Media (<c>sqlserver-ee</c>, <c>sqlserver-se</c>),
+        /// specify the RDS engine version that you want to use. For example, <c>16.00.4175.1.v1</c>.</para><para>The CEV name is unique per customer per Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

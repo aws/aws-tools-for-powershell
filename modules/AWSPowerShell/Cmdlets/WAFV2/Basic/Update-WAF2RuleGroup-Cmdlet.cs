@@ -104,6 +104,20 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.Boolean? VisibilityConfig_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
+        #region Parameter MonetizationConfig_CurrencyMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the configuration uses real or test currency. Set to <c>REAL</c>
+        /// to settle payments in USDC on production blockchain networks (Base, Solana). Set to
+        /// <c>TEST</c> to settle on testnet networks (Base Sepolia, Solana Devnet) with tokens
+        /// that have no monetary value. If not specified, defaults to <c>REAL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.CurrencyMode")]
+        public Amazon.WAFV2.CurrencyMode MonetizationConfig_CurrencyMode { get; set; }
+        #endregion
+        
         #region Parameter CustomResponseBody
         /// <summary>
         /// <para>
@@ -211,6 +225,23 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter MonetizationConfig_CryptoConfig_PaymentNetwork
+        /// <summary>
+        /// <para>
+        /// <para>The blockchain payment networks configured to receive payments. You can specify 1
+        /// to 2 networks. All networks must be in the same environment-either all production
+        /// networks (Base, Solana) or all test networks (Base Sepolia, Solana Devnet).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MonetizationConfig_CryptoConfig_PaymentNetworks")]
+        public Amazon.WAFV2.Model.PaymentNetwork[] MonetizationConfig_CryptoConfig_PaymentNetwork { get; set; }
         #endregion
         
         #region Parameter Rule
@@ -340,6 +371,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter LockToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MonetizationConfig_CryptoConfig_PaymentNetwork != null)
+            {
+                context.MonetizationConfig_CryptoConfig_PaymentNetwork = new List<Amazon.WAFV2.Model.PaymentNetwork>(this.MonetizationConfig_CryptoConfig_PaymentNetwork);
+            }
+            context.MonetizationConfig_CurrencyMode = this.MonetizationConfig_CurrencyMode;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -410,6 +446,50 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.LockToken != null)
             {
                 request.LockToken = cmdletContext.LockToken;
+            }
+            
+             // populate MonetizationConfig
+            var requestMonetizationConfigIsNull = true;
+            request.MonetizationConfig = new Amazon.WAFV2.Model.MonetizationConfig();
+            Amazon.WAFV2.CurrencyMode requestMonetizationConfig_monetizationConfig_CurrencyMode = null;
+            if (cmdletContext.MonetizationConfig_CurrencyMode != null)
+            {
+                requestMonetizationConfig_monetizationConfig_CurrencyMode = cmdletContext.MonetizationConfig_CurrencyMode;
+            }
+            if (requestMonetizationConfig_monetizationConfig_CurrencyMode != null)
+            {
+                request.MonetizationConfig.CurrencyMode = requestMonetizationConfig_monetizationConfig_CurrencyMode;
+                requestMonetizationConfigIsNull = false;
+            }
+            Amazon.WAFV2.Model.CryptoConfig requestMonetizationConfig_monetizationConfig_CryptoConfig = null;
+            
+             // populate CryptoConfig
+            var requestMonetizationConfig_monetizationConfig_CryptoConfigIsNull = true;
+            requestMonetizationConfig_monetizationConfig_CryptoConfig = new Amazon.WAFV2.Model.CryptoConfig();
+            List<Amazon.WAFV2.Model.PaymentNetwork> requestMonetizationConfig_monetizationConfig_CryptoConfig_monetizationConfig_CryptoConfig_PaymentNetwork = null;
+            if (cmdletContext.MonetizationConfig_CryptoConfig_PaymentNetwork != null)
+            {
+                requestMonetizationConfig_monetizationConfig_CryptoConfig_monetizationConfig_CryptoConfig_PaymentNetwork = cmdletContext.MonetizationConfig_CryptoConfig_PaymentNetwork;
+            }
+            if (requestMonetizationConfig_monetizationConfig_CryptoConfig_monetizationConfig_CryptoConfig_PaymentNetwork != null)
+            {
+                requestMonetizationConfig_monetizationConfig_CryptoConfig.PaymentNetworks = requestMonetizationConfig_monetizationConfig_CryptoConfig_monetizationConfig_CryptoConfig_PaymentNetwork;
+                requestMonetizationConfig_monetizationConfig_CryptoConfigIsNull = false;
+            }
+             // determine if requestMonetizationConfig_monetizationConfig_CryptoConfig should be set to null
+            if (requestMonetizationConfig_monetizationConfig_CryptoConfigIsNull)
+            {
+                requestMonetizationConfig_monetizationConfig_CryptoConfig = null;
+            }
+            if (requestMonetizationConfig_monetizationConfig_CryptoConfig != null)
+            {
+                request.MonetizationConfig.CryptoConfig = requestMonetizationConfig_monetizationConfig_CryptoConfig;
+                requestMonetizationConfigIsNull = false;
+            }
+             // determine if request.MonetizationConfig should be set to null
+            if (requestMonetizationConfigIsNull)
+            {
+                request.MonetizationConfig = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -521,6 +601,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String LockToken { get; set; }
+            public List<Amazon.WAFV2.Model.PaymentNetwork> MonetizationConfig_CryptoConfig_PaymentNetwork { get; set; }
+            public Amazon.WAFV2.CurrencyMode MonetizationConfig_CurrencyMode { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.WAFV2.Model.Rule> Rule { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }

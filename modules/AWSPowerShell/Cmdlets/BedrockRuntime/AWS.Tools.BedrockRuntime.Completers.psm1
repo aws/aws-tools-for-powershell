@@ -255,6 +255,7 @@ $BDRR_SelectMap = @{
                "Invoke-BDRRConverseStream",
                "Get-BDRRCountToken",
                "Get-BDRRAsyncInvoke",
+               "Invoke-BDRRGuardrailCheck",
                "Invoke-BDRRModel",
                "Invoke-BDRRModelWithResponseStream",
                "Get-BDRRAsyncInvokeList",

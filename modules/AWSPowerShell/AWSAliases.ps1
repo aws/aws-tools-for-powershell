@@ -3348,6 +3348,8 @@ Set-Alias -Name Count-BDRRTokens -Value Get-BDRRCountToken
 Set-Alias -Name Count-BDRRCountToken -Value Get-BDRRCountToken
 Set-Alias -Name BDRR-CountTokens -Value Get-BDRRCountToken
 Set-Alias -Name BDRR-GetAsyncInvoke -Value Get-BDRRAsyncInvoke
+Set-Alias -Name Invoke-BDRRGuardrailChecks -Value Invoke-BDRRGuardrailCheck
+Set-Alias -Name BDRR-InvokeGuardrailChecks -Value Invoke-BDRRGuardrailCheck
 Set-Alias -Name BDRR-InvokeModel -Value Invoke-BDRRModel
 Set-Alias -Name BDRR-InvokeModelWithResponseStream -Value Invoke-BDRRModelWithResponseStream
 Set-Alias -Name List-BDRRAsyncInvokes -Value Get-BDRRAsyncInvokeList
@@ -8942,6 +8944,8 @@ Set-Alias -Name Delete-DZGlossary -Value Remove-DZGlossary
 Set-Alias -Name DZ-DeleteGlossary -Value Remove-DZGlossary
 Set-Alias -Name Delete-DZGlossaryTerm -Value Remove-DZGlossaryTerm
 Set-Alias -Name DZ-DeleteGlossaryTerm -Value Remove-DZGlossaryTerm
+Set-Alias -Name Delete-DZLineageEvent -Value Remove-DZLineageEvent
+Set-Alias -Name DZ-DeleteLineageEvent -Value Remove-DZLineageEvent
 Set-Alias -Name Delete-DZListing -Value Remove-DZListing
 Set-Alias -Name DZ-DeleteListing -Value Remove-DZListing
 Set-Alias -Name Delete-DZNotebook -Value Remove-DZNotebook
@@ -34589,6 +34593,10 @@ Set-Alias -Name WAF2-GetPermissionPolicy -Value Get-WAF2PermissionPolicy
 Set-Alias -Name Get-WAF2RateBasedStatementManagedKeys -Value Get-WAF2RateBasedStatementManagedKey
 Set-Alias -Name WAF2-GetRateBasedStatementManagedKeys -Value Get-WAF2RateBasedStatementManagedKey
 Set-Alias -Name WAF2-GetRegexPatternSet -Value Get-WAF2RegexPatternSet
+Set-Alias -Name Get-WAF2RevenueStatistics -Value Get-WAF2RevenueStatistic
+Set-Alias -Name WAF2-GetRevenueStatistics -Value Get-WAF2RevenueStatistic
+Set-Alias -Name WAF2-GetRevenueStatisticsSummary -Value Get-WAF2RevenueStatisticsSummary
+Set-Alias -Name WAF2-GetRevenueStatisticsTimeSeries -Value Get-WAF2RevenueStatisticsTimeSeries
 Set-Alias -Name WAF2-GetRuleGroup -Value Get-WAF2RuleGroup
 Set-Alias -Name Get-WAF2SampledRequests -Value Get-WAF2SampledRequest
 Set-Alias -Name WAF2-GetSampledRequests -Value Get-WAF2SampledRequest
@@ -34625,6 +34633,9 @@ Set-Alias -Name WAF2-ListResourcesForWebACL -Value Get-WAF2ResourcesForWebACLLis
 Set-Alias -Name List-WAF2RuleGroups -Value Get-WAF2RuleGroupList
 Set-Alias -Name List-WAF2RuleGroupList -Value Get-WAF2RuleGroupList
 Set-Alias -Name WAF2-ListRuleGroups -Value Get-WAF2RuleGroupList
+Set-Alias -Name List-WAF2SettlementRecords -Value Get-WAF2SettlementRecordList
+Set-Alias -Name List-WAF2SettlementRecordList -Value Get-WAF2SettlementRecordList
+Set-Alias -Name WAF2-ListSettlementRecords -Value Get-WAF2SettlementRecordList
 Set-Alias -Name WAF2-ListTagsForResource -Value Get-WAF2ResourceTag
 Set-Alias -Name List-WAF2WebACLs -Value Get-WAF2WebACLsList
 Set-Alias -Name List-WAF2WebACLsList -Value Get-WAF2WebACLsList

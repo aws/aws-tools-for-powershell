@@ -138,6 +138,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueStatistics" OutputProperty="*" Verb="Get" Noun="RevenueStatistic" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueStatisticsSummary" OutputProperty="RevenueBreakdown" Verb="Get" Noun="RevenueStatisticsSummary" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueStatisticsTimeSeries" OutputProperty="DataPoints" Verb="Get" Noun="RevenueStatisticsTimeSeries" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -195,6 +207,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSettlementRecords" OutputProperty="Settlements" Verb="Get" Noun="SettlementRecordList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

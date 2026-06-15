@@ -9953,6 +9953,7 @@ $BDRR_SelectMap = @{
                "Invoke-BDRRConverseStream",
                "Get-BDRRCountToken",
                "Get-BDRRAsyncInvoke",
+               "Invoke-BDRRGuardrailCheck",
                "Invoke-BDRRModel",
                "Invoke-BDRRModelWithResponseStream",
                "Get-BDRRAsyncInvokeList",
@@ -24705,6 +24706,7 @@ $DZ_SelectMap = @{
                "Remove-DZFormType",
                "Remove-DZGlossary",
                "Remove-DZGlossaryTerm",
+               "Remove-DZLineageEvent",
                "Remove-DZListing",
                "Remove-DZNotebook",
                "Remove-DZProject",
@@ -51331,6 +51333,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ScheduleType
+        "Get-CWLScheduledQueryList/ScheduleType"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.CloudWatchLogs.Scope
         "Write-CWLAccountPolicy/Scope"
         {
@@ -51381,6 +51390,7 @@ $CWL_map = @{
     "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
     "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","New-CWLScheduledQuery","Start-CWLQuery","Update-CWLScheduledQuery","Write-CWLQueryDefinition")
+    "ScheduleType"=@("Get-CWLScheduledQueryList")
     "Scope"=@("Write-CWLAccountPolicy")
     "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")
@@ -56171,6 +56181,17 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.StorageType
+        {
+            ($_ -eq "New-MGNReplicationConfigurationTemplate/StorageConfiguration_StorageType") -Or
+            ($_ -eq "Update-MGNReplicationConfiguration/StorageConfiguration_StorageType") -Or
+            ($_ -eq "Update-MGNReplicationConfigurationTemplate/StorageConfiguration_StorageType")
+        }
+        {
+            $v = "EBS","FSX_ONTAP"
+            break
+        }
+
         # Amazon.Mgn.TargetDeployment
         {
             ($_ -eq "New-MGNNetworkMigrationDefinition/TargetDeployment") -Or
@@ -56237,6 +56258,7 @@ $MGN_map = @{
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "SecurityGroupMappingStrategy"=@("Start-MGNNetworkMigrationMapping")
     "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "StorageConfiguration_StorageType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "TargetNetwork_Topology"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
@@ -88317,10 +88339,51 @@ $WAF2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAFV2.Currency
+        {
+            ($_ -eq "Get-WAF2RevenueStatistic/Currency") -Or
+            ($_ -eq "Get-WAF2RevenueStatisticsSummary/Currency") -Or
+            ($_ -eq "Get-WAF2RevenueStatisticsTimeSeries/Currency") -Or
+            ($_ -eq "Get-WAF2SettlementRecordList/Currency")
+        }
+        {
+            $v = "USDC"
+            break
+        }
+
+        # Amazon.WAFV2.CurrencyMode
+        {
+            ($_ -eq "New-WAF2RuleGroup/MonetizationConfig_CurrencyMode") -Or
+            ($_ -eq "New-WAF2WebACL/MonetizationConfig_CurrencyMode") -Or
+            ($_ -eq "Update-WAF2RuleGroup/MonetizationConfig_CurrencyMode") -Or
+            ($_ -eq "Update-WAF2WebACL/MonetizationConfig_CurrencyMode")
+        }
+        {
+            $v = "REAL","TEST"
+            break
+        }
+
         # Amazon.WAFV2.FilterBehavior
         "Write-WAF2LoggingConfiguration/LoggingFilter_DefaultBehavior"
         {
             $v = "DROP","KEEP"
+            break
+        }
+
+        # Amazon.WAFV2.GroupByType
+        {
+            ($_ -eq "Get-WAF2RevenueStatistic/GroupBy") -Or
+            ($_ -eq "Get-WAF2RevenueStatisticsTimeSeries/GroupBy")
+        }
+        {
+            $v = "CATEGORY","INTENT","NAME","ORGANIZATION","WEBACL"
+            break
+        }
+
+        # Amazon.WAFV2.IntervalType
+        "Get-WAF2RevenueStatisticsTimeSeries/Interval"
+        {
+            $v = "DAILY","FIVE_MINUTELY","HOURLY","MINUTELY"
             break
         }
 
@@ -88375,6 +88438,20 @@ $WAF2_Completers = {
             break
         }
 
+        # Amazon.WAFV2.RankingSortBy
+        "Get-WAF2RevenueStatistic/SortBy"
+        {
+            $v = "NAME","PERCENTAGE","REVENUE"
+            break
+        }
+
+        # Amazon.WAFV2.RankingStatisticType
+        "Get-WAF2RevenueStatistic/StatisticType"
+        {
+            $v = "TOP_PATHS_BY_REVENUE","TOP_SOURCES_BY_REVENUE"
+            break
+        }
+
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
@@ -88399,9 +88476,13 @@ $WAF2_Completers = {
             ($_ -eq "Get-WAF2RateBasedStatementManagedKey/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "Get-WAF2RegexPatternSetList/Scope") -Or
+            ($_ -eq "Get-WAF2RevenueStatistic/Scope") -Or
+            ($_ -eq "Get-WAF2RevenueStatisticsSummary/Scope") -Or
+            ($_ -eq "Get-WAF2RevenueStatisticsTimeSeries/Scope") -Or
             ($_ -eq "Get-WAF2RuleGroup/Scope") -Or
             ($_ -eq "Get-WAF2RuleGroupList/Scope") -Or
             ($_ -eq "Get-WAF2SampledRequest/Scope") -Or
+            ($_ -eq "Get-WAF2SettlementRecordList/Scope") -Or
             ($_ -eq "Get-WAF2TopPathStatisticsByTraffic/Scope") -Or
             ($_ -eq "Get-WAF2WebACL/Scope") -Or
             ($_ -eq "Get-WAF2WebACLsList/Scope") -Or
@@ -88428,6 +88509,30 @@ $WAF2_Completers = {
             break
         }
 
+        # Amazon.WAFV2.SettlementSortBy
+        "Get-WAF2SettlementRecordList/SortBy"
+        {
+            $v = "AMOUNT","NAME","STATUS","TIMESTAMP"
+            break
+        }
+
+        # Amazon.WAFV2.SortOrder
+        {
+            ($_ -eq "Get-WAF2RevenueStatistic/SortOrder") -Or
+            ($_ -eq "Get-WAF2SettlementRecordList/SortOrder")
+        }
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.WAFV2.TimeSeriesStatisticType
+        "Get-WAF2RevenueStatisticsTimeSeries/StatisticType"
+        {
+            $v = "DATE_HISTOGRAM","PAYMENT_TRAFFIC"
+            break
+        }
+
 
     }
 
@@ -88437,16 +88542,23 @@ $WAF2_Completers = {
 }
 
 $WAF2_map = @{
+    "Currency"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2SettlementRecordList")
+    "GroupBy"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsTimeSeries")
+    "Interval"=@("Get-WAF2RevenueStatisticsTimeSeries")
     "IPAddressVersion"=@("New-WAF2IPSet")
     "LoggingConfiguration_LogScope"=@("Write-WAF2LoggingConfiguration")
     "LoggingConfiguration_LogType"=@("Write-WAF2LoggingConfiguration")
     "LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "LogScope"=@("Get-WAF2LoggingConfiguration","Get-WAF2LoggingConfigurationList","Remove-WAF2LoggingConfiguration")
     "LogType"=@("Get-WAF2LoggingConfiguration","Remove-WAF2LoggingConfiguration")
+    "MonetizationConfig_CurrencyMode"=@("New-WAF2RuleGroup","New-WAF2WebACL","Update-WAF2RuleGroup","Update-WAF2WebACL")
     "OnSourceDDoSProtectionConfig_ALBLowReputationMode"=@("New-WAF2WebACL","Update-WAF2WebACL")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2TopPathStatisticsByTraffic","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
+    "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsSummary","Get-WAF2RevenueStatisticsTimeSeries","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2SettlementRecordList","Get-WAF2TopPathStatisticsByTraffic","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
+    "SortBy"=@("Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
+    "SortOrder"=@("Get-WAF2RevenueStatistic","Get-WAF2SettlementRecordList")
+    "StatisticType"=@("Get-WAF2RevenueStatistic","Get-WAF2RevenueStatisticsTimeSeries")
 }
 
 _awsArgumentCompleterRegistration $WAF2_Completers $WAF2_map
@@ -88527,6 +88639,9 @@ $WAF2_SelectMap = @{
                "Get-WAF2PermissionPolicy",
                "Get-WAF2RateBasedStatementManagedKey",
                "Get-WAF2RegexPatternSet",
+               "Get-WAF2RevenueStatistic",
+               "Get-WAF2RevenueStatisticsSummary",
+               "Get-WAF2RevenueStatisticsTimeSeries",
                "Get-WAF2RuleGroup",
                "Get-WAF2SampledRequest",
                "Get-WAF2TopPathStatisticsByTraffic",
@@ -88542,6 +88657,7 @@ $WAF2_SelectMap = @{
                "Get-WAF2RegexPatternSetList",
                "Get-WAF2ResourcesForWebACLList",
                "Get-WAF2RuleGroupList",
+               "Get-WAF2SettlementRecordList",
                "Get-WAF2ResourceTag",
                "Get-WAF2WebACLsList",
                "Write-WAF2LoggingConfiguration",

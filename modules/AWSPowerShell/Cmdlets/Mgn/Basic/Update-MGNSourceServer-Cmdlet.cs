@@ -74,6 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String ConnectorAction_CredentialsSecretArn { get; set; }
         #endregion
         
+        #region Parameter FqdnForActionFramework
+        /// <summary>
+        /// <para>
+        /// <para>Update Source Server request FQDN for action framework.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FqdnForActionFramework { get; set; }
+        #endregion
+        
+        #region Parameter Platform
+        /// <summary>
+        /// <para>
+        /// <para>Update Source Server request platform operating system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Platform { get; set; }
+        #endregion
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>
@@ -89,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceServerID { get; set; }
+        #endregion
+        
+        #region Parameter UserProvidedID
+        /// <summary>
+        /// <para>
+        /// <para>Update Source Server request user provided ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserProvidedID { get; set; }
         #endregion
         
         #region Parameter Select
@@ -140,6 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.AccountID = this.AccountID;
             context.ConnectorAction_ConnectorArn = this.ConnectorAction_ConnectorArn;
             context.ConnectorAction_CredentialsSecretArn = this.ConnectorAction_CredentialsSecretArn;
+            context.FqdnForActionFramework = this.FqdnForActionFramework;
+            context.Platform = this.Platform;
             context.SourceServerID = this.SourceServerID;
             #if MODULAR
             if (this.SourceServerID == null && ParameterWasBound(nameof(this.SourceServerID)))
@@ -147,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 WriteWarning("You are passing $null as a value for parameter SourceServerID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserProvidedID = this.UserProvidedID;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -196,9 +229,21 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.ConnectorAction = null;
             }
+            if (cmdletContext.FqdnForActionFramework != null)
+            {
+                request.FqdnForActionFramework = cmdletContext.FqdnForActionFramework;
+            }
+            if (cmdletContext.Platform != null)
+            {
+                request.Platform = cmdletContext.Platform;
+            }
             if (cmdletContext.SourceServerID != null)
             {
                 request.SourceServerID = cmdletContext.SourceServerID;
+            }
+            if (cmdletContext.UserProvidedID != null)
+            {
+                request.UserProvidedID = cmdletContext.UserProvidedID;
             }
             
             CmdletOutput output;
@@ -258,7 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String AccountID { get; set; }
             public System.String ConnectorAction_ConnectorArn { get; set; }
             public System.String ConnectorAction_CredentialsSecretArn { get; set; }
+            public System.String FqdnForActionFramework { get; set; }
+            public System.String Platform { get; set; }
             public System.String SourceServerID { get; set; }
+            public System.String UserProvidedID { get; set; }
             public System.Func<Amazon.Mgn.Model.UpdateSourceServerResponse, UpdateMGNSourceServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

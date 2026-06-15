@@ -221,6 +221,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DZGlossary', 
         'Remove-DZGlossaryTerm', 
         'Remove-DZGovernedTerm', 
+        'Remove-DZLineageEvent', 
         'Remove-DZListing', 
         'Remove-DZNotebook', 
         'Remove-DZPolicyGrant', 

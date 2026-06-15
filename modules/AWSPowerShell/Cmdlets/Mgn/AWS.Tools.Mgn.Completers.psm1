@@ -195,6 +195,17 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.StorageType
+        {
+            ($_ -eq "New-MGNReplicationConfigurationTemplate/StorageConfiguration_StorageType") -Or
+            ($_ -eq "Update-MGNReplicationConfiguration/StorageConfiguration_StorageType") -Or
+            ($_ -eq "Update-MGNReplicationConfigurationTemplate/StorageConfiguration_StorageType")
+        }
+        {
+            $v = "EBS","FSX_ONTAP"
+            break
+        }
+
         # Amazon.Mgn.TargetDeployment
         {
             ($_ -eq "New-MGNNetworkMigrationDefinition/TargetDeployment") -Or
@@ -261,6 +272,7 @@ $MGN_map = @{
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
     "SecurityGroupMappingStrategy"=@("Start-MGNNetworkMigrationMapping")
     "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "StorageConfiguration_StorageType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "TargetNetwork_Topology"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")

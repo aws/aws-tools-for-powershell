@@ -85,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? CreatePublicIP { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>FSx ONTAP configuration credentials secret ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn { get; set; }
+        #endregion
+        
         #region Parameter DataPlaneRouting
         /// <summary>
         /// <para>
@@ -230,6 +240,27 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Collections.Hashtable StagingAreaTag { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Storage configuration storage type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.StorageType")]
+        public Amazon.Mgn.StorageType StorageConfiguration_StorageType { get; set; }
+        #endregion
+        
+        #region Parameter StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId
+        /// <summary>
+        /// <para>
+        /// <para>FSx ONTAP configuration storage virtual machine ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId { get; set; }
+        #endregion
+        
         #region Parameter StoreSnapshotOnLocalZone
         /// <summary>
         /// <para>
@@ -341,6 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                     context.StagingAreaTag.Add((String)hashKey, (System.String)(this.StagingAreaTag[hashKey]));
                 }
             }
+            context.StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn = this.StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn;
+            context.StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId = this.StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId;
+            context.StorageConfiguration_StorageType = this.StorageConfiguration_StorageType;
             context.StoreSnapshotOnLocalZone = this.StoreSnapshotOnLocalZone;
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;
             context.UseFipsEndpoint = this.UseFipsEndpoint;
@@ -423,6 +457,60 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.StagingAreaTag != null)
             {
                 request.StagingAreaTags = cmdletContext.StagingAreaTag;
+            }
+            
+             // populate StorageConfiguration
+            var requestStorageConfigurationIsNull = true;
+            request.StorageConfiguration = new Amazon.Mgn.Model.StorageConfiguration();
+            Amazon.Mgn.StorageType requestStorageConfiguration_storageConfiguration_StorageType = null;
+            if (cmdletContext.StorageConfiguration_StorageType != null)
+            {
+                requestStorageConfiguration_storageConfiguration_StorageType = cmdletContext.StorageConfiguration_StorageType;
+            }
+            if (requestStorageConfiguration_storageConfiguration_StorageType != null)
+            {
+                request.StorageConfiguration.StorageType = requestStorageConfiguration_storageConfiguration_StorageType;
+                requestStorageConfigurationIsNull = false;
+            }
+            Amazon.Mgn.Model.FsxOntapConfiguration requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration = null;
+            
+             // populate FsxOntapConfiguration
+            var requestStorageConfiguration_storageConfiguration_FsxOntapConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration = new Amazon.Mgn.Model.FsxOntapConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_CredentialsSecretArn = null;
+            if (cmdletContext.StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_CredentialsSecretArn = cmdletContext.StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration.CredentialsSecretArn = requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_CredentialsSecretArn;
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId = null;
+            if (cmdletContext.StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId != null)
+            {
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId = cmdletContext.StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId;
+            }
+            if (requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId != null)
+            {
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration.StorageVirtualMachineId = requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration_storageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId;
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_FsxOntapConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration != null)
+            {
+                request.StorageConfiguration.FsxOntapConfiguration = requestStorageConfiguration_storageConfiguration_FsxOntapConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
+             // determine if request.StorageConfiguration should be set to null
+            if (requestStorageConfigurationIsNull)
+            {
+                request.StorageConfiguration = null;
             }
             if (cmdletContext.StoreSnapshotOnLocalZone != null)
             {
@@ -507,6 +595,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String SourceServerID { get; set; }
             public System.String StagingAreaSubnetId { get; set; }
             public Dictionary<System.String, System.String> StagingAreaTag { get; set; }
+            public System.String StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn { get; set; }
+            public System.String StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId { get; set; }
+            public Amazon.Mgn.StorageType StorageConfiguration_StorageType { get; set; }
             public System.Boolean? StoreSnapshotOnLocalZone { get; set; }
             public System.Boolean? UseDedicatedReplicationServer { get; set; }
             public System.Boolean? UseFipsEndpoint { get; set; }

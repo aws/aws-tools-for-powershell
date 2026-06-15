@@ -46,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ScheduleType
+        /// <summary>
+        /// <para>
+        /// <para>Filter scheduled queries by schedule type. Valid values are <c>CUSTOMER_MANAGED</c>
+        /// and <c>AWS_MANAGED</c>. If not specified, scheduled queries of all schedule types
+        /// are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.ScheduleType")]
+        public Amazon.CloudWatchLogs.ScheduleType ScheduleType { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -139,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ScheduleType = this.ScheduleType;
             context.State = this.State;
             
             // allow further manipulation of loaded context prior to processing
@@ -161,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ScheduleType != null)
+            {
+                request.ScheduleType = cmdletContext.ScheduleType;
             }
             if (cmdletContext.State != null)
             {
@@ -247,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.ScheduleType ScheduleType { get; set; }
             public Amazon.CloudWatchLogs.ScheduledQueryState State { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.ListScheduledQueriesResponse, GetCWLScheduledQueryListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ScheduledQueries;

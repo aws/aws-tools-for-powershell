@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BDRRConverse', 
         'Invoke-BDRRConverseStream', 
         'Invoke-BDRRGuardrail', 
+        'Invoke-BDRRGuardrailCheck', 
         'Invoke-BDRRModel', 
         'Invoke-BDRRModelWithResponseStream', 
         'Start-BDRRAsyncInvoke')

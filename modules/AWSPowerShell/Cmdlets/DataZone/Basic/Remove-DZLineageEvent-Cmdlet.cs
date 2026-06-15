@@ -23,52 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Deletes a custom engine version. To run this command, make sure you meet the following
-    /// prerequisites:
-    /// 
-    ///  <ul><li><para>
-    /// The CEV must not be the default for RDS Custom. If it is, change the default before
-    /// running this command.
-    /// </para></li><li><para>
-    /// The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance
-    /// snapshot, or automated backup of your RDS Custom instance.
-    /// </para></li></ul><para>
-    /// Typically, deletion takes a few minutes.
-    /// </para><note><para>
-    /// The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated
-    /// with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in
-    /// CloudTrail, calls to the <c>DeleteCustomDbEngineVersion</c> event aren't logged. However,
-    /// you might see calls from the API gateway that accesses your Amazon S3 bucket. These
-    /// calls originate from the MediaImport service for the <c>DeleteCustomDbEngineVersion</c>
-    /// event.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting
-    /// a CEV</a> in the <i>Amazon RDS User Guide</i>.
-    /// </para>
+    /// Deletes the specified lineage event.
     /// </summary>
-    [Cmdlet("Remove", "RDSCustomDBEngineVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteCustomDBEngineVersion API operation.", Operation = new[] {"DeleteCustomDBEngineVersion"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse))]
-    [AWSCmdletOutput("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse object containing multiple properties."
+    [Cmdlet("Remove", "DZLineageEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.DataZone.Model.DeleteLineageEventResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteLineageEvent API operation.", Operation = new[] {"DeleteLineageEvent"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteLineageEventResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.DeleteLineageEventResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.DeleteLineageEventResponse object containing multiple properties."
     )]
-    public partial class RemoveRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveDZLineageEventCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Engine
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The database engine.</para><para>RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul><para>RDS Custom for SQL Server supports the following values:</para><ul><li><para><c>custom-sqlserver-ee</c></para></li><li><para><c>custom-sqlserver-se</c></para></li><li><para><c>custom-sqlserver-web</c></para></li><li><para><c>custom-sqlserver-dev</c></para></li></ul><para>RDS for SQL Server supports the following values:</para><ul><li><para><c>sqlserver-ee</c> (Bring Your Own Media)</para></li><li><para><c>sqlserver-se</c> (Bring Your Own Media)</para></li><li><para><c>sqlserver-dev-ee</c></para></li></ul>
+        /// <para>The ID of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,15 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Engine { get; set; }
+        public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter EngineVersion
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The custom engine version (CEV) for your DB instance. This option is required for
-        /// RDS Custom, but optional for Amazon RDS. The combination of <c>Engine</c> and <c>EngineVersion</c>
-        /// is unique per customer per Amazon Web Services Region.</para>
+        /// <para>The ID of the lineage event.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,14 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EngineVersion { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse).
-        /// Specifying the name of a property of type Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteLineageEventResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.DeleteLineageEventResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EngineVersion), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSCustomDBEngineVersion (DeleteCustomDBEngineVersion)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.DomainIdentifier),
+                nameof(this.Identifier)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZLineageEvent (DeleteLineageEvent)"))
             {
                 return;
             }
@@ -144,21 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse, RemoveRDSCustomDBEngineVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteLineageEventResponse, RemoveDZLineageEventCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Engine = this.Engine;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.EngineVersion = this.EngineVersion;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.EngineVersion == null && ParameterWasBound(nameof(this.EngineVersion)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -175,15 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.DeleteCustomDBEngineVersionRequest();
+            var request = new Amazon.DataZone.Model.DeleteLineageEventRequest();
             
-            if (cmdletContext.Engine != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.Engine = cmdletContext.Engine;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.EngineVersion != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.EngineVersion = cmdletContext.EngineVersion;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -218,12 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteCustomDBEngineVersionRequest request)
+        private Amazon.DataZone.Model.DeleteLineageEventResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteLineageEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteCustomDBEngineVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteLineageEvent");
             try
             {
-                return client.DeleteCustomDBEngineVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteLineageEventAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -240,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Engine { get; set; }
-            public System.String EngineVersion { get; set; }
-            public System.Func<Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse, RemoveRDSCustomDBEngineVersionCmdlet, object> Select { get; set; } =
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.DeleteLineageEventResponse, RemoveDZLineageEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
