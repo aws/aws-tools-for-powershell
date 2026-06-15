@@ -1,3 +1,0 @@
-﻿# IoTEvents
-
-Export-ModuleMember -Alias *

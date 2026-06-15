@@ -1,3 +1,0 @@
-﻿# SimSpaceWeaver
-
-Export-ModuleMember -Alias *

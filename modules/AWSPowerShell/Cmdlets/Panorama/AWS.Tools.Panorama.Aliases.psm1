@@ -1,3 +1,0 @@
-﻿# Panorama
-
-Export-ModuleMember -Alias *

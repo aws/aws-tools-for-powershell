@@ -658,12 +658,6 @@
     <Reference Include="AWSSDK.IoTDeviceAdvisor">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.IoTEvents">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.IoTEventsData">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTEventsData.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.IoTFleetWise">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTFleetWise.dll</HintPath>
     </Reference>
@@ -943,9 +937,6 @@
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Outposts.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Panorama">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Panorama.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.PartnerCentralAccount">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralAccount.dll</HintPath>
     </Reference>
@@ -1194,9 +1185,6 @@
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleWorkflow.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimSpaceWeaver">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimSpaceWeaver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Snowball.dll</HintPath>
@@ -1936,12 +1924,6 @@
     <Reference Include="AWSSDK.IoTDeviceAdvisor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTDeviceAdvisor.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.IoTEvents">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.IoTEventsData">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTEventsData.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.IoTFleetWise">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTFleetWise.dll</HintPath>
     </Reference>
@@ -2221,9 +2203,6 @@
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Outposts.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Panorama">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.PartnerCentralAccount">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralAccount.dll</HintPath>
     </Reference>
@@ -2472,9 +2451,6 @@
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleWorkflow.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SimSpaceWeaver">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimSpaceWeaver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Snowball.dll</HintPath>
