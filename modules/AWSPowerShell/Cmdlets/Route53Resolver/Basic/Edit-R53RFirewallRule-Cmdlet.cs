@@ -30,7 +30,10 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates the specified firewall rule.
+    /// Updates the specified firewall rule. The rule's <c>FirewallRuleType</c>, <c>FirewallDomainListId</c>,
+    /// and top-level <c>DnsThreatProtection</c> match source cannot be changed after creation.
+    /// Rules whose <c>Status</c> is <c>CREATING</c> or <c>CREATION_FAILED</c> cannot be updated;
+    /// remove a failed rule with <a>DeleteFirewallRule</a>.
     /// </summary>
     [Cmdlet("Edit", "R53RFirewallRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.FirewallRule")]
@@ -163,10 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter DnsThreatProtection
         /// <summary>
         /// <para>
-        /// <para> The type of the DNS Firewall Advanced rule. Valid values are: </para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
-        /// generate a large number of domains to to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
+        /// <para> The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with
+        /// <c>FirewallDomainListId</c> and <c>FirewallRuleType</c>. Valid values are: </para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
+        /// generate a large number of domains to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
         /// to exfiltrate data from the client by using the DNS tunnel without making a network
-        /// connection to the client.</para></li></ul>
+        /// connection to the client.</para></li><li><para><c>DICTIONARY_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
+        /// DGAs use wordlists to generate domains that appear more legitimate, making them harder
+        /// to detect than traditional DGAs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,6 +243,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleType_PartnerThreatProtection_Partner
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the partner threat-protection product, exactly as returned in the
+        /// <c>Value</c> field of a <a>FirewallRuleTypeDefinition</a> with <c>RuleType</c> set
+        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active AWS Marketplace
+        /// subscription to this product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_PartnerThreatProtection_Partner { get; set; }
+        #endregion
+        
         #region Parameter Priority
         /// <summary>
         /// <para>
@@ -273,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>The type of DNS threat protection. Valid values are:</para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
         /// generate a large number of domains to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
         /// to exfiltrate data from the client by using the DNS tunnel without making a network
-        /// connection to the client.</para></li><li><para><c>DICT_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
+        /// connection to the client.</para></li><li><para><c>DICTIONARY_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
         /// DGAs use wordlists to generate domains that appear more legitimate, making them harder
         /// to detect than traditional DGAs.</para></li></ul>
         /// </para>
@@ -348,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             context.FirewallRuleType_DnsThreatProtection_Value = this.FirewallRuleType_DnsThreatProtection_Value;
             context.FirewallRuleType_FirewallAdvancedContentCategory_Category = this.FirewallRuleType_FirewallAdvancedContentCategory_Category;
             context.FirewallRuleType_FirewallAdvancedThreatCategory_Category = this.FirewallRuleType_FirewallAdvancedThreatCategory_Category;
+            context.FirewallRuleType_PartnerThreatProtection_Partner = this.FirewallRuleType_PartnerThreatProtection_Partner;
             context.FirewallThreatProtectionId = this.FirewallThreatProtectionId;
             context.Name = this.Name;
             context.Priority = this.Priority;
@@ -460,6 +480,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory != null)
             {
                 request.FirewallRuleType.FirewallAdvancedThreatCategory = requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory;
+                requestFirewallRuleTypeIsNull = false;
+            }
+            Amazon.Route53Resolver.Model.PartnerThreatProtectionConfig requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = null;
+            
+             // populate PartnerThreatProtection
+            var requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull = true;
+            requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = new Amazon.Route53Resolver.Model.PartnerThreatProtectionConfig();
+            System.String requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner = null;
+            if (cmdletContext.FirewallRuleType_PartnerThreatProtection_Partner != null)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner = cmdletContext.FirewallRuleType_PartnerThreatProtection_Partner;
+            }
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner != null)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection.Partner = requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner;
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_PartnerThreatProtection should be set to null
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtection != null)
+            {
+                request.FirewallRuleType.PartnerThreatProtection = requestFirewallRuleType_firewallRuleType_PartnerThreatProtection;
                 requestFirewallRuleTypeIsNull = false;
             }
             Amazon.Route53Resolver.Model.DnsThreatProtectionRuleTypeConfig requestFirewallRuleType_firewallRuleType_DnsThreatProtection = null;
@@ -587,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String FirewallRuleType_DnsThreatProtection_Value { get; set; }
             public System.String FirewallRuleType_FirewallAdvancedContentCategory_Category { get; set; }
             public System.String FirewallRuleType_FirewallAdvancedThreatCategory_Category { get; set; }
+            public System.String FirewallRuleType_PartnerThreatProtection_Partner { get; set; }
             public System.String FirewallThreatProtectionId { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }

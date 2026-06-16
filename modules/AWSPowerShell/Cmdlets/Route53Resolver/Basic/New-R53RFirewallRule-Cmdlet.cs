@@ -30,8 +30,25 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Creates a single DNS Firewall rule in the specified rule group, using the specified
-    /// domain list.
+    /// Creates a single DNS Firewall rule in the specified rule group. The rule can use any
+    /// one of the following match sources, and the chosen source must be supplied through
+    /// the matching request field — they are mutually exclusive:
+    /// 
+    ///  <ul><li><para><c>FirewallDomainListId</c> — match a customer-managed or AWS-managed domain list.
+    /// </para></li><li><para><c>DnsThreatProtection</c> — match a built-in DNS Firewall Advanced threat detector
+    /// (<c>DGA</c>, <c>DNS_TUNNELING</c>, or <c>DICTIONARY_DGA</c>).
+    /// </para></li><li><para><c>FirewallRuleType</c> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>:
+    /// <c>FirewallAdvancedContentCategory</c>, <c>FirewallAdvancedThreatCategory</c>, <c>DnsThreatProtection</c>,
+    /// or <c>PartnerThreatProtection</c>. The <c>PartnerThreatProtection</c> variant requires
+    /// an active AWS Marketplace subscription to the named partner product.
+    /// </para></li></ul><para>
+    /// For rules that require asynchronous provisioning (today, the <c>PartnerThreatProtection</c>
+    /// rule type), the rule's <c>Status</c> begins at <c>CREATING</c> and transitions to
+    /// <c>COMPLETE</c> once the rule is provisioned and the marketplace entitlement is verified.
+    /// If provisioning fails, <c>Status</c> becomes <c>CREATION_FAILED</c> and <c>StatusMessage</c>
+    /// contains a human-readable reason; the rule is then immutable and must be removed with
+    /// <a>DeleteFirewallRule</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "R53RFirewallRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.FirewallRule")]
@@ -182,7 +199,13 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter DnsThreatProtection
         /// <summary>
         /// <para>
-        /// <para> Use to create a DNS Firewall Advanced rule. </para>
+        /// <para> The type of the DNS Firewall Advanced rule. This setting is mutually exclusive with
+        /// <c>FirewallDomainListId</c> and <c>FirewallRuleType</c>. Valid values are: </para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
+        /// generate a large number of domains to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
+        /// to exfiltrate data from the client by using the DNS tunnel without making a network
+        /// connection to the client.</para></li><li><para><c>DICTIONARY_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
+        /// DGAs use wordlists to generate domains that appear more legitimate, making them harder
+        /// to detect than traditional DGAs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,6 +275,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter FirewallRuleType_PartnerThreatProtection_Partner
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the partner threat-protection product, exactly as returned in the
+        /// <c>Value</c> field of a <a>FirewallRuleTypeDefinition</a> with <c>RuleType</c> set
+        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active AWS Marketplace
+        /// subscription to this product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallRuleType_PartnerThreatProtection_Partner { get; set; }
+        #endregion
+        
         #region Parameter Priority
         /// <summary>
         /// <para>
@@ -292,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>The type of DNS threat protection. Valid values are:</para><ul><li><para><c>DGA</c>: Domain generation algorithms detection. DGAs are used by attackers to
         /// generate a large number of domains to launch malware attacks.</para></li><li><para><c>DNS_TUNNELING</c>: DNS tunneling detection. DNS tunneling is used by attackers
         /// to exfiltrate data from the client by using the DNS tunnel without making a network
-        /// connection to the client.</para></li><li><para><c>DICT_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
+        /// connection to the client.</para></li><li><para><c>DICTIONARY_DGA</c>: Dictionary-based domain generation algorithms detection. Dictionary
         /// DGAs use wordlists to generate domains that appear more legitimate, making them harder
         /// to detect than traditional DGAs.</para></li></ul>
         /// </para>
@@ -374,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             context.FirewallRuleType_DnsThreatProtection_Value = this.FirewallRuleType_DnsThreatProtection_Value;
             context.FirewallRuleType_FirewallAdvancedContentCategory_Category = this.FirewallRuleType_FirewallAdvancedContentCategory_Category;
             context.FirewallRuleType_FirewallAdvancedThreatCategory_Category = this.FirewallRuleType_FirewallAdvancedThreatCategory_Category;
+            context.FirewallRuleType_PartnerThreatProtection_Partner = this.FirewallRuleType_PartnerThreatProtection_Partner;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -503,6 +540,31 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 request.FirewallRuleType.FirewallAdvancedThreatCategory = requestFirewallRuleType_firewallRuleType_FirewallAdvancedThreatCategory;
                 requestFirewallRuleTypeIsNull = false;
             }
+            Amazon.Route53Resolver.Model.PartnerThreatProtectionConfig requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = null;
+            
+             // populate PartnerThreatProtection
+            var requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull = true;
+            requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = new Amazon.Route53Resolver.Model.PartnerThreatProtectionConfig();
+            System.String requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner = null;
+            if (cmdletContext.FirewallRuleType_PartnerThreatProtection_Partner != null)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner = cmdletContext.FirewallRuleType_PartnerThreatProtection_Partner;
+            }
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner != null)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection.Partner = requestFirewallRuleType_firewallRuleType_PartnerThreatProtection_firewallRuleType_PartnerThreatProtection_Partner;
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull = false;
+            }
+             // determine if requestFirewallRuleType_firewallRuleType_PartnerThreatProtection should be set to null
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtectionIsNull)
+            {
+                requestFirewallRuleType_firewallRuleType_PartnerThreatProtection = null;
+            }
+            if (requestFirewallRuleType_firewallRuleType_PartnerThreatProtection != null)
+            {
+                request.FirewallRuleType.PartnerThreatProtection = requestFirewallRuleType_firewallRuleType_PartnerThreatProtection;
+                requestFirewallRuleTypeIsNull = false;
+            }
             Amazon.Route53Resolver.Model.DnsThreatProtectionRuleTypeConfig requestFirewallRuleType_firewallRuleType_DnsThreatProtection = null;
             
              // populate DnsThreatProtection
@@ -625,6 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String FirewallRuleType_DnsThreatProtection_Value { get; set; }
             public System.String FirewallRuleType_FirewallAdvancedContentCategory_Category { get; set; }
             public System.String FirewallRuleType_FirewallAdvancedThreatCategory_Category { get; set; }
+            public System.String FirewallRuleType_PartnerThreatProtection_Partner { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Qtype { get; set; }

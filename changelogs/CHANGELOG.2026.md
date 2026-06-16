@@ -1,4 +1,43 @@
-﻿### 5.0.234 (2026-06-15 20:51Z)
+﻿### 5.0.235 (2026-06-16 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.271.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon IoT Events
+  * [Breaking Change] Removed support for Amazon IoT Events Data
+  * [Breaking Change] Removed support for Amazon Panorama
+  * [Breaking Change] Removed support for Amazon SimSpace Weaver
+  * Amazon Direct Connect
+    * Modified cmdlet Enable-DCPrivateVirtualInterface: added parameter NewPrivateVirtualInterfaceAllocation_RateLimit.
+    * Modified cmdlet Enable-DCPublicVirtualInterface: added parameter NewPublicVirtualInterfaceAllocation_RateLimit.
+    * Modified cmdlet Enable-DCTransitVirtualInterface: added parameter NewTransitVirtualInterfaceAllocation_RateLimit.
+    * Modified cmdlet New-DCPrivateVirtualInterface: added parameter NewPrivateVirtualInterface_RateLimit.
+    * Modified cmdlet New-DCPublicVirtualInterface: added parameter NewPublicVirtualInterface_RateLimit.
+    * Modified cmdlet New-DCTransitVirtualInterface: added parameter NewTransitVirtualInterface_RateLimit.
+    * Modified cmdlet Update-DCVirtualInterfaceAttribute: added parameter RateLimit.
+  * Amazon Outposts
+    * Modified cmdlet New-OUTPOrder: added parameters QuoteIdentifier and QuoteOptionIdentifier.
+  * Amazon Partner Central Selling API
+    * Added cmdlet Get-PCProspectingFromEngagementTask leveraging the GetProspectingFromEngagementTask service API.
+    * Added cmdlet Get-PCProspectingFromEngagementTaskList leveraging the ListProspectingFromEngagementTasks service API.
+    * Added cmdlet Start-PCProspectingFromEngagementTask leveraging the StartProspectingFromEngagementTask service API.
+    * Modified cmdlet New-PCEngagementContext: added parameters Payload_Lead_Insights_LeadReadinessScore, Payload_ProspectingResult_Aws_Customer_AccountName, Payload_ProspectingResult_Aws_Customer_CompanySize, Payload_ProspectingResult_Aws_Customer_Country, Payload_ProspectingResult_Aws_Customer_EligibleProgram, Payload_ProspectingResult_Aws_Customer_Geo, Payload_ProspectingResult_Aws_Customer_Industry, Payload_ProspectingResult_Aws_Customer_PublicProfileSummary, Payload_ProspectingResult_Aws_Customer_Region, Payload_ProspectingResult_Aws_Customer_Segment, Payload_ProspectingResult_Aws_Customer_SubIndustry, Payload_ProspectingResult_Aws_Customer_SubRegion, Payload_ProspectingResult_Aws_EndTime, Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore, Payload_ProspectingResult_Aws_Insights_SolutionCategory, Payload_ProspectingResult_Aws_Insights_SolutionScore, Payload_ProspectingResult_Aws_Insights_SolutionSubCategory, Payload_ProspectingResult_Aws_StartTime, Payload_ProspectingResult_Aws_TaskArn, Payload_ProspectingResult_Aws_TaskId and Payload_ProspectingResult_Aws_TaskName.
+    * Modified cmdlet Update-PCEngagementContext: added parameters Payload_Lead_Insights_LeadReadinessScore, Payload_ProspectingResult_Aws_Customer_AccountName, Payload_ProspectingResult_Aws_Customer_CompanySize, Payload_ProspectingResult_Aws_Customer_Country, Payload_ProspectingResult_Aws_Customer_EligibleProgram, Payload_ProspectingResult_Aws_Customer_Geo, Payload_ProspectingResult_Aws_Customer_Industry, Payload_ProspectingResult_Aws_Customer_PublicProfileSummary, Payload_ProspectingResult_Aws_Customer_Region, Payload_ProspectingResult_Aws_Customer_Segment, Payload_ProspectingResult_Aws_Customer_SubIndustry, Payload_ProspectingResult_Aws_Customer_SubRegion, Payload_ProspectingResult_Aws_EndTime, Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore, Payload_ProspectingResult_Aws_Insights_SolutionCategory, Payload_ProspectingResult_Aws_Insights_SolutionScore, Payload_ProspectingResult_Aws_Insights_SolutionSubCategory, Payload_ProspectingResult_Aws_StartTime, Payload_ProspectingResult_Aws_TaskArn, Payload_ProspectingResult_Aws_TaskId and Payload_ProspectingResult_Aws_TaskName.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet Edit-R53RFirewallRule: added parameter FirewallRuleType_PartnerThreatProtection_Partner.
+    * Modified cmdlet New-R53RFirewallRule: added parameter FirewallRuleType_PartnerThreatProtection_Partner.
+  * Amazon S3 Vectors
+    * Modified cmdlet Search-S3VVector: added parameters NextToken and NoAutoIteration.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMEndpointConfig: added parameter MetricsConfig_EnableDetailedObservability.
+    * Modified cmdlet New-SMInferenceComponent: added parameter Specification_Container_ContainerMetricsConfig_MetricsEndpoint.
+    * Modified cmdlet Update-SMInferenceComponent: added parameter Specification_Container_ContainerMetricsConfig_MetricsEndpoint.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3ObjectAnnotation leveraging the GetObjectAnnotation service API.
+    * Added cmdlet Get-S3ObjectAnnotationList leveraging the ListObjectAnnotations service API.
+    * Added cmdlet Remove-S3ObjectAnnotation leveraging the DeleteObjectAnnotation service API.
+    * Added cmdlet Update-S3BucketMetadataAnnotationTableConfiguration leveraging the UpdateBucketMetadataAnnotationTableConfiguration service API.
+    * Added cmdlet Write-S3ObjectAnnotation leveraging the PutObjectAnnotation service API.
+    * Modified cmdlet New-S3BucketMetadataConfiguration: added parameters MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState, MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn, MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm and MetadataConfiguration_AnnotationTableConfiguration_Role.
+
+### 5.0.234 (2026-06-15 20:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.270.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Migration Service
     * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameters StorageConfiguration_FsxOntapConfiguration_CredentialsSecretArn, StorageConfiguration_FsxOntapConfiguration_StorageVirtualMachineId and StorageConfiguration_StorageType.

@@ -136,6 +136,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProspectingFromEngagementTask" OutputProperty="*" Verb="Get" Noun="ProspectingFromEngagementTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceSnapshot" OutputProperty="*" Verb="Get" Noun="ResourceSnapshot" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +184,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProspectingFromEngagementTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="ProspectingFromEngagementTaskList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResourceSnapshotJobs" OutputProperty="ResourceSnapshotJobSummaries" Verb="Get" Noun="ResourceSnapshotJobList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -213,6 +221,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOpportunityFromEngagementTask" OutputProperty="*" Verb="Start" Noun="OpportunityFromEngagementTask" ShouldProcessTarget="ContextIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartProspectingFromEngagementTask" OutputProperty="*" Verb="Start" Noun="ProspectingFromEngagementTask" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

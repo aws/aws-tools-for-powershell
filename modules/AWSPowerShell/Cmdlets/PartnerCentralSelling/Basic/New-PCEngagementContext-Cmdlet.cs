@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_AccountName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_AccountName { get; set; }
+        #endregion
+        
         #region Parameter Customer_AwsMaturity
         /// <summary>
         /// <para>
@@ -125,6 +135,27 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Lead_Customer_CompanyName { get; set; }
         #endregion
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_CompanySize
+        /// <summary>
+        /// <para>
+        /// <para>The company size classification of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_CompanySize { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Customer_Country
+        /// <summary>
+        /// <para>
+        /// <para>The country code of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
+        public Amazon.PartnerCentralSelling.CountryCode Payload_ProspectingResult_Aws_Customer_Country { get; set; }
+        #endregion
+        
         #region Parameter Customer_CountryCode
         /// <summary>
         /// <para>
@@ -150,6 +181,33 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.CountryCode Address_CountryCode { get; set; }
         #endregion
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_EligibleProgram
+        /// <summary>
+        /// <para>
+        /// <para>A list of AWS Greenfield programs that the prospected customer is eligible for. Use
+        /// this list to identify relevant go-to-market opportunities.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Payload_ProspectingResult_Aws_Customer_EligiblePrograms")]
+        public System.String[] Payload_ProspectingResult_Aws_Customer_EligibleProgram { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp when the prospecting task completed processing. The format is ISO 8601
+        /// (UTC).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? Payload_ProspectingResult_Aws_EndTime { get; set; }
+        #endregion
+        
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
@@ -167,6 +225,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EngagementIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Customer_Geo
+        /// <summary>
+        /// <para>
+        /// <para>The geographic region classification of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_Geo { get; set; }
         #endregion
         
         #region Parameter Payload_CustomerProject_Customer_Industry
@@ -195,6 +263,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.Industry Lead_Customer_Industry { get; set; }
         #endregion
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_Industry
+        /// <summary>
+        /// <para>
+        /// <para>The industry classification of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.Industry")]
+        public Amazon.PartnerCentralSelling.Industry Payload_ProspectingResult_Aws_Customer_Industry { get; set; }
+        #endregion
+        
         #region Parameter Lead_Interaction
         /// <summary>
         /// <para>
@@ -209,6 +288,29 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_Interactions")]
         public Amazon.PartnerCentralSelling.Model.LeadInteraction[] Lead_Interaction { get; set; }
+        #endregion
+        
+        #region Parameter Payload_Lead_Insights_LeadReadinessScore
+        /// <summary>
+        /// <para>
+        /// <para>A score that indicates the lead's readiness for engagement. Valid values are <c>Low</c>,
+        /// <c>Medium</c>, and <c>High</c>. Use this score to prioritize leads based on their
+        /// likelihood of conversion.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_Lead_Insights_LeadReadinessScore { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore
+        /// <summary>
+        /// <para>
+        /// <para>A score that indicates the prospected customer's level of engagement with AWS Marketplace.
+        /// Valid values are <c>High</c>, <c>Medium</c>, and <c>Low</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore { get; set; }
         #endregion
         
         #region Parameter Customer_MarketSegment
@@ -236,6 +338,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Address_PostalCode { get; set; }
         #endregion
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_PublicProfileSummary
+        /// <summary>
+        /// <para>
+        /// <para>A summary of publicly available information about the prospected customer. The system
+        /// uses this summary to generate customer insights and inform engagement strategies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_PublicProfileSummary { get; set; }
+        #endregion
+        
         #region Parameter Lead_QualificationStatus
         /// <summary>
         /// <para>
@@ -247,6 +360,70 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_QualificationStatus")]
         public System.String Lead_QualificationStatus { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Customer_Region
+        /// <summary>
+        /// <para>
+        /// <para>The specific region of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_Region { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Customer_Segment
+        /// <summary>
+        /// <para>
+        /// <para>The market segment classification of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_Segment { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Insights_SolutionCategory
+        /// <summary>
+        /// <para>
+        /// <para>The primary solution category classification for the prospected customer. This indicates
+        /// the type of solution that best addresses their needs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Insights_SolutionCategory { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Insights_SolutionScore
+        /// <summary>
+        /// <para>
+        /// <para>A score that indicates how well the partner's solution fits the prospected customer's
+        /// needs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Insights_SolutionScore { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Insights_SolutionSubCategory
+        /// <summary>
+        /// <para>
+        /// <para>The solution sub-category classification for the prospected customer. This provides
+        /// more granular categorization of the recommended solution type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Insights_SolutionSubCategory { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp when the prospecting result context was created. The format is ISO 8601
+        /// (UTC).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? Payload_ProspectingResult_Aws_StartTime { get; set; }
         #endregion
         
         #region Parameter Address_StateOrRegion
@@ -269,6 +446,27 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Address_StateOrRegion { get; set; }
         #endregion
         
+        #region Parameter Payload_ProspectingResult_Aws_Customer_SubIndustry
+        /// <summary>
+        /// <para>
+        /// <para>The sub-industry classification of the prospected customer account. This provides
+        /// more granular categorization within the primary industry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_SubIndustry { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_Customer_SubRegion
+        /// <summary>
+        /// <para>
+        /// <para>The subregion classification of the prospected customer account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_Customer_SubRegion { get; set; }
+        #endregion
+        
         #region Parameter Project_TargetCompletionDate
         /// <summary>
         /// <para>
@@ -278,6 +476,37 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_CustomerProject_Project_TargetCompletionDate")]
         public System.String Project_TargetCompletionDate { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_TaskArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the prospecting task. Use this ARN to track and
+        /// manage the task within AWS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_TaskArn { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_TaskId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the prospecting task that generates this result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_TaskId { get; set; }
+        #endregion
+        
+        #region Parameter Payload_ProspectingResult_Aws_TaskName
+        /// <summary>
+        /// <para>
+        /// <para>The name that the user provides for the prospecting task that generates this result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Payload_ProspectingResult_Aws_TaskName { get; set; }
         #endregion
         
         #region Parameter Project_Title
@@ -425,11 +654,35 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.Lead_Customer_Industry = this.Lead_Customer_Industry;
             context.Customer_MarketSegment = this.Customer_MarketSegment;
             context.Lead_Customer_WebsiteUrl = this.Lead_Customer_WebsiteUrl;
+            context.Payload_Lead_Insights_LeadReadinessScore = this.Payload_Lead_Insights_LeadReadinessScore;
             if (this.Lead_Interaction != null)
             {
                 context.Lead_Interaction = new List<Amazon.PartnerCentralSelling.Model.LeadInteraction>(this.Lead_Interaction);
             }
             context.Lead_QualificationStatus = this.Lead_QualificationStatus;
+            context.Payload_ProspectingResult_Aws_Customer_AccountName = this.Payload_ProspectingResult_Aws_Customer_AccountName;
+            context.Payload_ProspectingResult_Aws_Customer_CompanySize = this.Payload_ProspectingResult_Aws_Customer_CompanySize;
+            context.Payload_ProspectingResult_Aws_Customer_Country = this.Payload_ProspectingResult_Aws_Customer_Country;
+            if (this.Payload_ProspectingResult_Aws_Customer_EligibleProgram != null)
+            {
+                context.Payload_ProspectingResult_Aws_Customer_EligibleProgram = new List<System.String>(this.Payload_ProspectingResult_Aws_Customer_EligibleProgram);
+            }
+            context.Payload_ProspectingResult_Aws_Customer_Geo = this.Payload_ProspectingResult_Aws_Customer_Geo;
+            context.Payload_ProspectingResult_Aws_Customer_Industry = this.Payload_ProspectingResult_Aws_Customer_Industry;
+            context.Payload_ProspectingResult_Aws_Customer_PublicProfileSummary = this.Payload_ProspectingResult_Aws_Customer_PublicProfileSummary;
+            context.Payload_ProspectingResult_Aws_Customer_Region = this.Payload_ProspectingResult_Aws_Customer_Region;
+            context.Payload_ProspectingResult_Aws_Customer_Segment = this.Payload_ProspectingResult_Aws_Customer_Segment;
+            context.Payload_ProspectingResult_Aws_Customer_SubIndustry = this.Payload_ProspectingResult_Aws_Customer_SubIndustry;
+            context.Payload_ProspectingResult_Aws_Customer_SubRegion = this.Payload_ProspectingResult_Aws_Customer_SubRegion;
+            context.Payload_ProspectingResult_Aws_EndTime = this.Payload_ProspectingResult_Aws_EndTime;
+            context.Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore = this.Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore;
+            context.Payload_ProspectingResult_Aws_Insights_SolutionCategory = this.Payload_ProspectingResult_Aws_Insights_SolutionCategory;
+            context.Payload_ProspectingResult_Aws_Insights_SolutionScore = this.Payload_ProspectingResult_Aws_Insights_SolutionScore;
+            context.Payload_ProspectingResult_Aws_Insights_SolutionSubCategory = this.Payload_ProspectingResult_Aws_Insights_SolutionSubCategory;
+            context.Payload_ProspectingResult_Aws_StartTime = this.Payload_ProspectingResult_Aws_StartTime;
+            context.Payload_ProspectingResult_Aws_TaskArn = this.Payload_ProspectingResult_Aws_TaskArn;
+            context.Payload_ProspectingResult_Aws_TaskId = this.Payload_ProspectingResult_Aws_TaskId;
+            context.Payload_ProspectingResult_Aws_TaskName = this.Payload_ProspectingResult_Aws_TaskName;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -469,6 +722,266 @@ namespace Amazon.PowerShell.Cmdlets.PC
              // populate Payload
             var requestPayloadIsNull = true;
             request.Payload = new Amazon.PartnerCentralSelling.Model.EngagementContextPayload();
+            Amazon.PartnerCentralSelling.Model.ProspectingResult requestPayload_payload_ProspectingResult = null;
+            
+             // populate ProspectingResult
+            var requestPayload_payload_ProspectingResultIsNull = true;
+            requestPayload_payload_ProspectingResult = new Amazon.PartnerCentralSelling.Model.ProspectingResult();
+            Amazon.PartnerCentralSelling.Model.ProspectingResultAws requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws = null;
+            
+             // populate Aws
+            var requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = true;
+            requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws = new Amazon.PartnerCentralSelling.Model.ProspectingResultAws();
+            System.DateTime? requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_EndTime = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_EndTime != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_EndTime = cmdletContext.Payload_ProspectingResult_Aws_EndTime.Value;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_EndTime != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.EndTime = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_EndTime.Value;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            System.DateTime? requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_StartTime = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_StartTime != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_StartTime = cmdletContext.Payload_ProspectingResult_Aws_StartTime.Value;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_StartTime != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.StartTime = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_StartTime.Value;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskArn = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_TaskArn != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskArn = cmdletContext.Payload_ProspectingResult_Aws_TaskArn;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskArn != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.TaskArn = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskArn;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskId = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_TaskId != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskId = cmdletContext.Payload_ProspectingResult_Aws_TaskId;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskId != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.TaskId = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskId;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskName = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_TaskName != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskName = cmdletContext.Payload_ProspectingResult_Aws_TaskName;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskName != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.TaskName = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_TaskName;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.ProspectingInsights requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights = null;
+            
+             // populate Insights
+            var requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull = true;
+            requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights = new Amazon.PartnerCentralSelling.Model.ProspectingInsights();
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore = cmdletContext.Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights.MarketplaceEngagementScore = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionCategory = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionCategory != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionCategory = cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionCategory;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionCategory != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights.SolutionCategory = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionCategory;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionScore = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionScore != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionScore = cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionScore;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionScore != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights.SolutionScore = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionScore;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionSubCategory = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionSubCategory != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionSubCategory = cmdletContext.Payload_ProspectingResult_Aws_Insights_SolutionSubCategory;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionSubCategory != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights.SolutionSubCategory = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights_payload_ProspectingResult_Aws_Insights_SolutionSubCategory;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull = false;
+            }
+             // determine if requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights should be set to null
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_InsightsIsNull)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights = null;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.Insights = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Insights;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.ProspectingResultCustomer requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer = null;
+            
+             // populate Customer
+            var requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = true;
+            requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer = new Amazon.PartnerCentralSelling.Model.ProspectingResultCustomer();
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_AccountName = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_AccountName != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_AccountName = cmdletContext.Payload_ProspectingResult_Aws_Customer_AccountName;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_AccountName != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.AccountName = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_AccountName;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_CompanySize = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_CompanySize != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_CompanySize = cmdletContext.Payload_ProspectingResult_Aws_Customer_CompanySize;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_CompanySize != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.CompanySize = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_CompanySize;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.CountryCode requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Country = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_Country != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Country = cmdletContext.Payload_ProspectingResult_Aws_Customer_Country;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Country != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.Country = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Country;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            List<System.String> requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_EligibleProgram = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_EligibleProgram != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_EligibleProgram = cmdletContext.Payload_ProspectingResult_Aws_Customer_EligibleProgram;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_EligibleProgram != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.EligiblePrograms = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_EligibleProgram;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Geo = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_Geo != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Geo = cmdletContext.Payload_ProspectingResult_Aws_Customer_Geo;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Geo != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.Geo = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Geo;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Industry requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Industry = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_Industry != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Industry = cmdletContext.Payload_ProspectingResult_Aws_Customer_Industry;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Industry != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.Industry = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Industry;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_PublicProfileSummary = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_PublicProfileSummary != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_PublicProfileSummary = cmdletContext.Payload_ProspectingResult_Aws_Customer_PublicProfileSummary;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_PublicProfileSummary != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.PublicProfileSummary = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_PublicProfileSummary;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Region = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_Region != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Region = cmdletContext.Payload_ProspectingResult_Aws_Customer_Region;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Region != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.Region = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Region;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Segment = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_Segment != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Segment = cmdletContext.Payload_ProspectingResult_Aws_Customer_Segment;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Segment != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.Segment = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_Segment;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubIndustry = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_SubIndustry != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubIndustry = cmdletContext.Payload_ProspectingResult_Aws_Customer_SubIndustry;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubIndustry != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.SubIndustry = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubIndustry;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+            System.String requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubRegion = null;
+            if (cmdletContext.Payload_ProspectingResult_Aws_Customer_SubRegion != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubRegion = cmdletContext.Payload_ProspectingResult_Aws_Customer_SubRegion;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubRegion != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer.SubRegion = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer_payload_ProspectingResult_Aws_Customer_SubRegion;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull = false;
+            }
+             // determine if requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer should be set to null
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_CustomerIsNull)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer = null;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer != null)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws.Customer = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws_payload_ProspectingResult_Aws_Customer;
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull = false;
+            }
+             // determine if requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws should be set to null
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_AwsIsNull)
+            {
+                requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws = null;
+            }
+            if (requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws != null)
+            {
+                requestPayload_payload_ProspectingResult.Aws = requestPayload_payload_ProspectingResult_payload_ProspectingResult_Aws;
+                requestPayload_payload_ProspectingResultIsNull = false;
+            }
+             // determine if requestPayload_payload_ProspectingResult should be set to null
+            if (requestPayload_payload_ProspectingResultIsNull)
+            {
+                requestPayload_payload_ProspectingResult = null;
+            }
+            if (requestPayload_payload_ProspectingResult != null)
+            {
+                request.Payload.ProspectingResult = requestPayload_payload_ProspectingResult;
+                requestPayloadIsNull = false;
+            }
             Amazon.PartnerCentralSelling.Model.CustomerProjectsContext requestPayload_payload_CustomerProject = null;
             
              // populate CustomerProject
@@ -607,6 +1120,31 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (requestPayload_payload_Lead_lead_QualificationStatus != null)
             {
                 requestPayload_payload_Lead.QualificationStatus = requestPayload_payload_Lead_lead_QualificationStatus;
+                requestPayload_payload_LeadIsNull = false;
+            }
+            Amazon.PartnerCentralSelling.Model.LeadInsights requestPayload_payload_Lead_payload_Lead_Insights = null;
+            
+             // populate Insights
+            var requestPayload_payload_Lead_payload_Lead_InsightsIsNull = true;
+            requestPayload_payload_Lead_payload_Lead_Insights = new Amazon.PartnerCentralSelling.Model.LeadInsights();
+            System.String requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore = null;
+            if (cmdletContext.Payload_Lead_Insights_LeadReadinessScore != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore = cmdletContext.Payload_Lead_Insights_LeadReadinessScore;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore != null)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights.LeadReadinessScore = requestPayload_payload_Lead_payload_Lead_Insights_payload_Lead_Insights_LeadReadinessScore;
+                requestPayload_payload_Lead_payload_Lead_InsightsIsNull = false;
+            }
+             // determine if requestPayload_payload_Lead_payload_Lead_Insights should be set to null
+            if (requestPayload_payload_Lead_payload_Lead_InsightsIsNull)
+            {
+                requestPayload_payload_Lead_payload_Lead_Insights = null;
+            }
+            if (requestPayload_payload_Lead_payload_Lead_Insights != null)
+            {
+                requestPayload_payload_Lead.Insights = requestPayload_payload_Lead_payload_Lead_Insights;
                 requestPayload_payload_LeadIsNull = false;
             }
             Amazon.PartnerCentralSelling.Model.LeadCustomer requestPayload_payload_Lead_payload_Lead_Customer = null;
@@ -822,8 +1360,29 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public Amazon.PartnerCentralSelling.Industry Lead_Customer_Industry { get; set; }
             public Amazon.PartnerCentralSelling.MarketSegment Customer_MarketSegment { get; set; }
             public System.String Lead_Customer_WebsiteUrl { get; set; }
+            public System.String Payload_Lead_Insights_LeadReadinessScore { get; set; }
             public List<Amazon.PartnerCentralSelling.Model.LeadInteraction> Lead_Interaction { get; set; }
             public System.String Lead_QualificationStatus { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_AccountName { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_CompanySize { get; set; }
+            public Amazon.PartnerCentralSelling.CountryCode Payload_ProspectingResult_Aws_Customer_Country { get; set; }
+            public List<System.String> Payload_ProspectingResult_Aws_Customer_EligibleProgram { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_Geo { get; set; }
+            public Amazon.PartnerCentralSelling.Industry Payload_ProspectingResult_Aws_Customer_Industry { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_PublicProfileSummary { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_Region { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_Segment { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_SubIndustry { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Customer_SubRegion { get; set; }
+            public System.DateTime? Payload_ProspectingResult_Aws_EndTime { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Insights_MarketplaceEngagementScore { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Insights_SolutionCategory { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Insights_SolutionScore { get; set; }
+            public System.String Payload_ProspectingResult_Aws_Insights_SolutionSubCategory { get; set; }
+            public System.DateTime? Payload_ProspectingResult_Aws_StartTime { get; set; }
+            public System.String Payload_ProspectingResult_Aws_TaskArn { get; set; }
+            public System.String Payload_ProspectingResult_Aws_TaskId { get; set; }
+            public System.String Payload_ProspectingResult_Aws_TaskName { get; set; }
             public Amazon.PartnerCentralSelling.EngagementContextType Type { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.CreateEngagementContextResponse, NewPCEngagementContextCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -32,12 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// <summary>
     /// Retrieves the firewall rules that you have defined for the specified firewall rule
     /// group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for
-    /// a VPC. 
+    /// a VPC.
     /// 
     ///  
     /// <para>
     /// A single call might return only a partial list of the rules. For information, see
-    /// <c>MaxResults</c>. 
+    /// <c>MaxResults</c>.
+    /// </para><para>
+    /// For rules that require asynchronous provisioning, the response includes <c>Status</c>
+    /// (see <a>FirewallRuleStatus</a>) and, on failure, <c>StatusMessage</c> with the reason.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleList")]

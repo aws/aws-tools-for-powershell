@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
     /// Performs an approximate nearest neighbor search query in a vector index using a query
     /// vector. By default, it returns the keys of approximate nearest neighbors. You can
     /// optionally include the computed distance (between the query vector and each vector
-    /// in the response), the vector data, and metadata of each vector in the response. 
+    /// in the response) and metadata of each vector in the response.
     /// 
     ///  
     /// <para>
@@ -45,15 +45,14 @@ namespace Amazon.PowerShell.Cmdlets.S3V
     /// </para><ul><li><para>
     /// With only <c>s3vectors:QueryVectors</c> permission, you can retrieve vector keys of
     /// approximate nearest neighbors and computed distances between these vectors. This permission
-    /// is sufficient only when you don't set any metadata filters and don't request vector
-    /// data or metadata (by keeping the <c>returnMetadata</c> parameter set to <c>false</c>
-    /// or not specified).
+    /// is sufficient only when you don't set any metadata filters and don't request metadata
+    /// (by keeping the <c>returnMetadata</c> parameter set to <c>false</c> or not specified).
     /// </para></li><li><para>
     /// If you specify a metadata filter or set <c>returnMetadata</c> to true, you must have
     /// both <c>s3vectors:QueryVectors</c> and <c>s3vectors:GetVectors</c> permissions. The
-    /// request fails with a <c>403 Forbidden error</c> if you request metadata filtering,
-    /// vector data, or metadata without the <c>s3vectors:GetVectors</c> permission.
-    /// </para></li></ul></dd></dl>
+    /// request fails with a <c>403 Forbidden error</c> if you request metadata filtering
+    /// or metadata without the <c>s3vectors:GetVectors</c> permission.
+    /// </para></li></ul></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "S3VVector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Vectors.Model.QueryOutputVector")]
@@ -163,6 +162,21 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         public System.String VectorBucketName { get; set; }
         #endregion
         
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>Pagination token from a previous request. The value of this field is empty for an
+        /// initial request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Vectors'.
@@ -182,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter Force { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -212,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             context.Filter = this.Filter;
             context.IndexArn = this.IndexArn;
             context.IndexName = this.IndexName;
+            context.NextToken = this.NextToken;
             if (this.QueryVector_Float32 != null)
             {
                 context.QueryVector_Float32 = new List<System.Single>(this.QueryVector_Float32);
@@ -239,7 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
             var request = new Amazon.S3Vectors.Model.QueryVectorsRequest();
             
             if (cmdletContext.Filter != null)
@@ -290,27 +317,51 @@ namespace Amazon.PowerShell.Cmdlets.S3V
                 request.VectorBucketName = cmdletContext.VectorBucketName;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -347,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public System.Management.Automation.PSObject Filter { get; set; }
             public System.String IndexArn { get; set; }
             public System.String IndexName { get; set; }
+            public System.String NextToken { get; set; }
             public List<System.Single> QueryVector_Float32 { get; set; }
             public System.Boolean? ReturnDistance { get; set; }
             public System.Boolean? ReturnMetadata { get; set; }

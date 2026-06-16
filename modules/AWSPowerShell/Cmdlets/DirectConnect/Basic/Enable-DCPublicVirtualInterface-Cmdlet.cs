@@ -85,9 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>
         /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
         /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
-        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
-        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
-        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note><para>The valid values are 1-2147483646.</para>
+        /// an error is returned. Use <c>asnLong</c> instead.</para><ul><li><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>. </para></li><li><para>If you enter a 4-byte ASN for the <c>asn</c> parameter, the API returns an error.
+        /// </para></li><li><para>If you are using a 2-byte ASN, the API response will include the 2-byte value for
+        /// both the <c>asn</c> and <c>asnLong</c> fields.</para></li></ul><para>The valid values are 1-2147483646.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,9 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The ASN when allocating a new public virtual interface. The valid range is from 1
-        /// to 4294967294 for BGP configuration.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
-        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
-        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// to 4294967294 for BGP configuration.</para><para>Note the following limitations when using <c>asnLong</c>:</para><ul><li><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para></li><li><para><c>asnLong</c> accepts any valid ASN value, regardless if it's 2-byte or 4-byte.
+        /// </para></li><li><para>When using a 4-byte <c>asnLong</c>, the API response returns <c>0</c> for the legacy
+        /// <c>asn</c> attribute since 4-byte ASN values exceed the maximum supported value of
+        /// 2,147,483,647.</para></li><li><para>If you are using a 2-byte ASN, the API response will include the 2-byte value for
+        /// both the <c>asn</c> and <c>asnLong</c> fields.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OwnerAccount { get; set; }
+        #endregion
+        
+        #region Parameter NewPublicVirtualInterfaceAllocation_RateLimit
+        /// <summary>
+        /// <para>
+        /// <para>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate
+        /// limit restricts the maximum bandwidth that the virtual interface can use on the parent
+        /// connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NewPublicVirtualInterfaceAllocation_RateLimit { get; set; }
         #endregion
         
         #region Parameter NewPublicVirtualInterfaceAllocation_RouteFilterPrefix
@@ -287,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPublicVirtualInterfaceAllocation_AsnLong = this.NewPublicVirtualInterfaceAllocation_AsnLong;
             context.NewPublicVirtualInterfaceAllocation_AuthKey = this.NewPublicVirtualInterfaceAllocation_AuthKey;
             context.NewPublicVirtualInterfaceAllocation_CustomerAddress = this.NewPublicVirtualInterfaceAllocation_CustomerAddress;
+            context.NewPublicVirtualInterfaceAllocation_RateLimit = this.NewPublicVirtualInterfaceAllocation_RateLimit;
             if (this.NewPublicVirtualInterfaceAllocation_RouteFilterPrefix != null)
             {
                 context.NewPublicVirtualInterfaceAllocation_RouteFilterPrefix = new List<Amazon.DirectConnect.Model.RouteFilterPrefix>(this.NewPublicVirtualInterfaceAllocation_RouteFilterPrefix);
@@ -400,6 +419,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPublicVirtualInterfaceAllocation.CustomerAddress = requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_CustomerAddress;
                 requestNewPublicVirtualInterfaceAllocationIsNull = false;
             }
+            System.String requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_RateLimit = null;
+            if (cmdletContext.NewPublicVirtualInterfaceAllocation_RateLimit != null)
+            {
+                requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_RateLimit = cmdletContext.NewPublicVirtualInterfaceAllocation_RateLimit;
+            }
+            if (requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_RateLimit != null)
+            {
+                request.NewPublicVirtualInterfaceAllocation.RateLimit = requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_RateLimit;
+                requestNewPublicVirtualInterfaceAllocationIsNull = false;
+            }
             List<Amazon.DirectConnect.Model.RouteFilterPrefix> requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_RouteFilterPrefix = null;
             if (cmdletContext.NewPublicVirtualInterfaceAllocation_RouteFilterPrefix != null)
             {
@@ -511,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.Int64? NewPublicVirtualInterfaceAllocation_AsnLong { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_AuthKey { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_CustomerAddress { get; set; }
+            public System.String NewPublicVirtualInterfaceAllocation_RateLimit { get; set; }
             public List<Amazon.DirectConnect.Model.RouteFilterPrefix> NewPublicVirtualInterfaceAllocation_RouteFilterPrefix { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> NewPublicVirtualInterfaceAllocation_Tag { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }

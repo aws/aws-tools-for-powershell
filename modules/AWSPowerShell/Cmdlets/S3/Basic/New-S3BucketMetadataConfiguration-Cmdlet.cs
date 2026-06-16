@@ -56,9 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Permissions for querying metadata tables</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><ul><li><para><c>s3:CreateBucketMetadataTableConfiguration</c></para><note><para>
     /// The IAM policy action name is the same for the V1 and V2 API operations.
-    /// </para></note></li><li><para><c>s3tables:CreateTableBucket</c></para></li><li><para><c>s3tables:CreateNamespace</c></para></li><li><para><c>s3tables:GetTable</c></para></li><li><para><c>s3tables:CreateTable</c></para></li><li><para><c>s3tables:PutTablePolicy</c></para></li><li><para><c>s3tables:PutTableEncryption</c></para></li><li><para><c>kms:DescribeKey</c></para></li></ul></dd></dl><para>
+    /// </para></note></li><li><para><c>s3tables:CreateTableBucket</c></para></li><li><para><c>s3tables:CreateNamespace</c></para></li><li><para><c>s3tables:GetTable</c></para></li><li><para><c>s3tables:CreateTable</c></para></li><li><para><c>s3tables:PutTablePolicy</c></para></li><li><para><c>s3tables:PutTableBucketPolicy</c></para></li><li><para><c>s3tables:PutTableEncryption</c></para></li><li><para><c>kms:DescribeKey</c></para></li><li><para><c>iam:PassRole</c> - required if you include an <c>AnnotationTableConfiguration</c>
+    /// with an IAM role.
+    /// </para></li></ul></dd></dl><para>
     /// The following operations are related to <c>CreateBucketMetadataConfiguration</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html">UpdateBucketMetadataInventoryTableConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a></para></li></ul><important><para>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataConfiguration.html">DeleteBucketMetadataConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html">GetBucketMetadataConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataInventoryTableConfiguration.html">UpdateBucketMetadataInventoryTableConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html">UpdateBucketMetadataJournalTableConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html">UpdateBucketMetadataAnnotationTableConfiguration</a></para></li></ul><para>
+    /// If you include an <c>AnnotationTableConfiguration</c> with an IAM role, the role must
+    /// have a trust policy that allows the Amazon S3 metadata service to assume it, and a
+    /// permissions policy that grants the actions needed to read annotations from your bucket.
+    /// The following examples show a trust policy and a permissions policy that you can adapt
+    /// for your bucket and account.
+    /// </para><important><para>
     /// You must URL encode any signed header values that contain spaces. For example, if
     /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
     /// must URL encode this value to <c>my%20%20file.txt</c>.
@@ -104,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState
+        /// <summary>
+        /// <para>
+        /// <para>The state of the annotation table. Valid values are <c>ENABLED</c> and <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.AnnotationConfigurationState")]
+        public Amazon.S3.AnnotationConfigurationState MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState { get; set; }
         #endregion
         
         #region Parameter InventoryTableConfiguration_ConfigurationState
@@ -173,6 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ExpirationState RecordExpiration_Expiration { get; set; }
         #endregion
         
+        #region Parameter MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified,
+        /// you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed
+        /// KMS key that's located in the same Region as the general purpose bucket that corresponds
+        /// to the metadata table configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
@@ -197,6 +229,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_AnnotationTableConfiguration_Role
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role used to manage the annotation table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetadataConfiguration_AnnotationTableConfiguration_Role { get; set; }
+        #endregion
+        
+        #region Parameter MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para> The encryption type specified for a metadata table. To specify server-side encryption
+        /// with Key Management Service (KMS) keys (SSE-KMS), use the <c>aws:kms</c> value. To
+        /// specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <c>AES256</c>
+        /// value. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.TableSseAlgorithm")]
+        public Amazon.S3.TableSseAlgorithm MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm { get; set; }
         #endregion
         
         #region Parameter MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm
@@ -282,6 +338,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState = this.MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState;
+            context.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn = this.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn;
+            context.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm = this.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm;
+            context.MetadataConfiguration_AnnotationTableConfiguration_Role = this.MetadataConfiguration_AnnotationTableConfiguration_Role;
             context.InventoryTableConfiguration_ConfigurationState = this.InventoryTableConfiguration_ConfigurationState;
             context.MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn = this.MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn;
             context.MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm = this.MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm;
@@ -476,6 +536,76 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.MetadataConfiguration.JournalTableConfiguration = requestMetadataConfiguration_metadataConfiguration_JournalTableConfiguration;
                 requestMetadataConfigurationIsNull = false;
             }
+            Amazon.S3.Model.AnnotationTableConfiguration requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration = null;
+            
+             // populate AnnotationTableConfiguration
+            var requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfigurationIsNull = true;
+            requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration = new Amazon.S3.Model.AnnotationTableConfiguration();
+            Amazon.S3.AnnotationConfigurationState requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_ConfigurationState = null;
+            if (cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_ConfigurationState = cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_ConfigurationState != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration.ConfigurationState = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_ConfigurationState;
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfigurationIsNull = false;
+            }
+            System.String requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_Role = null;
+            if (cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_Role != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_Role = cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_Role;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_Role != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration.Role = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_Role;
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfigurationIsNull = false;
+            }
+            Amazon.S3.Model.MetadataTableEncryptionConfiguration requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration = null;
+            
+             // populate EncryptionConfiguration
+            var requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfigurationIsNull = true;
+            requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration = new Amazon.S3.Model.MetadataTableEncryptionConfiguration();
+            System.String requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn = cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration.KmsKeyArn = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn;
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfigurationIsNull = false;
+            }
+            Amazon.S3.TableSseAlgorithm requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm = null;
+            if (cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm = cmdletContext.MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration.SseAlgorithm = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm;
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfigurationIsNull = false;
+            }
+             // determine if requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration should be set to null
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfigurationIsNull)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration = null;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration != null)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration.EncryptionConfiguration = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration_metadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration;
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfigurationIsNull = false;
+            }
+             // determine if requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration should be set to null
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfigurationIsNull)
+            {
+                requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration = null;
+            }
+            if (requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration != null)
+            {
+                request.MetadataConfiguration.AnnotationTableConfiguration = requestMetadataConfiguration_metadataConfiguration_AnnotationTableConfiguration;
+                requestMetadataConfigurationIsNull = false;
+            }
              // determine if request.MetadataConfiguration should be set to null
             if (requestMetadataConfigurationIsNull)
             {
@@ -540,6 +670,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public Amazon.S3.AnnotationConfigurationState MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState { get; set; }
+            public System.String MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_KmsKeyArn { get; set; }
+            public Amazon.S3.TableSseAlgorithm MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm { get; set; }
+            public System.String MetadataConfiguration_AnnotationTableConfiguration_Role { get; set; }
             public Amazon.S3.InventoryConfigurationState InventoryTableConfiguration_ConfigurationState { get; set; }
             public System.String MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3.TableSseAlgorithm MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm { get; set; }

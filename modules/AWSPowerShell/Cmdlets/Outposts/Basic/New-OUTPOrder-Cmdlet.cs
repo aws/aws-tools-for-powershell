@@ -105,6 +105,26 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public Amazon.Outposts.PaymentTerm PaymentTerm { get; set; }
         #endregion
         
+        #region Parameter QuoteIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the quote to use for the order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QuoteIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter QuoteOptionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the quote option to use for the order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QuoteOptionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Order'.
@@ -170,6 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             #endif
             context.PaymentTerm = this.PaymentTerm;
+            context.QuoteIdentifier = this.QuoteIdentifier;
+            context.QuoteOptionIdentifier = this.QuoteOptionIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.PaymentTerm != null)
             {
                 request.PaymentTerm = cmdletContext.PaymentTerm;
+            }
+            if (cmdletContext.QuoteIdentifier != null)
+            {
+                request.QuoteIdentifier = cmdletContext.QuoteIdentifier;
+            }
+            if (cmdletContext.QuoteOptionIdentifier != null)
+            {
+                request.QuoteOptionIdentifier = cmdletContext.QuoteOptionIdentifier;
             }
             
             CmdletOutput output;
@@ -261,6 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             public System.String OutpostIdentifier { get; set; }
             public Amazon.Outposts.PaymentOption PaymentOption { get; set; }
             public Amazon.Outposts.PaymentTerm PaymentTerm { get; set; }
+            public System.String QuoteIdentifier { get; set; }
+            public System.String QuoteOptionIdentifier { get; set; }
             public System.Func<Amazon.Outposts.Model.CreateOrderResponse, NewOUTPOrderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Order;
         }

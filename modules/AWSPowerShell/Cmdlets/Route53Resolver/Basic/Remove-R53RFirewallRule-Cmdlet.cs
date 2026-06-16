@@ -30,7 +30,14 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Deletes the specified firewall rule.
+    /// Deletes the specified firewall rule. Identify the rule using either <c>FirewallDomainListId</c>
+    /// (for domain-list and DNS Firewall Advanced rules) or <c>FirewallThreatProtectionId</c>
+    /// (for partner-managed and DNS Firewall Advanced rules) — together with <c>FirewallRuleGroupId</c>.
+    /// 
+    ///  
+    /// <para><c>DeleteFirewallRule</c> is the only operation that succeeds against a rule whose
+    /// <c>Status</c> is <c>CREATION_FAILED</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "R53RFirewallRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53Resolver.Model.FirewallRule")]

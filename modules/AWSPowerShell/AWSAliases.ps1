@@ -24994,6 +24994,7 @@ Set-Alias -Name PC-GetAwsOpportunitySummary -Value Get-PCAwsOpportunitySummary
 Set-Alias -Name PC-GetEngagement -Value Get-PCEngagement
 Set-Alias -Name PC-GetEngagementInvitation -Value Get-PCEngagementInvitation
 Set-Alias -Name PC-GetOpportunity -Value Get-PCOpportunity
+Set-Alias -Name PC-GetProspectingFromEngagementTask -Value Get-PCProspectingFromEngagementTask
 Set-Alias -Name PC-GetResourceSnapshot -Value Get-PCResourceSnapshot
 Set-Alias -Name PC-GetResourceSnapshotJob -Value Get-PCResourceSnapshotJob
 Set-Alias -Name Get-PCSellingSystemSettings -Value Get-PCSellingSystemSetting
@@ -25022,6 +25023,9 @@ Set-Alias -Name PC-ListOpportunities -Value Get-PCOpportunityList
 Set-Alias -Name List-PCOpportunityFromEngagementTasks -Value Get-PCOpportunityFromEngagementTaskList
 Set-Alias -Name List-PCOpportunityFromEngagementTaskList -Value Get-PCOpportunityFromEngagementTaskList
 Set-Alias -Name PC-ListOpportunityFromEngagementTasks -Value Get-PCOpportunityFromEngagementTaskList
+Set-Alias -Name List-PCProspectingFromEngagementTasks -Value Get-PCProspectingFromEngagementTaskList
+Set-Alias -Name List-PCProspectingFromEngagementTaskList -Value Get-PCProspectingFromEngagementTaskList
+Set-Alias -Name PC-ListProspectingFromEngagementTasks -Value Get-PCProspectingFromEngagementTaskList
 Set-Alias -Name List-PCResourceSnapshotJobs -Value Get-PCResourceSnapshotJobList
 Set-Alias -Name List-PCResourceSnapshotJobList -Value Get-PCResourceSnapshotJobList
 Set-Alias -Name PC-ListResourceSnapshotJobs -Value Get-PCResourceSnapshotJobList
@@ -25045,6 +25049,7 @@ Set-Alias -Name Start-PCEngagementFromOpportunityTask -Value Invoke-PCStartEngag
 Set-Alias -Name Start-PCStartEngagementFromOpportunityTask -Value Invoke-PCStartEngagementFromOpportunityTask
 Set-Alias -Name PC-StartEngagementFromOpportunityTask -Value Invoke-PCStartEngagementFromOpportunityTask
 Set-Alias -Name PC-StartOpportunityFromEngagementTask -Value Start-PCOpportunityFromEngagementTask
+Set-Alias -Name PC-StartProspectingFromEngagementTask -Value Start-PCProspectingFromEngagementTask
 Set-Alias -Name PC-StartResourceSnapshotJob -Value Start-PCResourceSnapshotJob
 Set-Alias -Name PC-StopResourceSnapshotJob -Value Stop-PCResourceSnapshotJob
 Set-Alias -Name PC-SubmitOpportunity -Value Submit-PCOpportunity
@@ -29275,6 +29280,8 @@ Set-Alias -Name Delete-S3CORSConfiguration -Value Remove-S3CORSConfiguration
 Set-Alias -Name S3-DeleteCORSConfiguration -Value Remove-S3CORSConfiguration
 Set-Alias -Name Delete-S3LifecycleConfiguration -Value Remove-S3LifecycleConfiguration
 Set-Alias -Name S3-DeleteLifecycleConfiguration -Value Remove-S3LifecycleConfiguration
+Set-Alias -Name Delete-S3ObjectAnnotation -Value Remove-S3ObjectAnnotation
+Set-Alias -Name S3-DeleteObjectAnnotation -Value Remove-S3ObjectAnnotation
 Set-Alias -Name Delete-S3ObjectTagging -Value Remove-S3ObjectTagSet
 Set-Alias -Name Delete-S3ObjectTagSet -Value Remove-S3ObjectTagSet
 Set-Alias -Name S3-DeleteObjectTagging -Value Remove-S3ObjectTagSet
@@ -29308,6 +29315,7 @@ Set-Alias -Name S3-GetCORSConfiguration -Value Get-S3CORSConfiguration
 Set-Alias -Name S3-GetLifecycleConfiguration -Value Get-S3LifecycleConfiguration
 Set-Alias -Name Get-S3ObjectAcl -Value Get-S3ObjectACL
 Set-Alias -Name S3-GetObjectAcl -Value Get-S3ObjectACL
+Set-Alias -Name S3-GetObjectAnnotation -Value Get-S3ObjectAnnotation
 Set-Alias -Name Get-S3ObjectAttributes -Value Get-S3ObjectAttribute
 Set-Alias -Name S3-GetObjectAttributes -Value Get-S3ObjectAttribute
 Set-Alias -Name S3-GetObjectLegalHold -Value Get-S3ObjectLegalHold
@@ -29338,6 +29346,9 @@ Set-Alias -Name S3-ListBuckets -Value Get-S3Bucket
 Set-Alias -Name List-S3DirectoryBuckets -Value Get-S3DirectoryBucket
 Set-Alias -Name List-S3DirectoryBucket -Value Get-S3DirectoryBucket
 Set-Alias -Name S3-ListDirectoryBuckets -Value Get-S3DirectoryBucket
+Set-Alias -Name List-S3ObjectAnnotations -Value Get-S3ObjectAnnotationList
+Set-Alias -Name List-S3ObjectAnnotationList -Value Get-S3ObjectAnnotationList
+Set-Alias -Name S3-ListObjectAnnotations -Value Get-S3ObjectAnnotationList
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name List-S3Object -Value Get-S3Object
 Set-Alias -Name S3-ListObjects -Value Get-S3Object
@@ -29391,6 +29402,8 @@ Set-Alias -Name Put-S3LifecycleConfiguration -Value Write-S3LifecycleConfigurati
 Set-Alias -Name S3-PutLifecycleConfiguration -Value Write-S3LifecycleConfiguration
 Set-Alias -Name Put-S3ObjectAcl -Value Set-S3ObjectACL
 Set-Alias -Name S3-PutObjectAcl -Value Set-S3ObjectACL
+Set-Alias -Name Put-S3ObjectAnnotation -Value Write-S3ObjectAnnotation
+Set-Alias -Name S3-PutObjectAnnotation -Value Write-S3ObjectAnnotation
 Set-Alias -Name Put-S3ObjectLegalHold -Value Write-S3ObjectLegalHold
 Set-Alias -Name S3-PutObjectLegalHold -Value Write-S3ObjectLegalHold
 Set-Alias -Name Put-S3ObjectLockConfiguration -Value Write-S3ObjectLockConfiguration
@@ -29405,6 +29418,7 @@ Set-Alias -Name S3-PutPublicAccessBlock -Value Add-S3PublicAccessBlock
 Set-Alias -Name S3-RenameObject -Value Rename-S3Object
 Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
 Set-Alias -Name S3-SelectObjectContent -Value Select-S3ObjectContent
+Set-Alias -Name S3-UpdateBucketMetadataAnnotationTableConfiguration -Value Update-S3BucketMetadataAnnotationTableConfiguration
 Set-Alias -Name S3-UpdateBucketMetadataInventoryTableConfiguration -Value Update-S3BucketMetadataInventoryTableConfiguration
 Set-Alias -Name S3-UpdateBucketMetadataJournalTableConfiguration -Value Update-S3BucketMetadataJournalTableConfiguration
 Set-Alias -Name S3-UpdateObjectEncryption -Value Update-S3ObjectEncryption

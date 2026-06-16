@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.Int32? Mtu { get; set; }
         #endregion
         
+        #region Parameter RateLimit
+        /// <summary>
+        /// <para>
+        /// <para>The rate limit (bandwidth allocation) to apply to the virtual interface. Use this
+        /// to update the bandwidth allocation on an existing virtual interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RateLimit { get; set; }
+        #endregion
+        
         #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
@@ -150,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             context.EnableSiteLink = this.EnableSiteLink;
             context.Mtu = this.Mtu;
+            context.RateLimit = this.RateLimit;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
             #if MODULAR
             if (this.VirtualInterfaceId == null && ParameterWasBound(nameof(this.VirtualInterfaceId)))
@@ -181,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.Mtu != null)
             {
                 request.Mtu = cmdletContext.Mtu.Value;
+            }
+            if (cmdletContext.RateLimit != null)
+            {
+                request.RateLimit = cmdletContext.RateLimit;
             }
             if (cmdletContext.VirtualInterfaceId != null)
             {
@@ -247,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             public System.Boolean? EnableSiteLink { get; set; }
             public System.Int32? Mtu { get; set; }
+            public System.String RateLimit { get; set; }
             public System.String VirtualInterfaceId { get; set; }
             public System.String VirtualInterfaceName { get; set; }
             public System.Func<Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse, UpdateDCVirtualInterfaceAttributeCmdlet, object> Select { get; set; } =

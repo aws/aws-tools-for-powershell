@@ -240,6 +240,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ComputeResourceRequirements_MaxMemoryRequiredInMb { get; set; }
         #endregion
         
+        #region Parameter Specification_Container_ContainerMetricsConfig_MetricsEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>A list of metrics endpoints to scrape from the container. Each endpoint specifies
+        /// the path where the container exposes Prometheus-formatted metrics and the frequency
+        /// at which to publish them. You can specify a maximum of 1 endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Specification_Container_ContainerMetricsConfig_MetricsEndpoints")]
+        public Amazon.SageMaker.Model.MetricsEndpoint[] Specification_Container_ContainerMetricsConfig_MetricsEndpoint { get; set; }
+        #endregion
+        
         #region Parameter ComputeResourceRequirements_MinMemoryRequiredInMb
         /// <summary>
         /// <para>
@@ -461,6 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired = this.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired;
             context.ComputeResourceRequirements_NumberOfCpuCoresRequired = this.ComputeResourceRequirements_NumberOfCpuCoresRequired;
             context.Container_ArtifactUrl = this.Container_ArtifactUrl;
+            if (this.Specification_Container_ContainerMetricsConfig_MetricsEndpoint != null)
+            {
+                context.Specification_Container_ContainerMetricsConfig_MetricsEndpoint = new List<Amazon.SageMaker.Model.MetricsEndpoint>(this.Specification_Container_ContainerMetricsConfig_MetricsEndpoint);
+            }
             if (this.Container_Environment != null)
             {
                 context.Container_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -814,51 +835,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Specification.StartupParameters = requestSpecification_specification_StartupParameters;
                 requestSpecificationIsNull = false;
             }
-            Amazon.SageMaker.Model.InferenceComponentContainerSpecification requestSpecification_specification_Container = null;
-            
-             // populate Container
-            var requestSpecification_specification_ContainerIsNull = true;
-            requestSpecification_specification_Container = new Amazon.SageMaker.Model.InferenceComponentContainerSpecification();
-            System.String requestSpecification_specification_Container_container_ArtifactUrl = null;
-            if (cmdletContext.Container_ArtifactUrl != null)
-            {
-                requestSpecification_specification_Container_container_ArtifactUrl = cmdletContext.Container_ArtifactUrl;
-            }
-            if (requestSpecification_specification_Container_container_ArtifactUrl != null)
-            {
-                requestSpecification_specification_Container.ArtifactUrl = requestSpecification_specification_Container_container_ArtifactUrl;
-                requestSpecification_specification_ContainerIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestSpecification_specification_Container_container_Environment = null;
-            if (cmdletContext.Container_Environment != null)
-            {
-                requestSpecification_specification_Container_container_Environment = cmdletContext.Container_Environment;
-            }
-            if (requestSpecification_specification_Container_container_Environment != null)
-            {
-                requestSpecification_specification_Container.Environment = requestSpecification_specification_Container_container_Environment;
-                requestSpecification_specification_ContainerIsNull = false;
-            }
-            System.String requestSpecification_specification_Container_container_Image = null;
-            if (cmdletContext.Container_Image != null)
-            {
-                requestSpecification_specification_Container_container_Image = cmdletContext.Container_Image;
-            }
-            if (requestSpecification_specification_Container_container_Image != null)
-            {
-                requestSpecification_specification_Container.Image = requestSpecification_specification_Container_container_Image;
-                requestSpecification_specification_ContainerIsNull = false;
-            }
-             // determine if requestSpecification_specification_Container should be set to null
-            if (requestSpecification_specification_ContainerIsNull)
-            {
-                requestSpecification_specification_Container = null;
-            }
-            if (requestSpecification_specification_Container != null)
-            {
-                request.Specification.Container = requestSpecification_specification_Container;
-                requestSpecificationIsNull = false;
-            }
             Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements requestSpecification_specification_ComputeResourceRequirements = null;
             
              // populate ComputeResourceRequirements
@@ -912,6 +888,76 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_ComputeResourceRequirements != null)
             {
                 request.Specification.ComputeResourceRequirements = requestSpecification_specification_ComputeResourceRequirements;
+                requestSpecificationIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentContainerSpecification requestSpecification_specification_Container = null;
+            
+             // populate Container
+            var requestSpecification_specification_ContainerIsNull = true;
+            requestSpecification_specification_Container = new Amazon.SageMaker.Model.InferenceComponentContainerSpecification();
+            System.String requestSpecification_specification_Container_container_ArtifactUrl = null;
+            if (cmdletContext.Container_ArtifactUrl != null)
+            {
+                requestSpecification_specification_Container_container_ArtifactUrl = cmdletContext.Container_ArtifactUrl;
+            }
+            if (requestSpecification_specification_Container_container_ArtifactUrl != null)
+            {
+                requestSpecification_specification_Container.ArtifactUrl = requestSpecification_specification_Container_container_ArtifactUrl;
+                requestSpecification_specification_ContainerIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestSpecification_specification_Container_container_Environment = null;
+            if (cmdletContext.Container_Environment != null)
+            {
+                requestSpecification_specification_Container_container_Environment = cmdletContext.Container_Environment;
+            }
+            if (requestSpecification_specification_Container_container_Environment != null)
+            {
+                requestSpecification_specification_Container.Environment = requestSpecification_specification_Container_container_Environment;
+                requestSpecification_specification_ContainerIsNull = false;
+            }
+            System.String requestSpecification_specification_Container_container_Image = null;
+            if (cmdletContext.Container_Image != null)
+            {
+                requestSpecification_specification_Container_container_Image = cmdletContext.Container_Image;
+            }
+            if (requestSpecification_specification_Container_container_Image != null)
+            {
+                requestSpecification_specification_Container.Image = requestSpecification_specification_Container_container_Image;
+                requestSpecification_specification_ContainerIsNull = false;
+            }
+            Amazon.SageMaker.Model.ContainerMetricsConfig requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig = null;
+            
+             // populate ContainerMetricsConfig
+            var requestSpecification_specification_Container_specification_Container_ContainerMetricsConfigIsNull = true;
+            requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig = new Amazon.SageMaker.Model.ContainerMetricsConfig();
+            List<Amazon.SageMaker.Model.MetricsEndpoint> requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig_specification_Container_ContainerMetricsConfig_MetricsEndpoint = null;
+            if (cmdletContext.Specification_Container_ContainerMetricsConfig_MetricsEndpoint != null)
+            {
+                requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig_specification_Container_ContainerMetricsConfig_MetricsEndpoint = cmdletContext.Specification_Container_ContainerMetricsConfig_MetricsEndpoint;
+            }
+            if (requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig_specification_Container_ContainerMetricsConfig_MetricsEndpoint != null)
+            {
+                requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig.MetricsEndpoints = requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig_specification_Container_ContainerMetricsConfig_MetricsEndpoint;
+                requestSpecification_specification_Container_specification_Container_ContainerMetricsConfigIsNull = false;
+            }
+             // determine if requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig should be set to null
+            if (requestSpecification_specification_Container_specification_Container_ContainerMetricsConfigIsNull)
+            {
+                requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig = null;
+            }
+            if (requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig != null)
+            {
+                requestSpecification_specification_Container.ContainerMetricsConfig = requestSpecification_specification_Container_specification_Container_ContainerMetricsConfig;
+                requestSpecification_specification_ContainerIsNull = false;
+            }
+             // determine if requestSpecification_specification_Container should be set to null
+            if (requestSpecification_specification_ContainerIsNull)
+            {
+                requestSpecification_specification_Container = null;
+            }
+            if (requestSpecification_specification_Container != null)
+            {
+                request.Specification.Container = requestSpecification_specification_Container;
                 requestSpecificationIsNull = false;
             }
              // determine if request.Specification should be set to null
@@ -993,6 +1039,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Single? ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired { get; set; }
             public System.Single? ComputeResourceRequirements_NumberOfCpuCoresRequired { get; set; }
             public System.String Container_ArtifactUrl { get; set; }
+            public List<Amazon.SageMaker.Model.MetricsEndpoint> Specification_Container_ContainerMetricsConfig_MetricsEndpoint { get; set; }
             public Dictionary<System.String, System.String> Container_Environment { get; set; }
             public System.String Container_Image { get; set; }
             public System.Boolean? DataCacheConfig_EnableCaching { get; set; }

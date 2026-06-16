@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// A virtual interface (VLAN) transmits the traffic between the Direct Connect location
     /// and the customer network.
     /// </para><ul><li><para>
-    /// If you're using an <c>asn</c>, the response includes ASN value in both the <c>asn</c>
+    /// If you're using an <c>asn</c>, the response includes the ASN value in both the <c>asn</c>
     /// and <c>asnLong</c> fields.
     /// </para></li><li><para>
     /// If you're using <c>asnLong</c>, the response returns a value of <c>0</c> (zero) for

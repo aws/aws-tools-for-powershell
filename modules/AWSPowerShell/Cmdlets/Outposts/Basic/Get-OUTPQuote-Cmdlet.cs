@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter QuoteIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or ARN of the quote.</para>
+        /// <para>The ID of the quote.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

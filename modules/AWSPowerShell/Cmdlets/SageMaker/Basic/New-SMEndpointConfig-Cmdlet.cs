@@ -142,6 +142,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
         #endregion
         
+        #region Parameter MetricsConfig_EnableDetailedObservability
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether detailed observability is enabled for the endpoint. When set to
+        /// <c>True</c>, the following metrics are published at the configured frequency:</para><ul><li><para>Container-level inference metrics scraped from the container's Prometheus endpoint
+        /// (such as request latency, error counts, and throughput). Available metrics vary by
+        /// framework.</para></li><li><para>Per-GPU metrics (utilization, memory, and temperature) attributed to individual inference
+        /// components.</para></li><li><para>Per-instance host metrics (CPU, memory, and disk utilization).</para></li><li><para>Inference component placement metrics (copy count per Availability Zone).</para></li></ul><para>For first-party and Deep Learning Containers (DLC), the Prometheus endpoint path is
+        /// determined automatically. For Bring-Your-Own-Container (BYOC) cases, you can optionally
+        /// set <c>ContainerMetricsConfig</c> to specify a custom endpoint path. If not specified,
+        /// the default path <c>/metrics</c> on port <c>8080</c> is used.</para><para>When set to <c>False</c>, these additional metrics are not published. Standard invocation
+        /// and utilization metrics controlled by <c>EnableEnhancedMetrics</c> are unaffected.</para><para>The default value for new endpoint configurations is <c>True</c>. For existing endpoint
+        /// configurations created before this feature, the value is <c>False</c> unless explicitly
+        /// set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MetricsConfig_EnableDetailedObservability { get; set; }
+        #endregion
+        
         #region Parameter MetricsConfig_EnableEnhancedMetric
         /// <summary>
         /// <para>
@@ -482,10 +502,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The interval, in seconds, at which metrics are published to Amazon CloudWatch. Defaults
         /// to <c>60</c>. Valid values: <c>10</c>, <c>30</c>, <c>60</c>, <c>120</c>, <c>180</c>,
-        /// <c>240</c>, <c>300</c>. When <c>EnableEnhancedMetrics</c> is set to <c>False</c>,
-        /// this interval applies to utilization metrics only; invocation metrics continue to
-        /// be published at the default 60-second interval. When <c>EnableEnhancedMetrics</c>
-        /// is set to <c>True</c>, this interval applies to both utilization and invocation metrics.</para>
+        /// <c>240</c>, <c>300</c>.</para><para>When <c>EnableEnhancedMetrics</c> is set to <c>False</c>, this interval applies to
+        /// utilization metrics only. Invocation metrics continue to be published at the default
+        /// 60-second interval. When <c>EnableEnhancedMetrics</c> is set to <c>True</c>, this
+        /// interval applies to both utilization and invocation metrics.</para><para>When <c>EnableDetailedObservability</c> is set to <c>True</c>, this interval applies
+        /// to per-GPU metrics, per-instance host metrics, container metrics, and fleet-level
+        /// inference component lifecycle and placement metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -849,6 +871,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.TextConfig_Language = this.TextConfig_Language;
             context.ShapConfig_UseLogit = this.ShapConfig_UseLogit;
             context.KmsKeyId = this.KmsKeyId;
+            context.MetricsConfig_EnableDetailedObservability = this.MetricsConfig_EnableDetailedObservability;
             context.MetricsConfig_EnableEnhancedMetric = this.MetricsConfig_EnableEnhancedMetric;
             context.MetricsConfig_MetricPublishFrequencyInSecond = this.MetricsConfig_MetricPublishFrequencyInSecond;
             if (this.ProductionVariant != null)
@@ -1415,6 +1438,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate MetricsConfig
             var requestMetricsConfigIsNull = true;
             request.MetricsConfig = new Amazon.SageMaker.Model.MetricsConfig();
+            System.Boolean? requestMetricsConfig_metricsConfig_EnableDetailedObservability = null;
+            if (cmdletContext.MetricsConfig_EnableDetailedObservability != null)
+            {
+                requestMetricsConfig_metricsConfig_EnableDetailedObservability = cmdletContext.MetricsConfig_EnableDetailedObservability.Value;
+            }
+            if (requestMetricsConfig_metricsConfig_EnableDetailedObservability != null)
+            {
+                request.MetricsConfig.EnableDetailedObservability = requestMetricsConfig_metricsConfig_EnableDetailedObservability.Value;
+                requestMetricsConfigIsNull = false;
+            }
             System.Boolean? requestMetricsConfig_metricsConfig_EnableEnhancedMetric = null;
             if (cmdletContext.MetricsConfig_EnableEnhancedMetric != null)
             {
@@ -1574,6 +1607,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ClarifyTextLanguage TextConfig_Language { get; set; }
             public System.Boolean? ShapConfig_UseLogit { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? MetricsConfig_EnableDetailedObservability { get; set; }
             public System.Boolean? MetricsConfig_EnableEnhancedMetric { get; set; }
             public System.Int32? MetricsConfig_MetricPublishFrequencyInSecond { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }

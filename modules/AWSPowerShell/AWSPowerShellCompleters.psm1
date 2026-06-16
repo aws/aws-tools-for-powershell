@@ -63018,7 +63018,9 @@ $PC_Completers = {
             ($_ -eq "New-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Update-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_CountryCode") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_CountryCode")
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_CountryCode") -Or
+            ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country") -Or
+            ($_ -eq "Update-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country")
         }
         {
             $v = "AD","AE","AF","AG","AI","AL","AM","AN","AO","AQ","AR","AS","AT","AU","AW","AX","AZ","BA","BB","BD","BE","BF","BG","BH","BI","BJ","BL","BM","BN","BO","BQ","BR","BS","BT","BV","BW","BY","BZ","CA","CC","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CU","CV","CW","CX","CY","CZ","DE","DJ","DK","DM","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FI","FJ","FK","FM","FO","FR","GA","GB","GD","GE","GF","GG","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY","HK","HM","HN","HR","HT","HU","ID","IE","IL","IM","IN","IO","IQ","IR","IS","IT","JE","JM","JO","JP","KE","KG","KH","KI","KM","KN","KR","KW","KY","KZ","LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY","MA","MC","MD","ME","MF","MG","MH","MK","ML","MM","MN","MO","MP","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","RS","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","SS","ST","SV","SX","SY","SZ","TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ","UA","UG","UM","US","UY","UZ","VA","VC","VE","VG","VI","VN","VU","WF","WS","YE","YT","ZA","ZM","ZW"
@@ -63041,7 +63043,7 @@ $PC_Completers = {
             ($_ -eq "Update-PCEngagementContext/Type")
         }
         {
-            $v = "CustomerProject","Lead"
+            $v = "CustomerProject","Lead","ProspectingResult"
             break
         }
 
@@ -63071,7 +63073,9 @@ $PC_Completers = {
             ($_ -eq "Update-PCEngagementContext/Lead_Customer_Industry") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_Industry") -Or
             ($_ -eq "New-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
-            ($_ -eq "Update-PCEngagementContext/Payload_CustomerProject_Customer_Industry")
+            ($_ -eq "Update-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
+            ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Industry") -Or
+            ($_ -eq "Update-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Industry")
         }
         {
             $v = "Aerospace","Agriculture","Automotive","Computers and Electronics","Consumer Goods","Education","Energy - Oil and Gas","Energy - Power and Utilities","Financial Services","Gaming","Government","Healthcare","Hospitality","Life Sciences","Manufacturing","Marketing and Advertising","Media and Entertainment","Mining","Non-Profit Organization","Other","Professional Services","Real Estate and Construction","Retail","Software and Internet","Telecommunications","Transportation and Logistics","Travel","Wholesale and Distribution"
@@ -63158,6 +63162,13 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.ProspectingFromEngagementTaskSortName
+        "Get-PCProspectingFromEngagementTaskList/Sort_SortBy"
+        {
+            $v = "FailedEngagementCount","StartTime","TaskName"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.RelatedEntityType
         {
             ($_ -eq "Invoke-PCAssociateOpportunity/RelatedEntityType") -Or
@@ -63240,6 +63251,7 @@ $PC_Completers = {
             ($_ -eq "Get-PCEngagementList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCOpportunityFromEngagementTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCOpportunityList/Sort_SortOrder") -Or
+            ($_ -eq "Get-PCProspectingFromEngagementTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCResourceSnapshotJobList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCSolutionList/Sort_SortOrder")
         }
@@ -63299,14 +63311,16 @@ $PC_map = @{
     "Origin"=@("Invoke-PCCreateOpportunity")
     "ParticipantType"=@("Get-PCEngagementInvitationList")
     "Payload_CustomerProject_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "Payload_ProspectingResult_Aws_Customer_Country"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "Payload_ProspectingResult_Aws_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Project_AwsPartition"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_ExpectedContractDuration_Term"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
     "ResourceType"=@("Get-PCEngagementResourceAssociationList","Get-PCResourceSnapshot","Get-PCResourceSnapshotList","Invoke-PCResourceSnapshot","Invoke-PCResourceSnapshotJob")
     "SoftwareRevenue_DeliveryModel"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
-    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
+    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
+    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCProspectingFromEngagementTaskList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
     "Status"=@("Get-PCResourceSnapshotJobList")
     "Type"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Value_CurrencyCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
@@ -63378,6 +63392,7 @@ $PC_SelectMap = @{
                "Get-PCEngagement",
                "Get-PCEngagementInvitation",
                "Get-PCOpportunity",
+               "Get-PCProspectingFromEngagementTask",
                "Get-PCResourceSnapshot",
                "Get-PCResourceSnapshotJob",
                "Get-PCSellingSystemSetting",
@@ -63389,6 +63404,7 @@ $PC_SelectMap = @{
                "Get-PCEngagementList",
                "Get-PCOpportunityList",
                "Get-PCOpportunityFromEngagementTaskList",
+               "Get-PCProspectingFromEngagementTaskList",
                "Get-PCResourceSnapshotJobList",
                "Get-PCResourceSnapshotList",
                "Get-PCSolutionList",
@@ -63398,6 +63414,7 @@ $PC_SelectMap = @{
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
                "Invoke-PCStartEngagementFromOpportunityTask",
                "Start-PCOpportunityFromEngagementTask",
+               "Start-PCProspectingFromEngagementTask",
                "Start-PCResourceSnapshotJob",
                "Stop-PCResourceSnapshotJob",
                "Submit-PCOpportunity",
@@ -73966,6 +73983,16 @@ $S3_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3.AnnotationConfigurationState
+        {
+            ($_ -eq "Update-S3BucketMetadataAnnotationTableConfiguration/AnnotationTableConfiguration_ConfigurationState") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.S3.BucketAbacStatus
         "Write-S3BucketAbac/AbacStatus_Status"
         {
@@ -73992,6 +74019,7 @@ $S3_Completers = {
             ($_ -eq "Set-S3BucketACL/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
+            ($_ -eq "Update-S3BucketMetadataAnnotationTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3ObjectEncryption/ChecksumAlgorithm") -Or
@@ -74009,6 +74037,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3CORSConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3LifecycleConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3ObjectAnnotation/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3ObjectLegalHold/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3ObjectRetention/ChecksumAlgorithm") -Or
@@ -74022,6 +74051,7 @@ $S3_Completers = {
         # Amazon.S3.ChecksumMode
         {
             ($_ -eq "Copy-S3Object/ChecksumMode") -Or
+            ($_ -eq "Get-S3ObjectAnnotation/ChecksumMode") -Or
             ($_ -eq "Get-S3ObjectMetadata/ChecksumMode") -Or
             ($_ -eq "Read-S3Object/ChecksumMode")
         }
@@ -74172,6 +74202,8 @@ $S3_Completers = {
             ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectACL/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectAnnotation/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectAnnotationList/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
@@ -74180,10 +74212,12 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
             ($_ -eq "Get-S3Version/RequestPayer") -Or
             ($_ -eq "Remove-S3Object/RequestPayer") -Or
+            ($_ -eq "Remove-S3ObjectAnnotation/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
             ($_ -eq "Set-S3ObjectACL/RequestPayer") -Or
             ($_ -eq "Update-S3ObjectEncryption/RequestPayer") -Or
             ($_ -eq "Write-S3Object/RequestPayer") -Or
+            ($_ -eq "Write-S3ObjectAnnotation/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectRetention/RequestPayer") -Or
@@ -74272,7 +74306,9 @@ $S3_Completers = {
 
         # Amazon.S3.TableSseAlgorithm
         {
+            ($_ -eq "Update-S3BucketMetadataAnnotationTableConfiguration/AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm")
         }
@@ -74307,10 +74343,12 @@ $S3_map = @{
     "AbacStatus_Status"=@("Write-S3BucketAbac")
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
+    "AnnotationTableConfiguration_ConfigurationState"=@("Update-S3BucketMetadataAnnotationTableConfiguration")
+    "AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("Update-S3BucketMetadataAnnotationTableConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Update-S3ObjectEncryption","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
-    "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataAnnotationTableConfiguration","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Update-S3ObjectEncryption","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectAnnotation","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectAnnotation","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
@@ -74323,6 +74361,8 @@ $S3_map = @{
     "InventoryTableConfiguration_ConfigurationState"=@("New-S3BucketMetadataConfiguration","Update-S3BucketMetadataInventoryTableConfiguration")
     "JournalTableConfiguration_RecordExpiration_Expiration"=@("Update-S3BucketMetadataJournalTableConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
+    "MetadataConfiguration_AnnotationTableConfiguration_ConfigurationState"=@("New-S3BucketMetadataConfiguration")
+    "MetadataConfiguration_AnnotationTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
@@ -74332,7 +74372,7 @@ $S3_map = @{
     "RecordExpiration_Expiration"=@("New-S3BucketMetadataConfiguration")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Set-S3ObjectACL","Update-S3ObjectEncryption","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAnnotation","Get-S3ObjectAnnotationList","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Remove-S3ObjectAnnotation","Restore-S3Object","Set-S3ObjectACL","Update-S3ObjectEncryption","Write-S3Object","Write-S3ObjectAnnotation","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -74419,6 +74459,7 @@ $S3_SelectMap = @{
                "Remove-S3BucketWebsite",
                "Remove-S3CORSConfiguration",
                "Remove-S3LifecycleConfiguration",
+               "Remove-S3ObjectAnnotation",
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
@@ -74446,6 +74487,7 @@ $S3_SelectMap = @{
                "Get-S3CORSConfiguration",
                "Get-S3LifecycleConfiguration",
                "Get-S3ObjectACL",
+               "Get-S3ObjectAnnotation",
                "Get-S3ObjectAttribute",
                "Get-S3ObjectLegalHold",
                "Get-S3ObjectLockConfiguration",
@@ -74460,6 +74502,7 @@ $S3_SelectMap = @{
                "Get-S3BucketMetricsConfigurationList",
                "Get-S3Bucket",
                "Get-S3DirectoryBucket",
+               "Get-S3ObjectAnnotationList",
                "Get-S3Object",
                "Get-S3ObjectV2",
                "Get-S3Version",
@@ -74484,6 +74527,7 @@ $S3_SelectMap = @{
                "Write-S3CORSConfiguration",
                "Write-S3LifecycleConfiguration",
                "Set-S3ObjectACL",
+               "Write-S3ObjectAnnotation",
                "Write-S3ObjectLegalHold",
                "Write-S3ObjectLockConfiguration",
                "Write-S3ObjectRetention",
@@ -74492,6 +74536,7 @@ $S3_SelectMap = @{
                "Rename-S3Object",
                "Restore-S3Object",
                "Select-S3ObjectContent",
+               "Update-S3BucketMetadataAnnotationTableConfiguration",
                "Update-S3BucketMetadataInventoryTableConfiguration",
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
@@ -76034,7 +76079,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 
