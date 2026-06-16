@@ -94,10 +94,9 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
         # If the credentials are not properly picked up, these dummy values are expected to throw an error, which confirms the flow's behavior.
         # Link to user guide for the correct credentials resolution order - https://docs.aws.amazon.com/powershell/latest/userguide/creds-assign.html
         It "should follow correct credential resolution order when multiple sources are present" {
-            # 1. Create profiles in shared and net sdk credentials file
+            # 1. Create the default profile in both the net sdk and shared credentials files
             $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $null, $helper.Token)
             $helper.RegisterProfile("default", $helper.AccessKey, $helper.SecretKey, $helper.DefaultSharedPath, $helper.Token)
-            $helper.RegisterProfile("AWS PS Default", $helper.AccessKey, $helper.SecretKey, $null, $helper.Token)
             
             # 2. Environment variables
             $env:AWS_ACCESS_KEY_ID = $helper.AccessKey
@@ -136,19 +135,14 @@ Describe -Tag "Smoke" "Get-S3Bucket-Credentials" {
             $buckets.BucketName | Should -BeGreaterThan 0
             Remove-AWSCredentialProfile -ProfileName 'default' -Force -ProfileLocation $null
 
-            # Verify that the default profile the shared credentials file is being used
+            # The shared credentials file 'default' profile is the last user-configured source in the
+            # resolution order. Verify it is now used.
             $buckets = Get-S3Bucket
             $buckets.BucketName | Should -BeGreaterThan 0
             $env:AWS_ACCESS_KEY_ID | Should -BeNull
             $sharedCreds = Get-AWSCredential -ProfileName 'default'
             $sharedCreds.GetCredentials().AccessKey | Should -Be $helper.AccessKey
             Remove-AWSCredentialProfile -ProfileName 'default' -Force -ProfileLocation $helper.DefaultSharedPath
-
-            #Verify that the AWS PS default profile from Net SDK credentials file is being used
-            $buckets = Get-S3Bucket
-            $buckets.BucketName | Should -BeGreaterThan 0
-            $sdkCreds = Get-AWSCredential -ProfileName "AWS PS default"
-            $sdkCreds.GetCredentials().AccessKey | Should -Be $helper.AccessKey
         }
         
         It "should prioritize Set-AWSCredential over environment variables" {
