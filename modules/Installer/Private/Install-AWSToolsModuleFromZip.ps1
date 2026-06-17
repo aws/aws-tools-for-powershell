@@ -98,6 +98,15 @@ function Install-AWSToolsModuleFromZip {
             )
         }
 
+        if ($ModuleNames) {
+            $installedNames = @($results | ForEach-Object { $_.Name })
+            foreach ($requested in $ModuleNames) {
+                if ($installedNames -notcontains $requested) {
+                    Write-Warning "Module '$requested' is not available in this version and was skipped."
+                }
+            }
+        }
+
         # Build the return value: a hashtable with Version, VersionString, and a
         # Modules array (Name + Version per module). Surface any non-fatal
         # warnings (e.g. PSGetModuleInfo.xml write failures) per module.
