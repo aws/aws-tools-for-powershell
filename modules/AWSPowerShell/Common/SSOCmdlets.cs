@@ -164,6 +164,7 @@ namespace Amazon.PowerShell.Common
             // When the resolved region differs from stored sso_region, update the config.
             // If the URL is a vanity domain and resolution fails, raise an error.
             SSOResolvedEndpoint resolvedEndpoint;
+            bool shouldPersistRegion = false;
             WriteVerbose($"Resolving start URL: {profileOptions.SsoStartUrl}");
             try
             {
@@ -174,13 +175,14 @@ namespace Amazon.PowerShell.Common
                 // This enables automatic failover: when the admin redirects the vanity domain
                 // to a different region, the next login picks it up and updates the config.
                 // Customers who want to pin a specific region should use a direct AWS-owned URL.
+                // Config persistence is deferred until after successful login (SEP requirement).
                 if (resolvedEndpoint.IsVanityUrl &&
                     !string.IsNullOrEmpty(resolvedEndpoint.Region) &&
                     !string.Equals(resolvedEndpoint.Region, profileOptions.SsoRegion, StringComparison.OrdinalIgnoreCase))
                 {
-                    WriteVerbose($"Resolved region '{resolvedEndpoint.Region}' differs from configured sso_region '{profileOptions.SsoRegion}'. Updating configuration.");
+                    WriteVerbose($"Resolved region '{resolvedEndpoint.Region}' differs from configured sso_region '{profileOptions.SsoRegion}'.");
                     profileOptions.SsoRegion = resolvedEndpoint.Region;
-                    profileOptions.RegisterSsoSession();
+                    shouldPersistRegion = true;
                 }
             }
             catch (ArgumentException ex)
@@ -226,6 +228,14 @@ namespace Amazon.PowerShell.Common
 
             if (ssoToken != null)
             {
+                // Persist resolved region only after successful login.
+                // If OIDC calls fail, sso_region must remain unchanged.
+                if (shouldPersistRegion)
+                {
+                    WriteVerbose($"Login successful. Persisting resolved region '{profileOptions.SsoRegion}' to configuration.");
+                    profileOptions.RegisterSsoSession();
+                }
+
                 string associatedProfileMessage = ProfileName != null ? $" associated with the profile {ProfileName}" : "";
                 Console.WriteLine($"SSO authentication successful for the sso-session {profileOptions.SsoSession}{associatedProfileMessage}.");
                 Console.WriteLine();
