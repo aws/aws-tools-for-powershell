@@ -460,8 +460,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_LifecycleHook
         /// <summary>
         /// <para>
-        /// <para>An array of deployment lifecycle hook objects to run custom logic at specific stages
-        /// of the deployment lifecycle.</para><para />
+        /// <para>An array of deployment lifecycle hook objects to run custom logic or pause the deployment
+        /// at specific stages of the deployment lifecycle.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

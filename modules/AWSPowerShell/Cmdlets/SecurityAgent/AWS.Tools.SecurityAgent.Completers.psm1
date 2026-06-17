@@ -126,6 +126,27 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.GitLabTokenType
+        "New-SECAGIntegration/Input_Gitlab_TokenType"
+        {
+            $v = "GROUP","PERSONAL"
+            break
+        }
+
+        # Amazon.SecurityAgent.IpAddressType
+        "New-SECAGPrivateConnection/Mode_ServiceManaged_IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.SecurityAgent.ManagementType
+        "Get-SECAGSecurityRequirementPackList/Filter_ManagementType"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.SecurityAgent.MembershipType
         {
             ($_ -eq "New-SECAGMembership/MemberType") -Or
@@ -150,7 +171,7 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "GITHUB"
+            $v = "BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
             break
         }
 
@@ -161,10 +182,17 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.ResourceConfigDnsResolution
+        "New-SECAGPrivateConnection/Mode_ServiceManaged_DnsResolution"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.SecurityAgent.ResourceType
         "Get-SECAGIntegratedResourceList/ResourceType"
         {
-            $v = "CODE_REPOSITORY"
+            $v = "CODE_REPOSITORY","DOCUMENT"
             break
         }
 
@@ -178,13 +206,41 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.SecurityRequirementPackStatus
+        {
+            ($_ -eq "Get-SECAGSecurityRequirementPackList/Filter_Status") -Or
+            ($_ -eq "New-SECAGSecurityRequirementPack/Status") -Or
+            ($_ -eq "Update-SECAGSecurityRequirementPack/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SecurityAgent.StepName
         {
             ($_ -eq "Get-SECAGCodeReviewJobTaskList/StepName") -Or
             ($_ -eq "Get-SECAGPentestJobTaskList/StepName")
         }
         {
-            $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS"
+            $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS","VALIDATION"
+            break
+        }
+
+        # Amazon.SecurityAgent.ThreatSeverity
+        {
+            ($_ -eq "New-SECAGThreat/Severity") -Or
+            ($_ -eq "Update-SECAGThreat/Severity")
+        }
+        {
+            $v = "CRITICAL","HIGH","INFO","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.SecurityAgent.ThreatStatus
+        "Update-SECAGThreat/Status"
+        {
+            $v = "DISMISSED","OPEN","RESOLVED"
             break
         }
 
@@ -192,6 +248,16 @@ $SECAG_Completers = {
         "New-SECAGMembership/Config_User_Role"
         {
             $v = "MEMBER"
+            break
+        }
+
+        # Amazon.SecurityAgent.ValidationMode
+        {
+            ($_ -eq "New-SECAGCodeReview/ValidationMode") -Or
+            ($_ -eq "Update-SECAGCodeReview/ValidationMode")
+        }
+        {
+            $v = "DISABLED","SIMULATED"
             break
         }
 
@@ -208,14 +274,21 @@ $SECAG_map = @{
     "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")
+    "Filter_ManagementType"=@("Get-SECAGSecurityRequirementPackList")
     "Filter_Provider"=@("Get-SECAGIntegrationList")
     "Filter_ProviderType"=@("Get-SECAGIntegrationList")
+    "Filter_Status"=@("Get-SECAGSecurityRequirementPackList")
+    "Input_Gitlab_TokenType"=@("New-SECAGIntegration")
     "MemberType"=@("Get-SECAGMembershipList","New-SECAGMembership","Remove-SECAGMembership")
+    "Mode_ServiceManaged_DnsResolution"=@("New-SECAGPrivateConnection")
+    "Mode_ServiceManaged_IpAddressType"=@("New-SECAGPrivateConnection")
     "Provider"=@("New-SECAGIntegration","Start-SECAGProviderRegistration")
     "ResourceType"=@("Get-SECAGIntegratedResourceList")
     "RiskLevel"=@("Get-SECAGFindingList","Update-SECAGFinding")
-    "Status"=@("Get-SECAGFindingList","Update-SECAGFinding")
+    "Severity"=@("New-SECAGThreat","Update-SECAGThreat")
+    "Status"=@("Get-SECAGFindingList","New-SECAGSecurityRequirementPack","Update-SECAGFinding","Update-SECAGSecurityRequirementPack","Update-SECAGThreat")
     "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
+    "ValidationMode"=@("New-SECAGCodeReview","Update-SECAGCodeReview")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
 }
 
@@ -270,8 +343,11 @@ $SECAG_SelectCompleters = {
 
 $SECAG_SelectMap = @{
     "Select"=@("Add-SECAGArtifact",
+               "New-SECAGSecurityRequirementBatch",
                "Remove-SECAGCodeReviewBatch",
                "Remove-SECAGPentestBatch",
+               "Remove-SECAGSecurityRequirementBatch",
+               "Remove-SECAGThreatModelBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
                "Get-SECAGCodeReviewJobBatch",
@@ -281,23 +357,38 @@ $SECAG_SelectMap = @{
                "Get-SECAGPentestJobBatch",
                "Get-SECAGPentestJobTaskBatch",
                "Get-SECAGPentestBatch",
+               "Get-SECAGSecurityRequirementBatch",
                "Get-SECAGTargetDomainBatch",
+               "Get-SECAGThreatModelJobBatch",
+               "Get-SECAGThreatModelJobTaskBatch",
+               "Get-SECAGThreatModelBatch",
+               "Get-SECAGThreatBatch",
+               "Update-SECAGSecurityRequirementBatch",
                "New-SECAGAgentSpace",
                "New-SECAGApplication",
                "New-SECAGCodeReview",
                "New-SECAGIntegration",
                "New-SECAGMembership",
                "New-SECAGPentest",
+               "New-SECAGPrivateConnection",
+               "New-SECAGSecurityRequirementPack",
                "New-SECAGTargetDomain",
+               "New-SECAGThreat",
+               "New-SECAGThreatModel",
                "Remove-SECAGAgentSpace",
                "Remove-SECAGApplication",
                "Remove-SECAGArtifact",
                "Remove-SECAGIntegration",
                "Remove-SECAGMembership",
+               "Remove-SECAGPrivateConnection",
+               "Remove-SECAGSecurityRequirementPack",
                "Remove-SECAGTargetDomain",
+               "Get-SECAGPrivateConnectionDetail",
                "Get-SECAGApplication",
                "Get-SECAGArtifact",
                "Get-SECAGIntegration",
+               "Get-SECAGSecurityRequirementPack",
+               "Import-SECAGSecurityRequirement",
                "Start-SECAGProviderRegistration",
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
@@ -313,13 +404,22 @@ $SECAG_SelectMap = @{
                "Get-SECAGPentestJobsForPentestList",
                "Get-SECAGPentestJobTaskList",
                "Get-SECAGPentestList",
+               "Get-SECAGPrivateConnectionList",
+               "Get-SECAGSecurityRequirementPackList",
+               "Get-SECAGSecurityRequirementList",
                "Get-SECAGResourceTag",
                "Get-SECAGTargetDomainList",
+               "Get-SECAGThreatModelJobList",
+               "Get-SECAGThreatModelJobTaskList",
+               "Get-SECAGThreatModelList",
+               "Get-SECAGThreatList",
                "Start-SECAGCodeRemediation",
                "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",
+               "Start-SECAGThreatModelJob",
                "Stop-SECAGCodeReviewJob",
                "Stop-SECAGPentestJob",
+               "Stop-SECAGThreatModelJob",
                "Add-SECAGResourceTag",
                "Remove-SECAGResourceTag",
                "Update-SECAGAgentSpace",
@@ -328,7 +428,11 @@ $SECAG_SelectMap = @{
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
                "Update-SECAGPentest",
+               "Update-SECAGPrivateConnectionCertificate",
+               "Update-SECAGSecurityRequirementPack",
                "Update-SECAGTargetDomain",
+               "Update-SECAGThreat",
+               "Update-SECAGThreatModel",
                "Confirm-SECAGTargetDomain")
 }
 

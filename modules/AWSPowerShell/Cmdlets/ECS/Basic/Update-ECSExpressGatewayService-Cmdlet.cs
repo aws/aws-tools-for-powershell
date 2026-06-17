@@ -289,6 +289,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] NetworkConfiguration_Subnet { get; set; }
         #endregion
         
+        #region Parameter TaskDefinitionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a task definition to use to update the Express Gateway
+        /// service. This allows you to manage your own task definition, giving you more control
+        /// over the service configuration such as adding sidecar containers.</para><para>The task definition must have a container named <c>Main</c> with a single TCP port
+        /// mapping that includes a container port and port name. The task definition must also
+        /// have <c>FARGATE</c> compatibility.</para><para>If you provide a task definition ARN, you cannot also specify <c>primaryContainer</c>,
+        /// <c>taskRoleArn</c>, <c>cpu</c>, or <c>memory</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskDefinitionArn { get; set; }
+        #endregion
+        
         #region Parameter TaskRoleArn
         /// <summary>
         /// <para>
@@ -385,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter ServiceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TaskDefinitionArn = this.TaskDefinitionArn;
             context.TaskRoleArn = this.TaskRoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -619,6 +635,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.ServiceArn = cmdletContext.ServiceArn;
             }
+            if (cmdletContext.TaskDefinitionArn != null)
+            {
+                request.TaskDefinitionArn = cmdletContext.TaskDefinitionArn;
+            }
             if (cmdletContext.TaskRoleArn != null)
             {
                 request.TaskRoleArn = cmdletContext.TaskRoleArn;
@@ -697,6 +717,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? ScalingTarget_MaxTaskCount { get; set; }
             public System.Int32? ScalingTarget_MinTaskCount { get; set; }
             public System.String ServiceArn { get; set; }
+            public System.String TaskDefinitionArn { get; set; }
             public System.String TaskRoleArn { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateExpressGatewayServiceResponse, UpdateECSExpressGatewayServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;

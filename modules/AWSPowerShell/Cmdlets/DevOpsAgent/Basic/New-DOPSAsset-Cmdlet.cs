@@ -132,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Content_File_Body_Text { get; set; }
         #endregion
         
+        #region Parameter Content_SourceUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The source URL to import asset content from</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_SourceUrl_Url { get; set; }
+        #endregion
+        
         #region Parameter Content_Zip_ZipFile
         /// <summary>
         /// <para>
@@ -219,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Content_File_Body_Text = this.Content_File_Body_Text;
             context.Content_File_Metadata = this.Content_File_Metadata;
             context.Content_File_Path = this.Content_File_Path;
+            context.Content_SourceUrl_Url = this.Content_SourceUrl_Url;
             context.Content_Zip_ZipFile = this.Content_Zip_ZipFile;
             context.Metadata = this.Metadata;
             
@@ -258,6 +269,31 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                  // populate Content
                 var requestContentIsNull = true;
                 request.Content = new Amazon.DevOpsAgent.Model.AssetContent();
+                Amazon.DevOpsAgent.Model.AssetSourceUrlContent requestContent_content_SourceUrl = null;
+                
+                 // populate SourceUrl
+                var requestContent_content_SourceUrlIsNull = true;
+                requestContent_content_SourceUrl = new Amazon.DevOpsAgent.Model.AssetSourceUrlContent();
+                System.String requestContent_content_SourceUrl_content_SourceUrl_Url = null;
+                if (cmdletContext.Content_SourceUrl_Url != null)
+                {
+                    requestContent_content_SourceUrl_content_SourceUrl_Url = cmdletContext.Content_SourceUrl_Url;
+                }
+                if (requestContent_content_SourceUrl_content_SourceUrl_Url != null)
+                {
+                    requestContent_content_SourceUrl.Url = requestContent_content_SourceUrl_content_SourceUrl_Url;
+                    requestContent_content_SourceUrlIsNull = false;
+                }
+                 // determine if requestContent_content_SourceUrl should be set to null
+                if (requestContent_content_SourceUrlIsNull)
+                {
+                    requestContent_content_SourceUrl = null;
+                }
+                if (requestContent_content_SourceUrl != null)
+                {
+                    request.Content.SourceUrl = requestContent_content_SourceUrl;
+                    requestContentIsNull = false;
+                }
                 Amazon.DevOpsAgent.Model.AssetZipContent requestContent_content_Zip = null;
                 
                  // populate Zip
@@ -438,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Content_File_Body_Text { get; set; }
             public System.Management.Automation.PSObject Content_File_Metadata { get; set; }
             public System.String Content_File_Path { get; set; }
+            public System.String Content_SourceUrl_Url { get; set; }
             public byte[] Content_Zip_ZipFile { get; set; }
             public System.Management.Automation.PSObject Metadata { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.CreateAssetResponse, NewDOPSAssetCmdlet, object> Select { get; set; } =

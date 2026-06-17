@@ -207,17 +207,45 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "CONFLUENCE","CUSTOM","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
+            $v = "CONFLUENCE","CUSTOM","MANAGED_KNOWLEDGE_BASE_CONNECTOR","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
         # Amazon.BedrockAgent.EmbeddingDataType
         {
             ($_ -eq "New-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
-            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType")
+            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType")
         }
         {
             $v = "BINARY","FLOAT32"
+            break
+        }
+
+        # Amazon.BedrockAgent.EmbeddingModelType
+        {
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType")
+        }
+        {
+            $v = "CUSTOM","MANAGED"
+            break
+        }
+
+        # Amazon.BedrockAgent.EnabledOrDisabledState
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -264,7 +292,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_Type")
         }
         {
-            $v = "KENDRA","SQL","VECTOR"
+            $v = "KENDRA","MANAGED","SQL","VECTOR"
             break
         }
 
@@ -296,7 +324,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","SMART_PARSING"
             break
         }
 
@@ -422,6 +450,10 @@ $AAB_map = @{
     "DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
@@ -429,6 +461,8 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "EnrichmentStrategyConfiguration_Method"=@("New-AABDataSource","Update-AABDataSource")
+    "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
@@ -516,6 +550,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBase",
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
+               "Remove-AABResourcePolicy",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
@@ -532,6 +567,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBase",
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
+               "Get-AABResourcePolicy",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
@@ -550,6 +586,7 @@ $AAB_SelectMap = @{
                "Get-AABResourceTag",
                "Initialize-AABAgent",
                "Initialize-AABFlow",
+               "Write-AABResourcePolicy",
                "Start-AABIngestionJob",
                "Stop-AABIngestionJob",
                "Add-AABResourceTag",

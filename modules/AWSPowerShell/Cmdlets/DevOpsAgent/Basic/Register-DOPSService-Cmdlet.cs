@@ -119,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyHeader { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader
+        /// <summary>
+        /// <para>
+        /// <para>HTTP header name to send the API key in requests to the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_ApiKey_ApiKeyName
         /// <summary>
         /// <para>
@@ -149,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyName { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName
+        /// <summary>
+        /// <para>
+        /// <para>User friendly API key name specified by end user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_ApiKey_ApiKeyValue
         /// <summary>
         /// <para>
@@ -177,6 +197,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_ApiKey_ApiKeyValue { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue
+        /// <summary>
+        /// <para>
+        /// <para>API key value for authenticating with the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_ApplicationId
@@ -225,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader
+        /// <summary>
+        /// <para>
+        /// <para>HTTP header name to send the bearer token in requests to the service. Defaults to
+        /// 'Authorization' per RFC 6750.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_AuthorizationUrl
@@ -347,6 +388,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ClientId { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>OAuth client ID for authenticating with the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientId
         /// <summary>
         /// <para>
@@ -435,6 +486,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ClientName { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName
+        /// <summary>
+        /// <para>
+        /// <para>User friendly OAuth client name specified by end user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientName
@@ -530,6 +591,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ClientSecret { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>OAuth client secret for authenticating with the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientSecret
         /// <summary>
         /// <para>
@@ -605,6 +676,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_Description { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_Description
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_Description { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_Description
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_Description { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Mcpserver_Endpoint
         /// <summary>
         /// <para>
@@ -653,6 +744,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_Endpoint
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_Endpoint
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_Endpoint { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_EntityGuid
@@ -790,6 +901,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.Collections.Hashtable ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter
+        /// <summary>
+        /// <para>
+        /// <para>OAuth token exchange parameters for authenticating with the service.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameters")]
+        public System.Collections.Hashtable ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter
         /// <summary>
         /// <para>
@@ -863,6 +989,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl
+        /// <summary>
+        /// <para>
+        /// <para>OAuth token exchange URL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl { get; set; }
         #endregion
         
         #region Parameter ExchangeUrlPrivateConnectionName
@@ -978,6 +1114,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_Name { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_Name
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_Name { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_Name
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_Name { get; set; }
+        #endregion
+        
         #region Parameter PrivateConnectionName
         /// <summary>
         /// <para>
@@ -1007,6 +1163,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Region { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_AuthorizationDiscovery_ReturnToEndpoint
@@ -1077,6 +1243,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_OAuth3LO_ReturnToEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_Scope
@@ -1184,6 +1360,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] ServiceDetails_Pagerduty_Scope { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope
+        /// <summary>
+        /// <para>
+        /// <para>OAuth scopes for authentication.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scopes")]
+        public System.String[] ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope { get; set; }
+        #endregion
+        
         #region Parameter Service
         /// <summary>
         /// <para>
@@ -1209,6 +1400,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversigv4_AuthorizationConfig_Service { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service
+        /// <summary>
+        /// <para>
+        /// <para>The AWS service name for SigV4 signing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_Mcpserver_AuthorizationConfig_OAuth3LO_SupportCodeChallenge
@@ -1320,6 +1521,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenName { get; set; }
         #endregion
         
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName
+        /// <summary>
+        /// <para>
+        /// <para>User friendly bearer token name specified by end user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName { get; set; }
+        #endregion
+        
         #region Parameter ServiceDetails_Gitlab_TokenType
         /// <summary>
         /// <para>
@@ -1369,6 +1580,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServiceDetails_Mcpserversplunk_AuthorizationConfig_BearerToken_TokenValue { get; set; }
+        #endregion
+        
+        #region Parameter ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue
+        /// <summary>
+        /// <para>
+        /// <para>Bearer token value in alphanumeric for authenticating with the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue { get; set; }
         #endregion
         
         #region Parameter ServiceDetails_EventChannel_Type
@@ -1684,6 +1905,37 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 context.ServiceDetails_Pagerduty_Scope = new List<System.String>(this.ServiceDetails_Pagerduty_Scope);
             }
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader = this.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName = this.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue = this.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader = this.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName = this.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue = this.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId = this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName = this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName;
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret = this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret;
+            if (this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter != null)
+            {
+                context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter.Keys)
+                {
+                    context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter.Add((String)hashKey, (System.String)(this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter[hashKey]));
+                }
+            }
+            context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl = this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl;
+            if (this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope != null)
+            {
+                context.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope = new List<System.String>(this.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope);
+            }
+            context.ServiceDetails_Remoteagent_Description = this.ServiceDetails_Remoteagent_Description;
+            context.ServiceDetails_Remoteagent_Endpoint = this.ServiceDetails_Remoteagent_Endpoint;
+            context.ServiceDetails_Remoteagent_Name = this.ServiceDetails_Remoteagent_Name;
+            context.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region = this.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region;
+            context.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn = this.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn;
+            context.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service = this.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service;
+            context.ServiceDetails_Remoteagentsigv4_Description = this.ServiceDetails_Remoteagentsigv4_Description;
+            context.ServiceDetails_Remoteagentsigv4_Endpoint = this.ServiceDetails_Remoteagentsigv4_Endpoint;
+            context.ServiceDetails_Remoteagentsigv4_Name = this.ServiceDetails_Remoteagentsigv4_Name;
             context.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientId = this.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientId;
             context.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientName = this.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientName;
             context.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientSecret = this.ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientSecret;
@@ -3530,6 +3782,321 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.ServiceDetails.Mcpserversplunk = requestServiceDetails_serviceDetails_Mcpserversplunk;
                 requestServiceDetailsIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.RemoteAgentServiceDetails requestServiceDetails_serviceDetails_Remoteagent = null;
+            
+             // populate Remoteagent
+            var requestServiceDetails_serviceDetails_RemoteagentIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagent = new Amazon.DevOpsAgent.Model.RemoteAgentServiceDetails();
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Description = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_Description != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Description = cmdletContext.ServiceDetails_Remoteagent_Description;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Description != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent.Description = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Description;
+                requestServiceDetails_serviceDetails_RemoteagentIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Endpoint = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_Endpoint != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Endpoint = cmdletContext.ServiceDetails_Remoteagent_Endpoint;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Endpoint != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent.Endpoint = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Endpoint;
+                requestServiceDetails_serviceDetails_RemoteagentIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Name = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_Name != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Name = cmdletContext.ServiceDetails_Remoteagent_Name;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Name != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent.Name = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_Name;
+                requestServiceDetails_serviceDetails_RemoteagentIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentAuthorizationConfig requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig = null;
+            
+             // populate AuthorizationConfig
+            var requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfigIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig = new Amazon.DevOpsAgent.Model.RemoteAgentAuthorizationConfig();
+            Amazon.DevOpsAgent.Model.RemoteAgentAPIKeyConfig requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey = null;
+            
+             // populate ApiKey
+            var requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKeyIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey = new Amazon.DevOpsAgent.Model.RemoteAgentAPIKeyConfig();
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey.ApiKeyHeader = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKeyIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey.ApiKeyName = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKeyIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey.ApiKeyValue = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKeyIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKeyIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig.ApiKey = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_ApiKey;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfigIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentBearerTokenConfig requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken = null;
+            
+             // populate BearerToken
+            var requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerTokenIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken = new Amazon.DevOpsAgent.Model.RemoteAgentBearerTokenConfig();
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken.AuthorizationHeader = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerTokenIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken.TokenName = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerTokenIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken.TokenValue = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerTokenIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerTokenIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig.BearerToken = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_BearerToken;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfigIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentOAuthClientCredentialsConfig requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials = null;
+            
+             // populate OAuthClientCredentials
+            var requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials = new Amazon.DevOpsAgent.Model.RemoteAgentOAuthClientCredentialsConfig();
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.ClientId = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.ClientName = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.ClientSecret = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.ExchangeParameters = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.ExchangeUrl = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+            List<System.String> requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope = null;
+            if (cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope = cmdletContext.ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials.Scopes = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentialsIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig.OAuthClientCredentials = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig_serviceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials;
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfigIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfigIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent.AuthorizationConfig = requestServiceDetails_serviceDetails_Remoteagent_serviceDetails_Remoteagent_AuthorizationConfig;
+                requestServiceDetails_serviceDetails_RemoteagentIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagent should be set to null
+            if (requestServiceDetails_serviceDetails_RemoteagentIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagent = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagent != null)
+            {
+                request.ServiceDetails.Remoteagent = requestServiceDetails_serviceDetails_Remoteagent;
+                requestServiceDetailsIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentSigV4ServiceDetails requestServiceDetails_serviceDetails_Remoteagentsigv4 = null;
+            
+             // populate Remoteagentsigv4
+            var requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagentsigv4 = new Amazon.DevOpsAgent.Model.RemoteAgentSigV4ServiceDetails();
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Description = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_Description != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Description = cmdletContext.ServiceDetails_Remoteagentsigv4_Description;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Description != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4.Description = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Description;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Endpoint = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_Endpoint != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Endpoint = cmdletContext.ServiceDetails_Remoteagentsigv4_Endpoint;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Endpoint != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4.Endpoint = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Endpoint;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Name = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_Name != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Name = cmdletContext.ServiceDetails_Remoteagentsigv4_Name;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Name != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4.Name = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_Name;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentSigV4AuthorizationConfig requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig = null;
+            
+             // populate AuthorizationConfig
+            var requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfigIsNull = true;
+            requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig = new Amazon.DevOpsAgent.Model.RemoteAgentSigV4AuthorizationConfig();
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Region = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Region = cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Region != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig.Region = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Region;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfigIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn = cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig.RoleArn = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfigIsNull = false;
+            }
+            System.String requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Service = null;
+            if (cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Service = cmdletContext.ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Service != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig.Service = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig_serviceDetails_Remoteagentsigv4_AuthorizationConfig_Service;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfigIsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfigIsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig != null)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4.AuthorizationConfig = requestServiceDetails_serviceDetails_Remoteagentsigv4_serviceDetails_Remoteagentsigv4_AuthorizationConfig;
+                requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull = false;
+            }
+             // determine if requestServiceDetails_serviceDetails_Remoteagentsigv4 should be set to null
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4IsNull)
+            {
+                requestServiceDetails_serviceDetails_Remoteagentsigv4 = null;
+            }
+            if (requestServiceDetails_serviceDetails_Remoteagentsigv4 != null)
+            {
+                request.ServiceDetails.Remoteagentsigv4 = requestServiceDetails_serviceDetails_Remoteagentsigv4;
+                requestServiceDetailsIsNull = false;
+            }
              // determine if request.ServiceDetails should be set to null
             if (requestServiceDetailsIsNull)
             {
@@ -3716,6 +4283,27 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ClientSecret { get; set; }
             public Dictionary<System.String, System.String> ServiceDetails_Pagerduty_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter { get; set; }
             public List<System.String> ServiceDetails_Pagerduty_Scope { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyHeader { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyName { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_ApiKey_ApiKeyValue { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_AuthorizationHeader { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenName { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_BearerToken_TokenValue { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientId { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientName { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ClientSecret { get; set; }
+            public Dictionary<System.String, System.String> ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeParameter { get; set; }
+            public System.String ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_ExchangeUrl { get; set; }
+            public List<System.String> ServiceDetails_Remoteagent_AuthorizationConfig_OAuthClientCredentials_Scope { get; set; }
+            public System.String ServiceDetails_Remoteagent_Description { get; set; }
+            public System.String ServiceDetails_Remoteagent_Endpoint { get; set; }
+            public System.String ServiceDetails_Remoteagent_Name { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Region { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_RoleArn { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_AuthorizationConfig_Service { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_Description { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_Endpoint { get; set; }
+            public System.String ServiceDetails_Remoteagentsigv4_Name { get; set; }
             public System.String ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientId { get; set; }
             public System.String ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientName { get; set; }
             public System.String ServiceDetails_Servicenow_AuthorizationConfig_OAuthClientCredentials_ClientSecret { get; set; }

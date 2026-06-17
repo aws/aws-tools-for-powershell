@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MQConfigurationList', 
         'Get-MQConfigurationRevision', 
         'Get-MQConfigurationRevisionList', 
+        'Get-MQSharedResourceDetail', 
         'Get-MQTagList', 
         'Get-MQUser', 
         'Get-MQUserList', 

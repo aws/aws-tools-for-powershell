@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If not specified,
-        /// daemons from all clusters are returned.</para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If you do not
+        /// specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

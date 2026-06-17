@@ -74,6 +74,36 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.Model.DataSource[] DataSource { get; set; }
         #endregion
         
+        #region Parameter IamIdentityCenterOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether IAM Identity Center is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IamIdentityCenterOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptions_IamIdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamIdentityCenterOptions_IamIdentityCenterInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role associated with the IAM Identity Center application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -145,6 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 context.DataSource = new List<Amazon.OpenSearchService.Model.DataSource>(this.DataSource);
             }
+            context.IamIdentityCenterOptions_Enabled = this.IamIdentityCenterOptions_Enabled;
+            context.IamIdentityCenterOptions_IamIdentityCenterInstanceArn = this.IamIdentityCenterOptions_IamIdentityCenterInstanceArn;
+            context.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn = this.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -175,6 +208,45 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.DataSource != null)
             {
                 request.DataSources = cmdletContext.DataSource;
+            }
+            
+             // populate IamIdentityCenterOptions
+            var requestIamIdentityCenterOptionsIsNull = true;
+            request.IamIdentityCenterOptions = new Amazon.OpenSearchService.Model.IamIdentityCenterOptionsInput();
+            System.Boolean? requestIamIdentityCenterOptions_iamIdentityCenterOptions_Enabled = null;
+            if (cmdletContext.IamIdentityCenterOptions_Enabled != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_Enabled = cmdletContext.IamIdentityCenterOptions_Enabled.Value;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_Enabled != null)
+            {
+                request.IamIdentityCenterOptions.Enabled = requestIamIdentityCenterOptions_iamIdentityCenterOptions_Enabled.Value;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+            System.String requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamIdentityCenterInstanceArn = null;
+            if (cmdletContext.IamIdentityCenterOptions_IamIdentityCenterInstanceArn != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamIdentityCenterInstanceArn = cmdletContext.IamIdentityCenterOptions_IamIdentityCenterInstanceArn;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamIdentityCenterInstanceArn != null)
+            {
+                request.IamIdentityCenterOptions.IamIdentityCenterInstanceArn = requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamIdentityCenterInstanceArn;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+            System.String requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn = null;
+            if (cmdletContext.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn = cmdletContext.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn != null)
+            {
+                request.IamIdentityCenterOptions.IamRoleForIdentityCenterApplicationArn = requestIamIdentityCenterOptions_iamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+             // determine if request.IamIdentityCenterOptions should be set to null
+            if (requestIamIdentityCenterOptionsIsNull)
+            {
+                request.IamIdentityCenterOptions = null;
             }
             if (cmdletContext.Id != null)
             {
@@ -237,6 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             public List<Amazon.OpenSearchService.Model.AppConfig> AppConfig { get; set; }
             public List<Amazon.OpenSearchService.Model.DataSource> DataSource { get; set; }
+            public System.Boolean? IamIdentityCenterOptions_Enabled { get; set; }
+            public System.String IamIdentityCenterOptions_IamIdentityCenterInstanceArn { get; set; }
+            public System.String IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn { get; set; }
             public System.String Id { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.UpdateApplicationResponse, UpdateOSApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

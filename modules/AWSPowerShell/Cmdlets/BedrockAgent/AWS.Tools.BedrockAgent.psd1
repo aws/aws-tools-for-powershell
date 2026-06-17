@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AABKnowledgeBasisList', 
         'Get-AABPrompt', 
         'Get-AABPromptList', 
+        'Get-AABResourcePolicy', 
         'Get-AABResourceTag', 
         'Initialize-AABAgent', 
         'Initialize-AABFlow', 
@@ -144,6 +145,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AABKnowledgeBase', 
         'Remove-AABKnowledgeBaseDocument', 
         'Remove-AABPrompt', 
+        'Remove-AABResourcePolicy', 
         'Remove-AABResourceTag', 
         'Start-AABIngestionJob', 
         'Stop-AABIngestionJob', 
@@ -158,7 +160,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-AABFlow', 
         'Update-AABFlowAlias', 
         'Update-AABKnowledgeBase', 
-        'Update-AABPrompt')
+        'Update-AABPrompt', 
+        'Write-AABResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

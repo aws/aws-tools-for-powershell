@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Operation to get a single Harness.
+    /// Operation to get a single harness.
     /// </summary>
     [Cmdlet("Get", "BACCHarness")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Harness")]
@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HarnessId { get; set; }
+        #endregion
+        
+        #region Parameter HarnessVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specific version of the harness to retrieve. If omitted, returns the current Harness
+        /// configuration, including its status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HarnessVersion { get; set; }
         #endregion
         
         #region Parameter Select
@@ -99,6 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter HarnessId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HarnessVersion = this.HarnessVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.HarnessId != null)
             {
                 request.HarnessId = cmdletContext.HarnessId;
+            }
+            if (cmdletContext.HarnessVersion != null)
+            {
+                request.HarnessVersion = cmdletContext.HarnessVersion;
             }
             
             CmdletOutput output;
@@ -175,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String HarnessId { get; set; }
+            public System.String HarnessVersion { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.GetHarnessResponse, GetBACCHarnessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Harness;
         }

@@ -87,10 +87,45 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingConfigurationType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingConfiguration_Type"
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingModelType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingModelType"
+        {
+            $v = "CUSTOM","MANAGED","NONE"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.DocumentOutputFormat
+        "Get-BARDocumentContent/OutputFormat"
+        {
+            $v = "EXTRACTED","RAW"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.FlowExecutionEventType
         "Get-BARFlowExecutionEventList/EventType"
         {
             $v = "Flow","Node"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.FoundationModelConfigurationType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"
+        {
+            $v = "BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.FoundationModelType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelType"
+        {
+            $v = "CUSTOM","MANAGED"
             break
         }
 
@@ -112,6 +147,17 @@ $BAR_Completers = {
         "Invoke-BARRetrieve/RetrievalQuery_Type"
         {
             $v = "IMAGE","TEXT"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType
+        {
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type")
+        }
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
             break
         }
 
@@ -175,10 +221,24 @@ $BAR_Completers = {
         {
             ($_ -eq "Invoke-BARRetrieve/MetadataConfiguration_SelectionMode") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerate/MetadataConfiguration_SelectionMode") -Or
-            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/MetadataConfiguration_SelectionMode")
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode")
         }
         {
             $v = "ALL","SELECTIVE"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.RerankingModelType
+        {
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType")
+        }
+        {
+            $v = "CUSTOM","MANAGED","NONE"
             break
         }
 
@@ -231,6 +291,10 @@ $BAR_Completers = {
 
 $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
+    "AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_FoundationModelType"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_RerankingConfiguration_Type"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_RerankingModelType"=@("Invoke-BARAgenticRetrieveStream")
     "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "Image_Format"=@("Invoke-BARRetrieve")
@@ -239,11 +303,18 @@ $BAR_map = @{
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "OrchestrationType"=@("Invoke-BARInlineAgent")
+    "OutputFormat"=@("Get-BARDocumentContent")
     "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent","Start-BARFlowExecution")
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type"=@("Invoke-BARRetrieve")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType"=@("Invoke-BARRetrieve")
     "RetrievalQuery_Type"=@("Invoke-BARRetrieve")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "Stream_ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
     "Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
@@ -303,13 +374,15 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("New-BARInvocation",
+    "Select"=@("Invoke-BARAgenticRetrieveStream",
+               "New-BARInvocation",
                "New-BARSession",
                "Remove-BARAgentMemory",
                "Remove-BARSession",
                "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARDocumentContent",
                "Get-BARExecutionFlowSnapshot",
                "Get-BARFlowExecution",
                "Get-BARInvocationStep",

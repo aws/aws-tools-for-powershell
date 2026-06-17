@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>The source type of the client secret for the Atlassian OAuth2 provider. Use <c>MANAGED</c>
         /// if the secret is managed by the service, or <c>EXTERNAL</c> if you manage the secret
-        /// yourself in AWS Secrets Manager.</para>
+        /// yourself in Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -338,8 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -351,8 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,8 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,8 +377,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,8 +390,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -403,8 +403,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,8 +416,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the client secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -502,7 +502,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,7 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -522,7 +524,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -532,7 +535,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -542,7 +546,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -552,7 +557,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,7 +568,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +579,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,7 +590,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -662,7 +671,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_AtlassianOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -672,7 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -682,7 +691,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -692,7 +701,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -702,7 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -712,7 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_LinkedinOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -722,7 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -732,7 +741,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -742,7 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

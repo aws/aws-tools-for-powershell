@@ -178,6 +178,21 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
         #endregion
         
+        #region Parameter ResourceShareArn
+        /// <summary>
+        /// <para>
+        /// <para>The list of resource shares to update on the broker</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceShareArns")]
+        public System.String[] ResourceShareArn { get; set; }
+        #endregion
+        
         #region Parameter LdapServerMetadata_RoleBase
         /// <summary>
         /// <para>
@@ -393,6 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             context.Logs_Audit = this.Logs_Audit;
             context.Logs_General = this.Logs_General;
             context.MaintenanceWindowStartTime = this.MaintenanceWindowStartTime;
+            if (this.ResourceShareArn != null)
+            {
+                context.ResourceShareArn = new List<System.String>(this.ResourceShareArn);
+            }
             if (this.SecurityGroup != null)
             {
                 context.SecurityGroup = new List<System.String>(this.SecurityGroup);
@@ -593,6 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.MaintenanceWindowStartTime = cmdletContext.MaintenanceWindowStartTime;
             }
+            if (cmdletContext.ResourceShareArn != null)
+            {
+                request.ResourceShareArns = cmdletContext.ResourceShareArn;
+            }
             if (cmdletContext.SecurityGroup != null)
             {
                 request.SecurityGroups = cmdletContext.SecurityGroup;
@@ -673,6 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.Boolean? Logs_Audit { get; set; }
             public System.Boolean? Logs_General { get; set; }
             public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
+            public List<System.String> ResourceShareArn { get; set; }
             public List<System.String> SecurityGroup { get; set; }
             public System.Func<Amazon.MQ.Model.UpdateBrokerResponse, UpdateMQBrokerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AgenticRetrieveStream" OutputProperty="Stream" Verb="Invoke" Noun="AgenticRetrieveStream" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInvocation" OutputProperty="*" Verb="New" Noun="Invocation" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDocumentContent" OutputProperty="*" Verb="Get" Noun="DocumentContent" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

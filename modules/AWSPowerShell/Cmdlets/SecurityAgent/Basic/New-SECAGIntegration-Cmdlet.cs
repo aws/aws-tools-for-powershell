@@ -46,6 +46,37 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Input_Gitlab_AccessToken
+        /// <summary>
+        /// <para>
+        /// <para>The GitLab access token used to authenticate. This can be a personal access token
+        /// or a group access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Gitlab_AccessToken { get; set; }
+        #endregion
+        
+        #region Parameter Input_Bitbucket_Code
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth 2.0 authorization code returned from the consent redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Bitbucket_Code { get; set; }
+        #endregion
+        
+        #region Parameter Input_Confluence_Code
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth 2.0 authorization code returned from the consent redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Confluence_Code { get; set; }
+        #endregion
+        
         #region Parameter Input_Github_Code
         /// <summary>
         /// <para>
@@ -54,6 +85,50 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Input_Github_Code { get; set; }
+        #endregion
+        
+        #region Parameter Input_Gitlab_GroupId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the GitLab group. Required when tokenType is group and ignored for
+        /// personal tokens.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Gitlab_GroupId { get; set; }
+        #endregion
+        
+        #region Parameter Input_Bitbucket_InstallationId
+        /// <summary>
+        /// <para>
+        /// <para>The Atlassian installation identifier, available from the Atlassian administration
+        /// console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Bitbucket_InstallationId { get; set; }
+        #endregion
+        
+        #region Parameter Input_Confluence_InstallationId
+        /// <summary>
+        /// <para>
+        /// <para>The Atlassian installation identifier, available from the Atlassian administration
+        /// console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Confluence_InstallationId { get; set; }
+        #endregion
+        
+        #region Parameter Input_Github_InstallationId
+        /// <summary>
+        /// <para>
+        /// <para>The installation identifier provided by GitHub Enterprise Server on the install callback.
+        /// Required for GitHub Enterprise Server integrations and ignored for GitHub.com.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Github_InstallationId { get; set; }
         #endregion
         
         #region Parameter IntegrationDisplayName
@@ -93,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Input_Github_OrganizationName { get; set; }
         #endregion
         
+        #region Parameter PrivateConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of an active private connection used to reach a self-hosted provider instance
+        /// over private networking. Specify this when the instance is not publicly reachable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrivateConnectionName { get; set; }
+        #endregion
+        
         #region Parameter Provider
         /// <summary>
         /// <para>
@@ -108,6 +194,36 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SecurityAgent.Provider")]
         public Amazon.SecurityAgent.Provider Provider { get; set; }
+        #endregion
+        
+        #region Parameter Input_Confluence_SiteUrl
+        /// <summary>
+        /// <para>
+        /// <para>The Confluence Cloud site URL, for example https://mysite.atlassian.net.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Confluence_SiteUrl { get; set; }
+        #endregion
+        
+        #region Parameter Input_Bitbucket_State
+        /// <summary>
+        /// <para>
+        /// <para>The CSRF state token echoed back from the OAuth redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Bitbucket_State { get; set; }
+        #endregion
+        
+        #region Parameter Input_Confluence_State
+        /// <summary>
+        /// <para>
+        /// <para>The CSRF state token echoed back from the OAuth redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Confluence_State { get; set; }
         #endregion
         
         #region Parameter Input_Github_State
@@ -133,6 +249,49 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Input_Github_TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value
+        /// for GitHub.com.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Github_TargetUrl { get; set; }
+        #endregion
+        
+        #region Parameter Input_Gitlab_TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Gitlab_TargetUrl { get; set; }
+        #endregion
+        
+        #region Parameter Input_Gitlab_TokenType
+        /// <summary>
+        /// <para>
+        /// <para>The type of GitLab access token provided in accessToken.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityAgent.GitLabTokenType")]
+        public Amazon.SecurityAgent.GitLabTokenType Input_Gitlab_TokenType { get; set; }
+        #endregion
+        
+        #region Parameter Input_Bitbucket_Workspace
+        /// <summary>
+        /// <para>
+        /// <para>The Bitbucket workspace slug that identifies the workspace to integrate, for example
+        /// acme-corp.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_Bitbucket_Workspace { get; set; }
         #endregion
         
         #region Parameter Select
@@ -181,9 +340,23 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.CreateIntegrationResponse, NewSECAGIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Input_Bitbucket_Code = this.Input_Bitbucket_Code;
+            context.Input_Bitbucket_InstallationId = this.Input_Bitbucket_InstallationId;
+            context.Input_Bitbucket_State = this.Input_Bitbucket_State;
+            context.Input_Bitbucket_Workspace = this.Input_Bitbucket_Workspace;
+            context.Input_Confluence_Code = this.Input_Confluence_Code;
+            context.Input_Confluence_InstallationId = this.Input_Confluence_InstallationId;
+            context.Input_Confluence_SiteUrl = this.Input_Confluence_SiteUrl;
+            context.Input_Confluence_State = this.Input_Confluence_State;
             context.Input_Github_Code = this.Input_Github_Code;
+            context.Input_Github_InstallationId = this.Input_Github_InstallationId;
             context.Input_Github_OrganizationName = this.Input_Github_OrganizationName;
             context.Input_Github_State = this.Input_Github_State;
+            context.Input_Github_TargetUrl = this.Input_Github_TargetUrl;
+            context.Input_Gitlab_AccessToken = this.Input_Gitlab_AccessToken;
+            context.Input_Gitlab_GroupId = this.Input_Gitlab_GroupId;
+            context.Input_Gitlab_TargetUrl = this.Input_Gitlab_TargetUrl;
+            context.Input_Gitlab_TokenType = this.Input_Gitlab_TokenType;
             context.IntegrationDisplayName = this.IntegrationDisplayName;
             #if MODULAR
             if (this.IntegrationDisplayName == null && ParameterWasBound(nameof(this.IntegrationDisplayName)))
@@ -192,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             }
             #endif
             context.KmsKeyId = this.KmsKeyId;
+            context.PrivateConnectionName = this.PrivateConnectionName;
             context.Provider = this.Provider;
             #if MODULAR
             if (this.Provider == null && ParameterWasBound(nameof(this.Provider)))
@@ -227,6 +401,171 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
              // populate Input
             var requestInputIsNull = true;
             request.Input = new Amazon.SecurityAgent.Model.ProviderInput();
+            Amazon.SecurityAgent.Model.BitbucketIntegrationInput requestInput_input_Bitbucket = null;
+            
+             // populate Bitbucket
+            var requestInput_input_BitbucketIsNull = true;
+            requestInput_input_Bitbucket = new Amazon.SecurityAgent.Model.BitbucketIntegrationInput();
+            System.String requestInput_input_Bitbucket_input_Bitbucket_Code = null;
+            if (cmdletContext.Input_Bitbucket_Code != null)
+            {
+                requestInput_input_Bitbucket_input_Bitbucket_Code = cmdletContext.Input_Bitbucket_Code;
+            }
+            if (requestInput_input_Bitbucket_input_Bitbucket_Code != null)
+            {
+                requestInput_input_Bitbucket.Code = requestInput_input_Bitbucket_input_Bitbucket_Code;
+                requestInput_input_BitbucketIsNull = false;
+            }
+            System.String requestInput_input_Bitbucket_input_Bitbucket_InstallationId = null;
+            if (cmdletContext.Input_Bitbucket_InstallationId != null)
+            {
+                requestInput_input_Bitbucket_input_Bitbucket_InstallationId = cmdletContext.Input_Bitbucket_InstallationId;
+            }
+            if (requestInput_input_Bitbucket_input_Bitbucket_InstallationId != null)
+            {
+                requestInput_input_Bitbucket.InstallationId = requestInput_input_Bitbucket_input_Bitbucket_InstallationId;
+                requestInput_input_BitbucketIsNull = false;
+            }
+            System.String requestInput_input_Bitbucket_input_Bitbucket_State = null;
+            if (cmdletContext.Input_Bitbucket_State != null)
+            {
+                requestInput_input_Bitbucket_input_Bitbucket_State = cmdletContext.Input_Bitbucket_State;
+            }
+            if (requestInput_input_Bitbucket_input_Bitbucket_State != null)
+            {
+                requestInput_input_Bitbucket.State = requestInput_input_Bitbucket_input_Bitbucket_State;
+                requestInput_input_BitbucketIsNull = false;
+            }
+            System.String requestInput_input_Bitbucket_input_Bitbucket_Workspace = null;
+            if (cmdletContext.Input_Bitbucket_Workspace != null)
+            {
+                requestInput_input_Bitbucket_input_Bitbucket_Workspace = cmdletContext.Input_Bitbucket_Workspace;
+            }
+            if (requestInput_input_Bitbucket_input_Bitbucket_Workspace != null)
+            {
+                requestInput_input_Bitbucket.Workspace = requestInput_input_Bitbucket_input_Bitbucket_Workspace;
+                requestInput_input_BitbucketIsNull = false;
+            }
+             // determine if requestInput_input_Bitbucket should be set to null
+            if (requestInput_input_BitbucketIsNull)
+            {
+                requestInput_input_Bitbucket = null;
+            }
+            if (requestInput_input_Bitbucket != null)
+            {
+                request.Input.Bitbucket = requestInput_input_Bitbucket;
+                requestInputIsNull = false;
+            }
+            Amazon.SecurityAgent.Model.ConfluenceIntegrationInput requestInput_input_Confluence = null;
+            
+             // populate Confluence
+            var requestInput_input_ConfluenceIsNull = true;
+            requestInput_input_Confluence = new Amazon.SecurityAgent.Model.ConfluenceIntegrationInput();
+            System.String requestInput_input_Confluence_input_Confluence_Code = null;
+            if (cmdletContext.Input_Confluence_Code != null)
+            {
+                requestInput_input_Confluence_input_Confluence_Code = cmdletContext.Input_Confluence_Code;
+            }
+            if (requestInput_input_Confluence_input_Confluence_Code != null)
+            {
+                requestInput_input_Confluence.Code = requestInput_input_Confluence_input_Confluence_Code;
+                requestInput_input_ConfluenceIsNull = false;
+            }
+            System.String requestInput_input_Confluence_input_Confluence_InstallationId = null;
+            if (cmdletContext.Input_Confluence_InstallationId != null)
+            {
+                requestInput_input_Confluence_input_Confluence_InstallationId = cmdletContext.Input_Confluence_InstallationId;
+            }
+            if (requestInput_input_Confluence_input_Confluence_InstallationId != null)
+            {
+                requestInput_input_Confluence.InstallationId = requestInput_input_Confluence_input_Confluence_InstallationId;
+                requestInput_input_ConfluenceIsNull = false;
+            }
+            System.String requestInput_input_Confluence_input_Confluence_SiteUrl = null;
+            if (cmdletContext.Input_Confluence_SiteUrl != null)
+            {
+                requestInput_input_Confluence_input_Confluence_SiteUrl = cmdletContext.Input_Confluence_SiteUrl;
+            }
+            if (requestInput_input_Confluence_input_Confluence_SiteUrl != null)
+            {
+                requestInput_input_Confluence.SiteUrl = requestInput_input_Confluence_input_Confluence_SiteUrl;
+                requestInput_input_ConfluenceIsNull = false;
+            }
+            System.String requestInput_input_Confluence_input_Confluence_State = null;
+            if (cmdletContext.Input_Confluence_State != null)
+            {
+                requestInput_input_Confluence_input_Confluence_State = cmdletContext.Input_Confluence_State;
+            }
+            if (requestInput_input_Confluence_input_Confluence_State != null)
+            {
+                requestInput_input_Confluence.State = requestInput_input_Confluence_input_Confluence_State;
+                requestInput_input_ConfluenceIsNull = false;
+            }
+             // determine if requestInput_input_Confluence should be set to null
+            if (requestInput_input_ConfluenceIsNull)
+            {
+                requestInput_input_Confluence = null;
+            }
+            if (requestInput_input_Confluence != null)
+            {
+                request.Input.Confluence = requestInput_input_Confluence;
+                requestInputIsNull = false;
+            }
+            Amazon.SecurityAgent.Model.GitLabIntegrationInput requestInput_input_Gitlab = null;
+            
+             // populate Gitlab
+            var requestInput_input_GitlabIsNull = true;
+            requestInput_input_Gitlab = new Amazon.SecurityAgent.Model.GitLabIntegrationInput();
+            System.String requestInput_input_Gitlab_input_Gitlab_AccessToken = null;
+            if (cmdletContext.Input_Gitlab_AccessToken != null)
+            {
+                requestInput_input_Gitlab_input_Gitlab_AccessToken = cmdletContext.Input_Gitlab_AccessToken;
+            }
+            if (requestInput_input_Gitlab_input_Gitlab_AccessToken != null)
+            {
+                requestInput_input_Gitlab.AccessToken = requestInput_input_Gitlab_input_Gitlab_AccessToken;
+                requestInput_input_GitlabIsNull = false;
+            }
+            System.String requestInput_input_Gitlab_input_Gitlab_GroupId = null;
+            if (cmdletContext.Input_Gitlab_GroupId != null)
+            {
+                requestInput_input_Gitlab_input_Gitlab_GroupId = cmdletContext.Input_Gitlab_GroupId;
+            }
+            if (requestInput_input_Gitlab_input_Gitlab_GroupId != null)
+            {
+                requestInput_input_Gitlab.GroupId = requestInput_input_Gitlab_input_Gitlab_GroupId;
+                requestInput_input_GitlabIsNull = false;
+            }
+            System.String requestInput_input_Gitlab_input_Gitlab_TargetUrl = null;
+            if (cmdletContext.Input_Gitlab_TargetUrl != null)
+            {
+                requestInput_input_Gitlab_input_Gitlab_TargetUrl = cmdletContext.Input_Gitlab_TargetUrl;
+            }
+            if (requestInput_input_Gitlab_input_Gitlab_TargetUrl != null)
+            {
+                requestInput_input_Gitlab.TargetUrl = requestInput_input_Gitlab_input_Gitlab_TargetUrl;
+                requestInput_input_GitlabIsNull = false;
+            }
+            Amazon.SecurityAgent.GitLabTokenType requestInput_input_Gitlab_input_Gitlab_TokenType = null;
+            if (cmdletContext.Input_Gitlab_TokenType != null)
+            {
+                requestInput_input_Gitlab_input_Gitlab_TokenType = cmdletContext.Input_Gitlab_TokenType;
+            }
+            if (requestInput_input_Gitlab_input_Gitlab_TokenType != null)
+            {
+                requestInput_input_Gitlab.TokenType = requestInput_input_Gitlab_input_Gitlab_TokenType;
+                requestInput_input_GitlabIsNull = false;
+            }
+             // determine if requestInput_input_Gitlab should be set to null
+            if (requestInput_input_GitlabIsNull)
+            {
+                requestInput_input_Gitlab = null;
+            }
+            if (requestInput_input_Gitlab != null)
+            {
+                request.Input.Gitlab = requestInput_input_Gitlab;
+                requestInputIsNull = false;
+            }
             Amazon.SecurityAgent.Model.GitHubIntegrationInput requestInput_input_Github = null;
             
              // populate Github
@@ -240,6 +579,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (requestInput_input_Github_input_Github_Code != null)
             {
                 requestInput_input_Github.Code = requestInput_input_Github_input_Github_Code;
+                requestInput_input_GithubIsNull = false;
+            }
+            System.String requestInput_input_Github_input_Github_InstallationId = null;
+            if (cmdletContext.Input_Github_InstallationId != null)
+            {
+                requestInput_input_Github_input_Github_InstallationId = cmdletContext.Input_Github_InstallationId;
+            }
+            if (requestInput_input_Github_input_Github_InstallationId != null)
+            {
+                requestInput_input_Github.InstallationId = requestInput_input_Github_input_Github_InstallationId;
                 requestInput_input_GithubIsNull = false;
             }
             System.String requestInput_input_Github_input_Github_OrganizationName = null;
@@ -260,6 +609,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (requestInput_input_Github_input_Github_State != null)
             {
                 requestInput_input_Github.State = requestInput_input_Github_input_Github_State;
+                requestInput_input_GithubIsNull = false;
+            }
+            System.String requestInput_input_Github_input_Github_TargetUrl = null;
+            if (cmdletContext.Input_Github_TargetUrl != null)
+            {
+                requestInput_input_Github_input_Github_TargetUrl = cmdletContext.Input_Github_TargetUrl;
+            }
+            if (requestInput_input_Github_input_Github_TargetUrl != null)
+            {
+                requestInput_input_Github.TargetUrl = requestInput_input_Github_input_Github_TargetUrl;
                 requestInput_input_GithubIsNull = false;
             }
              // determine if requestInput_input_Github should be set to null
@@ -284,6 +643,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.PrivateConnectionName != null)
+            {
+                request.PrivateConnectionName = cmdletContext.PrivateConnectionName;
             }
             if (cmdletContext.Provider != null)
             {
@@ -348,11 +711,26 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Input_Bitbucket_Code { get; set; }
+            public System.String Input_Bitbucket_InstallationId { get; set; }
+            public System.String Input_Bitbucket_State { get; set; }
+            public System.String Input_Bitbucket_Workspace { get; set; }
+            public System.String Input_Confluence_Code { get; set; }
+            public System.String Input_Confluence_InstallationId { get; set; }
+            public System.String Input_Confluence_SiteUrl { get; set; }
+            public System.String Input_Confluence_State { get; set; }
             public System.String Input_Github_Code { get; set; }
+            public System.String Input_Github_InstallationId { get; set; }
             public System.String Input_Github_OrganizationName { get; set; }
             public System.String Input_Github_State { get; set; }
+            public System.String Input_Github_TargetUrl { get; set; }
+            public System.String Input_Gitlab_AccessToken { get; set; }
+            public System.String Input_Gitlab_GroupId { get; set; }
+            public System.String Input_Gitlab_TargetUrl { get; set; }
+            public Amazon.SecurityAgent.GitLabTokenType Input_Gitlab_TokenType { get; set; }
             public System.String IntegrationDisplayName { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String PrivateConnectionName { get; set; }
             public Amazon.SecurityAgent.Provider Provider { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.CreateIntegrationResponse, NewSECAGIntegrationCmdlet, object> Select { get; set; } =

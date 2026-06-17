@@ -137,6 +137,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHarnessEndpoint" OutputProperty="Endpoint" Verb="New" Noun="HarnessEndpoint" ShouldProcessTarget="HarnessId,EndpointName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMemory" OutputProperty="Memory" Verb="New" Noun="Memory" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -273,6 +277,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHarnessEndpoint" OutputProperty="Endpoint" Verb="Remove" Noun="HarnessEndpoint" ShouldProcessTarget="HarnessId,EndpointName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMemory" OutputProperty="*" Verb="Remove" Noun="Memory" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -374,6 +382,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetHarness" OutputProperty="Harness" Verb="Get" Noun="Harness" PipelineParameter="HarnessId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHarnessEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="HarnessEndpoint" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -509,7 +521,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListHarnessEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="HarnessEndpointList" PipelineParameter="HarnessId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHarnesses" OutputProperty="Harnesses" Verb="Get" Noun="HarnessList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHarnessVersions" OutputProperty="HarnessVersions" Verb="Get" Noun="HarnessVersionList" PipelineParameter="HarnessId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -699,6 +719,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHarness" OutputProperty="Harness" Verb="Update" Noun="Harness" ShouldProcessTarget="HarnessId" PipelineParameter="HarnessId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHarnessEndpoint" OutputProperty="Endpoint" Verb="Update" Noun="HarnessEndpoint" ShouldProcessTarget="HarnessId,EndpointName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

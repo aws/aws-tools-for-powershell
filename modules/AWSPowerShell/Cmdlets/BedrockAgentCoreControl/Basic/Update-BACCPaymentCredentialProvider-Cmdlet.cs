@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>The source type of the API key secret for the Coinbase Developer Platform. Use <c>MANAGED</c>
         /// if the secret is managed by the service, or <c>EXTERNAL</c> if you manage the secret
-        /// yourself in AWS Secrets Manager.</para>
+        /// yourself in Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the app secret. Use <c>MANAGED</c> if the secret is managed by
-        /// the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets Manager.</para>
+        /// the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web Services
+        /// Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>The source type of the authorization private key. Use <c>MANAGED</c> if the secret
         /// is managed by the service, or <c>EXTERNAL</c> if you manage the secret yourself in
-        /// AWS Secrets Manager.</para>
+        /// Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AppSecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeyConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_ApiKeySecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AppSecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeyConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>
         /// <para>The source type of the wallet secret for the Coinbase Developer Platform. Use <c>MANAGED</c>
         /// if the secret is managed by the service, or <c>EXTERNAL</c> if you manage the secret
-        /// yourself in AWS Secrets Manager.</para>
+        /// yourself in Amazon Web Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

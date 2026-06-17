@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField
+        /// <summary>
+        /// <para>
+        /// <para>Additional request fields to pass to the reranking model.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields")]
+        public System.Collections.Hashtable RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField { get; set; }
+        #endregion
+        
         #region Parameter ModelConfiguration_AdditionalModelRequestField
         /// <summary>
         /// <para>
@@ -58,6 +73,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields")]
         public System.Collections.Hashtable ModelConfiguration_AdditionalModelRequestField { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll
+        /// <summary>
+        /// <para>
+        /// <para>Knowledge base data sources are returned if their metadata attributes fulfill all
+        /// the filter conditions inside this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentRuntime.Model.RetrievalFilter[] RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll { get; set; }
         #endregion
         
         #region Parameter Filter_AndAll
@@ -76,6 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.RetrievalFilter[] Filter_AndAll { get; set; }
         #endregion
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which specifies a metadata field to exclude from consideration
+        /// when reranking.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentRuntime.Model.FieldForReranking[] RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude { get; set; }
+        #endregion
+        
         #region Parameter SelectiveModeConfiguration_FieldsToExclude
         /// <summary>
         /// <para>
@@ -90,6 +135,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude")]
         public Amazon.BedrockAgentRuntime.Model.FieldForReranking[] SelectiveModeConfiguration_FieldsToExclude { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which specifies a metadata field to include in consideration
+        /// when reranking. The remaining metadata fields are ignored.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentRuntime.Model.FieldForReranking[] RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude { get; set; }
         #endregion
         
         #region Parameter SelectiveModeConfiguration_FieldsToInclude
@@ -151,6 +211,116 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [Alias("RetrievalQuery_Image_InlineContent")]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] Image_InlineContent { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key { get; set; }
         #endregion
         
         #region Parameter Equals_Key
@@ -306,6 +476,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.MetadataAttributeSchema[] ImplicitFilterConfiguration_MetadataAttribute { get; set; }
         #endregion
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Bedrock reranking model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn { get; set; }
+        #endregion
+        
         #region Parameter ImplicitFilterConfiguration_ModelArn
         /// <summary>
         /// <para>
@@ -328,6 +508,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String ModelConfiguration_ModelArn { get; set; }
         #endregion
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult
+        /// <summary>
+        /// <para>
+        /// <para>The number of results to return after reranking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResults")]
+        public System.Int32? RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult { get; set; }
+        #endregion
+        
         #region Parameter BedrockRerankingConfiguration_NumberOfRerankedResult
         /// <summary>
         /// <para>
@@ -339,6 +530,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Int32? BedrockRerankingConfiguration_NumberOfRerankedResult { get; set; }
         #endregion
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult
+        /// <summary>
+        /// <para>
+        /// <para>The number of results to retrieve.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResults")]
+        public System.Int32? RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult { get; set; }
+        #endregion
+        
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
@@ -348,6 +550,21 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrievalConfiguration_VectorSearchConfiguration_NumberOfResults")]
         public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll
+        /// <summary>
+        /// <para>
+        /// <para>Knowledge base data sources are returned if their metadata attributes fulfill at least
+        /// one of the filter conditions inside this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentRuntime.Model.RetrievalFilter[] RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll { get; set; }
         #endregion
         
         #region Parameter Filter_OrAll
@@ -384,6 +601,32 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
         #endregion
         
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType
+        /// <summary>
+        /// <para>
+        /// <para>The type of reranking model to use when reranking results retrieved from the managed
+        /// search. Use <c>CUSTOM</c> to specify a model, <c>MANAGED</c> to use the service default,
+        /// or <c>NONE</c> to disable reranking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.RerankingModelType")]
+        public Amazon.BedrockAgentRuntime.RerankingModelType RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to consider all metadata when reranking, or only the metadata that
+        /// you select. If you specify <c>SELECTIVE</c>, include the <c>selectiveModeConfiguration</c>
+        /// field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode")]
+        public Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode { get; set; }
+        #endregion
+        
         #region Parameter MetadataConfiguration_SelectionMode
         /// <summary>
         /// <para>
@@ -406,6 +649,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RetrievalQuery_Text { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of reranking configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType")]
+        public Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter RerankingConfiguration_Type
@@ -431,10 +685,130 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.KnowledgeBaseQueryType RetrievalQuery_Type { get; set; }
         #endregion
         
+        #region Parameter UserContext_UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the user making the retrieval request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserContext_UserId { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value { get; set; }
+        #endregion
+        
+        #region Parameter RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value { get; set; }
+        #endregion
+        
         #region Parameter Equals_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -445,7 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter GreaterThan_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -456,7 +830,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter GreaterThanOrEquals_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -467,7 +841,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter In_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,7 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter LessThan_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -489,7 +863,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter LessThanOrEquals_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -500,7 +874,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ListContains_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -511,7 +885,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter NotEquals_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -522,7 +896,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter NotIn_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -533,7 +907,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter StartsWith_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -544,7 +918,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter StringContains_Value
         /// <summary>
         /// <para>
-        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// <para>The value to which to compare the value of the metadata attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -620,6 +994,58 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll != null)
+            {
+                context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll = new List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter>(this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll);
+            }
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value;
+            if (this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll != null)
+            {
+                context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll = new List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter>(this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll);
+            }
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value = this.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult = this.RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode = this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode;
+            if (this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude != null)
+            {
+                context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude = new List<Amazon.BedrockAgentRuntime.Model.FieldForReranking>(this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude);
+            }
+            if (this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude != null)
+            {
+                context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude = new List<Amazon.BedrockAgentRuntime.Model.FieldForReranking>(this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude);
+            }
+            if (this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField != null)
+            {
+                context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField.Keys)
+                {
+                    context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField[hashKey]));
+                }
+            }
+            context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn = this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult = this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type = this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type;
+            context.RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType = this.RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType;
             if (this.Filter_AndAll != null)
             {
                 context.Filter_AndAll = new List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter>(this.Filter_AndAll);
@@ -681,6 +1107,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.Image_InlineContent = this.Image_InlineContent;
             context.RetrievalQuery_Text = this.RetrievalQuery_Text;
             context.RetrievalQuery_Type = this.RetrievalQuery_Type;
+            context.UserContext_UserId = this.UserContext_UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -742,6 +1169,606 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                  // populate RetrievalConfiguration
                 var requestRetrievalConfigurationIsNull = true;
                 request.RetrievalConfiguration = new Amazon.BedrockAgentRuntime.Model.KnowledgeBaseRetrievalConfiguration();
+                Amazon.BedrockAgentRuntime.Model.ManagedSearchConfiguration requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration = null;
+                
+                 // populate ManagedSearchConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration = new Amazon.BedrockAgentRuntime.Model.ManagedSearchConfiguration();
+                System.Int32? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_NumberOfResult = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_NumberOfResult = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult.Value;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_NumberOfResult != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration.NumberOfResults = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_NumberOfResult.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.RerankingModelType requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingModelType = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingModelType = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingModelType != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration.RerankingModelType = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingModelType;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.ManagedSearchRerankingConfiguration requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration = null;
+                
+                 // populate RerankingConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration = new Amazon.BedrockAgentRuntime.Model.ManagedSearchRerankingConfiguration();
+                Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration.Type = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.ManagedSearchBedrockRerankingConfiguration requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = null;
+                
+                 // populate BedrockRerankingConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = new Amazon.BedrockAgentRuntime.Model.ManagedSearchBedrockRerankingConfiguration();
+                System.Int32? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult.Value;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.NumberOfRerankedResults = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.MetadataConfigurationForReranking requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = null;
+                
+                 // populate MetadataConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = new Amazon.BedrockAgentRuntime.Model.MetadataConfigurationForReranking();
+                Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration.SelectionMode = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.RerankingMetadataSelectiveModeConfiguration requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = null;
+                
+                 // populate SelectiveModeConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = new Amazon.BedrockAgentRuntime.Model.RerankingMetadataSelectiveModeConfiguration();
+                List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration.FieldsToExclude = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = false;
+                }
+                List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration.FieldsToInclude = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration.SelectiveModeConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.MetadataConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.ManagedSearchBedrockRerankingModelConfiguration requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = null;
+                
+                 // populate ModelConfiguration
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = new Amazon.BedrockAgentRuntime.Model.ManagedSearchBedrockRerankingModelConfiguration();
+                Dictionary<System.String, Amazon.Runtime.Documents.Document> requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration.AdditionalModelRequestFields = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = false;
+                }
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration.ModelArn = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.ModelConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration.BedrockRerankingConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration.RerankingConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.RetrievalFilter requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter = null;
+                
+                 // populate Filter
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter = new Amazon.BedrockAgentRuntime.Model.RetrievalFilter();
+                List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.AndAll = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.OrAll = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals = null;
+                
+                 // populate Equals
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_EqualsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_EqualsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_EqualsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_EqualsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.Equals = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_Equals;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan = null;
+                
+                 // populate GreaterThan
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.GreaterThan = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals = null;
+                
+                 // populate GreaterThanOrEquals
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEqualsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEqualsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEqualsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEqualsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.GreaterThanOrEquals = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In = null;
+                
+                 // populate In
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_InIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_InIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_retrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_InIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_InIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.In = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_In;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan = null;
+                
+                 // populate LessThan
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.LessThan = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals = null;
+                
+                 // populate LessThanOrEquals
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEqualsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEqualsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEqualsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEqualsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.LessThanOrEquals = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains = null;
+                
+                 // populate ListContains
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContainsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContainsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContainsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContainsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.ListContains = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals = null;
+                
+                 // populate NotEquals
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEqualsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEqualsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEqualsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEqualsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.NotEquals = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn = null;
+                
+                 // populate NotIn
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotInIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotInIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotInIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotInIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.NotIn = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith = null;
+                
+                 // populate StartsWith
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWithIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWithIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWithIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWithIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.StartsWith = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains = null;
+                
+                 // populate StringContains
+                var requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContainsIsNull = true;
+                requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+                System.String requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key = cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains.Key = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContainsIsNull = false;
+                }
+                Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value = null;
+                if (cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value);
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains.Value = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value.Value;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContainsIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContainsIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter.StringContains = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter_retrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_FilterIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter != null)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration.Filter = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration_retrievalConfiguration_ManagedSearchConfiguration_Filter;
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull = false;
+                }
+                 // determine if requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration should be set to null
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfigurationIsNull)
+                {
+                    requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration = null;
+                }
+                if (requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration != null)
+                {
+                    request.RetrievalConfiguration.ManagedSearchConfiguration = requestRetrievalConfiguration_retrievalConfiguration_ManagedSearchConfiguration;
+                    requestRetrievalConfigurationIsNull = false;
+                }
                 Amazon.BedrockAgentRuntime.Model.KnowledgeBaseVectorSearchConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration = null;
                 
                  // populate VectorSearchConfiguration
@@ -1448,6 +2475,25 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                     request.RetrievalQuery = null;
                 }
                 
+                 // populate UserContext
+                var requestUserContextIsNull = true;
+                request.UserContext = new Amazon.BedrockAgentRuntime.Model.UserContext();
+                System.String requestUserContext_userContext_UserId = null;
+                if (cmdletContext.UserContext_UserId != null)
+                {
+                    requestUserContext_userContext_UserId = cmdletContext.UserContext_UserId;
+                }
+                if (requestUserContext_userContext_UserId != null)
+                {
+                    request.UserContext.UserId = requestUserContext_userContext_UserId;
+                    requestUserContextIsNull = false;
+                }
+                 // determine if request.UserContext should be set to null
+                if (requestUserContextIsNull)
+                {
+                    request.UserContext = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -1514,6 +2560,39 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
             public System.String KnowledgeBaseId { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> RetrievalConfiguration_ManagedSearchConfiguration_Filter_AndAll { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_Equals_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThan_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_GreaterThanOrEquals_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_In_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThan_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_LessThanOrEquals_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_ListContains_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotEquals_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_NotIn_Value { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> RetrievalConfiguration_ManagedSearchConfiguration_Filter_OrAll { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_StartsWith_Value { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Key { get; set; }
+            public System.Management.Automation.PSObject RetrievalConfiguration_ManagedSearchConfiguration_Filter_StringContains_Value { get; set; }
+            public System.Int32? RetrievalConfiguration_ManagedSearchConfiguration_NumberOfResult { get; set; }
+            public Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestField { get; set; }
+            public System.String RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn { get; set; }
+            public System.Int32? RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResult { get; set; }
+            public Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type { get; set; }
+            public Amazon.BedrockAgentRuntime.RerankingModelType RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> Filter_AndAll { get; set; }
             public System.String Equals_Key { get; set; }
             public System.Management.Automation.PSObject Equals_Value { get; set; }
@@ -1553,6 +2632,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public byte[] Image_InlineContent { get; set; }
             public System.String RetrievalQuery_Text { get; set; }
             public Amazon.BedrockAgentRuntime.KnowledgeBaseQueryType RetrievalQuery_Type { get; set; }
+            public System.String UserContext_UserId { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.RetrieveResponse, InvokeBARRetrieveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

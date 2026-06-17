@@ -212,6 +212,7 @@ $MQ_SelectMap = @{
                "Get-MQBrokerInstanceOption",
                "Get-MQConfiguration",
                "Get-MQConfigurationRevision",
+               "Get-MQSharedResourceDetail",
                "Get-MQUser",
                "Get-MQBrokerList",
                "Get-MQConfigurationRevisionList",

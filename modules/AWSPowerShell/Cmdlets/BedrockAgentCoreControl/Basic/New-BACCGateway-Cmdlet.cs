@@ -199,6 +199,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment
+        /// <summary>
+        /// <para>
+        /// <para>The list of hosting environments whose workloads are allowed to invoke the target.
+        /// At launch, the only supported hosting environment is AgentCore Gateway.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironments")]
+        public Amazon.BedrockAgentCoreControl.Model.HostingEnvironment[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
+        #endregion
+        
         #region Parameter Mcp_Instruction
         /// <summary>
         /// <para>
@@ -452,6 +468,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity
+        /// <summary>
+        /// <para>
+        /// <para>The list of workload identities that are allowed to invoke the target.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentities")]
+        public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -523,6 +554,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (this.CustomJWTAuthorizer_AllowedScope != null)
             {
                 context.CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.CustomJWTAuthorizer_AllowedScope);
+            }
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = new List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment);
+            }
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity);
             }
             if (this.CustomJWTAuthorizer_CustomClaim != null)
             {
@@ -684,6 +723,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride != null)
             {
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.PrivateEndpointOverrides = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.AllowedWorkloadConfiguration requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = null;
+            
+             // populate AllowedWorkloadConfiguration
+            var requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = new Amazon.BedrockAgentCoreControl.Model.AllowedWorkloadConfiguration();
+            List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration.HostingEnvironments = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration.WorkloadIdentities = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedWorkloadConfiguration = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint = null;
@@ -1047,6 +1121,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<System.String> CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedClient { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedScope { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
+            public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> CustomJWTAuthorizer_CustomClaim { get; set; }
             public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
             public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }

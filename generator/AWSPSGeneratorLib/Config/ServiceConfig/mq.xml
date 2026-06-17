@@ -56,11 +56,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,19 +72,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSharedResources" OutputProperty="SharedResources" Verb="Get" Noun="SharedResourceDetail" PipelineParameter="BrokerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,7 +96,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

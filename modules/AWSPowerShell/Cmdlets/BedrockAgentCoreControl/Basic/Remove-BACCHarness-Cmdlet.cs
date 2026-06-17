@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeleteManagedMemory
+        /// <summary>
+        /// <para>
+        /// <para>Whether to delete the managed memory on harness deletion. Default: true. If false,
+        /// the memory is disassociated and becomes a regular customer-owned resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteManagedMemory { get; set; }
+        #endregion
+        
         #region Parameter HarnessId
         /// <summary>
         /// <para>
@@ -119,6 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.DeleteManagedMemory = this.DeleteManagedMemory;
             context.HarnessId = this.HarnessId;
             #if MODULAR
             if (this.HarnessId == null && ParameterWasBound(nameof(this.HarnessId)))
@@ -145,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeleteManagedMemory != null)
+            {
+                request.DeleteManagedMemory = cmdletContext.DeleteManagedMemory.Value;
             }
             if (cmdletContext.HarnessId != null)
             {
@@ -206,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? DeleteManagedMemory { get; set; }
             public System.String HarnessId { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteHarnessResponse, RemoveBACCHarnessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Harness;

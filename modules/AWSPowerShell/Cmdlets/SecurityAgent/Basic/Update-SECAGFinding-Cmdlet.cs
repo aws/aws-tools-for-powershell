@@ -62,6 +62,36 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter AttackScript
+        /// <summary>
+        /// <para>
+        /// <para>The updated attack script for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AttackScript { get; set; }
+        #endregion
+        
+        #region Parameter CustomerNote
+        /// <summary>
+        /// <para>
+        /// <para>A customer-provided note on the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerNote { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>The updated description for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter FindingId
         /// <summary>
         /// <para>
@@ -79,6 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String FindingId { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The updated name for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Reasoning
+        /// <summary>
+        /// <para>
+        /// <para>The updated reasoning for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Reasoning { get; set; }
+        #endregion
+        
         #region Parameter RiskLevel
         /// <summary>
         /// <para>
@@ -88,6 +138,26 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SecurityAgent.RiskLevel")]
         public Amazon.SecurityAgent.RiskLevel RiskLevel { get; set; }
+        #endregion
+        
+        #region Parameter RiskScore
+        /// <summary>
+        /// <para>
+        /// <para>The updated numerical risk score for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RiskScore { get; set; }
+        #endregion
+        
+        #region Parameter RiskType
+        /// <summary>
+        /// <para>
+        /// <para>The updated risk type for the finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RiskType { get; set; }
         #endregion
         
         #region Parameter Status
@@ -153,6 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AttackScript = this.AttackScript;
+            context.CustomerNote = this.CustomerNote;
+            context.Description = this.Description;
             context.FindingId = this.FindingId;
             #if MODULAR
             if (this.FindingId == null && ParameterWasBound(nameof(this.FindingId)))
@@ -160,7 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter FindingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Name = this.Name;
+            context.Reasoning = this.Reasoning;
             context.RiskLevel = this.RiskLevel;
+            context.RiskScore = this.RiskScore;
+            context.RiskType = this.RiskType;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -182,13 +259,41 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
             }
+            if (cmdletContext.AttackScript != null)
+            {
+                request.AttackScript = cmdletContext.AttackScript;
+            }
+            if (cmdletContext.CustomerNote != null)
+            {
+                request.CustomerNote = cmdletContext.CustomerNote;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.FindingId != null)
             {
                 request.FindingId = cmdletContext.FindingId;
             }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Reasoning != null)
+            {
+                request.Reasoning = cmdletContext.Reasoning;
+            }
             if (cmdletContext.RiskLevel != null)
             {
                 request.RiskLevel = cmdletContext.RiskLevel;
+            }
+            if (cmdletContext.RiskScore != null)
+            {
+                request.RiskScore = cmdletContext.RiskScore;
+            }
+            if (cmdletContext.RiskType != null)
+            {
+                request.RiskType = cmdletContext.RiskType;
             }
             if (cmdletContext.Status != null)
             {
@@ -250,8 +355,15 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public System.String AttackScript { get; set; }
+            public System.String CustomerNote { get; set; }
+            public System.String Description { get; set; }
             public System.String FindingId { get; set; }
+            public System.String Name { get; set; }
+            public System.String Reasoning { get; set; }
             public Amazon.SecurityAgent.RiskLevel RiskLevel { get; set; }
+            public System.String RiskScore { get; set; }
+            public System.String RiskType { get; set; }
             public Amazon.SecurityAgent.FindingStatus Status { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.UpdateFindingResponse, UpdateSECAGFindingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

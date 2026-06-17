@@ -7638,10 +7638,45 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingConfigurationType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingConfiguration_Type"
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingModelType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingModelType"
+        {
+            $v = "CUSTOM","MANAGED","NONE"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.DocumentOutputFormat
+        "Get-BARDocumentContent/OutputFormat"
+        {
+            $v = "EXTRACTED","RAW"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.FlowExecutionEventType
         "Get-BARFlowExecutionEventList/EventType"
         {
             $v = "Flow","Node"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.FoundationModelConfigurationType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"
+        {
+            $v = "BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.FoundationModelType
+        "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelType"
+        {
+            $v = "CUSTOM","MANAGED"
             break
         }
 
@@ -7663,6 +7698,17 @@ $BAR_Completers = {
         "Invoke-BARRetrieve/RetrievalQuery_Type"
         {
             $v = "IMAGE","TEXT"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.ManagedSearchRerankingConfigurationType
+        {
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type")
+        }
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
             break
         }
 
@@ -7726,10 +7772,24 @@ $BAR_Completers = {
         {
             ($_ -eq "Invoke-BARRetrieve/MetadataConfiguration_SelectionMode") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerate/MetadataConfiguration_SelectionMode") -Or
-            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/MetadataConfiguration_SelectionMode")
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode")
         }
         {
             $v = "ALL","SELECTIVE"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.RerankingModelType
+        {
+            ($_ -eq "Invoke-BARRetrieve/RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType")
+        }
+        {
+            $v = "CUSTOM","MANAGED","NONE"
             break
         }
 
@@ -7782,6 +7842,10 @@ $BAR_Completers = {
 
 $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
+    "AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_FoundationModelType"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_RerankingConfiguration_Type"=@("Invoke-BARAgenticRetrieveStream")
+    "AgenticRetrieveConfiguration_RerankingModelType"=@("Invoke-BARAgenticRetrieveStream")
     "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "Image_Format"=@("Invoke-BARRetrieve")
@@ -7790,11 +7854,18 @@ $BAR_map = @{
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "OrchestrationType"=@("Invoke-BARInlineAgent")
+    "OutputFormat"=@("Get-BARDocumentContent")
     "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent","Start-BARFlowExecution")
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type"=@("Invoke-BARRetrieve")
+    "RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType"=@("Invoke-BARRetrieve")
     "RetrievalQuery_Type"=@("Invoke-BARRetrieve")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_ManagedSearchConfiguration_RerankingModelType"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "Stream_ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
     "Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
@@ -7854,13 +7925,15 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("New-BARInvocation",
+    "Select"=@("Invoke-BARAgenticRetrieveStream",
+               "New-BARInvocation",
                "New-BARSession",
                "Remove-BARAgentMemory",
                "Remove-BARSession",
                "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARDocumentContent",
                "Get-BARExecutionFlowSnapshot",
                "Get-BARFlowExecution",
                "Get-BARInvocationStep",
@@ -8023,17 +8096,45 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "CONFLUENCE","CUSTOM","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
+            $v = "CONFLUENCE","CUSTOM","MANAGED_KNOWLEDGE_BASE_CONNECTOR","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
         # Amazon.BedrockAgent.EmbeddingDataType
         {
             ($_ -eq "New-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
-            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType")
+            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType")
         }
         {
             $v = "BINARY","FLOAT32"
+            break
+        }
+
+        # Amazon.BedrockAgent.EmbeddingModelType
+        {
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType")
+        }
+        {
+            $v = "CUSTOM","MANAGED"
+            break
+        }
+
+        # Amazon.BedrockAgent.EnabledOrDisabledState
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -8080,7 +8181,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_Type")
         }
         {
-            $v = "KENDRA","SQL","VECTOR"
+            $v = "KENDRA","MANAGED","SQL","VECTOR"
             break
         }
 
@@ -8112,7 +8213,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","SMART_PARSING"
             break
         }
 
@@ -8238,6 +8339,10 @@ $AAB_map = @{
     "DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
@@ -8245,6 +8350,8 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "EnrichmentStrategyConfiguration_Method"=@("New-AABDataSource","Update-AABDataSource")
+    "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
@@ -8332,6 +8439,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBase",
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
+               "Remove-AABResourcePolicy",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
@@ -8348,6 +8456,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBase",
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
+               "Get-AABResourcePolicy",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
@@ -8366,6 +8475,7 @@ $AAB_SelectMap = @{
                "Get-AABResourceTag",
                "Initialize-AABAgent",
                "Initialize-AABFlow",
+               "Write-AABResourcePolicy",
                "Start-AABIngestionJob",
                "Stop-AABIngestionJob",
                "Add-AABResourceTag",
@@ -8496,6 +8606,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EnforcementMode
+        {
+            ($_ -eq "New-BACCPolicy/EnforcementMode") -Or
+            ($_ -eq "Update-BACCPolicy/EnforcementMode")
+        }
+        {
+            $v = "ACTIVE","LOG_ONLY"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EvaluatorLevel
         {
             ($_ -eq "New-BACCEvaluator/Level") -Or
@@ -8623,6 +8743,16 @@ $BACC_Completers = {
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PassthroughProtocolType
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_ProtocolType") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_ProtocolType")
+        }
+        {
+            $v = "A2A","CUSTOM","INFERENCE","MCP"
             break
         }
 
@@ -8769,6 +8899,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.WafFailureMode
+        "Update-BACCGateway/WafConfiguration_FailureMode"
+        {
+            $v = "FAIL_CLOSE","FAIL_OPEN"
+            break
+        }
+
 
     }
 
@@ -8785,6 +8922,7 @@ $BACC_map = @{
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
+    "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
@@ -8820,11 +8958,13 @@ $BACC_map = @{
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
+    "TargetConfiguration_Http_Passthrough_ProtocolType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList","New-BACCPaymentConnector","Update-BACCPaymentConnector")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
+    "WafConfiguration_FailureMode"=@("Update-BACCGateway")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
@@ -8892,6 +9032,7 @@ $BACC_SelectMap = @{
                "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
+               "New-BACCHarnessEndpoint",
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
                "New-BACCOnlineEvaluationConfig",
@@ -8917,6 +9058,7 @@ $BACC_SelectMap = @{
                "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
+               "Remove-BACCHarnessEndpoint",
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
                "Remove-BACCOnlineEvaluationConfig",
@@ -8943,6 +9085,7 @@ $BACC_SelectMap = @{
                "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
+               "Get-BACCHarnessEndpoint",
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
                "Get-BACCOnlineEvaluationConfig",
@@ -8976,7 +9119,9 @@ $BACC_SelectMap = @{
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
+               "Get-BACCHarnessEndpointList",
                "Get-BACCHarnessList",
+               "Get-BACCHarnessVersionList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
                "Get-BACCOnlineEvaluationConfigList",
@@ -9012,6 +9157,7 @@ $BACC_SelectMap = @{
                "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",
+               "Update-BACCHarnessEndpoint",
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
                "Update-BACCOnlineEvaluationConfig",
@@ -25879,7 +26025,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
         "Register-DOPSService/Service"
         {
-            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow"
             break
         }
 
@@ -25924,7 +26070,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
             break
         }
 
@@ -25962,7 +26108,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskType
         "New-DOPSBacklogTask/TaskType"
         {
-            $v = "EVALUATION","INVESTIGATION"
+            $v = "EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
             break
         }
 
@@ -39417,6 +39563,20 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.SearchFilterOperator
+        "Invoke-GLUESearch/FilterClause_AttributeFilter_Operator"
+        {
+            $v = "equals","greaterThan","greaterThanOrEquals","lessThan","lessThanOrEquals","notExists"
+            break
+        }
+
+        # Amazon.Glue.SearchSortOrder
+        "Invoke-GLUESearch/Sort_Order"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.Glue.SessionType
         "New-GLUESession/SessionType"
         {
@@ -39636,6 +39796,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "FilterClause_AttributeFilter_Operator"=@("Invoke-GLUESearch")
     "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
@@ -39667,6 +39828,7 @@ $GLUE_map = @{
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "Sort_Order"=@("Invoke-GLUESearch")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
@@ -39728,7 +39890,8 @@ $GLUE_SelectCompleters = {
 }
 
 $GLUE_SelectMap = @{
-    "Select"=@("New-GLUEPartitionBatch",
+    "Select"=@("Add-GLUEGlossaryTerm",
+               "New-GLUEPartitionBatch",
                "Remove-GLUEConnectionBatch",
                "Remove-GLUEPartitionBatch",
                "Remove-GLUETableBatch",
@@ -39738,6 +39901,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEGetCustomEntityType",
                "Get-GLUEDataQualityResultBatch",
                "Get-GLUEDevEndpointBatch",
+               "Get-GLUEIterableFormBatch",
                "Get-GLUEJobBatch",
                "Get-GLUEPartitionBatch",
                "Get-GLUETableOptimizerBatch",
@@ -39761,6 +39925,8 @@ $GLUE_SelectMap = @{
                "New-GLUEDatabase",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
+               "New-GLUEGlossary",
+               "New-GLUEGlossaryTerm",
                "New-GLUEGlueIdentityCenterConfiguration",
                "New-GLUEIntegration",
                "New-GLUEIntegrationResourceProperty",
@@ -39780,6 +39946,9 @@ $GLUE_SelectMap = @{
                "New-GLUEUsageProfile",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
+               "Remove-GLUEAsset",
+               "Remove-GLUEAssetType",
+               "Remove-GLUEAttachment",
                "Remove-GLUEBlueprint",
                "Remove-GLUECatalog",
                "Remove-GLUEClassifier",
@@ -39793,6 +39962,9 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDatabase",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
+               "Remove-GLUEFormType",
+               "Remove-GLUEGlossary",
+               "Remove-GLUEGlossaryTerm",
                "Remove-GLUEGlueIdentityCenterConfiguration",
                "Remove-GLUEIntegration",
                "Remove-GLUEIntegrationResourceProperty",
@@ -39818,6 +39990,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEEntity",
                "Get-GLUEInboundIntegration",
                "Get-GLUEIntegration",
+               "Unregister-GLUEGlossaryTerm",
+               "Get-GLUEAsset",
+               "Get-GLUEAssetType",
                "Get-GLUEBlueprint",
                "Get-GLUEBlueprintRun",
                "Get-GLUEBlueprintRunList",
@@ -39851,6 +40026,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpoint",
                "Get-GLUEDevEndpointList",
                "Get-GLUEEntityRecord",
+               "Get-GLUEFormType",
+               "Get-GLUEGlossary",
+               "Get-GLUEGlossaryTerm",
                "Get-GLUEGlueIdentityCenterConfiguration",
                "Get-GLUEIntegrationResourceProperty",
                "Get-GLUEIntegrationTableProperty",
@@ -39900,6 +40078,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEWorkflowRunProperty",
                "Get-GLUEWorkflowRunList",
                "Import-GLUECatalog",
+               "Get-GLUEAssetTypeList",
                "Get-GLUEBlueprintList",
                "Get-GLUEColumnStatisticsTaskRunList",
                "Get-GLUEConnectionTypeList",
@@ -39914,7 +40093,11 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEEntityList",
+               "Get-GLUEFormTypeList",
+               "Get-GLUEGlossaryList",
+               "Get-GLUEGlossaryTermList",
                "Get-GLUEIntegrationResourcePropertyList",
+               "Get-GLUEIterableFormList",
                "Get-GLUEJobNameList",
                "Get-GLUEMaterializedViewRefreshTaskRunList",
                "Get-GLUEMLTransformIdentifier",
@@ -39928,8 +40111,12 @@ $GLUE_SelectMap = @{
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Edit-GLUEIntegration",
+               "Write-GLUEAsset",
+               "Write-GLUEAssetType",
+               "Write-GLUEAttachment",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Write-GLUEDataQualityProfileAnnotation",
+               "Write-GLUEFormType",
                "Set-GLUEResourcePolicy",
                "Write-GLUESchemaVersionMetadata",
                "Write-GLUEWorkflowRunProperty",
@@ -39940,6 +40127,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Invoke-GLUEStatement",
+               "Invoke-GLUESearch",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
                "Start-GLUEColumnStatisticsTaskRun",
@@ -39979,6 +40167,8 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
+               "Update-GLUEGlossary",
+               "Update-GLUEGlossaryTerm",
                "Update-GLUEGlueIdentityCenterConfiguration",
                "Update-GLUEIntegrationResourceProperty",
                "Update-GLUEIntegrationTableProperty",
@@ -57977,6 +58167,7 @@ $MQ_SelectMap = @{
                "Get-MQBrokerInstanceOption",
                "Get-MQConfiguration",
                "Get-MQConfigurationRevision",
+               "Get-MQSharedResourceDetail",
                "Get-MQUser",
                "Get-MQBrokerList",
                "Get-MQConfigurationRevisionList",
@@ -79278,6 +79469,27 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.GitLabTokenType
+        "New-SECAGIntegration/Input_Gitlab_TokenType"
+        {
+            $v = "GROUP","PERSONAL"
+            break
+        }
+
+        # Amazon.SecurityAgent.IpAddressType
+        "New-SECAGPrivateConnection/Mode_ServiceManaged_IpAddressType"
+        {
+            $v = "DUAL_STACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.SecurityAgent.ManagementType
+        "Get-SECAGSecurityRequirementPackList/Filter_ManagementType"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.SecurityAgent.MembershipType
         {
             ($_ -eq "New-SECAGMembership/MemberType") -Or
@@ -79302,7 +79514,7 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "GITHUB"
+            $v = "BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
             break
         }
 
@@ -79313,10 +79525,17 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.ResourceConfigDnsResolution
+        "New-SECAGPrivateConnection/Mode_ServiceManaged_DnsResolution"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.SecurityAgent.ResourceType
         "Get-SECAGIntegratedResourceList/ResourceType"
         {
-            $v = "CODE_REPOSITORY"
+            $v = "CODE_REPOSITORY","DOCUMENT"
             break
         }
 
@@ -79330,13 +79549,41 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.SecurityRequirementPackStatus
+        {
+            ($_ -eq "Get-SECAGSecurityRequirementPackList/Filter_Status") -Or
+            ($_ -eq "New-SECAGSecurityRequirementPack/Status") -Or
+            ($_ -eq "Update-SECAGSecurityRequirementPack/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SecurityAgent.StepName
         {
             ($_ -eq "Get-SECAGCodeReviewJobTaskList/StepName") -Or
             ($_ -eq "Get-SECAGPentestJobTaskList/StepName")
         }
         {
-            $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS"
+            $v = "FINALIZING","PENTEST","PREFLIGHT","STATIC_ANALYSIS","VALIDATION"
+            break
+        }
+
+        # Amazon.SecurityAgent.ThreatSeverity
+        {
+            ($_ -eq "New-SECAGThreat/Severity") -Or
+            ($_ -eq "Update-SECAGThreat/Severity")
+        }
+        {
+            $v = "CRITICAL","HIGH","INFO","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.SecurityAgent.ThreatStatus
+        "Update-SECAGThreat/Status"
+        {
+            $v = "DISMISSED","OPEN","RESOLVED"
             break
         }
 
@@ -79344,6 +79591,16 @@ $SECAG_Completers = {
         "New-SECAGMembership/Config_User_Role"
         {
             $v = "MEMBER"
+            break
+        }
+
+        # Amazon.SecurityAgent.ValidationMode
+        {
+            ($_ -eq "New-SECAGCodeReview/ValidationMode") -Or
+            ($_ -eq "Update-SECAGCodeReview/ValidationMode")
+        }
+        {
+            $v = "DISABLED","SIMULATED"
             break
         }
 
@@ -79360,14 +79617,21 @@ $SECAG_map = @{
     "CodeRemediationStrategy"=@("New-SECAGCodeReview","New-SECAGPentest","Update-SECAGCodeReview","Update-SECAGPentest")
     "Confidence"=@("Get-SECAGFindingList")
     "Config_User_Role"=@("New-SECAGMembership")
+    "Filter_ManagementType"=@("Get-SECAGSecurityRequirementPackList")
     "Filter_Provider"=@("Get-SECAGIntegrationList")
     "Filter_ProviderType"=@("Get-SECAGIntegrationList")
+    "Filter_Status"=@("Get-SECAGSecurityRequirementPackList")
+    "Input_Gitlab_TokenType"=@("New-SECAGIntegration")
     "MemberType"=@("Get-SECAGMembershipList","New-SECAGMembership","Remove-SECAGMembership")
+    "Mode_ServiceManaged_DnsResolution"=@("New-SECAGPrivateConnection")
+    "Mode_ServiceManaged_IpAddressType"=@("New-SECAGPrivateConnection")
     "Provider"=@("New-SECAGIntegration","Start-SECAGProviderRegistration")
     "ResourceType"=@("Get-SECAGIntegratedResourceList")
     "RiskLevel"=@("Get-SECAGFindingList","Update-SECAGFinding")
-    "Status"=@("Get-SECAGFindingList","Update-SECAGFinding")
+    "Severity"=@("New-SECAGThreat","Update-SECAGThreat")
+    "Status"=@("Get-SECAGFindingList","New-SECAGSecurityRequirementPack","Update-SECAGFinding","Update-SECAGSecurityRequirementPack","Update-SECAGThreat")
     "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
+    "ValidationMode"=@("New-SECAGCodeReview","Update-SECAGCodeReview")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
 }
 
@@ -79422,8 +79686,11 @@ $SECAG_SelectCompleters = {
 
 $SECAG_SelectMap = @{
     "Select"=@("Add-SECAGArtifact",
+               "New-SECAGSecurityRequirementBatch",
                "Remove-SECAGCodeReviewBatch",
                "Remove-SECAGPentestBatch",
+               "Remove-SECAGSecurityRequirementBatch",
+               "Remove-SECAGThreatModelBatch",
                "Get-SECAGAgentSpaceBatch",
                "Get-SECAGArtifactMetadataBatch",
                "Get-SECAGCodeReviewJobBatch",
@@ -79433,23 +79700,38 @@ $SECAG_SelectMap = @{
                "Get-SECAGPentestJobBatch",
                "Get-SECAGPentestJobTaskBatch",
                "Get-SECAGPentestBatch",
+               "Get-SECAGSecurityRequirementBatch",
                "Get-SECAGTargetDomainBatch",
+               "Get-SECAGThreatModelJobBatch",
+               "Get-SECAGThreatModelJobTaskBatch",
+               "Get-SECAGThreatModelBatch",
+               "Get-SECAGThreatBatch",
+               "Update-SECAGSecurityRequirementBatch",
                "New-SECAGAgentSpace",
                "New-SECAGApplication",
                "New-SECAGCodeReview",
                "New-SECAGIntegration",
                "New-SECAGMembership",
                "New-SECAGPentest",
+               "New-SECAGPrivateConnection",
+               "New-SECAGSecurityRequirementPack",
                "New-SECAGTargetDomain",
+               "New-SECAGThreat",
+               "New-SECAGThreatModel",
                "Remove-SECAGAgentSpace",
                "Remove-SECAGApplication",
                "Remove-SECAGArtifact",
                "Remove-SECAGIntegration",
                "Remove-SECAGMembership",
+               "Remove-SECAGPrivateConnection",
+               "Remove-SECAGSecurityRequirementPack",
                "Remove-SECAGTargetDomain",
+               "Get-SECAGPrivateConnectionDetail",
                "Get-SECAGApplication",
                "Get-SECAGArtifact",
                "Get-SECAGIntegration",
+               "Get-SECAGSecurityRequirementPack",
+               "Import-SECAGSecurityRequirement",
                "Start-SECAGProviderRegistration",
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
@@ -79465,13 +79747,22 @@ $SECAG_SelectMap = @{
                "Get-SECAGPentestJobsForPentestList",
                "Get-SECAGPentestJobTaskList",
                "Get-SECAGPentestList",
+               "Get-SECAGPrivateConnectionList",
+               "Get-SECAGSecurityRequirementPackList",
+               "Get-SECAGSecurityRequirementList",
                "Get-SECAGResourceTag",
                "Get-SECAGTargetDomainList",
+               "Get-SECAGThreatModelJobList",
+               "Get-SECAGThreatModelJobTaskList",
+               "Get-SECAGThreatModelList",
+               "Get-SECAGThreatList",
                "Start-SECAGCodeRemediation",
                "Start-SECAGCodeReviewJob",
                "Start-SECAGPentestJob",
+               "Start-SECAGThreatModelJob",
                "Stop-SECAGCodeReviewJob",
                "Stop-SECAGPentestJob",
+               "Stop-SECAGThreatModelJob",
                "Add-SECAGResourceTag",
                "Remove-SECAGResourceTag",
                "Update-SECAGAgentSpace",
@@ -79480,7 +79771,11 @@ $SECAG_SelectMap = @{
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
                "Update-SECAGPentest",
+               "Update-SECAGPrivateConnectionCertificate",
+               "Update-SECAGSecurityRequirementPack",
                "Update-SECAGTargetDomain",
+               "Update-SECAGThreat",
+               "Update-SECAGThreatModel",
                "Confirm-SECAGTargetDomain")
 }
 

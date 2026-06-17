@@ -184,6 +184,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EnforcementMode
+        {
+            ($_ -eq "New-BACCPolicy/EnforcementMode") -Or
+            ($_ -eq "Update-BACCPolicy/EnforcementMode")
+        }
+        {
+            $v = "ACTIVE","LOG_ONLY"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.EvaluatorLevel
         {
             ($_ -eq "New-BACCEvaluator/Level") -Or
@@ -311,6 +321,16 @@ $BACC_Completers = {
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PassthroughProtocolType
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_ProtocolType") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_ProtocolType")
+        }
+        {
+            $v = "A2A","CUSTOM","INFERENCE","MCP"
             break
         }
 
@@ -457,6 +477,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.WafFailureMode
+        "Update-BACCGateway/WafConfiguration_FailureMode"
+        {
+            $v = "FAIL_CLOSE","FAIL_OPEN"
+            break
+        }
+
 
     }
 
@@ -473,6 +500,7 @@ $BACC_map = @{
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
+    "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode"=@("New-BACCHarness","Update-BACCHarness")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
@@ -508,11 +536,13 @@ $BACC_map = @{
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
+    "TargetConfiguration_Http_Passthrough_ProtocolType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList","New-BACCPaymentConnector","Update-BACCPaymentConnector")
     "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
     "View"=@("Get-BACCMemory")
+    "WafConfiguration_FailureMode"=@("Update-BACCGateway")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
@@ -580,6 +610,7 @@ $BACC_SelectMap = @{
                "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
+               "New-BACCHarnessEndpoint",
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
                "New-BACCOnlineEvaluationConfig",
@@ -605,6 +636,7 @@ $BACC_SelectMap = @{
                "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
+               "Remove-BACCHarnessEndpoint",
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
                "Remove-BACCOnlineEvaluationConfig",
@@ -631,6 +663,7 @@ $BACC_SelectMap = @{
                "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
+               "Get-BACCHarnessEndpoint",
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
                "Get-BACCOnlineEvaluationConfig",
@@ -664,7 +697,9 @@ $BACC_SelectMap = @{
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
+               "Get-BACCHarnessEndpointList",
                "Get-BACCHarnessList",
+               "Get-BACCHarnessVersionList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
                "Get-BACCOnlineEvaluationConfigList",
@@ -700,6 +735,7 @@ $BACC_SelectMap = @{
                "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",
+               "Update-BACCHarnessEndpoint",
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
                "Update-BACCOnlineEvaluationConfig",

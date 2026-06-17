@@ -22,6 +22,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateGlossaryTerms" OutputProperty="*" Verb="Add" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchCreatePartition" OutputProperty="Errors" Verb="New" Noun="PartitionBatch" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -59,6 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDevEndpoints" OutputProperty="*" Verb="Get" Noun="DevEndpointBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetIterableForms" OutputProperty="*" Verb="Get" Noun="IterableFormBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +176,14 @@
             <Params>
                 <Param Name="PublicKeys" NewName="PublicKeyList" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlossary" OutputProperty="*" Verb="New" Noun="Glossary" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlossaryTerm" OutputProperty="*" Verb="New" Noun="GlossaryTerm" ShouldProcessTarget="Name,GlossaryIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGlueIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="GlueIdentityCenterConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
@@ -285,6 +301,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssetType" Verb="Remove" Noun="AssetType" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="Identifier" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBlueprint" OutputProperty="Name" Verb="Remove" Noun="Blueprint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -334,6 +362,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDevEndpoint" Verb="Remove" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFormType" Verb="Remove" Noun="FormType" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlossary" Verb="Remove" Noun="Glossary" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlossaryTerm" Verb="Remove" Noun="GlossaryTerm" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -434,6 +474,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeIntegrations" OutputProperty="Integrations" Verb="Get" Noun="Integration" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateGlossaryTerms" OutputProperty="*" Verb="Unregister" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetType" OutputProperty="*" Verb="Get" Noun="AssetType" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -566,6 +618,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEntityRecords" OutputProperty="Records" Verb="Get" Noun="EntityRecord" PipelineParameter="EntityName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFormType" OutputProperty="*" Verb="Get" Noun="FormType" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlossary" OutputProperty="*" Verb="Get" Noun="Glossary" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlossaryTerm" OutputProperty="*" Verb="Get" Noun="GlossaryTerm" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -771,6 +835,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetTypes" OutputProperty="Items" Verb="Get" Noun="AssetTypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -867,7 +935,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFormTypes" OutputProperty="Items" Verb="Get" Noun="FormTypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGlossaries" OutputProperty="Items" Verb="Get" Noun="GlossaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGlossaryTerms" OutputProperty="Items" Verb="Get" Noun="GlossaryTermList" PipelineParameter="GlossaryIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIntegrationResourceProperties" OutputProperty="IntegrationResourcePropertyList" Verb="Get" Noun="IntegrationResourcePropertyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIterableForms" OutputProperty="Items" Verb="Get" Noun="IterableFormList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -923,6 +1007,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAsset" OutputProperty="*" Verb="Write" Noun="Asset" ShouldProcessTarget="AssetTypeId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAssetType" OutputProperty="*" Verb="Write" Noun="AssetType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAttachment" OutputProperty="*" Verb="Write" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDataCatalogEncryptionSettings" Verb="Set" Noun="DataCatalogEncryptionSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId" NewName="ConnectionPasswordEncryption_AwsKmsKeyId" />
@@ -934,6 +1030,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataQualityProfileAnnotation" Verb="Write" Noun="DataQualityProfileAnnotation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFormType" OutputProperty="*" Verb="Write" Noun="FormType" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -974,6 +1074,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RunStatement" OutputProperty="Id" Verb="Invoke" Noun="Statement" ShouldProcessTarget="SessionId" PipelineParameter="Code" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Search" OutputProperty="Items" Verb="Invoke" Noun="Search" ShouldProcessTarget="SearchText" PipelineParameter="SearchText" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1186,6 +1290,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevEndpoint" Verb="Update" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlossary" OutputProperty="*" Verb="Update" Noun="Glossary" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlossaryTerm" OutputProperty="*" Verb="Update" Noun="GlossaryTerm" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

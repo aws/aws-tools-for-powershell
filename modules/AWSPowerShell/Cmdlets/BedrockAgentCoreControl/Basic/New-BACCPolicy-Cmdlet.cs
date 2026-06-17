@@ -66,6 +66,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnforcementMode
+        /// <summary>
+        /// <para>
+        /// <para>The enforcement mode for the policy. Run this policy in <c>LOG_ONLY</c> mode to collect
+        /// data on how it affects your application. Once you are satisfied with the data gathered,
+        /// switch the policy to <c>ACTIVE</c>. Defaults to <c>ACTIVE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.EnforcementMode")]
+        public Amazon.BedrockAgentCoreControl.EnforcementMode EnforcementMode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -134,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_Cedar_Statement")]
         public System.String Cedar_Statement { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Policy_Statement
+        /// <summary>
+        /// <para>
+        /// <para>The body of the AgentCore policy statement. Contains the policy logic, which can be
+        /// a Cedar policy or a guardrails definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_Policy_Statement { get; set; }
         #endregion
         
         #region Parameter ValidationMode
@@ -215,9 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.ClientToken = this.ClientToken;
             context.Cedar_Statement = this.Cedar_Statement;
+            context.Definition_Policy_Statement = this.Definition_Policy_Statement;
             context.Definition_PolicyGeneration_PolicyGenerationAssetId = this.Definition_PolicyGeneration_PolicyGenerationAssetId;
             context.Definition_PolicyGeneration_PolicyGenerationId = this.Definition_PolicyGeneration_PolicyGenerationId;
             context.Description = this.Description;
+            context.EnforcementMode = this.EnforcementMode;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -282,6 +308,31 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.Definition.Cedar = requestDefinition_definition_Cedar;
                 requestDefinitionIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.PolicyStatement requestDefinition_definition_Policy = null;
+            
+             // populate Policy
+            var requestDefinition_definition_PolicyIsNull = true;
+            requestDefinition_definition_Policy = new Amazon.BedrockAgentCoreControl.Model.PolicyStatement();
+            System.String requestDefinition_definition_Policy_definition_Policy_Statement = null;
+            if (cmdletContext.Definition_Policy_Statement != null)
+            {
+                requestDefinition_definition_Policy_definition_Policy_Statement = cmdletContext.Definition_Policy_Statement;
+            }
+            if (requestDefinition_definition_Policy_definition_Policy_Statement != null)
+            {
+                requestDefinition_definition_Policy.Statement = requestDefinition_definition_Policy_definition_Policy_Statement;
+                requestDefinition_definition_PolicyIsNull = false;
+            }
+             // determine if requestDefinition_definition_Policy should be set to null
+            if (requestDefinition_definition_PolicyIsNull)
+            {
+                requestDefinition_definition_Policy = null;
+            }
+            if (requestDefinition_definition_Policy != null)
+            {
+                request.Definition.Policy = requestDefinition_definition_Policy;
+                requestDefinitionIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.PolicyGenerationDetails requestDefinition_definition_PolicyGeneration = null;
             
              // populate PolicyGeneration
@@ -325,6 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnforcementMode != null)
+            {
+                request.EnforcementMode = cmdletContext.EnforcementMode;
             }
             if (cmdletContext.Name != null)
             {
@@ -395,9 +450,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public System.String ClientToken { get; set; }
             public System.String Cedar_Statement { get; set; }
+            public System.String Definition_Policy_Statement { get; set; }
             public System.String Definition_PolicyGeneration_PolicyGenerationAssetId { get; set; }
             public System.String Definition_PolicyGeneration_PolicyGenerationId { get; set; }
             public System.String Description { get; set; }
+            public Amazon.BedrockAgentCoreControl.EnforcementMode EnforcementMode { get; set; }
             public System.String Name { get; set; }
             public System.String PolicyEngineId { get; set; }
             public Amazon.BedrockAgentCoreControl.PolicyValidationMode ValidationMode { get; set; }

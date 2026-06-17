@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Whether audio extraction is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.EnabledOrDisabledState")]
+        public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType
         /// <summary>
         /// <para>
@@ -148,6 +159,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public Amazon.BedrockAgent.ChunkingStrategy ChunkingConfiguration_ChunkingStrategy { get; set; }
         #endregion
         
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter
+        /// <summary>
+        /// <para>
+        /// <para>Connector-specific parameters. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-connect-ds.html">Connect
+        /// a data source</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameters")]
+        public System.Management.Automation.PSObject DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
@@ -216,6 +239,29 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DataSourceId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable deletion protection for the connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.EnabledOrDisabledState")]
+        public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The threshold is the maximum percentage of documents that a sync job can delete from
+        /// your index. If a sync would delete more than this percentage, the sync skips its delete
+        /// phase, leaving your indexed documents in place. Not supported for the Custom connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold { get; set; }
         #endregion
         
         #region Parameter Description
@@ -341,6 +387,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Whether image extraction is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.EnabledOrDisabledState")]
+        public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
         #endregion
         
         #region Parameter CrawlerConfiguration_InclusionFilter
@@ -567,7 +624,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ParsingConfiguration_ParsingStrategy
         /// <summary>
         /// <para>
-        /// <para>The parsing strategy for the data source.</para>
+        /// <para>The parsing strategy for the data source. Only <c>SMART_PARSING</c> can be selected
+        /// for managed knowledge bases. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize
+        /// ingestion for managed knowledge bases</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -764,6 +823,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader { get; set; }
         #endregion
         
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Whether video extraction is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.EnabledOrDisabledState")]
+        public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DataSource'.
@@ -820,6 +890,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn = this.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn;
             context.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType = this.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType;
             context.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl = this.DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus;
             context.S3Configuration_BucketArn = this.S3Configuration_BucketArn;
             context.S3Configuration_BucketOwnerAccountId = this.S3Configuration_BucketOwnerAccountId;
             if (this.S3Configuration_InclusionPrefix != null)
@@ -1523,6 +1599,156 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.DataSourceConfiguration.WebConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration;
                 requestDataSourceConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.ManagedKnowledgeBaseConnectorConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration = null;
+            
+             // populate ManagedKnowledgeBaseConnectorConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration = new Amazon.BedrockAgent.Model.ManagedKnowledgeBaseConnectorConfiguration();
+            Amazon.Runtime.Documents.Document? requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter);
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration.ConnectorParameters = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter.Value;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.DeletionProtectionConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration = null;
+            
+             // populate DeletionProtectionConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration = new Amazon.BedrockAgent.Model.DeletionProtectionConfiguration();
+            Amazon.BedrockAgent.EnabledOrDisabledState requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration.DeletionProtectionStatus = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfigurationIsNull = false;
+            }
+            System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold.Value;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration.DeletionProtectionThreshold = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold.Value;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration.DeletionProtectionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.MediaExtractionConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration = null;
+            
+             // populate MediaExtractionConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration = new Amazon.BedrockAgent.Model.MediaExtractionConfiguration();
+            Amazon.BedrockAgent.Model.AudioExtractionConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration = null;
+            
+             // populate AudioExtractionConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration = new Amazon.BedrockAgent.Model.AudioExtractionConfiguration();
+            Amazon.BedrockAgent.EnabledOrDisabledState requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration.AudioExtractionStatus = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration.AudioExtractionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.ImageExtractionConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration = null;
+            
+             // populate ImageExtractionConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration = new Amazon.BedrockAgent.Model.ImageExtractionConfiguration();
+            Amazon.BedrockAgent.EnabledOrDisabledState requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration.ImageExtractionStatus = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration.ImageExtractionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.VideoExtractionConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration = null;
+            
+             // populate VideoExtractionConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration = new Amazon.BedrockAgent.Model.VideoExtractionConfiguration();
+            Amazon.BedrockAgent.EnabledOrDisabledState requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration.VideoExtractionStatus = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration.VideoExtractionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration.MediaExtractionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration != null)
+            {
+                request.DataSourceConfiguration.ManagedKnowledgeBaseConnectorConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration;
+                requestDataSourceConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.S3DataSourceConfiguration requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = null;
             
              // populate S3Configuration
@@ -2069,6 +2295,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn { get; set; }
             public Amazon.BedrockAgent.ConfluenceHostType DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType { get; set; }
             public System.String DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl { get; set; }
+            public System.Management.Automation.PSObject DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_ConnectorParameter { get; set; }
+            public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus { get; set; }
+            public System.Int32? DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionThreshold { get; set; }
+            public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus { get; set; }
+            public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
+            public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus { get; set; }
             public System.String S3Configuration_BucketArn { get; set; }
             public System.String S3Configuration_BucketOwnerAccountId { get; set; }
             public List<System.String> S3Configuration_InclusionPrefix { get; set; }

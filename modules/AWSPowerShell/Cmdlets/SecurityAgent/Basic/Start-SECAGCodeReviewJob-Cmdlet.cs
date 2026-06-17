@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String CodeReviewId { get; set; }
         #endregion
         
+        #region Parameter DiffSource_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>S3 URI pointing to a unified diff file. The file must be in standard unified diff
+        /// format and stored in an S3 bucket connected to your Agent Space.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DiffSource_S3Uri { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter CodeReviewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DiffSource_S3Uri = this.DiffSource_S3Uri;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +179,25 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (cmdletContext.CodeReviewId != null)
             {
                 request.CodeReviewId = cmdletContext.CodeReviewId;
+            }
+            
+             // populate DiffSource
+            var requestDiffSourceIsNull = true;
+            request.DiffSource = new Amazon.SecurityAgent.Model.DiffSource();
+            System.String requestDiffSource_diffSource_S3Uri = null;
+            if (cmdletContext.DiffSource_S3Uri != null)
+            {
+                requestDiffSource_diffSource_S3Uri = cmdletContext.DiffSource_S3Uri;
+            }
+            if (requestDiffSource_diffSource_S3Uri != null)
+            {
+                request.DiffSource.S3Uri = requestDiffSource_diffSource_S3Uri;
+                requestDiffSourceIsNull = false;
+            }
+             // determine if request.DiffSource should be set to null
+            if (requestDiffSourceIsNull)
+            {
+                request.DiffSource = null;
             }
             
             CmdletOutput output;
@@ -225,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         {
             public System.String AgentSpaceId { get; set; }
             public System.String CodeReviewId { get; set; }
+            public System.String DiffSource_S3Uri { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.StartCodeReviewJobResponse, StartSECAGCodeReviewJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

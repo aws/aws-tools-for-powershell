@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier for the agent space where the Trigger will be created</para>
         /// </para>
         /// </summary>
         #if !MODULAR

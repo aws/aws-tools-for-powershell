@@ -162,7 +162,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.PostRegisterServiceSupportedService
         "Register-DOPSService/Service"
         {
-            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow"
+            $v = "azureidentity","dynatrace","eventChannel","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow"
             break
         }
 
@@ -207,7 +207,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.Service
         "Get-DOPSServiceList/FilterServiceType"
         {
-            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","servicenow","slack"
+            $v = "azure","azuredevops","azureidentity","dynatrace","eventChannel","github","gitlab","mcpserver","mcpserverdatadog","mcpservergrafana","mcpservernewrelic","mcpserversigv4","mcpserversplunk","pagerduty","remoteagent","remoteagentsigv4","servicenow","slack"
             break
         }
 
@@ -245,7 +245,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskType
         "New-DOPSBacklogTask/TaskType"
         {
-            $v = "EVALUATION","INVESTIGATION"
+            $v = "EVALUATION","INVESTIGATION","RELEASE_READINESS_REVIEW","RELEASE_TESTING"
             break
         }
 

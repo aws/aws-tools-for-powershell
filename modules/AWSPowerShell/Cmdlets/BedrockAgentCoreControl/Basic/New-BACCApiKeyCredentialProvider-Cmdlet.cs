@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>The source type of the API key secret. Use <c>MANAGED</c> if the secret is managed
-        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in AWS Secrets
-        /// Manager.</para>
+        /// by the service, or <c>EXTERNAL</c> if you manage the secret yourself in Amazon Web
+        /// Services Secrets Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ApiKeySecretConfig_JsonKey
         /// <summary>
         /// <para>
-        /// <para>The JSON key used to extract the secret value from the AWS Secrets Manager secret.</para>
+        /// <para>The JSON key used to extract the secret value from the Amazon Web Services Secrets
+        /// Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ApiKeySecretConfig_SecretId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS Secrets Manager secret that stores the secret value.</para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores the secret value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

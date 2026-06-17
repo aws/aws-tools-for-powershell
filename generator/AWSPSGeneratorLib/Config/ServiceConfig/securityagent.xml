@@ -23,11 +23,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateSecurityRequirements" OutputProperty="*" Verb="New" Noun="SecurityRequirementBatch" ShouldProcessTarget="PackId" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteCodeReviews" OutputProperty="*" Verb="Remove" Noun="CodeReviewBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchDeletePentests" OutputProperty="*" Verb="Remove" Noun="PentestBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteSecurityRequirements" OutputProperty="*" Verb="Remove" Noun="SecurityRequirementBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteThreatModels" OutputProperty="*" Verb="Remove" Noun="ThreatModelBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,7 +79,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetSecurityRequirements" OutputProperty="*" Verb="Get" Noun="SecurityRequirementBatch" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetTargetDomains" OutputProperty="*" Verb="Get" Noun="TargetDomainBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetThreatModelJobs" OutputProperty="*" Verb="Get" Noun="ThreatModelJobBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetThreatModelJobTasks" OutputProperty="*" Verb="Get" Noun="ThreatModelJobTaskBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetThreatModels" OutputProperty="*" Verb="Get" Noun="ThreatModelBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetThreats" OutputProperty="*" Verb="Get" Noun="ThreatBatch" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateSecurityRequirements" OutputProperty="*" Verb="Update" Noun="SecurityRequirementBatch" ShouldProcessTarget="PackId" PipelineParameter="PackId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +131,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePrivateConnection" OutputProperty="*" Verb="New" Noun="PrivateConnection" ShouldProcessTarget="PrivateConnectionName" PipelineParameter="PrivateConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityRequirementPack" OutputProperty="*" Verb="New" Noun="SecurityRequirementPack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTargetDomain" OutputProperty="*" Verb="New" Noun="TargetDomain" ShouldProcessTarget="TargetDomainName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateThreat" OutputProperty="*" Verb="New" Noun="Threat" ShouldProcessTarget="ThreatJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateThreatModel" OutputProperty="*" Verb="New" Noun="ThreatModel" ShouldProcessTarget="AgentSpaceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,7 +171,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePrivateConnection" OutputProperty="*" Verb="Remove" Noun="PrivateConnection" ShouldProcessTarget="PrivateConnectionName" PipelineParameter="PrivateConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityRequirementPack" Verb="Remove" Noun="SecurityRequirementPack" ShouldProcessTarget="PackId" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTargetDomain" OutputProperty="TargetDomainId" Verb="Remove" Noun="TargetDomain" ShouldProcessTarget="TargetDomainId" PipelineParameter="TargetDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePrivateConnection" OutputProperty="*" Verb="Get" Noun="PrivateConnectionDetail" PipelineParameter="PrivateConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -132,6 +196,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityRequirementPack" OutputProperty="*" Verb="Get" Noun="SecurityRequirementPack" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportSecurityRequirements" OutputProperty="*" Verb="Import" Noun="SecurityRequirement" ShouldProcessTarget="PackId" PipelineParameter="PackId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,11 +267,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPrivateConnections" OutputProperty="PrivateConnections" Verb="Get" Noun="PrivateConnectionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityRequirementPacks" OutputProperty="SecurityRequirementPackSummaries" Verb="Get" Noun="SecurityRequirementPackList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityRequirements" OutputProperty="SecurityRequirementSummaries" Verb="Get" Noun="SecurityRequirementList" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTargetDomains" OutputProperty="TargetDomainSummaries" Verb="Get" Noun="TargetDomainList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThreatModelJobs" OutputProperty="ThreatModelJobSummaries" Verb="Get" Noun="ThreatModelJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThreatModelJobTasks" OutputProperty="ThreatModelJobTaskSummaries" Verb="Get" Noun="ThreatModelJobTaskList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThreatModels" OutputProperty="ThreatModelSummaries" Verb="Get" Noun="ThreatModelList" PipelineParameter="AgentSpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThreats" OutputProperty="Threats" Verb="Get" Noun="ThreatList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,11 +315,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartThreatModelJob" OutputProperty="*" Verb="Start" Noun="ThreatModelJob" ShouldProcessTarget="AgentSpaceId,ThreatModelId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopCodeReviewJob" Verb="Stop" Noun="CodeReviewJob" ShouldProcessTarget="CodeReviewJobId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopPentestJob" Verb="Stop" Noun="PentestJob" ShouldProcessTarget="PentestJobId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopThreatModelJob" Verb="Stop" Noun="ThreatModelJob" ShouldProcessTarget="ThreatModelJobId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,7 +363,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePrivateConnectionCertificate" OutputProperty="*" Verb="Update" Noun="PrivateConnectionCertificate" ShouldProcessTarget="PrivateConnectionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityRequirementPack" OutputProperty="*" Verb="Update" Noun="SecurityRequirementPack" ShouldProcessTarget="PackId" PipelineParameter="PackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTargetDomain" OutputProperty="*" Verb="Update" Noun="TargetDomain" ShouldProcessTarget="TargetDomainId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThreat" OutputProperty="*" Verb="Update" Noun="Threat" ShouldProcessTarget="ThreatId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThreatModel" OutputProperty="*" Verb="Update" Noun="ThreatModel" ShouldProcessTarget="ThreatModelId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

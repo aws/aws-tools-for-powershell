@@ -195,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Title { get; set; }
         #endregion
         
+        #region Parameter ValidationMode
+        /// <summary>
+        /// <para>
+        /// <para>The validation mode for the code review. Valid values are SIMULATED and DISABLED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityAgent.ValidationMode")]
+        public Amazon.SecurityAgent.ValidationMode ValidationMode { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -279,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter Title which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ValidationMode = this.ValidationMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -399,6 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.Title = cmdletContext.Title;
             }
+            if (cmdletContext.ValidationMode != null)
+            {
+                request.ValidationMode = cmdletContext.ValidationMode;
+            }
             
             CmdletOutput output;
             
@@ -465,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public System.String LogConfig_LogStream { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String Title { get; set; }
+            public Amazon.SecurityAgent.ValidationMode ValidationMode { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.CreateCodeReviewResponse, NewSECAGCodeReviewCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

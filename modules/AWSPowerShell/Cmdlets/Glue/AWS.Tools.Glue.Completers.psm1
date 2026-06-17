@@ -429,6 +429,20 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.SearchFilterOperator
+        "Invoke-GLUESearch/FilterClause_AttributeFilter_Operator"
+        {
+            $v = "equals","greaterThan","greaterThanOrEquals","lessThan","lessThanOrEquals","notExists"
+            break
+        }
+
+        # Amazon.Glue.SearchSortOrder
+        "Invoke-GLUESearch/Sort_Order"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.Glue.SessionType
         "New-GLUESession/SessionType"
         {
@@ -648,6 +662,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "FilterClause_AttributeFilter_Operator"=@("Invoke-GLUESearch")
     "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
@@ -679,6 +694,7 @@ $GLUE_map = @{
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "Sort_Order"=@("Invoke-GLUESearch")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
@@ -740,7 +756,8 @@ $GLUE_SelectCompleters = {
 }
 
 $GLUE_SelectMap = @{
-    "Select"=@("New-GLUEPartitionBatch",
+    "Select"=@("Add-GLUEGlossaryTerm",
+               "New-GLUEPartitionBatch",
                "Remove-GLUEConnectionBatch",
                "Remove-GLUEPartitionBatch",
                "Remove-GLUETableBatch",
@@ -750,6 +767,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEGetCustomEntityType",
                "Get-GLUEDataQualityResultBatch",
                "Get-GLUEDevEndpointBatch",
+               "Get-GLUEIterableFormBatch",
                "Get-GLUEJobBatch",
                "Get-GLUEPartitionBatch",
                "Get-GLUETableOptimizerBatch",
@@ -773,6 +791,8 @@ $GLUE_SelectMap = @{
                "New-GLUEDatabase",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
+               "New-GLUEGlossary",
+               "New-GLUEGlossaryTerm",
                "New-GLUEGlueIdentityCenterConfiguration",
                "New-GLUEIntegration",
                "New-GLUEIntegrationResourceProperty",
@@ -792,6 +812,9 @@ $GLUE_SelectMap = @{
                "New-GLUEUsageProfile",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
+               "Remove-GLUEAsset",
+               "Remove-GLUEAssetType",
+               "Remove-GLUEAttachment",
                "Remove-GLUEBlueprint",
                "Remove-GLUECatalog",
                "Remove-GLUEClassifier",
@@ -805,6 +828,9 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDatabase",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
+               "Remove-GLUEFormType",
+               "Remove-GLUEGlossary",
+               "Remove-GLUEGlossaryTerm",
                "Remove-GLUEGlueIdentityCenterConfiguration",
                "Remove-GLUEIntegration",
                "Remove-GLUEIntegrationResourceProperty",
@@ -830,6 +856,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEEntity",
                "Get-GLUEInboundIntegration",
                "Get-GLUEIntegration",
+               "Unregister-GLUEGlossaryTerm",
+               "Get-GLUEAsset",
+               "Get-GLUEAssetType",
                "Get-GLUEBlueprint",
                "Get-GLUEBlueprintRun",
                "Get-GLUEBlueprintRunList",
@@ -863,6 +892,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpoint",
                "Get-GLUEDevEndpointList",
                "Get-GLUEEntityRecord",
+               "Get-GLUEFormType",
+               "Get-GLUEGlossary",
+               "Get-GLUEGlossaryTerm",
                "Get-GLUEGlueIdentityCenterConfiguration",
                "Get-GLUEIntegrationResourceProperty",
                "Get-GLUEIntegrationTableProperty",
@@ -912,6 +944,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEWorkflowRunProperty",
                "Get-GLUEWorkflowRunList",
                "Import-GLUECatalog",
+               "Get-GLUEAssetTypeList",
                "Get-GLUEBlueprintList",
                "Get-GLUEColumnStatisticsTaskRunList",
                "Get-GLUEConnectionTypeList",
@@ -926,7 +959,11 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEEntityList",
+               "Get-GLUEFormTypeList",
+               "Get-GLUEGlossaryList",
+               "Get-GLUEGlossaryTermList",
                "Get-GLUEIntegrationResourcePropertyList",
+               "Get-GLUEIterableFormList",
                "Get-GLUEJobNameList",
                "Get-GLUEMaterializedViewRefreshTaskRunList",
                "Get-GLUEMLTransformIdentifier",
@@ -940,8 +977,12 @@ $GLUE_SelectMap = @{
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Edit-GLUEIntegration",
+               "Write-GLUEAsset",
+               "Write-GLUEAssetType",
+               "Write-GLUEAttachment",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Write-GLUEDataQualityProfileAnnotation",
+               "Write-GLUEFormType",
                "Set-GLUEResourcePolicy",
                "Write-GLUESchemaVersionMetadata",
                "Write-GLUEWorkflowRunProperty",
@@ -952,6 +993,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Invoke-GLUEStatement",
+               "Invoke-GLUESearch",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
                "Start-GLUEColumnStatisticsTaskRun",
@@ -991,6 +1033,8 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
+               "Update-GLUEGlossary",
+               "Update-GLUEGlossaryTerm",
                "Update-GLUEGlueIdentityCenterConfiguration",
                "Update-GLUEIntegrationResourceProperty",
                "Update-GLUEIntegrationTableProperty",

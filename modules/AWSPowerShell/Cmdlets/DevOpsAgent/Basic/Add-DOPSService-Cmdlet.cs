@@ -149,6 +149,21 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] Configuration_Servicenow_AuthScope { get; set; }
         #endregion
         
+        #region Parameter Capability
+        /// <summary>
+        /// <para>
+        /// <para>Enabled capabilities for this association.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Capabilities")]
+        public System.Collections.Hashtable Capability { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId
         /// <summary>
         /// <para>
@@ -381,6 +396,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Gitlab_ProjectPath { get; set; }
         #endregion
         
+        #region Parameter Configuration_Remoteagent
+        /// <summary>
+        /// <para>
+        /// <para>Remote A2A agent integration configuration (token-based auth).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DevOpsAgent.Model.RemoteAgentConfiguration Configuration_Remoteagent { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Remoteagentsigv4
+        /// <summary>
+        /// <para>
+        /// <para>Remote A2A agent integration configuration (SigV4 auth).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DevOpsAgent.Model.RemoteAgentSigV4Configuration Configuration_Remoteagentsigv4 { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Github_RepoId
         /// <summary>
         /// <para>
@@ -414,6 +449,28 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Dynatrace_Resources")]
         public System.String[] Configuration_Dynatrace_Resource { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Github_RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
+        /// and VPC connectivity on this association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Github_RuntimeRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Gitlab_RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
+        /// and VPC connectivity on this association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
         #endregion
         
         #region Parameter ServiceId
@@ -576,6 +633,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter AgentSpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Capability != null)
+            {
+                context.Capability = new Dictionary<System.String, Amazon.DevOpsAgent.Model.CapabilityConfiguration>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Capability.Keys)
+                {
+                    context.Capability.Add((String)hashKey, (Amazon.DevOpsAgent.Model.CapabilityConfiguration)(this.Capability[hashKey]));
+                }
+            }
             context.Configuration_Aws_AccountId = this.Configuration_Aws_AccountId;
             context.Configuration_Aws_AccountType = this.Configuration_Aws_AccountType;
             context.Configuration_Aws_AssumableRoleArn = this.Configuration_Aws_AssumableRoleArn;
@@ -594,9 +659,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Github_OwnerType = this.Configuration_Github_OwnerType;
             context.Configuration_Github_RepoId = this.Configuration_Github_RepoId;
             context.Configuration_Github_RepoName = this.Configuration_Github_RepoName;
+            context.Configuration_Github_RuntimeRoleArn = this.Configuration_Github_RuntimeRoleArn;
             context.Configuration_Gitlab_InstanceIdentifier = this.Configuration_Gitlab_InstanceIdentifier;
             context.Configuration_Gitlab_ProjectId = this.Configuration_Gitlab_ProjectId;
             context.Configuration_Gitlab_ProjectPath = this.Configuration_Gitlab_ProjectPath;
+            context.Configuration_Gitlab_RuntimeRoleArn = this.Configuration_Gitlab_RuntimeRoleArn;
             if (this.Configuration_Mcpserver_Tool != null)
             {
                 context.Configuration_Mcpserver_Tool = new List<System.String>(this.Configuration_Mcpserver_Tool);
@@ -620,6 +687,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 context.Configuration_Pagerduty_Service = new List<System.String>(this.Configuration_Pagerduty_Service);
             }
+            context.Configuration_Remoteagent = this.Configuration_Remoteagent;
+            context.Configuration_Remoteagentsigv4 = this.Configuration_Remoteagentsigv4;
             if (this.Configuration_Servicenow_AuthScope != null)
             {
                 context.Configuration_Servicenow_AuthScope = new List<System.String>(this.Configuration_Servicenow_AuthScope);
@@ -662,6 +731,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 request.AgentSpaceId = cmdletContext.AgentSpaceId;
             }
+            if (cmdletContext.Capability != null)
+            {
+                request.Capabilities = cmdletContext.Capability;
+            }
             
              // populate Configuration
             var requestConfigurationIsNull = true;
@@ -694,6 +767,26 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Mcpserversplunk != null)
             {
                 request.Configuration.Mcpserversplunk = requestConfiguration_configuration_Mcpserversplunk;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentConfiguration requestConfiguration_configuration_Remoteagent = null;
+            if (cmdletContext.Configuration_Remoteagent != null)
+            {
+                requestConfiguration_configuration_Remoteagent = cmdletContext.Configuration_Remoteagent;
+            }
+            if (requestConfiguration_configuration_Remoteagent != null)
+            {
+                request.Configuration.Remoteagent = requestConfiguration_configuration_Remoteagent;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.RemoteAgentSigV4Configuration requestConfiguration_configuration_Remoteagentsigv4 = null;
+            if (cmdletContext.Configuration_Remoteagentsigv4 != null)
+            {
+                requestConfiguration_configuration_Remoteagentsigv4 = cmdletContext.Configuration_Remoteagentsigv4;
+            }
+            if (requestConfiguration_configuration_Remoteagentsigv4 != null)
+            {
+                request.Configuration.Remoteagentsigv4 = requestConfiguration_configuration_Remoteagentsigv4;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.AzureConfiguration requestConfiguration_configuration_Azure = null;
@@ -1001,51 +1094,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
-            
-             // populate Gitlab
-            var requestConfiguration_configuration_GitlabIsNull = true;
-            requestConfiguration_configuration_Gitlab = new Amazon.DevOpsAgent.Model.GitLabConfiguration();
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = null;
-            if (cmdletContext.Configuration_Gitlab_InstanceIdentifier != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = cmdletContext.Configuration_Gitlab_InstanceIdentifier;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier != null)
-            {
-                requestConfiguration_configuration_Gitlab.InstanceIdentifier = requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = null;
-            if (cmdletContext.Configuration_Gitlab_ProjectId != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = cmdletContext.Configuration_Gitlab_ProjectId;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId != null)
-            {
-                requestConfiguration_configuration_Gitlab.ProjectId = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = null;
-            if (cmdletContext.Configuration_Gitlab_ProjectPath != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = cmdletContext.Configuration_Gitlab_ProjectPath;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath != null)
-            {
-                requestConfiguration_configuration_Gitlab.ProjectPath = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Gitlab should be set to null
-            if (requestConfiguration_configuration_GitlabIsNull)
-            {
-                requestConfiguration_configuration_Gitlab = null;
-            }
-            if (requestConfiguration_configuration_Gitlab != null)
-            {
-                request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
-                requestConfigurationIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
             
              // populate Mcpservergrafana
@@ -1211,6 +1259,61 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Slack = requestConfiguration_configuration_Slack;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
+            
+             // populate Gitlab
+            var requestConfiguration_configuration_GitlabIsNull = true;
+            requestConfiguration_configuration_Gitlab = new Amazon.DevOpsAgent.Model.GitLabConfiguration();
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = null;
+            if (cmdletContext.Configuration_Gitlab_InstanceIdentifier != null)
+            {
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = cmdletContext.Configuration_Gitlab_InstanceIdentifier;
+            }
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier != null)
+            {
+                requestConfiguration_configuration_Gitlab.InstanceIdentifier = requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier;
+                requestConfiguration_configuration_GitlabIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = null;
+            if (cmdletContext.Configuration_Gitlab_ProjectId != null)
+            {
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = cmdletContext.Configuration_Gitlab_ProjectId;
+            }
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId != null)
+            {
+                requestConfiguration_configuration_Gitlab.ProjectId = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId;
+                requestConfiguration_configuration_GitlabIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = null;
+            if (cmdletContext.Configuration_Gitlab_ProjectPath != null)
+            {
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = cmdletContext.Configuration_Gitlab_ProjectPath;
+            }
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath != null)
+            {
+                requestConfiguration_configuration_Gitlab.ProjectPath = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath;
+                requestConfiguration_configuration_GitlabIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = null;
+            if (cmdletContext.Configuration_Gitlab_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = cmdletContext.Configuration_Gitlab_RuntimeRoleArn;
+            }
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Gitlab.RuntimeRoleArn = requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn;
+                requestConfiguration_configuration_GitlabIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Gitlab should be set to null
+            if (requestConfiguration_configuration_GitlabIsNull)
+            {
+                requestConfiguration_configuration_Gitlab = null;
+            }
+            if (requestConfiguration_configuration_Gitlab != null)
+            {
+                request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.SourceAwsConfiguration requestConfiguration_configuration_SourceAws = null;
             
              // populate SourceAws
@@ -1321,6 +1424,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 requestConfiguration_configuration_Github.RepoName = requestConfiguration_configuration_Github_configuration_Github_RepoName;
                 requestConfiguration_configuration_GithubIsNull = false;
             }
+            System.String requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = null;
+            if (cmdletContext.Configuration_Github_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = cmdletContext.Configuration_Github_RuntimeRoleArn;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Github.RuntimeRoleArn = requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
              // determine if requestConfiguration_configuration_Github should be set to null
             if (requestConfiguration_configuration_GithubIsNull)
             {
@@ -1396,6 +1509,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentSpaceId { get; set; }
+            public Dictionary<System.String, Amazon.DevOpsAgent.Model.CapabilityConfiguration> Capability { get; set; }
             public System.String Configuration_Aws_AccountId { get; set; }
             public Amazon.DevOpsAgent.MonitorAccountType Configuration_Aws_AccountType { get; set; }
             public System.String Configuration_Aws_AssumableRoleArn { get; set; }
@@ -1411,9 +1525,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.GithubRepoOwnerType Configuration_Github_OwnerType { get; set; }
             public System.String Configuration_Github_RepoId { get; set; }
             public System.String Configuration_Github_RepoName { get; set; }
+            public System.String Configuration_Github_RuntimeRoleArn { get; set; }
             public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
             public System.String Configuration_Gitlab_ProjectId { get; set; }
             public System.String Configuration_Gitlab_ProjectPath { get; set; }
+            public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
             public List<System.String> Configuration_Mcpserver_Tool { get; set; }
             public Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration Configuration_Mcpserverdatadog { get; set; }
             public System.String Configuration_Mcpservergrafana_Endpoint { get; set; }
@@ -1425,6 +1541,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
             public List<System.String> Configuration_Pagerduty_Service { get; set; }
+            public Amazon.DevOpsAgent.Model.RemoteAgentConfiguration Configuration_Remoteagent { get; set; }
+            public Amazon.DevOpsAgent.Model.RemoteAgentSigV4Configuration Configuration_Remoteagentsigv4 { get; set; }
             public List<System.String> Configuration_Servicenow_AuthScope { get; set; }
             public System.String Configuration_Servicenow_InstanceId { get; set; }
             public System.String Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId { get; set; }

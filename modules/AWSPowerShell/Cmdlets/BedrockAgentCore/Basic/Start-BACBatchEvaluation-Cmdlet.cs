@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime { get; set; }
         #endregion
         
-        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime
+        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime
         /// <summary>
         /// <para>
         /// <para>The end time of the time range. Only sessions with activity before this timestamp
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime { get; set; }
+        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime { get; set; }
         #endregion
         
         #region Parameter Evaluator
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime { get; set; }
         #endregion
         
-        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime
+        #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime
         /// <summary>
         /// <para>
         /// <para>The start time of the time range. Only sessions with activity at or after this timestamp
@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime { get; set; }
+        public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -329,8 +329,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.DataSourceConfig_CloudWatchLogs_ServiceName = new List<System.String>(this.DataSourceConfig_CloudWatchLogs_ServiceName);
             }
             context.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn = this.DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
-            context.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = this.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime;
-            context.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = this.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime;
+            context.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime = this.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime;
+            context.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime = this.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime;
             context.Description = this.Description;
             if (this.EvaluationMetadata_SessionMetadata != null)
             {
@@ -396,39 +396,39 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource.OnlineEvaluationConfigArn = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn;
                 requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull = false;
             }
-            Amazon.BedrockAgentCore.Model.SessionFilterConfig requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = null;
+            Amazon.BedrockAgentCore.Model.SessionFilterConfig requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange = null;
             
-             // populate SessionFilterConfig
-            var requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = true;
-            requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = new Amazon.BedrockAgentCore.Model.SessionFilterConfig();
-            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = null;
-            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime != null)
+             // populate TimeRange
+            var requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRangeIsNull = true;
+            requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange = new Amazon.BedrockAgentCore.Model.SessionFilterConfig();
+            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime = null;
+            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime != null)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime.Value;
             }
-            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime != null)
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime != null)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig.EndTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime.Value;
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = false;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange.EndTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRangeIsNull = false;
             }
-            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = null;
-            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime != null)
+            System.DateTime? requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime = null;
+            if (cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime != null)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime = cmdletContext.DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime.Value;
             }
-            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime != null)
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime != null)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig.StartTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime.Value;
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull = false;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange.StartTime = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime.Value;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRangeIsNull = false;
             }
-             // determine if requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig should be set to null
-            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfigIsNull)
+             // determine if requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange should be set to null
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRangeIsNull)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig = null;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange = null;
             }
-            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig != null)
+            if (requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange != null)
             {
-                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource.SessionFilterConfig = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig;
+                requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource.TimeRange = requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource_dataSourceConfig_OnlineEvaluationConfigSource_TimeRange;
                 requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSourceIsNull = false;
             }
              // determine if requestDataSourceConfig_dataSourceConfig_OnlineEvaluationConfigSource should be set to null
@@ -643,8 +643,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<System.String> DataSourceConfig_CloudWatchLogs_LogGroupName { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_ServiceName { get; set; }
             public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
-            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_EndTime { get; set; }
-            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_SessionFilterConfig_StartTime { get; set; }
+            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_EndTime { get; set; }
+            public System.DateTime? DataSourceConfig_OnlineEvaluationConfigSource_TimeRange_StartTime { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgentCore.Model.SessionMetadataShape> EvaluationMetadata_SessionMetadata { get; set; }
             public List<Amazon.BedrockAgentCore.Model.Evaluator> Evaluator { get; set; }

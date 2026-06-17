@@ -313,6 +313,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Model_OpenAiModelConfig_ModelId { get; set; }
         #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint name to invoke. If omitted, the DEFAULT endpoint is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Qualifier { get; set; }
+        #endregion
+        
         #region Parameter RuntimeSessionId
         /// <summary>
         /// <para>
@@ -587,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.Model_OpenAiModelConfig_ModelId = this.Model_OpenAiModelConfig_ModelId;
             context.Model_OpenAiModelConfig_Temperature = this.Model_OpenAiModelConfig_Temperature;
             context.Model_OpenAiModelConfig_TopP = this.Model_OpenAiModelConfig_TopP;
+            context.Qualifier = this.Qualifier;
             context.RuntimeSessionId = this.RuntimeSessionId;
             #if MODULAR
             if (this.RuntimeSessionId == null && ParameterWasBound(nameof(this.RuntimeSessionId)))
@@ -977,6 +988,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.Model = null;
             }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
+            }
             if (cmdletContext.RuntimeSessionId != null)
             {
                 request.RuntimeSessionId = cmdletContext.RuntimeSessionId;
@@ -1088,6 +1103,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String Model_OpenAiModelConfig_ModelId { get; set; }
             public System.Single? Model_OpenAiModelConfig_Temperature { get; set; }
             public System.Single? Model_OpenAiModelConfig_TopP { get; set; }
+            public System.String Qualifier { get; set; }
             public System.String RuntimeSessionId { get; set; }
             public System.String RuntimeUserId { get; set; }
             public List<Amazon.BedrockAgentCore.Model.HarnessSkill> Skill { get; set; }

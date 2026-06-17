@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Operation to create a Harness.
+    /// Operation to create a harness.
     /// </summary>
     [Cmdlet("New", "BACCHarness", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Harness")]
@@ -223,6 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Memory_AgentCoreMemoryConfiguration_Arn { get; set; }
         #endregion
         
+        #region Parameter Memory_ManagedMemoryConfiguration_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update
+        /// input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Memory_ManagedMemoryConfiguration_Arn { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentArtifact_ContainerConfiguration_ContainerUri
         /// <summary>
         /// <para>
@@ -249,6 +260,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim { get; set; }
         #endregion
         
+        #region Parameter Memory_Disabled
+        /// <summary>
+        /// <para>
+        /// <para>Explicitly opt out of memory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentCoreControl.Model.HarnessDisabledMemoryConfiguration Memory_Disabled { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl
         /// <summary>
         /// <para>
@@ -258,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+        #endregion
+        
+        #region Parameter Memory_ManagedMemoryConfiguration_EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>Customer-managed KMS key. Defaults to AWS-owned key. Not updatable after creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Memory_ManagedMemoryConfiguration_EncryptionKeyArn { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
@@ -284,6 +315,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnvironmentVariables")]
         public System.Collections.Hashtable EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter Memory_ManagedMemoryConfiguration_EventExpiryDuration
+        /// <summary>
+        /// <para>
+        /// <para>Event retention in days. Defaults to 30.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Memory_ManagedMemoryConfiguration_EventExpiryDuration { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -336,6 +377,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HarnessName { get; set; }
+        #endregion
+        
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment
+        /// <summary>
+        /// <para>
+        /// <para>The list of hosting environments whose workloads are allowed to invoke the target.
+        /// At launch, the only supported hosting environment is AgentCore Gateway.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironments")]
+        public Amazon.BedrockAgentCoreControl.Model.HostingEnvironment[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
         #endregion
         
         #region Parameter Environment_AgentCoreRuntimeEnvironment_LifecycleConfiguration_IdleRuntimeSessionTimeout
@@ -635,6 +692,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.HarnessSkill[] Skill { get; set; }
         #endregion
         
+        #region Parameter Memory_ManagedMemoryConfiguration_Strategy
+        /// <summary>
+        /// <para>
+        /// <para>Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Memory_ManagedMemoryConfiguration_Strategies")]
+        public System.String[] Memory_ManagedMemoryConfiguration_Strategy { get; set; }
+        #endregion
+        
         #region Parameter Truncation_Strategy
         /// <summary>
         /// <para>
@@ -867,6 +939,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity
+        /// <summary>
+        /// <para>
+        /// <para>The list of workload identities that are allowed to invoke the target.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentities")]
+        public System.String[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -938,6 +1025,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope != null)
             {
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope);
+            }
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = new List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment);
+            }
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity);
             }
             if (this.AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim != null)
             {
@@ -1020,6 +1115,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 {
                     context.Memory_AgentCoreMemoryConfiguration_RetrievalConfig.Add((String)hashKey, (Amazon.BedrockAgentCoreControl.Model.HarnessAgentCoreMemoryRetrievalConfig)(this.Memory_AgentCoreMemoryConfiguration_RetrievalConfig[hashKey]));
                 }
+            }
+            context.Memory_Disabled = this.Memory_Disabled;
+            context.Memory_ManagedMemoryConfiguration_Arn = this.Memory_ManagedMemoryConfiguration_Arn;
+            context.Memory_ManagedMemoryConfiguration_EncryptionKeyArn = this.Memory_ManagedMemoryConfiguration_EncryptionKeyArn;
+            context.Memory_ManagedMemoryConfiguration_EventExpiryDuration = this.Memory_ManagedMemoryConfiguration_EventExpiryDuration;
+            if (this.Memory_ManagedMemoryConfiguration_Strategy != null)
+            {
+                context.Memory_ManagedMemoryConfiguration_Strategy = new List<System.String>(this.Memory_ManagedMemoryConfiguration_Strategy);
             }
             context.Model_BedrockModelConfig_AdditionalParam = this.Model_BedrockModelConfig_AdditionalParam;
             context.Model_BedrockModelConfig_ApiFormat = this.Model_BedrockModelConfig_ApiFormat;
@@ -1160,6 +1263,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride != null)
             {
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.PrivateEndpointOverrides = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.AllowedWorkloadConfiguration requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = null;
+            
+             // populate AllowedWorkloadConfiguration
+            var requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = true;
+            requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = new Amazon.BedrockAgentCoreControl.Model.AllowedWorkloadConfiguration();
+            List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration.HostingEnvironments = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = false;
+            }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration.WorkloadIdentities = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull = false;
+            }
+             // determine if requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration should be set to null
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfigurationIsNull)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration = null;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedWorkloadConfiguration = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.PrivateEndpoint requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint = null;
@@ -1493,6 +1631,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate Memory
             var requestMemoryIsNull = true;
             request.Memory = new Amazon.BedrockAgentCoreControl.Model.HarnessMemoryConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.HarnessDisabledMemoryConfiguration requestMemory_memory_Disabled = null;
+            if (cmdletContext.Memory_Disabled != null)
+            {
+                requestMemory_memory_Disabled = cmdletContext.Memory_Disabled;
+            }
+            if (requestMemory_memory_Disabled != null)
+            {
+                request.Memory.Disabled = requestMemory_memory_Disabled;
+                requestMemoryIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.HarnessAgentCoreMemoryConfiguration requestMemory_memory_AgentCoreMemoryConfiguration = null;
             
              // populate AgentCoreMemoryConfiguration
@@ -1546,6 +1694,61 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestMemory_memory_AgentCoreMemoryConfiguration != null)
             {
                 request.Memory.AgentCoreMemoryConfiguration = requestMemory_memory_AgentCoreMemoryConfiguration;
+                requestMemoryIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.HarnessManagedMemoryConfiguration requestMemory_memory_ManagedMemoryConfiguration = null;
+            
+             // populate ManagedMemoryConfiguration
+            var requestMemory_memory_ManagedMemoryConfigurationIsNull = true;
+            requestMemory_memory_ManagedMemoryConfiguration = new Amazon.BedrockAgentCoreControl.Model.HarnessManagedMemoryConfiguration();
+            System.String requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Arn = null;
+            if (cmdletContext.Memory_ManagedMemoryConfiguration_Arn != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Arn = cmdletContext.Memory_ManagedMemoryConfiguration_Arn;
+            }
+            if (requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Arn != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration.Arn = requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Arn;
+                requestMemory_memory_ManagedMemoryConfigurationIsNull = false;
+            }
+            System.String requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EncryptionKeyArn = null;
+            if (cmdletContext.Memory_ManagedMemoryConfiguration_EncryptionKeyArn != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EncryptionKeyArn = cmdletContext.Memory_ManagedMemoryConfiguration_EncryptionKeyArn;
+            }
+            if (requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EncryptionKeyArn != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration.EncryptionKeyArn = requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EncryptionKeyArn;
+                requestMemory_memory_ManagedMemoryConfigurationIsNull = false;
+            }
+            System.Int32? requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EventExpiryDuration = null;
+            if (cmdletContext.Memory_ManagedMemoryConfiguration_EventExpiryDuration != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EventExpiryDuration = cmdletContext.Memory_ManagedMemoryConfiguration_EventExpiryDuration.Value;
+            }
+            if (requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EventExpiryDuration != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration.EventExpiryDuration = requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_EventExpiryDuration.Value;
+                requestMemory_memory_ManagedMemoryConfigurationIsNull = false;
+            }
+            List<System.String> requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Strategy = null;
+            if (cmdletContext.Memory_ManagedMemoryConfiguration_Strategy != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Strategy = cmdletContext.Memory_ManagedMemoryConfiguration_Strategy;
+            }
+            if (requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Strategy != null)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration.Strategies = requestMemory_memory_ManagedMemoryConfiguration_memory_ManagedMemoryConfiguration_Strategy;
+                requestMemory_memory_ManagedMemoryConfigurationIsNull = false;
+            }
+             // determine if requestMemory_memory_ManagedMemoryConfiguration should be set to null
+            if (requestMemory_memory_ManagedMemoryConfigurationIsNull)
+            {
+                requestMemory_memory_ManagedMemoryConfiguration = null;
+            }
+            if (requestMemory_memory_ManagedMemoryConfiguration != null)
+            {
+                request.Memory.ManagedMemoryConfiguration = requestMemory_memory_ManagedMemoryConfiguration;
                 requestMemoryIsNull = false;
             }
              // determine if request.Memory should be set to null
@@ -2065,6 +2268,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.HostingEnvironment> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
+            public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_WorkloadIdentity { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim { get; set; }
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
             public Amazon.BedrockAgentCoreControl.EndpointIpAddressType AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
@@ -2093,6 +2298,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Memory_AgentCoreMemoryConfiguration_Arn { get; set; }
             public System.Int32? Memory_AgentCoreMemoryConfiguration_MessagesCount { get; set; }
             public Dictionary<System.String, Amazon.BedrockAgentCoreControl.Model.HarnessAgentCoreMemoryRetrievalConfig> Memory_AgentCoreMemoryConfiguration_RetrievalConfig { get; set; }
+            public Amazon.BedrockAgentCoreControl.Model.HarnessDisabledMemoryConfiguration Memory_Disabled { get; set; }
+            public System.String Memory_ManagedMemoryConfiguration_Arn { get; set; }
+            public System.String Memory_ManagedMemoryConfiguration_EncryptionKeyArn { get; set; }
+            public System.Int32? Memory_ManagedMemoryConfiguration_EventExpiryDuration { get; set; }
+            public List<System.String> Memory_ManagedMemoryConfiguration_Strategy { get; set; }
             public System.Management.Automation.PSObject Model_BedrockModelConfig_AdditionalParam { get; set; }
             public Amazon.BedrockAgentCoreControl.HarnessBedrockApiFormat Model_BedrockModelConfig_ApiFormat { get; set; }
             public System.Int32? Model_BedrockModelConfig_MaxToken { get; set; }
