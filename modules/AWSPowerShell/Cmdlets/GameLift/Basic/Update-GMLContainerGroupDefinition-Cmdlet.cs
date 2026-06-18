@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a version number. Provide updated values for the properties that you want to change
     /// only. All other values remain the same as the source version.
     /// </para></li><li><para>
-    /// Change a game server container definition. Provide the updated container definition.
+    /// Change a game server container definition. Provide a complete set of container definitions,
+    /// including the updated definition.
     /// </para></li><li><para>
     /// Add or change a support container definition. Provide a complete set of container
     /// definitions, including the updated definition.
@@ -158,6 +159,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GameServerContainerDefinition_ImageUri { get; set; }
+        #endregion
+        
+        #region Parameter GameServerContainerDefinition_LinuxCapabilities_Include
+        /// <summary>
+        /// <para>
+        /// <para>The list of Linux capabilities to add to the container's default configuration. Specify
+        /// each capability as a string from the set of supported capability names (for example,
+        /// <c>NET_BIND_SERVICE</c> or <c>SYS_PTRACE</c>).</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] GameServerContainerDefinition_LinuxCapabilities_Include { get; set; }
         #endregion
         
         #region Parameter GameServerContainerDefinition_MountPoint
@@ -342,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.GameServerContainerDefinition_EnvironmentOverride = new List<Amazon.GameLift.Model.ContainerEnvironment>(this.GameServerContainerDefinition_EnvironmentOverride);
             }
             context.GameServerContainerDefinition_ImageUri = this.GameServerContainerDefinition_ImageUri;
+            if (this.GameServerContainerDefinition_LinuxCapabilities_Include != null)
+            {
+                context.GameServerContainerDefinition_LinuxCapabilities_Include = new List<System.String>(this.GameServerContainerDefinition_LinuxCapabilities_Include);
+            }
             if (this.GameServerContainerDefinition_MountPoint != null)
             {
                 context.GameServerContainerDefinition_MountPoint = new List<Amazon.GameLift.Model.ContainerMountPoint>(this.GameServerContainerDefinition_MountPoint);
@@ -445,6 +466,31 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestGameServerContainerDefinition_gameServerContainerDefinition_ServerSdkVersion != null)
             {
                 request.GameServerContainerDefinition.ServerSdkVersion = requestGameServerContainerDefinition_gameServerContainerDefinition_ServerSdkVersion;
+                requestGameServerContainerDefinitionIsNull = false;
+            }
+            Amazon.GameLift.Model.LinuxCapabilities requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities = null;
+            
+             // populate LinuxCapabilities
+            var requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilitiesIsNull = true;
+            requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities = new Amazon.GameLift.Model.LinuxCapabilities();
+            List<System.String> requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities_gameServerContainerDefinition_LinuxCapabilities_Include = null;
+            if (cmdletContext.GameServerContainerDefinition_LinuxCapabilities_Include != null)
+            {
+                requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities_gameServerContainerDefinition_LinuxCapabilities_Include = cmdletContext.GameServerContainerDefinition_LinuxCapabilities_Include;
+            }
+            if (requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities_gameServerContainerDefinition_LinuxCapabilities_Include != null)
+            {
+                requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities.Include = requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities_gameServerContainerDefinition_LinuxCapabilities_Include;
+                requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilitiesIsNull = false;
+            }
+             // determine if requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities should be set to null
+            if (requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilitiesIsNull)
+            {
+                requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities = null;
+            }
+            if (requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities != null)
+            {
+                request.GameServerContainerDefinition.LinuxCapabilities = requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities;
                 requestGameServerContainerDefinitionIsNull = false;
             }
             Amazon.GameLift.Model.ContainerPortConfiguration requestGameServerContainerDefinition_gameServerContainerDefinition_PortConfiguration = null;
@@ -564,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<Amazon.GameLift.Model.ContainerDependency> GameServerContainerDefinition_DependsOn { get; set; }
             public List<Amazon.GameLift.Model.ContainerEnvironment> GameServerContainerDefinition_EnvironmentOverride { get; set; }
             public System.String GameServerContainerDefinition_ImageUri { get; set; }
+            public List<System.String> GameServerContainerDefinition_LinuxCapabilities_Include { get; set; }
             public List<Amazon.GameLift.Model.ContainerMountPoint> GameServerContainerDefinition_MountPoint { get; set; }
             public List<Amazon.GameLift.Model.ContainerPortRange> PortConfiguration_ContainerPortRange { get; set; }
             public System.String GameServerContainerDefinition_ServerSdkVersion { get; set; }

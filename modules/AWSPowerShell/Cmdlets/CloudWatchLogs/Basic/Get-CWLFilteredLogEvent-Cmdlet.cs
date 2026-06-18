@@ -62,7 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// limit. This is the expected API behavior.
     /// </para><para>
     /// The returned log events are sorted by event timestamp, the timestamp when the event
-    /// was ingested by CloudWatch Logs, and the ID of the <c>PutLogEvents</c> request.
+    /// was ingested by CloudWatch Logs, and the ID of the <c>PutLogEvents</c> request. By
+    /// default, the events are returned in ascending timestamp order (oldest first). To return
+    /// events in descending timestamp order (newest first), set the <c>startFromHead</c>
+    /// parameter to <c>false</c>.
     /// </para><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
     /// in a monitoring account and view data from the linked source accounts. For more information,
@@ -159,6 +162,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogStreamNames")]
         public System.String[] LogStreamName { get; set; }
+        #endregion
+        
+        #region Parameter StartFromHead
+        /// <summary>
+        /// <para>
+        /// <para>If the value is true, the earliest log events are returned first. If the value is
+        /// false, the latest log events are returned first. The default value is true.</para><para>The <c>startFromHead</c> parameter sets the sort direction on the first request. On
+        /// subsequent requests, the <c>nextToken</c> determines the sort direction. To continue
+        /// paginating in the same direction, provide the returned <c>nextToken</c>. If you provide
+        /// both <c>nextToken</c> and <c>startFromHead</c>, the direction of the <c>nextToken</c>
+        /// is used.</para><note><para>Setting <c>startFromHead</c> to <c>false</c> is supported only when <c>startTime</c>
+        /// is on or after <c>Jan 1, 2024 00:00:00 UTC</c>. A request with <c>startFromHead</c>
+        /// set to <c>false</c> and a <c>startTime</c> before this date returns an <c>InvalidParameterException</c>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StartFromHead { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -280,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.LogStreamName = new List<System.String>(this.LogStreamName);
             }
             context.NextToken = this.NextToken;
+            context.StartFromHead = this.StartFromHead;
             context.StartTime = this.StartTime;
             context.Unmask = this.Unmask;
             
@@ -332,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogStreamName != null)
             {
                 request.LogStreamNames = cmdletContext.LogStreamName;
+            }
+            if (cmdletContext.StartFromHead != null)
+            {
+                request.StartFromHead = cmdletContext.StartFromHead.Value;
             }
             if (cmdletContext.StartTime != null)
             {
@@ -431,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.NextToken = cmdletContext.NextToken;
             }
+            if (cmdletContext.StartFromHead != null)
+            {
+                request.StartFromHead = cmdletContext.StartFromHead.Value;
+            }
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
@@ -505,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String LogStreamNamePrefix { get; set; }
             public List<System.String> LogStreamName { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? StartFromHead { get; set; }
             public System.Int64? StartTime { get; set; }
             public System.Boolean? Unmask { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.FilterLogEventsResponse, GetCWLFilteredLogEventCmdlet, object> Select { get; set; } =

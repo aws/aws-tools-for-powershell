@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// status using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html">DescribeVpcPeeringConnections</a>
     /// , or by monitoring fleet events for success or failure using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>
     /// . 
-    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// </para><note><para>
+    /// Amazon GameLift Servers uses the caller's credentials to update peer-VPC resources.
+    /// The IAM user that calls this operation must have the following Amazon EC2 permissions
+    /// enabled:
+    /// </para><ul><li><para><c>ec2:AcceptVpcPeeringConnection</c></para></li><li><para><c>ec2:AuthorizeSecurityGroupEgress</c></para></li><li><para><c>ec2:AuthorizeSecurityGroupIngress</c></para></li><li><para><c>ec2:CreateRoute</c></para></li><li><para><c>ec2:DescribeRouteTables</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li></ul></note><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

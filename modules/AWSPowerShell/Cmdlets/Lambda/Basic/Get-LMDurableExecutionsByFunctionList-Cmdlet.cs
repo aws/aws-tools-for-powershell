@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
-        /// <para>Set to true to return results in reverse chronological order (newest first). Default
-        /// is false.</para>
+        /// <para>Set to true to return results in chronological order (oldest first). Default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -58,17 +58,36 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// specify it.</para></note><dl><dt>BEST_FIT_PROGRESSIVE</dt><dd><para>Batch selects additional instance types that are large enough to meet the requirements
         /// of the jobs in the queue. Its preference is for instance types with lower cost vCPUs.
         /// If additional instances of the previously selected instance types aren't available,
-        /// Batch selects new instance types.</para></dd><dt>SPOT_CAPACITY_OPTIMIZED</dt><dd><para>Batch selects one or more instance types that are large enough to meet the requirements
+        /// Batch selects new instance types.</para></dd><dt>BEST_FIT_PROGRESSIVE_ORDERED</dt><dd><important><para>This is an advanced allocation strategy only for customers who want to control which
+        /// instance types are preferred during scaling.</para><para>Placing large instance types at the top of the list may result in <b>over-provisioning</b>
+        /// for small jobs. Placing small instance types at the top may cause the compute environment
+        /// to reach Amazon EC2 instance count limits before reaching <c>maxvCpus</c>.</para></important><para>Batch selects instance types in the order they appear in the <c>instanceTypes</c>
+        /// list. When an instance family is specified, sizes within that family are expanded
+        /// using <c>BEST_FIT_PROGRESSIVE</c> logic—preferring sizes that best fit the jobs, with
+        /// larger sizes as fallback. Instance types that cannot meet the resource requirements
+        /// of the jobs are skipped. This strategy is only available for On-Demand Instance (<c>EC2</c>)
+        /// compute resources.</para><para>If an instance family and an explicit instance type from that family both appear in
+        /// <c>instanceTypes</c>, the explicit type takes its listed position and is excluded
+        /// from the family expansion. For example, in <c>["m7a.4xlarge", "m7a", "m6a"]</c>, <c>m7a.4xlarge</c>
+        /// is always placed first and is excluded from the <c>m7a</c> family expansion.</para></dd><dt>SPOT_CAPACITY_OPTIMIZED</dt><dd><para>Batch selects one or more instance types that are large enough to meet the requirements
         /// of the jobs in the queue. Its preference is for instance types that are less likely
         /// to be interrupted. This allocation strategy is only available for Spot Instance compute
         /// resources.</para></dd><dt>SPOT_PRICE_CAPACITY_OPTIMIZED</dt><dd><para>The price and capacity optimized allocation strategy looks at both price and capacity
         /// to select the Spot Instance pools that are the least likely to be interrupted and
         /// have the lowest possible price. This allocation strategy is only available for Spot
-        /// Instance compute resources.</para></dd></dl><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
-        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
-        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
-        /// more than a single instance.</para>
+        /// Instance compute resources.</para></dd><dt>SPOT_CAPACITY_OPTIMIZED_PRIORITIZED</dt><dd><important><para>This is an advanced allocation strategy for customers who want to influence instance
+        /// type selection during scaling. This strategy optimizes for <b>capacity first</b>,
+        /// and honors instance type priorities on a best-effort basis (priorities are honored
+        /// when they do not significantly reduce available Spot capacity).</para><para>Placing large instance types at the top of the list may result in <b>over-provisioning</b>
+        /// for small jobs. Placing small instance types at the top may cause the compute environment
+        /// to reach Amazon EC2 instance count limits before reaching <c>maxvCpus</c>.</para></important><para>Batch selects instance types in the order they appear in the <c>instanceTypes</c>
+        /// list, but <b>optimizes for capacity first</b>. The customer-defined priority is honored
+        /// on a best-effort basis. When Spot Instance capacity pools are similarly available,
+        /// priority order is respected. When capacity is constrained, Batch selects from the
+        /// most available pools regardless of priority to minimize the likelihood of Spot Instance
+        /// interruptions. This strategy is only available for Spot Instance compute resources.</para></dd></dl><para>With any allocation strategy except <c>BEST_FIT</c> using On-Demand (<c>EC2</c>) compute
+        /// resources, Batch might need to exceed <c>maxvCpus</c> to meet your capacity requirements.
+        /// In this event, Batch never exceeds <c>maxvCpus</c> by more than a single instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,11 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
-        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
-        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
-        /// more than a single instance.</para></note>
+        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With any allocation strategy except <c>BEST_FIT</c> using On-Demand (<c>EC2</c>) compute
+        /// resources, Batch might need to exceed <c>maxvCpus</c> to meet your capacity requirements.
+        /// In this event, Batch never exceeds <c>maxvCpus</c> by more than a single instance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -104,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>An identifier for the game session that is unique across all regions. The value is
-        /// always a full ARN in the following format: <c>arn:aws:gamelift:&lt;location&gt;::gamesession/&lt;fleet
-        /// ID&gt;/&lt;ID string&gt;</c>. When using FlexMatch as a standalone matchmaking solution,
-        /// this parameter is not needed. </para>
+        /// always a full ARN in the following format: For Home Region game session - <c>arn:aws:gamelift:&lt;home_region&gt;::gamesession/&lt;fleet
+        /// ID&gt;/&lt;ID string&gt;</c>. For Remote Location game session - <c>arn:aws:gamelift:&lt;home_region&gt;::gamesession/&lt;fleet
+        /// ID&gt;/&lt;location&gt;/&lt;ID string&gt;</c>. When using FlexMatch as a standalone
+        /// matchmaking solution, this parameter is not needed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

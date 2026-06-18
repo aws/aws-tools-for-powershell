@@ -48,11 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Optionally filter results to a single container by providing a <c>ContainerName</c>.
     /// </para></li></ul><para><b>Results</b></para><para>
-    /// This operation returns the fleet ID, location, container group definition ARN, container
-    /// group type, compute name (for game server container groups), instance ID, and a list
-    /// of <c>ContainerGroupPortMapping</c> objects. Each object contains the container name,
-    /// runtime ID, and a list of port mappings that show how container ports map to connection
-    /// ports on the instance.
+    /// This operation returns the fleet ID, fleet ARN, location, container group definition
+    /// ARN, container group type, compute name (for game server container groups), instance
+    /// ID, and a list of <c>ContainerGroupPortMapping</c> objects. Each object contains the
+    /// container name, runtime ID, and a list of port mappings that show how container ports
+    /// map to connection ports on the instance.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html">Connect
     /// to containers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Create
     /// a container group definition</a></para>

@@ -133,6 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String Routing_Failover_SecondaryRegion { get; set; }
         #endregion
         
+        #region Parameter CustomDomainConfig_SecurityPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The security policy for the custom domain. Defines the minimum TLS version and cipher
+        /// suites that CloudFront uses when communicating with viewers (clients). Valid values
+        /// are as follows:</para><ul><li><para><c>TLS_V1</c>: Supports TLS 1.0 and later. Provides the broadest client compatibility.</para></li><li><para><c>TLS_V1_2_2021</c>: Supports TLS 1.2 and later with 2021 cipher suites. Recommended
+        /// minimum for most use cases.</para></li><li><para><c>TLS_V1_3_2025</c>: Supports TLS 1.3 and later with 2025 cipher suites. Provides
+        /// the strongest security posture.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.SecurityPolicyType")]
+        public Amazon.CognitoIdentityProvider.SecurityPolicyType CustomDomainConfig_SecurityPolicy { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -197,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CustomDomainConfig_CertificateArn = this.CustomDomainConfig_CertificateArn;
+            context.CustomDomainConfig_SecurityPolicy = this.CustomDomainConfig_SecurityPolicy;
             context.Domain = this.Domain;
             #if MODULAR
             if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
@@ -242,6 +258,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestCustomDomainConfig_customDomainConfig_CertificateArn != null)
             {
                 request.CustomDomainConfig.CertificateArn = requestCustomDomainConfig_customDomainConfig_CertificateArn;
+                requestCustomDomainConfigIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.SecurityPolicyType requestCustomDomainConfig_customDomainConfig_SecurityPolicy = null;
+            if (cmdletContext.CustomDomainConfig_SecurityPolicy != null)
+            {
+                requestCustomDomainConfig_customDomainConfig_SecurityPolicy = cmdletContext.CustomDomainConfig_SecurityPolicy;
+            }
+            if (requestCustomDomainConfig_customDomainConfig_SecurityPolicy != null)
+            {
+                request.CustomDomainConfig.SecurityPolicy = requestCustomDomainConfig_customDomainConfig_SecurityPolicy;
                 requestCustomDomainConfigIsNull = false;
             }
              // determine if request.CustomDomainConfig should be set to null
@@ -361,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CustomDomainConfig_CertificateArn { get; set; }
+            public Amazon.CognitoIdentityProvider.SecurityPolicyType CustomDomainConfig_SecurityPolicy { get; set; }
             public System.String Domain { get; set; }
             public System.Int32? ManagedLoginVersion { get; set; }
             public System.String Routing_Failover_PrimaryRoute53HealthCheckId { get; set; }

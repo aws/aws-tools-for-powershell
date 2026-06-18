@@ -501,6 +501,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
         #endregion
         
+        #region Parameter Monitoring_MetricConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The list of metric configurations for the service monitoring.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Monitoring_MetricConfigurations")]
+        public Amazon.ECS.Model.MetricConfiguration[] Monitoring_MetricConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfiguration_MinimumHealthyPercent
         /// <summary>
         /// <para>
@@ -1064,6 +1079,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.LoadBalancer = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
             }
+            if (this.Monitoring_MetricConfiguration != null)
+            {
+                context.Monitoring_MetricConfiguration = new List<Amazon.ECS.Model.MetricConfiguration>(this.Monitoring_MetricConfiguration);
+            }
             context.AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
@@ -1405,6 +1424,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.LoadBalancers = cmdletContext.LoadBalancer;
             }
             
+             // populate Monitoring
+            var requestMonitoringIsNull = true;
+            request.Monitoring = new Amazon.ECS.Model.MonitoringConfiguration();
+            List<Amazon.ECS.Model.MetricConfiguration> requestMonitoring_monitoring_MetricConfiguration = null;
+            if (cmdletContext.Monitoring_MetricConfiguration != null)
+            {
+                requestMonitoring_monitoring_MetricConfiguration = cmdletContext.Monitoring_MetricConfiguration;
+            }
+            if (requestMonitoring_monitoring_MetricConfiguration != null)
+            {
+                request.Monitoring.MetricConfigurations = requestMonitoring_monitoring_MetricConfiguration;
+                requestMonitoringIsNull = false;
+            }
+             // determine if request.Monitoring should be set to null
+            if (requestMonitoringIsNull)
+            {
+                request.Monitoring = null;
+            }
+            
              // populate NetworkConfiguration
             var requestNetworkConfigurationIsNull = true;
             request.NetworkConfiguration = new Amazon.ECS.Model.NetworkConfiguration();
@@ -1692,6 +1730,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? ForceNewDeployment { get; set; }
             public System.Int32? HealthCheckGracePeriodSecond { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancer { get; set; }
+            public List<Amazon.ECS.Model.MetricConfiguration> Monitoring_MetricConfiguration { get; set; }
             public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> AwsvpcConfiguration_SecurityGroup { get; set; }
             public List<System.String> AwsvpcConfiguration_Subnet { get; set; }

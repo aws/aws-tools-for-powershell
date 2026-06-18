@@ -2806,7 +2806,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsagePercentage","ElastiCacheEngineCPUUtilization","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantConcurrentRequestsPerModelHighResolution","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageCPUUtilizationHighResolution","ECSServiceAverageMemoryUtilization","ECSServiceAverageMemoryUtilizationHighResolution","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsagePercentage","ElastiCacheEngineCPUUtilization","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantConcurrentRequestsPerModelHighResolution","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
             break
         }
 
@@ -6924,7 +6924,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRAllocationStrategy
         "New-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT","BEST_FIT_PROGRESSIVE","BEST_FIT_PROGRESSIVE_ORDERED","SPOT_CAPACITY_OPTIMIZED","SPOT_CAPACITY_OPTIMIZED_PRIORITIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -6941,7 +6941,7 @@ $BAT_Completers = {
         # Amazon.Batch.CRUpdateAllocationStrategy
         "Update-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
-            $v = "BEST_FIT_PROGRESSIVE","SPOT_CAPACITY_OPTIMIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
+            $v = "BEST_FIT_PROGRESSIVE","BEST_FIT_PROGRESSIVE_ORDERED","SPOT_CAPACITY_OPTIMIZED","SPOT_CAPACITY_OPTIMIZED_PRIORITIZED","SPOT_PRICE_CAPACITY_OPTIMIZED"
             break
         }
 
@@ -18767,6 +18767,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.SecurityPolicyType
+        {
+            ($_ -eq "New-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy") -Or
+            ($_ -eq "Update-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy")
+        }
+        {
+            $v = "TLS_V1","TLS_V1_2_2021","TLS_V1_3_2025"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.TermsEnforcementType
         {
             ($_ -eq "New-CGIPTerm/Enforcement") -Or
@@ -18856,6 +18866,7 @@ $CGIP_map = @{
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
+    "CustomDomainConfig_SecurityPolicy"=@("New-CGIPUserPoolDomain","Update-CGIPUserPoolDomain")
     "CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
@@ -41308,7 +41319,10 @@ $AHL_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.HealthLake.AnalyticsStatus
-        "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status")
+        }
         {
             $v = "DISABLED","DISABLING","ENABLED","ENABLING","PAUSED","PAUSING"
             break
@@ -41356,7 +41370,10 @@ $AHL_Completers = {
         }
 
         # Amazon.HealthLake.NlpStatus
-        "Update-AHLFHIRDatastore/NlpConfiguration_Status"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/NlpConfiguration_Status") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/NlpConfiguration_Status")
+        }
         {
             $v = "DISABLED","DISABLING","ENABLED","ENABLING"
             break
@@ -41385,13 +41402,13 @@ $AHL_Completers = {
 }
 
 $AHL_map = @{
-    "AnalyticsConfiguration_Status"=@("Update-AHLFHIRDatastore")
+    "AnalyticsConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
-    "NlpConfiguration_Status"=@("Update-AHLFHIRDatastore")
+    "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }

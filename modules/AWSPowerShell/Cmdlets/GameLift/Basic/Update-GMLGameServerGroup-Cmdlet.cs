@@ -43,7 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// updated values. Before applying the updates, the new values are validated to ensure
     /// that Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity.
     /// If successful, a <c>GameServerGroup</c> object is returned.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// </para><note><para>
+    /// Target tracking Auto Scaling policies on the Auto Scaling group cannot be updated
+    /// through the Amazon Web Services Management Console. Instead, use the Amazon Elastic
+    /// Compute Cloud Auto Scaling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html"><c>PutScalingPolicy</c></a> API action to update these policies.
+    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
     /// GameLift Servers FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

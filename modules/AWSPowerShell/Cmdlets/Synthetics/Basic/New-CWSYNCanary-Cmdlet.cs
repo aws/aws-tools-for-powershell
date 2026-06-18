@@ -80,6 +80,23 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.Boolean? RunConfig_ActiveTracing { get; set; }
         #endregion
         
+        #region Parameter AddReplicaLocation
+        /// <summary>
+        /// <para>
+        /// <para>A list of locations (Amazon Web Services Regions) to add as replicas for the canary.
+        /// Each location specifies a Region and optional VPC configuration for the replica. You
+        /// can add up to 50 replica locations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddReplicaLocations")]
+        public Amazon.Synthetics.Model.AddReplicaLocationInput[] AddReplicaLocation { get; set; }
+        #endregion
+        
         #region Parameter ArtifactS3Location
         /// <summary>
         /// <para>
@@ -106,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// You can create canaries for common monitoring scenarios by providing only a JSON configuration
         /// file instead of writing custom scripts. The only supported value is <c>multi-checks</c>.</para><para>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes
         /// (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <c>BlueprintTypes</c>,
-        /// the Handler field cannot be specified since the blueprint provides a pre-defined entry
-        /// point.</para><para><c>BlueprintTypes</c> is supported only on canaries for syn-nodejs-3.0 runtime or
+        /// the <c>Handler</c> field cannot be specified since the blueprint provides a pre-defined
+        /// entry point.</para><para><c>BlueprintTypes</c> is supported only on canaries for syn-nodejs-3.0 runtime or
         /// later.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -575,6 +592,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.CreateCanaryResponse, NewCWSYNCanaryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AddReplicaLocation != null)
+            {
+                context.AddReplicaLocation = new List<Amazon.Synthetics.Model.AddReplicaLocationInput>(this.AddReplicaLocation);
+            }
             context.S3Encryption_EncryptionMode = this.S3Encryption_EncryptionMode;
             context.S3Encryption_KmsKeyArn = this.S3Encryption_KmsKeyArn;
             context.ArtifactS3Location = this.ArtifactS3Location;
@@ -687,6 +708,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 // create request
                 var request = new Amazon.Synthetics.Model.CreateCanaryRequest();
                 
+                if (cmdletContext.AddReplicaLocation != null)
+                {
+                    request.AddReplicaLocations = cmdletContext.AddReplicaLocation;
+                }
                 
                  // populate ArtifactConfig
                 var requestArtifactConfigIsNull = true;
@@ -1066,6 +1091,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Synthetics.Model.AddReplicaLocationInput> AddReplicaLocation { get; set; }
             public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }

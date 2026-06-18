@@ -81,7 +81,10 @@ $AHL_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.HealthLake.AnalyticsStatus
-        "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status")
+        }
         {
             $v = "DISABLED","DISABLING","ENABLED","ENABLING","PAUSED","PAUSING"
             break
@@ -129,7 +132,10 @@ $AHL_Completers = {
         }
 
         # Amazon.HealthLake.NlpStatus
-        "Update-AHLFHIRDatastore/NlpConfiguration_Status"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/NlpConfiguration_Status") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/NlpConfiguration_Status")
+        }
         {
             $v = "DISABLED","DISABLING","ENABLED","ENABLING"
             break
@@ -158,13 +164,13 @@ $AHL_Completers = {
 }
 
 $AHL_map = @{
-    "AnalyticsConfiguration_Status"=@("Update-AHLFHIRDatastore")
+    "AnalyticsConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
-    "NlpConfiguration_Status"=@("Update-AHLFHIRDatastore")
+    "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }

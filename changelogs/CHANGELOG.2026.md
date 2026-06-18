@@ -1,4 +1,23 @@
-﻿### 5.0.236 (2026-06-17 19:35Z)
+﻿### 5.0.237 (2026-06-18 19:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.273.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Get-CWLFilteredLogEvent: added parameter StartFromHead.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter AddReplicaLocation.
+    * Modified cmdlet Update-CWSYNCanary: added parameters AddReplicaLocation and RemoveReplicaLocation.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPoolDomain: added parameter CustomDomainConfig_SecurityPolicy.
+    * Modified cmdlet Update-CGIPUserPoolDomain: added parameter CustomDomainConfig_SecurityPolicy.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameter Monitoring_MetricConfiguration.
+    * Modified cmdlet Update-ECSService: added parameter Monitoring_MetricConfiguration.
+  * Amazon GameLift Service
+    * Modified cmdlet New-GMLContainerGroupDefinition: added parameter GameServerContainerDefinition_LinuxCapabilities_Include.
+    * Modified cmdlet Update-GMLContainerGroupDefinition: added parameter GameServerContainerDefinition_LinuxCapabilities_Include.
+  * Amazon HealthLake
+    * Modified cmdlet New-AHLFHIRDatastore: added parameters AnalyticsConfiguration_Status, NlpConfiguration_Status and ProfileConfiguration_DefaultProfile.
+
+### 5.0.236 (2026-06-17 19:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.272.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Get-AABResourcePolicy leveraging the GetResourcePolicy service API.

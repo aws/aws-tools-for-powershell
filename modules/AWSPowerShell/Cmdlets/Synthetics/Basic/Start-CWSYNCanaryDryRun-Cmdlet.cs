@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// You can create canaries for common monitoring scenarios by providing only a JSON configuration
         /// file instead of writing custom scripts. The only supported value is <c>multi-checks</c>.</para><para>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes
         /// (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <c>BlueprintTypes</c>,
-        /// the Handler field cannot be specified since the blueprint provides a pre-defined entry
-        /// point.</para><para><c>BlueprintTypes</c> is supported only on canaries for syn-nodejs-3.0 runtime or
+        /// the <c>Handler</c> field cannot be specified since the blueprint provides a pre-defined
+        /// entry point.</para><para><c>BlueprintTypes</c> is supported only on canaries for syn-nodejs-3.0 runtime or
         /// later.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

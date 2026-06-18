@@ -303,7 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ResourcesVpcConfig
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An object representing the VPC configuration to use for the cluster update. You can
+        /// use this parameter to update the control plane egress mode, the subnets used by the
+        /// cluster, the security groups, and the endpoint access settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

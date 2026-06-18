@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// are:</para><ul><li><para>Protocol: UDP</para></li><li><para>Port range: 4192 to a number calculated based on your fleet configuration. Amazon
         /// GameLift Servers uses the following formula: <c>4192 + [# of game server container
         /// groups per fleet instance] * [# of container ports in the game server container group
-        /// definition] + [# of container ports in the game server container group definition]</c></para></li></ul><para>You can also choose to manually set this parameter. When manually setting this parameter,
+        /// definition] + [# of container ports in the per instance container group definition]</c></para></li></ul><para>You can also choose to manually set this parameter. When manually setting this parameter,
         /// you must use port numbers that match the fleet's connection port range.</para><note><para>If you set values manually, Amazon GameLift Servers no longer calculates a port range
         /// for you, even if you later remove the manual settings. </para></note><para>The port range must not overlap with the Amazon GameLift Servers reserved port range
         /// <c>4092-4191</c>. This range is reserved for internal Amazon GameLift Servers services.</para><para />
@@ -225,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// fleets, the instance type must be available in the home region and all remote locations.
         /// Instance type determines the computing resources and processing power that's available
         /// to host your game servers. This includes including CPU, memory, storage, and networking
-        /// capacity. </para><para>By default, Amazon GameLift Servers selects an instance type that fits the needs of
-        /// your container groups and is available in all selected fleet locations. You can also
-        /// choose to manually set this parameter. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
+        /// capacity. </para><para>By default, Amazon GameLift Servers uses the <c>c5.large</c> instance type. If this
+        /// instance type does not have sufficient resources for your container groups, you can
+        /// choose a different instance type that better fits your needs. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
         /// Elastic Compute Cloud Instance Types</a> for detailed descriptions of Amazon EC2 instance
         /// types.</para><para>You can't update this fleet property later.</para>
         /// </para>

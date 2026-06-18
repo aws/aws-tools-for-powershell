@@ -98,6 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
         #endregion
         
+        #region Parameter ProfileConfiguration_DefaultProfile
+        /// <summary>
+        /// <para>
+        /// <para>The list of default profiles for the data store.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProfileConfiguration_DefaultProfiles")]
+        public System.String[] ProfileConfiguration_DefaultProfile { get; set; }
+        #endregion
+        
         #region Parameter IdentityProviderConfiguration_FineGrainedAuthorizationEnabled
         /// <summary>
         /// <para>
@@ -158,6 +173,28 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.HealthLake.PreloadDataType")]
         public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
+        #endregion
+        
+        #region Parameter AnalyticsConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the analytics configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.AnalyticsStatus")]
+        public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter NlpConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the NLP configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.NlpStatus")]
+        public Amazon.HealthLake.NlpStatus NlpConfiguration_Status { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -231,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                 context.Select = CreateSelectDelegate<Amazon.HealthLake.Model.CreateFHIRDatastoreResponse, NewAHLFHIRDatastoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AnalyticsConfiguration_Status = this.AnalyticsConfiguration_Status;
             context.ClientToken = this.ClientToken;
             context.DatastoreName = this.DatastoreName;
             context.DatastoreTypeVersion = this.DatastoreTypeVersion;
@@ -244,7 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             context.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled = this.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled;
             context.IdentityProviderConfiguration_IdpLambdaArn = this.IdentityProviderConfiguration_IdpLambdaArn;
             context.IdentityProviderConfiguration_Metadata = this.IdentityProviderConfiguration_Metadata;
+            context.NlpConfiguration_Status = this.NlpConfiguration_Status;
             context.PreloadDataConfig_PreloadDataType = this.PreloadDataConfig_PreloadDataType;
+            if (this.ProfileConfiguration_DefaultProfile != null)
+            {
+                context.ProfileConfiguration_DefaultProfile = new List<System.String>(this.ProfileConfiguration_DefaultProfile);
+            }
             context.KmsEncryptionConfig_CmkType = this.KmsEncryptionConfig_CmkType;
             context.KmsEncryptionConfig_KmsKeyId = this.KmsEncryptionConfig_KmsKeyId;
             if (this.Tag != null)
@@ -267,6 +310,25 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             // create request
             var request = new Amazon.HealthLake.Model.CreateFHIRDatastoreRequest();
             
+            
+             // populate AnalyticsConfiguration
+            var requestAnalyticsConfigurationIsNull = true;
+            request.AnalyticsConfiguration = new Amazon.HealthLake.Model.AnalyticsConfiguration();
+            Amazon.HealthLake.AnalyticsStatus requestAnalyticsConfiguration_analyticsConfiguration_Status = null;
+            if (cmdletContext.AnalyticsConfiguration_Status != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_Status = cmdletContext.AnalyticsConfiguration_Status;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_Status != null)
+            {
+                request.AnalyticsConfiguration.Status = requestAnalyticsConfiguration_analyticsConfiguration_Status;
+                requestAnalyticsConfigurationIsNull = false;
+            }
+             // determine if request.AnalyticsConfiguration should be set to null
+            if (requestAnalyticsConfigurationIsNull)
+            {
+                request.AnalyticsConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -329,6 +391,25 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                 request.IdentityProviderConfiguration = null;
             }
             
+             // populate NlpConfiguration
+            var requestNlpConfigurationIsNull = true;
+            request.NlpConfiguration = new Amazon.HealthLake.Model.NlpConfiguration();
+            Amazon.HealthLake.NlpStatus requestNlpConfiguration_nlpConfiguration_Status = null;
+            if (cmdletContext.NlpConfiguration_Status != null)
+            {
+                requestNlpConfiguration_nlpConfiguration_Status = cmdletContext.NlpConfiguration_Status;
+            }
+            if (requestNlpConfiguration_nlpConfiguration_Status != null)
+            {
+                request.NlpConfiguration.Status = requestNlpConfiguration_nlpConfiguration_Status;
+                requestNlpConfigurationIsNull = false;
+            }
+             // determine if request.NlpConfiguration should be set to null
+            if (requestNlpConfigurationIsNull)
+            {
+                request.NlpConfiguration = null;
+            }
+            
              // populate PreloadDataConfig
             var requestPreloadDataConfigIsNull = true;
             request.PreloadDataConfig = new Amazon.HealthLake.Model.PreloadDataConfig();
@@ -346,6 +427,25 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestPreloadDataConfigIsNull)
             {
                 request.PreloadDataConfig = null;
+            }
+            
+             // populate ProfileConfiguration
+            var requestProfileConfigurationIsNull = true;
+            request.ProfileConfiguration = new Amazon.HealthLake.Model.ProfileConfiguration();
+            List<System.String> requestProfileConfiguration_profileConfiguration_DefaultProfile = null;
+            if (cmdletContext.ProfileConfiguration_DefaultProfile != null)
+            {
+                requestProfileConfiguration_profileConfiguration_DefaultProfile = cmdletContext.ProfileConfiguration_DefaultProfile;
+            }
+            if (requestProfileConfiguration_profileConfiguration_DefaultProfile != null)
+            {
+                request.ProfileConfiguration.DefaultProfiles = requestProfileConfiguration_profileConfiguration_DefaultProfile;
+                requestProfileConfigurationIsNull = false;
+            }
+             // determine if request.ProfileConfiguration should be set to null
+            if (requestProfileConfigurationIsNull)
+            {
+                request.ProfileConfiguration = null;
             }
             
              // populate SseConfiguration
@@ -450,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DatastoreName { get; set; }
             public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }
@@ -457,7 +558,9 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.Boolean? IdentityProviderConfiguration_FineGrainedAuthorizationEnabled { get; set; }
             public System.String IdentityProviderConfiguration_IdpLambdaArn { get; set; }
             public System.String IdentityProviderConfiguration_Metadata { get; set; }
+            public Amazon.HealthLake.NlpStatus NlpConfiguration_Status { get; set; }
             public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
+            public List<System.String> ProfileConfiguration_DefaultProfile { get; set; }
             public Amazon.HealthLake.CmkType KmsEncryptionConfig_CmkType { get; set; }
             public System.String KmsEncryptionConfig_KmsKeyId { get; set; }
             public List<Amazon.HealthLake.Model.Tag> Tag { get; set; }

@@ -49,9 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// retrieve results as a set of sequential pages. 
     /// </para><para>
     /// If successful, a <c>LocationAttributes</c> object is returned for each requested location.
-    /// If the fleet does not have a requested location, no information is returned. This
-    /// operation does not return the home Region. To get information on a fleet's home Region,
-    /// call <c>DescribeFleetAttributes</c>.
+    /// If the fleet does not have a requested location, no information is returned. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift Servers fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">
     /// Amazon GameLift Servers service locations</a> for managed hosting

@@ -282,6 +282,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.SecurityPolicyType
+        {
+            ($_ -eq "New-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy") -Or
+            ($_ -eq "Update-CGIPUserPoolDomain/CustomDomainConfig_SecurityPolicy")
+        }
+        {
+            $v = "TLS_V1","TLS_V1_2_2021","TLS_V1_3_2025"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.TermsEnforcementType
         {
             ($_ -eq "New-CGIPTerm/Enforcement") -Or
@@ -371,6 +381,7 @@ $CGIP_map = @{
     "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
+    "CustomDomainConfig_SecurityPolicy"=@("New-CGIPUserPoolDomain","Update-CGIPUserPoolDomain")
     "CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
