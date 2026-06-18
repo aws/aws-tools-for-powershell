@@ -522,10 +522,15 @@
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <PropertyGroup>
             <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
+            <!-- Comma-separated service C2jFilenames (e.g. "bedrock-agent-runtime") this build targets.
+                 Flags those services InOverrides="true" in BreakingChangesLookup.xml so their breaking
+                 changes are surfaced even when the buildconfig (overrides.xml) is empty. Defaults to
+                 empty, which preserves the previous behavior. -->
+            <TargetServiceC2jFilenames Condition="'$(TargetServiceC2jFilenames)'==''">""</TargetServiceC2jFilenames>
         </PropertyGroup>
         <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Command="dotnet build -c Release --no-incremental --no-restore -v:quiet -p:UseSharedCompilation=false ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml -pl $(PreviewLabel) -nv $(PatchNumber)" />
-        <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
+        <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml -tsc $(TargetServiceC2jFilenames) -pl $(PreviewLabel) -nv $(PatchNumber)" />
+        <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml -tsc $(TargetServiceC2jFilenames)"/>
     </Target>
 </Project>

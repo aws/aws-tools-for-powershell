@@ -25,6 +25,7 @@ namespace PSReleaseNotesGenerator
         private const string OutputFilePathOptionName = "out-file";
         private const string BreakingChangesOutputFilePathOptionName = "breaking-changes-out-file";
         private const string OverridesFilePathOptionName = "overrides-file";
+        private const string TargetServiceC2jFilenamesOptionName = "target-service-c2j-filenames";
         private const string PreviewLabelOptionName = "preview-label";
         private const string NewVersionOptionName = "new-version";
 
@@ -66,6 +67,9 @@ namespace PSReleaseNotesGenerator
 
         [Option("-or|--" + OverridesFilePathOptionName + " <FILE_PATH>", Description = "Optional path to the overrides file.")]
         public string OverridesFilePath { get; set; }
+
+        [Option("-tsc|--" + TargetServiceC2jFilenamesOptionName + " <C2J_FILENAMES>", Description = "Optional comma-separated list of service C2jFilenames (e.g. \"bedrock-agent-runtime\") that this build targets. These services are flagged InOverrides=\"true\" in the breaking changes lookup file even when they are absent from the overrides file (e.g. a parameter change on an existing operation with an empty buildconfig).")]
+        public string TargetServiceC2jFilenames { get; set; }
 
         [Option("-pl|--" + PreviewLabelOptionName + " <NAME>", Description = "Preview Label.")]
         public string PreviewLabel { get; set; }
@@ -177,12 +181,13 @@ namespace PSReleaseNotesGenerator
             //Optionally write the breaking changes lookup file
             if (!string.IsNullOrWhiteSpace(BreakingChangesLookupOutputFilePath))
             {
-                WriteBreakingChangesLookupFile(BreakingChangesLookupOutputFilePath, OverridesFilePath, breakingChanges);
-            }            
+                WriteBreakingChangesLookupFile(BreakingChangesLookupOutputFilePath, OverridesFilePath, TargetServiceC2jFilenames, breakingChanges);
+            }
         }
-        
-        private static void WriteBreakingChangesLookupFile(string breakingChangesLookupOutputFilePath, 
-            string overridesFilePath, 
+
+        private static void WriteBreakingChangesLookupFile(string breakingChangesLookupOutputFilePath,
+            string overridesFilePath,
+            string targetServiceC2jFilenames,
             BreakingChanges breakingChanges)
         {
             var overridesXML = string.Empty;
@@ -196,7 +201,7 @@ namespace PSReleaseNotesGenerator
                 "generator/AWSPSGeneratorLib/Config/ServiceConfig"
             );
 
-            var serviceKeys = Overrides.ParseServiceNounPrefixes(overridesXML, (filetitle) =>
+            Func<string, string> serviceConfigLoader = (filetitle) =>
             {
                 try
                 {
@@ -206,7 +211,20 @@ namespace PSReleaseNotesGenerator
                 {
                     throw new Exception($"Failed to load service configuration {filetitle}.xml", e);
                 }
-            });
+            };
+
+            var serviceKeys = Overrides.ParseServiceNounPrefixes(overridesXML, serviceConfigLoader);
+
+            //Flag the services this build explicitly targets so their breaking changes are surfaced
+            //even when they are absent from the overrides file. This covers the empty-buildconfig case
+            //where a parameter change on an existing operation would otherwise be marked InOverrides="false".
+            //The target services are passed as C2jFilenames and resolved to their ServiceNounPrefix using
+            //the same service configuration loader, so they merge cleanly with the overrides service keys.
+            var targetC2jFilenames = Overrides.ParseTargetServiceC2jFilenames(targetServiceC2jFilenames);
+            foreach (var nounPrefix in Overrides.ResolveServiceNounPrefixes(targetC2jFilenames, serviceConfigLoader))
+            {
+                serviceKeys.Add(nounPrefix);
+            }
 
             var lookupReport = breakingChanges.CreateLookupXML(serviceKeys);
             var fullOutputPath = Path.GetFullPath(breakingChangesLookupOutputFilePath);

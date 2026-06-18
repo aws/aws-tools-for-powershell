@@ -20,7 +20,7 @@ namespace PSReleaseNotesGenerator
         /// <param name="ServiceConfigLoader">Callback to load the service configuration for the passed C2jFilename.</param>
         /// <returns>A HashSet containing each ServiceNounPrefix for each service in the overrides XML</returns>
         public static HashSet<string> ParseServiceNounPrefixes(string overridesXML, Func<string, string> ServiceConfigLoader)
-        {            
+        {
             if(string.IsNullOrEmpty(overridesXML))
             {
                 return new HashSet<string>();
@@ -32,6 +32,19 @@ namespace PSReleaseNotesGenerator
                 .Select(element => element.Value)
                 .ToList();
 
+            return ResolveServiceNounPrefixes(c2jFilenames, ServiceConfigLoader);
+        }
+
+        /// <summary>
+        /// Looks up the ServiceNounPrefix for each supplied C2jFilename by loading its service
+        /// configuration. Used for both the C2jFilenames parsed from the overrides file and the
+        /// C2jFilenames of the services a build explicitly targets.
+        /// </summary>
+        /// <param name="c2jFilenames">The C2jFilenames to resolve (e.g. "bedrock-agent-runtime").</param>
+        /// <param name="ServiceConfigLoader">Callback to load the service configuration for the passed C2jFilename.</param>
+        /// <returns>A HashSet containing the ServiceNounPrefix for each resolved service.</returns>
+        public static HashSet<string> ResolveServiceNounPrefixes(IEnumerable<string> c2jFilenames, Func<string, string> ServiceConfigLoader)
+        {
             var exceptions = new List<Exception>();
             var serviceNounsPrefixes = new HashSet<string>();
             foreach(var filetitle in c2jFilenames)
@@ -39,7 +52,7 @@ namespace PSReleaseNotesGenerator
                 try
                 {
                     var serviceConfigXML = ServiceConfigLoader(filetitle);
-                    xdoc = XDocument.Parse(serviceConfigXML);
+                    var xdoc = XDocument.Parse(serviceConfigXML);
                     serviceNounsPrefixes.Add(xdoc.Root.Element("ServiceNounPrefix").Value);
                 }
                 catch(Exception e)
@@ -54,6 +67,28 @@ namespace PSReleaseNotesGenerator
             }
 
             return serviceNounsPrefixes;
+        }
+
+        /// <summary>
+        /// Parses the comma-separated list of target service C2jFilenames (e.g. the value of the
+        /// --target-service-c2j-filenames option). These are the services a build explicitly targets,
+        /// so their breaking changes should be flagged InOverrides="true" even when they are absent
+        /// from the overrides file (e.g. a parameter change on an existing operation with an empty
+        /// buildconfig). Returns an empty enumerable when the input is null or empty so behavior is unchanged.
+        /// </summary>
+        /// <param name="targetServiceC2jFilenames">Comma-separated C2jFilenames (e.g. "bedrock-agent-runtime,ec2").</param>
+        /// <returns>The trimmed, non-empty C2jFilenames.</returns>
+        public static IEnumerable<string> ParseTargetServiceC2jFilenames(string targetServiceC2jFilenames)
+        {
+            if (string.IsNullOrWhiteSpace(targetServiceC2jFilenames))
+            {
+                return Enumerable.Empty<string>();
+            }
+
+            return targetServiceC2jFilenames
+                .Split(',')
+                .Select(filename => filename.Trim())
+                .Where(filename => !string.IsNullOrEmpty(filename));
         }
     }
 }
