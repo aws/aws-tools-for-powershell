@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.273.0",
+    "ProductVersion"    : "4.0.274.0",
     "CoreVersion"       : "4.0.9.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "4.0.12.9",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.6"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.33.1",
+            "Version" : "4.0.34.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.6"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.47.7",
+            "Version" : "4.0.48.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.6"
@@ -2060,7 +2060,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.0.23.1",
+            "Version" : "4.0.24.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.6"
@@ -2764,7 +2764,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "4.0.10.1",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.9.6"

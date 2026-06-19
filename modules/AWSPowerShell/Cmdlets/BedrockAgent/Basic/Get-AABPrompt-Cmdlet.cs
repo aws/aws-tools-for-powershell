@@ -48,6 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>Controls the scope of data returned. Set to <c>METADATA_ONLY</c> to return only resource
+        /// metadata. Set to <c>ALL_DATA</c> or omit this field to return the full response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.IncludedData")]
+        public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter PromptIdentifier
         /// <summary>
         /// <para>
@@ -106,6 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.GetPromptResponse, GetAABPromptCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludedData = this.IncludedData;
             context.PromptIdentifier = this.PromptIdentifier;
             #if MODULAR
             if (this.PromptIdentifier == null && ParameterWasBound(nameof(this.PromptIdentifier)))
@@ -130,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             // create request
             var request = new Amazon.BedrockAgent.Model.GetPromptRequest();
             
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
+            }
             if (cmdletContext.PromptIdentifier != null)
             {
                 request.PromptIdentifier = cmdletContext.PromptIdentifier;
@@ -193,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
             public System.String PromptIdentifier { get; set; }
             public System.String PromptVersion { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.GetPromptResponse, GetAABPromptCmdlet, object> Select { get; set; } =

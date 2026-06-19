@@ -229,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of expressions as a filter, in which an expression is an object of a step in
-        /// a routing criteria.</para><para />
+        /// a routing criteria. Accepts filter values up to 3,000 characters in length. Filter
+        /// values are case-sensitive. JSON object key order and whitespace may be arbitrary;
+        /// array order and tree structure must be preserved.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -430,14 +430,14 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.SearchFilterOperator
-        "Invoke-GLUESearch/FilterClause_AttributeFilter_Operator"
+        "Search-GLUEAsset/FilterClause_AttributeFilter_Operator"
         {
             $v = "equals","greaterThan","greaterThanOrEquals","lessThan","lessThanOrEquals","notExists"
             break
         }
 
         # Amazon.Glue.SearchSortOrder
-        "Invoke-GLUESearch/Sort_Order"
+        "Search-GLUEAsset/Sort_Order"
         {
             $v = "ASCENDING","DESCENDING"
             break
@@ -662,7 +662,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
-    "FilterClause_AttributeFilter_Operator"=@("Invoke-GLUESearch")
+    "FilterClause_AttributeFilter_Operator"=@("Search-GLUEAsset")
     "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
@@ -694,7 +694,7 @@ $GLUE_map = @{
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
-    "Sort_Order"=@("Invoke-GLUESearch")
+    "Sort_Order"=@("Search-GLUEAsset")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
@@ -993,7 +993,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Invoke-GLUEStatement",
-               "Invoke-GLUESearch",
+               "Search-GLUEAsset",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
                "Start-GLUEColumnStatisticsTaskRun",

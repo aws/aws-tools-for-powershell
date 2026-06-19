@@ -3975,6 +3975,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.UserControlMode
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_UserControlMode") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_UserControlMode")
+        }
+        {
+            $v = "DISABLED","VIEW_ONLY","VIEW_STOP"
+            break
+        }
+
         # Amazon.AppStream.VisibilityType
         "Get-APSImageList/Type"
         {
@@ -3993,6 +4003,7 @@ $APS_Completers = {
 $APS_map = @{
     "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
     "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_UserControlMode"=@("New-APSStack","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
@@ -8148,6 +8159,17 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.IncludedData
+        {
+            ($_ -eq "Get-AABFlow/IncludedData") -Or
+            ($_ -eq "Get-AABFlowVersion/IncludedData") -Or
+            ($_ -eq "Get-AABPrompt/IncludedData")
+        }
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
+            break
+        }
+
         # Amazon.BedrockAgent.IngestionJobSortByAttribute
         "Get-AABIngestionJobList/SortBy_Attribute"
         {
@@ -8350,6 +8372,7 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "EnrichmentStrategyConfiguration_Method"=@("New-AABDataSource","Update-AABDataSource")
+    "IncludedData"=@("Get-AABFlow","Get-AABFlowVersion","Get-AABPrompt")
     "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
@@ -20506,6 +20529,20 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactEvaluationAttributeComparisonType
+        "Search-CONNContactEvaluation/SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType"
+        {
+            $v = "EXACT"
+            break
+        }
+
+        # Amazon.Connect.ContactEvaluationAttributeKey
+        "Search-CONNContactEvaluation/SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey"
+        {
+            $v = "ContactAgentId"
+            break
+        }
+
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
@@ -20707,7 +20744,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Mode")
         }
         {
-            $v = "QUESTION_ONLY","SECTION_ONLY"
+            $v = "POINTS_BASED","QUESTION_ONLY","SECTION_ONLY"
             break
         }
 
@@ -21299,6 +21336,8 @@ $CONN_map = @{
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
+    "SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey"=@("Search-CONNContactEvaluation")
+    "SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType"=@("Search-CONNContactEvaluation")
     "SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -21548,6 +21587,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
                "Get-CONNEffectiveHoursOfOperation",
+               "Get-CONNEvaluationFormValidation",
                "Get-CONNFederationToken",
                "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
@@ -21669,6 +21709,7 @@ $CONN_SelectMap = @{
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNEmailContact",
+               "Start-CONNEvaluationFormValidation",
                "Start-CONNOutboundChatContact",
                "Start-CONNOutboundEmailContact",
                "Start-CONNOutboundVoiceContact",
@@ -39575,14 +39616,14 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.SearchFilterOperator
-        "Invoke-GLUESearch/FilterClause_AttributeFilter_Operator"
+        "Search-GLUEAsset/FilterClause_AttributeFilter_Operator"
         {
             $v = "equals","greaterThan","greaterThanOrEquals","lessThan","lessThanOrEquals","notExists"
             break
         }
 
         # Amazon.Glue.SearchSortOrder
-        "Invoke-GLUESearch/Sort_Order"
+        "Search-GLUEAsset/Sort_Order"
         {
             $v = "ASCENDING","DESCENDING"
             break
@@ -39807,7 +39848,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
-    "FilterClause_AttributeFilter_Operator"=@("Invoke-GLUESearch")
+    "FilterClause_AttributeFilter_Operator"=@("Search-GLUEAsset")
     "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
@@ -39839,7 +39880,7 @@ $GLUE_map = @{
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "SessionType"=@("New-GLUESession")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
-    "Sort_Order"=@("Invoke-GLUESearch")
+    "Sort_Order"=@("Search-GLUEAsset")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
@@ -40138,7 +40179,7 @@ $GLUE_SelectMap = @{
                "Reset-GLUEJobBookmark",
                "Resume-GLUEWorkflowRun",
                "Invoke-GLUEStatement",
-               "Invoke-GLUESearch",
+               "Search-GLUEAsset",
                "Find-GLUETable",
                "Start-GLUEBlueprintRun",
                "Start-GLUEColumnStatisticsTaskRun",
@@ -61754,6 +61795,7 @@ $OS_SelectMap = @{
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
                "Start-OSOSAssociatePackageList",
+               "Mount-OSDataSource",
                "Approve-OSVpcEndpointAccess",
                "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
@@ -61773,6 +61815,7 @@ $OS_SelectMap = @{
                "Remove-OSPackage",
                "Remove-OSVpcEndpoint",
                "Unregister-OSCapability",
+               "Get-OSDataSourceAttachmentDetail",
                "Get-OSDomain",
                "Get-OSDomainAutoTune",
                "Get-OSDomainChangeProgress",
@@ -61789,6 +61832,7 @@ $OS_SelectMap = @{
                "Get-OSReservedInstanceOfferingList",
                "Get-OSReservedInstanceList",
                "Get-OSVpcEndpoint",
+               "Dismount-OSDataSource",
                "Start-OSDissociatePackage",
                "Start-OSOSDissociatePackageList",
                "Get-OSApplication",
@@ -61803,6 +61847,7 @@ $OS_SelectMap = @{
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
                "Get-OSApplicationList",
+               "Get-OSDataSourceAttachmentList",
                "Get-OSDataSourceList",
                "Get-OSDirectQueryDataSourceList",
                "Get-OSDomainMaintenanceList",

@@ -1,0 +1,266 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.Connect;
+using Amazon.Connect.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.CONN
+{
+    /// <summary>
+    /// Starts an asynchronous validation process for an evaluation form version in the specified
+    /// Connect Customer instance. The validation first performs structural checks on the
+    /// form content (such as verifying required fields, valid scoring configuration, and
+    /// correct conditional logic), then asynchronously analyzes questions configured for
+    /// generative AI evaluation against a set of best practices. Use <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetEvaluationFormValidation.html">GetEvaluationFormValidation</a>
+    /// to retrieve the status and results once the validation completes.
+    /// </summary>
+    [Cmdlet("Start", "CONNEvaluationFormValidation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.StartEvaluationFormValidationResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service StartEvaluationFormValidation API operation.", Operation = new[] {"StartEvaluationFormValidation"}, SelectReturnType = typeof(Amazon.Connect.Model.StartEvaluationFormValidationResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.StartEvaluationFormValidationResponse",
+        "This cmdlet returns an Amazon.Connect.Model.StartEvaluationFormValidationResponse object containing multiple properties."
+    )]
+    public partial class StartCONNEvaluationFormValidationCmdlet : AmazonConnectClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter EvaluationFormId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the evaluation form.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EvaluationFormId { get; set; }
+        #endregion
+        
+        #region Parameter EvaluationFormVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the evaluation form to validate.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? EvaluationFormVersion { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.StartEvaluationFormValidationResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.StartEvaluationFormValidationResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var targetParameterNames = new string[]
+            {
+                nameof(this.EvaluationFormId),
+                nameof(this.InstanceId)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CONNEvaluationFormValidation (StartEvaluationFormValidation)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.StartEvaluationFormValidationResponse, StartCONNEvaluationFormValidationCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.EvaluationFormId = this.EvaluationFormId;
+            #if MODULAR
+            if (this.EvaluationFormId == null && ParameterWasBound(nameof(this.EvaluationFormId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EvaluationFormId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.EvaluationFormVersion = this.EvaluationFormVersion;
+            #if MODULAR
+            if (this.EvaluationFormVersion == null && ParameterWasBound(nameof(this.EvaluationFormVersion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EvaluationFormVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Connect.Model.StartEvaluationFormValidationRequest();
+            
+            if (cmdletContext.EvaluationFormId != null)
+            {
+                request.EvaluationFormId = cmdletContext.EvaluationFormId;
+            }
+            if (cmdletContext.EvaluationFormVersion != null)
+            {
+                request.EvaluationFormVersion = cmdletContext.EvaluationFormVersion.Value;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.Connect.Model.StartEvaluationFormValidationResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.StartEvaluationFormValidationRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "StartEvaluationFormValidation");
+            try
+            {
+                return client.StartEvaluationFormValidationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String EvaluationFormId { get; set; }
+            public System.Int32? EvaluationFormVersion { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.StartEvaluationFormValidationResponse, StartCONNEvaluationFormValidationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

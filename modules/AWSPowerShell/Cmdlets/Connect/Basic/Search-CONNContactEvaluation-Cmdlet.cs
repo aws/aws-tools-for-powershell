@@ -75,6 +75,32 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.EvaluationSearchCriteria[] SearchCriteria_AndCondition { get; set; }
         #endregion
         
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of attribute conditions to apply.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeConditions")]
+        public Amazon.Connect.Model.ContactEvaluationAttributeCondition[] SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey
+        /// <summary>
+        /// <para>
+        /// <para>The key of the attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactEvaluationAttributeKey")]
+        public Amazon.Connect.ContactEvaluationAttributeKey SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey { get; set; }
+        #endregion
+        
         #region Parameter BooleanCondition_ComparisonType
         /// <summary>
         /// <para>
@@ -133,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [Alias("SearchCriteria_StringCondition_ComparisonType")]
         [AWSConstantClassSource("Amazon.Connect.StringComparisonType")]
         public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType
+        /// <summary>
+        /// <para>
+        /// <para>The comparison type for the condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactEvaluationAttributeComparisonType")]
+        public Amazon.Connect.ContactEvaluationAttributeComparisonType SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType { get; set; }
         #endregion
         
         #region Parameter BooleanCondition_FieldName
@@ -304,6 +341,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.CommonAttributeAndCondition[] AttributeFilter_OrCondition { get; set; }
         #endregion
         
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_OrCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_ContactEvaluationAttributeFilter_OrConditions")]
+        public Amazon.Connect.Model.ContactEvaluationAttributeAndCondition[] SearchFilter_ContactEvaluationAttributeFilter_OrCondition { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue
+        /// <summary>
+        /// <para>
+        /// <para>A string value for the attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue { get; set; }
+        #endregion
+        
         #region Parameter AndCondition_TagCondition
         /// <summary>
         /// <para>
@@ -319,6 +381,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.TagCondition[] AndCondition_TagCondition { get; set; }
         #endregion
         
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag conditions to apply.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagConditions")]
+        public Amazon.Connect.Model.TagCondition[] SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition { get; set; }
+        #endregion
+        
         #region Parameter TagCondition_TagKey
         /// <summary>
         /// <para>
@@ -330,6 +407,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String TagCondition_TagKey { get; set; }
         #endregion
         
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey { get; set; }
+        #endregion
+        
         #region Parameter TagCondition_TagValue
         /// <summary>
         /// <para>
@@ -339,6 +426,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchFilter_AttributeFilter_TagCondition_TagValue")]
         public System.String TagCondition_TagValue { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue
+        /// <summary>
+        /// <para>
+        /// <para>The tag value in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue { get; set; }
         #endregion
         
         #region Parameter StringCondition_Value
@@ -478,6 +575,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.TagCondition_TagKey = this.TagCondition_TagKey;
             context.TagCondition_TagValue = this.TagCondition_TagValue;
+            if (this.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition != null)
+            {
+                context.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition = new List<Amazon.Connect.Model.ContactEvaluationAttributeCondition>(this.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition);
+            }
+            if (this.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition != null)
+            {
+                context.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition = new List<Amazon.Connect.Model.TagCondition>(this.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition);
+            }
+            context.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey = this.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey;
+            context.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue = this.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue;
+            context.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType = this.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType;
+            if (this.SearchFilter_ContactEvaluationAttributeFilter_OrCondition != null)
+            {
+                context.SearchFilter_ContactEvaluationAttributeFilter_OrCondition = new List<Amazon.Connect.Model.ContactEvaluationAttributeAndCondition>(this.SearchFilter_ContactEvaluationAttributeFilter_OrCondition);
+            }
+            context.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey = this.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey;
+            context.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue = this.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -867,6 +981,161 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.SearchFilter.AttributeFilter = requestSearchFilter_searchFilter_AttributeFilter;
                 requestSearchFilterIsNull = false;
             }
+            Amazon.Connect.Model.ContactEvaluationAttributeFilter requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter = null;
+            
+             // populate ContactEvaluationAttributeFilter
+            var requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull = true;
+            requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter = new Amazon.Connect.Model.ContactEvaluationAttributeFilter();
+            List<Amazon.Connect.Model.ContactEvaluationAttributeAndCondition> requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_OrCondition = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_OrCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_OrCondition = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_OrCondition;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_OrCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter.OrConditions = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_OrCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.ContactEvaluationAttributeAndCondition requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition = null;
+            
+             // populate AndCondition
+            var requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndConditionIsNull = true;
+            requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition = new Amazon.Connect.Model.ContactEvaluationAttributeAndCondition();
+            List<Amazon.Connect.Model.ContactEvaluationAttributeCondition> requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition.AttributeConditions = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndConditionIsNull = false;
+            }
+            List<Amazon.Connect.Model.TagCondition> requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition.TagConditions = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition_searchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition should be set to null
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter.AndCondition = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_AndCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.TagCondition requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition = null;
+            
+             // populate TagCondition
+            var requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagConditionIsNull = true;
+            requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition = new Amazon.Connect.Model.TagCondition();
+            System.String requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition.TagKey = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagConditionIsNull = false;
+            }
+            System.String requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition.TagValue = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition_searchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition should be set to null
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter.TagCondition = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_TagCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.ContactEvaluationAttributeCondition requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition = null;
+            
+             // populate ContactEvaluationAttributeCondition
+            var requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeConditionIsNull = true;
+            requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition = new Amazon.Connect.Model.ContactEvaluationAttributeCondition();
+            Amazon.Connect.ContactEvaluationAttributeKey requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition.AttributeKey = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeConditionIsNull = false;
+            }
+            Amazon.Connect.ContactEvaluationAttributeComparisonType requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition.ComparisonType = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeConditionIsNull = false;
+            }
+            Amazon.Connect.Model.ContactEvaluationAttributeValue requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue = null;
+            
+             // populate AttributeValue
+            var requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValueIsNull = true;
+            requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue = new Amazon.Connect.Model.ContactEvaluationAttributeValue();
+            System.String requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue = null;
+            if (cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue = cmdletContext.SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue.StringValue = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValueIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue should be set to null
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValueIsNull)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue = null;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition.AttributeValue = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition should be set to null
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition != null)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter.ContactEvaluationAttributeCondition = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter_searchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition;
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter should be set to null
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilterIsNull)
+            {
+                requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter = null;
+            }
+            if (requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter != null)
+            {
+                request.SearchFilter.ContactEvaluationAttributeFilter = requestSearchFilter_searchFilter_ContactEvaluationAttributeFilter;
+                requestSearchFilterIsNull = false;
+            }
              // determine if request.SearchFilter should be set to null
             if (requestSearchFilterIsNull)
             {
@@ -977,6 +1246,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.CommonAttributeAndCondition> AttributeFilter_OrCondition { get; set; }
             public System.String TagCondition_TagKey { get; set; }
             public System.String TagCondition_TagValue { get; set; }
+            public List<Amazon.Connect.Model.ContactEvaluationAttributeCondition> SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition { get; set; }
+            public List<Amazon.Connect.Model.TagCondition> SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition { get; set; }
+            public Amazon.Connect.ContactEvaluationAttributeKey SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey { get; set; }
+            public System.String SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue { get; set; }
+            public Amazon.Connect.ContactEvaluationAttributeComparisonType SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType { get; set; }
+            public List<Amazon.Connect.Model.ContactEvaluationAttributeAndCondition> SearchFilter_ContactEvaluationAttributeFilter_OrCondition { get; set; }
+            public System.String SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey { get; set; }
+            public System.String SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue { get; set; }
             public System.Func<Amazon.Connect.Model.SearchContactEvaluationsResponse, SearchCONNContactEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

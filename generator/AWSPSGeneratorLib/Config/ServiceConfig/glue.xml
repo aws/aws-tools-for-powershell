@@ -22,7 +22,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateGlossaryTerms" OutputProperty="*" Verb="Add" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateGlossaryTerms" OutputProperty="*" Verb="Add" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AssetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,7 +309,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="Identifier" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteAttachment" OutputProperty="AssetIdentifier" Verb="Remove" Noun="Attachment" ShouldProcessTarget="AttachmentName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -477,7 +477,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateGlossaryTerms" OutputProperty="*" Verb="Unregister" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateGlossaryTerms" OutputProperty="*" Verb="Unregister" Noun="GlossaryTerm" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="AssetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1077,7 +1077,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Search" OutputProperty="Items" Verb="Invoke" Noun="Search" ShouldProcessTarget="SearchText" PipelineParameter="SearchText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchAssets" OutputProperty="Items" Verb="Search" Noun="Asset" ShouldProcessTarget="SearchText" PipelineParameter="SearchText" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

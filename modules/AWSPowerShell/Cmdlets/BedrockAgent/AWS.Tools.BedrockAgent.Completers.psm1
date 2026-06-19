@@ -259,6 +259,17 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.IncludedData
+        {
+            ($_ -eq "Get-AABFlow/IncludedData") -Or
+            ($_ -eq "Get-AABFlowVersion/IncludedData") -Or
+            ($_ -eq "Get-AABPrompt/IncludedData")
+        }
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
+            break
+        }
+
         # Amazon.BedrockAgent.IngestionJobSortByAttribute
         "Get-AABIngestionJobList/SortBy_Attribute"
         {
@@ -461,6 +472,7 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "EnrichmentStrategyConfiguration_Method"=@("New-AABDataSource","Update-AABDataSource")
+    "IncludedData"=@("Get-AABFlow","Get-AABFlowVersion","Get-AABPrompt")
     "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")

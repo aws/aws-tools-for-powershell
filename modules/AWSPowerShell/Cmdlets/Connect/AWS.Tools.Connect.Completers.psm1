@@ -141,6 +141,20 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactEvaluationAttributeComparisonType
+        "Search-CONNContactEvaluation/SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType"
+        {
+            $v = "EXACT"
+            break
+        }
+
+        # Amazon.Connect.ContactEvaluationAttributeKey
+        "Search-CONNContactEvaluation/SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey"
+        {
+            $v = "ContactAgentId"
+            break
+        }
+
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
@@ -342,7 +356,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Mode")
         }
         {
-            $v = "QUESTION_ONLY","SECTION_ONLY"
+            $v = "POINTS_BASED","QUESTION_ONLY","SECTION_ONLY"
             break
         }
 
@@ -934,6 +948,8 @@ $CONN_map = @{
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
+    "SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey"=@("Search-CONNContactEvaluation")
+    "SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType"=@("Search-CONNContactEvaluation")
     "SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -1183,6 +1199,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
                "Get-CONNEffectiveHoursOfOperation",
+               "Get-CONNEvaluationFormValidation",
                "Get-CONNFederationToken",
                "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
@@ -1304,6 +1321,7 @@ $CONN_SelectMap = @{
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNEmailContact",
+               "Start-CONNEvaluationFormValidation",
                "Start-CONNOutboundChatContact",
                "Start-CONNOutboundEmailContact",
                "Start-CONNOutboundVoiceContact",

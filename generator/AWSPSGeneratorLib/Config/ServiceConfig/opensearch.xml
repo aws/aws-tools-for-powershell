@@ -52,6 +52,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachDataSource" OutputProperty="*" Verb="Mount" Noun="DataSource" ShouldProcessTarget="DataSourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -162,6 +166,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSourceAttachment" OutputProperty="*" Verb="Get" Noun="DataSourceAttachmentDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainStatus" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -226,6 +234,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DetachDataSource" OutputProperty="*" Verb="Dismount" Noun="DataSource" ShouldProcessTarget="DataSourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -279,6 +291,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSourceAttachments" OutputProperty="Attachments" Verb="Get" Noun="DataSourceAttachmentList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

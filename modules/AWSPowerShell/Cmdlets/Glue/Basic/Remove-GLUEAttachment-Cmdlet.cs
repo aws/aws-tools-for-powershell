@@ -45,6 +45,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AssetIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the asset from which to delete the attachment.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssetIdentifier { get; set; }
+        #endregion
+        
         #region Parameter AttachmentName
         /// <summary>
         /// <para>
@@ -62,32 +79,38 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String AttachmentName { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter ItemIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the asset from which to delete the attachment.</para>
+        /// <para>The identifier of the item within the iterable form. Required when <c>iterableFormName</c>
+        /// is specified.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ItemIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter IterableFormName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the iterable form. When specified along with <c>itemIdentifier</c>, the
+        /// attachment is deleted from an item within the iterable form rather than from the asset
+        /// itself.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IterableFormName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Identifier'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetIdentifier'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteAttachmentResponse).
         /// Specifying the name of a property of type Amazon.Glue.Model.DeleteAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Identifier";
+        public string Select { get; set; } = "AssetIdentifier";
         #endregion
         
         #region Parameter Force
@@ -125,6 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteAttachmentResponse, RemoveGLUEAttachmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AssetIdentifier = this.AssetIdentifier;
+            #if MODULAR
+            if (this.AssetIdentifier == null && ParameterWasBound(nameof(this.AssetIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.AttachmentName = this.AttachmentName;
             #if MODULAR
             if (this.AttachmentName == null && ParameterWasBound(nameof(this.AttachmentName)))
@@ -132,13 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter AttachmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ItemIdentifier = this.ItemIdentifier;
+            context.IterableFormName = this.IterableFormName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,13 +180,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.DeleteAttachmentRequest();
             
+            if (cmdletContext.AssetIdentifier != null)
+            {
+                request.AssetIdentifier = cmdletContext.AssetIdentifier;
+            }
             if (cmdletContext.AttachmentName != null)
             {
                 request.AttachmentName = cmdletContext.AttachmentName;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.ItemIdentifier != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.ItemIdentifier = cmdletContext.ItemIdentifier;
+            }
+            if (cmdletContext.IterableFormName != null)
+            {
+                request.IterableFormName = cmdletContext.IterableFormName;
             }
             
             CmdletOutput output;
@@ -218,10 +251,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetIdentifier { get; set; }
             public System.String AttachmentName { get; set; }
-            public System.String Identifier { get; set; }
+            public System.String ItemIdentifier { get; set; }
+            public System.String IterableFormName { get; set; }
             public System.Func<Amazon.Glue.Model.DeleteAttachmentResponse, RemoveGLUEAttachmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Identifier;
+                (response, cmdlet) => response.AssetIdentifier;
         }
         
     }

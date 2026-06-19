@@ -178,6 +178,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.EvaluationReviewNotificationRecipient[] ReviewConfiguration_ReviewNotificationRecipient { get; set; }
         #endregion
         
+        #region Parameter ScoringStrategy_ScoreThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The score thresholds for performance categories.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScoringStrategy_ScoreThresholds")]
+        public Amazon.Connect.Model.EvaluationFormScoreThreshold[] ScoringStrategy_ScoreThreshold { get; set; }
+        #endregion
+        
         #region Parameter ScoringStrategy_Status
         /// <summary>
         /// <para>
@@ -309,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.ReviewConfiguration_ReviewNotificationRecipient = new List<Amazon.Connect.Model.EvaluationReviewNotificationRecipient>(this.ReviewConfiguration_ReviewNotificationRecipient);
             }
             context.ScoringStrategy_Mode = this.ScoringStrategy_Mode;
+            if (this.ScoringStrategy_ScoreThreshold != null)
+            {
+                context.ScoringStrategy_ScoreThreshold = new List<Amazon.Connect.Model.EvaluationFormScoreThreshold>(this.ScoringStrategy_ScoreThreshold);
+            }
             context.ScoringStrategy_Status = this.ScoringStrategy_Status;
             if (this.Tag != null)
             {
@@ -443,6 +462,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.ScoringStrategy.Mode = requestScoringStrategy_scoringStrategy_Mode;
                 requestScoringStrategyIsNull = false;
             }
+            List<Amazon.Connect.Model.EvaluationFormScoreThreshold> requestScoringStrategy_scoringStrategy_ScoreThreshold = null;
+            if (cmdletContext.ScoringStrategy_ScoreThreshold != null)
+            {
+                requestScoringStrategy_scoringStrategy_ScoreThreshold = cmdletContext.ScoringStrategy_ScoreThreshold;
+            }
+            if (requestScoringStrategy_scoringStrategy_ScoreThreshold != null)
+            {
+                request.ScoringStrategy.ScoreThresholds = requestScoringStrategy_scoringStrategy_ScoreThreshold;
+                requestScoringStrategyIsNull = false;
+            }
             Amazon.Connect.EvaluationFormScoringStatus requestScoringStrategy_scoringStrategy_Status = null;
             if (cmdletContext.ScoringStrategy_Status != null)
             {
@@ -550,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.Int32? ReviewConfiguration_EligibilityDay { get; set; }
             public List<Amazon.Connect.Model.EvaluationReviewNotificationRecipient> ReviewConfiguration_ReviewNotificationRecipient { get; set; }
             public Amazon.Connect.EvaluationFormScoringMode ScoringStrategy_Mode { get; set; }
+            public List<Amazon.Connect.Model.EvaluationFormScoreThreshold> ScoringStrategy_ScoreThreshold { get; set; }
             public Amazon.Connect.EvaluationFormScoringStatus ScoringStrategy_Status { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Connect.ContactInteractionType TargetConfiguration_ContactInteractionType { get; set; }

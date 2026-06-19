@@ -23,82 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Associates one or more glossary terms with an asset in Glue Data Catalog.
+    /// Removes a data source from an OpenSearch application. The application must be in the
+    /// <c>ACTIVE</c> state. This operation removes the data source saved object from the
+    /// application and deletes the attachment record. Throws a <c>ConflictException</c> if
+    /// the specified data source has a <c>PENDING</c> attachment, and a <c>ResourceNotFoundException</c>
+    /// if the data source is not currently attached to the application.
     /// </summary>
-    [Cmdlet("Add", "GLUEGlossaryTerm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Glue.Model.AssociateGlossaryTermsResponse")]
-    [AWSCmdlet("Calls the AWS Glue AssociateGlossaryTerms API operation.", Operation = new[] {"AssociateGlossaryTerms"}, SelectReturnType = typeof(Amazon.Glue.Model.AssociateGlossaryTermsResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.AssociateGlossaryTermsResponse",
-        "This cmdlet returns an Amazon.Glue.Model.AssociateGlossaryTermsResponse object containing multiple properties."
+    [Cmdlet("Dismount", "OSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.OpenSearchService.Model.DetachDataSourceResponse")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service DetachDataSource API operation.", Operation = new[] {"DetachDataSource"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DetachDataSourceResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchService.Model.DetachDataSourceResponse",
+        "This cmdlet returns an Amazon.OpenSearchService.Model.DetachDataSourceResponse object containing multiple properties."
     )]
-    public partial class AddGLUEGlossaryTermCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class DismountOSDataSourceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AssetIdentifier
+        #region Parameter DataSourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the asset to associate glossary terms with.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssetIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter GlossaryTermIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The list of glossary term identifiers to associate with the asset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("GlossaryTermIdentifiers")]
-        public System.String[] GlossaryTermIdentifier { get; set; }
+        public System.String DataSourceArn { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// <para>The unique identifier or name of the OpenSearch application to detach the data source
+        /// from.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.AssociateGlossaryTermsResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.AssociateGlossaryTermsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.DetachDataSourceResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.DetachDataSourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-GLUEGlossaryTerm (AssociateGlossaryTerms)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataSourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Dismount-OSDataSource (DetachDataSource)"))
             {
                 return;
             }
@@ -137,25 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.AssociateGlossaryTermsResponse, AddGLUEGlossaryTermCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.DetachDataSourceResponse, DismountOSDataSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AssetIdentifier = this.AssetIdentifier;
+            context.DataSourceArn = this.DataSourceArn;
             #if MODULAR
-            if (this.AssetIdentifier == null && ParameterWasBound(nameof(this.AssetIdentifier)))
+            if (this.DataSourceArn == null && ParameterWasBound(nameof(this.DataSourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DataSourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            if (this.GlossaryTermIdentifier != null)
-            {
-                context.GlossaryTermIdentifier = new List<System.String>(this.GlossaryTermIdentifier);
-            }
+            context.Id = this.Id;
             #if MODULAR
-            if (this.GlossaryTermIdentifier == null && ParameterWasBound(nameof(this.GlossaryTermIdentifier)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter GlossaryTermIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,19 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.AssociateGlossaryTermsRequest();
+            var request = new Amazon.OpenSearchService.Model.DetachDataSourceRequest();
             
-            if (cmdletContext.AssetIdentifier != null)
+            if (cmdletContext.DataSourceArn != null)
             {
-                request.AssetIdentifier = cmdletContext.AssetIdentifier;
+                request.DataSourceArn = cmdletContext.DataSourceArn;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.Id != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.GlossaryTermIdentifier != null)
-            {
-                request.GlossaryTermIdentifiers = cmdletContext.GlossaryTermIdentifier;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -219,12 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.AssociateGlossaryTermsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.AssociateGlossaryTermsRequest request)
+        private Amazon.OpenSearchService.Model.DetachDataSourceResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.DetachDataSourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "AssociateGlossaryTerms");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "DetachDataSource");
             try
             {
-                return client.AssociateGlossaryTermsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DetachDataSourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -241,10 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssetIdentifier { get; set; }
-            public System.String ClientToken { get; set; }
-            public List<System.String> GlossaryTermIdentifier { get; set; }
-            public System.Func<Amazon.Glue.Model.AssociateGlossaryTermsResponse, AddGLUEGlossaryTermCmdlet, object> Select { get; set; } =
+            public System.String DataSourceArn { get; set; }
+            public System.String Id { get; set; }
+            public System.Func<Amazon.OpenSearchService.Model.DetachDataSourceResponse, DismountOSDataSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

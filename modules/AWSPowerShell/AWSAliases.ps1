@@ -7673,6 +7673,7 @@ Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
 Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name Get-CONNEffectiveHoursOfOperations -Value Get-CONNEffectiveHoursOfOperation
 Set-Alias -Name CONN-GetEffectiveHoursOfOperations -Value Get-CONNEffectiveHoursOfOperation
+Set-Alias -Name CONN-GetEvaluationFormValidation -Value Get-CONNEvaluationFormValidation
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetFlowAssociation -Value Get-CONNFlowAssociation
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
@@ -7965,6 +7966,7 @@ Set-Alias -Name CONN-StartContactMediaProcessing -Value Start-CONNContactMediaPr
 Set-Alias -Name CONN-StartContactRecording -Value Start-CONNContactRecording
 Set-Alias -Name CONN-StartContactStreaming -Value Start-CONNContactStreaming
 Set-Alias -Name CONN-StartEmailContact -Value Start-CONNEmailContact
+Set-Alias -Name CONN-StartEvaluationFormValidation -Value Start-CONNEvaluationFormValidation
 Set-Alias -Name CONN-StartOutboundChatContact -Value Start-CONNOutboundChatContact
 Set-Alias -Name CONN-StartOutboundEmailContact -Value Start-CONNOutboundEmailContact
 Set-Alias -Name CONN-StartOutboundVoiceContact -Value Start-CONNOutboundVoiceContact
@@ -15966,9 +15968,8 @@ Set-Alias -Name GLUE-ResetJobBookmark -Value Reset-GLUEJobBookmark
 Set-Alias -Name GLUE-ResumeWorkflowRun -Value Resume-GLUEWorkflowRun
 Set-Alias -Name Run-GLUEStatement -Value Invoke-GLUEStatement
 Set-Alias -Name GLUE-RunStatement -Value Invoke-GLUEStatement
-Set-Alias -Name Search-GLUE -Value Invoke-GLUESearch
-Set-Alias -Name Search-GLUESearch -Value Invoke-GLUESearch
-Set-Alias -Name GLUE-Search -Value Invoke-GLUESearch
+Set-Alias -Name Search-GLUEAssets -Value Search-GLUEAsset
+Set-Alias -Name GLUE-SearchAssets -Value Search-GLUEAsset
 Set-Alias -Name Search-GLUETables -Value Find-GLUETable
 Set-Alias -Name Search-GLUETable -Value Find-GLUETable
 Set-Alias -Name GLUE-SearchTables -Value Find-GLUETable
@@ -24432,6 +24433,8 @@ Set-Alias -Name OS-AssociatePackage -Value Start-OSAssociatePackage
 Set-Alias -Name Associate-OSPackages -Value Start-OSOSAssociatePackageList
 Set-Alias -Name Associate-OSOSAssociatePackageList -Value Start-OSOSAssociatePackageList
 Set-Alias -Name OS-AssociatePackages -Value Start-OSOSAssociatePackageList
+Set-Alias -Name Attach-OSDataSource -Value Mount-OSDataSource
+Set-Alias -Name OS-AttachDataSource -Value Mount-OSDataSource
 Set-Alias -Name Authorize-OSVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
 Set-Alias -Name OS-AuthorizeVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
 Set-Alias -Name Cancel-OSDomainConfigChange -Value Stop-OSDomainConfigChange
@@ -24470,6 +24473,9 @@ Set-Alias -Name Delete-OSVpcEndpoint -Value Remove-OSVpcEndpoint
 Set-Alias -Name OS-DeleteVpcEndpoint -Value Remove-OSVpcEndpoint
 Set-Alias -Name Deregister-OSCapability -Value Unregister-OSCapability
 Set-Alias -Name OS-DeregisterCapability -Value Unregister-OSCapability
+Set-Alias -Name Describe-OSDataSourceAttachment -Value Get-OSDataSourceAttachmentDetail
+Set-Alias -Name Describe-OSDataSourceAttachmentDetail -Value Get-OSDataSourceAttachmentDetail
+Set-Alias -Name OS-DescribeDataSourceAttachment -Value Get-OSDataSourceAttachmentDetail
 Set-Alias -Name Describe-OSDomain -Value Get-OSDomain
 Set-Alias -Name OS-DescribeDomain -Value Get-OSDomain
 Set-Alias -Name Describe-OSDomainAutoTunes -Value Get-OSDomainAutoTune
@@ -24513,6 +24519,8 @@ Set-Alias -Name OS-DescribeReservedInstances -Value Get-OSReservedInstanceList
 Set-Alias -Name Describe-OSVpcEndpoints -Value Get-OSVpcEndpoint
 Set-Alias -Name Describe-OSVpcEndpoint -Value Get-OSVpcEndpoint
 Set-Alias -Name OS-DescribeVpcEndpoints -Value Get-OSVpcEndpoint
+Set-Alias -Name Detach-OSDataSource -Value Dismount-OSDataSource
+Set-Alias -Name OS-DetachDataSource -Value Dismount-OSDataSource
 Set-Alias -Name Dissociate-OSPackage -Value Start-OSDissociatePackage
 Set-Alias -Name Dissociate-OSDissociatePackage -Value Start-OSDissociatePackage
 Set-Alias -Name OS-DissociatePackage -Value Start-OSDissociatePackage
@@ -24534,6 +24542,9 @@ Set-Alias -Name OS-GetUpgradeStatus -Value Get-OSUpgradeStatus
 Set-Alias -Name List-OSApplications -Value Get-OSApplicationList
 Set-Alias -Name List-OSApplicationList -Value Get-OSApplicationList
 Set-Alias -Name OS-ListApplications -Value Get-OSApplicationList
+Set-Alias -Name List-OSDataSourceAttachments -Value Get-OSDataSourceAttachmentList
+Set-Alias -Name List-OSDataSourceAttachmentList -Value Get-OSDataSourceAttachmentList
+Set-Alias -Name OS-ListDataSourceAttachments -Value Get-OSDataSourceAttachmentList
 Set-Alias -Name List-OSDataSources -Value Get-OSDataSourceList
 Set-Alias -Name List-OSDataSourceList -Value Get-OSDataSourceList
 Set-Alias -Name OS-ListDataSources -Value Get-OSDataSourceList

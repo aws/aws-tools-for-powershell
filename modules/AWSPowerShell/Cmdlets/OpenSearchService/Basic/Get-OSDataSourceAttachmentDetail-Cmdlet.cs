@@ -23,62 +23,68 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgent;
-using Amazon.BedrockAgent.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.AAB
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Retrieves information about a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html">Manage
-    /// a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.
+    /// Returns the current status and details of a specific data source attachment for an
+    /// OpenSearch application. Throws a <c>ResourceNotFoundException</c> if no attachment
+    /// record exists for the specified application and data source combination.
     /// </summary>
-    [Cmdlet("Get", "AABFlow")]
-    [OutputType("Amazon.BedrockAgent.Model.GetFlowResponse")]
-    [AWSCmdlet("Calls the Agents for Amazon Bedrock GetFlow API operation.", Operation = new[] {"GetFlow"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.GetFlowResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgent.Model.GetFlowResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.GetFlowResponse object containing multiple properties."
+    [Cmdlet("Get", "OSDataSourceAttachmentDetail")]
+    [OutputType("Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeDataSourceAttachment API operation.", Operation = new[] {"DescribeDataSourceAttachment"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse",
+        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse object containing multiple properties."
     )]
-    public partial class GetAABFlowCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
+    public partial class GetOSDataSourceAttachmentDetailCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter FlowIdentifier
+        #region Parameter DataSourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the flow.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FlowIdentifier { get; set; }
+        public System.String DataSourceArn { get; set; }
         #endregion
         
-        #region Parameter IncludedData
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Controls the scope of data returned. Set to <c>METADATA_ONLY</c> to return only resource
-        /// metadata. Set to <c>ALL_DATA</c> or omit this field to return the full response.</para>
+        /// <para>The unique identifier or name of the OpenSearch application.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgent.IncludedData")]
-        public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgent.Model.GetFlowResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgent.Model.GetFlowResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,17 +107,23 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.GetFlowResponse, GetAABFlowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse, GetOSDataSourceAttachmentDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.FlowIdentifier = this.FlowIdentifier;
+            context.DataSourceArn = this.DataSourceArn;
             #if MODULAR
-            if (this.FlowIdentifier == null && ParameterWasBound(nameof(this.FlowIdentifier)))
+            if (this.DataSourceArn == null && ParameterWasBound(nameof(this.DataSourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter FlowIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DataSourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludedData = this.IncludedData;
+            context.Id = this.Id;
+            #if MODULAR
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,15 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgent.Model.GetFlowRequest();
+            var request = new Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentRequest();
             
-            if (cmdletContext.FlowIdentifier != null)
+            if (cmdletContext.DataSourceArn != null)
             {
-                request.FlowIdentifier = cmdletContext.FlowIdentifier;
+                request.DataSourceArn = cmdletContext.DataSourceArn;
             }
-            if (cmdletContext.IncludedData != null)
+            if (cmdletContext.Id != null)
             {
-                request.IncludedData = cmdletContext.IncludedData;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -169,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgent.Model.GetFlowResponse CallAWSServiceOperation(IAmazonBedrockAgent client, Amazon.BedrockAgent.Model.GetFlowRequest request)
+        private Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "GetFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "DescribeDataSourceAttachment");
             try
             {
-                return client.GetFlowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeDataSourceAttachmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -191,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FlowIdentifier { get; set; }
-            public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
-            public System.Func<Amazon.BedrockAgent.Model.GetFlowResponse, GetAABFlowCmdlet, object> Select { get; set; } =
+            public System.String DataSourceArn { get; set; }
+            public System.String Id { get; set; }
+            public System.Func<Amazon.OpenSearchService.Model.DescribeDataSourceAttachmentResponse, GetOSDataSourceAttachmentDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

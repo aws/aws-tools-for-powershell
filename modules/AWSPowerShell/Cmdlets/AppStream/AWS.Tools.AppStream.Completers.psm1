@@ -218,6 +218,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.UserControlMode
+        {
+            ($_ -eq "New-APSStack/AgentAccessConfig_UserControlMode") -Or
+            ($_ -eq "Update-APSStack/AgentAccessConfig_UserControlMode")
+        }
+        {
+            $v = "DISABLED","VIEW_ONLY","VIEW_STOP"
+            break
+        }
+
         # Amazon.AppStream.VisibilityType
         "Get-APSImageList/Type"
         {
@@ -236,6 +246,7 @@ $APS_Completers = {
 $APS_map = @{
     "AgentAccessConfig_ScreenImageFormat"=@("New-APSStack","Update-APSStack")
     "AgentAccessConfig_ScreenResolution"=@("New-APSStack","Update-APSStack")
+    "AgentAccessConfig_UserControlMode"=@("New-APSStack","Update-APSStack")
     "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")

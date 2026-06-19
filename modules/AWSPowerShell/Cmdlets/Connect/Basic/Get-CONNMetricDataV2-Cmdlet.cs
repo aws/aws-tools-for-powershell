@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// analytics.</para></li><li><para><c>connect:Chat</c>, <c>connect:SMS</c>, <c>connect:Telephony</c>, and <c>connect:WebRTC</c>
         /// are valid filter value examples (not exhaustive) for the <c>contact/segmentAttributes/connect:Subtype</c>
         /// filter key.</para></li><li><para><c>ROUTING_STEP_EXPRESSION</c> accepts a filter value up to 3,000 characters in length.
-        /// This filter is case-sensitive and order-sensitive. JSON string fields must be sorted
-        /// in ascending order, and JSON array order must be preserved.</para></li><li><para>TRUE and FALSE are the only valid filter values for the <c>Q_CONNECT_ENABLED</c> filter
+        /// Filter values are case-sensitive. JSON object key order and whitespace may be arbitrary;
+        /// array order and tree structure must be preserved.</para></li><li><para>TRUE and FALSE are the only valid filter values for the <c>Q_CONNECT_ENABLED</c> filter
         /// key.</para><ul><li><para>TRUE includes all contacts that had Connect AI Agents enabled as part of the flow.</para></li><li><para>FALSE includes all contacts that did not have Connect AI Agents enabled as part of
         /// the flow.</para></li></ul></li><li><para><c>EXPERIENCE_VALIDATION</c> and <c>FLOW_VALIDATION</c> are the only valid filter
         /// values for the <c>contact/segmentAttributes/connect:ValidationTestType</c> filter

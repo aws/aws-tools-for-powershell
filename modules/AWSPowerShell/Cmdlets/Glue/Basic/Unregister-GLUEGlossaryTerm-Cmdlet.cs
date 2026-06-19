@@ -44,6 +44,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AssetIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the asset to disassociate glossary terms from.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssetIdentifier { get; set; }
+        #endregion
+        
         #region Parameter GlossaryTermIdentifier
         /// <summary>
         /// <para>
@@ -64,23 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("GlossaryTermIdentifiers")]
         public System.String[] GlossaryTermIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the asset to disassociate glossary terms from.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -140,6 +140,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.DisassociateGlossaryTermsResponse, UnregisterGLUEGlossaryTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AssetIdentifier = this.AssetIdentifier;
+            #if MODULAR
+            if (this.AssetIdentifier == null && ParameterWasBound(nameof(this.AssetIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ClientToken = this.ClientToken;
             if (this.GlossaryTermIdentifier != null)
             {
@@ -149,13 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (this.GlossaryTermIdentifier == null && ParameterWasBound(nameof(this.GlossaryTermIdentifier)))
             {
                 WriteWarning("You are passing $null as a value for parameter GlossaryTermIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -174,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.DisassociateGlossaryTermsRequest();
             
+            if (cmdletContext.AssetIdentifier != null)
+            {
+                request.AssetIdentifier = cmdletContext.AssetIdentifier;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -181,10 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.GlossaryTermIdentifier != null)
             {
                 request.GlossaryTermIdentifiers = cmdletContext.GlossaryTermIdentifier;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -241,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetIdentifier { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> GlossaryTermIdentifier { get; set; }
-            public System.String Identifier { get; set; }
             public System.Func<Amazon.Glue.Model.DisassociateGlossaryTermsResponse, UnregisterGLUEGlossaryTermCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

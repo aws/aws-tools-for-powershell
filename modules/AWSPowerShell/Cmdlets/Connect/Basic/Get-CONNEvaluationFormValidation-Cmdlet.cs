@@ -23,49 +23,36 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgent;
-using Amazon.BedrockAgent.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.AAB
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Retrieves information about a version of a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html">Deploy
-    /// a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.
+    /// Retrieves the status and results of a validation process started by <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEvaluationFormValidation.html">StartEvaluationFormValidation</a>.
+    /// Returns the current execution status (<c>IN_PROGRESS</c>, <c>COMPLETED</c>, or <c>FAILED</c>),
+    /// the validated form version, and when completed, a list of findings that identify structural
+    /// issues and quality improvements for the evaluation form, and may include suggested
+    /// fixes. If the validation failed, a reason is provided indicating the cause of the
+    /// failure.
     /// </summary>
-    [Cmdlet("Get", "AABFlowVersion")]
-    [OutputType("Amazon.BedrockAgent.Model.GetFlowVersionResponse")]
-    [AWSCmdlet("Calls the Agents for Amazon Bedrock GetFlowVersion API operation.", Operation = new[] {"GetFlowVersion"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.GetFlowVersionResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgent.Model.GetFlowVersionResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.GetFlowVersionResponse object containing multiple properties."
+    [Cmdlet("Get", "CONNEvaluationFormValidation")]
+    [OutputType("Amazon.Connect.Model.GetEvaluationFormValidationResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service GetEvaluationFormValidation API operation.", Operation = new[] {"GetEvaluationFormValidation"}, SelectReturnType = typeof(Amazon.Connect.Model.GetEvaluationFormValidationResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.GetEvaluationFormValidationResponse",
+        "This cmdlet returns an Amazon.Connect.Model.GetEvaluationFormValidationResponse object containing multiple properties."
     )]
-    public partial class GetAABFlowVersionCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
+    public partial class GetCONNEvaluationFormValidationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter FlowIdentifier
+        #region Parameter EvaluationFormId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the flow for which to get information.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FlowIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter FlowVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version of the flow for which to get information.</para>
+        /// <para>The unique identifier for the evaluation form.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,26 +63,42 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FlowVersion { get; set; }
+        public System.String EvaluationFormId { get; set; }
         #endregion
         
-        #region Parameter IncludedData
+        #region Parameter EvaluationFormVersion
         /// <summary>
         /// <para>
-        /// <para>Controls the scope of data returned. Set to <c>METADATA_ONLY</c> to return only resource
-        /// metadata. Set to <c>ALL_DATA</c> or omit this field to return the full response.</para>
+        /// <para>The version of the evaluation form to retrieve validation results for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.BedrockAgent.IncludedData")]
-        public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
+        public System.Int32? EvaluationFormVersion { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgent.Model.GetFlowVersionResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgent.Model.GetFlowVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.GetEvaluationFormValidationResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.GetEvaluationFormValidationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,24 +121,24 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.GetFlowVersionResponse, GetAABFlowVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.GetEvaluationFormValidationResponse, GetCONNEvaluationFormValidationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.FlowIdentifier = this.FlowIdentifier;
+            context.EvaluationFormId = this.EvaluationFormId;
             #if MODULAR
-            if (this.FlowIdentifier == null && ParameterWasBound(nameof(this.FlowIdentifier)))
+            if (this.EvaluationFormId == null && ParameterWasBound(nameof(this.EvaluationFormId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FlowIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EvaluationFormId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FlowVersion = this.FlowVersion;
+            context.EvaluationFormVersion = this.EvaluationFormVersion;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.FlowVersion == null && ParameterWasBound(nameof(this.FlowVersion)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FlowVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludedData = this.IncludedData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,19 +153,19 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgent.Model.GetFlowVersionRequest();
+            var request = new Amazon.Connect.Model.GetEvaluationFormValidationRequest();
             
-            if (cmdletContext.FlowIdentifier != null)
+            if (cmdletContext.EvaluationFormId != null)
             {
-                request.FlowIdentifier = cmdletContext.FlowIdentifier;
+                request.EvaluationFormId = cmdletContext.EvaluationFormId;
             }
-            if (cmdletContext.FlowVersion != null)
+            if (cmdletContext.EvaluationFormVersion != null)
             {
-                request.FlowVersion = cmdletContext.FlowVersion;
+                request.EvaluationFormVersion = cmdletContext.EvaluationFormVersion.Value;
             }
-            if (cmdletContext.IncludedData != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.IncludedData = cmdletContext.IncludedData;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -197,12 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgent.Model.GetFlowVersionResponse CallAWSServiceOperation(IAmazonBedrockAgent client, Amazon.BedrockAgent.Model.GetFlowVersionRequest request)
+        private Amazon.Connect.Model.GetEvaluationFormValidationResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.GetEvaluationFormValidationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "GetFlowVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "GetEvaluationFormValidation");
             try
             {
-                return client.GetFlowVersionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetEvaluationFormValidationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -219,10 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FlowIdentifier { get; set; }
-            public System.String FlowVersion { get; set; }
-            public Amazon.BedrockAgent.IncludedData IncludedData { get; set; }
-            public System.Func<Amazon.BedrockAgent.Model.GetFlowVersionResponse, GetAABFlowVersionCmdlet, object> Select { get; set; } =
+            public System.String EvaluationFormId { get; set; }
+            public System.Int32? EvaluationFormVersion { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.GetEvaluationFormValidationResponse, GetCONNEvaluationFormValidationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

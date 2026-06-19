@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// Searches for assets in Glue Data Catalog using full-text search, filters, sorting,
     /// and aggregations. Returns matching assets with relevance-ranked results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Invoke", "GLUESearch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Search", "GLUEAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.SearchResultItem")]
-    [AWSCmdlet("Calls the AWS Glue Search API operation.", Operation = new[] {"Search"}, SelectReturnType = typeof(Amazon.Glue.Model.SearchResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.SearchResultItem or Amazon.Glue.Model.SearchResponse",
+    [AWSCmdlet("Calls the AWS Glue SearchAssets API operation.", Operation = new[] {"SearchAssets"}, SelectReturnType = typeof(Amazon.Glue.Model.SearchAssetsResponse))]
+    [AWSCmdletOutput("Amazon.Glue.Model.SearchResultItem or Amazon.Glue.Model.SearchAssetsResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.SearchResultItem objects.",
-        "The service call response (type Amazon.Glue.Model.SearchResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.Glue.Model.SearchAssetsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class InvokeGLUESearchCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class SearchGLUEAssetCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -213,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.SearchResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.SearchResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.SearchAssetsResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.SearchAssetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SearchText), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-GLUESearch (Search)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-GLUEAsset (SearchAssets)"))
             {
                 return;
             }
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.SearchResponse, InvokeGLUESearchCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.SearchAssetsResponse, SearchGLUEAssetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.FilterClause_AndAllFilter != null)
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Glue.Model.SearchRequest();
+            var request = new Amazon.Glue.Model.SearchAssetsRequest();
             
             
              // populate FilterClause
@@ -566,12 +566,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.SearchResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.SearchRequest request)
+        private Amazon.Glue.Model.SearchAssetsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.SearchAssetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "Search");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "SearchAssets");
             try
             {
-                return client.SearchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.SearchAssetsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -602,7 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String SearchText { get; set; }
             public System.String Sort_Attribute { get; set; }
             public Amazon.Glue.SearchSortOrder Sort_Order { get; set; }
-            public System.Func<Amazon.Glue.Model.SearchResponse, InvokeGLUESearchCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Glue.Model.SearchAssetsResponse, SearchGLUEAssetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

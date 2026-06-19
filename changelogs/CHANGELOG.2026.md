@@ -1,4 +1,31 @@
-﻿### 5.0.237 (2026-06-18 19:44Z)
+﻿### 5.0.238 (2026-06-19 19:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.274.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet Get-AABFlow: added parameter IncludedData.
+    * Modified cmdlet Get-AABFlowVersion: added parameter IncludedData.
+    * Modified cmdlet Get-AABPrompt: added parameter IncludedData.
+  * Amazon AppStream
+    * Modified cmdlet New-APSStack: added parameter AgentAccessConfig_UserControlMode.
+    * Modified cmdlet Update-APSStack: added parameter AgentAccessConfig_UserControlMode.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNEvaluationFormValidation leveraging the GetEvaluationFormValidation service API.
+    * Added cmdlet Start-CONNEvaluationFormValidation leveraging the StartEvaluationFormValidation service API.
+    * Modified cmdlet New-CONNEvaluationForm: added parameter ScoringStrategy_ScoreThreshold.
+    * Modified cmdlet Search-CONNContactEvaluation: added parameters SearchFilter_ContactEvaluationAttributeFilter_AndCondition_AttributeCondition, SearchFilter_ContactEvaluationAttributeFilter_AndCondition_TagCondition, SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeKey, SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_AttributeValue_StringValue, SearchFilter_ContactEvaluationAttributeFilter_ContactEvaluationAttributeCondition_ComparisonType, SearchFilter_ContactEvaluationAttributeFilter_OrCondition, SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagKey and SearchFilter_ContactEvaluationAttributeFilter_TagCondition_TagValue.
+    * Modified cmdlet Update-CONNEvaluationForm: added parameter ScoringStrategy_ScoreThreshold.
+  * GLUE
+    * [Breaking Change] Removed cmdlet Invoke-GLUESearch.
+    * Added cmdlet Search-GLUEAsset leveraging the SearchAssets service API.
+    * [Breaking Change] Modified cmdlet Add-GLUEGlossaryTerm: removed parameter Identifier; added parameter AssetIdentifier.
+    * [Breaking Change] Modified cmdlet Remove-GLUEAttachment: removed parameter Identifier; added parameters AssetIdentifier, ItemIdentifier and IterableFormName.
+    * [Breaking Change] Modified cmdlet Unregister-GLUEGlossaryTerm: removed parameter Identifier; added parameter AssetIdentifier.
+  * Amazon OpenSearch Service
+    * Added cmdlet Dismount-OSDataSource leveraging the DetachDataSource service API.
+    * Added cmdlet Get-OSDataSourceAttachmentDetail leveraging the DescribeDataSourceAttachment service API.
+    * Added cmdlet Get-OSDataSourceAttachmentList leveraging the ListDataSourceAttachments service API.
+    * Added cmdlet Mount-OSDataSource leveraging the AttachDataSource service API.
+
+### 5.0.237 (2026-06-18 19:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.273.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Get-CWLFilteredLogEvent: added parameter StartFromHead.

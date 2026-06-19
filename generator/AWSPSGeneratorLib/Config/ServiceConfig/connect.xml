@@ -753,6 +753,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEvaluationFormValidation" OutputProperty="*" Verb="Get" Noun="EvaluationFormValidation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1514,6 +1518,10 @@
                 <Param Name="EmailMessage_RawMessage_Headers" NewName="RawMessage_Header" />
                 <Param Name="EmailMessage_RawMessage_Subject" NewName="RawMessage_Subject" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartEvaluationFormValidation" OutputProperty="*" Verb="Start" Noun="EvaluationFormValidation" ShouldProcessTarget="EvaluationFormId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

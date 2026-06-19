@@ -299,6 +299,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.Model.StorageConnector[] StorageConnector { get; set; }
         #endregion
         
+        #region Parameter AgentAccessConfig_UserControlMode
+        /// <summary>
+        /// <para>
+        /// <para>The user control mode for agent sessions. This setting determines how users can interact
+        /// with agent sessions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.UserControlMode")]
+        public Amazon.AppStream.UserControlMode AgentAccessConfig_UserControlMode { get; set; }
+        #endregion
+        
         #region Parameter UserSetting
         /// <summary>
         /// <para>
@@ -386,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 context.AgentAccessConfig_Setting = new List<Amazon.AppStream.Model.AgentAccessSetting>(this.AgentAccessConfig_Setting);
             }
+            context.AgentAccessConfig_UserControlMode = this.AgentAccessConfig_UserControlMode;
             context.ApplicationSettings_Enabled = this.ApplicationSettings_Enabled;
             context.ApplicationSettings_SettingsGroup = this.ApplicationSettings_SettingsGroup;
             if (this.AttributesToDelete != null)
@@ -498,6 +511,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestAgentAccessConfig_agentAccessConfig_Setting != null)
             {
                 request.AgentAccessConfig.Settings = requestAgentAccessConfig_agentAccessConfig_Setting;
+                requestAgentAccessConfigIsNull = false;
+            }
+            Amazon.AppStream.UserControlMode requestAgentAccessConfig_agentAccessConfig_UserControlMode = null;
+            if (cmdletContext.AgentAccessConfig_UserControlMode != null)
+            {
+                requestAgentAccessConfig_agentAccessConfig_UserControlMode = cmdletContext.AgentAccessConfig_UserControlMode;
+            }
+            if (requestAgentAccessConfig_agentAccessConfig_UserControlMode != null)
+            {
+                request.AgentAccessConfig.UserControlMode = requestAgentAccessConfig_agentAccessConfig_UserControlMode;
                 requestAgentAccessConfigIsNull = false;
             }
              // determine if request.AgentAccessConfig should be set to null
@@ -708,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public Amazon.AppStream.ScreenResolution AgentAccessConfig_ScreenResolution { get; set; }
             public System.Boolean? AgentAccessConfig_ScreenshotsUploadEnabled { get; set; }
             public List<Amazon.AppStream.Model.AgentAccessSetting> AgentAccessConfig_Setting { get; set; }
+            public Amazon.AppStream.UserControlMode AgentAccessConfig_UserControlMode { get; set; }
             public System.Boolean? ApplicationSettings_Enabled { get; set; }
             public System.String ApplicationSettings_SettingsGroup { get; set; }
             public List<System.String> AttributesToDelete { get; set; }
