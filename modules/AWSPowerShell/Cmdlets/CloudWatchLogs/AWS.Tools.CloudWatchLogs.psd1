@@ -135,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWLScheduledQueryList', 
         'Get-CWLSourcesForS3TableIntegrationList', 
         'Get-CWLSubscriptionFilter', 
+        'Get-CWLSyslogConfigurationList', 
         'Get-CWLTransformer', 
         'New-CWLCWLImportTask', 
         'New-CWLDelivery', 
@@ -167,6 +168,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWLRetentionPolicy', 
         'Remove-CWLScheduledQuery', 
         'Remove-CWLSubscriptionFilter', 
+        'Remove-CWLSyslogConfiguration', 
         'Remove-CWLTransformer', 
         'Start-CWLLiveTail', 
         'Start-CWLQuery', 
@@ -199,6 +201,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWLResourcePolicy', 
         'Write-CWLRetentionPolicy', 
         'Write-CWLSubscriptionFilter', 
+        'Write-CWLSyslogConfiguration', 
         'Write-CWLTransformer')
 
     # Variables to export from this module

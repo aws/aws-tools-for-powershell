@@ -142,6 +142,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.InvestigationSortField
+        "Get-GDInvestigationList/SortCriteria_AttributeName"
+        {
+            $v = "CONFIDENCE","END_TIME","RISK_LEVEL","START_TIME","STATUS"
+            break
+        }
+
         # Amazon.GuardDuty.IpSetFormat
         "New-GDIPSet/Format"
         {
@@ -162,7 +169,8 @@ $GD_Completers = {
         # Amazon.GuardDuty.OrderBy
         {
             ($_ -eq "Get-GDFindingStatistic/OrderBy") -Or
-            ($_ -eq "Get-GDCoverageList/SortCriteria_OrderBy")
+            ($_ -eq "Get-GDCoverageList/SortCriteria_OrderBy") -Or
+            ($_ -eq "Get-GDInvestigationList/SortCriteria_OrderBy")
         }
         {
             $v = "ASC","DESC"
@@ -215,8 +223,8 @@ $GD_map = @{
     "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
     "OrderBy"=@("Get-GDFindingStatistic")
-    "SortCriteria_AttributeName"=@("Get-GDCoverageList")
-    "SortCriteria_OrderBy"=@("Get-GDCoverageList")
+    "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
+    "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -276,6 +284,7 @@ $GD_SelectMap = @{
                "Backup-GDFinding",
                "New-GDDetector",
                "New-GDFilter",
+               "New-GDInvestigation",
                "New-GDIPSet",
                "New-GDMalwareProtectionPlan",
                "New-GDMember",
@@ -309,6 +318,7 @@ $GD_SelectMap = @{
                "Get-GDFilter",
                "Get-GDFinding",
                "Get-GDFindingStatistic",
+               "Get-GDInvestigation",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
                "Get-GDMalwareProtectionPlan",
@@ -328,6 +338,7 @@ $GD_SelectMap = @{
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
+               "Get-GDInvestigationList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",
                "Get-GDMalwareProtectionPlanList",

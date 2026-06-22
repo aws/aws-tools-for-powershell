@@ -99,6 +99,52 @@ $CWAS_Completers = {
             break
         }
 
+        # Amazon.ApplicationSignals.DynamicInstrumentationSignalType
+        {
+            ($_ -eq "Get-CWASInstrumentationConfiguration/SignalType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/SignalType") -Or
+            ($_ -eq "New-CWASInstrumentationConfiguration/SignalType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/SignalType")
+        }
+        {
+            $v = "SNAPSHOT"
+            break
+        }
+
+        # Amazon.ApplicationSignals.InstrumentationConfigurationStatus
+        "Get-CWASInstrumentationConfigurationStatus/Status"
+        {
+            $v = "ACTIVE","DISABLED","ERROR","READY"
+            break
+        }
+
+        # Amazon.ApplicationSignals.InstrumentationType
+        {
+            ($_ -eq "Remove-CWASInstrumentationConfigurationBatch/DeletionTarget_ResourceArns_InstrumentationType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfigurationBatch/DeletionTarget_Scope_InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfiguration/InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationList/InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/InstrumentationType") -Or
+            ($_ -eq "New-CWASInstrumentationConfiguration/InstrumentationType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/InstrumentationType")
+        }
+        {
+            $v = "BREAKPOINT","PROBE"
+            break
+        }
+
+        # Amazon.ApplicationSignals.ProgrammingLanguage
+        {
+            ($_ -eq "New-CWASInstrumentationConfiguration/Location_CodeLocation_Language") -Or
+            ($_ -eq "Get-CWASInstrumentationConfiguration/LocationIdentifier_CodeLocation_Language") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/LocationIdentifier_CodeLocation_Language") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/LocationIdentifier_CodeLocation_Language")
+        }
+        {
+            $v = "Java","Javascript","Python"
+            break
+        }
+
         # Amazon.ApplicationSignals.SelectionType
         {
             ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type") -Or
@@ -145,14 +191,21 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "DeletionTarget_ResourceArns_InstrumentationType"=@("Remove-CWASInstrumentationConfigurationBatch")
+    "DeletionTarget_Scope_InstrumentationType"=@("Remove-CWASInstrumentationConfigurationBatch")
     "DetailLevel"=@("Get-CWASAuditFindingList")
+    "InstrumentationType"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationList","Get-CWASInstrumentationConfigurationStatus","New-CWASInstrumentationConfiguration","Remove-CWASInstrumentationConfiguration")
+    "Location_CodeLocation_Language"=@("New-CWASInstrumentationConfiguration")
+    "LocationIdentifier_CodeLocation_Language"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationStatus","Remove-CWASInstrumentationConfiguration")
     "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "SignalType"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationStatus","New-CWASInstrumentationConfiguration","Remove-CWASInstrumentationConfiguration")
     "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "Status"=@("Get-CWASInstrumentationConfigurationStatus")
 }
 
 _awsArgumentCompleterRegistration $CWAS_Completers $CWAS_map
@@ -205,16 +258,22 @@ $CWAS_SelectCompleters = {
 }
 
 $CWAS_SelectMap = @{
-    "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
+    "Select"=@("Remove-CWASInstrumentationConfigurationBatch",
+               "Get-CWASBatchServiceLevelObjectiveBudgetReport",
                "Update-CWASUpdateExclusionWindow",
+               "New-CWASInstrumentationConfiguration",
                "New-CWASServiceLevelObjective",
                "Remove-CWASGroupingConfiguration",
+               "Remove-CWASInstrumentationConfiguration",
                "Remove-CWASServiceLevelObjective",
+               "Get-CWASInstrumentationConfiguration",
+               "Get-CWASInstrumentationConfigurationStatus",
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASAuditFindingList",
                "Get-CWASEntityEventList",
                "Get-CWASGroupingAttributeDefinitionList",
+               "Get-CWASInstrumentationConfigurationList",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
                "Get-CWASServiceLevelObjectiveExclusionWindowList",
@@ -224,6 +283,7 @@ $CWAS_SelectMap = @{
                "Get-CWASServiceStateList",
                "Get-CWASResourceTag",
                "Write-CWASGroupingConfiguration",
+               "Write-CWASInstrumentationConfigurationStatus",
                "Start-CWASDiscovery",
                "Add-CWASResourceTag",
                "Remove-CWASResourceTag",

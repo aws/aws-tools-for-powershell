@@ -555,6 +555,39 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.FailoverInputSourcePriorityMode Failover_SourcePriorityMode { get; set; }
         #endregion
         
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether black frames detection is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.ContentQualityAnalysisState")]
+        public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State { get; set; }
+        #endregion
+        
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether frozen frames detection is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.ContentQualityAnalysisState")]
+        public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State { get; set; }
+        #endregion
+        
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether silent audio detection is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.ContentQualityAnalysisState")]
+        public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State { get; set; }
+        #endregion
+        
         #region Parameter SrtCaller_StreamId
         /// <summary>
         /// <para>
@@ -564,6 +597,42 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Standard_ProtocolConfiguration_SrtCaller_StreamId")]
         public System.String SrtCaller_StreamId { get; set; }
+        #endregion
+        
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive seconds of black frames that MediaConnect must detect before
+        /// it reports an issue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSeconds")]
+        public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond { get; set; }
+        #endregion
+        
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive seconds of a frozen frame that MediaConnect must detect
+        /// before it reports an issue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSeconds")]
+        public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond { get; set; }
+        #endregion
+        
+        #region Parameter ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive seconds of silence that MediaConnect must detect before
+        /// it reports an issue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSeconds")]
+        public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond { get; set; }
         #endregion
         
         #region Parameter Tier
@@ -683,6 +752,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn = this.SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn;
             context.SrtListener_MinimumLatencyMillisecond = this.SrtListener_MinimumLatencyMillisecond;
             context.SrtListener_Port = this.SrtListener_Port;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State = this.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond = this.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State = this.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond = this.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State = this.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State;
+            context.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond = this.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond;
             context.MaintenanceConfiguration_Default = this.MaintenanceConfiguration_Default;
             context.PreferredDayTime_Day = this.PreferredDayTime_Day;
             context.PreferredDayTime_Time = this.PreferredDayTime_Time;
@@ -1384,6 +1459,135 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.Configuration = null;
             }
             
+             // populate ContentQualityAnalysisConfiguration
+            var requestContentQualityAnalysisConfigurationIsNull = true;
+            request.ContentQualityAnalysisConfiguration = new Amazon.MediaConnect.Model.RouterContentQualityAnalysisConfiguration();
+            Amazon.MediaConnect.Model.ContentQualityAnalysisFeatureConfiguration requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel = null;
+            
+             // populate ContentLevel
+            var requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevelIsNull = true;
+            requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel = new Amazon.MediaConnect.Model.ContentQualityAnalysisFeatureConfiguration();
+            Amazon.MediaConnect.Model.BlackFramesConfiguration requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames = null;
+            
+             // populate BlackFrames
+            var requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFramesIsNull = true;
+            requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames = new Amazon.MediaConnect.Model.BlackFramesConfiguration();
+            Amazon.MediaConnect.ContentQualityAnalysisState requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames.State = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFramesIsNull = false;
+            }
+            System.Int32? requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond.Value;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames.ThresholdSeconds = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond.Value;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFramesIsNull = false;
+            }
+             // determine if requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames should be set to null
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFramesIsNull)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames = null;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel.BlackFrames = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_BlackFrames;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevelIsNull = false;
+            }
+            Amazon.MediaConnect.Model.FrozenFramesConfiguration requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames = null;
+            
+             // populate FrozenFrames
+            var requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFramesIsNull = true;
+            requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames = new Amazon.MediaConnect.Model.FrozenFramesConfiguration();
+            Amazon.MediaConnect.ContentQualityAnalysisState requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames.State = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFramesIsNull = false;
+            }
+            System.Int32? requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond.Value;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames.ThresholdSeconds = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond.Value;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFramesIsNull = false;
+            }
+             // determine if requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames should be set to null
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFramesIsNull)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames = null;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel.FrozenFrames = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_FrozenFrames;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevelIsNull = false;
+            }
+            Amazon.MediaConnect.Model.SilentAudioConfiguration requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio = null;
+            
+             // populate SilentAudio
+            var requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudioIsNull = true;
+            requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio = new Amazon.MediaConnect.Model.SilentAudioConfiguration();
+            Amazon.MediaConnect.ContentQualityAnalysisState requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio.State = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudioIsNull = false;
+            }
+            System.Int32? requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond = null;
+            if (cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond = cmdletContext.ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond.Value;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio.ThresholdSeconds = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond.Value;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudioIsNull = false;
+            }
+             // determine if requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio should be set to null
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudioIsNull)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio = null;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio != null)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel.SilentAudio = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel_contentQualityAnalysisConfiguration_ContentLevel_SilentAudio;
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevelIsNull = false;
+            }
+             // determine if requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel should be set to null
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevelIsNull)
+            {
+                requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel = null;
+            }
+            if (requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel != null)
+            {
+                request.ContentQualityAnalysisConfiguration.ContentLevel = requestContentQualityAnalysisConfiguration_contentQualityAnalysisConfiguration_ContentLevel;
+                requestContentQualityAnalysisConfigurationIsNull = false;
+            }
+             // determine if request.ContentQualityAnalysisConfiguration should be set to null
+            if (requestContentQualityAnalysisConfigurationIsNull)
+            {
+                request.ContentQualityAnalysisConfiguration = null;
+            }
+            
              // populate MaintenanceConfiguration
             var requestMaintenanceConfigurationIsNull = true;
             request.MaintenanceConfiguration = new Amazon.MediaConnect.Model.MaintenanceConfiguration();
@@ -1624,6 +1828,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn { get; set; }
             public System.Int64? SrtListener_MinimumLatencyMillisecond { get; set; }
             public System.Int32? SrtListener_Port { get; set; }
+            public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State { get; set; }
+            public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond { get; set; }
+            public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State { get; set; }
+            public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond { get; set; }
+            public Amazon.MediaConnect.ContentQualityAnalysisState ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State { get; set; }
+            public System.Int32? ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond { get; set; }
             public Amazon.MediaConnect.Model.DefaultMaintenanceConfiguration MaintenanceConfiguration_Default { get; set; }
             public Amazon.MediaConnect.Day PreferredDayTime_Day { get; set; }
             public System.String PreferredDayTime_Time { get; set; }

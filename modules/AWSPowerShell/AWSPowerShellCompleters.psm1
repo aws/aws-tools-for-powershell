@@ -3145,6 +3145,52 @@ $CWAS_Completers = {
             break
         }
 
+        # Amazon.ApplicationSignals.DynamicInstrumentationSignalType
+        {
+            ($_ -eq "Get-CWASInstrumentationConfiguration/SignalType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/SignalType") -Or
+            ($_ -eq "New-CWASInstrumentationConfiguration/SignalType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/SignalType")
+        }
+        {
+            $v = "SNAPSHOT"
+            break
+        }
+
+        # Amazon.ApplicationSignals.InstrumentationConfigurationStatus
+        "Get-CWASInstrumentationConfigurationStatus/Status"
+        {
+            $v = "ACTIVE","DISABLED","ERROR","READY"
+            break
+        }
+
+        # Amazon.ApplicationSignals.InstrumentationType
+        {
+            ($_ -eq "Remove-CWASInstrumentationConfigurationBatch/DeletionTarget_ResourceArns_InstrumentationType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfigurationBatch/DeletionTarget_Scope_InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfiguration/InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationList/InstrumentationType") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/InstrumentationType") -Or
+            ($_ -eq "New-CWASInstrumentationConfiguration/InstrumentationType") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/InstrumentationType")
+        }
+        {
+            $v = "BREAKPOINT","PROBE"
+            break
+        }
+
+        # Amazon.ApplicationSignals.ProgrammingLanguage
+        {
+            ($_ -eq "New-CWASInstrumentationConfiguration/Location_CodeLocation_Language") -Or
+            ($_ -eq "Get-CWASInstrumentationConfiguration/LocationIdentifier_CodeLocation_Language") -Or
+            ($_ -eq "Get-CWASInstrumentationConfigurationStatus/LocationIdentifier_CodeLocation_Language") -Or
+            ($_ -eq "Remove-CWASInstrumentationConfiguration/LocationIdentifier_CodeLocation_Language")
+        }
+        {
+            $v = "Java","Javascript","Python"
+            break
+        }
+
         # Amazon.ApplicationSignals.SelectionType
         {
             ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type") -Or
@@ -3191,14 +3237,21 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "DeletionTarget_ResourceArns_InstrumentationType"=@("Remove-CWASInstrumentationConfigurationBatch")
+    "DeletionTarget_Scope_InstrumentationType"=@("Remove-CWASInstrumentationConfigurationBatch")
     "DetailLevel"=@("Get-CWASAuditFindingList")
+    "InstrumentationType"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationList","Get-CWASInstrumentationConfigurationStatus","New-CWASInstrumentationConfiguration","Remove-CWASInstrumentationConfiguration")
+    "Location_CodeLocation_Language"=@("New-CWASInstrumentationConfiguration")
+    "LocationIdentifier_CodeLocation_Language"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationStatus","Remove-CWASInstrumentationConfiguration")
     "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliConfig_RequestBasedSliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "SignalType"=@("Get-CWASInstrumentationConfiguration","Get-CWASInstrumentationConfigurationStatus","New-CWASInstrumentationConfiguration","Remove-CWASInstrumentationConfiguration")
     "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliConfig_SliMetricConfig_CompositeSliConfig_SelectionConfig_Type"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "Status"=@("Get-CWASInstrumentationConfigurationStatus")
 }
 
 _awsArgumentCompleterRegistration $CWAS_Completers $CWAS_map
@@ -3251,16 +3304,22 @@ $CWAS_SelectCompleters = {
 }
 
 $CWAS_SelectMap = @{
-    "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
+    "Select"=@("Remove-CWASInstrumentationConfigurationBatch",
+               "Get-CWASBatchServiceLevelObjectiveBudgetReport",
                "Update-CWASUpdateExclusionWindow",
+               "New-CWASInstrumentationConfiguration",
                "New-CWASServiceLevelObjective",
                "Remove-CWASGroupingConfiguration",
+               "Remove-CWASInstrumentationConfiguration",
                "Remove-CWASServiceLevelObjective",
+               "Get-CWASInstrumentationConfiguration",
+               "Get-CWASInstrumentationConfigurationStatus",
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASAuditFindingList",
                "Get-CWASEntityEventList",
                "Get-CWASGroupingAttributeDefinitionList",
+               "Get-CWASInstrumentationConfigurationList",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
                "Get-CWASServiceLevelObjectiveExclusionWindowList",
@@ -3270,6 +3329,7 @@ $CWAS_SelectMap = @{
                "Get-CWASServiceStateList",
                "Get-CWASResourceTag",
                "Write-CWASGroupingConfiguration",
+               "Write-CWASInstrumentationConfigurationStatus",
                "Start-CWASDiscovery",
                "Add-CWASResourceTag",
                "Remove-CWASResourceTag",
@@ -9267,6 +9327,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ExtractionMode
+        "New-BACEvent/ExtractionMode"
+        {
+            $v = "SKIP"
+            break
+        }
+
         # Amazon.BedrockAgentCore.HarnessBedrockApiFormat
         "Invoke-BACHarness/Model_BedrockModelConfig_ApiFormat"
         {
@@ -9385,6 +9452,7 @@ $BAC_map = @{
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
     "Chain"=@("Get-BACPaymentInstrumentBalance")
     "ExecutionStatus"=@("Update-BACABTest")
+    "ExtractionMode"=@("New-BACEvent")
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Limits_MaxSpendAmount_Currency"=@("New-BACPaymentSession")
@@ -41038,6 +41106,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.InvestigationSortField
+        "Get-GDInvestigationList/SortCriteria_AttributeName"
+        {
+            $v = "CONFIDENCE","END_TIME","RISK_LEVEL","START_TIME","STATUS"
+            break
+        }
+
         # Amazon.GuardDuty.IpSetFormat
         "New-GDIPSet/Format"
         {
@@ -41058,7 +41133,8 @@ $GD_Completers = {
         # Amazon.GuardDuty.OrderBy
         {
             ($_ -eq "Get-GDFindingStatistic/OrderBy") -Or
-            ($_ -eq "Get-GDCoverageList/SortCriteria_OrderBy")
+            ($_ -eq "Get-GDCoverageList/SortCriteria_OrderBy") -Or
+            ($_ -eq "Get-GDInvestigationList/SortCriteria_OrderBy")
         }
         {
             $v = "ASC","DESC"
@@ -41111,8 +41187,8 @@ $GD_map = @{
     "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
     "OrderBy"=@("Get-GDFindingStatistic")
-    "SortCriteria_AttributeName"=@("Get-GDCoverageList")
-    "SortCriteria_OrderBy"=@("Get-GDCoverageList")
+    "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
+    "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -41172,6 +41248,7 @@ $GD_SelectMap = @{
                "Backup-GDFinding",
                "New-GDDetector",
                "New-GDFilter",
+               "New-GDInvestigation",
                "New-GDIPSet",
                "New-GDMalwareProtectionPlan",
                "New-GDMember",
@@ -41205,6 +41282,7 @@ $GD_SelectMap = @{
                "Get-GDFilter",
                "Get-GDFinding",
                "Get-GDFindingStatistic",
+               "Get-GDInvestigation",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
                "Get-GDMalwareProtectionPlan",
@@ -41224,6 +41302,7 @@ $GD_SelectMap = @{
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
+               "Get-GDInvestigationList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",
                "Get-GDMalwareProtectionPlanList",
@@ -49262,6 +49341,248 @@ $LKF_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $LKF_SelectCompleters $LKF_SelectMap
+# Argument completions for service AWS Lambda Core
+
+
+$LMC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LambdaCore.NetworkConnectorState
+        "Get-LMCNetworkConnectorList/State"
+        {
+            $v = "ACTIVE","DELETE_FAILED","DELETING","FAILED","INACTIVE","PENDING"
+            break
+        }
+
+        # Amazon.LambdaCore.NetworkProtocol
+        {
+            ($_ -eq "New-LMCNetworkConnector/Configuration_VpcEgressConfiguration_NetworkProtocol") -Or
+            ($_ -eq "Update-LMCNetworkConnector/Configuration_VpcEgressConfiguration_NetworkProtocol")
+        }
+        {
+            $v = "DualStack","IPv4"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMC_map = @{
+    "Configuration_VpcEgressConfiguration_NetworkProtocol"=@("New-LMCNetworkConnector","Update-LMCNetworkConnector")
+    "State"=@("Get-LMCNetworkConnectorList")
+}
+
+_awsArgumentCompleterRegistration $LMC_Completers $LMC_map
+
+$LMC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LMC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMC_SelectMap = @{
+    "Select"=@("New-LMCNetworkConnector",
+               "Remove-LMCNetworkConnector",
+               "Get-LMCNetworkConnector",
+               "Get-LMCNetworkConnectorList",
+               "Update-LMCNetworkConnector")
+}
+
+_awsArgumentCompleterRegistration $LMC_SelectCompleters $LMC_SelectMap
+# Argument completions for service Lambda MicroVMs
+
+
+$LMVM2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LambdaMicrovms.Architecture
+        "Get-LMVM2MicrovmImageBuildList/Architecture"
+        {
+            $v = "ARM_64"
+            break
+        }
+
+        # Amazon.LambdaMicrovms.Chipset
+        "Get-LMVM2MicrovmImageBuildList/Chipset"
+        {
+            $v = "GRAVITON"
+            break
+        }
+
+        # Amazon.LambdaMicrovms.HookState
+        {
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmHooks_Resume") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmHooks_Resume") -Or
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmHooks_Run") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmHooks_Run") -Or
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmHooks_Suspend") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmHooks_Suspend") -Or
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmHooks_Terminate") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmHooks_Terminate") -Or
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmImageHooks_Ready") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmImageHooks_Ready") -Or
+            ($_ -eq "New-LMVM2MicrovmImage/Hooks_MicrovmImageHooks_Validate") -Or
+            ($_ -eq "Update-LMVM2MicrovmImage/Hooks_MicrovmImageHooks_Validate")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.LambdaMicrovms.MicrovmImageVersionStatus
+        "Update-LMVM2MicrovmImageVersion/Status"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMVM2_map = @{
+    "Architecture"=@("Get-LMVM2MicrovmImageBuildList")
+    "Chipset"=@("Get-LMVM2MicrovmImageBuildList")
+    "Hooks_MicrovmHooks_Resume"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Hooks_MicrovmHooks_Run"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Hooks_MicrovmHooks_Suspend"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Hooks_MicrovmHooks_Terminate"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Hooks_MicrovmImageHooks_Ready"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Hooks_MicrovmImageHooks_Validate"=@("New-LMVM2MicrovmImage","Update-LMVM2MicrovmImage")
+    "Status"=@("Update-LMVM2MicrovmImageVersion")
+}
+
+_awsArgumentCompleterRegistration $LMVM2_Completers $LMVM2_map
+
+$LMVM2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LMVM2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMVM2_SelectMap = @{
+    "Select"=@("New-LMVM2MicrovmAuthToken",
+               "New-LMVM2MicrovmImage",
+               "New-LMVM2MicrovmShellAuthToken",
+               "Remove-LMVM2MicrovmImage",
+               "Remove-LMVM2MicrovmImageVersion",
+               "Get-LMVM2Microvm",
+               "Get-LMVM2MicrovmImage",
+               "Get-LMVM2MicrovmImageBuild",
+               "Get-LMVM2MicrovmImageVersion",
+               "Get-LMVM2ManagedMicrovmImageList",
+               "Get-LMVM2ManagedMicrovmImageVersionList",
+               "Get-LMVM2MicrovmImageBuildList",
+               "Get-LMVM2MicrovmImageList",
+               "Get-LMVM2MicrovmImageVersionList",
+               "Get-LMVM2MicrovmList",
+               "Get-LMVM2Tag",
+               "Resume-LMVM2Microvm",
+               "Invoke-LMVM2MicrovmRun",
+               "Suspend-LMVM2Microvm",
+               "Add-LMVM2ResourceTag",
+               "Stop-LMVM2Microvm",
+               "Remove-LMVM2ResourceTag",
+               "Update-LMVM2MicrovmImage",
+               "Update-LMVM2MicrovmImageVersion")
+}
+
+_awsArgumentCompleterRegistration $LMVM2_SelectCompleters $LMVM2_SelectMap
 # Argument completions for service AWS Lambda
 
 
@@ -51535,6 +51856,7 @@ $CWL_SelectMap = @{
                "Remove-CWLRetentionPolicy",
                "Remove-CWLScheduledQuery",
                "Remove-CWLSubscriptionFilter",
+               "Remove-CWLSyslogConfiguration",
                "Remove-CWLTransformer",
                "Get-CWLAccountPolicy",
                "Find-CWLConfigurationTemplate",
@@ -51583,6 +51905,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupsForQueryList",
                "Get-CWLScheduledQueryList",
                "Get-CWLSourcesForS3TableIntegrationList",
+               "Get-CWLSyslogConfigurationList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -51602,6 +51925,7 @@ $CWL_SelectMap = @{
                "Write-CWLResourcePolicy",
                "Write-CWLRetentionPolicy",
                "Write-CWLSubscriptionFilter",
+               "Write-CWLSyslogConfiguration",
                "Write-CWLTransformer",
                "Start-CWLLiveTail",
                "Start-CWLQuery",
@@ -53664,6 +53988,12 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.ContentQualityAnalysisState
         {
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State") -Or
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State") -Or
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State") -Or
             ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState") -Or
             ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState")
         }
@@ -53970,6 +54300,9 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
@@ -61167,6 +61500,16 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.ScratchStorageMode
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_ScratchStorageMode") -Or
+            ($_ -eq "Start-OMICSRun/ScratchStorageMode")
+        }
+        {
+            $v = "LOCAL","SHARED"
+            break
+        }
+
         # Amazon.Omics.SequenceStoreStatus
         "Get-OMICSSequenceStoreList/Filter_Status"
         {
@@ -61275,6 +61618,7 @@ $OMICS_map = @{
     "DefaultRunSetting_LogLevel"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_NetworkingMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_RetentionMode"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_ScratchStorageMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_StorageType"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_WorkflowType"=@("Start-OMICSRunBatch")
     "Engine"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
@@ -61287,6 +61631,7 @@ $OMICS_map = @{
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")
+    "ScratchStorageMode"=@("Start-OMICSRun")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SourceReference_Type"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")

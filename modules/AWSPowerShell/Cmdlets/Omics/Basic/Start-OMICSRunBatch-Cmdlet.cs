@@ -285,6 +285,19 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String BatchRunSettings_S3UriSetting { get; set; }
         #endregion
         
+        #region Parameter DefaultRunSetting_ScratchStorageMode
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If
+        /// not specified, this will default to SHARED. This configuration is applicable only
+        /// for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.ScratchStorageMode")]
+        public Amazon.Omics.ScratchStorageMode DefaultRunSetting_ScratchStorageMode { get; set; }
+        #endregion
+        
         #region Parameter DefaultRunSetting_StorageCapacity
         /// <summary>
         /// <para>
@@ -452,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                     context.DefaultRunSetting_RunTag.Add((String)hashKey, (System.String)(this.DefaultRunSetting_RunTag[hashKey]));
                 }
             }
+            context.DefaultRunSetting_ScratchStorageMode = this.DefaultRunSetting_ScratchStorageMode;
             context.DefaultRunSetting_StorageCapacity = this.DefaultRunSetting_StorageCapacity;
             context.DefaultRunSetting_StorageType = this.DefaultRunSetting_StorageType;
             context.DefaultRunSetting_WorkflowId = this.DefaultRunSetting_WorkflowId;
@@ -676,6 +690,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 request.DefaultRunSetting.RunTags = requestDefaultRunSetting_defaultRunSetting_RunTag;
                 requestDefaultRunSettingIsNull = false;
             }
+            Amazon.Omics.ScratchStorageMode requestDefaultRunSetting_defaultRunSetting_ScratchStorageMode = null;
+            if (cmdletContext.DefaultRunSetting_ScratchStorageMode != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_ScratchStorageMode = cmdletContext.DefaultRunSetting_ScratchStorageMode;
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_ScratchStorageMode != null)
+            {
+                request.DefaultRunSetting.ScratchStorageMode = requestDefaultRunSetting_defaultRunSetting_ScratchStorageMode;
+                requestDefaultRunSettingIsNull = false;
+            }
             System.Int32? requestDefaultRunSetting_defaultRunSetting_StorageCapacity = null;
             if (cmdletContext.DefaultRunSetting_StorageCapacity != null)
             {
@@ -822,6 +846,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String DefaultRunSetting_RoleArn { get; set; }
             public System.String DefaultRunSetting_RunGroupId { get; set; }
             public Dictionary<System.String, System.String> DefaultRunSetting_RunTag { get; set; }
+            public Amazon.Omics.ScratchStorageMode DefaultRunSetting_ScratchStorageMode { get; set; }
             public System.Int32? DefaultRunSetting_StorageCapacity { get; set; }
             public Amazon.Omics.StorageType DefaultRunSetting_StorageType { get; set; }
             public System.String DefaultRunSetting_WorkflowId { get; set; }

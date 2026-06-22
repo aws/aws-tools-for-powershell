@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The
         /// range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</para><para>The modify ASN operation is not allowed on a transit gateway if it has the following
-        /// attachments:</para><ul><li><para>Dynamic VPN</para></li><li><para>Static VPN</para></li><li><para>Direct Connect Gateway</para></li><li><para>Connect</para></li></ul><para>You must first delete all transit gateway attachments configured prior to modifying
+        /// attachments:</para><ul><li><para>Dynamic VPN</para></li><li><para>Static VPN</para></li><li><para>Direct Connect Gateway</para></li><li><para>Connect</para></li><li><para>VPN Concentrator</para></li><li><para>Client VPN</para></li></ul><para>You must first delete all transit gateway attachments configured prior to modifying
         /// the ASN on the transit gateway.</para>
         /// </para>
         /// </summary>

@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Sets or replaces the criteria for Allowed AMIs.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// The <c>ImageCriteria</c> can include up to:
+    /// </para><ul><li><para>
+    /// 10 <c>ImageCriterion</c></para></li></ul><note><para>
     /// The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless
     /// of the criteria you set, the AMIs created by your account will always be discoverable
     /// and usable by users in your account.

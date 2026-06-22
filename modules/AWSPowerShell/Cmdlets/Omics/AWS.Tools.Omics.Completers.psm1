@@ -265,6 +265,16 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.ScratchStorageMode
+        {
+            ($_ -eq "Start-OMICSRunBatch/DefaultRunSetting_ScratchStorageMode") -Or
+            ($_ -eq "Start-OMICSRun/ScratchStorageMode")
+        }
+        {
+            $v = "LOCAL","SHARED"
+            break
+        }
+
         # Amazon.Omics.SequenceStoreStatus
         "Get-OMICSSequenceStoreList/Filter_Status"
         {
@@ -373,6 +383,7 @@ $OMICS_map = @{
     "DefaultRunSetting_LogLevel"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_NetworkingMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_RetentionMode"=@("Start-OMICSRunBatch")
+    "DefaultRunSetting_ScratchStorageMode"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_StorageType"=@("Start-OMICSRunBatch")
     "DefaultRunSetting_WorkflowType"=@("Start-OMICSRunBatch")
     "Engine"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
@@ -385,6 +396,7 @@ $OMICS_map = @{
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
     "RetentionMode"=@("Start-OMICSRun")
+    "ScratchStorageMode"=@("Start-OMICSRun")
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SourceReference_Type"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")

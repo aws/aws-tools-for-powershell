@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lambda-core</C2jFilename>
+    <AssemblyName>LambdaCore</AssemblyName>
+    <ServiceNounPrefix>LMC</ServiceNounPrefix>
+    <ServiceName>AWS Lambda Core</ServiceName>
+    <ServiceId>Lambda Core</ServiceId>
+    <ServiceClientInterface>IAmazonLambdaCore</ServiceClientInterface>
+    <ServiceClient>AmazonLambdaCoreClient</ServiceClient>
+    <ServiceModuleGuid>76c3e742-7ab9-4d8d-94e8-902df9225ae3</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateNetworkConnector" OutputProperty="*" Verb="New" Noun="NetworkConnector" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkConnector" OutputProperty="*" Verb="Remove" Noun="NetworkConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkConnector" OutputProperty="*" Verb="Get" Noun="NetworkConnector" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNetworkConnectors" OutputProperty="NetworkConnectors" Verb="Get" Noun="NetworkConnectorList" PipelineParameter="State" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetworkConnector" OutputProperty="*" Verb="Update" Noun="NetworkConnector" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

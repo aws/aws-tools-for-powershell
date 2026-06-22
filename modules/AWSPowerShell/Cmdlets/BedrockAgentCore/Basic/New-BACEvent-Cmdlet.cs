@@ -87,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? EventTimestamp { get; set; }
         #endregion
         
+        #region Parameter ExtractionMode
+        /// <summary>
+        /// <para>
+        /// <para>Controls long-term memory extraction for this event. When set to <c>SKIP</c>, the
+        /// event is stored in short-term memory but is excluded from long-term memory extraction.
+        /// If not specified, the event is processed for extraction as usual.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.ExtractionMode")]
+        public Amazon.BedrockAgentCore.ExtractionMode ExtractionMode { get; set; }
+        #endregion
+        
         #region Parameter MemoryId
         /// <summary>
         /// <para>
@@ -245,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter EventTimestamp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExtractionMode = this.ExtractionMode;
             context.MemoryId = this.MemoryId;
             #if MODULAR
             if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
@@ -328,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.EventTimestamp = cmdletContext.EventTimestamp.Value;
             }
+            if (cmdletContext.ExtractionMode != null)
+            {
+                request.ExtractionMode = cmdletContext.ExtractionMode;
+            }
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
@@ -404,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String Branch_RootEventId { get; set; }
             public System.String ClientToken { get; set; }
             public System.DateTime? EventTimestamp { get; set; }
+            public Amazon.BedrockAgentCore.ExtractionMode ExtractionMode { get; set; }
             public System.String MemoryId { get; set; }
             public Dictionary<System.String, Amazon.BedrockAgentCore.Model.MetadataValue> Metadata { get; set; }
             public List<Amazon.BedrockAgentCore.Model.PayloadType> Payload { get; set; }

@@ -1,4 +1,33 @@
-﻿### 5.0.238 (2026-06-19 19:52Z)
+﻿### 5.0.239 (2026-06-22 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.275.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet New-BACEvent: added parameter ExtractionMode.
+  * Amazon CloudWatch Application Signals
+    * Added cmdlet Get-CWASInstrumentationConfiguration leveraging the GetInstrumentationConfiguration service API.
+    * Added cmdlet Get-CWASInstrumentationConfigurationList leveraging the ListInstrumentationConfigurations service API.
+    * Added cmdlet Get-CWASInstrumentationConfigurationStatus leveraging the GetInstrumentationConfigurationStatus service API.
+    * Added cmdlet New-CWASInstrumentationConfiguration leveraging the CreateInstrumentationConfiguration service API.
+    * Added cmdlet Remove-CWASInstrumentationConfiguration leveraging the DeleteInstrumentationConfiguration service API.
+    * Added cmdlet Remove-CWASInstrumentationConfigurationBatch leveraging the BatchDeleteInstrumentationConfigurations service API.
+    * Added cmdlet Write-CWASInstrumentationConfigurationStatus leveraging the ReportInstrumentationConfigurationStatus service API.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLSyslogConfigurationList leveraging the ListSyslogConfigurations service API.
+    * Added cmdlet Remove-CWLSyslogConfiguration leveraging the DeleteSyslogConfiguration service API.
+    * Added cmdlet Write-CWLSyslogConfiguration leveraging the PutSyslogConfiguration service API.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNRouterInput: added parameters ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State, ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond, ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State, ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond, ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State and ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond.
+    * Modified cmdlet Update-EMCNRouterInput: added parameters ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State, ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_ThresholdSecond, ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State, ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_ThresholdSecond, ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State and ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_ThresholdSecond.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDInvestigation leveraging the GetInvestigation service API.
+    * Added cmdlet Get-GDInvestigationList leveraging the ListInvestigations service API.
+    * Added cmdlet New-GDInvestigation leveraging the CreateInvestigation service API.
+  * Amazon Lambda Core. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LMC and can be listed using the command 'Get-AWSCmdletName -Service LMC'.
+  * Amazon Lambda MicroVMs. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LMVM2 and can be listed using the command 'Get-AWSCmdletName -Service LMVM2'.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRun: added parameter ScratchStorageMode.
+    * Modified cmdlet Start-OMICSRunBatch: added parameter DefaultRunSetting_ScratchStorageMode.
+
+### 5.0.238 (2026-06-19 19:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.274.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet Get-AABFlow: added parameter IncludedData.

@@ -742,6 +742,12 @@
     <Reference Include="AWSSDK.Lambda">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Lambda.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.LambdaCore">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LambdaCore.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LambdaMicrovms">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LambdaMicrovms.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.LaunchWizard">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LaunchWizard.dll</HintPath>
     </Reference>
@@ -2007,6 +2013,12 @@
     </Reference>
     <Reference Include="AWSSDK.Lambda">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Lambda.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LambdaCore">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LambdaCore.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LambdaMicrovms">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LambdaMicrovms.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LaunchWizard">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LaunchWizard.dll</HintPath>

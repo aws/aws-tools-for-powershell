@@ -143,6 +143,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ExtractionMode
+        "New-BACEvent/ExtractionMode"
+        {
+            $v = "SKIP"
+            break
+        }
+
         # Amazon.BedrockAgentCore.HarnessBedrockApiFormat
         "Invoke-BACHarness/Model_BedrockModelConfig_ApiFormat"
         {
@@ -261,6 +268,7 @@ $BAC_map = @{
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
     "Chain"=@("Get-BACPaymentInstrumentBalance")
     "ExecutionStatus"=@("Update-BACABTest")
+    "ExtractionMode"=@("New-BACEvent")
     "Filter_EventFilter"=@("Get-BACSessionList")
     "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Limits_MaxSpendAmount_Currency"=@("New-BACPaymentSession")

@@ -20,11 +20,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteInstrumentationConfigurations" OutputProperty="*" Verb="Remove" Noun="InstrumentationConfigurationBatch" ShouldProcessTarget="DeletionTarget_ResourceArns_ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetServiceLevelObjectiveBudgetReport" OutputProperty="*" Verb="Get" Noun="BatchServiceLevelObjectiveBudgetReport" PipelineParameter="Timestamp" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateExclusionWindows" OutputProperty="*" Verb="Update" Noun="UpdateExclusionWindow" ShouldProcessTarget="SloIds" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstrumentationConfiguration" OutputProperty="*" Verb="New" Noun="InstrumentationConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,7 +67,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstrumentationConfiguration" OutputProperty="DeletionStatus" Verb="Remove" Noun="InstrumentationConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteServiceLevelObjective" Verb="Remove" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstrumentationConfiguration" OutputProperty="Configuration" Verb="Get" Noun="InstrumentationConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstrumentationConfigurationStatus" OutputProperty="*" Verb="Get" Noun="InstrumentationConfigurationStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGroupingAttributeDefinitions" OutputProperty="*" Verb="Get" Noun="GroupingAttributeDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstrumentationConfigurations" OutputProperty="*" Verb="Get" Noun="InstrumentationConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,6 +140,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutGroupingConfiguration" OutputProperty="GroupingConfiguration" Verb="Write" Noun="GroupingConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReportInstrumentationConfigurationStatus" OutputProperty="*" Verb="Write" Noun="InstrumentationConfigurationStatus" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

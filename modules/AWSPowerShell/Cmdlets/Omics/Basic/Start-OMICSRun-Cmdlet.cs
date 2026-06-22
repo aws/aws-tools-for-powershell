@@ -294,6 +294,19 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String RunId { get; set; }
         #endregion
         
+        #region Parameter ScratchStorageMode
+        /// <summary>
+        /// <para>
+        /// <para>Optional configuration for enabling scratch ephemeral storage mounted at /tmp. If
+        /// not specified, this will default to SHARED. This configuration is applicable only
+        /// for CPU tasks. For tasks using GPUs, scratch storage is always LOCAL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.ScratchStorageMode")]
+        public Amazon.Omics.ScratchStorageMode ScratchStorageMode { get; set; }
+        #endregion
+        
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
@@ -462,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #endif
             context.RunGroupId = this.RunGroupId;
             context.RunId = this.RunId;
+            context.ScratchStorageMode = this.ScratchStorageMode;
             context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
@@ -551,6 +565,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.RunId != null)
             {
                 request.RunId = cmdletContext.RunId;
+            }
+            if (cmdletContext.ScratchStorageMode != null)
+            {
+                request.ScratchStorageMode = cmdletContext.ScratchStorageMode;
             }
             if (cmdletContext.StorageCapacity != null)
             {
@@ -650,6 +668,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String RoleArn { get; set; }
             public System.String RunGroupId { get; set; }
             public System.String RunId { get; set; }
+            public Amazon.Omics.ScratchStorageMode ScratchStorageMode { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.Omics.StorageType StorageType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

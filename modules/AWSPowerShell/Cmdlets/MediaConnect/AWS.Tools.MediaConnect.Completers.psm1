@@ -96,6 +96,12 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.ContentQualityAnalysisState
         {
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State") -Or
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State") -Or
+            ($_ -eq "New-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State") -Or
+            ($_ -eq "Update-EMCNRouterInput/ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State") -Or
             ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState") -Or
             ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState")
         }
@@ -402,6 +408,9 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")

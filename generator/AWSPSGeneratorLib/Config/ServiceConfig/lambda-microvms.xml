@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lambda-microvms</C2jFilename>
+    <AssemblyName>LambdaMicrovms</AssemblyName>
+    <ServiceNounPrefix>LMVM2</ServiceNounPrefix>
+    <ServiceName>Lambda MicroVMs</ServiceName>
+    <ServiceId>Lambda Microvms</ServiceId>
+    <ServiceClientInterface>IAmazonLambdaMicrovms</ServiceClientInterface>
+    <ServiceClient>AmazonLambdaMicrovmsClient</ServiceClient>
+    <ServiceModuleGuid>6435eef1-5502-42a4-a9aa-75d84bd5a3b7</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateMicrovmAuthToken" OutputProperty="AuthToken" Verb="New" Noun="MicrovmAuthToken" ShouldProcessTarget="MicrovmIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMicrovmImage" OutputProperty="*" Verb="New" Noun="MicrovmImage" ShouldProcessTarget="Name,BaseImageArn,BuildRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMicrovmShellAuthToken" OutputProperty="AuthToken" Verb="New" Noun="MicrovmShellAuthToken" ShouldProcessTarget="MicrovmIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMicrovmImage" OutputProperty="*" Verb="Remove" Noun="MicrovmImage" ShouldProcessTarget="ImageIdentifier" PipelineParameter="ImageIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMicrovmImageVersion" OutputProperty="*" Verb="Remove" Noun="MicrovmImageVersion" ShouldProcessTarget="ImageIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMicrovm" OutputProperty="*" Verb="Get" Noun="Microvm" PipelineParameter="MicrovmIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMicrovmImage" OutputProperty="*" Verb="Get" Noun="MicrovmImage" PipelineParameter="ImageIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMicrovmImageBuild" OutputProperty="*" Verb="Get" Noun="MicrovmImageBuild" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMicrovmImageVersion" OutputProperty="*" Verb="Get" Noun="MicrovmImageVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedMicrovmImages" OutputProperty="Items" Verb="Get" Noun="ManagedMicrovmImageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedMicrovmImageVersions" OutputProperty="Items" Verb="Get" Noun="ManagedMicrovmImageVersionList" PipelineParameter="ImageIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrovmImageBuilds" OutputProperty="Items" Verb="Get" Noun="MicrovmImageBuildList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrovmImages" OutputProperty="Items" Verb="Get" Noun="MicrovmImageList" PipelineParameter="NameFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrovmImageVersions" OutputProperty="Items" Verb="Get" Noun="MicrovmImageVersionList" PipelineParameter="ImageIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrovms" OutputProperty="Items" Verb="Get" Noun="MicrovmList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeMicrovm" Verb="Resume" Noun="Microvm" ShouldProcessTarget="MicrovmIdentifier" PipelineParameter="MicrovmIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunMicrovm" OutputProperty="*" Verb="Invoke" Noun="MicrovmRun" ShouldProcessTarget="ImageIdentifier" PipelineParameter="ImageIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SuspendMicrovm" Verb="Suspend" Noun="Microvm" ShouldProcessTarget="MicrovmIdentifier" PipelineParameter="MicrovmIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateMicrovm" Verb="Stop" Noun="Microvm" ShouldProcessTarget="MicrovmIdentifier" PipelineParameter="MicrovmIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMicrovmImage" OutputProperty="*" Verb="Update" Noun="MicrovmImage" ShouldProcessTarget="BaseImageArn,BuildRoleArn,ImageIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMicrovmImageVersion" OutputProperty="*" Verb="Update" Noun="MicrovmImageVersion" ShouldProcessTarget="ImageIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

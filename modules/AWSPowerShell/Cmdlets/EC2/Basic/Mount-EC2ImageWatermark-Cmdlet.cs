@@ -32,8 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Attaches a watermark to a non-public AMI. The watermark is a structured identifier
     /// that automatically propagates to all derivative images created through <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>,
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html">CopyImage</a>,
-    /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRestoreImageTask.html">CreateRestoreImageTask</a>.
+    /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html">CopyImage</a>.
     /// 
     ///  
     /// <para>

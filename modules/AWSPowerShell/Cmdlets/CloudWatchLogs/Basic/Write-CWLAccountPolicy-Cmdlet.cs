@@ -35,8 +35,29 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// log groups, a subset of log groups, or a data source name and type combination in
     /// the account.
     /// 
-    ///  
-    /// <para>
+    ///  <important><para><c>PutAccountPolicy</c> is an account-wide administrative operation intended for
+    /// CloudWatch Logs administrators. Because it affects all log groups (or a broad subset)
+    /// in the account, you should grant <c>logs:PutAccountPolicy</c> permissions only to
+    /// administrators who manage logging configuration across the account, not to application
+    /// teams or individual log group owners.
+    /// </para></important><para><b>Conflict resolution between account-level and log-group-level policies</b></para><para>
+    /// When both an account-level policy and a log-group-level policy of the same type apply
+    /// to a log group, the resolution depends on the policy type:
+    /// </para><ul><li><para><i>Data protection</i> — The two policies are cumulative. Any sensitive term specified
+    /// in either the account-level or the log-group-level policy is masked.
+    /// </para></li><li><para><i>Subscription filters</i> — Account-level and log-group-level subscription filters
+    /// are additive. A log group can have up to 1 account-level and up to 2 log-group-level
+    /// subscription filters.
+    /// </para></li><li><para><i>Transformers</i> — A log-group-level transformer overrides the account-level transformer.
+    /// If a log group has its own transformer, it ignores the account-level transformer policy.
+    /// </para></li><li><para><i>Field index policies</i> — If a log group has its own field index policy (created
+    /// with <c>PutIndexPolicy</c>), any account-level policy that uses <c>LogGroupNamePrefix</c>
+    /// selection criteria or has no selection criteria is ignored for that log group. However,
+    /// account-level policies that use <c>DataSourceName</c> and <c>DataSourceType</c> selection
+    /// criteria still apply alongside the log-group-level policy.
+    /// </para></li><li><para><i>Metric extraction policies</i> — Metric extraction policies are account-level
+    /// only and have no log-group-level equivalent, so no conflict resolution applies.
+    /// </para></li></ul><para>
     /// For field index policies, you can configure indexed fields as <i>facets</i> to enable
     /// interactive exploration of your logs. Facets provide value distributions and counts
     /// for indexed fields in the CloudWatch Logs Insights console without requiring query
