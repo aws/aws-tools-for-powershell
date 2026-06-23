@@ -49,3 +49,5 @@ PSGalleryDownloads
 
 codesign-zip
 *.binlog
+testResults.xml
+
