@@ -109,9 +109,20 @@ foreach ($project in $projectNameList)
     }
 }
 
-New-Item -Path "$modularDeploymentFolder/AWS.Tools.Installer" -ItemType Directory | Out-Null
-Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psd1"
-Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psm1"
+# AWS.Tools.Installer
+# Copy each shipped asset explicitly rather than recursing the whole module folder.
+# modules/Installer also contains the AWS.Tools.Installer.Lib C# project (sources,
+# .csproj, bin/, obj/); a recursive copy would ship those build intermediates. Only the
+# .psd1, .psm1, Public/, Private/, Config/, and the compiled DLL belong in the module.
+$installerDeploymentFolder = "$modularDeploymentFolder/AWS.Tools.Installer"
+New-Item -Path $installerDeploymentFolder -ItemType Directory | Out-Null
+Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$installerDeploymentFolder/AWS.Tools.Installer.psd1"
+Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$installerDeploymentFolder/AWS.Tools.Installer.psm1"
+Copy-Item -Path "$installerModuleFolder/Public" -Destination "$installerDeploymentFolder/Public" -Recurse
+Copy-Item -Path "$installerModuleFolder/Private" -Destination "$installerDeploymentFolder/Private" -Recurse
+Copy-Item -Path "$installerModuleFolder/Config" -Destination "$installerDeploymentFolder/Config" -Recurse
+
+Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.Lib/$releaseBitPath/AWS.Tools.Installer.dll" -Destination "$installerDeploymentFolder/AWS.Tools.Installer.dll"
 
 # Copy the publish dependency graph to the deployment folder
 Copy-Item -Path "$rootFolder/aws-tools-publish-dependency-graph.json" -Destination "$rootFolder/Deployment/aws-tools-publish-dependency-graph.json"

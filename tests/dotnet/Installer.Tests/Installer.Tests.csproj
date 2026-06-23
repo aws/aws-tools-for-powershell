@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>Amazon.PowerShell.Installer.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <!-- Brings in the real System.Management.Automation runtime so Parser.ParseFile works in tests.
+         AWS.Tools.Installer.Lib references PowerShellStandard.Library at compile time (a reference-only
+         contract assembly); at runtime tests need the actual PowerShell host. -->
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\Installer\AWS.Tools.Installer.Lib\AWS.Tools.Installer.csproj" />
+  </ItemGroup>
+
+</Project>
