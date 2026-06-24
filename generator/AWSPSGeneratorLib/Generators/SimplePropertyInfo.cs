@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Xml;
 using System.IO;
@@ -297,8 +298,9 @@ namespace AWSPowerShellGenerator.Generators
                     if (!string.IsNullOrEmpty(propertyDocumentation))
                     {
                         propertyDocumentation = propertyDocumentation.TrimStart('\r', '\n');
-                        propertyDocumentation = propertyDocumentation.Replace("<para>" + Environment.NewLine, "<para>");
-                        propertyDocumentation = propertyDocumentation.Replace(Environment.NewLine + "</para>", "</para>");
+                        // Newline-agnostic: SDK doc line endings depend on the OS that compiled the SDK.
+                        propertyDocumentation = Regex.Replace(propertyDocumentation, @"<para>(\r\n|\r|\n)", "<para>");
+                        propertyDocumentation = Regex.Replace(propertyDocumentation, @"(\r\n|\r|\n)</para>", "</para>");
                         propertyDocumentation = propertyDocumentation.Replace("<para></para>", "");
                         propertyDocumentation = propertyDocumentation.TrimEnd('\r', '\n');
                     }
@@ -913,7 +915,10 @@ Scenario-4  Create            Create       The new create is added to the pendin
             };
 
             var builder = new StringBuilder();
-            IEnumerable<string> lines = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            // Split on any newline convention: SDK XML doc line endings follow the OS that compiled the
+            // SDK (LF on Linux, CRLF on Windows), so a fixed Environment.NewLine split can leak doc text
+            // out of the emitted "/// " comment when they differ.
+            IEnumerable<string> lines = text.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
             // remove leading and trailing empty lines (Reverse lines, SkipWhile empty, Reverse again)
             lines = lines.SkipWhile(s => string.IsNullOrEmpty(s.Trim())).Reverse().SkipWhile(s => string.IsNullOrEmpty(s.Trim())).Reverse();
