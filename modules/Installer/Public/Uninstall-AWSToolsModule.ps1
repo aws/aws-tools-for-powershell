@@ -566,8 +566,13 @@ function Uninstall-AWSToolsModule {
         else {
             Write-Verbose ("[$($MyInvocation.MyCommand)] No AWS.Tools modules found " +
                 "matching the specified criteria")
-            $versionInfo = if ($Version) { "version $Version" } elseif ($ExceptVersion) { "all versions except $ExceptVersion" } else { "all versions" }
-            Write-Host "Skipped uninstallation: No AWS.Tools modules found ($versionInfo) in $targetPath"
+            if ($ExceptModules -or $ExceptVersion) {
+                Write-Host "Skipped uninstallation: No other AWS.Tools module versions found to remove in $targetPath"
+            }
+            else {
+                $versionInfo = if ($Version) { "version $Version" } else { "all versions" }
+                Write-Host "Skipped uninstallation: No AWS.Tools modules found ($versionInfo) in $targetPath"
+            }
         }
         
         # Handle legacy module cleanup if requested
