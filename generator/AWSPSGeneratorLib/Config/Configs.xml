@@ -73,6 +73,7 @@
     <Pattern Verb="Reorder" TargetVerb="Set" NounTransformation="{Noun}Order" />
     <Pattern Verb="Replicate" TargetVerb="New" NounTransformation="{Noun}Replica" />
     <Pattern Verb="Resize" TargetVerb="Set" NounTransformation="{Noun}Size" />
+    <Pattern Verb="Shrink" TargetVerb="Invoke" NounTransformation="{Noun}Shrink" />
     <Pattern Verb="Rotate" TargetVerb="Invoke" NounTransformation="{Noun}Rotation" />
     <Pattern Verb="Run" TargetVerb="Invoke" NounTransformation="{Noun}Run" />
     <Pattern Verb="Signal" TargetVerb="Send" NounTransformation="{Noun}Signal" />
