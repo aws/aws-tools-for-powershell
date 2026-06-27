@@ -312,6 +312,7 @@
         <ItemGroup>
             <PostBuildScripts Include="$(RootPath)/buildtools/Confirm-StagedArtifact.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Publish-StagedArtifact.ps1" />
+            <PostBuildScripts Include="$(RootPath)/buildtools/Expand-ModuleArchive.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Invoke-PublishWithRetry.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Invoke-ParallelPublish.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Update-ModulePackageVersion.psm1" />
