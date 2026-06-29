@@ -540,53 +540,43 @@ namespace Amazon.PowerShell.Common
 
             #endregion
 
-            #region Resolve StartUrl to Issuer URL and Region
+            #region Resolve StartUrl and determine SSORegion
 
-            // Resolve the provided URL (which may be a vanity domain, portal URL, or issuer URL)
-            // into the canonical issuer URL and region in a single resolution pass.
+            // Resolve the start URL (vanity domain → AWS-owned endpoint).
+            // At configure time, resolution failure is non-fatal — fall back to prompting.
             WriteVerbose($"Resolving start URL: {StartUrl}");
-            SSOResolvedEndpoint resolvedEndpoint;
+            SSOResolvedEndpoint resolvedEndpoint = default;
+            bool resolutionSucceeded = false;
             try
             {
                 resolvedEndpoint = SSOEndpointResolver.ResolveAsync(StartUrl, SSORegion).GetAwaiter().GetResult();
+                resolutionSucceeded = true;
+                WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
+                WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}");
             }
             catch (ArgumentException ex)
             {
-                this.ThrowTerminatingError(new ErrorRecord(
-                    ex, "ArgumentException", ErrorCategory.InvalidArgument, this.StartUrl));
-                return;
+                WriteWarning($"Unable to resolve start URL: {ex.Message}");
+                WriteWarning("Falling back to manual region entry.");
             }
 
-            WriteVerbose($"Start URL '{resolvedEndpoint.StartUrl}' resolved to '{resolvedEndpoint.ResolvedUrl}'");
-            WriteVerbose($"Resolved region: {resolvedEndpoint.Region ?? "(not available from URL)"}");
-
-            // For vanity URLs, the resolved region is authoritative. Override user-provided -SSORegion
-            // and inform the user. To pin a specific region, use a direct AWS-owned URL.
-            if (resolvedEndpoint.IsVanityUrl &&
-                !string.IsNullOrEmpty(resolvedEndpoint.Region) &&
-                SSORegion != null &&
-                !string.Equals(SSORegion, resolvedEndpoint.Region, StringComparison.OrdinalIgnoreCase))
+            // Determine SSORegion. Priority:
+            //   Vanity URL resolved with region → use resolved region (override -SSORegion with message)
+            //   User provided -SSORegion → use as-is
+            //   Direct AWS URL or resolution failed → prompt
+            if (resolutionSucceeded && resolvedEndpoint.IsVanityUrl && !string.IsNullOrEmpty(resolvedEndpoint.Region))
             {
-                Console.WriteLine($"Note: The provided -SSORegion '{SSORegion}' is overridden by the region '{resolvedEndpoint.Region}' " +
-                    "resolved from the vanity URL. To use a specific region, configure with a direct AWS-owned URL " +
-                    $"(e.g., https://{{instanceId}}.portal.{SSORegion}.app.aws) instead of a vanity URL.");
+                if (SSORegion != null && !string.Equals(SSORegion, resolvedEndpoint.Region, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine($"Note: The provided -SSORegion '{SSORegion}' is overridden by the region '{resolvedEndpoint.Region}' " +
+                        "resolved from the vanity URL. To use a specific region, configure with a direct AWS-owned URL " +
+                        $"(e.g., https://{{instanceId}}.portal.{SSORegion}.app.aws) instead of a vanity URL.");
+                }
                 SSORegion = resolvedEndpoint.Region;
             }
-
-            // If user didn't provide -SSORegion:
-            // - Vanity URLs: auto-detect from the resolved redirect target (no prompt needed)
-            // - Direct AWS-owned URLs: prompt (existing behavior)
-            if (SSORegion == null)
+            else if (SSORegion == null)
             {
-                if (resolvedEndpoint.IsVanityUrl && !string.IsNullOrEmpty(resolvedEndpoint.Region))
-                {
-                    SSORegion = resolvedEndpoint.Region;
-                    Console.WriteLine($"SSO region auto-detected from start URL: {SSORegion}");
-                }
-                else
-                {
-                    SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion ?? resolvedEndpoint.Region);
-                }
+                SSORegion = PromptForSSORegion(existingProfile?.Options?.SsoRegion ?? resolvedEndpoint.Region);
             }
 
             #endregion
