@@ -81,7 +81,10 @@ $CW_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.CloudWatch.ComparisonOperator
-        "Write-CWMetricAlarm/ComparisonOperator"
+        {
+            ($_ -eq "Write-CWLogAlarm/ComparisonOperator") -Or
+            ($_ -eq "Write-CWMetricAlarm/ComparisonOperator")
+        }
         {
             $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","GreaterThanUpperThreshold","LessThanLowerOrGreaterThanUpperThreshold","LessThanLowerThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
             break
@@ -158,7 +161,7 @@ $CW_Completers = {
 }
 
 $CW_map = @{
-    "ComparisonOperator"=@("Write-CWMetricAlarm")
+    "ComparisonOperator"=@("Write-CWLogAlarm","Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
     "OutputFormat"=@("Write-CWMetricStream")
     "RecentlyActive"=@("Get-CWMetricList")
@@ -256,6 +259,7 @@ $CW_SelectMap = @{
                "Write-CWCompositeAlarm",
                "Write-CWDashboard",
                "Write-CWInsightRule",
+               "Write-CWLogAlarm",
                "Write-CWManagedInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",

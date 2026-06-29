@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The compute and memory capacity of the replication instance as defined for the specified
         /// replication instance class. For example to specify the instance class dms.c4.large,
         /// set this parameter to <c>"dms.c4.large"</c>.</para><para>For more information on the settings and capacities for the available replication
-        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html&#xD;&#xA;            "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting
+        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html&#xA;            "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting
         /// the best size for a replication instance</a>. </para>
         /// </para>
         /// </summary>

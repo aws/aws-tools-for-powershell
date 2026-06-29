@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// To create a multi-Region primary key with imported key material, use the <c>Origin</c>
     /// parameter of <c>CreateKey</c> with a value of <c>EXTERNAL</c> and the <c>MultiRegion</c>
     /// parameter with a value of <c>True</c>. To create replicas of the multi-Region primary
-    /// key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html&#xD;&#xA;            ">Importing key material step 1</a>. For more information about multi-Region keys,
+    /// key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html&#xA;            ">Importing key material step 1</a>. For more information about multi-Region keys,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region
     /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para></para></dd><dt>Custom key store</dt><dd><para>

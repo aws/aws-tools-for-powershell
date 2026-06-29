@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Starts a deployment.
+    /// 
+    ///  <note><para>
+    /// AppConfig Agent supports deploying feature flag or free-form configuration data to
+    /// specific segments or individual users during a gradual rollout. Entity-based gradual
+    /// deployments ensure that once a user or segment receives a configuration version, they
+    /// continue to receive that same version throughout the deployment period, regardless
+    /// of which compute resource serves their requests. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-agent-how-to-use.html#appconfig-entity-based-gradual-deployments">Using
+    /// AppConfig Agent for user-based or entity-based gradual deployments</a></para></note>
     /// </summary>
     [Cmdlet("Start", "APPCDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.StartDeploymentResponse")]
@@ -168,6 +176,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String KmsKeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter LatestDeploymentNumber
+        /// <summary>
+        /// <para>
+        /// <para>The number of the latest deployment. Use this value to ensure that the deployment
+        /// starts from the expected state and to prevent conflicting updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LatestDeploymentNumber { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -275,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
+            context.LatestDeploymentNumber = this.LatestDeploymentNumber;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -330,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.KmsKeyIdentifier != null)
             {
                 request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
+            }
+            if (cmdletContext.LatestDeploymentNumber != null)
+            {
+                request.LatestDeploymentNumber = cmdletContext.LatestDeploymentNumber.Value;
             }
             if (cmdletContext.Tag != null)
             {
@@ -398,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public Dictionary<System.String, System.String> DynamicExtensionParameter { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.String KmsKeyIdentifier { get; set; }
+            public System.Int32? LatestDeploymentNumber { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.AppConfig.Model.StartDeploymentResponse, StartAPPCDeploymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

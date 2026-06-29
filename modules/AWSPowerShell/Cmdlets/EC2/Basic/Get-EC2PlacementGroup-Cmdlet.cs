@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The filters.</para><ul><li><para><c>group-name</c> - The name of the placement group.</para></li><li><para><c>group-arn</c> - The Amazon Resource Name (ARN) of the placement group.</para></li><li><para><c>spread-level</c> - The spread level for the placement group (<c>host</c> | <c>rack</c>).
         /// </para></li><li><para><c>state</c> - The state of the placement group (<c>pending</c> | <c>available</c>
         /// | <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>strategy</c> - The strategy of the placement group (<c>cluster</c> | <c>spread</c>
-        /// | <c>partition</c>).</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
+        /// | <c>partition</c> | <c>precision-time</c>).</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
         /// Use the tag key in the filter name and the tag value as the filter value. For example,
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find

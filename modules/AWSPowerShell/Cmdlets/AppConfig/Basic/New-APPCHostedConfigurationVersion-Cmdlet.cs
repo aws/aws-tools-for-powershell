@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// <summary>
     /// Creates a new configuration in the AppConfig hosted configuration store. If you're
     /// creating a feature flag, we recommend you familiarize yourself with the JSON schema
-    /// for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags">Type
+    /// for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-type-reference-feature-flags.html">Type
     /// reference for AWS.AppConfig.FeatureFlags</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("New", "APPCHostedConfigurationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the configuration.</para>
+        /// <para>A description of the configuration.</para><note><para>Due to HTTP limitations, this field only supports ASCII characters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

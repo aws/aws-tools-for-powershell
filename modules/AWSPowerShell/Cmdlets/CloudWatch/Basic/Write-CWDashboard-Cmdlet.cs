@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The detailed information about the dashboard in JSON format, including the widgets
-        /// to include and their location on the dashboard. This parameter is required.</para><para>For more information about the syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html">Dashboard
+        /// to include and their location on the dashboard. This parameter is required.</para><para>For more information about the syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Dashboard-Body-Structure.html">Dashboard
         /// Body Structure and Syntax</a>.</para>
         /// </para>
         /// </summary>

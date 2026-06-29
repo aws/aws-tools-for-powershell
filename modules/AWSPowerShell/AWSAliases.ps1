@@ -729,6 +729,8 @@ Set-Alias -Name Create-APPCDeploymentStrategy -Value New-APPCDeploymentStrategy
 Set-Alias -Name APPC-CreateDeploymentStrategy -Value New-APPCDeploymentStrategy
 Set-Alias -Name Create-APPCEnvironment -Value New-APPCEnvironment
 Set-Alias -Name APPC-CreateEnvironment -Value New-APPCEnvironment
+Set-Alias -Name Create-APPCExperimentDefinition -Value New-APPCExperimentDefinition
+Set-Alias -Name APPC-CreateExperimentDefinition -Value New-APPCExperimentDefinition
 Set-Alias -Name Create-APPCExtensionAssociation -Value New-APPCExtensionAssociation
 Set-Alias -Name APPC-CreateExtensionAssociation -Value New-APPCExtensionAssociation
 Set-Alias -Name Create-APPCExtension -Value New-APPCExtension
@@ -743,6 +745,8 @@ Set-Alias -Name Delete-APPCDeploymentStrategy -Value Remove-APPCDeploymentStrate
 Set-Alias -Name APPC-DeleteDeploymentStrategy -Value Remove-APPCDeploymentStrategy
 Set-Alias -Name Delete-APPCEnvironment -Value Remove-APPCEnvironment
 Set-Alias -Name APPC-DeleteEnvironment -Value Remove-APPCEnvironment
+Set-Alias -Name Delete-APPCExperimentDefinition -Value Remove-APPCExperimentDefinition
+Set-Alias -Name APPC-DeleteExperimentDefinition -Value Remove-APPCExperimentDefinition
 Set-Alias -Name Delete-APPCExtensionAssociation -Value Remove-APPCExtensionAssociation
 Set-Alias -Name APPC-DeleteExtensionAssociation -Value Remove-APPCExtensionAssociation
 Set-Alias -Name Delete-APPCExtension -Value Remove-APPCExtension
@@ -757,6 +761,8 @@ Set-Alias -Name APPC-GetConfigurationProfile -Value Get-APPCConfigurationProfile
 Set-Alias -Name APPC-GetDeployment -Value Get-APPCDeployment
 Set-Alias -Name APPC-GetDeploymentStrategy -Value Get-APPCDeploymentStrategy
 Set-Alias -Name APPC-GetEnvironment -Value Get-APPCEnvironment
+Set-Alias -Name APPC-GetExperimentDefinition -Value Get-APPCExperimentDefinition
+Set-Alias -Name APPC-GetExperimentRun -Value Get-APPCExperimentRun
 Set-Alias -Name APPC-GetExtensionAssociation -Value Get-APPCExtensionAssociation
 Set-Alias -Name APPC-GetExtension -Value Get-APPCExtension
 Set-Alias -Name APPC-GetHostedConfigurationVersion -Value Get-APPCHostedConfigurationVersion
@@ -775,6 +781,15 @@ Set-Alias -Name APPC-ListDeploymentStrategies -Value Get-APPCDeploymentStrategyL
 Set-Alias -Name List-APPCEnvironments -Value Get-APPCEnvironmentList
 Set-Alias -Name List-APPCEnvironmentList -Value Get-APPCEnvironmentList
 Set-Alias -Name APPC-ListEnvironments -Value Get-APPCEnvironmentList
+Set-Alias -Name List-APPCExperimentDefinitions -Value Get-APPCExperimentDefinitionList
+Set-Alias -Name List-APPCExperimentDefinitionList -Value Get-APPCExperimentDefinitionList
+Set-Alias -Name APPC-ListExperimentDefinitions -Value Get-APPCExperimentDefinitionList
+Set-Alias -Name List-APPCExperimentRunEvents -Value Get-APPCExperimentRunEventList
+Set-Alias -Name List-APPCExperimentRunEventList -Value Get-APPCExperimentRunEventList
+Set-Alias -Name APPC-ListExperimentRunEvents -Value Get-APPCExperimentRunEventList
+Set-Alias -Name List-APPCExperimentRuns -Value Get-APPCExperimentRunList
+Set-Alias -Name List-APPCExperimentRunList -Value Get-APPCExperimentRunList
+Set-Alias -Name APPC-ListExperimentRuns -Value Get-APPCExperimentRunList
 Set-Alias -Name List-APPCExtensionAssociations -Value Get-APPCExtensionAssociationList
 Set-Alias -Name List-APPCExtensionAssociationList -Value Get-APPCExtensionAssociationList
 Set-Alias -Name APPC-ListExtensionAssociations -Value Get-APPCExtensionAssociationList
@@ -786,7 +801,9 @@ Set-Alias -Name List-APPCHostedConfigurationVersionList -Value Get-APPCHostedCon
 Set-Alias -Name APPC-ListHostedConfigurationVersions -Value Get-APPCHostedConfigurationVersionList
 Set-Alias -Name APPC-ListTagsForResource -Value Get-APPCResourceTag
 Set-Alias -Name APPC-StartDeployment -Value Start-APPCDeployment
+Set-Alias -Name APPC-StartExperimentRun -Value Start-APPCExperimentRun
 Set-Alias -Name APPC-StopDeployment -Value Stop-APPCDeployment
+Set-Alias -Name APPC-StopExperimentRun -Value Stop-APPCExperimentRun
 Set-Alias -Name APPC-TagResource -Value Add-APPCResourceTag
 Set-Alias -Name APPC-UntagResource -Value Remove-APPCResourceTag
 Set-Alias -Name Update-APPCAccountSettings -Value Update-APPCAccountSetting
@@ -795,6 +812,8 @@ Set-Alias -Name APPC-UpdateApplication -Value Update-APPCApplication
 Set-Alias -Name APPC-UpdateConfigurationProfile -Value Update-APPCConfigurationProfile
 Set-Alias -Name APPC-UpdateDeploymentStrategy -Value Update-APPCDeploymentStrategy
 Set-Alias -Name APPC-UpdateEnvironment -Value Update-APPCEnvironment
+Set-Alias -Name APPC-UpdateExperimentDefinition -Value Update-APPCExperimentDefinition
+Set-Alias -Name APPC-UpdateExperimentRun -Value Update-APPCExperimentRun
 Set-Alias -Name APPC-UpdateExtensionAssociation -Value Update-APPCExtensionAssociation
 Set-Alias -Name APPC-UpdateExtension -Value Update-APPCExtension
 Set-Alias -Name Validate-APPCConfiguration -Value Test-APPCConfigurationValidity
@@ -16013,6 +16032,7 @@ Set-Alias -Name GLUE-StopWorkflowRun -Value Stop-GLUEWorkflowRun
 Set-Alias -Name GLUE-TagResource -Value Add-GLUEResourceTag
 Set-Alias -Name GLUE-TestConnection -Value Test-GLUEConnection
 Set-Alias -Name GLUE-UntagResource -Value Remove-GLUEResourceTag
+Set-Alias -Name GLUE-UpdateAsset -Value Update-GLUEAsset
 Set-Alias -Name GLUE-UpdateBlueprint -Value Update-GLUEBlueprint
 Set-Alias -Name GLUE-UpdateCatalog -Value Update-GLUECatalog
 Set-Alias -Name GLUE-UpdateClassifier -Value Update-GLUEClassifier
@@ -23055,6 +23075,8 @@ Set-Alias -Name Put-CWDashboard -Value Write-CWDashboard
 Set-Alias -Name CW-PutDashboard -Value Write-CWDashboard
 Set-Alias -Name Put-CWInsightRule -Value Write-CWInsightRule
 Set-Alias -Name CW-PutInsightRule -Value Write-CWInsightRule
+Set-Alias -Name Put-CWLogAlarm -Value Write-CWLogAlarm
+Set-Alias -Name CW-PutLogAlarm -Value Write-CWLogAlarm
 Set-Alias -Name Put-CWManagedInsightRules -Value Write-CWManagedInsightRule
 Set-Alias -Name Put-CWManagedInsightRule -Value Write-CWManagedInsightRule
 Set-Alias -Name CW-PutManagedInsightRules -Value Write-CWManagedInsightRule
@@ -25749,6 +25771,8 @@ Set-Alias -Name Delete-SMSVProtectConfigurationRuleSetNumberOverride -Value Remo
 Set-Alias -Name SMSV-DeleteProtectConfigurationRuleSetNumberOverride -Value Remove-SMSVProtectConfigurationRuleSetNumberOverride
 Set-Alias -Name Delete-SMSVRcsAgent -Value Remove-SMSVRcsAgent
 Set-Alias -Name SMSV-DeleteRcsAgent -Value Remove-SMSVRcsAgent
+Set-Alias -Name Delete-SMSVRcsMessageSpendLimitOverride -Value Remove-SMSVRcsMessageSpendLimitOverride
+Set-Alias -Name SMSV-DeleteRcsMessageSpendLimitOverride -Value Remove-SMSVRcsMessageSpendLimitOverride
 Set-Alias -Name Delete-SMSVRegistration -Value Remove-SMSVRegistration
 Set-Alias -Name SMSV-DeleteRegistration -Value Remove-SMSVRegistration
 Set-Alias -Name Delete-SMSVRegistrationAttachment -Value Remove-SMSVRegistrationAttachment
@@ -25876,6 +25900,7 @@ Set-Alias -Name SMSV-SendDestinationNumberVerificationCode -Value Send-SMSVDesti
 Set-Alias -Name SMSV-SendMediaMessage -Value Send-SMSVMediaMessage
 Set-Alias -Name SMSV-SendNotifyTextMessage -Value Send-SMSVNotifyTextMessage
 Set-Alias -Name SMSV-SendNotifyVoiceMessage -Value Send-SMSVNotifyVoiceMessage
+Set-Alias -Name SMSV-SendRcsMessage -Value Send-SMSVRcsMessage
 Set-Alias -Name SMSV-SendTextMessage -Value Send-SMSVTextMessage
 Set-Alias -Name SMSV-SendVoiceMessage -Value Send-SMSVVoiceMessage
 Set-Alias -Name SMSV-SetAccountDefaultProtectConfiguration -Value Set-SMSVAccountDefaultProtectConfiguration
@@ -25884,6 +25909,7 @@ Set-Alias -Name SMSV-SetDefaultMessageType -Value Set-SMSVDefaultMessageType
 Set-Alias -Name SMSV-SetDefaultSenderId -Value Set-SMSVDefaultSenderId
 Set-Alias -Name SMSV-SetMediaMessageSpendLimitOverride -Value Set-SMSVMediaMessageSpendLimitOverride
 Set-Alias -Name SMSV-SetNotifyMessageSpendLimitOverride -Value Set-SMSVNotifyMessageSpendLimitOverride
+Set-Alias -Name SMSV-SetRcsMessageSpendLimitOverride -Value Set-SMSVRcsMessageSpendLimitOverride
 Set-Alias -Name SMSV-SetTextMessageSpendLimitOverride -Value Set-SMSVTextMessageSpendLimitOverride
 Set-Alias -Name SMSV-SetVoiceMessageSpendLimitOverride -Value Set-SMSVVoiceMessageSpendLimitOverride
 Set-Alias -Name SMSV-SubmitRegistrationVersion -Value Submit-SMSVRegistrationVersion
@@ -29946,9 +29972,14 @@ Set-Alias -Name SME-GetDeviceRegistration -Value Get-SMEDeviceRegistration
 Set-Alias -Name SME-SendHeartbeat -Value Send-SMEHeartbeat
 Set-Alias -Name Get-SMFSRecord -Value Get-SMFSRecordBatch
 Set-Alias -Name SMFS-BatchGetRecord -Value Get-SMFSRecordBatch
+Set-Alias -Name Write-SMFSRecord -Value Write-SMFSRecordBatch
+Set-Alias -Name SMFS-BatchWriteRecord -Value Write-SMFSRecordBatch
 Set-Alias -Name Delete-SMFSRecord -Value Remove-SMFSRecord
 Set-Alias -Name SMFS-DeleteRecord -Value Remove-SMFSRecord
 Set-Alias -Name SMFS-GetRecord -Value Get-SMFSRecord
+Set-Alias -Name List-SMFSRecords -Value Get-SMFSRecordList
+Set-Alias -Name List-SMFSRecordList -Value Get-SMFSRecordList
+Set-Alias -Name SMFS-ListRecords -Value Get-SMFSRecordList
 Set-Alias -Name Put-SMFSRecord -Value Write-SMFSRecord
 Set-Alias -Name SMFS-PutRecord -Value Write-SMFSRecord
 Set-Alias -Name Delete-SMGSEarthObservationJob -Value Remove-SMGSEarthObservationJob

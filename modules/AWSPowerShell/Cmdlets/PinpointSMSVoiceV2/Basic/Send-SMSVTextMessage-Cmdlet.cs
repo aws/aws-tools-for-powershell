@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId,
-        /// PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
+        /// PhoneNumberArn, RcsAgentId, RcsAgentArn, SenderId, SenderIdArn, PoolId, or PoolArn.</para><important><para>If you are using a shared End User Messaging SMS resource then you must use the full
         /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>

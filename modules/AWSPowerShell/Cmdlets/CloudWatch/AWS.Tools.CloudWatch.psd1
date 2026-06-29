@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWCompositeAlarm', 
         'Write-CWDashboard', 
         'Write-CWInsightRule', 
+        'Write-CWLogAlarm', 
         'Write-CWManagedInsightRule', 
         'Write-CWMetricAlarm', 
         'Write-CWMetricData', 

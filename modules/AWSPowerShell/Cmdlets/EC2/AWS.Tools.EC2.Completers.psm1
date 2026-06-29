@@ -1014,7 +1014,7 @@ $EC2_Completers = {
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
-            $v = "cluster","partition","spread"
+            $v = "cluster","partition","precision-time","spread"
             break
         }
 

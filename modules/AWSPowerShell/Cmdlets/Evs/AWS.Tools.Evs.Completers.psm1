@@ -83,7 +83,7 @@ $EVS_Completers = {
         # Amazon.Evs.ConnectorType
         "New-EVSEnvironmentConnector/Type"
         {
-            $v = "VCENTER"
+            $v = "OPERATIONS_MANAGER","SDDC_MANAGER","VCENTER"
             break
         }
 
@@ -108,7 +108,7 @@ $EVS_Completers = {
         # Amazon.Evs.VcfVersion
         "New-EVSEnvironment/VcfVersion"
         {
-            $v = "VCF-5.2.1","VCF-5.2.2"
+            $v = "SELF_DEPLOYED","VCF-5.2.1","VCF-5.2.2"
             break
         }
 

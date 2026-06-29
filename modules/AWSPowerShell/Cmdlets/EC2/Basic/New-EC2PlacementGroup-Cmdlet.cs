@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// A <c>spread</c> placement group places instances on distinct hardware. A <c>partition</c>
     /// placement group places groups of instances in different partitions, where instances
     /// in one partition do not share the same hardware with instances in another partition.
+    /// A <c>precision-time</c> placement group places instances on supported hardware with
+    /// direct access to high-precision time sources in AWS infrastructure.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
     /// groups</a> in the <i>Amazon EC2 User Guide</i>.
@@ -88,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LinkedGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ParentGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a parent placement group. Valid only when <b>Strategy</b> is set to <c>cluster</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentGroupId { get; set; }
         #endregion
         
         #region Parameter PartitionCount
@@ -197,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupName = this.GroupName;
             context.LinkedGroupId = this.LinkedGroupId;
             context.Operator_Principal = this.Operator_Principal;
+            context.ParentGroupId = this.ParentGroupId;
             context.PartitionCount = this.PartitionCount;
             context.SpreadLevel = this.SpreadLevel;
             context.Strategy = this.Strategy;
@@ -250,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOperatorIsNull)
             {
                 request.Operator = null;
+            }
+            if (cmdletContext.ParentGroupId != null)
+            {
+                request.ParentGroupId = cmdletContext.ParentGroupId;
             }
             if (cmdletContext.PartitionCount != null)
             {
@@ -326,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupName { get; set; }
             public System.String LinkedGroupId { get; set; }
             public System.String Operator_Principal { get; set; }
+            public System.String ParentGroupId { get; set; }
             public System.Int32? PartitionCount { get; set; }
             public Amazon.EC2.SpreadLevel SpreadLevel { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }

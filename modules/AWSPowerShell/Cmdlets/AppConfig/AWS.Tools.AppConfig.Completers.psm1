@@ -80,6 +80,13 @@ $APPC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppConfig.DeleteType
+        "Remove-APPCExperimentDefinition/DeleteType"
+        {
+            $v = "ARCHIVE","DESTROY"
+            break
+        }
+
         # Amazon.AppConfig.DeletionProtectionCheck
         {
             ($_ -eq "Remove-APPCConfigurationProfile/DeletionProtectionCheck") -Or
@@ -87,6 +94,20 @@ $APPC_Completers = {
         }
         {
             $v = "ACCOUNT_DEFAULT","APPLY","BYPASS"
+            break
+        }
+
+        # Amazon.AppConfig.ExperimentDefinitionStatus
+        "Get-APPCExperimentDefinitionList/Status"
+        {
+            $v = "ACTIVE","ARCHIVED","IDLE"
+            break
+        }
+
+        # Amazon.AppConfig.ExperimentRunStatus
+        "Get-APPCExperimentRunList/Status"
+        {
+            $v = "DONE","RUNNING"
             break
         }
 
@@ -116,9 +137,11 @@ $APPC_Completers = {
 }
 
 $APPC_map = @{
+    "DeleteType"=@("Remove-APPCExperimentDefinition")
     "DeletionProtectionCheck"=@("Remove-APPCConfigurationProfile","Remove-APPCEnvironment")
     "GrowthType"=@("New-APPCDeploymentStrategy","Update-APPCDeploymentStrategy")
     "ReplicateTo"=@("New-APPCDeploymentStrategy")
+    "Status"=@("Get-APPCExperimentDefinitionList","Get-APPCExperimentRunList")
 }
 
 _awsArgumentCompleterRegistration $APPC_Completers $APPC_map
@@ -175,6 +198,7 @@ $APPC_SelectMap = @{
                "New-APPCConfigurationProfile",
                "New-APPCDeploymentStrategy",
                "New-APPCEnvironment",
+               "New-APPCExperimentDefinition",
                "New-APPCExtension",
                "New-APPCExtensionAssociation",
                "New-APPCHostedConfigurationVersion",
@@ -182,6 +206,7 @@ $APPC_SelectMap = @{
                "Remove-APPCConfigurationProfile",
                "Remove-APPCDeploymentStrategy",
                "Remove-APPCEnvironment",
+               "Remove-APPCExperimentDefinition",
                "Remove-APPCExtension",
                "Remove-APPCExtensionAssociation",
                "Remove-APPCHostedConfigurationVersion",
@@ -192,6 +217,8 @@ $APPC_SelectMap = @{
                "Get-APPCDeployment",
                "Get-APPCDeploymentStrategy",
                "Get-APPCEnvironment",
+               "Get-APPCExperimentDefinition",
+               "Get-APPCExperimentRun",
                "Get-APPCExtension",
                "Get-APPCExtensionAssociation",
                "Get-APPCHostedConfigurationVersion",
@@ -200,12 +227,17 @@ $APPC_SelectMap = @{
                "Get-APPCDeploymentList",
                "Get-APPCDeploymentStrategyList",
                "Get-APPCEnvironmentList",
+               "Get-APPCExperimentDefinitionList",
+               "Get-APPCExperimentRunEventList",
+               "Get-APPCExperimentRunList",
                "Get-APPCExtensionAssociationList",
                "Get-APPCExtensionList",
                "Get-APPCHostedConfigurationVersionList",
                "Get-APPCResourceTag",
                "Start-APPCDeployment",
+               "Start-APPCExperimentRun",
                "Stop-APPCDeployment",
+               "Stop-APPCExperimentRun",
                "Add-APPCResourceTag",
                "Remove-APPCResourceTag",
                "Update-APPCAccountSetting",
@@ -213,6 +245,8 @@ $APPC_SelectMap = @{
                "Update-APPCConfigurationProfile",
                "Update-APPCDeploymentStrategy",
                "Update-APPCEnvironment",
+               "Update-APPCExperimentDefinition",
+               "Update-APPCExperimentRun",
                "Update-APPCExtension",
                "Update-APPCExtensionAssociation",
                "Test-APPCConfigurationValidity")

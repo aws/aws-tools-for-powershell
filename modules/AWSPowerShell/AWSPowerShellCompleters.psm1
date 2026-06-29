@@ -2131,6 +2131,13 @@ $APPC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppConfig.DeleteType
+        "Remove-APPCExperimentDefinition/DeleteType"
+        {
+            $v = "ARCHIVE","DESTROY"
+            break
+        }
+
         # Amazon.AppConfig.DeletionProtectionCheck
         {
             ($_ -eq "Remove-APPCConfigurationProfile/DeletionProtectionCheck") -Or
@@ -2138,6 +2145,20 @@ $APPC_Completers = {
         }
         {
             $v = "ACCOUNT_DEFAULT","APPLY","BYPASS"
+            break
+        }
+
+        # Amazon.AppConfig.ExperimentDefinitionStatus
+        "Get-APPCExperimentDefinitionList/Status"
+        {
+            $v = "ACTIVE","ARCHIVED","IDLE"
+            break
+        }
+
+        # Amazon.AppConfig.ExperimentRunStatus
+        "Get-APPCExperimentRunList/Status"
+        {
+            $v = "DONE","RUNNING"
             break
         }
 
@@ -2167,9 +2188,11 @@ $APPC_Completers = {
 }
 
 $APPC_map = @{
+    "DeleteType"=@("Remove-APPCExperimentDefinition")
     "DeletionProtectionCheck"=@("Remove-APPCConfigurationProfile","Remove-APPCEnvironment")
     "GrowthType"=@("New-APPCDeploymentStrategy","Update-APPCDeploymentStrategy")
     "ReplicateTo"=@("New-APPCDeploymentStrategy")
+    "Status"=@("Get-APPCExperimentDefinitionList","Get-APPCExperimentRunList")
 }
 
 _awsArgumentCompleterRegistration $APPC_Completers $APPC_map
@@ -2226,6 +2249,7 @@ $APPC_SelectMap = @{
                "New-APPCConfigurationProfile",
                "New-APPCDeploymentStrategy",
                "New-APPCEnvironment",
+               "New-APPCExperimentDefinition",
                "New-APPCExtension",
                "New-APPCExtensionAssociation",
                "New-APPCHostedConfigurationVersion",
@@ -2233,6 +2257,7 @@ $APPC_SelectMap = @{
                "Remove-APPCConfigurationProfile",
                "Remove-APPCDeploymentStrategy",
                "Remove-APPCEnvironment",
+               "Remove-APPCExperimentDefinition",
                "Remove-APPCExtension",
                "Remove-APPCExtensionAssociation",
                "Remove-APPCHostedConfigurationVersion",
@@ -2243,6 +2268,8 @@ $APPC_SelectMap = @{
                "Get-APPCDeployment",
                "Get-APPCDeploymentStrategy",
                "Get-APPCEnvironment",
+               "Get-APPCExperimentDefinition",
+               "Get-APPCExperimentRun",
                "Get-APPCExtension",
                "Get-APPCExtensionAssociation",
                "Get-APPCHostedConfigurationVersion",
@@ -2251,12 +2278,17 @@ $APPC_SelectMap = @{
                "Get-APPCDeploymentList",
                "Get-APPCDeploymentStrategyList",
                "Get-APPCEnvironmentList",
+               "Get-APPCExperimentDefinitionList",
+               "Get-APPCExperimentRunEventList",
+               "Get-APPCExperimentRunList",
                "Get-APPCExtensionAssociationList",
                "Get-APPCExtensionList",
                "Get-APPCHostedConfigurationVersionList",
                "Get-APPCResourceTag",
                "Start-APPCDeployment",
+               "Start-APPCExperimentRun",
                "Stop-APPCDeployment",
+               "Stop-APPCExperimentRun",
                "Add-APPCResourceTag",
                "Remove-APPCResourceTag",
                "Update-APPCAccountSetting",
@@ -2264,6 +2296,8 @@ $APPC_SelectMap = @{
                "Update-APPCConfigurationProfile",
                "Update-APPCDeploymentStrategy",
                "Update-APPCEnvironment",
+               "Update-APPCExperimentDefinition",
+               "Update-APPCExperimentRun",
                "Update-APPCExtension",
                "Update-APPCExtensionAssociation",
                "Test-APPCConfigurationValidity")
@@ -30277,7 +30311,7 @@ $EC2_Completers = {
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
-            $v = "cluster","partition","spread"
+            $v = "cluster","partition","precision-time","spread"
             break
         }
 
@@ -32465,6 +32499,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ThresholdType
+        {
+            ($_ -eq "New-ECSService/DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type") -Or
+            ($_ -eq "Update-ECSService/DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type")
+        }
+        {
+            $v = "BOUNDED_PERCENT","COUNT","UNBOUNDED_PERCENT"
+            break
+        }
+
 
     }
 
@@ -32481,6 +32525,7 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
+    "DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type"=@("New-ECSService","Update-ECSService")
     "DeploymentConfiguration_Strategy"=@("New-ECSService","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
@@ -35721,7 +35766,7 @@ $EVS_Completers = {
         # Amazon.Evs.ConnectorType
         "New-EVSEnvironmentConnector/Type"
         {
-            $v = "VCENTER"
+            $v = "OPERATIONS_MANAGER","SDDC_MANAGER","VCENTER"
             break
         }
 
@@ -35746,7 +35791,7 @@ $EVS_Completers = {
         # Amazon.Evs.VcfVersion
         "New-EVSEnvironment/VcfVersion"
         {
-            $v = "VCF-5.2.1","VCF-5.2.2"
+            $v = "SELF_DEPLOYED","VCF-5.2.1","VCF-5.2.2"
             break
         }
 
@@ -40275,6 +40320,7 @@ $GLUE_SelectMap = @{
                "Add-GLUEResourceTag",
                "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
+               "Update-GLUEAsset",
                "Update-GLUEBlueprint",
                "Update-GLUECatalog",
                "Update-GLUEClassifier",
@@ -49774,6 +49820,17 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.S3ObjectStorageMode
+        {
+            ($_ -eq "Publish-LMFunction/Code_S3ObjectStorageMode") -Or
+            ($_ -eq "Publish-LMLayerVersion/Content_S3ObjectStorageMode") -Or
+            ($_ -eq "Update-LMFunctionCode/S3ObjectStorageMode")
+        }
+        {
+            $v = "COPY","REFERENCE"
+            break
+        }
+
         # Amazon.Lambda.SchemaRegistryEventRecordFormat
         {
             ($_ -eq "New-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
@@ -49842,9 +49899,11 @@ $LM_map = @{
     "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "CapacityProviderScalingConfig_ScalingMode"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
+    "Code_S3ObjectStorageMode"=@("Publish-LMFunction")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
+    "Content_S3ObjectStorageMode"=@("Publish-LMLayerVersion")
     "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
@@ -49859,6 +49918,7 @@ $LM_map = @{
     "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "S3ObjectStorageMode"=@("Update-LMFunctionCode")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
@@ -58127,7 +58187,10 @@ $CW_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.CloudWatch.ComparisonOperator
-        "Write-CWMetricAlarm/ComparisonOperator"
+        {
+            ($_ -eq "Write-CWLogAlarm/ComparisonOperator") -Or
+            ($_ -eq "Write-CWMetricAlarm/ComparisonOperator")
+        }
         {
             $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","GreaterThanUpperThreshold","LessThanLowerOrGreaterThanUpperThreshold","LessThanLowerThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
             break
@@ -58204,7 +58267,7 @@ $CW_Completers = {
 }
 
 $CW_map = @{
-    "ComparisonOperator"=@("Write-CWMetricAlarm")
+    "ComparisonOperator"=@("Write-CWLogAlarm","Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
     "OutputFormat"=@("Write-CWMetricStream")
     "RecentlyActive"=@("Get-CWMetricList")
@@ -58302,6 +58365,7 @@ $CW_SelectMap = @{
                "Write-CWCompositeAlarm",
                "Write-CWDashboard",
                "Write-CWInsightRule",
+               "Write-CWLogAlarm",
                "Write-CWManagedInsightRule",
                "Write-CWMetricAlarm",
                "Write-CWMetricData",
@@ -65852,6 +65916,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.RcsFallbackChannel
+        "Send-SMSVRcsMessage/FallbackConfiguration_Channel"
+        {
+            $v = "MMS","SMS"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
@@ -65893,6 +65964,7 @@ $SMSV_Completers = {
 
 $SMSV_map = @{
     "Action"=@("Write-SMSVProtectConfigurationRuleSetNumberOverride")
+    "FallbackConfiguration_Channel"=@("Send-SMSVRcsMessage")
     "KeywordAction"=@("Set-SMSVKeyword")
     "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
@@ -65987,6 +66059,7 @@ $SMSV_SelectMap = @{
                "Remove-SMSVProtectConfiguration",
                "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
                "Remove-SMSVRcsAgent",
+               "Remove-SMSVRcsMessageSpendLimitOverride",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -66041,6 +66114,7 @@ $SMSV_SelectMap = @{
                "Send-SMSVMediaMessage",
                "Send-SMSVNotifyTextMessage",
                "Send-SMSVNotifyVoiceMessage",
+               "Send-SMSVRcsMessage",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
@@ -66049,6 +66123,7 @@ $SMSV_SelectMap = @{
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",
                "Set-SMSVNotifyMessageSpendLimitOverride",
+               "Set-SMSVRcsMessageSpendLimitOverride",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
                "Submit-SMSVRegistrationVersion",
@@ -76238,7 +76313,10 @@ $SMFS_Completers = {
         }
 
         # Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit
-        "Write-SMFSRecord/TtlDuration_Unit"
+        {
+            ($_ -eq "Write-SMFSRecord/TtlDuration_Unit") -Or
+            ($_ -eq "Write-SMFSRecordBatch/TtlDuration_Unit")
+        }
         {
             $v = "Days","Hours","Minutes","Seconds","Weeks"
             break
@@ -76255,7 +76333,7 @@ $SMFS_Completers = {
 $SMFS_map = @{
     "DeletionMode"=@("Remove-SMFSRecord")
     "ExpirationTimeResponse"=@("Get-SMFSRecord","Get-SMFSRecordBatch")
-    "TtlDuration_Unit"=@("Write-SMFSRecord")
+    "TtlDuration_Unit"=@("Write-SMFSRecord","Write-SMFSRecordBatch")
 }
 
 _awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map
@@ -76309,8 +76387,10 @@ $SMFS_SelectCompleters = {
 
 $SMFS_SelectMap = @{
     "Select"=@("Get-SMFSRecordBatch",
+               "Write-SMFSRecordBatch",
                "Remove-SMFSRecord",
                "Get-SMFSRecord",
+               "Get-SMFSRecordList",
                "Write-SMFSRecord")
 }
 
@@ -88757,7 +88837,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "AMPLIFY","API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
+            $v = "AGENTCORE_GATEWAY","AMPLIFY","API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
             break
         }
 

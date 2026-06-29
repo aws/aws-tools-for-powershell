@@ -36,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateExperimentDefinition" OutputProperty="*" Verb="New" Noun="ExperimentDefinition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateExtension" OutputProperty="*" Verb="New" Noun="Extension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -61,6 +65,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExperimentDefinition" Verb="Remove" Noun="ExperimentDefinition" ShouldProcessTarget="ExperimentDefinitionIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,6 +112,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExperimentDefinition" OutputProperty="*" Verb="Get" Noun="ExperimentDefinition" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExperimentRun" OutputProperty="*" Verb="Get" Noun="ExperimentRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetExtension" OutputProperty="*" Verb="Get" Noun="Extension" PipelineParameter="ExtensionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +152,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListExperimentDefinitions" OutputProperty="Items" Verb="Get" Noun="ExperimentDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperimentRunEvents" OutputProperty="Items" Verb="Get" Noun="ExperimentRunEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperimentRuns" OutputProperty="Items" Verb="Get" Noun="ExperimentRunList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListExtensionAssociations" OutputProperty="Items" Verb="Get" Noun="ExtensionAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -156,7 +184,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartExperimentRun" OutputProperty="*" Verb="Start" Noun="ExperimentRun" ShouldProcessTarget="ApplicationIdentifier,ExperimentDefinitionIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopDeployment" OutputProperty="*" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentNumber" PipelineParameter="DeploymentNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopExperimentRun" OutputProperty="*" Verb="Stop" Noun="ExperimentRun" ShouldProcessTarget="ApplicationIdentifier,ExperimentDefinitionIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -185,6 +221,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExperimentDefinition" OutputProperty="*" Verb="Update" Noun="ExperimentDefinition" ShouldProcessTarget="ExperimentDefinitionIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExperimentRun" OutputProperty="*" Verb="Update" Noun="ExperimentRun" ShouldProcessTarget="ApplicationIdentifier,ExperimentDefinitionIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

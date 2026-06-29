@@ -107,8 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Image Builder resource that is updated. The
-        /// state update might also impact associated resources.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image build version to update. The image must
+        /// be in one of these terminal states: <c>AVAILABLE</c>, <c>DEPRECATED</c>, <c>DISABLED</c>,
+        /// <c>FAILED</c>, or <c>CANCELLED</c>. Images with <c>FAILED</c> or <c>CANCELLED</c>
+        /// status can transition only to <c>DELETED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,7 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter UpdateAt
         /// <summary>
         /// <para>
-        /// <para>The timestamp that indicates when resources are updated by a lifecycle action.</para>
+        /// <para>Specifies the timestamp when the state transition takes effect. Use this parameter
+        /// only when the target status is <c>DEPRECATED</c>. The value must be a future time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

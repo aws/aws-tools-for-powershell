@@ -157,6 +157,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.RcsFallbackChannel
+        "Send-SMSVRcsMessage/FallbackConfiguration_Channel"
+        {
+            $v = "MMS","SMS"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
@@ -198,6 +205,7 @@ $SMSV_Completers = {
 
 $SMSV_map = @{
     "Action"=@("Write-SMSVProtectConfigurationRuleSetNumberOverride")
+    "FallbackConfiguration_Channel"=@("Send-SMSVRcsMessage")
     "KeywordAction"=@("Set-SMSVKeyword")
     "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
@@ -292,6 +300,7 @@ $SMSV_SelectMap = @{
                "Remove-SMSVProtectConfiguration",
                "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
                "Remove-SMSVRcsAgent",
+               "Remove-SMSVRcsMessageSpendLimitOverride",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -346,6 +355,7 @@ $SMSV_SelectMap = @{
                "Send-SMSVMediaMessage",
                "Send-SMSVNotifyTextMessage",
                "Send-SMSVNotifyVoiceMessage",
+               "Send-SMSVRcsMessage",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
@@ -354,6 +364,7 @@ $SMSV_SelectMap = @{
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",
                "Set-SMSVNotifyMessageSpendLimitOverride",
+               "Set-SMSVRcsMessageSpendLimitOverride",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
                "Submit-SMSVRegistrationVersion",

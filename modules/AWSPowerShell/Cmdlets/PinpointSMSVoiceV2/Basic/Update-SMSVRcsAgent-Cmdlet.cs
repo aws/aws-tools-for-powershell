@@ -127,6 +127,57 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.Boolean? TwoWayEnabled { get; set; }
         #endregion
         
+        #region Parameter TwoWayMediaS3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket where inbound RCS media files are stored. Two-way messaging
+        /// must be enabled on the agent. To remove the media configuration, pass the sentinel
+        /// value <c>UNSET_RCS_MEDIA_CONFIGURATION</c> for both this field and TwoWayMediaS3Role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TwoWayMediaS3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter TwoWayMediaS3KeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>The key prefix used for inbound RCS media objects in the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TwoWayMediaS3KeyPrefix { get; set; }
+        #endregion
+        
+        #region Parameter TwoWayMediaS3Role
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The
+        /// role must have <c>s3:PutObject</c> permission on the bucket and a trust policy allowing
+        /// <c>sms-voice.amazonaws.com</c> to assume it. To remove the media configuration, pass
+        /// the sentinel value <c>UNSET_RCS_MEDIA_CONFIGURATION</c> for both this field and TwoWayMediaS3BucketName.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TwoWayMediaS3Role { get; set; }
+        #endregion
+        
+        #region Parameter TwoWayRcsEventsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>The list of RCS event types to enable for two-way messaging. Pass an empty list to
+        /// disable all event types. The special value <c>ALL</c> enables all current and future
+        /// event types and must be the sole element if used.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TwoWayRcsEventsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -186,6 +237,13 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             context.TwoWayChannelArn = this.TwoWayChannelArn;
             context.TwoWayChannelRole = this.TwoWayChannelRole;
             context.TwoWayEnabled = this.TwoWayEnabled;
+            context.TwoWayMediaS3BucketName = this.TwoWayMediaS3BucketName;
+            context.TwoWayMediaS3KeyPrefix = this.TwoWayMediaS3KeyPrefix;
+            context.TwoWayMediaS3Role = this.TwoWayMediaS3Role;
+            if (this.TwoWayRcsEventsEnabled != null)
+            {
+                context.TwoWayRcsEventsEnabled = new List<System.String>(this.TwoWayRcsEventsEnabled);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,6 +287,22 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.TwoWayEnabled != null)
             {
                 request.TwoWayEnabled = cmdletContext.TwoWayEnabled.Value;
+            }
+            if (cmdletContext.TwoWayMediaS3BucketName != null)
+            {
+                request.TwoWayMediaS3BucketName = cmdletContext.TwoWayMediaS3BucketName;
+            }
+            if (cmdletContext.TwoWayMediaS3KeyPrefix != null)
+            {
+                request.TwoWayMediaS3KeyPrefix = cmdletContext.TwoWayMediaS3KeyPrefix;
+            }
+            if (cmdletContext.TwoWayMediaS3Role != null)
+            {
+                request.TwoWayMediaS3Role = cmdletContext.TwoWayMediaS3Role;
+            }
+            if (cmdletContext.TwoWayRcsEventsEnabled != null)
+            {
+                request.TwoWayRcsEventsEnabled = cmdletContext.TwoWayRcsEventsEnabled;
             }
             
             CmdletOutput output;
@@ -292,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String TwoWayChannelArn { get; set; }
             public System.String TwoWayChannelRole { get; set; }
             public System.Boolean? TwoWayEnabled { get; set; }
+            public System.String TwoWayMediaS3BucketName { get; set; }
+            public System.String TwoWayMediaS3KeyPrefix { get; set; }
+            public System.String TwoWayMediaS3Role { get; set; }
+            public List<System.String> TwoWayRcsEventsEnabled { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.UpdateRcsAgentResponse, UpdateSMSVRcsAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

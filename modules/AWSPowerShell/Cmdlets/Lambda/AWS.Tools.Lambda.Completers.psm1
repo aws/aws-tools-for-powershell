@@ -263,6 +263,17 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.S3ObjectStorageMode
+        {
+            ($_ -eq "Publish-LMFunction/Code_S3ObjectStorageMode") -Or
+            ($_ -eq "Publish-LMLayerVersion/Content_S3ObjectStorageMode") -Or
+            ($_ -eq "Update-LMFunctionCode/S3ObjectStorageMode")
+        }
+        {
+            $v = "COPY","REFERENCE"
+            break
+        }
+
         # Amazon.Lambda.SchemaRegistryEventRecordFormat
         {
             ($_ -eq "New-LMEventSourceMapping/AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat") -Or
@@ -331,9 +342,11 @@ $LM_map = @{
     "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
     "CapacityProviderScalingConfig_ScalingMode"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
+    "Code_S3ObjectStorageMode"=@("Publish-LMFunction")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
+    "Content_S3ObjectStorageMode"=@("Publish-LMLayerVersion")
     "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
@@ -348,6 +361,7 @@ $LM_map = @{
     "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "S3ObjectStorageMode"=@("Update-LMFunctionCode")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")

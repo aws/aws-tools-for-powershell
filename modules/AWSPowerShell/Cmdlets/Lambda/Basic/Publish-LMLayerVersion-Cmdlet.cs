@@ -142,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Content_S3Key { get; set; }
         #endregion
         
+        #region Parameter Content_S3ObjectStorageMode
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.S3ObjectStorageMode")]
+        public Amazon.Lambda.S3ObjectStorageMode Content_S3ObjectStorageMode { get; set; }
+        #endregion
+        
         #region Parameter Content_S3ObjectVersion
         /// <summary>
         /// <para>
@@ -221,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             context.Content_S3Bucket = this.Content_S3Bucket;
             context.Content_S3Key = this.Content_S3Key;
+            context.Content_S3ObjectStorageMode = this.Content_S3ObjectStorageMode;
             context.Content_S3ObjectVersion = this.Content_S3ObjectVersion;
             context.Content_ZipFile = this.Content_ZipFile;
             context.Description = this.Description;
@@ -282,6 +294,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestContent_content_S3Key != null)
                 {
                     request.Content.S3Key = requestContent_content_S3Key;
+                    requestContentIsNull = false;
+                }
+                Amazon.Lambda.S3ObjectStorageMode requestContent_content_S3ObjectStorageMode = null;
+                if (cmdletContext.Content_S3ObjectStorageMode != null)
+                {
+                    requestContent_content_S3ObjectStorageMode = cmdletContext.Content_S3ObjectStorageMode;
+                }
+                if (requestContent_content_S3ObjectStorageMode != null)
+                {
+                    request.Content.S3ObjectStorageMode = requestContent_content_S3ObjectStorageMode;
                     requestContentIsNull = false;
                 }
                 System.String requestContent_content_S3ObjectVersion = null;
@@ -389,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public List<System.String> CompatibleRuntime { get; set; }
             public System.String Content_S3Bucket { get; set; }
             public System.String Content_S3Key { get; set; }
+            public Amazon.Lambda.S3ObjectStorageMode Content_S3ObjectStorageMode { get; set; }
             public System.String Content_S3ObjectVersion { get; set; }
             public byte[] Content_ZipFile { get; set; }
             public System.String Description { get; set; }

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     /// appended to the <c>OfflineStore</c>. If you have the Iceberg table format enabled
     /// for your <c>OfflineStore</c>, you can remove all history of a record from the <c>OfflineStore</c>
     /// using Amazon Athena or Apache Spark. For information on how to hard delete a record
-    /// from the <c>OfflineStore</c> with the Iceberg table format enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store">Delete
+    /// from the <c>OfflineStore</c> with the Iceberg table format enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records.html#feature-store-delete-records-offline-store">Delete
     /// records from the offline store</a>.
     /// </para>
     /// </summary>

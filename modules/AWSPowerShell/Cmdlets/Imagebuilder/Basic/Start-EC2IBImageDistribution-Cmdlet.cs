@@ -30,8 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// DistributeImage distributes existing AMIs to additional regions and accounts without
-    /// rebuilding the image.
+    /// Distributes an existing AMI to target Regions and accounts without running the full
+    /// image build process. This operation only runs the distribution phase on an image that
+    /// has already been built.
     /// </summary>
     [Cmdlet("Start", "EC2IBImageDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the distribution configuration to use.</para>
+        /// <para>The Amazon Resource Name (ARN) of the distribution configuration. The configuration
+        /// defines target Regions, accounts, and AMI settings. The distribution configuration
+        /// must be in the same Region as this operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The IAM role to use for the distribution.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder assumes
+        /// to distribute the image.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SourceImage
         /// <summary>
         /// <para>
-        /// <para>The source image Amazon Resource Name (ARN) to distribute.</para>
+        /// <para>The source image to distribute. Specify an AMI identifier, SSM parameter path, or
+        /// Image Builder image Amazon Resource Name (ARN). When you specify an Image Builder
+        /// image Amazon Resource Name (ARN), the image must be in the <c>AVAILABLE</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -94,12 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmType
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to specify whether you want the operation to return metric alarms
-        /// or composite alarms. If you omit this parameter, only metric alarms are returned,
-        /// even if composite alarms exist in the account.</para><para>For example, if you omit this parameter or specify <c>MetricAlarms</c>, the operation
-        /// returns only a list of metric alarms. It does not return any composite alarms, even
-        /// if composite alarms exist in the account.</para><para>If you specify <c>CompositeAlarms</c>, the operation returns only a list of composite
-        /// alarms, and does not return any metric alarms.</para><para />
+        /// <para>Use this parameter to specify whether you want the operation to return metric alarms,
+        /// composite alarms, or log alarms. If you omit this parameter, only metric alarms are
+        /// returned, even if composite alarms or log alarms exist in the account.</para><para>For example, if you omit this parameter or specify <c>MetricAlarms</c>, the operation
+        /// returns only a list of metric alarms. It does not return any composite alarms or log
+        /// alarms, even if they exist in the account.</para><para>If you specify <c>CompositeAlarms</c>, the operation returns only a list of composite
+        /// alarms, and does not return any metric alarms or log alarms.</para><para>If you specify <c>LogAlarms</c>, the operation returns only a list of log alarms,
+        /// and does not return any metric alarms or composite alarms.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

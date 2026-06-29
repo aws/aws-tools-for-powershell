@@ -1,4 +1,49 @@
-﻿### 5.0.241 (2026-06-23 03:07Z)
+﻿### 5.0.242 (2026-06-29 19:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.277.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppConfig
+    * Added cmdlet Get-APPCExperimentDefinition leveraging the GetExperimentDefinition service API.
+    * Added cmdlet Get-APPCExperimentDefinitionList leveraging the ListExperimentDefinitions service API.
+    * Added cmdlet Get-APPCExperimentRun leveraging the GetExperimentRun service API.
+    * Added cmdlet Get-APPCExperimentRunEventList leveraging the ListExperimentRunEvents service API.
+    * Added cmdlet Get-APPCExperimentRunList leveraging the ListExperimentRuns service API.
+    * Added cmdlet New-APPCExperimentDefinition leveraging the CreateExperimentDefinition service API.
+    * Added cmdlet Remove-APPCExperimentDefinition leveraging the DeleteExperimentDefinition service API.
+    * Added cmdlet Start-APPCExperimentRun leveraging the StartExperimentRun service API.
+    * Added cmdlet Stop-APPCExperimentRun leveraging the StopExperimentRun service API.
+    * Added cmdlet Update-APPCExperimentDefinition leveraging the UpdateExperimentDefinition service API.
+    * Added cmdlet Update-APPCExperimentRun leveraging the UpdateExperimentRun service API.
+    * Modified cmdlet Start-APPCDeployment: added parameter LatestDeploymentNumber.
+    * Modified cmdlet Update-APPCAccountSetting: added parameter VendedMetrics_Enabled.
+  * Amazon CloudWatch
+    * Added cmdlet Write-CWLogAlarm leveraging the PutLogAlarm service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask, DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type and DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value.
+    * Modified cmdlet Update-ECSService: added parameters DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask, DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type and DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBImageRecipe: added parameter AmiWatermark.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2PlacementGroup: added parameter ParentGroupId.
+  * Amazon Glue
+    * Added cmdlet Update-GLUEAsset leveraging the UpdateAsset service API.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter Code_S3ObjectStorageMode.
+    * Modified cmdlet Update-LMFunctionCode: added parameter S3ObjectStorageMode.
+    * Modified cmdlet Publish-LMLayerVersion: added parameter Content_S3ObjectStorageMode.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet Update-PCSCluster: added parameter Scheduler_Version.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Remove-SMSVRcsMessageSpendLimitOverride leveraging the DeleteRcsMessageSpendLimitOverride service API.
+    * Added cmdlet Send-SMSVRcsMessage leveraging the SendRcsMessage service API.
+    * Added cmdlet Set-SMSVRcsMessageSpendLimitOverride leveraging the SetRcsMessageSpendLimitOverride service API.
+    * Modified cmdlet Update-SMSVRcsAgent: added parameters TwoWayMediaS3BucketName, TwoWayMediaS3KeyPrefix, TwoWayMediaS3Role and TwoWayRcsEventsEnabled.
+  * Amazon SageMaker Feature Store Runtime
+    * Added cmdlet Get-SMFSRecordList leveraging the ListRecords service API.
+    * Added cmdlet Write-SMFSRecordBatch leveraging the BatchWriteRecord service API.
+  * Amazon VPC Lattice
+    * Modified cmdlet New-VPCLService: added parameter IdleTimeoutSecond.
+    * Modified cmdlet Update-VPCLService: added parameter IdleTimeoutSecond.
+
+### 5.0.241 (2026-06-23 03:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.276.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.240 (2026-06-22 22:56Z)

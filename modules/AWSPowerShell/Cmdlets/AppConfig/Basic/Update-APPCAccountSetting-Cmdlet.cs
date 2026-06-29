@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.Boolean? DeletionProtection_Enabled { get; set; }
         #endregion
         
+        #region Parameter VendedMetrics_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether vended metrics are enabled for the account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VendedMetrics_Enabled { get; set; }
+        #endregion
+        
         #region Parameter DeletionProtection_ProtectionPeriodInMinute
         /// <summary>
         /// <para>
@@ -118,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             context.DeletionProtection_Enabled = this.DeletionProtection_Enabled;
             context.DeletionProtection_ProtectionPeriodInMinute = this.DeletionProtection_ProtectionPeriodInMinute;
+            context.VendedMetrics_Enabled = this.VendedMetrics_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +173,25 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (requestDeletionProtectionIsNull)
             {
                 request.DeletionProtection = null;
+            }
+            
+             // populate VendedMetrics
+            var requestVendedMetricsIsNull = true;
+            request.VendedMetrics = new Amazon.AppConfig.Model.VendedMetricsSettings();
+            System.Boolean? requestVendedMetrics_vendedMetrics_Enabled = null;
+            if (cmdletContext.VendedMetrics_Enabled != null)
+            {
+                requestVendedMetrics_vendedMetrics_Enabled = cmdletContext.VendedMetrics_Enabled.Value;
+            }
+            if (requestVendedMetrics_vendedMetrics_Enabled != null)
+            {
+                request.VendedMetrics.Enabled = requestVendedMetrics_vendedMetrics_Enabled.Value;
+                requestVendedMetricsIsNull = false;
+            }
+             // determine if request.VendedMetrics should be set to null
+            if (requestVendedMetricsIsNull)
+            {
+                request.VendedMetrics = null;
             }
             
             CmdletOutput output;
@@ -220,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             public System.Boolean? DeletionProtection_Enabled { get; set; }
             public System.Int32? DeletionProtection_ProtectionPeriodInMinute { get; set; }
+            public System.Boolean? VendedMetrics_Enabled { get; set; }
             public System.Func<Amazon.AppConfig.Model.UpdateAccountSettingsResponse, UpdateAPPCAccountSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeletionProtection;
         }

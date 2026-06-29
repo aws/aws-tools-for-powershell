@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// For more information about how SAML sign-in works in Connect Customer, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html&#xD;&#xA;            ">Configure SAML with IAM for Connect Customer in the <i>Connect Customer Administrator
+    /// For more information about how SAML sign-in works in Connect Customer, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html&#xA;            ">Configure SAML with IAM for Connect Customer in the <i>Connect Customer Administrator
     /// Guide</i>.</a></para><note><para>
     /// This API doesn't support root users. If you try to invoke GetFederationToken with
     /// root credentials, an error message similar to the following one appears: 

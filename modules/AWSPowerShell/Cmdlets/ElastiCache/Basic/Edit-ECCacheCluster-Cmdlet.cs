@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// modifications to be applied, asynchronously and as soon as possible, regardless of
         /// the <c>PreferredMaintenanceWindow</c> setting for the cluster.</para><para>If <c>false</c>, changes to the cluster are applied on the next maintenance reboot,
         /// or the next failure reboot, whichever occurs first.</para><important><para>If you perform a <c>ModifyCacheCluster</c> before a pending modification is applied,
-        /// the pending modification is replaced by the newer modification.</para></important><para>Valid values: <c>true</c> | <c>false</c></para><para>Default: <c>false</c></para>
+        /// the pending modification is replaced by the newer modification. However, a pending
+        /// node-count increase on Memcached clusters cannot be superseded by a request to add
+        /// fewer nodes. To change a pending node addition, first cancel it by setting <c>NumCacheNodes</c>
+        /// equal to the current number of nodes in the cluster, then submit the new request.
+        /// See the <c>NumCacheNodes</c> parameter for details on node scaling behavior.</para></important><para>Valid values: <c>true</c> | <c>false</c></para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

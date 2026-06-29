@@ -90,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter SenderId
         /// <summary>
         /// <para>
-        /// <para>The sender ID string to request.</para>
+        /// <para>The sender ID string to request. The sender ID can be 1-11 alphanumeric characters
+        /// including letters (A-Z, a-z), numbers (0-9), or hyphens (-). The sender ID must contain
+        /// at least one letter and cannot start or end with a hyphen.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

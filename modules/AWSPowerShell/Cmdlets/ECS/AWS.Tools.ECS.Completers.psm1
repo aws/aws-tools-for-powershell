@@ -486,6 +486,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ThresholdType
+        {
+            ($_ -eq "New-ECSService/DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type") -Or
+            ($_ -eq "Update-ECSService/DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type")
+        }
+        {
+            $v = "BOUNDED_PERCENT","COUNT","UNBOUNDED_PERCENT"
+            break
+        }
+
 
     }
 
@@ -502,6 +512,7 @@ $ECS_map = @{
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
+    "DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type"=@("New-ECSService","Update-ECSService")
     "DeploymentConfiguration_Strategy"=@("New-ECSService","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")

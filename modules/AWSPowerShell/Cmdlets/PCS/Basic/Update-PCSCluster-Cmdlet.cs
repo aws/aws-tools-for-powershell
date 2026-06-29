@@ -30,8 +30,10 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Updates a cluster configuration. You can modify Slurm scheduler settings, accounting
-    /// configuration, and security groups for an existing cluster. 
+    /// Updates a cluster configuration. You can upgrade the Slurm version, modify scheduler
+    /// settings, and update accounting configuration for an existing cluster. For more information
+    /// about upgrading the Slurm version, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading
+    /// the Slurm version on a cluster</a> in the <i>PCS User Guide</i>. 
     /// 
     ///  <note><para>
     /// You can only update clusters that are in <c>ACTIVE</c>, <c>UPDATE_FAILED</c>, or <c>SUSPENDED</c>
@@ -165,6 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.Model.SlurmdbdCustomSetting[] SlurmConfiguration_SlurmdbdCustomSetting { get; set; }
         #endregion
         
+        #region Parameter Scheduler_Version
+        /// <summary>
+        /// <para>
+        /// <para>The Slurm version to upgrade the cluster to. You can only upgrade to a newer version.
+        /// For more information about supported versions and upgrade paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading
+        /// the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.05 | 24.11 | 25.05 | 25.11</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Scheduler_Version { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -234,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Scheduler_Version = this.Scheduler_Version;
             context.Accounting_DefaultPurgeTimeInDay = this.Accounting_DefaultPurgeTimeInDay;
             context.Accounting_Mode = this.Accounting_Mode;
             if (this.SlurmConfiguration_CgroupCustomSetting != null)
@@ -273,6 +288,25 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            
+             // populate Scheduler
+            var requestSchedulerIsNull = true;
+            request.Scheduler = new Amazon.PCS.Model.UpdateSchedulerRequest();
+            System.String requestScheduler_scheduler_Version = null;
+            if (cmdletContext.Scheduler_Version != null)
+            {
+                requestScheduler_scheduler_Version = cmdletContext.Scheduler_Version;
+            }
+            if (requestScheduler_scheduler_Version != null)
+            {
+                request.Scheduler.Version = requestScheduler_scheduler_Version;
+                requestSchedulerIsNull = false;
+            }
+             // determine if request.Scheduler should be set to null
+            if (requestSchedulerIsNull)
+            {
+                request.Scheduler = null;
             }
             
              // populate SlurmConfiguration
@@ -440,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterIdentifier { get; set; }
+            public System.String Scheduler_Version { get; set; }
             public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
             public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
             public List<Amazon.PCS.Model.CgroupCustomSetting> SlurmConfiguration_CgroupCustomSetting { get; set; }

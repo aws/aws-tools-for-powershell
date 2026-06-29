@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// over the service configuration such as adding sidecar containers.</para><para>The task definition must have a container named <c>Main</c> with a single TCP port
         /// mapping that includes a container port and port name. The task definition must also
         /// have <c>FARGATE</c> compatibility.</para><para>If you provide a task definition ARN, you cannot also specify <c>primaryContainer</c>,
-        /// <c>taskRoleArn</c>, <c>cpu</c>, or <c>memory</c>.</para>
+        /// <c>executionRoleArn</c>, <c>taskRoleArn</c>, <c>cpu</c>, or <c>memory</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

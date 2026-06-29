@@ -559,6 +559,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Code_S3Key { get; set; }
         #endregion
         
+        #region Parameter Code_S3ObjectStorageMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how the deployment package is stored. Use <c>COPY</c> (default) to upload
+        /// a copy of your deployment package to Lambda. Use <c>REFERENCE</c> to have Lambda reference
+        /// the deployment package from the specified Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.S3ObjectStorageMode")]
+        public Amazon.Lambda.S3ObjectStorageMode Code_S3ObjectStorageMode { get; set; }
+        #endregion
+        
         #region Parameter Code_S3ObjectVersion
         /// <summary>
         /// <para>
@@ -783,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.Code_ImageUri = this.Code_ImageUri;
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
+            context.Code_S3ObjectStorageMode = this.Code_S3ObjectStorageMode;
             context.Code_S3ObjectVersion = this.Code_S3ObjectVersion;
             context.Code_SourceKMSKeyArn = this.Code_SourceKMSKeyArn;
             context.Code_ZipFile = this.Code_ZipFile;
@@ -998,6 +1012,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_S3Key != null)
                 {
                     request.Code.S3Key = requestCode_code_S3Key;
+                    requestCodeIsNull = false;
+                }
+                Amazon.Lambda.S3ObjectStorageMode requestCode_code_S3ObjectStorageMode = null;
+                if (cmdletContext.Code_S3ObjectStorageMode != null)
+                {
+                    requestCode_code_S3ObjectStorageMode = cmdletContext.Code_S3ObjectStorageMode;
+                }
+                if (requestCode_code_S3ObjectStorageMode != null)
+                {
+                    request.Code.S3ObjectStorageMode = requestCode_code_S3ObjectStorageMode;
                     requestCodeIsNull = false;
                 }
                 System.String requestCode_code_S3ObjectVersion = null;
@@ -1486,6 +1510,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Code_ImageUri { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }
+            public Amazon.Lambda.S3ObjectStorageMode Code_S3ObjectStorageMode { get; set; }
             public System.String Code_S3ObjectVersion { get; set; }
             public System.String Code_SourceKMSKeyArn { get; set; }
             public byte[] Code_ZipFile { get; set; }

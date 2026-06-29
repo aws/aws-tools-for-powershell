@@ -30,9 +30,17 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Creates a connector for an Amazon EVS environment. A connector establishes a connection
-    /// to a VCF appliance, such as vCenter, using a fully qualified domain name and an Amazon
-    /// Web Services Secrets Manager secret that stores the appliance credentials.
+    /// Creates a connector for an Amazon EVS environment. A connector allows the Amazon EVS
+    /// control plane to interface with VCF appliances using a fully qualified domain name.
+    /// 
+    ///  
+    /// <para>
+    /// You can create only one connector of each type per environment. For environments where
+    /// Amazon EVS installs VCF, the <c>SDDC_MANAGER</c> connector is created automatically.
+    /// </para><note><para>
+    /// Amazon EVS requires an active connector to SDDC Manager or VCF Operations Manager
+    /// to monitor environment health and license compliance.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EVSEnvironmentConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Evs.Model.Connector")]
@@ -85,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <summary>
         /// <para>
         /// <para>The ARN or name of the Amazon Web Services Secrets Manager secret that stores the
-        /// credentials for the VCF appliance.</para><important><para>Do not use credentials with Administrator privileges. We recommend using a service
-        /// account with the minimum required permissions.</para></important>
+        /// credentials for the VCF appliance. <c>SDDC_MANAGER</c> requires an <c>apiKey</c> field;
+        /// <c>OPERATIONS_MANAGER</c> and <c>VCENTER</c> require <c>username</c> and <c>password</c>
+        /// fields.</para><important><para>Do not use credentials with Administrator privileges. We recommend using a service
+        /// account with read-only permissions.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of connector to create.</para>
+        /// <para>The type of connector to create.</para><ul><li><para><c>OPERATIONS_MANAGER</c>: Connector to an Operations Manager appliance. Required
+        /// for VCF 9x environments.</para></li><li><para><c>SDDC_MANAGER</c>: Connector to an SDDC Manager appliance. Required for VCF 5.x
+        /// environments.</para></li><li><para><c>VCENTER</c>: Connector to a vCenter Server appliance. Required for features that
+        /// depend on vCenter, such as Windows Server license-included.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

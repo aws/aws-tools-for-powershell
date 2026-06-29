@@ -138,8 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter LoggingConfiguration_ImageLogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group name that Image Builder uses for image creation. If not specified, the
-        /// log group name defaults to <c>/aws/imagebuilder/image-name</c>.</para>
+        /// <para>Specifies the CloudWatch Logs log group name for image build logs. The log group name
+        /// can contain alphanumeric characters, hyphens, underscores, forward slashes, and periods,
+        /// up to 512 characters. Log group names not starting with <c>/aws/imagebuilder/</c>
+        /// require an <c>executionRole</c> with CloudWatch Logs write permissions. If not specified,
+        /// defaults to <c>/aws/imagebuilder/image-name</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,8 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter LoggingConfiguration_PipelineLogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group name that Image Builder uses for the log output during creation of a
-        /// new pipeline. If not specified, the pipeline log group name defaults to <c>/aws/imagebuilder/pipeline/pipeline-name</c>.</para>
+        /// <para>Specifies the CloudWatch Logs log group name for pipeline execution logs. The log
+        /// group name can contain alphanumeric characters, hyphens, underscores, forward slashes,
+        /// and periods, up to 512 characters. Log group names not starting with <c>/aws/imagebuilder/</c>
+        /// require an <c>executionRole</c> with CloudWatch Logs write permissions. If not specified,
+        /// defaults to <c>/aws/imagebuilder/pipeline/pipeline-name</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

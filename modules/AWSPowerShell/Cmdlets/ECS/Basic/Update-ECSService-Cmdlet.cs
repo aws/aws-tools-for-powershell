@@ -728,6 +728,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.PropagateTags PropagateTag { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the deployment circuit breaker resets its failure count when a
+        /// task reaches a healthy state. When set to <c>true</c>, a healthy task resets the failure
+        /// count to <c>0</c>; when <c>false</c>, it doesn't.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask { get; set; }
+        #endregion
+        
         #region Parameter Alarms_Rollback
         /// <summary>
         /// <para>
@@ -926,6 +938,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String TaskDefinition { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>Determines how <c>value</c> is used to calculate the failure threshold. For the percentage
+        /// types (<c>BOUNDED_PERCENT</c> and <c>UNBOUNDED_PERCENT</c>), <c>value</c> is multiplied
+        /// by the latest service desired count; for <c>COUNT</c>, <c>value</c> is used directly.
+        /// The default is <c>BOUNDED_PERCENT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.ThresholdType")]
+        public Amazon.ECS.ThresholdType DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter DeploymentController_Type
         /// <summary>
         /// <para>
@@ -961,6 +987,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECS.DeploymentControllerType")]
         public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value
+        /// <summary>
+        /// <para>
+        /// <para>The integer used to calculate the failure threshold. When <c>type</c> is <c>COUNT</c>,
+        /// this is the failure threshold itself. When <c>type</c> is a percentage type, this
+        /// is the percentage that Amazon ECS multiplies by the latest service desired count to
+        /// calculate the failure threshold.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value { get; set; }
         #endregion
         
         #region Parameter VolumeConfiguration
@@ -1059,7 +1098,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.CanaryConfiguration_CanaryBakeTimeInMinute = this.CanaryConfiguration_CanaryBakeTimeInMinute;
             context.CanaryConfiguration_CanaryPercent = this.CanaryConfiguration_CanaryPercent;
             context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
+            context.DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask = this.DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask;
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
+            context.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type = this.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type;
+            context.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value = this.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value;
             if (this.DeploymentConfiguration_LifecycleHook != null)
             {
                 context.DeploymentConfiguration_LifecycleHook = new List<Amazon.ECS.Model.DeploymentLifecycleHook>(this.DeploymentConfiguration_LifecycleHook);
@@ -1260,41 +1302,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.DeploymentConfiguration.CanaryConfiguration = requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration;
                 requestDeploymentConfigurationIsNull = false;
             }
-            Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
-            
-             // populate DeploymentCircuitBreaker
-            var requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = true;
-            requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = new Amazon.ECS.Model.DeploymentCircuitBreaker();
-            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = null;
-            if (cmdletContext.DeploymentCircuitBreaker_Enable != null)
-            {
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = cmdletContext.DeploymentCircuitBreaker_Enable.Value;
-            }
-            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable != null)
-            {
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Enable = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable.Value;
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
-            }
-            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = null;
-            if (cmdletContext.DeploymentCircuitBreaker_Rollback != null)
-            {
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = cmdletContext.DeploymentCircuitBreaker_Rollback.Value;
-            }
-            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback != null)
-            {
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Rollback = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback.Value;
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
-            }
-             // determine if requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker should be set to null
-            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull)
-            {
-                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
-            }
-            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker != null)
-            {
-                request.DeploymentConfiguration.DeploymentCircuitBreaker = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker;
-                requestDeploymentConfigurationIsNull = false;
-            }
             Amazon.ECS.Model.LinearConfiguration requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration = null;
             
              // populate LinearConfiguration
@@ -1373,6 +1380,86 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_Alarms != null)
             {
                 request.DeploymentConfiguration.Alarms = requestDeploymentConfiguration_deploymentConfiguration_Alarms;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
+            
+             // populate DeploymentCircuitBreaker
+            var requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = new Amazon.ECS.Model.DeploymentCircuitBreaker();
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = null;
+            if (cmdletContext.DeploymentCircuitBreaker_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable = cmdletContext.DeploymentCircuitBreaker_Enable.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Enable = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Enable.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask = null;
+            if (cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask = cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.ResetOnHealthyTask = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = null;
+            if (cmdletContext.DeploymentCircuitBreaker_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback = cmdletContext.DeploymentCircuitBreaker_Rollback.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.Rollback = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentCircuitBreaker_Rollback.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+            Amazon.ECS.Model.ThresholdConfiguration requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration = null;
+            
+             // populate ThresholdConfiguration
+            var requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfigurationIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration = new Amazon.ECS.Model.ThresholdConfiguration();
+            Amazon.ECS.ThresholdType requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type = null;
+            if (cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type = cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration.Type = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfigurationIsNull = false;
+            }
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value = null;
+            if (cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value = cmdletContext.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration.Value = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfigurationIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker.ThresholdConfiguration = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker_deploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration;
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreakerIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker != null)
+            {
+                request.DeploymentConfiguration.DeploymentCircuitBreaker = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker;
                 requestDeploymentConfigurationIsNull = false;
             }
              // determine if request.DeploymentConfiguration should be set to null
@@ -1716,7 +1803,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? CanaryConfiguration_CanaryBakeTimeInMinute { get; set; }
             public System.Double? CanaryConfiguration_CanaryPercent { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
+            public System.Boolean? DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
+            public Amazon.ECS.ThresholdType DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type { get; set; }
+            public System.Int32? DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value { get; set; }
             public List<Amazon.ECS.Model.DeploymentLifecycleHook> DeploymentConfiguration_LifecycleHook { get; set; }
             public System.Int32? LinearConfiguration_StepBakeTimeInMinute { get; set; }
             public System.Double? LinearConfiguration_StepPercent { get; set; }

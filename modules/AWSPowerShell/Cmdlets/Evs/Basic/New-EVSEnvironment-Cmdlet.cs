@@ -33,17 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     /// Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX
     /// Manager, and vCenter Server.
     /// 
-    ///  
-    /// <para>
-    /// During environment creation, Amazon EVS performs validations on DNS settings, provisions
-    /// VLAN subnets and hosts, and deploys the supplied version of VCF.
-    /// </para><para>
-    /// It can take several hours to create an environment. After the deployment completes,
-    /// you can configure VCF in the vSphere user interface according to your needs.
+    ///  <note><para>
+    /// When you specify <c>SELF_DEPLOYED</c> for <c>vcfVersion</c>, Amazon EVS provisions
+    /// only the VLAN subnets; no hosts are added and no VCF installation is performed. After
+    /// the environment is created, you can add hosts with <c>CreateEnvironmentHost</c> and
+    /// install VCF yourself. The <c>licenseInfo</c>, <c>hosts</c>, <c>vcfHostnames</c>, <c>siteId</c>,
+    /// and <c>connectivityInfo</c> parameters are not supported in this mode.
+    /// </para></note><para>
+    /// When you specify any other VCF version, Amazon EVS installs and configures VCF for
+    /// you. For more information, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/getting-started-self-deployed.html">Self-deployed
+    /// mode</a> in the <i>Amazon EVS User Guide</i>.
     /// </para><important><para>
-    /// When creating a new environment, the default ESX version for the selected VCF version
-    /// will be used, you cannot choose a specific ESX version in <c>CreateEnvironment</c>
-    /// action. When a host has been added with a specific ESX version, it can only be upgraded
+    /// When Amazon EVS installs VCF, the default ESX version for the selected VCF version
+    /// will be used. After a host is added with a specific ESX version, it can only be upgraded
     /// using vCenter Lifecycle Manager.
     /// </para></important><note><para>
     /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
@@ -270,14 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for VMware Cloud Builder.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_CloudBuilder { get; set; }
         #endregion
         
@@ -309,24 +304,17 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter Hosts
         /// <summary>
         /// <para>
-        /// <para>The ESX hosts to add to the environment. Amazon EVS requires that you provide details
-        /// for a minimum of 4 hosts during environment creation.</para><para>For each host, you must provide the desired hostname, EC2 SSH keypair name, and EC2
-        /// instance type. Optionally, you can also provide a partition or cluster placement group
-        /// to use, or use Amazon EC2 Dedicated Hosts.</para><para />
+        /// <para>The ESX hosts to add to the environment. For each host, provide the desired hostname,
+        /// EC2 SSH keypair name, and EC2 instance type. Optionally, provide a partition or cluster
+        /// placement group, or use Amazon EC2 Dedicated Hosts.</para><note><para>Not supported when <c>vcfVersion</c> is <c>SELF_DEPLOYED</c>. In that case, you can
+        /// add hosts using <c>CreateEnvironmentHost</c> after the environment is created.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Evs.Model.HostInfoForCreate[] Hosts { get; set; }
         #endregion
         
@@ -360,38 +348,24 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// solution key must meet minimum core requirements, and the vSAN license key must meet
         /// minimum capacity requirements for your selected instance type.</para><para>For information about minimum license requirements, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/vcf-license-mgmt.html">the
         /// VCF subscriptions section</a> in the <i>Amazon EVS User Guide</i>.</para><para>VCF licenses can be used for only one Amazon EVS environment. Amazon EVS does not
-        /// support reuse of VCF licenses for multiple environments.</para><para>VCF license information can be retrieved from the Broadcom portal.</para><para />
+        /// support reuse of VCF licenses for multiple environments.</para><para>VCF license information can be retrieved from the Broadcom portal.</para><note><para>Not supported when <c>vcfVersion</c> is <c>SELF_DEPLOYED</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Evs.Model.LicenseInfo[] LicenseInfo { get; set; }
         #endregion
         
         #region Parameter VcfHostnames_Nsx
         /// <summary>
         /// <para>
-        /// <para>The VMware NSX hostname.</para>
+        /// <para>The VMware NSX Virtual IP (VIP) hostname.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_Nsx { get; set; }
         #endregion
         
@@ -401,14 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for the first NSX Edge node.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_NsxEdge1 { get; set; }
         #endregion
         
@@ -418,14 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for the second NSX Edge node.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_NsxEdge2 { get; set; }
         #endregion
         
@@ -435,14 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for the first VMware NSX Manager virtual machine (VM).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_NsxManager1 { get; set; }
         #endregion
         
@@ -452,14 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for the second VMware NSX Manager virtual machine (VM).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_NsxManager2 { get; set; }
         #endregion
         
@@ -469,14 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for the third VMware NSX Manager virtual machine (VM).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_NsxManager3 { get; set; }
         #endregion
         
@@ -490,14 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ConnectivityInfo_PrivateRouteServerPeerings")]
         public System.String[] ConnectivityInfo_PrivateRouteServerPeering { get; set; }
         #endregion
@@ -508,14 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The hostname for SDDC Manager.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_SddcManager { get; set; }
         #endregion
         
@@ -538,8 +463,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <summary>
         /// <para>
         /// <para>The subnet that is used to establish connectivity between the Amazon EVS control plane
-        /// and VPC. Amazon EVS uses this subnet to validate mandatory DNS records for your VCF
-        /// appliances and hosts and create the environment.</para>
+        /// and VPC. The Amazon EVS control plane uses this subnet to interface with your environment.
+        /// This includes validating DNS records and enabling Amazon EVS Connectors.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -560,17 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// delivery. This ID allows customer access to the Broadcom portal, and is provided to
         /// you by Broadcom at the close of your software contract or contract renewal. Amazon
         /// EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage
-        /// reporting requirements for Amazon EVS.</para>
+        /// reporting requirements for Amazon EVS.</para><note><para>Not supported when <c>vcfVersion</c> is <c>SELF_DEPLOYED</c>.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SiteId { get; set; }
         #endregion
         
@@ -594,11 +512,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #region Parameter TermsAccepted
         /// <summary>
         /// <para>
-        /// <para>Customer confirmation that the customer has purchased and will continue to maintain
-        /// the required number of VCF software licenses to cover all physical processor cores
-        /// in the Amazon EVS environment. Information about your VCF software in Amazon EVS will
-        /// be shared with Broadcom to verify license compliance. Amazon EVS does not validate
-        /// license keys. To validate license keys, visit the Broadcom support portal.</para>
+        /// <para>Confirmation that the customer has purchased and will continue to maintain the required
+        /// number of VCF software licenses to cover all physical processor cores in the Amazon
+        /// EVS environment. Information about your VCF software in Amazon EVS will be shared
+        /// with Broadcom to verify license compliance. Amazon EVS does not validate license keys.
+        /// To validate license keys, visit the Broadcom support portal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -617,21 +535,17 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         /// <para>The VMware vCenter hostname.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VcfHostnames_VCenter { get; set; }
         #endregion
         
         #region Parameter VcfVersion
         /// <summary>
         /// <para>
-        /// <para> The VCF version to use for the environment.</para>
+        /// <para>The VCF version to use for the environment.</para><ul><li><para><c>SELF_DEPLOYED</c>: You install VCF yourself. The <c>licenseInfo</c>, <c>hosts</c>,
+        /// <c>vcfHostnames</c>, <c>siteId</c>, and <c>connectivityInfo</c> parameters are not
+        /// supported.</para></li><li><para>Any other valid value: Amazon EVS installs and configures VCF for you in the version
+        /// you specify.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -733,23 +647,11 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             {
                 context.ConnectivityInfo_PrivateRouteServerPeering = new List<System.String>(this.ConnectivityInfo_PrivateRouteServerPeering);
             }
-            #if MODULAR
-            if (this.ConnectivityInfo_PrivateRouteServerPeering == null && ParameterWasBound(nameof(this.ConnectivityInfo_PrivateRouteServerPeering)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ConnectivityInfo_PrivateRouteServerPeering which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EnvironmentName = this.EnvironmentName;
             if (this.Hosts != null)
             {
                 context.Hosts = new List<Amazon.Evs.Model.HostInfoForCreate>(this.Hosts);
             }
-            #if MODULAR
-            if (this.Hosts == null && ParameterWasBound(nameof(this.Hosts)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Hosts which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EdgeVTep_Cidr = this.EdgeVTep_Cidr;
             #if MODULAR
             if (this.EdgeVTep_Cidr == null && ParameterWasBound(nameof(this.EdgeVTep_Cidr)))
@@ -827,12 +729,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             {
                 context.LicenseInfo = new List<Amazon.Evs.Model.LicenseInfo>(this.LicenseInfo);
             }
-            #if MODULAR
-            if (this.LicenseInfo == null && ParameterWasBound(nameof(this.LicenseInfo)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LicenseInfo which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.ServiceAccessSecurityGroups_SecurityGroup != null)
             {
                 context.ServiceAccessSecurityGroups_SecurityGroup = new List<System.String>(this.ServiceAccessSecurityGroups_SecurityGroup);
@@ -845,12 +741,6 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             }
             #endif
             context.SiteId = this.SiteId;
-            #if MODULAR
-            if (this.SiteId == null && ParameterWasBound(nameof(this.SiteId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SiteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -867,68 +757,14 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             }
             #endif
             context.VcfHostnames_CloudBuilder = this.VcfHostnames_CloudBuilder;
-            #if MODULAR
-            if (this.VcfHostnames_CloudBuilder == null && ParameterWasBound(nameof(this.VcfHostnames_CloudBuilder)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_CloudBuilder which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_Nsx = this.VcfHostnames_Nsx;
-            #if MODULAR
-            if (this.VcfHostnames_Nsx == null && ParameterWasBound(nameof(this.VcfHostnames_Nsx)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_Nsx which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_NsxEdge1 = this.VcfHostnames_NsxEdge1;
-            #if MODULAR
-            if (this.VcfHostnames_NsxEdge1 == null && ParameterWasBound(nameof(this.VcfHostnames_NsxEdge1)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_NsxEdge1 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_NsxEdge2 = this.VcfHostnames_NsxEdge2;
-            #if MODULAR
-            if (this.VcfHostnames_NsxEdge2 == null && ParameterWasBound(nameof(this.VcfHostnames_NsxEdge2)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_NsxEdge2 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_NsxManager1 = this.VcfHostnames_NsxManager1;
-            #if MODULAR
-            if (this.VcfHostnames_NsxManager1 == null && ParameterWasBound(nameof(this.VcfHostnames_NsxManager1)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_NsxManager1 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_NsxManager2 = this.VcfHostnames_NsxManager2;
-            #if MODULAR
-            if (this.VcfHostnames_NsxManager2 == null && ParameterWasBound(nameof(this.VcfHostnames_NsxManager2)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_NsxManager2 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_NsxManager3 = this.VcfHostnames_NsxManager3;
-            #if MODULAR
-            if (this.VcfHostnames_NsxManager3 == null && ParameterWasBound(nameof(this.VcfHostnames_NsxManager3)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_NsxManager3 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_SddcManager = this.VcfHostnames_SddcManager;
-            #if MODULAR
-            if (this.VcfHostnames_SddcManager == null && ParameterWasBound(nameof(this.VcfHostnames_SddcManager)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_SddcManager which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfHostnames_VCenter = this.VcfHostnames_VCenter;
-            #if MODULAR
-            if (this.VcfHostnames_VCenter == null && ParameterWasBound(nameof(this.VcfHostnames_VCenter)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VcfHostnames_VCenter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VcfVersion = this.VcfVersion;
             #if MODULAR
             if (this.VcfVersion == null && ParameterWasBound(nameof(this.VcfVersion)))

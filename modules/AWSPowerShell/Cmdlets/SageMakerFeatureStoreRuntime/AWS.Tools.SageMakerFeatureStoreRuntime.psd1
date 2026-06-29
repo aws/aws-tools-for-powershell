@@ -89,8 +89,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-SMFSRecord', 
         'Get-SMFSRecordBatch', 
+        'Get-SMFSRecordList', 
         'Remove-SMFSRecord', 
-        'Write-SMFSRecord')
+        'Write-SMFSRecord', 
+        'Write-SMFSRecordBatch')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -30,8 +30,7 @@ using Amazon.Evs.Model;
 namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Creates an ESX host and adds it to an Amazon EVS environment. Amazon EVS supports
-    /// 4-32 hosts per environment.
+    /// Creates an ESX host and adds it to an Amazon EVS environment.
     /// 
     ///  
     /// <para>
@@ -44,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.EVS
     /// placement group to launch EC2 instances into.
     /// </para><note><para>
     /// If you don't specify an ESX version when adding hosts using <c>CreateEnvironmentHost</c>
-    /// action, Amazon EVS automatically uses the default ESX version associated with your
-    /// environment's VCF version. To find the default ESX version for a particular VCF version,
-    /// use the <c>GetVersions</c> action.
-    /// </para></note><note><para>
+    /// action, Amazon EVS automatically uses the default ESX version for your environment's
+    /// VCF version. To find the available ESX versions for a particular VCF version, use
+    /// the <c>GetVersions</c> action.
+    /// </para><para>
     /// You cannot use the <c>dedicatedHostId</c> and <c>placementGroupId</c> parameters together
     /// in the same <c>CreateEnvironmentHost</c> action. This results in a <c>ValidationException</c>
     /// response.

@@ -1021,6 +1021,7 @@ $GLUE_SelectMap = @{
                "Add-GLUEResourceTag",
                "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
+               "Update-GLUEAsset",
                "Update-GLUEBlueprint",
                "Update-GLUECatalog",
                "Update-GLUEClassifier",

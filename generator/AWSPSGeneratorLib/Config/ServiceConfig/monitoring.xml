@@ -179,6 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutLogAlarm" Verb="Write" Noun="LogAlarm" ShouldProcessTarget="AlarmName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutManagedInsightRules" OutputProperty="Failures" Verb="Write" Noun="ManagedInsightRule" ShouldProcessTarget="ManagedRules" PipelineParameter="ManagedRules" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

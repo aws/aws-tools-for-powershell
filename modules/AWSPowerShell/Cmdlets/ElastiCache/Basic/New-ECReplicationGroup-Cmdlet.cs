@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>Specifies the durability setting for the replication group. When set to <c>default</c>,
         /// the service determines the effective durability based on the engine version, cluster
         /// mode, and other parameters. The resolved setting is reflected in the <c>EffectiveDurability</c>
-        /// property of the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Durability.html">Durability</a>.</para>
+        /// property of the replication group. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/durability.html">Durability</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

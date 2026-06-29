@@ -62,6 +62,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.Collections.Hashtable AmiTag { get; set; }
         #endregion
         
+        #region Parameter AmiWatermark
+        /// <summary>
+        /// <para>
+        /// <para>The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks
+        /// are lineage markers. They automatically propagate to derivative AMIs when the source
+        /// AMI is copied or distributed across Regions or accounts.</para><note><para>AMI watermarks are supported only for image recipes. AMIs with watermarks cannot be
+        /// made public.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AmiWatermarks")]
+        public System.String[] AmiWatermark { get; set; }
+        #endregion
+        
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
@@ -285,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                     context.AmiTag.Add((String)hashKey, (System.String)(this.AmiTag[hashKey]));
                 }
             }
+            if (this.AmiWatermark != null)
+            {
+                context.AmiWatermark = new List<System.String>(this.AmiWatermark);
+            }
             if (this.BlockDeviceMapping != null)
             {
                 context.BlockDeviceMapping = new List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping>(this.BlockDeviceMapping);
@@ -389,6 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.AmiTags = cmdletContext.AmiTag;
             }
+            if (cmdletContext.AmiWatermark != null)
+            {
+                request.AmiWatermarks = cmdletContext.AmiWatermark;
+            }
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
@@ -483,6 +509,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.Boolean? SystemsManagerAgent_UninstallAfterBuild { get; set; }
             public System.String AdditionalInstanceConfiguration_UserDataOverride { get; set; }
             public Dictionary<System.String, System.String> AmiTag { get; set; }
+            public List<System.String> AmiWatermark { get; set; }
             public List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping> BlockDeviceMapping { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.Imagebuilder.Model.ComponentConfiguration> Component { get; set; }

@@ -83,6 +83,20 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String CustomDomainName { get; set; }
         #endregion
         
+        #region Parameter IdleTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that a connection can remain idle (no data sent) before
+        /// VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify
+        /// a value, the default is 60 seconds. This setting does not change the maximum connection
+        /// duration of 10 minutes; connections are still closed when they reach that limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdleTimeoutSeconds")]
+        public System.Int32? IdleTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -180,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             context.CertificateArn = this.CertificateArn;
             context.ClientToken = this.ClientToken;
             context.CustomDomainName = this.CustomDomainName;
+            context.IdleTimeoutSecond = this.IdleTimeoutSecond;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -226,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.CustomDomainName != null)
             {
                 request.CustomDomainName = cmdletContext.CustomDomainName;
+            }
+            if (cmdletContext.IdleTimeoutSecond != null)
+            {
+                request.IdleTimeoutSeconds = cmdletContext.IdleTimeoutSecond.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -294,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public System.String CertificateArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CustomDomainName { get; set; }
+            public System.Int32? IdleTimeoutSecond { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.VPCLattice.Model.CreateServiceResponse, NewVPCLServiceCmdlet, object> Select { get; set; } =

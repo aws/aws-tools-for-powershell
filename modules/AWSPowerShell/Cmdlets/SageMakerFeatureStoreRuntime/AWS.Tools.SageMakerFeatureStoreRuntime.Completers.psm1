@@ -98,7 +98,10 @@ $SMFS_Completers = {
         }
 
         # Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit
-        "Write-SMFSRecord/TtlDuration_Unit"
+        {
+            ($_ -eq "Write-SMFSRecord/TtlDuration_Unit") -Or
+            ($_ -eq "Write-SMFSRecordBatch/TtlDuration_Unit")
+        }
         {
             $v = "Days","Hours","Minutes","Seconds","Weeks"
             break
@@ -115,7 +118,7 @@ $SMFS_Completers = {
 $SMFS_map = @{
     "DeletionMode"=@("Remove-SMFSRecord")
     "ExpirationTimeResponse"=@("Get-SMFSRecord","Get-SMFSRecordBatch")
-    "TtlDuration_Unit"=@("Write-SMFSRecord")
+    "TtlDuration_Unit"=@("Write-SMFSRecord","Write-SMFSRecordBatch")
 }
 
 _awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map
@@ -169,8 +172,10 @@ $SMFS_SelectCompleters = {
 
 $SMFS_SelectMap = @{
     "Select"=@("Get-SMFSRecordBatch",
+               "Write-SMFSRecordBatch",
                "Remove-SMFSRecord",
                "Get-SMFSRecord",
+               "Get-SMFSRecordList",
                "Write-SMFSRecord")
 }
 

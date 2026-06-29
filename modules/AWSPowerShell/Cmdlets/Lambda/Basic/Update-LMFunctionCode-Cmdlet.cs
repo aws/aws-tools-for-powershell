@@ -175,6 +175,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String S3Key { get; set; }
         #endregion
         
+        #region Parameter S3ObjectStorageMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how the deployment package is stored. Use <c>COPY</c> (default) to upload
+        /// a copy of your deployment package to Lambda. Use <c>REFERENCE</c> to have Lambda reference
+        /// the deployment package from the specified Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.S3ObjectStorageMode")]
+        public Amazon.Lambda.S3ObjectStorageMode S3ObjectStorageMode { get; set; }
+        #endregion
+        
         #region Parameter S3ObjectVersion
         /// <summary>
         /// <para>
@@ -277,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.RevisionId = this.RevisionId;
             context.S3Bucket = this.S3Bucket;
             context.S3Key = this.S3Key;
+            context.S3ObjectStorageMode = this.S3ObjectStorageMode;
             context.S3ObjectVersion = this.S3ObjectVersion;
             context.SourceKMSKeyArn = this.SourceKMSKeyArn;
             context.ZipFile = this.ZipFile;
@@ -335,6 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.S3Key != null)
                 {
                     request.S3Key = cmdletContext.S3Key;
+                }
+                if (cmdletContext.S3ObjectStorageMode != null)
+                {
+                    request.S3ObjectStorageMode = cmdletContext.S3ObjectStorageMode;
                 }
                 if (cmdletContext.S3ObjectVersion != null)
                 {
@@ -421,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String RevisionId { get; set; }
             public System.String S3Bucket { get; set; }
             public System.String S3Key { get; set; }
+            public Amazon.Lambda.S3ObjectStorageMode S3ObjectStorageMode { get; set; }
             public System.String S3ObjectVersion { get; set; }
             public System.String SourceKMSKeyArn { get; set; }
             public byte[] ZipFile { get; set; }

@@ -66,6 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String CertificateArn { get; set; }
         #endregion
         
+        #region Parameter IdleTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that a connection can remain idle (no data sent) before
+        /// VPC Lattice closes it. The valid range is 60 to 600 seconds. If you don't specify
+        /// a value, the default is 60 seconds. This setting does not change the maximum connection
+        /// duration of 10 minutes; connections are still closed when they reach that limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdleTimeoutSeconds")]
+        public System.Int32? IdleTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter ServiceIdentifier
         /// <summary>
         /// <para>
@@ -131,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             context.AuthType = this.AuthType;
             context.CertificateArn = this.CertificateArn;
+            context.IdleTimeoutSecond = this.IdleTimeoutSecond;
             context.ServiceIdentifier = this.ServiceIdentifier;
             #if MODULAR
             if (this.ServiceIdentifier == null && ParameterWasBound(nameof(this.ServiceIdentifier)))
@@ -161,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
+            }
+            if (cmdletContext.IdleTimeoutSecond != null)
+            {
+                request.IdleTimeoutSeconds = cmdletContext.IdleTimeoutSecond.Value;
             }
             if (cmdletContext.ServiceIdentifier != null)
             {
@@ -223,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         {
             public Amazon.VPCLattice.AuthType AuthType { get; set; }
             public System.String CertificateArn { get; set; }
+            public System.Int32? IdleTimeoutSecond { get; set; }
             public System.String ServiceIdentifier { get; set; }
             public System.Func<Amazon.VPCLattice.Model.UpdateServiceResponse, UpdateVPCLServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
