@@ -316,9 +316,23 @@
             <PostBuildScripts Include="$(RootPath)/buildtools/Invoke-ParallelPublish.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Update-ModulePackageVersion.psm1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Test-NugetPackageDependencyVersion.ps1" />
+            <!-- Benchmark entry scripts: the framework runs ./test.sh and .\test.ps1 from the
+                 artifact root, so they are flattened next to the modules. -->
+            <PostBuildScripts Include="$(RootPath)/buildtools/benchmarks/test.sh" />
+            <PostBuildScripts Include="$(RootPath)/buildtools/benchmarks/test.ps1" />
         </ItemGroup>
 
         <Copy SourceFiles="@(PostBuildScripts)" DestinationFolder="$(RootPath)/Deployment" />
+
+        <!-- Benchmark driver ships at Deployment/benchmarks/ and its metric files under
+             Deployment/benchmarks/metrics/, the layout the driver loads them from. The metrics
+             copy keeps RecursiveDir so any nested folders under metrics/ are preserved. -->
+        <ItemGroup>
+            <BenchmarkDriver Include="$(RootPath)/buildtools/benchmarks/Invoke-Benchmarks.ps1" />
+            <BenchmarkMetrics Include="$(RootPath)/buildtools/benchmarks/metrics/**/*" />
+        </ItemGroup>
+        <Copy SourceFiles="@(BenchmarkDriver)" DestinationFolder="$(RootPath)/Deployment/benchmarks" />
+        <Copy SourceFiles="@(BenchmarkMetrics)" DestinationFolder="$(RootPath)/Deployment/benchmarks/metrics/%(RecursiveDir)" />
 
         <!-- emit the version data into a json file that gets uploaded to S3. EC2 then
              reads this to know if it needs to update EC2 images during image prep. -->
