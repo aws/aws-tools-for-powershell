@@ -619,26 +619,53 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                 # Check if version is already installed BEFORE downloading to avoid unnecessary network calls
                 # This check happens AFTER ShouldProcess so WhatIf users see what would be installed
                 if (-not $SourceZipPath -and -not $Force -and $resolvedVersionObj) {
-                    # Check local filesystem first for AWS.Tools.Common
-                    $params = @{ 
-                        Path = $targetPath
-                        Name = 'AWS.Tools'
+                    # Compute the target version string once for comparison.
+                    $targetVersionString = if ($resolvedVersionObj.PSObject.Properties['SemVerString']) {
+                        $resolvedVersionObj.SemVerString
+                    } else {
+                        $resolvedVersionObj.ToString()
                     }
-                    $installedCommon = Get-InstalledAWSToolsModule @params |
-                        Where-Object { $_.Name -eq 'AWS.Tools.Common' } |
-                        Sort-Object Version -Descending |
-                        Select-Object -First 1
-                    
-                    if ($installedCommon) {
-                        # Compare installed version with target version
-                        $installedVersionString = $installedCommon.Version.ToString()
-                        $targetVersionString = if ($resolvedVersionObj.PSObject.Properties['SemVerString']) {
-                            $resolvedVersionObj.SemVerString
-                        } else {
-                            $resolvedVersionObj.ToString()
+
+                    # Enumerate installed AWS.Tools modules once (excludes AWS.Tools.Installer).
+                    $installedModulesOnDisk = Get-InstalledAWSToolsModule -Path $targetPath -Name 'AWS.Tools'
+
+                    if ($resolvedNames) {
+                        # Subset install (-Name specified): only skip when EVERY requested module is
+                        # already present at the target version. Using AWS.Tools.Common as a proxy
+                        # would wrongly skip when Common is present but a requested service module
+                        # (e.g. AWS.Tools.S3) is not yet installed.
+                        $latestByName = @{}
+                        foreach ($installedModule in $installedModulesOnDisk) {
+                            $existing = $latestByName[$installedModule.Name]
+                            if (-not $existing -or $installedModule.Version -gt $existing.Version) {
+                                $latestByName[$installedModule.Name] = $installedModule
+                            }
                         }
-                        
-                        if ($installedVersionString -eq $targetVersionString) {
+
+                        $allRequestedPresentAtTarget = $true
+                        foreach ($requestedName in $resolvedNames) {
+                            $candidate = $latestByName[$requestedName]
+                            if (-not $candidate -or $candidate.Version.ToString() -ne $targetVersionString) {
+                                $allRequestedPresentAtTarget = $false
+                                break
+                            }
+                        }
+
+                        if ($allRequestedPresentAtTarget) {
+                            Write-Verbose ("[$($MyInvocation.MyCommand)] All requested AWS Tools modules already installed at version $targetVersionString, skipping installation")
+                            Write-Host "Skipped installation: requested AWS.Tools modules version $targetVersionToInstall already installed in $targetPath. Use -Force to reinstall."
+                            return
+                        }
+                    }
+                    else {
+                        # Install-all (no -Name): every module in a release shares the release
+                        # version, so AWS.Tools.Common is a valid proxy for the whole set.
+                        $installedCommon = $installedModulesOnDisk |
+                            Where-Object { $_.Name -eq 'AWS.Tools.Common' } |
+                            Sort-Object Version -Descending |
+                            Select-Object -First 1
+
+                        if ($installedCommon -and $installedCommon.Version.ToString() -eq $targetVersionString) {
                             Write-Verbose ("[$($MyInvocation.MyCommand)] AWS Tools version $targetVersionString already installed, skipping installation")
                             Write-Host "Skipped installation: AWS.Tools.Common version $targetVersionToInstall already installed in $targetPath. Use -Force to overwrite or add missing modules."
                             return
