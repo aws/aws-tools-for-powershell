@@ -172,6 +172,27 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfig_DisableRollback
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to disable rollback of the stack if the stack operation fails.</para><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+        #endregion
+        
+        #region Parameter DisableValidation
+        /// <summary>
+        /// <para>
+        /// <para> Set to <c>true</c> to disable pre-deployment validations in changeset or stack operations.
+        /// </para><para> Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableValidation { get; set; }
+        #endregion
+        
         #region Parameter ImportExistingResource
         /// <summary>
         /// <para>
@@ -201,6 +222,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IncludeNestedStacks")]
         public System.Boolean? IncludeNestedStack { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the deployment mode for the stack operation. Possible values are:</para><ul><li><para><c>STANDARD</c> - Use the standard deployment behavior, ensuring resources are ready
+        /// to serve traffic before completing the operation. This is the default. You do not
+        /// need to specify this value explicitly.</para></li><li><para><c>EXPRESS</c> - Complete the stack operation when resource configuration is applied,
+        /// without waiting for resources to become ready to serve traffic. Resources continue
+        /// becoming ready in the background.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.DeploymentConfigMode")]
+        public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
         #endregion
         
         #region Parameter NotificationARNs
@@ -468,8 +504,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #endif
             context.ChangeSetType = this.ChangeSetType;
             context.ClientToken = this.ClientToken;
+            context.DeploymentConfig_DisableRollback = this.DeploymentConfig_DisableRollback;
+            context.DeploymentConfig_Mode = this.DeploymentConfig_Mode;
             context.DeploymentMode = this.DeploymentMode;
             context.Description = this.Description;
+            context.DisableValidation = this.DisableValidation;
             context.ImportExistingResource = this.ImportExistingResource;
             context.IncludeNestedStack = this.IncludeNestedStack;
             if (this.NotificationARNs != null)
@@ -537,6 +576,35 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            
+             // populate DeploymentConfig
+            var requestDeploymentConfigIsNull = true;
+            request.DeploymentConfig = new Amazon.CloudFormation.Model.DeploymentConfig();
+            System.Boolean? requestDeploymentConfig_deploymentConfig_DisableRollback = null;
+            if (cmdletContext.DeploymentConfig_DisableRollback != null)
+            {
+                requestDeploymentConfig_deploymentConfig_DisableRollback = cmdletContext.DeploymentConfig_DisableRollback.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_DisableRollback != null)
+            {
+                request.DeploymentConfig.DisableRollback = requestDeploymentConfig_deploymentConfig_DisableRollback.Value;
+                requestDeploymentConfigIsNull = false;
+            }
+            Amazon.CloudFormation.DeploymentConfigMode requestDeploymentConfig_deploymentConfig_Mode = null;
+            if (cmdletContext.DeploymentConfig_Mode != null)
+            {
+                requestDeploymentConfig_deploymentConfig_Mode = cmdletContext.DeploymentConfig_Mode;
+            }
+            if (requestDeploymentConfig_deploymentConfig_Mode != null)
+            {
+                request.DeploymentConfig.Mode = requestDeploymentConfig_deploymentConfig_Mode;
+                requestDeploymentConfigIsNull = false;
+            }
+             // determine if request.DeploymentConfig should be set to null
+            if (requestDeploymentConfigIsNull)
+            {
+                request.DeploymentConfig = null;
+            }
             if (cmdletContext.DeploymentMode != null)
             {
                 request.DeploymentMode = cmdletContext.DeploymentMode;
@@ -544,6 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisableValidation != null)
+            {
+                request.DisableValidation = cmdletContext.DisableValidation.Value;
             }
             if (cmdletContext.ImportExistingResource != null)
             {
@@ -660,8 +732,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String ChangeSetName { get; set; }
             public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+            public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
             public Amazon.CloudFormation.DeploymentMode DeploymentMode { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisableValidation { get; set; }
             public System.Boolean? ImportExistingResource { get; set; }
             public System.Boolean? IncludeNestedStack { get; set; }
             public List<System.String> NotificationARNs { get; set; }

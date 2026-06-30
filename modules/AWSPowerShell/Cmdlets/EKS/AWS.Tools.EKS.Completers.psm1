@@ -316,6 +316,7 @@ $EKS_SelectMap = @{
     "Select"=@("Add-EKSAccessPolicy",
                "Add-EKSEncryptionConfig",
                "Add-EKSIdentityProviderConfig",
+               "Stop-EKSUpdate",
                "New-EKSAccessEntry",
                "New-EKSAddon",
                "New-EKSCapability",

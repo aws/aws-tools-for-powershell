@@ -138,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para> If launches fail in an Availability Zone, the following strategies are available.
         /// The default is <c>balanced-best-effort</c>. </para><ul><li><para><c>balanced-only</c> - If launches fail in an Availability Zone, Auto Scaling will
         /// continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.</para></li><li><para><c>balanced-best-effort</c> - If launches fail in an Availability Zone, Auto Scaling
-        /// will attempt to launch in another healthy Availability Zone instead.</para></li></ul>
+        /// will attempt to launch in another healthy Availability Zone instead.</para></li><li><para><c>reservations-then-balanced</c> - Auto Scaling will first attempt to launch into
+        /// your Capacity Reservations, and then balance any remaining capacity across the healthy
+        /// Availability Zones.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

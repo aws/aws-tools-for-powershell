@@ -1011,6 +1011,20 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.PayerResponsibilityScope
+        "Edit-EC2VpcEndpointPayerResponsibility/Scope"
+        {
+            $v = "vpc-endpoint-charges"
+            break
+        }
+
+        # Amazon.EC2.PayerResponsibilityType
+        "Edit-EC2VpcEndpointPayerResponsibility/PayerResponsibility"
+        {
+            $v = "vpc-endpoint-account","vpc-endpoint-service-account"
+            break
+        }
+
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
@@ -1614,7 +1628,7 @@ $EC2_map = @{
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "OutputFormat"=@("New-EC2CapacityManagerDataExport")
-    "PayerResponsibility"=@("Edit-EC2VpcEndpointServicePayerResponsibility")
+    "PayerResponsibility"=@("Edit-EC2VpcEndpointPayerResponsibility","Edit-EC2VpcEndpointServicePayerResponsibility")
     "Permission"=@("New-EC2NetworkInterfacePermission")
     "PersistRoute"=@("Edit-EC2RouteServer","New-EC2RouteServer")
     "Placement_Tenancy"=@("New-EC2Instance","Request-EC2SpotInstance")
@@ -1631,6 +1645,7 @@ $EC2_map = @{
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "Schedule"=@("New-EC2CapacityManagerDataExport")
+    "Scope"=@("Edit-EC2VpcEndpointPayerResponsibility")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
@@ -2406,6 +2421,7 @@ $EC2_SelectMap = @{
                "Edit-EC2VpcEncryptionControl",
                "Edit-EC2VpcEndpoint",
                "Edit-EC2VpcEndpointConnectionNotification",
+               "Edit-EC2VpcEndpointPayerResponsibility",
                "Edit-EC2VpcEndpointServiceConfiguration",
                "Edit-EC2VpcEndpointServicePayerResponsibility",
                "Edit-EC2EndpointServicePermission",

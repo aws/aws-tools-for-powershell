@@ -98,7 +98,10 @@ $DZ_Completers = {
         }
 
         # Amazon.DataZone.AuthenticationType
-        "New-DZConnection/AuthenticationConfiguration_AuthenticationType"
+        {
+            ($_ -eq "New-DZConnection/AuthenticationConfiguration_AuthenticationType") -Or
+            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType")
+        }
         {
             $v = "BASIC","CUSTOM","OAUTH2"
             break
@@ -397,7 +400,10 @@ $DZ_Completers = {
         }
 
         # Amazon.DataZone.OAuth2GrantType
-        "New-DZConnection/OAuth2Properties_OAuth2GrantType"
+        {
+            ($_ -eq "New-DZConnection/OAuth2Properties_OAuth2GrantType") -Or
+            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType")
+        }
         {
             $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
             break
@@ -602,6 +608,8 @@ $DZ_Completers = {
 
         # Amazon.DataZone.Timezone
         {
+            ($_ -eq "New-DZConnection/Props_SnowflakeProperties_LineageSync_Timezone") -Or
+            ($_ -eq "Update-DZConnection/Props_SnowflakeProperties_LineageSync_Timezone") -Or
             ($_ -eq "New-DZDataSource/Schedule_Timezone") -Or
             ($_ -eq "Update-DZDataSource/Schedule_Timezone")
         }
@@ -701,6 +709,9 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
+    "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
+    "Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
+    "Props_SnowflakeProperties_LineageSync_Timezone"=@("New-DZConnection","Update-DZConnection")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")
     "RuleType"=@("Get-DZRuleList")

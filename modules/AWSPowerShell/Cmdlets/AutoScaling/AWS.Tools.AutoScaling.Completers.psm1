@@ -86,7 +86,7 @@ $AS_Completers = {
             ($_ -eq "Update-ASAutoScalingGroup/AvailabilityZoneDistribution_CapacityDistributionStrategy")
         }
         {
-            $v = "balanced-best-effort","balanced-only"
+            $v = "balanced-best-effort","balanced-only","reservations-then-balanced"
             break
         }
 

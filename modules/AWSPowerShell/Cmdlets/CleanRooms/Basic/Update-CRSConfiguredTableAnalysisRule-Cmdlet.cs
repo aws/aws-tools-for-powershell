@@ -100,6 +100,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.Model.AggregateColumn[] Aggregation_AggregateColumn { get; set; }
         #endregion
         
+        #region Parameter AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses
+        /// <summary>
+        /// <para>
+        /// <para>The list of allowed additional analyses for the custom analysis rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses { get; set; }
+        #endregion
+        
         #region Parameter Custom_AllowedAnalysis
         /// <summary>
         /// <para>
@@ -161,6 +175,22 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AnalysisRulePolicy_V1_List_AllowedJoinOperators")]
         public System.String[] List_AllowedJoinOperator { get; set; }
+        #endregion
+        
+        #region Parameter AnalysisRulePolicy_V1_Custom_AllowedResultReceiver
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Web Services account IDs that are allowed to receive results from
+        /// queries run on the configured table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Custom_AllowedResultReceivers")]
+        public System.String[] AnalysisRulePolicy_V1_Custom_AllowedResultReceiver { get; set; }
         #endregion
         
         #region Parameter AnalysisRuleType
@@ -412,6 +442,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Aggregation_ScalarFunction = new List<System.String>(this.Aggregation_ScalarFunction);
             }
             context.Custom_AdditionalAnalysis = this.Custom_AdditionalAnalysis;
+            if (this.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses != null)
+            {
+                context.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses);
+            }
             if (this.Custom_AllowedAnalysis != null)
             {
                 context.Custom_AllowedAnalysis = new List<System.String>(this.Custom_AllowedAnalysis);
@@ -419,6 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (this.Custom_AllowedAnalysisProvider != null)
             {
                 context.Custom_AllowedAnalysisProvider = new List<System.String>(this.Custom_AllowedAnalysisProvider);
+            }
+            if (this.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver != null)
+            {
+                context.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver);
             }
             if (this.DifferentialPrivacy_Column != null)
             {
@@ -550,6 +588,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AdditionalAnalyses = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AdditionalAnalysis;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
             }
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses = null;
+            if (cmdletContext.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses = cmdletContext.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AllowedAdditionalAnalyses = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
+            }
             List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AllowedAnalysis = null;
             if (cmdletContext.Custom_AllowedAnalysis != null)
             {
@@ -568,6 +616,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AllowedAnalysisProvider != null)
             {
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AllowedAnalysisProviders = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_AllowedAnalysisProvider;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
+            }
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedResultReceiver = null;
+            if (cmdletContext.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedResultReceiver = cmdletContext.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedResultReceiver != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AllowedResultReceivers = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedResultReceiver;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
             }
             List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_custom_DisallowedOutputColumn = null;
@@ -797,8 +855,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public List<Amazon.CleanRooms.Model.AggregationConstraint> Aggregation_OutputConstraint { get; set; }
             public List<System.String> Aggregation_ScalarFunction { get; set; }
             public Amazon.CleanRooms.AdditionalAnalyses Custom_AdditionalAnalysis { get; set; }
+            public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses { get; set; }
             public List<System.String> Custom_AllowedAnalysis { get; set; }
             public List<System.String> Custom_AllowedAnalysisProvider { get; set; }
+            public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedResultReceiver { get; set; }
             public List<Amazon.CleanRooms.Model.DifferentialPrivacyColumn> DifferentialPrivacy_Column { get; set; }
             public List<System.String> Custom_DisallowedOutputColumn { get; set; }
             public Amazon.CleanRooms.AdditionalAnalyses List_AdditionalAnalysis { get; set; }

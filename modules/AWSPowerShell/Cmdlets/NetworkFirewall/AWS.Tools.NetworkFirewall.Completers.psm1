@@ -80,6 +80,16 @@ $NWFW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NetworkFirewall.ContainerMonitoringType
+        {
+            ($_ -eq "New-NWFWContainerAssociation/Type") -Or
+            ($_ -eq "Update-NWFWContainerAssociation/Type")
+        }
+        {
+            $v = "ECS","EKS"
+            break
+        }
+
         # Amazon.NetworkFirewall.EnabledAnalysisType
         "Start-NWFWAnalysisReport/AnalysisType"
         {
@@ -243,7 +253,7 @@ $NWFW_map = @{
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
     "SubscriptionStatus"=@("Get-NWFWRuleGroupList")
     "TlsInterceptProperties_TlsInterceptMode"=@("New-NWFWProxy","Update-NWFWProxy")
-    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWContainerAssociation","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWContainerAssociation","Update-NWFWRuleGroup")
 }
 
 _awsArgumentCompleterRegistration $NWFW_Completers $NWFW_map
@@ -301,6 +311,7 @@ $NWFW_SelectMap = @{
                "Register-NWFWFirewallPolicy",
                "Register-NWFWSubnet",
                "Mount-NWFWRuleGroupsToProxyConfiguration",
+               "New-NWFWContainerAssociation",
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
                "New-NWFWProxy",
@@ -310,6 +321,7 @@ $NWFW_SelectMap = @{
                "New-NWFWRuleGroup",
                "New-NWFWTLSInspectionConfiguration",
                "New-NWFWVpcEndpointAssociation",
+               "Remove-NWFWContainerAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWNetworkFirewallTransitGatewayAttachment",
@@ -321,6 +333,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWRuleGroup",
                "Remove-NWFWTLSInspectionConfiguration",
                "Remove-NWFWVpcEndpointAssociation",
+               "Get-NWFWContainerAssociationDetail",
                "Get-NWFWFirewall",
                "Get-NWFWFirewallMetadata",
                "Get-NWFWFirewallPolicy",
@@ -341,6 +354,7 @@ $NWFW_SelectMap = @{
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",
+               "Get-NWFWContainerAssociationList",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
@@ -360,6 +374,7 @@ $NWFW_SelectMap = @{
                "Add-NWFWResourceTag",
                "Remove-NWFWResourceTag",
                "Update-NWFWAvailabilityZoneChangeProtection",
+               "Update-NWFWContainerAssociation",
                "Update-NWFWFirewallAnalysisSetting",
                "Update-NWFWFirewallDeleteProtection",
                "Update-NWFWFirewallDescription",

@@ -110,6 +110,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.Behavior
+        {
+            ($_ -eq "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_RedactionConfiguration_Behavior") -Or
+            ($_ -eq "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_RulesConfiguration_Behavior") -Or
+            ($_ -eq "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_SentimentConfiguration_Behavior")
+        }
+        {
+            $v = "Disable","Enable"
+            break
+        }
+
         # Amazon.Connect.BooleanComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/BooleanCondition_ComparisonType") -Or
@@ -381,9 +392,12 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.FileUseCaseType
-        "Start-CONNAttachedFileUpload/FileUseCaseType"
         {
-            $v = "ATTACHMENT","CONTACT_ANALYSIS","EMAIL_MESSAGE","EMAIL_MESSAGE_PLAIN_TEXT","EMAIL_MESSAGE_PLAIN_TEXT_REDACTED","EMAIL_MESSAGE_REDACTED"
+            ($_ -eq "New-CONNAttachedFile/FileUseCaseType") -Or
+            ($_ -eq "Start-CONNAttachedFileUpload/FileUseCaseType")
+        }
+        {
+            $v = "ATTACHMENT","CONTACT_ANALYSIS","EMAIL_MESSAGE","EMAIL_MESSAGE_PLAIN_TEXT","EMAIL_MESSAGE_PLAIN_TEXT_REDACTED","EMAIL_MESSAGE_REDACTED","VOICE_RECORDING"
             break
         }
 
@@ -487,6 +501,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.MaskMode
+        "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_RedactionConfiguration_MaskMode"
+        {
+            $v = "EntityType","PII"
+            break
+        }
+
         # Amazon.Connect.MediaType
         {
             ($_ -eq "Import-CONNWorkspaceMedia/MediaType") -Or
@@ -562,6 +583,13 @@ $CONN_Completers = {
         "Search-CONNAvailablePhoneNumber/PhoneNumberType"
         {
             $v = "DID","SHARED","SHORT_CODE","THIRD_PARTY_DID","THIRD_PARTY_TF","TOLL_FREE","UIFN"
+            break
+        }
+
+        # Amazon.Connect.Policy
+        "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_RedactionConfiguration_Policy"
+        {
+            $v = "None","RedactedAndOriginal","RedactedOnly"
             break
         }
 
@@ -885,6 +913,11 @@ $CONN_map = @{
     "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
+    "AnalyticsConfiguration_RedactionConfiguration_Behavior"=@("Start-CONNContactConversationalAnalyticsJob")
+    "AnalyticsConfiguration_RedactionConfiguration_MaskMode"=@("Start-CONNContactConversationalAnalyticsJob")
+    "AnalyticsConfiguration_RedactionConfiguration_Policy"=@("Start-CONNContactConversationalAnalyticsJob")
+    "AnalyticsConfiguration_RulesConfiguration_Behavior"=@("Start-CONNContactConversationalAnalyticsJob")
+    "AnalyticsConfiguration_SentimentConfiguration_Behavior"=@("Start-CONNContactConversationalAnalyticsJob")
     "AttachmentScope"=@("Get-CONNAttachedFilesConfigurationDetail","Update-CONNAttachedFilesConfiguration")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "BooleanCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
@@ -907,7 +940,7 @@ $CONN_map = @{
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FailureMode"=@("Start-CONNContactMediaProcessing")
-    "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
+    "FileUseCaseType"=@("New-CONNAttachedFile","Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
     "InitiateAs"=@("New-CONNContact")
@@ -1066,6 +1099,7 @@ $CONN_SelectMap = @{
                "Request-CONNPhoneNumber",
                "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
+               "New-CONNAttachedFile",
                "New-CONNContact",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
@@ -1316,6 +1350,7 @@ $CONN_SelectMap = @{
                "Send-CONNOutboundEmail",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
+               "Start-CONNContactConversationalAnalyticsJob",
                "Start-CONNContactEvaluation",
                "Start-CONNContactMediaProcessing",
                "Start-CONNContactRecording",

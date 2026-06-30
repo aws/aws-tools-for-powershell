@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ForceUpdate
         /// <summary>
         /// <para>
-        /// <para>Set this value to <c>true</c> to override upgrade-blocking readiness checks when updating
-        /// a cluster.</para>
+        /// <para>Set this value to <c>true</c> to override upgrade-blocking or rollback-blocking readiness
+        /// checks when updating a cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,6 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RollbackConfig_TimeoutMinute
+        /// <summary>
+        /// <para>
+        /// <para>The length of time in minutes to wait before cancelling the update. Timeout is a minimum-bound
+        /// property, meaning the timeout occurs no sooner than the time you specify, but can
+        /// occur shortly thereafter. This value can be between 120 (2 hours) and 10080 (7 days).
+        /// Default: <c>720</c> (12 hours) if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RollbackConfig_TimeoutMinutes")]
+        public System.Int32? RollbackConfig_TimeoutMinute { get; set; }
         #endregion
         
         #region Parameter Version
@@ -170,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RollbackConfig_TimeoutMinute = this.RollbackConfig_TimeoutMinute;
             context.Version = this.Version;
             #if MODULAR
             if (this.Version == null && ParameterWasBound(nameof(this.Version)))
@@ -204,6 +219,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RollbackConfig
+            var requestRollbackConfigIsNull = true;
+            request.RollbackConfig = new Amazon.EKS.Model.RollbackConfig();
+            System.Int32? requestRollbackConfig_rollbackConfig_TimeoutMinute = null;
+            if (cmdletContext.RollbackConfig_TimeoutMinute != null)
+            {
+                requestRollbackConfig_rollbackConfig_TimeoutMinute = cmdletContext.RollbackConfig_TimeoutMinute.Value;
+            }
+            if (requestRollbackConfig_rollbackConfig_TimeoutMinute != null)
+            {
+                request.RollbackConfig.TimeoutMinutes = requestRollbackConfig_rollbackConfig_TimeoutMinute.Value;
+                requestRollbackConfigIsNull = false;
+            }
+             // determine if request.RollbackConfig should be set to null
+            if (requestRollbackConfigIsNull)
+            {
+                request.RollbackConfig = null;
             }
             if (cmdletContext.Version != null)
             {
@@ -267,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClientRequestToken { get; set; }
             public System.Boolean? ForceUpdate { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? RollbackConfig_TimeoutMinute { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateClusterVersionResponse, UpdateEKSClusterVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;

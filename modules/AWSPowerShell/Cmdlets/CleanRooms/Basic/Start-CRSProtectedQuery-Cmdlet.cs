@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String SqlParameters_AnalysisTemplateArn { get; set; }
         #endregion
         
+        #region Parameter ResultConfiguration_OutputConfiguration_IntermediateTable_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the intermediate table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Arn { get; set; }
+        #endregion
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>
@@ -75,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResultConfiguration_OutputConfiguration_S3_Bucket")]
         public System.String S3_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter ResultConfiguration_OutputConfiguration_IntermediateTable_Id
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the intermediate table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Id { get; set; }
         #endregion
         
         #region Parameter S3_KeyPrefix
@@ -121,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MembershipIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ResultConfiguration_OutputConfiguration_IntermediateTable_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the intermediate table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Name { get; set; }
         #endregion
         
         #region Parameter Worker_Number
@@ -310,6 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 context.Distribute_Location = new List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation>(this.Distribute_Location);
             }
+            context.ResultConfiguration_OutputConfiguration_IntermediateTable_Arn = this.ResultConfiguration_OutputConfiguration_IntermediateTable_Arn;
+            context.ResultConfiguration_OutputConfiguration_IntermediateTable_Id = this.ResultConfiguration_OutputConfiguration_IntermediateTable_Id;
+            context.ResultConfiguration_OutputConfiguration_IntermediateTable_Name = this.ResultConfiguration_OutputConfiguration_IntermediateTable_Name;
             context.Member_AccountId = this.Member_AccountId;
             context.S3_Bucket = this.S3_Bucket;
             context.S3_KeyPrefix = this.S3_KeyPrefix;
@@ -482,6 +515,51 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member != null)
             {
                 requestResultConfiguration_resultConfiguration_OutputConfiguration.Member = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member;
+                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
+            }
+            Amazon.CleanRooms.Model.IntermediateTableOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable = null;
+            
+             // populate IntermediateTable
+            var requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTableIsNull = true;
+            requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable = new Amazon.CleanRooms.Model.IntermediateTableOutputConfiguration();
+            System.String requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Arn = null;
+            if (cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Arn != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Arn = cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Arn;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Arn != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable.Arn = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Arn;
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTableIsNull = false;
+            }
+            System.String requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Id = null;
+            if (cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Id != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Id = cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Id;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Id != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable.Id = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Id;
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTableIsNull = false;
+            }
+            System.String requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Name = null;
+            if (cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Name != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Name = cmdletContext.ResultConfiguration_OutputConfiguration_IntermediateTable_Name;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Name != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable.Name = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable_resultConfiguration_OutputConfiguration_IntermediateTable_Name;
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTableIsNull = false;
+            }
+             // determine if requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable should be set to null
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTableIsNull)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable = null;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration.IntermediateTable = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_IntermediateTable;
                 requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
             }
             Amazon.CleanRooms.Model.ProtectedQueryS3OutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_S3 = null;
@@ -658,6 +736,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String MembershipIdentifier { get; set; }
             public System.String QueryComputePayerAccountId { get; set; }
             public List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation> Distribute_Location { get; set; }
+            public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Arn { get; set; }
+            public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Id { get; set; }
+            public System.String ResultConfiguration_OutputConfiguration_IntermediateTable_Name { get; set; }
             public System.String Member_AccountId { get; set; }
             public System.String S3_Bucket { get; set; }
             public System.String S3_KeyPrefix { get; set; }

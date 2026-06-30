@@ -35,8 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// tag will be removed regardless of value. If you specify a value, the tag is removed
     /// only if it is associated with the specified value. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This action applies only to the <c>certificate</c> resource type. For all other ACM
+    /// resource types, use <a>UntagResource</a> instead.
+    /// </para></note><para>
     /// To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To view
     /// all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a>
     /// action. 

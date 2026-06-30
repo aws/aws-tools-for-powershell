@@ -385,6 +385,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.Int32? EvaluationCriteria_PromQLCriteria_RecoveryPeriod { get; set; }
         #endregion
         
+        #region Parameter EvaluationWindow_SlidingWindow
+        /// <summary>
+        /// <para>
+        /// <para>A sliding window, which advances each time the alarm is evaluated, forming a rolling
+        /// time window. This is the default evaluation window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CloudWatch.Model.SlidingWindow EvaluationWindow_SlidingWindow { get; set; }
+        #endregion
+        
         #region Parameter Statistic
         /// <summary>
         /// <para>
@@ -443,6 +454,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ThresholdMetricId { get; set; }
+        #endregion
+        
+        #region Parameter EvaluationWindow_WallClockWindow_Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The time zone to use when the alarm aligns the evaluation window to clock boundaries.
+        /// You can specify an IANA time zone name (for example, <c>America/New_York</c>), a fixed
+        /// UTC offset (for example, <c>+05:30</c>), or an offset-prefixed identifier (for example,
+        /// <c>UTC+05:30</c>). The offset must be aligned to a multiple of 5 minutes. If you don't
+        /// specify a time zone, CloudWatch uses <c>UTC</c>.</para><para>The time zone affects window alignment for all periods, including periods of one hour
+        /// or shorter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EvaluationWindow_WallClockWindow_Timezone { get; set; }
         #endregion
         
         #region Parameter TreatMissingData
@@ -553,6 +579,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.EvaluationCriteria_PromQLCriteria_RecoveryPeriod = this.EvaluationCriteria_PromQLCriteria_RecoveryPeriod;
             context.EvaluationInterval = this.EvaluationInterval;
             context.EvaluationPeriod = this.EvaluationPeriod;
+            context.EvaluationWindow_SlidingWindow = this.EvaluationWindow_SlidingWindow;
+            context.EvaluationWindow_WallClockWindow_Timezone = this.EvaluationWindow_WallClockWindow_Timezone;
             context.ExtendedStatistic = this.ExtendedStatistic;
             if (this.InsufficientDataAction != null)
             {
@@ -688,6 +716,50 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.EvaluationPeriods = cmdletContext.EvaluationPeriod.Value;
             }
+            
+             // populate EvaluationWindow
+            var requestEvaluationWindowIsNull = true;
+            request.EvaluationWindow = new Amazon.CloudWatch.Model.EvaluationWindow();
+            Amazon.CloudWatch.Model.SlidingWindow requestEvaluationWindow_evaluationWindow_SlidingWindow = null;
+            if (cmdletContext.EvaluationWindow_SlidingWindow != null)
+            {
+                requestEvaluationWindow_evaluationWindow_SlidingWindow = cmdletContext.EvaluationWindow_SlidingWindow;
+            }
+            if (requestEvaluationWindow_evaluationWindow_SlidingWindow != null)
+            {
+                request.EvaluationWindow.SlidingWindow = requestEvaluationWindow_evaluationWindow_SlidingWindow;
+                requestEvaluationWindowIsNull = false;
+            }
+            Amazon.CloudWatch.Model.WallClockWindow requestEvaluationWindow_evaluationWindow_WallClockWindow = null;
+            
+             // populate WallClockWindow
+            var requestEvaluationWindow_evaluationWindow_WallClockWindowIsNull = true;
+            requestEvaluationWindow_evaluationWindow_WallClockWindow = new Amazon.CloudWatch.Model.WallClockWindow();
+            System.String requestEvaluationWindow_evaluationWindow_WallClockWindow_evaluationWindow_WallClockWindow_Timezone = null;
+            if (cmdletContext.EvaluationWindow_WallClockWindow_Timezone != null)
+            {
+                requestEvaluationWindow_evaluationWindow_WallClockWindow_evaluationWindow_WallClockWindow_Timezone = cmdletContext.EvaluationWindow_WallClockWindow_Timezone;
+            }
+            if (requestEvaluationWindow_evaluationWindow_WallClockWindow_evaluationWindow_WallClockWindow_Timezone != null)
+            {
+                requestEvaluationWindow_evaluationWindow_WallClockWindow.Timezone = requestEvaluationWindow_evaluationWindow_WallClockWindow_evaluationWindow_WallClockWindow_Timezone;
+                requestEvaluationWindow_evaluationWindow_WallClockWindowIsNull = false;
+            }
+             // determine if requestEvaluationWindow_evaluationWindow_WallClockWindow should be set to null
+            if (requestEvaluationWindow_evaluationWindow_WallClockWindowIsNull)
+            {
+                requestEvaluationWindow_evaluationWindow_WallClockWindow = null;
+            }
+            if (requestEvaluationWindow_evaluationWindow_WallClockWindow != null)
+            {
+                request.EvaluationWindow.WallClockWindow = requestEvaluationWindow_evaluationWindow_WallClockWindow;
+                requestEvaluationWindowIsNull = false;
+            }
+             // determine if request.EvaluationWindow should be set to null
+            if (requestEvaluationWindowIsNull)
+            {
+                request.EvaluationWindow = null;
+            }
             if (cmdletContext.ExtendedStatistic != null)
             {
                 request.ExtendedStatistic = cmdletContext.ExtendedStatistic;
@@ -808,6 +880,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.Int32? EvaluationCriteria_PromQLCriteria_RecoveryPeriod { get; set; }
             public System.Int32? EvaluationInterval { get; set; }
             public System.Int32? EvaluationPeriod { get; set; }
+            public Amazon.CloudWatch.Model.SlidingWindow EvaluationWindow_SlidingWindow { get; set; }
+            public System.String EvaluationWindow_WallClockWindow_Timezone { get; set; }
             public System.String ExtendedStatistic { get; set; }
             public List<System.String> InsufficientDataAction { get; set; }
             public System.String MetricName { get; set; }

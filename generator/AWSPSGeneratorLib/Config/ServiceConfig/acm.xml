@@ -24,7 +24,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAcmeDomainValidation" OutputProperty="AcmeDomainValidationArn" Verb="New" Noun="AcmeDomainValidation" ShouldProcessTarget="DomainName,AcmeEndpointArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAcmeEndpoint" OutputProperty="AcmeEndpointArn" Verb="New" Noun="AcmeEndpoint" ShouldProcessTarget="AuthorizationBehavior" PipelineParameter="AuthorizationBehavior" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAcmeExternalAccountBinding" OutputProperty="ExternalAccountBinding" Verb="New" Noun="AcmeExternalAccountBinding" ShouldProcessTarget="AcmeEndpointArn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAcmeDomainValidation" Verb="Remove" Noun="AcmeDomainValidation" ShouldProcessTarget="AcmeDomainValidationArn" PipelineParameter="AcmeDomainValidationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAcmeEndpoint" Verb="Remove" Noun="AcmeEndpoint" ShouldProcessTarget="AcmeEndpointArn" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAcmeExternalAccountBinding" Verb="Remove" Noun="AcmeExternalAccountBinding" ShouldProcessTarget="AcmeExternalAccountBindingArn" PipelineParameter="AcmeExternalAccountBindingArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAcmeAccount" OutputProperty="AcmeAccount" Verb="Get" Noun="AcmeAccountDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAcmeDomainValidation" OutputProperty="AcmeDomainValidation" Verb="Get" Noun="AcmeDomainValidationDetail" PipelineParameter="AcmeDomainValidationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAcmeEndpoint" OutputProperty="AcmeEndpoint" Verb="Get" Noun="AcmeEndpointDetail" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAcmeExternalAccountBinding" OutputProperty="ExternalAccountBinding" Verb="Get" Noun="AcmeExternalAccountBindingDetail" PipelineParameter="AcmeExternalAccountBindingArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,6 +80,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAcmeExternalAccountBindingCredentials" OutputProperty="*" Verb="Get" Noun="AcmeExternalAccountBindingCredential" PipelineParameter="AcmeExternalAccountBindingArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCertificate" OutputProperty="*" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -48,11 +92,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAcmeAccounts" OutputProperty="AcmeAccounts" Verb="Get" Noun="AcmeAccountList" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAcmeDomainValidations" OutputProperty="AcmeDomainValidations" Verb="Get" Noun="AcmeDomainValidationList" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAcmeEndpoints" OutputProperty="AcmeEndpoints" Verb="Get" Noun="AcmeEndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAcmeExternalAccountBindings" OutputProperty="ExternalAccountBindings" Verb="Get" Noun="AcmeExternalAccountBindingList" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForCertificate" OutputProperty="Tags" Verb="Get" Noun="CertificateTagList" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,11 +140,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RevokeAcmeAccount" Verb="Revoke" Noun="AcmeAccount" ShouldProcessTarget="AcmeEndpointArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeAcmeExternalAccountBinding" Verb="Revoke" Noun="AcmeExternalAccountBinding" ShouldProcessTarget="AcmeExternalAccountBindingArn" PipelineParameter="AcmeExternalAccountBindingArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeCertificate" OutputProperty="CertificateArn" Verb="Revoke" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchCertificates" OutputProperty="Results" Verb="Search" Noun="Certificate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAcmeDomainValidation" Verb="Update" Noun="AcmeDomainValidation" ShouldProcessTarget="AcmeDomainValidationArn" PipelineParameter="AcmeDomainValidationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAcmeEndpoint" Verb="Update" Noun="AcmeEndpoint" ShouldProcessTarget="AcmeEndpointArn" PipelineParameter="AcmeEndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

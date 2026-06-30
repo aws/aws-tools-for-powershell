@@ -119,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfig_DisableRollback
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to disable rollback of the stack if the stack operation fails.</para><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+        #endregion
+        
         #region Parameter DisableRollback
         /// <summary>
         /// <para>
@@ -127,6 +137,32 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DisableRollback { get; set; }
+        #endregion
+        
+        #region Parameter DisableValidation
+        /// <summary>
+        /// <para>
+        /// <para> Set to <c>true</c> to disable pre-deployment validations in changeset or stack operations.
+        /// </para><para> Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableValidation { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the deployment mode for the stack operation. Possible values are:</para><ul><li><para><c>STANDARD</c> - Use the standard deployment behavior, ensuring resources are ready
+        /// to serve traffic before completing the operation. This is the default. You do not
+        /// need to specify this value explicitly.</para></li><li><para><c>EXPRESS</c> - Complete the stack operation when resource configuration is applied,
+        /// without waiting for resources to become ready to serve traffic. Resources continue
+        /// becoming ready in the background.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.DeploymentConfigMode")]
+        public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
         #endregion
         
         #region Parameter RollbackConfiguration_MonitoringTimeInMinute
@@ -435,7 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Capability = new List<System.String>(this.Capability);
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.DeploymentConfig_DisableRollback = this.DeploymentConfig_DisableRollback;
+            context.DeploymentConfig_Mode = this.DeploymentConfig_Mode;
             context.DisableRollback = this.DisableRollback;
+            context.DisableValidation = this.DisableValidation;
             if (this.NotificationARNs != null)
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
@@ -497,9 +536,42 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
+            
+             // populate DeploymentConfig
+            var requestDeploymentConfigIsNull = true;
+            request.DeploymentConfig = new Amazon.CloudFormation.Model.DeploymentConfig();
+            System.Boolean? requestDeploymentConfig_deploymentConfig_DisableRollback = null;
+            if (cmdletContext.DeploymentConfig_DisableRollback != null)
+            {
+                requestDeploymentConfig_deploymentConfig_DisableRollback = cmdletContext.DeploymentConfig_DisableRollback.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_DisableRollback != null)
+            {
+                request.DeploymentConfig.DisableRollback = requestDeploymentConfig_deploymentConfig_DisableRollback.Value;
+                requestDeploymentConfigIsNull = false;
+            }
+            Amazon.CloudFormation.DeploymentConfigMode requestDeploymentConfig_deploymentConfig_Mode = null;
+            if (cmdletContext.DeploymentConfig_Mode != null)
+            {
+                requestDeploymentConfig_deploymentConfig_Mode = cmdletContext.DeploymentConfig_Mode;
+            }
+            if (requestDeploymentConfig_deploymentConfig_Mode != null)
+            {
+                request.DeploymentConfig.Mode = requestDeploymentConfig_deploymentConfig_Mode;
+                requestDeploymentConfigIsNull = false;
+            }
+             // determine if request.DeploymentConfig should be set to null
+            if (requestDeploymentConfigIsNull)
+            {
+                request.DeploymentConfig = null;
+            }
             if (cmdletContext.DisableRollback != null)
             {
                 request.DisableRollback = cmdletContext.DisableRollback.Value;
+            }
+            if (cmdletContext.DisableValidation != null)
+            {
+                request.DisableValidation = cmdletContext.DisableValidation.Value;
             }
             if (cmdletContext.NotificationARNs != null)
             {
@@ -643,7 +715,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public List<System.String> Capability { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+            public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
             public System.Boolean? DisableRollback { get; set; }
+            public System.Boolean? DisableValidation { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
             public List<System.String> ResourceType { get; set; }

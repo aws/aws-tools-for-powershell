@@ -141,6 +141,19 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.DeploymentConfigMode
+        {
+            ($_ -eq "New-CFNChangeSet/DeploymentConfig_Mode") -Or
+            ($_ -eq "New-CFNStack/DeploymentConfig_Mode") -Or
+            ($_ -eq "Remove-CFNStack/DeploymentConfig_Mode") -Or
+            ($_ -eq "Undo-CFNStack/DeploymentConfig_Mode") -Or
+            ($_ -eq "Update-CFNStack/DeploymentConfig_Mode")
+        }
+        {
+            $v = "EXPRESS","STANDARD"
+            break
+        }
+
         # Amazon.CloudFormation.DeploymentMode
         "New-CFNChangeSet/DeploymentMode"
         {
@@ -347,6 +360,7 @@ $CFN_map = @{
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeletionMode"=@("Remove-CFNStack")
+    "DeploymentConfig_Mode"=@("New-CFNChangeSet","New-CFNStack","Remove-CFNStack","Undo-CFNStack","Update-CFNStack")
     "DeploymentMode"=@("New-CFNChangeSet")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")

@@ -99,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or unique stack ID for which you want to retrieve events.</para>
+        /// <para>The name or unique stack ID for which you want to retrieve events. If you specified
+        /// the name of a change set, specify the stack name or ID (ARN) of the change set you
+        /// want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

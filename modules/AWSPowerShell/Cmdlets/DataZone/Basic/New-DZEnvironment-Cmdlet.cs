@@ -104,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EnvironmentBlueprintIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the blueprint with which the environment is being created.</para>
+        /// <para>The ID of the blueprint with which the environment is being created.</para><note><para>This parameter is only valid for V1 domains. If provided for a V2 domain, the service
+        /// returns a ValidationException.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

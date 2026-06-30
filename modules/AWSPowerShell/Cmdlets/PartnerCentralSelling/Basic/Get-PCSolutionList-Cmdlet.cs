@@ -47,6 +47,20 @@ namespace Amazon.PowerShell.Cmdlets.PC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AwsMarketplaceSolutionArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters results by AWS Marketplace solution ARN. You can provide up to 10 ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AwsMarketplaceSolutionArn { get; set; }
+        #endregion
+        
         #region Parameter Catalog
         /// <summary>
         /// <para>
@@ -210,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListSolutionsResponse, GetPCSolutionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AwsMarketplaceSolutionArn != null)
+            {
+                context.AwsMarketplaceSolutionArn = new List<System.String>(this.AwsMarketplaceSolutionArn);
+            }
             context.Catalog = this.Catalog;
             #if MODULAR
             if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
@@ -260,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             // create request and set iteration invariants
             var request = new Amazon.PartnerCentralSelling.Model.ListSolutionsRequest();
             
+            if (cmdletContext.AwsMarketplaceSolutionArn != null)
+            {
+                request.AwsMarketplaceSolutionArn = cmdletContext.AwsMarketplaceSolutionArn;
+            }
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
@@ -389,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AwsMarketplaceSolutionArn { get; set; }
             public System.String Catalog { get; set; }
             public List<System.String> Category { get; set; }
             public List<System.String> Identifier { get; set; }

@@ -1240,6 +1240,9 @@
     <Reference Include="AWSSDK.SupportApp">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SupportApp.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SupportAuthZ">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SupportAuthZ.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Sustainability">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Sustainability.dll</HintPath>
     </Reference>
@@ -2511,6 +2514,9 @@
     </Reference>
     <Reference Include="AWSSDK.SupportApp">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SupportApp.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SupportAuthZ">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SupportAuthZ.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Sustainability">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Sustainability.dll</HintPath>

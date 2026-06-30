@@ -1,4 +1,81 @@
-﻿### 5.0.242 (2026-06-29 19:21Z)
+﻿### 5.0.243 (2026-06-30 19:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.278.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Certificate Manager
+    * Added cmdlet Add-ACMResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ACMAcmeAccountDetail leveraging the DescribeAcmeAccount service API.
+    * Added cmdlet Get-ACMAcmeAccountList leveraging the ListAcmeAccounts service API.
+    * Added cmdlet Get-ACMAcmeDomainValidationDetail leveraging the DescribeAcmeDomainValidation service API.
+    * Added cmdlet Get-ACMAcmeDomainValidationList leveraging the ListAcmeDomainValidations service API.
+    * Added cmdlet Get-ACMAcmeEndpointDetail leveraging the DescribeAcmeEndpoint service API.
+    * Added cmdlet Get-ACMAcmeEndpointList leveraging the ListAcmeEndpoints service API.
+    * Added cmdlet Get-ACMAcmeExternalAccountBindingCredential leveraging the GetAcmeExternalAccountBindingCredentials service API.
+    * Added cmdlet Get-ACMAcmeExternalAccountBindingDetail leveraging the DescribeAcmeExternalAccountBinding service API.
+    * Added cmdlet Get-ACMAcmeExternalAccountBindingList leveraging the ListAcmeExternalAccountBindings service API.
+    * Added cmdlet Get-ACMResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-ACMAcmeDomainValidation leveraging the CreateAcmeDomainValidation service API.
+    * Added cmdlet New-ACMAcmeEndpoint leveraging the CreateAcmeEndpoint service API.
+    * Added cmdlet New-ACMAcmeExternalAccountBinding leveraging the CreateAcmeExternalAccountBinding service API.
+    * Added cmdlet Remove-ACMAcmeDomainValidation leveraging the DeleteAcmeDomainValidation service API.
+    * Added cmdlet Remove-ACMAcmeEndpoint leveraging the DeleteAcmeEndpoint service API.
+    * Added cmdlet Remove-ACMAcmeExternalAccountBinding leveraging the DeleteAcmeExternalAccountBinding service API.
+    * Added cmdlet Remove-ACMResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Revoke-ACMAcmeAccount leveraging the RevokeAcmeAccount service API.
+    * Added cmdlet Revoke-ACMAcmeExternalAccountBinding leveraging the RevokeAcmeExternalAccountBinding service API.
+    * Added cmdlet Update-ACMAcmeDomainValidation leveraging the UpdateAcmeDomainValidation service API.
+    * Added cmdlet Update-ACMAcmeEndpoint leveraging the UpdateAcmeEndpoint service API.
+    * Modified cmdlet Get-ACMCertificateList: added parameter CertificateKeyPairOrigin.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Disable-CRSIntermediateTable leveraging the DisallowIntermediateTable service API.
+    * Added cmdlet Get-CRSIntermediateTable leveraging the GetIntermediateTable service API.
+    * Added cmdlet Get-CRSIntermediateTableAnalysisRule leveraging the GetIntermediateTableAnalysisRule service API.
+    * Added cmdlet Get-CRSIntermediateTableList leveraging the ListIntermediateTables service API.
+    * Added cmdlet Get-CRSIntermediateTableVersionList leveraging the ListIntermediateTableVersions service API.
+    * Added cmdlet Import-CRSIntermediateTable leveraging the PopulateIntermediateTable service API.
+    * Added cmdlet New-CRSIntermediateTable leveraging the CreateIntermediateTable service API.
+    * Added cmdlet New-CRSIntermediateTableAnalysisRule leveraging the CreateIntermediateTableAnalysisRule service API.
+    * Added cmdlet Remove-CRSIntermediateTable leveraging the DeleteIntermediateTable service API.
+    * Added cmdlet Remove-CRSIntermediateTableAnalysisRule leveraging the DeleteIntermediateTableAnalysisRule service API.
+    * Added cmdlet Update-CRSIntermediateTable leveraging the UpdateIntermediateTable service API.
+    * Added cmdlet Update-CRSIntermediateTableAnalysisRule leveraging the UpdateIntermediateTableAnalysisRule service API.
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses and AnalysisRulePolicy_V1_Custom_AllowedResultReceiver.
+    * Modified cmdlet Start-CRSProtectedQuery: added parameters ResultConfiguration_OutputConfiguration_IntermediateTable_Arn, ResultConfiguration_OutputConfiguration_IntermediateTable_Id and ResultConfiguration_OutputConfiguration_IntermediateTable_Name.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses and AnalysisRulePolicy_V1_Custom_AllowedResultReceiver.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNChangeSet: added parameters DeploymentConfig_DisableRollback, DeploymentConfig_Mode and DisableValidation.
+    * Modified cmdlet New-CFNStack: added parameters DeploymentConfig_DisableRollback, DeploymentConfig_Mode and DisableValidation.
+    * Modified cmdlet Remove-CFNStack: added parameters DeploymentConfig_DisableRollback and DeploymentConfig_Mode.
+    * Modified cmdlet Undo-CFNStack: added parameters DeploymentConfig_DisableRollback and DeploymentConfig_Mode.
+    * Modified cmdlet Update-CFNStack: added parameters DeploymentConfig_DisableRollback, DeploymentConfig_Mode and DisableValidation.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWMetricAlarm: added parameters EvaluationWindow_SlidingWindow and EvaluationWindow_WallClockWindow_Timezone.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet Test-CWOADMNTelemetryPipeline: added parameter SignalType.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter Environment_HostKernel.
+    * Modified cmdlet Start-CBBuild: added parameter HostKernelOverride.
+    * Modified cmdlet Update-CBProject: added parameter Environment_HostKernel.
+  * Amazon Connect Service
+    * Added cmdlet New-CONNAttachedFile leveraging the CreateAttachedFile service API.
+    * Added cmdlet Start-CONNContactConversationalAnalyticsJob leveraging the StartContactConversationalAnalyticsJob service API.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters Props_SnowflakeProperties_ConnectivityProperties_AthenaProperty, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_AuthenticationType, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_BasicAuthenticationCredentials_Password, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_CustomAuthenticationCredential, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_KmsKeyArn, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_UserManagedClientApplicationClientId, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_AccessToken, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_JwtToken, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_RefreshToken, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_UserManagedClientApplicationClientSecret, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_OAuth2GrantType, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_TokenUrl, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_OAuth2Properties_TokenUrlParametersMap, Props_SnowflakeProperties_ConnectivityProperties_AuthenticationConfiguration_SecretArn, Props_SnowflakeProperties_ConnectivityProperties_ConnectionProperty, Props_SnowflakeProperties_ConnectivityProperties_Description, Props_SnowflakeProperties_ConnectivityProperties_Name, Props_SnowflakeProperties_ConnectivityProperties_PhysicalConnectionRequirements_AvailabilityZone, Props_SnowflakeProperties_ConnectivityProperties_PhysicalConnectionRequirements_SecurityGroupIdList, Props_SnowflakeProperties_ConnectivityProperties_PhysicalConnectionRequirements_SubnetId, Props_SnowflakeProperties_ConnectivityProperties_PhysicalConnectionRequirements_SubnetIdList, Props_SnowflakeProperties_ConnectivityProperties_PythonProperty, Props_SnowflakeProperties_ConnectivityProperties_SparkProperty, Props_SnowflakeProperties_ConnectivityProperties_ValidateCredential, Props_SnowflakeProperties_ConnectivityProperties_ValidateForComputeEnvironment, Props_SnowflakeProperties_IdentityMapping_Prefix, Props_SnowflakeProperties_IdentityMapping_UsernameAttribute, Props_SnowflakeProperties_LineageSync_Enabled, Props_SnowflakeProperties_LineageSync_Schedule, Props_SnowflakeProperties_LineageSync_Timezone and Props_SnowflakeProperties_SnowflakeRole.
+    * Modified cmdlet Update-DZConnection: added parameters Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_Password, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_BasicAuthenticationCredentials_UserName, Props_SnowflakeProperties_ConnectivityPropertiesPatch_AuthenticationConfiguration_SecretArn, Props_SnowflakeProperties_ConnectivityPropertiesPatch_ConnectionProperty, Props_SnowflakeProperties_ConnectivityPropertiesPatch_Description, Props_SnowflakeProperties_LineageSync_Enabled, Props_SnowflakeProperties_LineageSync_Schedule, Props_SnowflakeProperties_LineageSync_Timezone and Props_SnowflakeProperties_SnowflakeRole.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2VpcEndpointPayerResponsibility leveraging the ModifyVpcEndpointPayerResponsibility service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Stop-EKSUpdate leveraging the CancelUpdate service API.
+    * Modified cmdlet Update-EKSClusterVersion: added parameter RollbackConfig_TimeoutMinute.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWContainerAssociationDetail leveraging the DescribeContainerAssociation service API.
+    * Added cmdlet Get-NWFWContainerAssociationList leveraging the ListContainerAssociations service API.
+    * Added cmdlet New-NWFWContainerAssociation leveraging the CreateContainerAssociation service API.
+    * Added cmdlet Remove-NWFWContainerAssociation leveraging the DeleteContainerAssociation service API.
+    * Added cmdlet Update-NWFWContainerAssociation leveraging the UpdateContainerAssociation service API.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Get-PCSolutionList: added parameter AwsMarketplaceSolutionArn.
+  * Amazon SupportAuthZ. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SUPAZ and can be listed using the command 'Get-AWSCmdletName -Service SUPAZ'.
+
+### 5.0.242 (2026-06-29 19:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.277.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Added cmdlet Get-APPCExperimentDefinition leveraging the GetExperimentDefinition service API.

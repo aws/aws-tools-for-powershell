@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// on the CA. You will continue to be charged for the CA until it is deleted. For more
     /// information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PCADeleteCA.html">
     /// Deleting Your Private CA</a> in the <i>Private Certificate Authority User Guide</i>.
+    /// </para><para>
+    /// You cannot delete a certificate with a <c>CertificateKeyPairOrigin</c> of <c>ACME</c>.
+    /// ACM automatically deletes these certificates 1 year after they expire.
     /// </para></note><para>
     /// Deleting a certificate issued by a private certificate authority (CA) has no effect
     /// on the CA. You will continue to be charged for the CA until it is deleted. For more

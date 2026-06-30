@@ -444,6 +444,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String CloudWatchLogs_GroupName { get; set; }
         #endregion
         
+        #region Parameter Environment_HostKernel
+        /// <summary>
+        /// <para>
+        /// <para>The host operating system kernel used for on-demand builds in the build project. The
+        /// host kernel does not affect the build environment operating system, which is determined
+        /// by the image you specify. Valid values are:</para><ul><li><para><c>LINUX_KERNEL_4</c>: Runs on an Amazon Linux 2 host (kernel 4.x).</para></li><li><para><c>LINUX_KERNEL_6</c>: Runs on an Amazon Linux 2023 host (kernel 6.x).</para></li><li><para><c>LINUX_KERNEL_LATEST</c>: Runs on the latest supported host kernel.</para></li></ul><para>This setting applies to the <c>LINUX_CONTAINER</c>, <c>ARM_CONTAINER</c>, <c>LINUX_EC2</c>,
+        /// and <c>ARM_EC2</c> environment types. It is not applicable to Windows, Lambda, or
+        /// Mac environment types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.HostKernel")]
+        public Amazon.CodeBuild.HostKernel Environment_HostKernel { get; set; }
+        #endregion
+        
         #region Parameter Environment_Image
         /// <summary>
         /// <para>
@@ -1281,6 +1296,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.Environment_EnvironmentVariable = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
             }
             context.Fleet_FleetArn = this.Fleet_FleetArn;
+            context.Environment_HostKernel = this.Environment_HostKernel;
             context.Environment_Image = this.Environment_Image;
             #if MODULAR
             if (this.Environment_Image == null && ParameterWasBound(nameof(this.Environment_Image)))
@@ -1690,6 +1706,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironment_environment_EnvironmentVariable != null)
             {
                 request.Environment.EnvironmentVariables = requestEnvironment_environment_EnvironmentVariable;
+                requestEnvironmentIsNull = false;
+            }
+            Amazon.CodeBuild.HostKernel requestEnvironment_environment_HostKernel = null;
+            if (cmdletContext.Environment_HostKernel != null)
+            {
+                requestEnvironment_environment_HostKernel = cmdletContext.Environment_HostKernel;
+            }
+            if (requestEnvironment_environment_HostKernel != null)
+            {
+                request.Environment.HostKernel = requestEnvironment_environment_HostKernel;
                 requestEnvironmentIsNull = false;
             }
             System.String requestEnvironment_environment_Image = null;
@@ -2388,6 +2414,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Status_Status { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariable { get; set; }
             public System.String Fleet_FleetArn { get; set; }
+            public Amazon.CodeBuild.HostKernel Environment_HostKernel { get; set; }
             public System.String Environment_Image { get; set; }
             public Amazon.CodeBuild.ImagePullCredentialsType Environment_ImagePullCredentialsType { get; set; }
             public System.Boolean? Environment_PrivilegedMode { get; set; }

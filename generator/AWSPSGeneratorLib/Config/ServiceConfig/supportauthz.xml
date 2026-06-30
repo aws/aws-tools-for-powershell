@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>supportauthz</C2jFilename>
+    <AssemblyName>SupportAuthZ</AssemblyName>
+    <ServiceNounPrefix>SUPAZ</ServiceNounPrefix>
+    <ServiceName>SupportAuthZ</ServiceName>
+    <ServiceId>SupportAuthZ</ServiceId>
+    <ServiceClientInterface>IAmazonSupportAuthZ</ServiceClientInterface>
+    <ServiceClient>AmazonSupportAuthZClient</ServiceClient>
+    <ServiceModuleGuid>e4edcf47-42a0-4ca9-b814-c905d654fa23</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateSupportPermit" OutputProperty="*" Verb="New" Noun="SupportPermit" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSupportPermit" OutputProperty="*" Verb="Remove" Noun="SupportPermit" ShouldProcessTarget="SupportPermitIdentifier" PipelineParameter="SupportPermitIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="Action" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSupportPermit" OutputProperty="*" Verb="Get" Noun="SupportPermit" PipelineParameter="SupportPermitIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="Service" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportPermitRequests" OutputProperty="SupportPermitRequests" Verb="Get" Noun="SupportPermitRequestList" PipelineParameter="SupportCaseDisplayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportPermits" OutputProperty="SupportPermits" Verb="Get" Noun="SupportPermitList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectSupportPermitRequest" OutputProperty="RequestArn" Verb="Deny" Noun="SupportPermitRequest" ShouldProcessTarget="RequestArn" PipelineParameter="RequestArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

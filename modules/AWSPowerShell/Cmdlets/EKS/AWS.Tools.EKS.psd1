@@ -141,6 +141,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EKSPodIdentityAssociation', 
         'Remove-EKSResourceTag', 
         'Start-EKSInsightsRefresh', 
+        'Stop-EKSUpdate', 
         'Unregister-EKSCluster', 
         'Update-EKSAccessEntry', 
         'Update-EKSAddon', 

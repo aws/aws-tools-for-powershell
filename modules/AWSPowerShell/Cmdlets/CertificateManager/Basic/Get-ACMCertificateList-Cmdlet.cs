@@ -33,7 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// Retrieves a list of certificate ARNs and domain names. You can request that only certificates
     /// that match a specific status be listed. You can also filter by specific attributes
     /// of the certificate. Default filtering returns only <c>RSA_2048</c> certificates. For
-    /// more information, see <a>Filters</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// more information, see <a>Filters</a>.
+    /// 
+    ///  <note><para>
+    /// By default, this action does not return certificates with a <c>CertificateKeyPairOrigin</c>
+    /// of <c>ACME</c>. To include ACME certificates, specify <c>ACME</c> in the <c>CertificateKeyPairOrigins</c>
+    /// filter.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -47,6 +53,23 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter CertificateKeyPairOrigin
+        /// <summary>
+        /// <para>
+        /// <para>Filter the certificate list by certificate key pair origin. Specify one or more <c>CertificateKeyPairOrigin</c>
+        /// values. Default filtering returns only certificates with key pair origin of <c>AWS_MANAGED</c>
+        /// and <c>CUSTOMER_PROVIDED</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CertificateKeyPairOrigins")]
+        public System.String[] CertificateKeyPairOrigin { get; set; }
+        #endregion
         
         #region Parameter CertificateStatus
         /// <summary>
@@ -231,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 context.Select = CreateSelectDelegate<Amazon.CertificateManager.Model.ListCertificatesResponse, GetACMCertificateListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.CertificateKeyPairOrigin != null)
+            {
+                context.CertificateKeyPairOrigin = new List<System.String>(this.CertificateKeyPairOrigin);
+            }
             if (this.CertificateStatus != null)
             {
                 context.CertificateStatus = new List<System.String>(this.CertificateStatus);
@@ -281,6 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             // create request and set iteration invariants
             var request = new Amazon.CertificateManager.Model.ListCertificatesRequest();
             
+            if (cmdletContext.CertificateKeyPairOrigin != null)
+            {
+                request.CertificateKeyPairOrigins = cmdletContext.CertificateKeyPairOrigin;
+            }
             if (cmdletContext.CertificateStatus != null)
             {
                 request.CertificateStatuses = cmdletContext.CertificateStatus;
@@ -411,6 +442,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             
             // create request and set iteration invariants
             var request = new Amazon.CertificateManager.Model.ListCertificatesRequest();
+            if (cmdletContext.CertificateKeyPairOrigin != null)
+            {
+                request.CertificateKeyPairOrigins = cmdletContext.CertificateKeyPairOrigin;
+            }
             if (cmdletContext.CertificateStatus != null)
             {
                 request.CertificateStatuses = cmdletContext.CertificateStatus;
@@ -595,6 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CertificateKeyPairOrigin { get; set; }
             public List<System.String> CertificateStatus { get; set; }
             public Amazon.CertificateManager.CertificateExport Includes_ExportOption { get; set; }
             public List<System.String> Includes_ExtendedKeyUsage { get; set; }

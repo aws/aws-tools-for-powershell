@@ -84,6 +84,8 @@ $CRS_Completers = {
         {
             ($_ -eq "New-CRSConfiguredTableAnalysisRule/Aggregation_AdditionalAnalysis") -Or
             ($_ -eq "Update-CRSConfiguredTableAnalysisRule/Aggregation_AdditionalAnalysis") -Or
+            ($_ -eq "New-CRSIntermediateTableAnalysisRule/AnalysisRulePolicy_V1_Custom_AdditionalAnalyses") -Or
+            ($_ -eq "Update-CRSIntermediateTableAnalysisRule/AnalysisRulePolicy_V1_Custom_AdditionalAnalyses") -Or
             ($_ -eq "New-CRSConfiguredTableAnalysisRule/Custom_AdditionalAnalysis") -Or
             ($_ -eq "Update-CRSConfiguredTableAnalysisRule/Custom_AdditionalAnalysis") -Or
             ($_ -eq "New-CRSConfiguredTableAnalysisRule/List_AdditionalAnalysis") -Or
@@ -206,6 +208,18 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.IntermediateTableAnalysisRuleType
+        {
+            ($_ -eq "Get-CRSIntermediateTableAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "New-CRSIntermediateTableAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "Remove-CRSIntermediateTableAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "Update-CRSIntermediateTableAnalysisRule/AnalysisRuleType")
+        }
+        {
+            $v = "CUSTOM"
+            break
+        }
+
         # Amazon.CleanRooms.JobType
         "Invoke-CRSIdMappingTable/JobType"
         {
@@ -318,7 +332,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.SchemaType
         "Get-CRSSchemaList/SchemaType"
         {
-            $v = "ID_MAPPING_TABLE","TABLE"
+            $v = "ID_MAPPING_TABLE","INTERMEDIATE_TABLE","TABLE"
             break
         }
 
@@ -337,7 +351,10 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.WorkerComputeType
-        "Start-CRSProtectedQuery/Worker_Type"
+        {
+            ($_ -eq "Import-CRSIntermediateTable/ComputeConfiguration_QueryComputeConfiguration_Type") -Or
+            ($_ -eq "Start-CRSProtectedQuery/Worker_Type")
+        }
         {
             $v = "CR.1X","CR.4X"
             break
@@ -356,10 +373,12 @@ $CRS_map = @{
     "Aggregation_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
-    "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
+    "AnalysisRulePolicy_V1_Custom_AdditionalAnalyses"=@("New-CRSIntermediateTableAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
+    "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","Get-CRSIntermediateTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","New-CRSIntermediateTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSIntermediateTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
+    "ComputeConfiguration_QueryComputeConfiguration_Type"=@("Import-CRSIntermediateTable")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
@@ -441,6 +460,8 @@ $CRS_SelectMap = @{
                "New-CRSConfiguredTableAssociationAnalysisRule",
                "New-CRSIdMappingTable",
                "New-CRSIdNamespaceAssociation",
+               "New-CRSIntermediateTable",
+               "New-CRSIntermediateTableAnalysisRule",
                "New-CRSMembership",
                "New-CRSPrivacyBudgetTemplate",
                "Remove-CRSAnalysisTemplate",
@@ -452,9 +473,12 @@ $CRS_SelectMap = @{
                "Remove-CRSConfiguredTableAssociationAnalysisRule",
                "Remove-CRSIdMappingTable",
                "Remove-CRSIdNamespaceAssociation",
+               "Remove-CRSIntermediateTable",
+               "Remove-CRSIntermediateTableAnalysisRule",
                "Remove-CRSMember",
                "Remove-CRSMembership",
                "Remove-CRSPrivacyBudgetTemplate",
+               "Disable-CRSIntermediateTable",
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
@@ -469,6 +493,8 @@ $CRS_SelectMap = @{
                "Get-CRSConfiguredTableAssociationAnalysisRule",
                "Get-CRSIdMappingTable",
                "Get-CRSIdNamespaceAssociation",
+               "Get-CRSIntermediateTable",
+               "Get-CRSIntermediateTableAnalysisRule",
                "Get-CRSMembership",
                "Get-CRSPrivacyBudgetTemplate",
                "Get-CRSProtectedJob",
@@ -488,6 +514,8 @@ $CRS_SelectMap = @{
                "Get-CRSConfiguredTableList",
                "Get-CRSIdMappingTableList",
                "Get-CRSIdNamespaceAssociationList",
+               "Get-CRSIntermediateTableList",
+               "Get-CRSIntermediateTableVersionList",
                "Get-CRSMemberList",
                "Get-CRSMembershipList",
                "Get-CRSPrivacyBudgetList",
@@ -497,6 +525,7 @@ $CRS_SelectMap = @{
                "Get-CRSSchemaList",
                "Get-CRSResourceTag",
                "Invoke-CRSIdMappingTable",
+               "Import-CRSIntermediateTable",
                "Test-CRSPrivacyImpact",
                "Start-CRSProtectedJob",
                "Start-CRSProtectedQuery",
@@ -512,6 +541,8 @@ $CRS_SelectMap = @{
                "Update-CRSConfiguredTableAssociationAnalysisRule",
                "Update-CRSIdMappingTable",
                "Update-CRSIdNamespaceAssociation",
+               "Update-CRSIntermediateTable",
+               "Update-CRSIntermediateTableAnalysisRule",
                "Update-CRSMembership",
                "Update-CRSPrivacyBudgetTemplate",
                "Update-CRSProtectedJob",

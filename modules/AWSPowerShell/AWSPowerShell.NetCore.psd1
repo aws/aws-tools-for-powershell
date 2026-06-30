@@ -446,6 +446,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.StorageGateway.dll',
         'AWSSDK.SupplyChain.dll',
         'AWSSDK.SupportApp.dll',
+        'AWSSDK.SupportAuthZ.dll',
         'AWSSDK.Sustainability.dll',
         'AWSSDK.Synthetics.dll',
         'AWSSDK.TaxSettings.dll',

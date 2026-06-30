@@ -186,14 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>A description of the collaboration provided by the collaboration owner.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
         #endregion
         
@@ -213,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para>Indicates whether the collaboration creator has configured the collaboration member
         /// to pay for query and job compute costs (<c>TRUE</c>) or has not configured the collaboration
-        /// member to pay for query and job compute costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for query and job compute costs. An error
-        /// is returned if the collaboration creator sets a <c>TRUE</c> value for more than one
-        /// member in the collaboration. </para><para>An error is returned if the collaboration creator sets a <c>FALSE</c> value for the
+        /// member to pay for query and job compute costs (<c>FALSE</c>).</para><para>One or more members can be configured as payer candidates for query and job compute
+        /// costs.</para><para>An error is returned if the collaboration creator sets a <c>FALSE</c> value for the
         /// member who can run queries and jobs.</para>
         /// </para>
         /// </summary>
@@ -229,11 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para>Indicates whether the collaboration creator has configured the collaboration member
         /// to pay for model inference costs (<c>TRUE</c>) or has not configured the collaboration
-        /// member to pay for model inference costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for model inference costs. An error is
-        /// returned if the collaboration creator sets a <c>TRUE</c> value for more than one member
-        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for model
-        /// inference costs, then the member who can query is the default payer. An error is returned
-        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
+        /// member to pay for model inference costs (<c>FALSE</c>).</para><para>One or more members can be configured as payer candidates for model inference costs.</para><para>If the collaboration creator hasn't specified anyone as the member paying for model
+        /// inference costs, then the member who can query is the default payer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,11 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para>Indicates whether the collaboration creator has configured the collaboration member
         /// to pay for model training costs (<c>TRUE</c>) or has not configured the collaboration
-        /// member to pay for model training costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for model training costs. An error is
-        /// returned if the collaboration creator sets a <c>TRUE</c> value for more than one member
-        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for model
-        /// training costs, then the member who can query is the default payer. An error is returned
-        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
+        /// member to pay for model training costs (<c>FALSE</c>).</para><para>One or more members can be configured as payer candidates for model training costs.</para><para>If the collaboration creator hasn't specified anyone as the member paying for model
+        /// training costs, then the member who can query is the default payer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,11 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>
         /// <para>Indicates whether the collaboration creator has configured the collaboration member
         /// to pay for query compute costs (<c>TRUE</c>) or has not configured the collaboration
-        /// member to pay for query compute costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for query compute costs. An error is returned
-        /// if the collaboration creator sets a <c>TRUE</c> value for more than one member in
-        /// the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for query
-        /// compute costs, then the member who can query is the default payer. An error is returned
-        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
+        /// member to pay for query compute costs (<c>FALSE</c>).</para><para>One or more members can be configured as payer candidates for query compute costs.</para><para>If the collaboration creator hasn't specified anyone as the member paying for query
+        /// compute costs, then the member who can query is the default payer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -470,12 +453,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName = this.DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName;
             context.DataEncryptionMetadata_PreserveNull = this.DataEncryptionMetadata_PreserveNull;
             context.Description = this.Description;
-            #if MODULAR
-            if (this.Description == null && ParameterWasBound(nameof(this.Description)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.IsMetricsEnabled = this.IsMetricsEnabled;
             context.JobLogStatus = this.JobLogStatus;
             if (this.Member != null)

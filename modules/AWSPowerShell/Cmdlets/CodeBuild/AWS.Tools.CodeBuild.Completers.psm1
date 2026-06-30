@@ -248,6 +248,17 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.HostKernel
+        {
+            ($_ -eq "New-CBProject/Environment_HostKernel") -Or
+            ($_ -eq "Update-CBProject/Environment_HostKernel") -Or
+            ($_ -eq "Start-CBBuild/HostKernelOverride")
+        }
+        {
+            $v = "LINUX_KERNEL_4","LINUX_KERNEL_6","LINUX_KERNEL_LATEST"
+            break
+        }
+
         # Amazon.CodeBuild.ImagePullCredentialsType
         {
             ($_ -eq "New-CBProject/Environment_ImagePullCredentialsType") -Or
@@ -498,12 +509,14 @@ $CB_map = @{
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "DockerServer_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
+    "Environment_HostKernel"=@("New-CBProject","Update-CBProject")
     "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "EnvironmentType"=@("New-CBFleet","Update-CBFleet")
     "EnvironmentTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "ExportConfig_ExportConfigType"=@("New-CBReportGroup","Update-CBReportGroup")
     "Filter_Status"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBReportList","Get-CBReportsForReportGroupList")
+    "HostKernelOverride"=@("Start-CBBuild")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")

@@ -216,6 +216,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2VpcEncryptionControl', 
         'Edit-EC2VpcEndpoint', 
         'Edit-EC2VpcEndpointConnectionNotification', 
+        'Edit-EC2VpcEndpointPayerResponsibility', 
         'Edit-EC2VpcEndpointServiceConfiguration', 
         'Edit-EC2VpcEndpointServicePayerResponsibility', 
         'Edit-EC2VpcPeeringConnectionOption', 

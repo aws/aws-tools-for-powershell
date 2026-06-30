@@ -316,6 +316,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String CloudWatchLogs_GroupName { get; set; }
         #endregion
         
+        #region Parameter HostKernelOverride
+        /// <summary>
+        /// <para>
+        /// <para>The host operating system kernel for this build that overrides the one specified in
+        /// the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.HostKernel")]
+        public Amazon.CodeBuild.HostKernel HostKernelOverride { get; set; }
+        #endregion
+        
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
@@ -852,6 +864,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.FleetOverride_FleetArn = this.FleetOverride_FleetArn;
             context.GitCloneDepthOverride = this.GitCloneDepthOverride;
             context.GitSubmodulesConfigOverride_FetchSubmodule = this.GitSubmodulesConfigOverride_FetchSubmodule;
+            context.HostKernelOverride = this.HostKernelOverride;
             context.IdempotencyToken = this.IdempotencyToken;
             context.ImageOverride = this.ImageOverride;
             context.ImagePullCredentialsTypeOverride = this.ImagePullCredentialsTypeOverride;
@@ -1171,6 +1184,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.GitSubmodulesConfigOverride = null;
             }
+            if (cmdletContext.HostKernelOverride != null)
+            {
+                request.HostKernelOverride = cmdletContext.HostKernelOverride;
+            }
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
@@ -1484,6 +1501,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String FleetOverride_FleetArn { get; set; }
             public System.Int32? GitCloneDepthOverride { get; set; }
             public System.Boolean? GitSubmodulesConfigOverride_FetchSubmodule { get; set; }
+            public Amazon.CodeBuild.HostKernel HostKernelOverride { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.String ImageOverride { get; set; }
             public Amazon.CodeBuild.ImagePullCredentialsType ImagePullCredentialsTypeOverride { get; set; }

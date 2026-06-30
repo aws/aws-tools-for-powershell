@@ -35,8 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// and an optional <c>value</c>. You specify the certificate on input by its Amazon Resource
     /// Name (ARN). You specify the tag by using a key-value pair. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This action applies only to the <c>certificate</c> resource type. For all other ACM
+    /// resource types, use <a>TagResource</a> instead.
+    /// </para></note><para>
     /// You can apply a tag to just one certificate if you want to identify a specific characteristic
     /// of that certificate, or you can apply the same tag to multiple certificates if you
     /// want to filter for a common relationship among those certificates. Similarly, you

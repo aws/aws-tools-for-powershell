@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.Model.Record[] Record { get; set; }
         #endregion
         
+        #region Parameter SignalType
+        /// <summary>
+        /// <para>
+        /// <para>The type of telemetry signal to test. If not specified, defaults to log processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.SignalType")]
+        public Amazon.ObservabilityAdmin.SignalType SignalType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
@@ -132,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SignalType = this.SignalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (cmdletContext.Record != null)
             {
                 request.Records = cmdletContext.Record;
+            }
+            if (cmdletContext.SignalType != null)
+            {
+                request.SignalType = cmdletContext.SignalType;
             }
             
             CmdletOutput output;
@@ -228,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         {
             public System.String Configuration_Body { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.Record> Record { get; set; }
+            public Amazon.ObservabilityAdmin.SignalType SignalType { get; set; }
             public System.Func<Amazon.ObservabilityAdmin.Model.TestTelemetryPipelineResponse, TestCWOADMNTelemetryPipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Results;
         }

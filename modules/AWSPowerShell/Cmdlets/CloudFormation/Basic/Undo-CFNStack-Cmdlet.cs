@@ -67,6 +67,31 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfig_DisableRollback
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to disable rollback of the stack if the stack operation fails.</para><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the deployment mode for the stack operation. Possible values are:</para><ul><li><para><c>STANDARD</c> - Use the standard deployment behavior, ensuring resources are ready
+        /// to serve traffic before completing the operation. This is the default. You do not
+        /// need to specify this value explicitly.</para></li><li><para><c>EXPRESS</c> - Complete the stack operation when resource configuration is applied,
+        /// without waiting for resources to become ready to serve traffic. Resources continue
+        /// becoming ready in the background.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.DeploymentConfigMode")]
+        public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
+        #endregion
+        
         #region Parameter RetainExceptOnCreate
         /// <summary>
         /// <para>
@@ -153,6 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.DeploymentConfig_DisableRollback = this.DeploymentConfig_DisableRollback;
+            context.DeploymentConfig_Mode = this.DeploymentConfig_Mode;
             context.RetainExceptOnCreate = this.RetainExceptOnCreate;
             context.RoleARN = this.RoleARN;
             context.StackName = this.StackName;
@@ -181,6 +208,35 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate DeploymentConfig
+            var requestDeploymentConfigIsNull = true;
+            request.DeploymentConfig = new Amazon.CloudFormation.Model.DeploymentConfig();
+            System.Boolean? requestDeploymentConfig_deploymentConfig_DisableRollback = null;
+            if (cmdletContext.DeploymentConfig_DisableRollback != null)
+            {
+                requestDeploymentConfig_deploymentConfig_DisableRollback = cmdletContext.DeploymentConfig_DisableRollback.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_DisableRollback != null)
+            {
+                request.DeploymentConfig.DisableRollback = requestDeploymentConfig_deploymentConfig_DisableRollback.Value;
+                requestDeploymentConfigIsNull = false;
+            }
+            Amazon.CloudFormation.DeploymentConfigMode requestDeploymentConfig_deploymentConfig_Mode = null;
+            if (cmdletContext.DeploymentConfig_Mode != null)
+            {
+                requestDeploymentConfig_deploymentConfig_Mode = cmdletContext.DeploymentConfig_Mode;
+            }
+            if (requestDeploymentConfig_deploymentConfig_Mode != null)
+            {
+                request.DeploymentConfig.Mode = requestDeploymentConfig_deploymentConfig_Mode;
+                requestDeploymentConfigIsNull = false;
+            }
+             // determine if request.DeploymentConfig should be set to null
+            if (requestDeploymentConfigIsNull)
+            {
+                request.DeploymentConfig = null;
             }
             if (cmdletContext.RetainExceptOnCreate != null)
             {
@@ -250,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? DeploymentConfig_DisableRollback { get; set; }
+            public Amazon.CloudFormation.DeploymentConfigMode DeploymentConfig_Mode { get; set; }
             public System.Boolean? RetainExceptOnCreate { get; set; }
             public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }

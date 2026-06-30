@@ -1,0 +1,3 @@
+﻿# SupportAuthZ
+
+Export-ModuleMember -Alias *

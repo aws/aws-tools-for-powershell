@@ -286,7 +286,7 @@ $PC_Completers = {
             ($_ -eq "Invoke-PCDisassociateOpportunity/RelatedEntityType")
         }
         {
-            $v = "AwsMarketplaceOffers","AwsMarketplaceOfferSets","AwsProducts","Solutions"
+            $v = "AwsMarketplaceOffers","AwsMarketplaceOfferSets","AwsMarketplaceProducts","AwsMarketplaceSolutions","AwsProducts","Solutions"
             break
         }
 

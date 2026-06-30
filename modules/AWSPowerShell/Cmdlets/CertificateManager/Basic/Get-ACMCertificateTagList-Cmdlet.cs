@@ -33,7 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// Lists the tags that have been applied to the ACM certificate. Use the certificate's
     /// Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
     /// use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a>
-    /// action.
+    /// action. 
+    /// 
+    ///  <note><para>
+    /// This action applies only to the <c>certificate</c> resource type. For all other ACM
+    /// resource types, use <a>ListTagsForResource</a> instead.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ACMCertificateTagList")]
     [OutputType("Amazon.CertificateManager.Model.Tag")]

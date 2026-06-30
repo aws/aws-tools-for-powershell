@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerAssociation" OutputProperty="*" Verb="New" Noun="ContainerAssociation" ShouldProcessTarget="ContainerAssociationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFirewall" OutputProperty="*" Verb="New" Noun="Firewall" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerAssociation" OutputProperty="*" Verb="Remove" Noun="ContainerAssociation" ShouldProcessTarget="ContainerAssociationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFirewall" OutputProperty="*" Verb="Remove" Noun="Firewall" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -133,6 +141,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcEndpointAssociation" OutputProperty="*" Verb="Remove" Noun="VpcEndpointAssociation" ShouldProcessTarget="VpcEndpointAssociationArn" PipelineParameter="VpcEndpointAssociationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContainerAssociation" OutputProperty="*" Verb="Get" Noun="ContainerAssociationDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +228,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContainerAssociations" OutputProperty="ContainerAssociations" Verb="Get" Noun="ContainerAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFirewallPolicies" OutputProperty="FirewallPolicies" Verb="Get" Noun="FirewallPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -289,6 +305,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAvailabilityZoneChangeProtection" OutputProperty="*" Verb="Update" Noun="AvailabilityZoneChangeProtection" ShouldProcessTarget="" PipelineParameter="AvailabilityZoneChangeProtection" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContainerAssociation" OutputProperty="*" Verb="Update" Noun="ContainerAssociation" ShouldProcessTarget="ContainerAssociationName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
