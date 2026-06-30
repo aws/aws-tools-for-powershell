@@ -467,4 +467,53 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             }
         }
     }
+
+    Context "No Modules To Process Messaging" {
+        BeforeEach {
+            # No imported modules, no modules found on disk
+            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = @(); Installer = @() } }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+        }
+
+        It "Should report no other versions to remove when ExceptVersion is specified" {
+            # Act
+            Uninstall-AWSToolsModule -ExceptVersion "5.0.241" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Skipped uninstallation: No other AWS.Tools module versions found to remove in *"
+            }
+        }
+
+        It "Should report no other versions to remove when ExceptModules is specified" {
+            # Act
+            Uninstall-AWSToolsModule -ExceptModules @(@{ Name = 'AWS.Tools.Common'; Version = '5.0.241' }) -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Skipped uninstallation: No other AWS.Tools module versions found to remove in *"
+            }
+        }
+
+        It "Should report no modules found when no exclusion filter is specified" {
+            # Act
+            Uninstall-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Skipped uninstallation: No AWS.Tools modules found (all versions) in *"
+            }
+        }
+
+        It "Should report no modules found for a specific version not installed" {
+            # Act
+            Uninstall-AWSToolsModule -Version "4.1.0" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Skipped uninstallation: No AWS.Tools modules found (version 4.1.0*) in *"
+            }
+        }
+    }
 }

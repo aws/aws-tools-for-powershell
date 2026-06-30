@@ -13,7 +13,61 @@ InModuleScope AWS.Tools.Installer {
     Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Installer - Resolve-AWSToolsVersion Private Function Tests" {
         
         Context "Null and Empty Version Handling" {
-            It "Should return null for null version" {
+            BeforeEach {
+                # Mock Invoke-WithRetry to simulate successful HEAD response for latest version
+                Mock Invoke-WithRetry { 
+                    param($ScriptBlock, $OperationName)
+                    if ($OperationName -eq "Resolve latest version") {
+                        return @{ 
+                            Headers = @{ 
+                                'Content-Disposition' = 'attachment; filename=AWS.Tools.5.0.233.zip' 
+                            } 
+                        }
+                    }
+                }
+            }
+            
+            It "Should resolve latest version for null version" {
+                # Act
+                $result = Resolve-AWSToolsVersion -Version $null
+                
+                # Assert
+                $result | Should -BeOfType [Version]
+                $result.ToString() | Should -Be "5.0.233"
+                
+                # Verify HEAD request was made
+                Should -Invoke Invoke-WithRetry -ParameterFilter { 
+                    $OperationName -eq "Resolve latest version" 
+                } -Times 1
+            }
+            
+            It "Should resolve latest version for empty string version" {
+                # Act
+                $result = Resolve-AWSToolsVersion -Version ""
+                
+                # Assert
+                $result | Should -BeOfType [Version]
+                $result.ToString() | Should -Be "5.0.233"
+            }
+            
+            It "Should resolve latest version for whitespace-only version" {
+                # Act
+                $result = Resolve-AWSToolsVersion -Version "   "
+                
+                # Assert
+                $result | Should -BeOfType [Version]
+                $result.ToString() | Should -Be "5.0.233"
+            }
+            
+            It "Should return null when HEAD request fails for latest version" {
+                # Arrange - Mock failure
+                Mock Invoke-WithRetry { 
+                    param($ScriptBlock, $OperationName)
+                    if ($OperationName -eq "Resolve latest version") {
+                        throw "Network error"
+                    }
+                }
+                
                 # Act
                 $result = Resolve-AWSToolsVersion -Version $null
                 
@@ -21,20 +75,17 @@ InModuleScope AWS.Tools.Installer {
                 $result | Should -BeNullOrEmpty
             }
             
-            It "Should return null for empty string version" {
-                # Act
-                $result = Resolve-AWSToolsVersion -Version ""
+            It "Should use DefaultMajorVersion from config for latest resolution" {
+                # Act - verify HEAD request is made regardless of configured major version
+                $result = Resolve-AWSToolsVersion -Name 'AWS.Tools' -Version $null
                 
                 # Assert
-                $result | Should -BeNullOrEmpty
-            }
-            
-            It "Should return null for whitespace-only version" {
-                # Act
-                $result = Resolve-AWSToolsVersion -Version "   "
+                $result | Should -BeOfType [Version]
                 
-                # Assert
-                $result | Should -BeNullOrEmpty
+                # Verify HEAD request was made with correct operation name
+                Should -Invoke Invoke-WithRetry -ParameterFilter { 
+                    $OperationName -eq "Resolve latest version" 
+                } -Times 1
             }
         }
         

@@ -69,19 +69,39 @@ namespace Amazon.PowerShell.Installer.Tests
         }
 
         [Fact]
-        public void ExtractAndInstall_MissingModule_ThrowsTyped()
+        public void ExtractAndInstall_MissingMandatoryModule_ThrowsTyped()
         {
             var zip = Fixtures.BuildSyntheticZip(Path.Combine(_tempRoot, "AWS.Tools.zip"),
-                ("AWS.Tools.Common", "5.0.151"),
                 ("AWS.Tools.S3", "5.0.151"));
             var target = Path.Combine(_tempRoot, "modules");
 
             var ex = Assert.Throws<MissingModulesException>(() =>
                 ModuleInstaller.ExtractAndInstall(zip, target,
-                    moduleNames: new[] { "AWS.Tools.NotARealModule" },
-                    mandatoryModules: null));
+                    moduleNames: new[] { "AWS.Tools.S3" },
+                    mandatoryModules: new[] { "AWS.Tools.Common" }));
 
-            Assert.Contains("AWS.Tools.NotARealModule", ex.MissingModules);
+            Assert.Contains("AWS.Tools.Common", ex.MissingModules);
+        }
+
+        [Fact]
+        public void ExtractAndInstall_MissingNonMandatoryModule_SkippedNotThrown()
+        {
+            // Simulates the Update-AWSToolsModule scenario: a module that was installed locally
+            // (e.g. AWS.Tools.IoTEvents) no longer exists in the target version's archive.
+            // The install should succeed for the modules that DO exist.
+            var zip = Fixtures.BuildSyntheticZip(Path.Combine(_tempRoot, "AWS.Tools.zip"),
+                ("AWS.Tools.Common", "5.0.151"),
+                ("AWS.Tools.S3", "5.0.151"));
+            var target = Path.Combine(_tempRoot, "modules");
+
+            var results = ModuleInstaller.ExtractAndInstall(zip, target,
+                moduleNames: new[] { "AWS.Tools.S3", "AWS.Tools.IoTEvents", "AWS.Tools.Panorama" },
+                mandatoryModules: new[] { "AWS.Tools.Common" });
+
+            Assert.Contains(results, r => r.Name == "AWS.Tools.Common");
+            Assert.Contains(results, r => r.Name == "AWS.Tools.S3");
+            Assert.DoesNotContain(results, r => r.Name == "AWS.Tools.IoTEvents");
+            Assert.DoesNotContain(results, r => r.Name == "AWS.Tools.Panorama");
         }
 
         [Fact]
