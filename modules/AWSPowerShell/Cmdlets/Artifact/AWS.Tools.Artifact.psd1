@@ -87,13 +87,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-ARTResourceTag', 
+        'Export-ARTComplianceInquiry', 
         'Get-ARTAccountSetting', 
+        'Get-ARTComplianceInquiryList', 
+        'Get-ARTComplianceInquiryMetadata', 
+        'Get-ARTComplianceInquiryQueryList', 
         'Get-ARTCustomerAgreementList', 
         'Get-ARTReport', 
         'Get-ARTReportList', 
         'Get-ARTReportMetadata', 
         'Get-ARTReportVersionList', 
+        'Get-ARTResourceTag', 
         'Get-ARTTermForReport', 
+        'New-ARTComplianceInquiry', 
+        'Remove-ARTResourceTag', 
         'Write-ARTAccountSetting')
 
     # Variables to export from this module

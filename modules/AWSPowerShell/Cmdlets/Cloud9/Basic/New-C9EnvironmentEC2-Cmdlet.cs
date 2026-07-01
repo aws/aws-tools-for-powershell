@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// for Cloud9. This change is necessary as Ubuntu 18.04 has ended standard support on
         /// May 31, 2023. This change will only affect direct API consumers, and not Cloud9 console
         /// users.</para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
-        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux 2: <c>amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>ubuntu-22.04-x86_64</c></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux 2: <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</c></para></li></ul>
+        /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux 2023 (recommended): <c>amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>ubuntu-22.04-x86_64</c></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux 2023 (recommended): <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

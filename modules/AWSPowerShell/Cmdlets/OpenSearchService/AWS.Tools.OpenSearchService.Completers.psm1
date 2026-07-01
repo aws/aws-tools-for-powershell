@@ -131,10 +131,30 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DomainUseCase
+        {
+            ($_ -eq "New-OSDomain/UseCase") -Or
+            ($_ -eq "Update-OSDomainConfig/UseCase")
+        }
+        {
+            $v = "MIXED","OBSERVABILITY","SEARCH","VECTOR"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
             $v = "Basic","Verbose"
+            break
+        }
+
+        # Amazon.OpenSearchService.EngineMode
+        {
+            ($_ -eq "New-OSDomain/EngineMode") -Or
+            ($_ -eq "Update-OSDomainConfig/EngineMode")
+        }
+        {
+            $v = "GENERAL","OPTIMIZED"
             break
         }
 
@@ -152,6 +172,20 @@ $OS_Completers = {
         }
         {
             $v = "Account","DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightFeedbackEntityType
+        "Send-OSInsightFeedback/Entity_Type"
+        {
+            $v = "DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightFeedbackThumbs
+        "Send-OSInsightFeedback/Thumb"
+        {
+            $v = "Down","Up"
             break
         }
 
@@ -334,8 +368,9 @@ $OS_map = @{
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
+    "EngineMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
-    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList")
+    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList","Send-OSInsightFeedback")
     "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
     "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -349,6 +384,8 @@ $OS_map = @{
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
+    "Thumb"=@("Send-OSInsightFeedback")
+    "UseCase"=@("New-OSDomain","Update-OSDomainConfig")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map
@@ -458,6 +495,7 @@ $OS_SelectMap = @{
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
+               "Send-OSInsightFeedback",
                "Get-OSApplicationList",
                "Get-OSDataSourceAttachmentList",
                "Get-OSDataSourceList",

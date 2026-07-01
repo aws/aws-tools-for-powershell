@@ -47,6 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CpuOptions_AmdSevSnp
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP)
+        /// is enabled or disabled for the Dedicated Host. If you don't specify a value, AMD SEV-SNP
+        /// is <c>disabled</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.AmdSevSnp")]
+        public Amazon.EC2.AmdSevSnp CpuOptions_AmdSevSnp { get; set; }
+        #endregion
+        
         #region Parameter AssetId
         /// <summary>
         /// <para>
@@ -262,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.ClientToken = this.ClientToken;
+            context.CpuOptions_AmdSevSnp = this.CpuOptions_AmdSevSnp;
             context.HostMaintenance = this.HostMaintenance;
             context.HostRecovery = this.HostRecovery;
             context.InstanceFamily = this.InstanceFamily;
@@ -307,6 +321,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate CpuOptions
+            var requestCpuOptionsIsNull = true;
+            request.CpuOptions = new Amazon.EC2.Model.HostCpuOptionsRequest();
+            Amazon.EC2.AmdSevSnp requestCpuOptions_cpuOptions_AmdSevSnp = null;
+            if (cmdletContext.CpuOptions_AmdSevSnp != null)
+            {
+                requestCpuOptions_cpuOptions_AmdSevSnp = cmdletContext.CpuOptions_AmdSevSnp;
+            }
+            if (requestCpuOptions_cpuOptions_AmdSevSnp != null)
+            {
+                request.CpuOptions.AmdSevSnp = requestCpuOptions_cpuOptions_AmdSevSnp;
+                requestCpuOptionsIsNull = false;
+            }
+             // determine if request.CpuOptions should be set to null
+            if (requestCpuOptionsIsNull)
+            {
+                request.CpuOptions = null;
             }
             if (cmdletContext.HostMaintenance != null)
             {
@@ -396,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AvailabilityZone { get; set; }
             public System.String AvailabilityZoneId { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.EC2.AmdSevSnp CpuOptions_AmdSevSnp { get; set; }
             public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
             public System.String InstanceFamily { get; set; }

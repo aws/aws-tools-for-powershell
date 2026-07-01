@@ -436,6 +436,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? DomainEndpointOptions_EnforceHTTPS { get; set; }
         #endregion
         
+        #region Parameter EngineMode
+        /// <summary>
+        /// <para>
+        /// <para>The engine mode for the domain. For valid values and requirements, see <c>EngineMode</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.EngineMode")]
+        public Amazon.OpenSearchService.EngineMode EngineMode { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -930,6 +941,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
         #endregion
         
+        #region Parameter UseCase
+        /// <summary>
+        /// <para>
+        /// <para>The primary use case for the domain. For valid values, see <c>DomainUseCase</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.DomainUseCase")]
+        public Amazon.OpenSearchService.DomainUseCase UseCase { get; set; }
+        #endregion
+        
         #region Parameter SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen
         /// <summary>
         /// <para>
@@ -1157,6 +1179,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
             context.EncryptionAtRestOptions_Enabled = this.EncryptionAtRestOptions_Enabled;
             context.EncryptionAtRestOptions_KmsKeyId = this.EncryptionAtRestOptions_KmsKeyId;
+            context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.IdentityCenterOptions_EnabledAPIAccess = this.IdentityCenterOptions_EnabledAPIAccess;
             context.IdentityCenterOptions_IdentityCenterInstanceARN = this.IdentityCenterOptions_IdentityCenterInstanceARN;
@@ -1183,6 +1206,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 context.TagList = new List<Amazon.OpenSearchService.Model.Tag>(this.TagList);
             }
+            context.UseCase = this.UseCase;
             context.VPCOptions_EgressEnabled = this.VPCOptions_EgressEnabled;
             if (this.VPCOptions_SecurityGroupId != null)
             {
@@ -2070,6 +2094,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.EncryptionAtRestOptions = null;
             }
+            if (cmdletContext.EngineMode != null)
+            {
+                request.EngineMode = cmdletContext.EngineMode;
+            }
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
@@ -2281,6 +2309,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.TagList = cmdletContext.TagList;
             }
+            if (cmdletContext.UseCase != null)
+            {
+                request.UseCase = cmdletContext.UseCase;
+            }
             
              // populate VPCOptions
             var requestVPCOptionsIsNull = true;
@@ -2439,6 +2471,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.VolumeType EBSOptions_VolumeType { get; set; }
             public System.Boolean? EncryptionAtRestOptions_Enabled { get; set; }
             public System.String EncryptionAtRestOptions_KmsKeyId { get; set; }
+            public Amazon.OpenSearchService.EngineMode EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
             public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
@@ -2455,6 +2488,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Boolean? SoftwareUpdateOptions_AutoSoftwareUpdateEnabled { get; set; }
             public System.Boolean? SoftwareUpdateOptions_UseLatestServiceSoftwareForBlueGreen { get; set; }
             public List<Amazon.OpenSearchService.Model.Tag> TagList { get; set; }
+            public Amazon.OpenSearchService.DomainUseCase UseCase { get; set; }
             public System.Boolean? VPCOptions_EgressEnabled { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }

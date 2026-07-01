@@ -158,6 +158,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-OSResourceTag', 
         'Remove-OSVpcEndpoint', 
         'Revoke-OSVpcEndpointAccess', 
+        'Send-OSInsightFeedback', 
         'Start-OSAssociatePackage', 
         'Start-OSDissociatePackage', 
         'Start-OSDomainMaintenance', 

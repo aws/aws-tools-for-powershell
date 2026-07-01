@@ -191,6 +191,7 @@ $GMLS_SelectMap = @{
                "Connect-GMLSApplication",
                "New-GMLSApplication",
                "New-GMLSStreamGroup",
+               "New-GMLSStreamSessionAdminShell",
                "New-GMLSStreamSessionConnection",
                "Remove-GMLSApplication",
                "Remove-GMLSStreamGroup",

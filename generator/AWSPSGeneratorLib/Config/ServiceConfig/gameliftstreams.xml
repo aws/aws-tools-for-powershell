@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamSessionAdminShell" OutputProperty="*" Verb="New" Noun="StreamSessionAdminShell" ShouldProcessTarget="Identifier,StreamSessionIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamSessionConnection" OutputProperty="*" Verb="New" Noun="StreamSessionConnection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

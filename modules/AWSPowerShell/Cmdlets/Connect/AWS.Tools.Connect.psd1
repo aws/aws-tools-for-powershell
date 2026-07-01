@@ -364,6 +364,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Search-CONNWorkspaceAssociation', 
         'Send-CONNChatIntegrationEvent', 
         'Send-CONNOutboundEmail', 
+        'Send-CONNOutboundWebNotification', 
         'Set-CONNBatchPutContact', 
         'Start-CONNAttachedFileUpload', 
         'Start-CONNChatContact', 

@@ -5132,6 +5132,13 @@ $ART_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Artifact.InquirySupportMode
+        "New-ARTComplianceInquiry/SupportMode"
+        {
+            $v = "AI_ONLY","FULL_SUPPORT"
+            break
+        }
+
         # Amazon.Artifact.NotificationSubscriptionStatus
         "Write-ARTAccountSetting/NotificationSubscriptionStatus"
         {
@@ -5149,6 +5156,7 @@ $ART_Completers = {
 
 $ART_map = @{
     "NotificationSubscriptionStatus"=@("Write-ARTAccountSetting")
+    "SupportMode"=@("New-ARTComplianceInquiry")
 }
 
 _awsArgumentCompleterRegistration $ART_Completers $ART_map
@@ -5201,14 +5209,22 @@ $ART_SelectCompleters = {
 }
 
 $ART_SelectMap = @{
-    "Select"=@("Get-ARTAccountSetting",
+    "Select"=@("New-ARTComplianceInquiry",
+               "Export-ARTComplianceInquiry",
+               "Get-ARTAccountSetting",
+               "Get-ARTComplianceInquiryMetadata",
                "Get-ARTReport",
                "Get-ARTReportMetadata",
                "Get-ARTTermForReport",
+               "Get-ARTComplianceInquiryList",
+               "Get-ARTComplianceInquiryQueryList",
                "Get-ARTCustomerAgreementList",
                "Get-ARTReportList",
                "Get-ARTReportVersionList",
-               "Write-ARTAccountSetting")
+               "Get-ARTResourceTag",
+               "Write-ARTAccountSetting",
+               "Add-ARTResourceTag",
+               "Remove-ARTResourceTag")
 }
 
 _awsArgumentCompleterRegistration $ART_SelectCompleters $ART_SelectMap
@@ -21142,6 +21158,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.NotificationType
+        "Send-CONNOutboundWebNotification/Content_Type"
+        {
+            $v = "WIDGET_ACTION","WIDGET_VIEW"
+            break
+        }
+
         # Amazon.Connect.NumberComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/NumberCondition_ComparisonType") -Or
@@ -21543,6 +21566,7 @@ $CONN_map = @{
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
+    "Content_Type"=@("Send-CONNOutboundWebNotification")
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
@@ -21965,6 +21989,7 @@ $CONN_SelectMap = @{
                "Search-CONNWorkspace",
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
+               "Send-CONNOutboundWebNotification",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactConversationalAnalyticsJob",
@@ -29550,6 +29575,13 @@ $EC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EC2.AccountVpcEncryptionControlMode
+        "Edit-EC2AccountVpcEncryptionControl/Mode"
+        {
+            $v = "attempt-enforce","attempt-monitor","unmanaged"
+            break
+        }
+
         # Amazon.EC2.AddressAttributeName
         {
             ($_ -eq "Get-EC2AddressesAttribute/Attribute") -Or
@@ -29588,6 +29620,13 @@ $EC2_Completers = {
         "Enable-EC2AllowedImagesSetting/AllowedImagesSettingsState"
         {
             $v = "audit-mode","enabled"
+            break
+        }
+
+        # Amazon.EC2.AmdSevSnp
+        "New-EC2Host/CpuOptions_AmdSevSnp"
+        {
+            $v = "disabled","enabled"
             break
         }
 
@@ -30898,11 +30937,17 @@ $EC2_Completers = {
 
         # Amazon.EC2.VpcEncryptionControlExclusionStateInput
         {
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/EgressOnlyInternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/EgressOnlyInternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/ElasticFileSystem") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/ElasticFileSystemExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/InternetGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/InternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/Lambda") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/LambdaExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/NatGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/NatGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/VirtualPrivateGateway") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/VirtualPrivateGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_EgressOnlyInternetGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ElasticFileSystemExclusion") -Or
@@ -30912,7 +30957,9 @@ $EC2_Completers = {
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VirtualPrivateGatewayExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcLatticeExclusion") -Or
             ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcPeeringExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/VpcLattice") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/VpcLatticeExclusion") -Or
+            ($_ -eq "Edit-EC2AccountVpcEncryptionControl/VpcPeering") -Or
             ($_ -eq "Edit-EC2VpcEncryptionControl/VpcPeeringExclusion")
         }
         {
@@ -31000,6 +31047,7 @@ $EC2_map = @{
     "CidrOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
+    "CpuOptions_AmdSevSnp"=@("New-EC2Host")
     "CurrencyCode"=@("New-EC2HostReservation")
     "DefaultVisibility"=@("Edit-EC2ManagedResourceVisibility")
     "DeliveryPreference"=@("Add-EC2CapacityReservation")
@@ -31009,7 +31057,9 @@ $EC2_map = @{
     "DiskImageFormat"=@("Export-EC2Image")
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
+    "EgressOnlyInternetGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "EgressOnlyInternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "ElasticFileSystem"=@("Edit-EC2AccountVpcEncryptionControl")
     "ElasticFileSystemExclusion"=@("Edit-EC2VpcEncryptionControl")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
     "EndpointIpAddressType"=@("New-EC2ClientVpnEndpoint")
@@ -31040,12 +31090,14 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "InternetGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
     "InternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
+    "Lambda"=@("Edit-EC2AccountVpcEncryptionControl")
     "LambdaExclusion"=@("Edit-EC2VpcEncryptionControl")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
@@ -31069,7 +31121,8 @@ $EC2_map = @{
     "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
     "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam","New-EC2TransitGatewayMeteringPolicyEntry")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
-    "Mode"=@("Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
+    "Mode"=@("Edit-EC2AccountVpcEncryptionControl","Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
+    "NatGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "NestedVirtualization"=@("Edit-EC2InstanceCpuOption")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
@@ -31150,6 +31203,7 @@ $EC2_map = @{
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
+    "VirtualPrivateGateway"=@("Edit-EC2AccountVpcEncryptionControl")
     "VirtualPrivateGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
     "VpcEncryptionControl_EgressOnlyInternetGatewayExclusion"=@("New-EC2Vpc")
@@ -31162,7 +31216,9 @@ $EC2_map = @{
     "VpcEncryptionControl_VpcLatticeExclusion"=@("New-EC2Vpc")
     "VpcEncryptionControl_VpcPeeringExclusion"=@("New-EC2Vpc")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
+    "VpcLattice"=@("Edit-EC2AccountVpcEncryptionControl")
     "VpcLatticeExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "VpcPeering"=@("Edit-EC2AccountVpcEncryptionControl")
     "VpcPeeringExclusion"=@("Edit-EC2VpcEncryptionControl")
 }
 
@@ -31485,6 +31541,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2TransitGatewayMulticastGroupMember",
                "Unregister-EC2TransitGatewayMulticastGroupSource",
                "Get-EC2AccountAttribute",
+               "Get-EC2AccountVpcEncryptionControlDetail",
                "Get-EC2Address",
                "Get-EC2AddressesAttribute",
                "Get-EC2AddressTransfer",
@@ -31821,6 +31878,7 @@ $EC2_SelectMap = @{
                "Get-EC2SnapshotsInRecycleBinList",
                "Get-EC2VolumesInRecycleBinList",
                "Lock-EC2Snapshot",
+               "Edit-EC2AccountVpcEncryptionControl",
                "Edit-EC2AddressAttribute",
                "Edit-EC2AvailabilityZoneGroup",
                "Edit-EC2CapacityReservation",
@@ -38669,6 +38727,7 @@ $GMLS_SelectMap = @{
                "Connect-GMLSApplication",
                "New-GMLSApplication",
                "New-GMLSStreamGroup",
+               "New-GMLSStreamSessionAdminShell",
                "New-GMLSStreamSessionConnection",
                "Remove-GMLSApplication",
                "Remove-GMLSStreamGroup",
@@ -62141,10 +62200,30 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DomainUseCase
+        {
+            ($_ -eq "New-OSDomain/UseCase") -Or
+            ($_ -eq "Update-OSDomainConfig/UseCase")
+        }
+        {
+            $v = "MIXED","OBSERVABILITY","SEARCH","VECTOR"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
             $v = "Basic","Verbose"
+            break
+        }
+
+        # Amazon.OpenSearchService.EngineMode
+        {
+            ($_ -eq "New-OSDomain/EngineMode") -Or
+            ($_ -eq "Update-OSDomainConfig/EngineMode")
+        }
+        {
+            $v = "GENERAL","OPTIMIZED"
             break
         }
 
@@ -62162,6 +62241,20 @@ $OS_Completers = {
         }
         {
             $v = "Account","DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightFeedbackEntityType
+        "Send-OSInsightFeedback/Entity_Type"
+        {
+            $v = "DomainName"
+            break
+        }
+
+        # Amazon.OpenSearchService.InsightFeedbackThumbs
+        "Send-OSInsightFeedback/Thumb"
+        {
+            $v = "Down","Up"
             break
         }
 
@@ -62344,8 +62437,9 @@ $OS_map = @{
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
+    "EngineMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
-    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList")
+    "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList","Send-OSInsightFeedback")
     "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
     "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -62359,6 +62453,8 @@ $OS_map = @{
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "SortOrder"=@("Get-OSInsightList")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
+    "Thumb"=@("Send-OSInsightFeedback")
+    "UseCase"=@("New-OSDomain","Update-OSDomainConfig")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map
@@ -62468,6 +62564,7 @@ $OS_SelectMap = @{
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
+               "Send-OSInsightFeedback",
                "Get-OSApplicationList",
                "Get-OSDataSourceAttachmentList",
                "Get-OSDataSourceList",

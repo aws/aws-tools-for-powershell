@@ -1,4 +1,29 @@
-﻿### 5.0.243 (2026-06-30 19:35Z)
+﻿### 5.0.244 (2026-07-01 19:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.279.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Artifact
+    * Added cmdlet Add-ARTResourceTag leveraging the TagResource service API.
+    * Added cmdlet Export-ARTComplianceInquiry leveraging the ExportComplianceInquiry service API.
+    * Added cmdlet Get-ARTComplianceInquiryList leveraging the ListComplianceInquiries service API.
+    * Added cmdlet Get-ARTComplianceInquiryMetadata leveraging the GetComplianceInquiryMetadata service API.
+    * Added cmdlet Get-ARTComplianceInquiryQueryList leveraging the ListComplianceInquiryQueries service API.
+    * Added cmdlet Get-ARTResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-ARTComplianceInquiry leveraging the CreateComplianceInquiry service API.
+    * Added cmdlet Remove-ARTResourceTag leveraging the UntagResource service API.
+  * Amazon Connect Service
+    * Added cmdlet Send-CONNOutboundWebNotification leveraging the SendOutboundWebNotification service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2AccountVpcEncryptionControl leveraging the ModifyAccountVpcEncryptionControl service API.
+    * Added cmdlet Get-EC2AccountVpcEncryptionControlDetail leveraging the DescribeAccountVpcEncryptionControl service API.
+    * Modified cmdlet Get-EC2VolumeModification: added parameter IncludeManagedResource.
+    * Modified cmdlet New-EC2Host: added parameter CpuOptions_AmdSevSnp.
+  * Amazon GameLiftStreams
+    * Added cmdlet New-GMLSStreamSessionAdminShell leveraging the CreateStreamSessionAdminShell service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Send-OSInsightFeedback leveraging the InsightFeedback service API.
+    * Modified cmdlet New-OSDomain: added parameters EngineMode and UseCase.
+    * Modified cmdlet Update-OSDomainConfig: added parameters EngineMode and UseCase.
+
+### 5.0.243 (2026-06-30 19:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.278.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Certificate Manager
     * Added cmdlet Add-ACMResourceTag leveraging the TagResource service API.

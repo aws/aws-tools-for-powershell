@@ -80,6 +80,13 @@ $ART_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Artifact.InquirySupportMode
+        "New-ARTComplianceInquiry/SupportMode"
+        {
+            $v = "AI_ONLY","FULL_SUPPORT"
+            break
+        }
+
         # Amazon.Artifact.NotificationSubscriptionStatus
         "Write-ARTAccountSetting/NotificationSubscriptionStatus"
         {
@@ -97,6 +104,7 @@ $ART_Completers = {
 
 $ART_map = @{
     "NotificationSubscriptionStatus"=@("Write-ARTAccountSetting")
+    "SupportMode"=@("New-ARTComplianceInquiry")
 }
 
 _awsArgumentCompleterRegistration $ART_Completers $ART_map
@@ -149,14 +157,22 @@ $ART_SelectCompleters = {
 }
 
 $ART_SelectMap = @{
-    "Select"=@("Get-ARTAccountSetting",
+    "Select"=@("New-ARTComplianceInquiry",
+               "Export-ARTComplianceInquiry",
+               "Get-ARTAccountSetting",
+               "Get-ARTComplianceInquiryMetadata",
                "Get-ARTReport",
                "Get-ARTReportMetadata",
                "Get-ARTTermForReport",
+               "Get-ARTComplianceInquiryList",
+               "Get-ARTComplianceInquiryQueryList",
                "Get-ARTCustomerAgreementList",
                "Get-ARTReportList",
                "Get-ARTReportVersionList",
-               "Write-ARTAccountSetting")
+               "Get-ARTResourceTag",
+               "Write-ARTAccountSetting",
+               "Add-ARTResourceTag",
+               "Remove-ARTResourceTag")
 }
 
 _awsArgumentCompleterRegistration $ART_SelectCompleters $ART_SelectMap

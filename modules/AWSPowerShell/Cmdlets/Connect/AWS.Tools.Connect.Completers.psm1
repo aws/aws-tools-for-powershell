@@ -525,6 +525,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.NotificationType
+        "Send-CONNOutboundWebNotification/Content_Type"
+        {
+            $v = "WIDGET_ACTION","WIDGET_VIEW"
+            break
+        }
+
         # Amazon.Connect.NumberComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/NumberCondition_ComparisonType") -Or
@@ -926,6 +933,7 @@ $CONN_map = @{
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
+    "Content_Type"=@("Send-CONNOutboundWebNotification")
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
@@ -1348,6 +1356,7 @@ $CONN_SelectMap = @{
                "Search-CONNWorkspace",
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
+               "Send-CONNOutboundWebNotification",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactConversationalAnalyticsJob",

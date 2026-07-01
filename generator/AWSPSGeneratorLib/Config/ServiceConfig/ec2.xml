@@ -1186,6 +1186,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountVpcEncryptionControl" OutputProperty="AccountVpcEncryptionControl" Verb="Get" Noun="AccountVpcEncryptionControlDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="Address" PositionalParameters="AllocationIds;Filters" PipelineParameter="PublicIps" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2628,6 +2632,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="LockSnapshot" OutputProperty="*" Verb="Lock" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyAccountVpcEncryptionControl" OutputProperty="AccountVpcEncryptionControl" Verb="Edit" Noun="AccountVpcEncryptionControl" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
