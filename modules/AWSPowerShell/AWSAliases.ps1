@@ -6773,6 +6773,7 @@ Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
 Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
 Set-Alias -Name CGIP-GetIdentityProviderByIdentifier -Value Get-CGIPIdentityProviderByIdentifier
 Set-Alias -Name CGIP-GetLogDeliveryConfiguration -Value Get-CGIPLogDeliveryConfiguration
+Set-Alias -Name CGIP-GetProvisionedLimit -Value Get-CGIPProvisionedLimit
 Set-Alias -Name CGIP-GetSigningCertificate -Value Get-CGIPSigningCertificate
 Set-Alias -Name CGIP-GetTokensFromRefreshToken -Value Get-CGIPTokensFromRefreshToken
 Set-Alias -Name CGIP-GetUICustomization -Value Get-CGIPUICustomization
@@ -6852,6 +6853,7 @@ Set-Alias -Name CGIP-UpdateDeviceStatus -Value Edit-CGIPDeviceStatus
 Set-Alias -Name CGIP-UpdateGroup -Value Update-CGIPGroup
 Set-Alias -Name CGIP-UpdateIdentityProvider -Value Update-CGIPIdentityProvider
 Set-Alias -Name CGIP-UpdateManagedLoginBranding -Value Update-CGIPManagedLoginBranding
+Set-Alias -Name CGIP-UpdateProvisionedLimit -Value Update-CGIPProvisionedLimit
 Set-Alias -Name CGIP-UpdateResourceServer -Value Update-CGIPResourceServer
 Set-Alias -Name Update-CGIPTerms -Value Update-CGIPTerm
 Set-Alias -Name CGIP-UpdateTerms -Value Update-CGIPTerm

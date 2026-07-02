@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter Address_ContactPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number of the contact.</para>
+        /// <para>The phone number of the contact, including the country code (for example, <c>+12065550100</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

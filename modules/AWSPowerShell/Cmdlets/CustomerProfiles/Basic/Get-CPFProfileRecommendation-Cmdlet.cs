@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DiversityConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether diversity-aware recommendations are enabled for this request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DiversityConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter MetadataConfig_MetadataColumn
         /// <summary>
         /// <para>
@@ -177,6 +187,23 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter[] RecommenderPromotionalFilter { get; set; }
         #endregion
         
+        #region Parameter DiversityConfig_Value
+        /// <summary>
+        /// <para>
+        /// <para>An optional map of placeholder name to integer cap value used to resolve <c>$name</c>
+        /// placeholders defined in the recommender's <c>DiversityConfig</c> at inference time.
+        /// Up to 2 entries are supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiversityConfig_Values")]
+        public System.Collections.Hashtable DiversityConfig_Value { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -228,6 +255,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 foreach (var hashKey in this.Context.Keys)
                 {
                     context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
+                }
+            }
+            context.DiversityConfig_Enabled = this.DiversityConfig_Enabled;
+            if (this.DiversityConfig_Value != null)
+            {
+                context.DiversityConfig_Value = new Dictionary<System.String, System.Int32>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DiversityConfig_Value.Keys)
+                {
+                    context.DiversityConfig_Value.Add((String)hashKey, (System.Int32)(this.DiversityConfig_Value[hashKey]));
                 }
             }
             context.DomainName = this.DomainName;
@@ -287,6 +323,35 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
+            }
+            
+             // populate DiversityConfig
+            var requestDiversityConfigIsNull = true;
+            request.DiversityConfig = new Amazon.CustomerProfiles.Model.RecommendationDiversityConfig();
+            System.Boolean? requestDiversityConfig_diversityConfig_Enabled = null;
+            if (cmdletContext.DiversityConfig_Enabled != null)
+            {
+                requestDiversityConfig_diversityConfig_Enabled = cmdletContext.DiversityConfig_Enabled.Value;
+            }
+            if (requestDiversityConfig_diversityConfig_Enabled != null)
+            {
+                request.DiversityConfig.Enabled = requestDiversityConfig_diversityConfig_Enabled.Value;
+                requestDiversityConfigIsNull = false;
+            }
+            Dictionary<System.String, System.Int32> requestDiversityConfig_diversityConfig_Value = null;
+            if (cmdletContext.DiversityConfig_Value != null)
+            {
+                requestDiversityConfig_diversityConfig_Value = cmdletContext.DiversityConfig_Value;
+            }
+            if (requestDiversityConfig_diversityConfig_Value != null)
+            {
+                request.DiversityConfig.Values = requestDiversityConfig_diversityConfig_Value;
+                requestDiversityConfigIsNull = false;
+            }
+             // determine if request.DiversityConfig should be set to null
+            if (requestDiversityConfigIsNull)
+            {
+                request.DiversityConfig = null;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -388,6 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             public List<System.String> CandidateId { get; set; }
             public Dictionary<System.String, System.String> Context { get; set; }
+            public System.Boolean? DiversityConfig_Enabled { get; set; }
+            public Dictionary<System.String, System.Int32> DiversityConfig_Value { get; set; }
             public System.String DomainName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<System.String> MetadataConfig_MetadataColumn { get; set; }

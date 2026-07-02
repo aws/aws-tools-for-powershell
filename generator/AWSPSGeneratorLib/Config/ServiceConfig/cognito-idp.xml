@@ -343,6 +343,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProvisionedLimit" OutputProperty="*" Verb="Get" Noun="ProvisionedLimit" PipelineParameter="LimitDefinition_LimitClass" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSigningCertificate" OutputProperty="Certificate" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -537,6 +541,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateManagedLoginBranding" OutputProperty="ManagedLoginBranding" Verb="Update" Noun="ManagedLoginBranding" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProvisionedLimit" OutputProperty="*" Verb="Update" Noun="ProvisionedLimit" ShouldProcessTarget="RequestedLimitValue" PipelineParameter="RequestedLimitValue" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

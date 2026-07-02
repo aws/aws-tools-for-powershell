@@ -151,6 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String OrganizationConformancePackName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags for the organization conformance pack. Each tag consists of a key and an
+        /// optional value, both of which you define.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ConfigService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
@@ -238,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 WriteWarning("You are passing $null as a value for parameter OrganizationConformancePackName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ConfigService.Model.Tag>(this.Tag);
+            }
             context.TemplateBody = this.TemplateBody;
             context.TemplateS3Uri = this.TemplateS3Uri;
             
@@ -275,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.OrganizationConformancePackName != null)
             {
                 request.OrganizationConformancePackName = cmdletContext.OrganizationConformancePackName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TemplateBody != null)
             {
@@ -344,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String DeliveryS3KeyPrefix { get; set; }
             public List<System.String> ExcludedAccount { get; set; }
             public System.String OrganizationConformancePackName { get; set; }
+            public List<Amazon.ConfigService.Model.Tag> Tag { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateS3Uri { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutOrganizationConformancePackResponse, WriteCFGOrganizationConformancePackCmdlet, object> Select { get; set; } =

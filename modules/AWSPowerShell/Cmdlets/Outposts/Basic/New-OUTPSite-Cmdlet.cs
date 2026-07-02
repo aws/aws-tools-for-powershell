@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OperatingAddress_ContactPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number of the contact.</para>
+        /// <para>The phone number of the contact, including the country code (for example, <c>+12065550100</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter ShippingAddress_ContactPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number of the contact.</para>
+        /// <para>The phone number of the contact, including the country code (for example, <c>+12065550100</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

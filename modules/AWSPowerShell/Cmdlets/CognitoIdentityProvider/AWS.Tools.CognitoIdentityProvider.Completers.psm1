@@ -255,6 +255,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.LimitClass
+        {
+            ($_ -eq "Get-CGIPProvisionedLimit/LimitDefinition_LimitClass") -Or
+            ($_ -eq "Update-CGIPProvisionedLimit/LimitDefinition_LimitClass")
+        }
+        {
+            $v = "API_CATEGORY"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.MessageActionType
         "New-CGIPUserAdmin/MessageAction"
         {
@@ -393,6 +403,7 @@ $CGIP_map = @{
     "IssuerConfiguration_Type"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "KeyConfiguration_KeyType"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LambdaConfig_InboundFederation_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "LimitDefinition_LimitClass"=@("Get-CGIPProvisionedLimit","Update-CGIPProvisionedLimit")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MessageAction"=@("New-CGIPUserAdmin")
@@ -537,6 +548,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPGroup",
                "Get-CGIPIdentityProviderByIdentifier",
                "Get-CGIPLogDeliveryConfiguration",
+               "Get-CGIPProvisionedLimit",
                "Get-CGIPSigningCertificate",
                "Get-CGIPTokensFromRefreshToken",
                "Get-CGIPUICustomization",
@@ -580,6 +592,7 @@ $CGIP_SelectMap = @{
                "Update-CGIPGroup",
                "Update-CGIPIdentityProvider",
                "Update-CGIPManagedLoginBranding",
+               "Update-CGIPProvisionedLimit",
                "Update-CGIPResourceServer",
                "Update-CGIPTerm",
                "Update-CGIPUserAttribute",

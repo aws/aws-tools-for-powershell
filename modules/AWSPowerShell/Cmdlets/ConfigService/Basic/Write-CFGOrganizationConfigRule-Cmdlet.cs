@@ -440,6 +440,22 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String OrganizationManagedRuleMetadata_TagKeyScope { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags for the organization Config rule. Each tag consists of a key and an optional
+        /// value, both of which you define.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ConfigService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter OrganizationCustomPolicyRuleMetadata_TagValueScope
         /// <summary>
         /// <para>
@@ -576,6 +592,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.OrganizationManagedRuleMetadata_RuleIdentifier = this.OrganizationManagedRuleMetadata_RuleIdentifier;
             context.OrganizationManagedRuleMetadata_TagKeyScope = this.OrganizationManagedRuleMetadata_TagKeyScope;
             context.OrganizationManagedRuleMetadata_TagValueScope = this.OrganizationManagedRuleMetadata_TagValueScope;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ConfigService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -907,6 +927,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 request.OrganizationManagedRuleMetadata = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -992,6 +1016,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String OrganizationManagedRuleMetadata_RuleIdentifier { get; set; }
             public System.String OrganizationManagedRuleMetadata_TagKeyScope { get; set; }
             public System.String OrganizationManagedRuleMetadata_TagValueScope { get; set; }
+            public List<Amazon.ConfigService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse, WriteCFGOrganizationConfigRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OrganizationConfigRuleArn;
         }

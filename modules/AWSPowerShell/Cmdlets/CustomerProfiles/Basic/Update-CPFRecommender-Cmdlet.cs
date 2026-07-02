@@ -56,6 +56,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter RecommenderConfig_DiversityConfig_DiversityColumn
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to two diversity columns. Each column defines a cap on the number or
+        /// percentage of recommended items that share the same value for that column.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderConfig_DiversityConfig_DiversityColumns")]
+        public Amazon.CustomerProfiles.Model.DiversityColumn[] RecommenderConfig_DiversityConfig_DiversityColumn { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -159,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String RecommenderName { get; set; }
         #endregion
         
+        #region Parameter RecommenderVersionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a specific recommender version to activate as part of this update (for
+        /// example, to roll back to a previously trained version).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecommenderVersionName { get; set; }
+        #endregion
+        
         #region Parameter RecommenderConfig_TrainingFrequency
         /// <summary>
         /// <para>
@@ -224,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RecommenderConfig_DiversityConfig_DiversityColumn != null)
+            {
+                context.RecommenderConfig_DiversityConfig_DiversityColumn = new List<Amazon.CustomerProfiles.Model.DiversityColumn>(this.RecommenderConfig_DiversityConfig_DiversityColumn);
+            }
             if (this.EventsConfig_EventParametersList != null)
             {
                 context.EventsConfig_EventParametersList = new List<Amazon.CustomerProfiles.Model.EventParameters>(this.EventsConfig_EventParametersList);
@@ -277,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter RecommenderName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecommenderVersionName = this.RecommenderVersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -333,6 +365,31 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestRecommenderConfig_recommenderConfig_TrainingFrequency != null)
             {
                 request.RecommenderConfig.TrainingFrequency = requestRecommenderConfig_recommenderConfig_TrainingFrequency.Value;
+                requestRecommenderConfigIsNull = false;
+            }
+            Amazon.CustomerProfiles.Model.DiversityConfig requestRecommenderConfig_recommenderConfig_DiversityConfig = null;
+            
+             // populate DiversityConfig
+            var requestRecommenderConfig_recommenderConfig_DiversityConfigIsNull = true;
+            requestRecommenderConfig_recommenderConfig_DiversityConfig = new Amazon.CustomerProfiles.Model.DiversityConfig();
+            List<Amazon.CustomerProfiles.Model.DiversityColumn> requestRecommenderConfig_recommenderConfig_DiversityConfig_recommenderConfig_DiversityConfig_DiversityColumn = null;
+            if (cmdletContext.RecommenderConfig_DiversityConfig_DiversityColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_DiversityConfig_recommenderConfig_DiversityConfig_DiversityColumn = cmdletContext.RecommenderConfig_DiversityConfig_DiversityColumn;
+            }
+            if (requestRecommenderConfig_recommenderConfig_DiversityConfig_recommenderConfig_DiversityConfig_DiversityColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_DiversityConfig.DiversityColumns = requestRecommenderConfig_recommenderConfig_DiversityConfig_recommenderConfig_DiversityConfig_DiversityColumn;
+                requestRecommenderConfig_recommenderConfig_DiversityConfigIsNull = false;
+            }
+             // determine if requestRecommenderConfig_recommenderConfig_DiversityConfig should be set to null
+            if (requestRecommenderConfig_recommenderConfig_DiversityConfigIsNull)
+            {
+                requestRecommenderConfig_recommenderConfig_DiversityConfig = null;
+            }
+            if (requestRecommenderConfig_recommenderConfig_DiversityConfig != null)
+            {
+                request.RecommenderConfig.DiversityConfig = requestRecommenderConfig_recommenderConfig_DiversityConfig;
                 requestRecommenderConfigIsNull = false;
             }
             Amazon.CustomerProfiles.Model.EventsConfig requestRecommenderConfig_recommenderConfig_EventsConfig = null;
@@ -394,6 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.RecommenderName = cmdletContext.RecommenderName;
             }
+            if (cmdletContext.RecommenderVersionName != null)
+            {
+                request.RecommenderVersionName = cmdletContext.RecommenderVersionName;
+            }
             
             CmdletOutput output;
             
@@ -451,12 +512,14 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
+            public List<Amazon.CustomerProfiles.Model.DiversityColumn> RecommenderConfig_DiversityConfig_DiversityColumn { get; set; }
             public List<Amazon.CustomerProfiles.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
             public Dictionary<System.String, List<System.String>> RecommenderConfig_ExcludedColumn { get; set; }
             public Dictionary<System.String, List<System.String>> RecommenderConfig_IncludedColumn { get; set; }
             public System.Int32? RecommenderConfig_InferenceConfig_MinProvisionedTPS { get; set; }
             public System.Int32? RecommenderConfig_TrainingFrequency { get; set; }
             public System.String RecommenderName { get; set; }
+            public System.String RecommenderVersionName { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.UpdateRecommenderResponse, UpdateCPFRecommenderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommenderName;
         }

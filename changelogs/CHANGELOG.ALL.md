@@ -1,4 +1,17 @@
-﻿### 5.0.244 (2026-07-01 19:18Z)
+﻿### 5.0.245 (2026-07-02 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.280.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPProvisionedLimit leveraging the GetProvisionedLimit service API.
+    * Added cmdlet Update-CGIPProvisionedLimit leveraging the UpdateProvisionedLimit service API.
+  * Amazon Config
+    * Modified cmdlet Write-CFGOrganizationConfigRule: added parameter Tag.
+    * Modified cmdlet Write-CFGOrganizationConformancePack: added parameter Tag.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Get-CPFProfileRecommendation: added parameters DiversityConfig_Enabled and DiversityConfig_Value.
+    * Modified cmdlet New-CPFRecommender: added parameter RecommenderConfig_DiversityConfig_DiversityColumn.
+    * Modified cmdlet Update-CPFRecommender: added parameters RecommenderConfig_DiversityConfig_DiversityColumn and RecommenderVersionName.
+
+### 5.0.244 (2026-07-01 19:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.279.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Artifact
     * Added cmdlet Add-ARTResourceTag leveraging the TagResource service API.
