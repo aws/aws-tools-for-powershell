@@ -61,24 +61,12 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Initiates the SSO login flow with vanity URL resolution metadata (device code flow).
-        /// Passes ResolvedStartUrl and IsVanityUrl to the SDK so OIDC API calls use the correct URL
-        /// while the cache key remains the original start URL.
+        /// Initiates the SSO login flow using the Authorization Code + PKCE grant for a given CredentialProfileOptions.
+        /// The login flow is initiated by using .NET SDK's SSOTokenManager class by setting SSOTokenManagerGetTokenOptions' PkceFlowOptions and supportsGettingNewToken to true.
         /// </summary>
-        internal static async Task<SsoToken> LoginAsync(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint, Action<SsoVerificationArguments> ssoVerificationCallback, CancellationToken cancellationToken = default)
+        internal static async Task<SsoToken> LoginWithPkceAsync(CredentialProfileOptions profileOptions, PkceFlowOptions pkceFlowOptions, CancellationToken cancellationToken = default)
         {
-            var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(profileOptions, resolvedEndpoint, supportsGettingNewToken: true, ssoVerificationCallback);
-            return await GetTokenAsync(ssoTokenManagerGetTokenOptions, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Initiates the SSO login flow using the Authorization Code + PKCE grant with vanity URL resolution metadata.
-        /// Passes ResolvedStartUrl and IsVanityUrl to the SDK so OIDC API calls use the correct URL
-        /// while the cache key remains the original start URL.
-        /// </summary>
-        internal static async Task<SsoToken> LoginWithPkceAsync(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint, PkceFlowOptions pkceFlowOptions, CancellationToken cancellationToken = default)
-        {
-            var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(profileOptions, resolvedEndpoint, supportsGettingNewToken: true, pkceFlowOptions);
+            var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(profileOptions, supportsGettingNewToken: true, pkceFlowOptions);
             return await GetTokenAsync(ssoTokenManagerGetTokenOptions, cancellationToken).ConfigureAwait(false);
         }
 
@@ -269,50 +257,15 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Builds SSOTokenManagerGetTokenOptions using CredentialProfileOptions and a resolved endpoint (device code flow).
-        /// Sets ResolvedStartUrl and IsVanityUrl so the SDK uses the correct URL for OIDC API calls
-        /// while keeping the original start URL as the cache key.
+        /// Builds SSOTokenManagerGetTokenOptions using CredentialProfileOptions with PkceFlowOptions for Authorization Code + PKCE flow.
         /// </summary>
-        internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint, bool supportsGettingNewToken, Action<SsoVerificationArguments> ssoVerificationCallback)
+        internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(CredentialProfileOptions profileOptions, bool supportsGettingNewToken, PkceFlowOptions pkceFlowOptions)
         {
             return new SSOTokenManagerGetTokenOptions()
             {
                 ClientName = clientName,
-                // For vanity URLs, use the region resolved from the redirect target so that
-                // DNS failovers are picked up automatically on each login.
-                // For direct AWS-owned URLs, use the profile's sso_region (existing behavior).
-                Region = resolvedEndpoint.IsVanityUrl
-                    ? resolvedEndpoint.Region ?? profileOptions.SsoRegion
-                    : profileOptions.SsoRegion,
+                Region = profileOptions.SsoRegion,
                 StartUrl = profileOptions.SsoStartUrl,
-                ResolvedStartUrl = resolvedEndpoint.IsVanityUrl ? resolvedEndpoint.ResolvedUrl : null,
-                IsVanityUrl = resolvedEndpoint.IsVanityUrl,
-                Session = profileOptions.SsoSession,
-                Scopes = profileOptions.SsoRegistrationScopes?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList(),
-                SsoVerificationCallback = ssoVerificationCallback,
-                SupportsGettingNewToken = supportsGettingNewToken
-            };
-        }
-
-        /// <summary>
-        /// Builds SSOTokenManagerGetTokenOptions using CredentialProfileOptions and a resolved endpoint (PKCE flow).
-        /// Sets ResolvedStartUrl and IsVanityUrl so the SDK uses the correct URL for OIDC API calls
-        /// while keeping the original start URL as the cache key.
-        /// </summary>
-        internal static SSOTokenManagerGetTokenOptions BuildSSOTokenManagerGetTokenOptions(CredentialProfileOptions profileOptions, SSOResolvedEndpoint resolvedEndpoint, bool supportsGettingNewToken, PkceFlowOptions pkceFlowOptions)
-        {
-            return new SSOTokenManagerGetTokenOptions()
-            {
-                ClientName = clientName,
-                // For vanity URLs, use the region resolved from the redirect target so that
-                // DNS failovers are picked up automatically on each login.
-                // For direct AWS-owned URLs, use the profile's sso_region (existing behavior).
-                Region = resolvedEndpoint.IsVanityUrl
-                    ? resolvedEndpoint.Region ?? profileOptions.SsoRegion
-                    : profileOptions.SsoRegion,
-                StartUrl = profileOptions.SsoStartUrl,
-                ResolvedStartUrl = resolvedEndpoint.IsVanityUrl ? resolvedEndpoint.ResolvedUrl : null,
-                IsVanityUrl = resolvedEndpoint.IsVanityUrl,
                 Session = profileOptions.SsoSession,
                 Scopes = profileOptions.SsoRegistrationScopes?.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToList(),
                 PkceFlowOptions = pkceFlowOptions,
