@@ -23,8 +23,10 @@ jobs:
           project-name: ${{ secrets.CI_AWS_CODE_BUILD_PROJECT_NAME }}
       - name: Check Breaking Changes
         shell: pwsh
+        env:
+          BUILD_ID: ${{ steps.codebuild.outputs.aws-build-id }}
         run: |
-          $buildId = "${{ steps.codebuild.outputs.aws-build-id }}"
+          $buildId = "$env:BUILD_ID"
           $locationArn = aws codebuild batch-get-builds --ids $buildId --query "builds[0].artifacts.location" --output text
           $location = ($locationArn -split ":::")[-1]
           aws s3 cp s3://$location artifact.zip
@@ -48,5 +50,8 @@ jobs:
           fetch-depth: 0
       - name: Verify AWS.Tools.Installer version
         shell: pwsh
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
         run: |
-          ./buildtools/Test-InstallerVersion.ps1 -From  ${{ github.event.pull_request.base.sha }} -To ${{ github.sha }}
+          ./buildtools/Test-InstallerVersion.ps1 -From "$env:BASE_SHA" -To "$env:HEAD_SHA"
