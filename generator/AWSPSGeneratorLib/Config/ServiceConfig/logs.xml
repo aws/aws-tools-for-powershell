@@ -311,6 +311,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStorageTierPolicy" OutputProperty="*" Verb="Get" Noun="StorageTierPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -429,6 +433,10 @@
             <Params>
                 <Param Name="RetentionInDays" AutoRename="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutStorageTierPolicy" OutputProperty="*" Verb="Write" Noun="StorageTierPolicy" ShouldProcessTarget="StorageTier" PipelineParameter="StorageTier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutSubscriptionFilter" Verb="Write" Noun="SubscriptionFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">

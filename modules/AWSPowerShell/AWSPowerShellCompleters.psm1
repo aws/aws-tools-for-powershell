@@ -10784,6 +10784,13 @@ $AWSB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Billing.BillingFeature
+        "Update-AWSBBillingPreference/Feature"
+        {
+            $v = "BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
+            break
+        }
+
         # Amazon.Billing.Dimension
         {
             ($_ -eq "New-AWSBBillingView/Dimensions_Key") -Or
@@ -10804,6 +10811,7 @@ $AWSB_Completers = {
 
 $AWSB_map = @{
     "Dimensions_Key"=@("New-AWSBBillingView","Update-AWSBBillingView")
+    "Feature"=@("Update-AWSBBillingPreference")
 }
 
 _awsArgumentCompleterRegistration $AWSB_Completers $AWSB_map
@@ -10860,13 +10868,18 @@ $AWSB_SelectMap = @{
                "New-AWSBBillingView",
                "Remove-AWSBBillingView",
                "Remove-AWSBSourceView",
+               "Get-AWSBBillingPreference",
                "Get-AWSBBillingView",
+               "Get-AWSBCreditAllocationHistory",
+               "Get-AWSBCredit",
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
+               "Invoke-AWSBCreditRedemption",
                "Add-AWSBResourceTag",
                "Remove-AWSBResourceTag",
+               "Update-AWSBBillingPreference",
                "Update-AWSBBillingView")
 }
 
@@ -52044,6 +52057,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.StorageTier
+        "Write-CWLStorageTierPolicy/StorageTier"
+        {
+            $v = "INTELLIGENT_TIERING","STANDARD"
+            break
+        }
+
         # Amazon.CloudWatchLogs.SuppressionState
         "Get-CWLAnomalyList/SuppressionState"
         {
@@ -52092,6 +52112,7 @@ $CWL_map = @{
     "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
+    "StorageTier"=@("Write-CWLStorageTierPolicy")
     "SuppressionPeriod_SuppressionUnit"=@("Update-CWLAnomaly")
     "SuppressionState"=@("Get-CWLAnomalyList")
     "SuppressionType"=@("Update-CWLAnomaly")
@@ -52218,6 +52239,7 @@ $CWL_SelectMap = @{
                "Get-CWLQueryResult",
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
+               "Get-CWLStorageTierPolicy",
                "Get-CWLTransformer",
                "Get-CWLAggregateLogGroupSummaryList",
                "Get-CWLAnomalyList",
@@ -52246,6 +52268,7 @@ $CWL_SelectMap = @{
                "Write-CWLQueryDefinition",
                "Write-CWLResourcePolicy",
                "Write-CWLRetentionPolicy",
+               "Write-CWLStorageTierPolicy",
                "Write-CWLSubscriptionFilter",
                "Write-CWLSyslogConfiguration",
                "Write-CWLTransformer",
@@ -62574,6 +62597,7 @@ $OS_SelectMap = @{
                "Get-OSDirectQueryDataSource",
                "Get-OSDomainMaintenanceStatus",
                "Get-OSIndex",
+               "Get-OSMigration",
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
@@ -62587,6 +62611,7 @@ $OS_SelectMap = @{
                "Get-OSDomainsForPackageList",
                "Get-OSInsightList",
                "Get-OSInstanceTypeDetailList",
+               "Get-OSMigrationList",
                "Get-OSPackagesForDomainList",
                "Get-OSScheduledActionList",
                "Get-OSResourceTag",
@@ -62602,6 +62627,7 @@ $OS_SelectMap = @{
                "Revoke-OSVpcEndpointAccess",
                "Undo-OSServiceSoftwareUpdate",
                "Start-OSDomainMaintenance",
+               "Start-OSMigration",
                "Start-OSServiceSoftwareUpdate",
                "Update-OSApplication",
                "Update-OSDataSource",

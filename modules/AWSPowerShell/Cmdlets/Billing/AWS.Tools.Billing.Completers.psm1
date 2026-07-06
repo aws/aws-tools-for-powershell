@@ -80,6 +80,13 @@ $AWSB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Billing.BillingFeature
+        "Update-AWSBBillingPreference/Feature"
+        {
+            $v = "BILLING_ALERTS","CREDIT_LEVEL_SHARING","CREDIT_PREFERENCE_OPTIONS","CREDIT_SHARING","CREDIT_SHARING_HISTORY","RI_SHARING","RI_SHARING_HISTORY"
+            break
+        }
+
         # Amazon.Billing.Dimension
         {
             ($_ -eq "New-AWSBBillingView/Dimensions_Key") -Or
@@ -100,6 +107,7 @@ $AWSB_Completers = {
 
 $AWSB_map = @{
     "Dimensions_Key"=@("New-AWSBBillingView","Update-AWSBBillingView")
+    "Feature"=@("Update-AWSBBillingPreference")
 }
 
 _awsArgumentCompleterRegistration $AWSB_Completers $AWSB_map
@@ -156,13 +164,18 @@ $AWSB_SelectMap = @{
                "New-AWSBBillingView",
                "Remove-AWSBBillingView",
                "Remove-AWSBSourceView",
+               "Get-AWSBBillingPreference",
                "Get-AWSBBillingView",
+               "Get-AWSBCreditAllocationHistory",
+               "Get-AWSBCredit",
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
+               "Invoke-AWSBCreditRedemption",
                "Add-AWSBResourceTag",
                "Remove-AWSBResourceTag",
+               "Update-AWSBBillingPreference",
                "Update-AWSBBillingView")
 }
 

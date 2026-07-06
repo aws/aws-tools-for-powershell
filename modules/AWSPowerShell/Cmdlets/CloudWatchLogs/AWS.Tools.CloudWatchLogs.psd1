@@ -134,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWLScheduledQueryHistory', 
         'Get-CWLScheduledQueryList', 
         'Get-CWLSourcesForS3TableIntegrationList', 
+        'Get-CWLStorageTierPolicy', 
         'Get-CWLSubscriptionFilter', 
         'Get-CWLSyslogConfigurationList', 
         'Get-CWLTransformer', 
@@ -200,6 +201,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWLQueryDefinition', 
         'Write-CWLResourcePolicy', 
         'Write-CWLRetentionPolicy', 
+        'Write-CWLStorageTierPolicy', 
         'Write-CWLSubscriptionFilter', 
         'Write-CWLSyslogConfiguration', 
         'Write-CWLTransformer')

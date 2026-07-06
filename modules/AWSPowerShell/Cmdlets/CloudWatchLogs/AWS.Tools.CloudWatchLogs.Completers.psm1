@@ -232,6 +232,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.StorageTier
+        "Write-CWLStorageTierPolicy/StorageTier"
+        {
+            $v = "INTELLIGENT_TIERING","STANDARD"
+            break
+        }
+
         # Amazon.CloudWatchLogs.SuppressionState
         "Get-CWLAnomalyList/SuppressionState"
         {
@@ -280,6 +287,7 @@ $CWL_map = @{
     "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
+    "StorageTier"=@("Write-CWLStorageTierPolicy")
     "SuppressionPeriod_SuppressionUnit"=@("Update-CWLAnomaly")
     "SuppressionState"=@("Get-CWLAnomalyList")
     "SuppressionType"=@("Update-CWLAnomaly")
@@ -406,6 +414,7 @@ $CWL_SelectMap = @{
                "Get-CWLQueryResult",
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
+               "Get-CWLStorageTierPolicy",
                "Get-CWLTransformer",
                "Get-CWLAggregateLogGroupSummaryList",
                "Get-CWLAnomalyList",
@@ -434,6 +443,7 @@ $CWL_SelectMap = @{
                "Write-CWLQueryDefinition",
                "Write-CWLResourcePolicy",
                "Write-CWLRetentionPolicy",
+               "Write-CWLStorageTierPolicy",
                "Write-CWLSubscriptionFilter",
                "Write-CWLSyslogConfiguration",
                "Write-CWLTransformer",

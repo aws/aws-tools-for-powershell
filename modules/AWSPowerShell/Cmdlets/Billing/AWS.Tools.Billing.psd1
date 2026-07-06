@@ -89,15 +89,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-AWSBResourceTag', 
         'Add-AWSBSourceView', 
+        'Get-AWSBBillingPreference', 
         'Get-AWSBBillingView', 
         'Get-AWSBBillingViewList', 
+        'Get-AWSBCredit', 
+        'Get-AWSBCreditAllocationHistory', 
         'Get-AWSBResourcePolicy', 
         'Get-AWSBResourceTag', 
         'Get-AWSBSourceViewsForBillingViewList', 
+        'Invoke-AWSBCreditRedemption', 
         'New-AWSBBillingView', 
         'Remove-AWSBBillingView', 
         'Remove-AWSBResourceTag', 
         'Remove-AWSBSourceView', 
+        'Update-AWSBBillingPreference', 
         'Update-AWSBBillingView')
 
     # Variables to export from this module

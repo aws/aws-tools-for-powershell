@@ -1,4 +1,20 @@
-﻿### 5.0.245 (2026-07-02 21:19Z)
+﻿### 5.0.246 (2026-07-06 19:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.281.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing
+    * Added cmdlet Get-AWSBBillingPreference leveraging the GetBillingPreferences service API.
+    * Added cmdlet Get-AWSBCredit leveraging the GetCredits service API.
+    * Added cmdlet Get-AWSBCreditAllocationHistory leveraging the GetCreditAllocationHistory service API.
+    * Added cmdlet Invoke-AWSBCreditRedemption leveraging the RedeemCredits service API.
+    * Added cmdlet Update-AWSBBillingPreference leveraging the UpdateBillingPreferences service API.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLStorageTierPolicy leveraging the GetStorageTierPolicy service API.
+    * Added cmdlet Write-CWLStorageTierPolicy leveraging the PutStorageTierPolicy service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSMigration leveraging the GetMigration service API.
+    * Added cmdlet Get-OSMigrationList leveraging the ListMigrations service API.
+    * Added cmdlet Start-OSMigration leveraging the StartMigration service API.
+
+### 5.0.245 (2026-07-02 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.280.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Added cmdlet Get-CGIPProvisionedLimit leveraging the GetProvisionedLimit service API.

@@ -3675,7 +3675,12 @@ Set-Alias -Name AWSB-DeleteBillingView -Value Remove-AWSBBillingView
 Set-Alias -Name Disassociate-AWSBSourceViews -Value Remove-AWSBSourceView
 Set-Alias -Name Disassociate-AWSBSourceView -Value Remove-AWSBSourceView
 Set-Alias -Name AWSB-DisassociateSourceViews -Value Remove-AWSBSourceView
+Set-Alias -Name Get-AWSBBillingPreferences -Value Get-AWSBBillingPreference
+Set-Alias -Name AWSB-GetBillingPreferences -Value Get-AWSBBillingPreference
 Set-Alias -Name AWSB-GetBillingView -Value Get-AWSBBillingView
+Set-Alias -Name AWSB-GetCreditAllocationHistory -Value Get-AWSBCreditAllocationHistory
+Set-Alias -Name Get-AWSBCredits -Value Get-AWSBCredit
+Set-Alias -Name AWSB-GetCredits -Value Get-AWSBCredit
 Set-Alias -Name AWSB-GetResourcePolicy -Value Get-AWSBResourcePolicy
 Set-Alias -Name List-AWSBBillingViews -Value Get-AWSBBillingViewList
 Set-Alias -Name List-AWSBBillingViewList -Value Get-AWSBBillingViewList
@@ -3684,8 +3689,13 @@ Set-Alias -Name List-AWSBSourceViewsForBillingView -Value Get-AWSBSourceViewsFor
 Set-Alias -Name List-AWSBSourceViewsForBillingViewList -Value Get-AWSBSourceViewsForBillingViewList
 Set-Alias -Name AWSB-ListSourceViewsForBillingView -Value Get-AWSBSourceViewsForBillingViewList
 Set-Alias -Name AWSB-ListTagsForResource -Value Get-AWSBResourceTag
+Set-Alias -Name Redeem-AWSBCredits -Value Invoke-AWSBCreditRedemption
+Set-Alias -Name Redeem-AWSBCreditRedemption -Value Invoke-AWSBCreditRedemption
+Set-Alias -Name AWSB-RedeemCredits -Value Invoke-AWSBCreditRedemption
 Set-Alias -Name AWSB-TagResource -Value Add-AWSBResourceTag
 Set-Alias -Name AWSB-UntagResource -Value Remove-AWSBResourceTag
+Set-Alias -Name Update-AWSBBillingPreferences -Value Update-AWSBBillingPreference
+Set-Alias -Name AWSB-UpdateBillingPreferences -Value Update-AWSBBillingPreference
 Set-Alias -Name AWSB-UpdateBillingView -Value Update-AWSBBillingView
 Set-Alias -Name Associate-ABCAccounts -Value Register-ABCAccount
 Set-Alias -Name Associate-ABCAccount -Value Register-ABCAccount
@@ -20961,6 +20971,7 @@ Set-Alias -Name Get-CWLQueryResults -Value Get-CWLQueryResult
 Set-Alias -Name CWL-GetQueryResults -Value Get-CWLQueryResult
 Set-Alias -Name CWL-GetScheduledQuery -Value Get-CWLScheduledQuery
 Set-Alias -Name CWL-GetScheduledQueryHistory -Value Get-CWLScheduledQueryHistory
+Set-Alias -Name CWL-GetStorageTierPolicy -Value Get-CWLStorageTierPolicy
 Set-Alias -Name CWL-GetTransformer -Value Get-CWLTransformer
 Set-Alias -Name List-CWLAggregateLogGroupSummaries -Value Get-CWLAggregateLogGroupSummaryList
 Set-Alias -Name List-CWLAggregateLogGroupSummaryList -Value Get-CWLAggregateLogGroupSummaryList
@@ -21026,6 +21037,8 @@ Set-Alias -Name Put-CWLResourcePolicy -Value Write-CWLResourcePolicy
 Set-Alias -Name CWL-PutResourcePolicy -Value Write-CWLResourcePolicy
 Set-Alias -Name Put-CWLRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name CWL-PutRetentionPolicy -Value Write-CWLRetentionPolicy
+Set-Alias -Name Put-CWLStorageTierPolicy -Value Write-CWLStorageTierPolicy
+Set-Alias -Name CWL-PutStorageTierPolicy -Value Write-CWLStorageTierPolicy
 Set-Alias -Name Put-CWLSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name CWL-PutSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name Put-CWLSyslogConfiguration -Value Write-CWLSyslogConfiguration
@@ -24746,6 +24759,7 @@ Set-Alias -Name OS-GetDefaultApplicationSetting -Value Get-OSDefaultApplicationS
 Set-Alias -Name OS-GetDirectQueryDataSource -Value Get-OSDirectQueryDataSource
 Set-Alias -Name OS-GetDomainMaintenanceStatus -Value Get-OSDomainMaintenanceStatus
 Set-Alias -Name OS-GetIndex -Value Get-OSIndex
+Set-Alias -Name OS-GetMigration -Value Get-OSMigration
 Set-Alias -Name OS-GetPackageVersionHistory -Value Get-OSPackageVersionHistory
 Set-Alias -Name OS-GetUpgradeHistory -Value Get-OSUpgradeHistory
 Set-Alias -Name OS-GetUpgradeStatus -Value Get-OSUpgradeStatus
@@ -24779,6 +24793,9 @@ Set-Alias -Name OS-ListInsights -Value Get-OSInsightList
 Set-Alias -Name List-OSInstanceTypeDetails -Value Get-OSInstanceTypeDetailList
 Set-Alias -Name List-OSInstanceTypeDetailList -Value Get-OSInstanceTypeDetailList
 Set-Alias -Name OS-ListInstanceTypeDetails -Value Get-OSInstanceTypeDetailList
+Set-Alias -Name List-OSMigrations -Value Get-OSMigrationList
+Set-Alias -Name List-OSMigrationList -Value Get-OSMigrationList
+Set-Alias -Name OS-ListMigrations -Value Get-OSMigrationList
 Set-Alias -Name List-OSPackagesForDomain -Value Get-OSPackagesForDomainList
 Set-Alias -Name List-OSPackagesForDomainList -Value Get-OSPackagesForDomainList
 Set-Alias -Name OS-ListPackagesForDomain -Value Get-OSPackagesForDomainList
@@ -24812,6 +24829,7 @@ Set-Alias -Name OS-RevokeVpcEndpointAccess -Value Revoke-OSVpcEndpointAccess
 Set-Alias -Name Rollback-OSServiceSoftwareUpdate -Value Undo-OSServiceSoftwareUpdate
 Set-Alias -Name OS-RollbackServiceSoftwareUpdate -Value Undo-OSServiceSoftwareUpdate
 Set-Alias -Name OS-StartDomainMaintenance -Value Start-OSDomainMaintenance
+Set-Alias -Name OS-StartMigration -Value Start-OSMigration
 Set-Alias -Name OS-StartServiceSoftwareUpdate -Value Start-OSServiceSoftwareUpdate
 Set-Alias -Name OS-UpdateApplication -Value Update-OSApplication
 Set-Alias -Name OS-UpdateDataSource -Value Update-OSDataSource
