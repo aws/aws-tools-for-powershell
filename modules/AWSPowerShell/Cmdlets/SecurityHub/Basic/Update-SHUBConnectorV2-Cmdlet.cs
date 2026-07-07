@@ -33,17 +33,31 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Grants permission to update a connectorV2 based on its id and input parameters.
     /// </summary>
     [Cmdlet("Update", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.SecurityHub.Model.UpdateConnectorV2Response")]
     [AWSCmdlet("Calls the AWS Security Hub UpdateConnectorV2 API operation.", Operation = new[] {"UpdateConnectorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateConnectorV2Response))]
-    [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UpdateConnectorV2Response",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.UpdateConnectorV2Response) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.UpdateConnectorV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.UpdateConnectorV2Response object containing multiple properties."
     )]
     public partial class UpdateSHUBConnectorV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Provider_Azure_AzureRegion
+        /// <summary>
+        /// <para>
+        /// <para>The updated list of Azure regions to monitor.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_Azure_AzureRegions")]
+        public System.String[] Provider_Azure_AzureRegion { get; set; }
+        #endregion
         
         #region Parameter ConnectorId
         /// <summary>
@@ -83,6 +97,32 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.String JiraCloud_ProjectKey { get; set; }
         #endregion
         
+        #region Parameter Provider_Azure_ScopeConfiguration_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope. Valid values are <c>tenant</c> and <c>subscription</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.ScopeType")]
+        public Amazon.SecurityHub.ScopeType Provider_Azure_ScopeConfiguration_ScopeType { get; set; }
+        #endregion
+        
+        #region Parameter Provider_Azure_ScopeConfiguration_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The list of scope values, such as subscription IDs, when the scope type is <c>subscription</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_Azure_ScopeConfiguration_ScopeValues")]
+        public System.String[] Provider_Azure_ScopeConfiguration_ScopeValue { get; set; }
+        #endregion
+        
         #region Parameter ServiceNow_SecretArn
         /// <summary>
         /// <para>
@@ -97,8 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.UpdateConnectorV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.UpdateConnectorV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,6 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.Description = this.Description;
+            if (this.Provider_Azure_AzureRegion != null)
+            {
+                context.Provider_Azure_AzureRegion = new List<System.String>(this.Provider_Azure_AzureRegion);
+            }
+            context.Provider_Azure_ScopeConfiguration_ScopeType = this.Provider_Azure_ScopeConfiguration_ScopeType;
+            if (this.Provider_Azure_ScopeConfiguration_ScopeValue != null)
+            {
+                context.Provider_Azure_ScopeConfiguration_ScopeValue = new List<System.String>(this.Provider_Azure_ScopeConfiguration_ScopeValue);
+            }
             context.JiraCloud_ProjectKey = this.JiraCloud_ProjectKey;
             context.ServiceNow_SecretArn = this.ServiceNow_SecretArn;
             
@@ -228,6 +278,66 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 request.Provider.ServiceNow = requestProvider_provider_ServiceNow;
                 requestProviderIsNull = false;
             }
+            Amazon.SecurityHub.Model.AzureUpdateConfiguration requestProvider_provider_Azure = null;
+            
+             // populate Azure
+            var requestProvider_provider_AzureIsNull = true;
+            requestProvider_provider_Azure = new Amazon.SecurityHub.Model.AzureUpdateConfiguration();
+            List<System.String> requestProvider_provider_Azure_provider_Azure_AzureRegion = null;
+            if (cmdletContext.Provider_Azure_AzureRegion != null)
+            {
+                requestProvider_provider_Azure_provider_Azure_AzureRegion = cmdletContext.Provider_Azure_AzureRegion;
+            }
+            if (requestProvider_provider_Azure_provider_Azure_AzureRegion != null)
+            {
+                requestProvider_provider_Azure.AzureRegions = requestProvider_provider_Azure_provider_Azure_AzureRegion;
+                requestProvider_provider_AzureIsNull = false;
+            }
+            Amazon.SecurityHub.Model.AzureScopeConfiguration requestProvider_provider_Azure_provider_Azure_ScopeConfiguration = null;
+            
+             // populate ScopeConfiguration
+            var requestProvider_provider_Azure_provider_Azure_ScopeConfigurationIsNull = true;
+            requestProvider_provider_Azure_provider_Azure_ScopeConfiguration = new Amazon.SecurityHub.Model.AzureScopeConfiguration();
+            Amazon.SecurityHub.ScopeType requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeType = null;
+            if (cmdletContext.Provider_Azure_ScopeConfiguration_ScopeType != null)
+            {
+                requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeType = cmdletContext.Provider_Azure_ScopeConfiguration_ScopeType;
+            }
+            if (requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeType != null)
+            {
+                requestProvider_provider_Azure_provider_Azure_ScopeConfiguration.ScopeType = requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeType;
+                requestProvider_provider_Azure_provider_Azure_ScopeConfigurationIsNull = false;
+            }
+            List<System.String> requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeValue = null;
+            if (cmdletContext.Provider_Azure_ScopeConfiguration_ScopeValue != null)
+            {
+                requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeValue = cmdletContext.Provider_Azure_ScopeConfiguration_ScopeValue;
+            }
+            if (requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeValue != null)
+            {
+                requestProvider_provider_Azure_provider_Azure_ScopeConfiguration.ScopeValues = requestProvider_provider_Azure_provider_Azure_ScopeConfiguration_provider_Azure_ScopeConfiguration_ScopeValue;
+                requestProvider_provider_Azure_provider_Azure_ScopeConfigurationIsNull = false;
+            }
+             // determine if requestProvider_provider_Azure_provider_Azure_ScopeConfiguration should be set to null
+            if (requestProvider_provider_Azure_provider_Azure_ScopeConfigurationIsNull)
+            {
+                requestProvider_provider_Azure_provider_Azure_ScopeConfiguration = null;
+            }
+            if (requestProvider_provider_Azure_provider_Azure_ScopeConfiguration != null)
+            {
+                requestProvider_provider_Azure.ScopeConfiguration = requestProvider_provider_Azure_provider_Azure_ScopeConfiguration;
+                requestProvider_provider_AzureIsNull = false;
+            }
+             // determine if requestProvider_provider_Azure should be set to null
+            if (requestProvider_provider_AzureIsNull)
+            {
+                requestProvider_provider_Azure = null;
+            }
+            if (requestProvider_provider_Azure != null)
+            {
+                request.Provider.Azure = requestProvider_provider_Azure;
+                requestProviderIsNull = false;
+            }
              // determine if request.Provider should be set to null
             if (requestProviderIsNull)
             {
@@ -290,10 +400,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public System.String ConnectorId { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> Provider_Azure_AzureRegion { get; set; }
+            public Amazon.SecurityHub.ScopeType Provider_Azure_ScopeConfiguration_ScopeType { get; set; }
+            public List<System.String> Provider_Azure_ScopeConfiguration_ScopeValue { get; set; }
             public System.String JiraCloud_ProjectKey { get; set; }
             public System.String ServiceNow_SecretArn { get; set; }
             public System.Func<Amazon.SecurityHub.Model.UpdateConnectorV2Response, UpdateSHUBConnectorV2Cmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

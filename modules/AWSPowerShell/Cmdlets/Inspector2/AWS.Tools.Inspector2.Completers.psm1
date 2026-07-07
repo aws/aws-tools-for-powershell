@@ -105,14 +105,14 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
         # Amazon.Inspector2.AggregationType
         "Get-INS2FindingAggregationList/AggregationType"
         {
-            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
+            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","CONTAINER_IMAGE","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","SERVERLESS_FUNCTION","TITLE","VM_INSTANCE"
             break
         }
 
@@ -202,6 +202,34 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.ConnectorCloudProvider
+        "New-INS2Connector/Provider"
+        {
+            $v = "AZURE"
+            break
+        }
+
+        # Amazon.Inspector2.ContainerImagePullDateRescanDuration
+        "Update-INS2ConnectorScanConfiguration/ScanConfiguration_ContainerImageScanning_PullDuration"
+        {
+            $v = "DAYS_14","DAYS_180","DAYS_3","DAYS_30","DAYS_60","DAYS_7","DAYS_90"
+            break
+        }
+
+        # Amazon.Inspector2.ContainerImageRescanDuration
+        "Update-INS2ConnectorScanConfiguration/ScanConfiguration_ContainerImageScanning_PushDuration"
+        {
+            $v = "DAYS_14","DAYS_180","DAYS_3","DAYS_30","DAYS_60","DAYS_7","DAYS_90","LIFETIME"
+            break
+        }
+
+        # Amazon.Inspector2.ContainerImageSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_ContainerImageAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
         # Amazon.Inspector2.Day
         {
             ($_ -eq "New-INS2CisScanConfiguration/Monthly_Day") -Or
@@ -268,7 +296,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.GroupKey
         "Get-INS2CoverageStatisticList/GroupBy"
         {
-            $v = "ACCOUNT_ID","ECR_REPOSITORY_NAME","RESOURCE_TYPE","SCAN_STATUS_CODE","SCAN_STATUS_REASON"
+            $v = "ACCOUNT_ID","ECR_REPOSITORY_NAME","PROVIDER","PROVIDER_ACCOUNT_ID","PROVIDER_ORG_ID","PROVIDER_REGION","RESOURCE_TYPE","SCAN_STATUS_CODE","SCAN_STATUS_REASON"
             break
         }
 
@@ -276,6 +304,16 @@ $INS2_Completers = {
         "Get-INS2FindingAggregationList/ImageLayerAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.InheritanceMode
+        {
+            ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_Ec2Configuration") -Or
+            ($_ -eq "Update-INS2Configuration/UpdateConfigurationInheritance_EcrConfiguration")
+        }
+        {
+            $v = "INHERIT_FROM_ADMIN"
             break
         }
 
@@ -359,7 +397,7 @@ $INS2_Completers = {
             ($_ -eq "Update-INS2EncryptionKey/ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_ECR_REPOSITORY","AWS_LAMBDA_FUNCTION","CODE_REPOSITORY","Microsoft.Compute/virtualMachines","Microsoft.ContainerRegistry/registry/containerImage","Microsoft.Web/sites"
             break
         }
 
@@ -381,6 +419,27 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.ScopeType
+        {
+            ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType") -Or
+            ($_ -eq "New-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType") -Or
+            ($_ -eq "Update-INS2Connector/ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType")
+        }
+        {
+            $v = "SUBSCRIPTION","TENANT"
+            break
+        }
+
+        # Amazon.Inspector2.ServerlessFunctionSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_ServerlessFunctionAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
         # Amazon.Inspector2.Service
         "Get-INS2AccountPermissionList/Service"
         {
@@ -398,6 +457,9 @@ $INS2_Completers = {
         # Amazon.Inspector2.SortOrder
         {
             ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_ContainerImageAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_ServerlessFunctionAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_VmInstanceAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AmiAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AwsEcrContainerAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/CodeRepositoryAggregation_SortOrder") -Or
@@ -430,6 +492,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.VmInstanceSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_VmInstanceAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH","NETWORK_FINDINGS"
+            break
+        }
+
 
     }
 
@@ -444,6 +513,12 @@ $INS2_map = @{
     "AccountAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AccountAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Action"=@("Get-INS2FilterList","New-INS2Filter","Update-INS2Filter")
+    "AggregationRequest_ContainerImageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_ContainerImageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_ServerlessFunctionAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_ServerlessFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_VmInstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_VmInstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
@@ -475,10 +550,16 @@ $INS2_map = @{
     "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "PeriodicScanConfiguration_Frequency"=@("New-INS2CodeSecurityScanConfiguration","Update-INS2CodeSecurityScanConfiguration")
+    "Provider"=@("New-INS2Connector")
+    "ProviderDetail_Azure_ScopeConfiguration_ContainerImageScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Azure_ScopeConfiguration_ServerlessScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
+    "ProviderDetail_Azure_ScopeConfiguration_VmScanning_ScopeType"=@("New-INS2Connector","Update-INS2Connector")
     "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
+    "ScanConfiguration_ContainerImageScanning_PullDuration"=@("Update-INS2ConnectorScanConfiguration")
+    "ScanConfiguration_ContainerImageScanning_PushDuration"=@("Update-INS2ConnectorScanConfiguration")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "ScopeSettings_ProjectSelectionScope"=@("New-INS2CodeSecurityScanConfiguration")
     "SecurityLevel"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
@@ -492,6 +573,8 @@ $INS2_map = @{
     "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Type"=@("New-INS2CodeSecurityIntegration")
+    "UpdateConfigurationInheritance_Ec2Configuration"=@("Update-INS2Configuration")
+    "UpdateConfigurationInheritance_EcrConfiguration"=@("Update-INS2Configuration")
 }
 
 _awsArgumentCompleterRegistration $INS2_Completers $INS2_map
@@ -558,12 +641,14 @@ $INS2_SelectMap = @{
                "New-INS2CisScanConfiguration",
                "New-INS2CodeSecurityIntegration",
                "New-INS2CodeSecurityScanConfiguration",
+               "New-INS2Connector",
                "New-INS2Filter",
                "New-INS2FindingsReport",
                "New-INS2SbomExport",
                "Remove-INS2CisScanConfiguration",
                "Remove-INS2CodeSecurityIntegration",
                "Remove-INS2CodeSecurityScanConfiguration",
+               "Remove-INS2Connector",
                "Remove-INS2Filter",
                "Get-INS2OrganizationConfiguration",
                "Stop-INS2Service",
@@ -592,6 +677,8 @@ $INS2_SelectMap = @{
                "Get-INS2CodeSecurityIntegrationList",
                "Get-INS2CodeSecurityScanConfigurationAssociationList",
                "Get-INS2CodeSecurityScanConfigurationList",
+               "Get-INS2ConnectorList",
+               "Get-INS2ConnectorScanConfigurationList",
                "Get-INS2CoverageList",
                "Get-INS2CoverageStatisticList",
                "Get-INS2DelegatedAdminAccountList",
@@ -614,6 +701,8 @@ $INS2_SelectMap = @{
                "Update-INS2CodeSecurityIntegration",
                "Update-INS2CodeSecurityScanConfiguration",
                "Update-INS2Configuration",
+               "Update-INS2Connector",
+               "Update-INS2ConnectorScanConfiguration",
                "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2EncryptionKey",
                "Update-INS2Filter",

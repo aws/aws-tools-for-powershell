@@ -298,6 +298,7 @@ $R53GR_SelectMap = @{
                "Get-R53GRGlobalResolverList",
                "Get-R53GRHostedZoneAssociationList",
                "Get-R53GRManagedFirewallDomainListList",
+               "Get-R53GRSharedDNSViewList",
                "Get-R53GRResourceTagList",
                "Add-R53GRResourceTag",
                "Remove-R53GRResourceTag",

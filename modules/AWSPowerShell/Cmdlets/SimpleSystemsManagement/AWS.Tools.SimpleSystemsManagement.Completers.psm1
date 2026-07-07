@@ -315,7 +315,7 @@ $SSM_Completers = {
             ($_ -eq "Remove-SSMResourceTag/ResourceType")
         }
         {
-            $v = "Association","Automation","Document","MaintenanceWindow","ManagedInstance","OpsItem","OpsMetadata","Parameter","PatchBaseline"
+            $v = "Association","Automation","CloudConnector","Document","MaintenanceWindow","ManagedInstance","OpsItem","OpsMetadata","Parameter","PatchBaseline"
             break
         }
 
@@ -441,6 +441,7 @@ $SSM_SelectMap = @{
                "New-SSMActivation",
                "New-SSMAssociation",
                "New-SSMAssociationFromBatch",
+               "New-SSMCloudConnector",
                "New-SSMDocument",
                "New-SSMMaintenanceWindow",
                "New-SSMOpsItem",
@@ -449,6 +450,7 @@ $SSM_SelectMap = @{
                "New-SSMResourceDataSync",
                "Remove-SSMActivation",
                "Remove-SSMAssociation",
+               "Remove-SSMCloudConnector",
                "Remove-SSMDocument",
                "Remove-SSMInventory",
                "Remove-SSMMaintenanceWindow",
@@ -500,6 +502,7 @@ $SSM_SelectMap = @{
                "Get-SSMAccessToken",
                "Get-SSMAutomationExecution",
                "Get-SSMCalendarState",
+               "Get-SSMCloudConnector",
                "Get-SSMCommandInvocationDetail",
                "Get-SSMConnectionStatus",
                "Get-SSMDefaultPatchBaseline",
@@ -527,6 +530,7 @@ $SSM_SelectMap = @{
                "Set-SSMParameterVersionLabel",
                "Get-SSMAssociationList",
                "Get-SSMAssociationVersionList",
+               "Get-SSMCloudConnectorList",
                "Get-SSMCommandInvocation",
                "Get-SSMCommand",
                "Get-SSMComplianceItemList",
@@ -568,6 +572,7 @@ $SSM_SelectMap = @{
                "Reset-SSMParameterVersionLabel",
                "Update-SSMAssociation",
                "Update-SSMAssociationStatus",
+               "Update-SSMCloudConnector",
                "Update-SSMDocument",
                "Update-SSMDocumentDefaultVersion",
                "Update-SSMDocumentMetadata",
@@ -580,6 +585,7 @@ $SSM_SelectMap = @{
                "Update-SSMPatchBaseline",
                "Update-SSMResourceDataSync",
                "Update-SSMServiceSetting",
+               "Test-SSMCloudConnector",
                "Get-SSMLatestEC2Image")
 }
 

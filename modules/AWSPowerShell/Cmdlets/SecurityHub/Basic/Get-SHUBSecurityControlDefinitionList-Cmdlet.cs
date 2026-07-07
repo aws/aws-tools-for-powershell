@@ -45,6 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Provider
+        /// <summary>
+        /// <para>
+        /// <para>A list of cloud providers to filter the security control definitions by. For example,
+        /// specify <c>Azure</c> to return only controls that evaluate Azure resources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Providers")]
+        public System.String[] Provider { get; set; }
+        #endregion
+        
         #region Parameter StandardsArn
         /// <summary>
         /// <para>
@@ -127,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.Provider != null)
+            {
+                context.Provider = new List<System.String>(this.Provider);
+            }
             context.StandardsArn = this.StandardsArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -149,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Provider != null)
+            {
+                request.Providers = cmdletContext.Provider;
             }
             if (cmdletContext.StandardsArn != null)
             {
@@ -235,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> Provider { get; set; }
             public System.String StandardsArn { get; set; }
             public System.Func<Amazon.SecurityHub.Model.ListSecurityControlDefinitionsResponse, GetSHUBSecurityControlDefinitionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SecurityControlDefinitions;

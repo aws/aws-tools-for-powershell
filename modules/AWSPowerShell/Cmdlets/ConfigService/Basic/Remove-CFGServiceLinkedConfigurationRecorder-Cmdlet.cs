@@ -56,21 +56,28 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the service-linked configuration recorder that you
+        /// want to delete. For third-party service-linked configuration recorders, you must use
+        /// <c>Arn</c>. You must specify exactly one of <c>Arn</c> or <c>ServicePrincipal</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Arn { get; set; }
+        #endregion
+        
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>
         /// <para>The service principal of the Amazon Web Services service for the service-linked configuration
-        /// recorder that you want to delete.</para>
+        /// recorder that you want to delete. This field is only supported for Amazon Web Services
+        /// service principals. For third-party service-linked configuration recorders, use <c>Arn</c>
+        /// instead.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServicePrincipal { get; set; }
         #endregion
         
@@ -120,13 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse, RemoveCFGServiceLinkedConfigurationRecorderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Arn = this.Arn;
             context.ServicePrincipal = this.ServicePrincipal;
-            #if MODULAR
-            if (this.ServicePrincipal == null && ParameterWasBound(nameof(this.ServicePrincipal)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServicePrincipal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             // create request
             var request = new Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderRequest();
             
+            if (cmdletContext.Arn != null)
+            {
+                request.Arn = cmdletContext.Arn;
+            }
             if (cmdletContext.ServicePrincipal != null)
             {
                 request.ServicePrincipal = cmdletContext.ServicePrincipal;
@@ -202,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Arn { get; set; }
             public System.String ServicePrincipal { get; set; }
             public System.Func<Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse, RemoveCFGServiceLinkedConfigurationRecorderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

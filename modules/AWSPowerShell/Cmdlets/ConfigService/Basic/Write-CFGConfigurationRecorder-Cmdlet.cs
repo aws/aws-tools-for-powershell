@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ConfigurationRecorder_ScopeConfiguration_AllRegion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to record resources from all supported regions for the third-party
+        /// cloud service provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationRecorder_ScopeConfiguration_AllRegions")]
+        public System.Boolean? ConfigurationRecorder_ScopeConfiguration_AllRegion { get; set; }
+        #endregion
+        
         #region Parameter RecordingGroup_AllSupported
         /// <summary>
         /// <para>
@@ -100,6 +112,33 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ConfigurationRecorder_Arn { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationRecorder_ConnectorArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the connector that specifies the connection between
+        /// a third-party cloud service provider and Config.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationRecorder_ConnectorArn { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationRecorder_ScopeConfiguration_IncludedRegion
+        /// <summary>
+        /// <para>
+        /// <para>The list of regions from the third-party cloud service provider to include when recording
+        /// resources. Used when <c>allRegions</c> is set to <c>false</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationRecorder_ScopeConfiguration_IncludedRegions")]
+        public System.String[] ConfigurationRecorder_ScopeConfiguration_IncludedRegion { get; set; }
         #endregion
         
         #region Parameter RecordingGroup_IncludeGlobalResourceType
@@ -273,6 +312,33 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String ConfigurationRecorder_RoleARN { get; set; }
         #endregion
         
+        #region Parameter ConfigurationRecorder_ScopeConfiguration_ScopeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope for the third-party cloud resources. Valid values include <c>tenant</c>
+        /// and <c>subscription</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationRecorder_ScopeConfiguration_ScopeType { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationRecorder_ScopeConfiguration_ScopeValue
+        /// <summary>
+        /// <para>
+        /// <para>The list of specific scope values for the third-party cloud resources. For example,
+        /// a list of Azure subscriptions or management groups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationRecorder_ScopeConfiguration_ScopeValues")]
+        public System.String[] ConfigurationRecorder_ScopeConfiguration_ScopeValue { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationRecorder_ServicePrincipal
         /// <summary>
         /// <para>
@@ -383,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ConfigurationRecorder_Arn = this.ConfigurationRecorder_Arn;
+            context.ConfigurationRecorder_ConnectorArn = this.ConfigurationRecorder_ConnectorArn;
             context.ConfigurationRecorderName = this.ConfigurationRecorderName;
             context.RecordingGroup_AllSupported = this.RecordingGroup_AllSupported;
             if (this.ExclusionByResourceTypes_ResourceType != null)
@@ -402,6 +469,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             context.ConfigurationRecorder_RecordingScope = this.ConfigurationRecorder_RecordingScope;
             context.ConfigurationRecorder_RoleARN = this.ConfigurationRecorder_RoleARN;
+            context.ConfigurationRecorder_ScopeConfiguration_AllRegion = this.ConfigurationRecorder_ScopeConfiguration_AllRegion;
+            if (this.ConfigurationRecorder_ScopeConfiguration_IncludedRegion != null)
+            {
+                context.ConfigurationRecorder_ScopeConfiguration_IncludedRegion = new List<System.String>(this.ConfigurationRecorder_ScopeConfiguration_IncludedRegion);
+            }
+            context.ConfigurationRecorder_ScopeConfiguration_ScopeType = this.ConfigurationRecorder_ScopeConfiguration_ScopeType;
+            if (this.ConfigurationRecorder_ScopeConfiguration_ScopeValue != null)
+            {
+                context.ConfigurationRecorder_ScopeConfiguration_ScopeValue = new List<System.String>(this.ConfigurationRecorder_ScopeConfiguration_ScopeValue);
+            }
             context.ConfigurationRecorder_ServicePrincipal = this.ConfigurationRecorder_ServicePrincipal;
             if (this.Tag != null)
             {
@@ -435,6 +512,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_Arn != null)
             {
                 request.ConfigurationRecorder.Arn = requestConfigurationRecorder_configurationRecorder_Arn;
+                requestConfigurationRecorderIsNull = false;
+            }
+            System.String requestConfigurationRecorder_configurationRecorder_ConnectorArn = null;
+            if (cmdletContext.ConfigurationRecorder_ConnectorArn != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ConnectorArn = cmdletContext.ConfigurationRecorder_ConnectorArn;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ConnectorArn != null)
+            {
+                request.ConfigurationRecorder.ConnectorArn = requestConfigurationRecorder_configurationRecorder_ConnectorArn;
                 requestConfigurationRecorderIsNull = false;
             }
             System.String requestConfigurationRecorder_configurationRecorderName = null;
@@ -510,6 +597,61 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_RecordingMode != null)
             {
                 request.ConfigurationRecorder.RecordingMode = requestConfigurationRecorder_configurationRecorder_RecordingMode;
+                requestConfigurationRecorderIsNull = false;
+            }
+            Amazon.ConfigService.Model.ScopeConfiguration requestConfigurationRecorder_configurationRecorder_ScopeConfiguration = null;
+            
+             // populate ScopeConfiguration
+            var requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull = true;
+            requestConfigurationRecorder_configurationRecorder_ScopeConfiguration = new Amazon.ConfigService.Model.ScopeConfiguration();
+            System.Boolean? requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_AllRegion = null;
+            if (cmdletContext.ConfigurationRecorder_ScopeConfiguration_AllRegion != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_AllRegion = cmdletContext.ConfigurationRecorder_ScopeConfiguration_AllRegion.Value;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_AllRegion != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration.AllRegions = requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_AllRegion.Value;
+                requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull = false;
+            }
+            List<System.String> requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_IncludedRegion = null;
+            if (cmdletContext.ConfigurationRecorder_ScopeConfiguration_IncludedRegion != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_IncludedRegion = cmdletContext.ConfigurationRecorder_ScopeConfiguration_IncludedRegion;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_IncludedRegion != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration.IncludedRegions = requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_IncludedRegion;
+                requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull = false;
+            }
+            System.String requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeType = null;
+            if (cmdletContext.ConfigurationRecorder_ScopeConfiguration_ScopeType != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeType = cmdletContext.ConfigurationRecorder_ScopeConfiguration_ScopeType;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeType != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration.ScopeType = requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeType;
+                requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull = false;
+            }
+            List<System.String> requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeValue = null;
+            if (cmdletContext.ConfigurationRecorder_ScopeConfiguration_ScopeValue != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeValue = cmdletContext.ConfigurationRecorder_ScopeConfiguration_ScopeValue;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeValue != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration.ScopeValues = requestConfigurationRecorder_configurationRecorder_ScopeConfiguration_configurationRecorder_ScopeConfiguration_ScopeValue;
+                requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationRecorder_configurationRecorder_ScopeConfiguration should be set to null
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfigurationIsNull)
+            {
+                requestConfigurationRecorder_configurationRecorder_ScopeConfiguration = null;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_ScopeConfiguration != null)
+            {
+                request.ConfigurationRecorder.ScopeConfiguration = requestConfigurationRecorder_configurationRecorder_ScopeConfiguration;
                 requestConfigurationRecorderIsNull = false;
             }
             Amazon.ConfigService.Model.RecordingGroup requestConfigurationRecorder_configurationRecorder_RecordingGroup = null;
@@ -672,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationRecorder_Arn { get; set; }
+            public System.String ConfigurationRecorder_ConnectorArn { get; set; }
             public System.String ConfigurationRecorderName { get; set; }
             public System.Boolean? RecordingGroup_AllSupported { get; set; }
             public List<System.String> ExclusionByResourceTypes_ResourceType { get; set; }
@@ -682,6 +825,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public List<Amazon.ConfigService.Model.RecordingModeOverride> RecordingMode_RecordingModeOverride { get; set; }
             public Amazon.ConfigService.RecordingScope ConfigurationRecorder_RecordingScope { get; set; }
             public System.String ConfigurationRecorder_RoleARN { get; set; }
+            public System.Boolean? ConfigurationRecorder_ScopeConfiguration_AllRegion { get; set; }
+            public List<System.String> ConfigurationRecorder_ScopeConfiguration_IncludedRegion { get; set; }
+            public System.String ConfigurationRecorder_ScopeConfiguration_ScopeType { get; set; }
+            public List<System.String> ConfigurationRecorder_ScopeConfiguration_ScopeValue { get; set; }
             public System.String ConfigurationRecorder_ServicePrincipal { get; set; }
             public List<Amazon.ConfigService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ConfigService.Model.PutConfigurationRecorderResponse, WriteCFGConfigurationRecorderCmdlet, object> Select { get; set; } =

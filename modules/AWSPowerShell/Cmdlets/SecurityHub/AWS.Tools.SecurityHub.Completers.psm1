@@ -118,14 +118,14 @@ $SHUB_Completers = {
         # Amazon.SecurityHub.ConnectorProviderName
         "Get-SHUBConnectorsV2List/ProviderName"
         {
-            $v = "JIRA_CLOUD","SERVICENOW"
+            $v = "AZURE","JIRA_CLOUD","SERVICENOW"
             break
         }
 
         # Amazon.SecurityHub.ConnectorStatus
         "Get-SHUBConnectorsV2List/ConnectorStatus"
         {
-            $v = "CONNECTED","FAILED_TO_CONNECT","PENDING_AUTHORIZATION","PENDING_CONFIGURATION"
+            $v = "CONNECTED","DEGRADED","FAILED_TO_CONNECT","PENDING_AUTHORIZATION","PENDING_CONFIGURATION","UNKNOWN"
             break
         }
 
@@ -143,6 +143,44 @@ $SHUB_Completers = {
         "Update-SHUBStandardsControl/ControlStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SecurityHub.CspmConnectorProviderName
+        "Get-SHUBConnectorList/ProviderName"
+        {
+            $v = "AZURE"
+            break
+        }
+
+        # Amazon.SecurityHub.CspmConnectorStatus
+        "Get-SHUBConnectorList/ConnectorStatus"
+        {
+            $v = "CONNECTED","DEGRADED","FAILED_TO_CONNECT","UNKNOWN"
+            break
+        }
+
+        # Amazon.SecurityHub.CspmEnablementStatus
+        "Get-SHUBConnectorList/EnablementStatus"
+        {
+            $v = "ENABLED","PENDING_DELETION","PENDING_ENABLEMENT","PENDING_UPDATE"
+            break
+        }
+
+        # Amazon.SecurityHub.EnablementStatus
+        "Get-SHUBConnectorsV2List/EnablementStatus"
+        {
+            $v = "ENABLED","FAILED_TO_DELETE","FAILED_TO_ENABLE","FAILED_TO_UPDATE","PENDING_DELETION","PENDING_ENABLEMENT","PENDING_UPDATE"
+            break
+        }
+
+        # Amazon.SecurityHub.FeatureName
+        {
+            ($_ -eq "Disable-SHUBSecurityHubFeatureV2/FeatureName") -Or
+            ($_ -eq "Enable-SHUBSecurityHubFeatureV2/FeatureName")
+        }
+        {
+            $v = "NETWORK_SCANNING"
             break
         }
 
@@ -181,6 +219,18 @@ $SHUB_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.SecurityHub.ScopeType
+        {
+            ($_ -eq "New-SHUBConnector/Provider_Azure_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "New-SHUBConnectorV2/Provider_Azure_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnector/Provider_Azure_ScopeConfiguration_ScopeType") -Or
+            ($_ -eq "Update-SHUBConnectorV2/Provider_Azure_ScopeConfiguration_ScopeType")
+        }
+        {
+            $v = "SUBSCRIPTION","TENANT"
             break
         }
 
@@ -243,10 +293,12 @@ $SHUB_Completers = {
 
 $SHUB_map = @{
     "AutoEnableStandard"=@("Update-SHUBOrganizationConfiguration")
-    "ConnectorStatus"=@("Get-SHUBConnectorsV2List")
+    "ConnectorStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "EnablementStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
+    "FeatureName"=@("Disable-SHUBSecurityHubFeatureV2","Enable-SHUBSecurityHubFeatureV2")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
@@ -254,7 +306,8 @@ $SHUB_map = @{
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
-    "ProviderName"=@("Get-SHUBConnectorsV2List")
+    "Provider_Azure_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
+    "ProviderName"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
@@ -332,6 +385,7 @@ $SHUB_SelectMap = @{
                "New-SHUBAutomationRule",
                "New-SHUBAutomationRuleV2",
                "New-SHUBConfigurationPolicy",
+               "New-SHUBConnector",
                "New-SHUBConnectorV2",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
@@ -342,6 +396,7 @@ $SHUB_SelectMap = @{
                "Remove-SHUBAggregatorV2",
                "Remove-SHUBAutomationRuleV2",
                "Remove-SHUBConfigurationPolicy",
+               "Remove-SHUBConnector",
                "Remove-SHUBConnectorV2",
                "Remove-SHUBFindingAggregator",
                "Remove-SHUBInsight",
@@ -358,6 +413,7 @@ $SHUB_SelectMap = @{
                "Disable-SHUBImportFindingsForProduct",
                "Disable-SHUBOrganizationAdminAccount",
                "Disable-SHUBSecurityHub",
+               "Disable-SHUBSecurityHubFeatureV2",
                "Disable-SHUBSecurityHubV2",
                "Remove-SHUBFromAdministratorAccount",
                "Remove-SHUBMasterAccountAssociation",
@@ -365,6 +421,7 @@ $SHUB_SelectMap = @{
                "Enable-SHUBImportFindingsForProduct",
                "Enable-SHUBOrganizationAdminAccount",
                "Enable-SHUBSecurityHub",
+               "Enable-SHUBSecurityHubFeatureV2",
                "Enable-SHUBSecurityHubV2",
                "New-SHUBRecommendedPolicyV2",
                "Get-SHUBAdministratorAccount",
@@ -372,6 +429,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBAutomationRuleV2",
                "Get-SHUBConfigurationPolicy",
                "Get-SHUBConfigurationPolicyAssociation",
+               "Get-SHUBConnector",
                "Get-SHUBConnectorV2",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFindingAggregator",
@@ -396,6 +454,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBAutomationRulesV2List",
                "Get-SHUBConfigurationPolicyList",
                "Get-SHUBConfigurationPolicyAssociationList",
+               "Get-SHUBConnectorList",
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
@@ -414,6 +473,7 @@ $SHUB_SelectMap = @{
                "Update-SHUBAggregatorV2",
                "Update-SHUBAutomationRuleV2",
                "Update-SHUBConfigurationPolicy",
+               "Update-SHUBConnector",
                "Update-SHUBConnectorV2",
                "Update-SHUBFindingAggregator",
                "Update-SHUBFinding",

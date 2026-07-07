@@ -59,6 +59,274 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_CloudImageArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the architecture of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudImageArchitecture { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageDigest
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the digest of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudImageDigest { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageInUseCount
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the in-use count of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.NumberFilter[] FilterCriteria_CloudImageInUseCount { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageLastInUseAt
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the last time a container image was in use.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_CloudImageLastInUseAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImagePushedAt
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for when a container image was pushed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_CloudImagePushedAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageRegistry
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the registry of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudImageRegistry { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageRepositoryName
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the repository name of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudImageRepositoryName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudImageTag
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the tags of a container image.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_CloudImageTags")]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudImageTag { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the cloud provider.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudProvider { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudProviderAccountId
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the cloud provider account ID.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudProviderAccountId { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudProviderOrgId
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the cloud provider organization ID.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudProviderOrgId { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudProviderRegion
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the cloud provider region.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudProviderRegion { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudServerlessFunctionExecutionRole
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the execution role of a serverless function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudServerlessFunctionExecutionRole { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudServerlessFunctionLastModifiedAt
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for when a serverless function was last modified.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_CloudServerlessFunctionLastModifiedAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudServerlessFunctionName
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the name of a serverless function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudServerlessFunctionName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudServerlessFunctionRuntime
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the runtime of a serverless function.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudServerlessFunctionRuntime { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudVmImageReference
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the image reference of a VM instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudVmImageReference { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudVmNetworkId
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the network ID of a VM instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudVmNetworkId { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_CloudVmSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>Filter criteria for the subnet IDs of a VM instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_CloudVmSubnetIds")]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_CloudVmSubnetId { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_CodeRepositoryProjectName
         /// <summary>
         /// <para>
@@ -814,6 +1082,82 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_AwsAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_AwsAccountId);
             }
+            if (this.FilterCriteria_CloudImageArchitecture != null)
+            {
+                context.FilterCriteria_CloudImageArchitecture = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudImageArchitecture);
+            }
+            if (this.FilterCriteria_CloudImageDigest != null)
+            {
+                context.FilterCriteria_CloudImageDigest = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudImageDigest);
+            }
+            if (this.FilterCriteria_CloudImageInUseCount != null)
+            {
+                context.FilterCriteria_CloudImageInUseCount = new List<Amazon.Inspector2.Model.NumberFilter>(this.FilterCriteria_CloudImageInUseCount);
+            }
+            if (this.FilterCriteria_CloudImageLastInUseAt != null)
+            {
+                context.FilterCriteria_CloudImageLastInUseAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_CloudImageLastInUseAt);
+            }
+            if (this.FilterCriteria_CloudImagePushedAt != null)
+            {
+                context.FilterCriteria_CloudImagePushedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_CloudImagePushedAt);
+            }
+            if (this.FilterCriteria_CloudImageRegistry != null)
+            {
+                context.FilterCriteria_CloudImageRegistry = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudImageRegistry);
+            }
+            if (this.FilterCriteria_CloudImageRepositoryName != null)
+            {
+                context.FilterCriteria_CloudImageRepositoryName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudImageRepositoryName);
+            }
+            if (this.FilterCriteria_CloudImageTag != null)
+            {
+                context.FilterCriteria_CloudImageTag = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudImageTag);
+            }
+            if (this.FilterCriteria_CloudProvider != null)
+            {
+                context.FilterCriteria_CloudProvider = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudProvider);
+            }
+            if (this.FilterCriteria_CloudProviderAccountId != null)
+            {
+                context.FilterCriteria_CloudProviderAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudProviderAccountId);
+            }
+            if (this.FilterCriteria_CloudProviderOrgId != null)
+            {
+                context.FilterCriteria_CloudProviderOrgId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudProviderOrgId);
+            }
+            if (this.FilterCriteria_CloudProviderRegion != null)
+            {
+                context.FilterCriteria_CloudProviderRegion = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudProviderRegion);
+            }
+            if (this.FilterCriteria_CloudServerlessFunctionExecutionRole != null)
+            {
+                context.FilterCriteria_CloudServerlessFunctionExecutionRole = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudServerlessFunctionExecutionRole);
+            }
+            if (this.FilterCriteria_CloudServerlessFunctionLastModifiedAt != null)
+            {
+                context.FilterCriteria_CloudServerlessFunctionLastModifiedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_CloudServerlessFunctionLastModifiedAt);
+            }
+            if (this.FilterCriteria_CloudServerlessFunctionName != null)
+            {
+                context.FilterCriteria_CloudServerlessFunctionName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudServerlessFunctionName);
+            }
+            if (this.FilterCriteria_CloudServerlessFunctionRuntime != null)
+            {
+                context.FilterCriteria_CloudServerlessFunctionRuntime = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudServerlessFunctionRuntime);
+            }
+            if (this.FilterCriteria_CloudVmImageReference != null)
+            {
+                context.FilterCriteria_CloudVmImageReference = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudVmImageReference);
+            }
+            if (this.FilterCriteria_CloudVmNetworkId != null)
+            {
+                context.FilterCriteria_CloudVmNetworkId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudVmNetworkId);
+            }
+            if (this.FilterCriteria_CloudVmSubnetId != null)
+            {
+                context.FilterCriteria_CloudVmSubnetId = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CloudVmSubnetId);
+            }
             if (this.FilterCriteria_CodeRepositoryProjectName != null)
             {
                 context.FilterCriteria_CodeRepositoryProjectName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_CodeRepositoryProjectName);
@@ -1037,6 +1381,196 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_AwsAccountId != null)
             {
                 request.FilterCriteria.AwsAccountId = requestFilterCriteria_filterCriteria_AwsAccountId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudImageArchitecture = null;
+            if (cmdletContext.FilterCriteria_CloudImageArchitecture != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageArchitecture = cmdletContext.FilterCriteria_CloudImageArchitecture;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageArchitecture != null)
+            {
+                request.FilterCriteria.CloudImageArchitecture = requestFilterCriteria_filterCriteria_CloudImageArchitecture;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudImageDigest = null;
+            if (cmdletContext.FilterCriteria_CloudImageDigest != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageDigest = cmdletContext.FilterCriteria_CloudImageDigest;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageDigest != null)
+            {
+                request.FilterCriteria.CloudImageDigest = requestFilterCriteria_filterCriteria_CloudImageDigest;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_CloudImageInUseCount = null;
+            if (cmdletContext.FilterCriteria_CloudImageInUseCount != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageInUseCount = cmdletContext.FilterCriteria_CloudImageInUseCount;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageInUseCount != null)
+            {
+                request.FilterCriteria.CloudImageInUseCount = requestFilterCriteria_filterCriteria_CloudImageInUseCount;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_CloudImageLastInUseAt = null;
+            if (cmdletContext.FilterCriteria_CloudImageLastInUseAt != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageLastInUseAt = cmdletContext.FilterCriteria_CloudImageLastInUseAt;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageLastInUseAt != null)
+            {
+                request.FilterCriteria.CloudImageLastInUseAt = requestFilterCriteria_filterCriteria_CloudImageLastInUseAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_CloudImagePushedAt = null;
+            if (cmdletContext.FilterCriteria_CloudImagePushedAt != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImagePushedAt = cmdletContext.FilterCriteria_CloudImagePushedAt;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImagePushedAt != null)
+            {
+                request.FilterCriteria.CloudImagePushedAt = requestFilterCriteria_filterCriteria_CloudImagePushedAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudImageRegistry = null;
+            if (cmdletContext.FilterCriteria_CloudImageRegistry != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageRegistry = cmdletContext.FilterCriteria_CloudImageRegistry;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageRegistry != null)
+            {
+                request.FilterCriteria.CloudImageRegistry = requestFilterCriteria_filterCriteria_CloudImageRegistry;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudImageRepositoryName = null;
+            if (cmdletContext.FilterCriteria_CloudImageRepositoryName != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageRepositoryName = cmdletContext.FilterCriteria_CloudImageRepositoryName;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageRepositoryName != null)
+            {
+                request.FilterCriteria.CloudImageRepositoryName = requestFilterCriteria_filterCriteria_CloudImageRepositoryName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudImageTag = null;
+            if (cmdletContext.FilterCriteria_CloudImageTag != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudImageTag = cmdletContext.FilterCriteria_CloudImageTag;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudImageTag != null)
+            {
+                request.FilterCriteria.CloudImageTags = requestFilterCriteria_filterCriteria_CloudImageTag;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudProvider = null;
+            if (cmdletContext.FilterCriteria_CloudProvider != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudProvider = cmdletContext.FilterCriteria_CloudProvider;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudProvider != null)
+            {
+                request.FilterCriteria.CloudProvider = requestFilterCriteria_filterCriteria_CloudProvider;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudProviderAccountId = null;
+            if (cmdletContext.FilterCriteria_CloudProviderAccountId != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudProviderAccountId = cmdletContext.FilterCriteria_CloudProviderAccountId;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudProviderAccountId != null)
+            {
+                request.FilterCriteria.CloudProviderAccountId = requestFilterCriteria_filterCriteria_CloudProviderAccountId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudProviderOrgId = null;
+            if (cmdletContext.FilterCriteria_CloudProviderOrgId != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudProviderOrgId = cmdletContext.FilterCriteria_CloudProviderOrgId;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudProviderOrgId != null)
+            {
+                request.FilterCriteria.CloudProviderOrgId = requestFilterCriteria_filterCriteria_CloudProviderOrgId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudProviderRegion = null;
+            if (cmdletContext.FilterCriteria_CloudProviderRegion != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudProviderRegion = cmdletContext.FilterCriteria_CloudProviderRegion;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudProviderRegion != null)
+            {
+                request.FilterCriteria.CloudProviderRegion = requestFilterCriteria_filterCriteria_CloudProviderRegion;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudServerlessFunctionExecutionRole = null;
+            if (cmdletContext.FilterCriteria_CloudServerlessFunctionExecutionRole != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudServerlessFunctionExecutionRole = cmdletContext.FilterCriteria_CloudServerlessFunctionExecutionRole;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudServerlessFunctionExecutionRole != null)
+            {
+                request.FilterCriteria.CloudServerlessFunctionExecutionRole = requestFilterCriteria_filterCriteria_CloudServerlessFunctionExecutionRole;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_CloudServerlessFunctionLastModifiedAt = null;
+            if (cmdletContext.FilterCriteria_CloudServerlessFunctionLastModifiedAt != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudServerlessFunctionLastModifiedAt = cmdletContext.FilterCriteria_CloudServerlessFunctionLastModifiedAt;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudServerlessFunctionLastModifiedAt != null)
+            {
+                request.FilterCriteria.CloudServerlessFunctionLastModifiedAt = requestFilterCriteria_filterCriteria_CloudServerlessFunctionLastModifiedAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudServerlessFunctionName = null;
+            if (cmdletContext.FilterCriteria_CloudServerlessFunctionName != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudServerlessFunctionName = cmdletContext.FilterCriteria_CloudServerlessFunctionName;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudServerlessFunctionName != null)
+            {
+                request.FilterCriteria.CloudServerlessFunctionName = requestFilterCriteria_filterCriteria_CloudServerlessFunctionName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudServerlessFunctionRuntime = null;
+            if (cmdletContext.FilterCriteria_CloudServerlessFunctionRuntime != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudServerlessFunctionRuntime = cmdletContext.FilterCriteria_CloudServerlessFunctionRuntime;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudServerlessFunctionRuntime != null)
+            {
+                request.FilterCriteria.CloudServerlessFunctionRuntime = requestFilterCriteria_filterCriteria_CloudServerlessFunctionRuntime;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudVmImageReference = null;
+            if (cmdletContext.FilterCriteria_CloudVmImageReference != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudVmImageReference = cmdletContext.FilterCriteria_CloudVmImageReference;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudVmImageReference != null)
+            {
+                request.FilterCriteria.CloudVmImageReference = requestFilterCriteria_filterCriteria_CloudVmImageReference;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudVmNetworkId = null;
+            if (cmdletContext.FilterCriteria_CloudVmNetworkId != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudVmNetworkId = cmdletContext.FilterCriteria_CloudVmNetworkId;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudVmNetworkId != null)
+            {
+                request.FilterCriteria.CloudVmNetworkId = requestFilterCriteria_filterCriteria_CloudVmNetworkId;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CloudVmSubnetId = null;
+            if (cmdletContext.FilterCriteria_CloudVmSubnetId != null)
+            {
+                requestFilterCriteria_filterCriteria_CloudVmSubnetId = cmdletContext.FilterCriteria_CloudVmSubnetId;
+            }
+            if (requestFilterCriteria_filterCriteria_CloudVmSubnetId != null)
+            {
+                request.FilterCriteria.CloudVmSubnetIds = requestFilterCriteria_filterCriteria_CloudVmSubnetId;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = null;
@@ -1608,6 +2142,25 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_AwsAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudImageArchitecture { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudImageDigest { get; set; }
+            public List<Amazon.Inspector2.Model.NumberFilter> FilterCriteria_CloudImageInUseCount { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_CloudImageLastInUseAt { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_CloudImagePushedAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudImageRegistry { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudImageRepositoryName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudImageTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudProvider { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudProviderAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudProviderOrgId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudProviderRegion { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudServerlessFunctionExecutionRole { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_CloudServerlessFunctionLastModifiedAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudServerlessFunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudServerlessFunctionRuntime { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudVmImageReference { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudVmNetworkId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CloudVmSubnetId { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeRepositoryProjectName { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeRepositoryProviderType { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_CodeVulnerabilityDetectorName { get; set; }

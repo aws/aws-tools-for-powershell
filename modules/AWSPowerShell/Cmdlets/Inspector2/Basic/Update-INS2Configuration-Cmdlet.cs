@@ -30,9 +30,12 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Updates setting configurations for your Amazon Inspector account. When you use this
-    /// API as an Amazon Inspector delegated administrator this updates the setting for all
-    /// accounts you manage. Member accounts in an organization cannot update this setting.
+    /// Updates the scan configuration for your Amazon Inspector account. If you don't specify
+    /// an <c>accountId</c>, this operation updates the delegated administrator's configuration
+    /// and propagates it to member accounts that have not been individually configured. If
+    /// you specify an <c>accountId</c>, this operation updates that member account's configuration.
+    /// Only the delegated administrator can specify an <c>accountId</c>; member accounts
+    /// cannot call this operation.
     /// </summary>
     [Cmdlet("Update", "INS2Configuration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The 12-digit Amazon Web Services account ID of the member account whose scan configuration
+        /// you want to update. When specified, you must be the delegated administrator for this
+        /// member account. If not specified, the operation updates your own configuration and
+        /// propagates changes to any member accounts that have not been individually configured.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter Ec2Configuration_ActivateVMScanner
         /// <summary>
         /// <para>
@@ -55,6 +71,34 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
+        #endregion
+        
+        #region Parameter UpdateConfigurationInheritance_Ec2Configuration
+        /// <summary>
+        /// <para>
+        /// <para>The inheritance mode for Amazon EC2 scan configuration. Set to <c>INHERIT_FROM_ADMIN</c>
+        /// to reset the member account's Amazon EC2 scan configuration to inherit from the delegated
+        /// administrator. If omitted, the member account's existing Amazon EC2 scan configuration
+        /// is not changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.InheritanceMode")]
+        public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_Ec2Configuration { get; set; }
+        #endregion
+        
+        #region Parameter UpdateConfigurationInheritance_EcrConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The inheritance mode for Amazon ECR scan configuration. Set to <c>INHERIT_FROM_ADMIN</c>
+        /// to reset the member account's Amazon ECR scan configuration to inherit from the delegated
+        /// administrator. If omitted, the member account's existing Amazon ECR scan configuration
+        /// is not changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.InheritanceMode")]
+        public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_EcrConfiguration { get; set; }
         #endregion
         
         #region Parameter EcrConfiguration_PullDateRescanDuration
@@ -146,11 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountId = this.AccountId;
             context.Ec2Configuration_ActivateVMScanner = this.Ec2Configuration_ActivateVMScanner;
             context.Ec2Configuration_ScanMode = this.Ec2Configuration_ScanMode;
             context.EcrConfiguration_PullDateRescanDuration = this.EcrConfiguration_PullDateRescanDuration;
             context.EcrConfiguration_PullDateRescanMode = this.EcrConfiguration_PullDateRescanMode;
             context.EcrConfiguration_RescanDuration = this.EcrConfiguration_RescanDuration;
+            context.UpdateConfigurationInheritance_Ec2Configuration = this.UpdateConfigurationInheritance_Ec2Configuration;
+            context.UpdateConfigurationInheritance_EcrConfiguration = this.UpdateConfigurationInheritance_EcrConfiguration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             // create request
             var request = new Amazon.Inspector2.Model.UpdateConfigurationRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             
              // populate Ec2Configuration
             var requestEc2ConfigurationIsNull = true;
@@ -236,6 +287,35 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.EcrConfiguration = null;
             }
             
+             // populate UpdateConfigurationInheritance
+            var requestUpdateConfigurationInheritanceIsNull = true;
+            request.UpdateConfigurationInheritance = new Amazon.Inspector2.Model.UpdateConfigurationInheritance();
+            Amazon.Inspector2.InheritanceMode requestUpdateConfigurationInheritance_updateConfigurationInheritance_Ec2Configuration = null;
+            if (cmdletContext.UpdateConfigurationInheritance_Ec2Configuration != null)
+            {
+                requestUpdateConfigurationInheritance_updateConfigurationInheritance_Ec2Configuration = cmdletContext.UpdateConfigurationInheritance_Ec2Configuration;
+            }
+            if (requestUpdateConfigurationInheritance_updateConfigurationInheritance_Ec2Configuration != null)
+            {
+                request.UpdateConfigurationInheritance.Ec2Configuration = requestUpdateConfigurationInheritance_updateConfigurationInheritance_Ec2Configuration;
+                requestUpdateConfigurationInheritanceIsNull = false;
+            }
+            Amazon.Inspector2.InheritanceMode requestUpdateConfigurationInheritance_updateConfigurationInheritance_EcrConfiguration = null;
+            if (cmdletContext.UpdateConfigurationInheritance_EcrConfiguration != null)
+            {
+                requestUpdateConfigurationInheritance_updateConfigurationInheritance_EcrConfiguration = cmdletContext.UpdateConfigurationInheritance_EcrConfiguration;
+            }
+            if (requestUpdateConfigurationInheritance_updateConfigurationInheritance_EcrConfiguration != null)
+            {
+                request.UpdateConfigurationInheritance.EcrConfiguration = requestUpdateConfigurationInheritance_updateConfigurationInheritance_EcrConfiguration;
+                requestUpdateConfigurationInheritanceIsNull = false;
+            }
+             // determine if request.UpdateConfigurationInheritance should be set to null
+            if (requestUpdateConfigurationInheritanceIsNull)
+            {
+                request.UpdateConfigurationInheritance = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -290,11 +370,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.Boolean? Ec2Configuration_ActivateVMScanner { get; set; }
             public Amazon.Inspector2.Ec2ScanMode Ec2Configuration_ScanMode { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanDuration EcrConfiguration_PullDateRescanDuration { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanMode EcrConfiguration_PullDateRescanMode { get; set; }
             public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
+            public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_Ec2Configuration { get; set; }
+            public Amazon.Inspector2.InheritanceMode UpdateConfigurationInheritance_EcrConfiguration { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

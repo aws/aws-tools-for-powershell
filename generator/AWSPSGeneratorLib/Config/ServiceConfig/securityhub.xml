@@ -105,6 +105,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="*" Verb="New" Noun="Connector" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectorV2" OutputProperty="*" Verb="New" Noun="ConnectorV2" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Provider_JiraCloud_ProjectKey" NewName="JiraCloud_ProjectKey" />
@@ -151,7 +155,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnectorV2" Verb="Remove" Noun="ConnectorV2" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnector" OutputProperty="EnablementStatus" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectorV2" OutputProperty="*" Verb="Remove" Noun="ConnectorV2" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,6 +223,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableSecurityHubFeatureV2" Verb="Disable" Noun="SecurityHubFeatureV2" ShouldProcessTarget="FeatureName" PipelineParameter="FeatureName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableSecurityHubV2" Verb="Disable" Noun="SecurityHubV2" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -243,6 +255,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableSecurityHubFeatureV2" Verb="Enable" Noun="SecurityHubFeatureV2" ShouldProcessTarget="FeatureName" PipelineParameter="FeatureName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableSecurityHubV2" OutputProperty="HubV2Arn" Verb="Enable" Noun="SecurityHubV2" ShouldProcessTarget="Tags" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -268,6 +284,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConfigurationPolicyAssociation" OutputProperty="*" Verb="Get" Noun="ConfigurationPolicyAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnector" OutputProperty="*" Verb="Get" Noun="Connector" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -367,6 +387,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Connectors" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConnectorsV2" OutputProperty="Connectors" Verb="Get" Noun="ConnectorsV2List" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -450,7 +474,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectorV2" Verb="Update" Noun="ConnectorV2" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnector" OutputProperty="*" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectorV2" OutputProperty="*" Verb="Update" Noun="ConnectorV2" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Provider_JiraCloud_ProjectKey" NewName="JiraCloud_ProjectKey" />
                 <Param Name="Provider_ServiceNow_SecretArn" NewName="ServiceNow_SecretArn" />

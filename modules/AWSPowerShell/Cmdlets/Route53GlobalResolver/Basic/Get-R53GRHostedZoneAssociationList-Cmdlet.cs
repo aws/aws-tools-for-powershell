@@ -30,8 +30,10 @@ using Amazon.Route53GlobalResolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53GR
 {
     /// <summary>
-    /// Lists all hosted zone associations for a Route 53 Global Resolver resource with pagination
-    /// support.
+    /// Lists hosted zone associations with pagination support. Specify a DNS view through
+    /// the <c>resourceArn</c> parameter to list the hosted zone associations for that DNS
+    /// view, or omit it to list all hosted zone associations in your Amazon Web Services
+    /// account.
     /// 
     ///  <important><para>
     /// Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon
@@ -56,17 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the DNS view.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DNS view to list hosted zone associations for.
+        /// This parameter is optional; if you omit it, all hosted zone associations in your Amazon
+        /// Web Services account are returned.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceArn { get; set; }
         #endregion
         
@@ -153,12 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             #endif
             context.NextToken = this.NextToken;
             context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

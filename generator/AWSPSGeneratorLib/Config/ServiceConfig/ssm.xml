@@ -62,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudConnector" OutputProperty="CloudConnectorId" Verb="New" Noun="CloudConnector" ShouldProcessTarget="DisplayName,ConfigConnectorArn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDocument" OutputProperty="DocumentDescription" Verb="New" Noun="Document" ShouldProcessTarget="Name" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -95,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssociation" Verb="Remove" Noun="Association" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudConnector" OutputProperty="CloudConnectorId" Verb="Remove" Noun="CloudConnector" ShouldProcessTarget="CloudConnectorId" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -305,6 +313,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudConnector" OutputProperty="*" Verb="Get" Noun="CloudConnector" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCommandInvocation" OutputProperty="*" Verb="Get" Noun="CommandInvocationDetail" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -415,6 +427,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssociationVersions" OutputProperty="AssociationVersions" Verb="Get" Noun="AssociationVersionList" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudConnectors" OutputProperty="CloudConnectors" Verb="Get" Noun="CloudConnectorList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -615,6 +631,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudConnector" OutputProperty="CloudConnectorId" Verb="Update" Noun="CloudConnector" ShouldProcessTarget="CloudConnectorId" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDocument" OutputProperty="DocumentDescription" Verb="Update" Noun="Document" ShouldProcessTarget="Name" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -685,6 +705,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServiceSetting" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="SettingId" PipelineParameter="SettingId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateCloudConnector" OutputProperty="ValidationFindings" Verb="Test" Noun="CloudConnector" PipelineParameter="CloudConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

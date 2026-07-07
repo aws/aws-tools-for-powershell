@@ -30,7 +30,10 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Retrieves setting configurations for Inspector scans.
+    /// Retrieves setting configurations for Amazon Inspector scans. If you specify an <c>accountId</c>,
+    /// this operation returns the scan configuration for that member account. You must be
+    /// the delegated administrator for the specified member account. If you do not specify
+    /// an <c>accountId</c>, this operation returns your own scan configuration.
     /// </summary>
     [Cmdlet("Get", "INS2Configuration")]
     [OutputType("Amazon.Inspector2.Model.EcrConfigurationState")]
@@ -44,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The 12-digit Amazon Web Services account ID of the member account whose scan configuration
+        /// you want to retrieve. When specified, you must be the delegated administrator for
+        /// this member account. If not specified, the operation returns your own configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
         
         #region Parameter Select
         /// <summary>
@@ -75,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.GetConfigurationResponse, GetINS2ConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccountId = this.AccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -91,6 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             // create request
             var request = new Amazon.Inspector2.Model.GetConfigurationRequest();
             
+            if (cmdletContext.AccountId != null)
+            {
+                request.AccountId = cmdletContext.AccountId;
+            }
             
             CmdletOutput output;
             
@@ -146,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccountId { get; set; }
             public System.Func<Amazon.Inspector2.Model.GetConfigurationResponse, GetINS2ConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EcrConfiguration;
         }

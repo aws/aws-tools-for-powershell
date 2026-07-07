@@ -364,6 +364,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? Environment_IsVariablesSet { get; set; }
         #endregion
         
+        #region Parameter DurableConfig_KMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt
+        /// your durable execution's payload data, including input, output, and error payloads.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DurableConfig_KMSKeyArn { get; set; }
+        #endregion
+        
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
@@ -804,6 +815,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.DeadLetterConfig_TargetArn = this.DeadLetterConfig_TargetArn;
             context.Description = this.Description;
             context.DurableConfig_ExecutionTimeout = this.DurableConfig_ExecutionTimeout;
+            context.DurableConfig_KMSKeyArn = this.DurableConfig_KMSKeyArn;
             context.DurableConfig_RetentionPeriodInDay = this.DurableConfig_RetentionPeriodInDay;
             if (this.Environment_Variable != null)
             {
@@ -1099,6 +1111,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestDurableConfig_durableConfig_ExecutionTimeout != null)
                 {
                     request.DurableConfig.ExecutionTimeout = requestDurableConfig_durableConfig_ExecutionTimeout.Value;
+                    requestDurableConfigIsNull = false;
+                }
+                System.String requestDurableConfig_durableConfig_KMSKeyArn = null;
+                if (cmdletContext.DurableConfig_KMSKeyArn != null)
+                {
+                    requestDurableConfig_durableConfig_KMSKeyArn = cmdletContext.DurableConfig_KMSKeyArn;
+                }
+                if (requestDurableConfig_durableConfig_KMSKeyArn != null)
+                {
+                    request.DurableConfig.KMSKeyArn = requestDurableConfig_durableConfig_KMSKeyArn;
                     requestDurableConfigIsNull = false;
                 }
                 System.Int32? requestDurableConfig_durableConfig_RetentionPeriodInDay = null;
@@ -1518,6 +1540,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String DeadLetterConfig_TargetArn { get; set; }
             public System.String Description { get; set; }
             public System.Int32? DurableConfig_ExecutionTimeout { get; set; }
+            public System.String DurableConfig_KMSKeyArn { get; set; }
             public System.Int32? DurableConfig_RetentionPeriodInDay { get; set; }
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.Boolean? Environment_IsVariablesSet { get; set; }

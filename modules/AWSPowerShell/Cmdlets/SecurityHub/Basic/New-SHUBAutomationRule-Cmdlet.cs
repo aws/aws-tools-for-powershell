@@ -492,6 +492,36 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceId { get; set; }
         #endregion
         
+        #region Parameter Criteria_ResourceOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the account that owns the resource that the finding applies
+        /// to, for example, Azure Subscription Id or Amazon Web Services Account Id</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter Criteria_ResourceOwnerOrgId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the organization that owns the resource that the finding
+        /// applies to, for example, Azure Tenant Id</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceOwnerOrgId { get; set; }
+        #endregion
+        
         #region Parameter Criteria_ResourcePartition
         /// <summary>
         /// <para>
@@ -506,6 +536,20 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourcePartition { get; set; }
+        #endregion
+        
+        #region Parameter Criteria_ResourceProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud provider that the resource belongs to. Valid values are <c>AWS</c> and <c>Azure</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityHub.Model.StringFilter[] Criteria_ResourceProvider { get; set; }
         #endregion
         
         #region Parameter Criteria_ResourceRegion
@@ -894,9 +938,21 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             {
                 context.Criteria_ResourceId = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceId);
             }
+            if (this.Criteria_ResourceOwnerAccountId != null)
+            {
+                context.Criteria_ResourceOwnerAccountId = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceOwnerAccountId);
+            }
+            if (this.Criteria_ResourceOwnerOrgId != null)
+            {
+                context.Criteria_ResourceOwnerOrgId = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceOwnerOrgId);
+            }
             if (this.Criteria_ResourcePartition != null)
             {
                 context.Criteria_ResourcePartition = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourcePartition);
+            }
+            if (this.Criteria_ResourceProvider != null)
+            {
+                context.Criteria_ResourceProvider = new List<Amazon.SecurityHub.Model.StringFilter>(this.Criteria_ResourceProvider);
             }
             if (this.Criteria_ResourceRegion != null)
             {
@@ -1257,6 +1313,26 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 request.Criteria.ResourceId = requestCriteria_criteria_ResourceId;
                 requestCriteriaIsNull = false;
             }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceOwnerAccountId = null;
+            if (cmdletContext.Criteria_ResourceOwnerAccountId != null)
+            {
+                requestCriteria_criteria_ResourceOwnerAccountId = cmdletContext.Criteria_ResourceOwnerAccountId;
+            }
+            if (requestCriteria_criteria_ResourceOwnerAccountId != null)
+            {
+                request.Criteria.ResourceOwnerAccountId = requestCriteria_criteria_ResourceOwnerAccountId;
+                requestCriteriaIsNull = false;
+            }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceOwnerOrgId = null;
+            if (cmdletContext.Criteria_ResourceOwnerOrgId != null)
+            {
+                requestCriteria_criteria_ResourceOwnerOrgId = cmdletContext.Criteria_ResourceOwnerOrgId;
+            }
+            if (requestCriteria_criteria_ResourceOwnerOrgId != null)
+            {
+                request.Criteria.ResourceOwnerOrgId = requestCriteria_criteria_ResourceOwnerOrgId;
+                requestCriteriaIsNull = false;
+            }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourcePartition = null;
             if (cmdletContext.Criteria_ResourcePartition != null)
             {
@@ -1265,6 +1341,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourcePartition != null)
             {
                 request.Criteria.ResourcePartition = requestCriteria_criteria_ResourcePartition;
+                requestCriteriaIsNull = false;
+            }
+            List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceProvider = null;
+            if (cmdletContext.Criteria_ResourceProvider != null)
+            {
+                requestCriteria_criteria_ResourceProvider = cmdletContext.Criteria_ResourceProvider;
+            }
+            if (requestCriteria_criteria_ResourceProvider != null)
+            {
+                request.Criteria.ResourceProvider = requestCriteria_criteria_ResourceProvider;
                 requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceRegion = null;
@@ -1488,7 +1574,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceApplicationName { get; set; }
             public List<Amazon.SecurityHub.Model.MapFilter> Criteria_ResourceDetailsOther { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceId { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceOwnerAccountId { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceOwnerOrgId { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourcePartition { get; set; }
+            public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceProvider { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceRegion { get; set; }
             public List<Amazon.SecurityHub.Model.MapFilter> Criteria_ResourceTag { get; set; }
             public List<Amazon.SecurityHub.Model.StringFilter> Criteria_ResourceType { get; set; }

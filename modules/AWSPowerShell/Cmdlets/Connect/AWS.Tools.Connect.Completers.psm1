@@ -110,6 +110,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.AuthCodeEntityType
+        "New-CONNAuthCode/Scope_EntityType"
+        {
+            $v = "CUSTOMER_PROFILE"
+            break
+        }
+
         # Amazon.Connect.Behavior
         {
             ($_ -eq "Start-CONNContactConversationalAnalyticsJob/AnalyticsConfiguration_RedactionConfiguration_Behavior") -Or
@@ -978,6 +985,7 @@ $CONN_map = @{
     "RecurrenceConfig_RecurrencePattern_Frequency"=@("New-CONNHoursOfOperationOverride","Update-CONNHoursOfOperationOverride")
     "RehydrationType"=@("New-CONNPersistentContactAssociation")
     "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "Scope_EntityType"=@("New-CONNAuthCode")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
@@ -1108,6 +1116,7 @@ $CONN_SelectMap = @{
                "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
                "New-CONNAttachedFile",
+               "New-CONNAuthCode",
                "New-CONNContact",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
@@ -1169,6 +1178,7 @@ $CONN_SelectMap = @{
                "Remove-CONNRoutingProfile",
                "Remove-CONNRule",
                "Remove-CONNSecurityProfile",
+               "Remove-CONNSession",
                "Remove-CONNTaskTemplate",
                "Remove-CONNTestCase",
                "Remove-CONNTrafficDistributionGroup",

@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53GRManagedFirewallDomainList', 
         'Get-R53GRManagedFirewallDomainListList', 
         'Get-R53GRResourceTagList', 
+        'Get-R53GRSharedDNSViewList', 
         'Import-R53GRFirewallDomainList', 
         'New-R53GRAccessSource', 
         'New-R53GRAccessToken', 

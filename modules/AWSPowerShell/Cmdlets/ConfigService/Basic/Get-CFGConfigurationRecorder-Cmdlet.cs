@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>For service-linked configuration recorders, you can use the service principal of the
-        /// linked Amazon Web Services service to specify the configuration recorder.</para>
+        /// linked Amazon Web Services service to specify the configuration recorder. This field
+        /// is only supported for Amazon Web Services service principals. For third-party service-linked
+        /// configuration recorders, use <c>Arn</c> instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

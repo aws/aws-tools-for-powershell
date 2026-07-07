@@ -1,4 +1,65 @@
-﻿### 5.0.246 (2026-07-06 19:08Z)
+﻿### 5.0.247 (2026-07-07 19:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.282.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Config
+    * Added cmdlet Get-CFGConnector leveraging the GetConnector service API.
+    * Added cmdlet Get-CFGConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet Remove-CFGConnector leveraging the DeleteConnector service API.
+    * Added cmdlet Write-CFGConnector leveraging the PutConnector service API.
+    * Added cmdlet Write-CFGThirdPartyServiceLinkedConfigurationRecorder leveraging the PutThirdPartyServiceLinkedConfigurationRecorder service API.
+    * Modified cmdlet Remove-CFGServiceLinkedConfigurationRecorder: added parameter Arn.
+    * Modified cmdlet Write-CFGConfigurationRecorder: added parameters ConfigurationRecorder_ConnectorArn, ConfigurationRecorder_ScopeConfiguration_AllRegion, ConfigurationRecorder_ScopeConfiguration_IncludedRegion, ConfigurationRecorder_ScopeConfiguration_ScopeType and ConfigurationRecorder_ScopeConfiguration_ScopeValue.
+  * Amazon Connect Service
+    * Added cmdlet New-CONNAuthCode leveraging the CreateAuthCode service API.
+    * Added cmdlet Remove-CONNSession leveraging the DeleteSession service API.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2ConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet Get-INS2ConnectorScanConfigurationList leveraging the ListConnectorScanConfigurations service API.
+    * Added cmdlet New-INS2Connector leveraging the CreateConnector service API.
+    * Added cmdlet Remove-INS2Connector leveraging the DeleteConnector service API.
+    * Added cmdlet Update-INS2Connector leveraging the UpdateConnector service API.
+    * Added cmdlet Update-INS2ConnectorScanConfiguration leveraging the UpdateConnectorScanConfiguration service API.
+    * Modified cmdlet Get-INS2Configuration: added parameter AccountId.
+    * Modified cmdlet Get-INS2CoverageList: added parameters FilterCriteria_CloudContainerImageTag, FilterCriteria_CloudContainerRegistryName, FilterCriteria_CloudContainerRepositoryName, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudServerlessFunctionTag and FilterCriteria_CloudVmInstanceTag.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameters FilterCriteria_CloudContainerImageTag, FilterCriteria_CloudContainerRegistryName, FilterCriteria_CloudContainerRepositoryName, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudServerlessFunctionTag and FilterCriteria_CloudVmInstanceTag.
+    * Modified cmdlet Get-INS2FindingAggregationList: added parameters AggregationRequest_ContainerImageAggregation_Architecture, AggregationRequest_ContainerImageAggregation_CloudAccountId, AggregationRequest_ContainerImageAggregation_CloudOrgId, AggregationRequest_ContainerImageAggregation_CloudPartition, AggregationRequest_ContainerImageAggregation_CloudProvider, AggregationRequest_ContainerImageAggregation_CloudRegion, AggregationRequest_ContainerImageAggregation_ImageDigest, AggregationRequest_ContainerImageAggregation_ImageTag, AggregationRequest_ContainerImageAggregation_InUseCount, AggregationRequest_ContainerImageAggregation_LastInUseAt, AggregationRequest_ContainerImageAggregation_Registry, AggregationRequest_ContainerImageAggregation_Repository, AggregationRequest_ContainerImageAggregation_ResourceId, AggregationRequest_ContainerImageAggregation_SortBy, AggregationRequest_ContainerImageAggregation_SortOrder, AggregationRequest_ImageLayerAggregation_CloudAccountId, AggregationRequest_ImageLayerAggregation_CloudOrgId, AggregationRequest_ImageLayerAggregation_CloudPartition, AggregationRequest_ImageLayerAggregation_CloudProvider, AggregationRequest_ImageLayerAggregation_CloudRegion, AggregationRequest_ServerlessFunctionAggregation_CloudAccountId, AggregationRequest_ServerlessFunctionAggregation_CloudOrgId, AggregationRequest_ServerlessFunctionAggregation_CloudPartition, AggregationRequest_ServerlessFunctionAggregation_CloudProvider, AggregationRequest_ServerlessFunctionAggregation_CloudRegion, AggregationRequest_ServerlessFunctionAggregation_FunctionName, AggregationRequest_ServerlessFunctionAggregation_FunctionTag, AggregationRequest_ServerlessFunctionAggregation_ResourceId, AggregationRequest_ServerlessFunctionAggregation_Runtime, AggregationRequest_ServerlessFunctionAggregation_SortBy, AggregationRequest_ServerlessFunctionAggregation_SortOrder, AggregationRequest_VmInstanceAggregation_CloudAccountId, AggregationRequest_VmInstanceAggregation_CloudOrgId, AggregationRequest_VmInstanceAggregation_CloudPartition, AggregationRequest_VmInstanceAggregation_CloudProvider, AggregationRequest_VmInstanceAggregation_CloudRegion, AggregationRequest_VmInstanceAggregation_InstanceTag, AggregationRequest_VmInstanceAggregation_OperatingSystem, AggregationRequest_VmInstanceAggregation_ResourceId, AggregationRequest_VmInstanceAggregation_SortBy, AggregationRequest_VmInstanceAggregation_SortOrder and AggregationRequest_VmInstanceAggregation_VmImageReference.
+    * Modified cmdlet Get-INS2FindingList: added parameters FilterCriteria_CloudImageArchitecture, FilterCriteria_CloudImageDigest, FilterCriteria_CloudImageInUseCount, FilterCriteria_CloudImageLastInUseAt, FilterCriteria_CloudImagePushedAt, FilterCriteria_CloudImageRegistry, FilterCriteria_CloudImageRepositoryName, FilterCriteria_CloudImageTag, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionExecutionRole, FilterCriteria_CloudServerlessFunctionLastModifiedAt, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudVmImageReference, FilterCriteria_CloudVmNetworkId and FilterCriteria_CloudVmSubnetId.
+    * Modified cmdlet New-INS2Filter: added parameters FilterCriteria_CloudImageArchitecture, FilterCriteria_CloudImageDigest, FilterCriteria_CloudImageInUseCount, FilterCriteria_CloudImageLastInUseAt, FilterCriteria_CloudImagePushedAt, FilterCriteria_CloudImageRegistry, FilterCriteria_CloudImageRepositoryName, FilterCriteria_CloudImageTag, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionExecutionRole, FilterCriteria_CloudServerlessFunctionLastModifiedAt, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudVmImageReference, FilterCriteria_CloudVmNetworkId and FilterCriteria_CloudVmSubnetId.
+    * Modified cmdlet New-INS2FindingsReport: added parameters FilterCriteria_CloudImageArchitecture, FilterCriteria_CloudImageDigest, FilterCriteria_CloudImageInUseCount, FilterCriteria_CloudImageLastInUseAt, FilterCriteria_CloudImagePushedAt, FilterCriteria_CloudImageRegistry, FilterCriteria_CloudImageRepositoryName, FilterCriteria_CloudImageTag, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionExecutionRole, FilterCriteria_CloudServerlessFunctionLastModifiedAt, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudVmImageReference, FilterCriteria_CloudVmNetworkId and FilterCriteria_CloudVmSubnetId.
+    * Modified cmdlet Update-INS2Configuration: added parameters AccountId, UpdateConfigurationInheritance_Ec2Configuration and UpdateConfigurationInheritance_EcrConfiguration.
+    * Modified cmdlet Update-INS2Filter: added parameters FilterCriteria_CloudImageArchitecture, FilterCriteria_CloudImageDigest, FilterCriteria_CloudImageInUseCount, FilterCriteria_CloudImageLastInUseAt, FilterCriteria_CloudImagePushedAt, FilterCriteria_CloudImageRegistry, FilterCriteria_CloudImageRepositoryName, FilterCriteria_CloudImageTag, FilterCriteria_CloudProvider, FilterCriteria_CloudProviderAccountId, FilterCriteria_CloudProviderOrgId, FilterCriteria_CloudProviderRegion, FilterCriteria_CloudServerlessFunctionExecutionRole, FilterCriteria_CloudServerlessFunctionLastModifiedAt, FilterCriteria_CloudServerlessFunctionName, FilterCriteria_CloudServerlessFunctionRuntime, FilterCriteria_CloudVmImageReference, FilterCriteria_CloudVmNetworkId and FilterCriteria_CloudVmSubnetId.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter DurableConfig_KMSKeyArn.
+    * Modified cmdlet Get-LMDurableExecution: added parameter IncludeExecutionData.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameter DurableConfig_KMSKeyArn.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameter EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList.
+  * Amazon Partner Central Revenue Measurement API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCRM and can be listed using the command 'Get-AWSCmdletName -Service PCRM'.
+  * Amazon Route 53 Global Resolver
+    * Added cmdlet Get-R53GRSharedDNSViewList leveraging the ListSharedDNSViews service API.
+  * Amazon Security Hub
+    * Added cmdlet Disable-SHUBSecurityHubFeatureV2 leveraging the DisableSecurityHubFeatureV2 service API.
+    * Added cmdlet Enable-SHUBSecurityHubFeatureV2 leveraging the EnableSecurityHubFeatureV2 service API.
+    * Added cmdlet Get-SHUBConnector leveraging the GetConnector service API.
+    * Added cmdlet Get-SHUBConnectorList leveraging the ListConnectors service API.
+    * Added cmdlet New-SHUBConnector leveraging the CreateConnector service API.
+    * Added cmdlet Remove-SHUBConnector leveraging the DeleteConnector service API.
+    * Added cmdlet Update-SHUBConnector leveraging the UpdateConnector service API.
+    * Modified cmdlet Get-SHUBConnectorsV2List: added parameter EnablementStatus.
+    * Modified cmdlet Get-SHUBEnabledStandard: added parameter Provider.
+    * Modified cmdlet Get-SHUBSecurityControlDefinitionList: added parameter Provider.
+    * Modified cmdlet Get-SHUBStandard: added parameter Provider.
+    * Modified cmdlet New-SHUBAutomationRule: added parameters Criteria_ResourceOwnerAccountId, Criteria_ResourceOwnerOrgId and Criteria_ResourceProvider.
+    * Modified cmdlet New-SHUBConnectorV2: added parameters Provider_Azure_AWSConfigConnectorArn, Provider_Azure_AzureRegion, Provider_Azure_ScopeConfiguration_ScopeType and Provider_Azure_ScopeConfiguration_ScopeValue.
+    * Modified cmdlet Update-SHUBConnectorV2: added parameters Provider_Azure_AzureRegion, Provider_Azure_ScopeConfiguration_ScopeType and Provider_Azure_ScopeConfiguration_ScopeValue.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMCloudConnector leveraging the GetCloudConnector service API.
+    * Added cmdlet Get-SSMCloudConnectorList leveraging the ListCloudConnectors service API.
+    * Added cmdlet New-SSMCloudConnector leveraging the CreateCloudConnector service API.
+    * Added cmdlet Remove-SSMCloudConnector leveraging the DeleteCloudConnector service API.
+    * Added cmdlet Test-SSMCloudConnector leveraging the ValidateCloudConnector service API.
+    * Added cmdlet Update-SSMCloudConnector leveraging the UpdateCloudConnector service API.
+
+### 5.0.246 (2026-07-06 19:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.281.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing
     * Added cmdlet Get-AWSBBillingPreference leveraging the GetBillingPreferences service API.

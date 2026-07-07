@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Grants permission to delete a connectorV2.
     /// </summary>
     [Cmdlet("Remove", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.SecurityHub.Model.DeleteConnectorV2Response")]
     [AWSCmdlet("Calls the AWS Security Hub DeleteConnectorV2 API operation.", Operation = new[] {"DeleteConnectorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConnectorV2Response))]
-    [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DeleteConnectorV2Response",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.DeleteConnectorV2Response) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.DeleteConnectorV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.DeleteConnectorV2Response object containing multiple properties."
     )]
     public partial class RemoveSHUBConnectorV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
@@ -64,8 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.DeleteConnectorV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.DeleteConnectorV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public System.String ConnectorId { get; set; }
             public System.Func<Amazon.SecurityHub.Model.DeleteConnectorV2Response, RemoveSHUBConnectorV2Cmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

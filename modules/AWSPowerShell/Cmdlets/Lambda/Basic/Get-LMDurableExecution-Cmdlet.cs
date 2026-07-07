@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String DurableExecutionArn { get; set; }
         #endregion
         
+        #region Parameter IncludeExecutionData
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include execution data such as input payload, result, and error
+        /// information in the response. Set to <c>false</c> for a more compact response that
+        /// includes only execution metadata. The default value is set to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeExecutionData { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -100,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter DurableExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeExecutionData = this.IncludeExecutionData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.DurableExecutionArn != null)
             {
                 request.DurableExecutionArn = cmdletContext.DurableExecutionArn;
+            }
+            if (cmdletContext.IncludeExecutionData != null)
+            {
+                request.IncludeExecutionData = cmdletContext.IncludeExecutionData.Value;
             }
             
             CmdletOutput output;
@@ -176,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DurableExecutionArn { get; set; }
+            public System.Boolean? IncludeExecutionData { get; set; }
             public System.Func<Amazon.Lambda.Model.GetDurableExecutionResponse, GetLMDurableExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

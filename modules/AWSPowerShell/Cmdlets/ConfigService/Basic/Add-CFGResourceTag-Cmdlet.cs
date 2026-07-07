@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. The following resources are supported:</para><ul><li><para><c>ConfigurationRecorder</c></para></li><li><para><c>ConfigRule</c></para></li><li><para><c>OrganizationConfigRule</c></para></li><li><para><c>ConformancePack</c></para></li><li><para><c>OrganizationConformancePack</c></para></li><li><para><c>ConfigurationAggregator</c></para></li><li><para><c>AggregationAuthorization</c></para></li><li><para><c>StoredQuery</c></para></li></ul>
+        /// tags. The following resources are supported:</para><ul><li><para><c>ConfigurationRecorder</c></para></li><li><para><c>ConfigRule</c></para></li><li><para><c>OrganizationConfigRule</c></para></li><li><para><c>ConformancePack</c></para></li><li><para><c>OrganizationConformancePack</c></para></li><li><para><c>ConfigurationAggregator</c></para></li><li><para><c>AggregationAuthorization</c></para></li><li><para><c>StoredQuery</c></para></li><li><para><c>Connector</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

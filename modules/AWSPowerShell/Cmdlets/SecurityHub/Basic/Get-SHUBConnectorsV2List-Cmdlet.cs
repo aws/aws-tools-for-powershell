@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public Amazon.SecurityHub.ConnectorStatus ConnectorStatus { get; set; }
         #endregion
         
+        #region Parameter EnablementStatus
+        /// <summary>
+        /// <para>
+        /// <para>The enablement status to filter connectors by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.EnablementStatus")]
+        public Amazon.SecurityHub.EnablementStatus EnablementStatus { get; set; }
+        #endregion
+        
         #region Parameter ProviderName
         /// <summary>
         /// <para>
@@ -134,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ConnectorStatus = this.ConnectorStatus;
+            context.EnablementStatus = this.EnablementStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProviderName = this.ProviderName;
@@ -158,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.ConnectorStatus != null)
             {
                 request.ConnectorStatus = cmdletContext.ConnectorStatus;
+            }
+            if (cmdletContext.EnablementStatus != null)
+            {
+                request.EnablementStatus = cmdletContext.EnablementStatus;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -247,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SecurityHub.ConnectorStatus ConnectorStatus { get; set; }
+            public Amazon.SecurityHub.EnablementStatus EnablementStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SecurityHub.ConnectorProviderName ProviderName { get; set; }

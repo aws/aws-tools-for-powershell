@@ -121,6 +121,325 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] AwsEcrContainerAggregation_Architecture { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ContainerImageAggregation_Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The image architectures to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_Architectures")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_Architecture { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_CloudAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud account IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_CloudAccountIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_CloudAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ImageLayerAggregation_CloudAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud account IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ImageLayerAggregation_CloudAccountIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ImageLayerAggregation_CloudAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud account IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_CloudAccountIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_CloudAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_CloudAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud account IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_CloudAccountIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_CloudAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_CloudOrgId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud organization IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_CloudOrgIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_CloudOrgId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ImageLayerAggregation_CloudOrgId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud organization IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ImageLayerAggregation_CloudOrgIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ImageLayerAggregation_CloudOrgId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudOrgId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud organization IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_CloudOrgIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_CloudOrgId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_CloudOrgId
+        /// <summary>
+        /// <para>
+        /// <para>The cloud organization IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_CloudOrgIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_CloudOrgId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_CloudPartition
+        /// <summary>
+        /// <para>
+        /// <para>The cloud partitions to aggregate findings for. Valid values:</para><ul><li><para><c>aws</c> – Amazon Web Services commercial Regions.</para></li><li><para><c>aws-cn</c> – Amazon Web Services China Regions.</para></li><li><para><c>aws-us-gov</c> – Amazon Web Services GovCloud (US) Regions.</para></li><li><para><c>AzureCloud</c> – Azure commercial Regions.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_CloudPartitions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_CloudPartition { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ImageLayerAggregation_CloudPartition
+        /// <summary>
+        /// <para>
+        /// <para>The cloud partitions to aggregate findings for. Valid values:</para><ul><li><para><c>aws</c> – Amazon Web Services commercial Regions.</para></li><li><para><c>aws-cn</c> – Amazon Web Services China Regions.</para></li><li><para><c>aws-us-gov</c> – Amazon Web Services GovCloud (US) Regions.</para></li><li><para><c>AzureCloud</c> – Azure commercial Regions.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ImageLayerAggregation_CloudPartitions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ImageLayerAggregation_CloudPartition { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudPartition
+        /// <summary>
+        /// <para>
+        /// <para>The cloud partitions to aggregate findings for. Valid values:</para><ul><li><para><c>aws</c> – Amazon Web Services commercial Regions.</para></li><li><para><c>aws-cn</c> – Amazon Web Services China Regions.</para></li><li><para><c>aws-us-gov</c> – Amazon Web Services GovCloud (US) Regions.</para></li><li><para><c>AzureCloud</c> – Azure commercial Regions.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_CloudPartitions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_CloudPartition { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_CloudPartition
+        /// <summary>
+        /// <para>
+        /// <para>The cloud partitions to aggregate findings for. Valid values:</para><ul><li><para><c>aws</c> – Amazon Web Services commercial Regions.</para></li><li><para><c>aws-cn</c> – Amazon Web Services China Regions.</para></li><li><para><c>aws-us-gov</c> – Amazon Web Services GovCloud (US) Regions.</para></li><li><para><c>AzureCloud</c> – Azure commercial Regions.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_CloudPartitions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_CloudPartition { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_CloudProviders")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_CloudProvider { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ImageLayerAggregation_CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ImageLayerAggregation_CloudProviders")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ImageLayerAggregation_CloudProvider { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_CloudProviders")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_CloudProvider { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_CloudProvider
+        /// <summary>
+        /// <para>
+        /// <para>The cloud providers to aggregate findings for. Valid values:</para><ul><li><para><c>AWS</c> – Findings from Amazon Web Services resources.</para></li><li><para><c>AZURE</c> – Findings from Microsoft Azure resources.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_CloudProviders")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_CloudProvider { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_CloudRegion
+        /// <summary>
+        /// <para>
+        /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_CloudRegions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_CloudRegion { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ImageLayerAggregation_CloudRegion
+        /// <summary>
+        /// <para>
+        /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ImageLayerAggregation_CloudRegions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ImageLayerAggregation_CloudRegion { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_CloudRegion
+        /// <summary>
+        /// <para>
+        /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_CloudRegions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_CloudRegion { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_CloudRegion
+        /// <summary>
+        /// <para>
+        /// <para>The cloud regions to aggregate findings for. The value format depends on the cloud
+        /// provider:</para><ul><li><para>An Amazon Web Services Region, such as <c>us-east-1</c>.</para></li><li><para>An Azure region, such as <c>eastus</c>.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_CloudRegions")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_CloudRegion { get; set; }
+        #endregion
+        
         #region Parameter AccountAggregation_FindingType
         /// <summary>
         /// <para>
@@ -187,6 +506,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] LambdaLayerAggregation_FunctionName { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_FunctionName
+        /// <summary>
+        /// <para>
+        /// <para>The function names to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_FunctionNames")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_FunctionName { get; set; }
+        #endregion
+        
         #region Parameter LambdaFunctionAggregation_FunctionTag
         /// <summary>
         /// <para>
@@ -200,6 +534,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_LambdaFunctionAggregation_FunctionTags")]
         public Amazon.Inspector2.Model.MapFilter[] LambdaFunctionAggregation_FunctionTag { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_FunctionTag
+        /// <summary>
+        /// <para>
+        /// <para>The function tags to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_FunctionTags")]
+        public Amazon.Inspector2.Model.MapFilter[] AggregationRequest_ServerlessFunctionAggregation_FunctionTag { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_ImageDigest
+        /// <summary>
+        /// <para>
+        /// <para>The image digests to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_ImageDigests")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_ImageDigest { get; set; }
         #endregion
         
         #region Parameter AwsEcrContainerAggregation_ImageSha
@@ -232,6 +596,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] AwsEcrContainerAggregation_ImageTag { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ContainerImageAggregation_ImageTag
+        /// <summary>
+        /// <para>
+        /// <para>The image tags to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_ImageTags")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_ImageTag { get; set; }
+        #endregion
+        
         #region Parameter Ec2InstanceAggregation_InstanceId
         /// <summary>
         /// <para>
@@ -262,6 +641,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.MapFilter[] Ec2InstanceAggregation_InstanceTag { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_VmInstanceAggregation_InstanceTag
+        /// <summary>
+        /// <para>
+        /// <para>The instance tags to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_InstanceTags")]
+        public Amazon.Inspector2.Model.MapFilter[] AggregationRequest_VmInstanceAggregation_InstanceTag { get; set; }
+        #endregion
+        
         #region Parameter AwsEcrContainerAggregation_InUseCount
         /// <summary>
         /// <para>
@@ -278,6 +672,20 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.NumberFilter[] AwsEcrContainerAggregation_InUseCount { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ContainerImageAggregation_InUseCount
+        /// <summary>
+        /// <para>
+        /// <para>The in-use counts to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.NumberFilter[] AggregationRequest_ContainerImageAggregation_InUseCount { get; set; }
+        #endregion
+        
         #region Parameter AwsEcrContainerAggregation_LastInUseAt
         /// <summary>
         /// <para>
@@ -291,6 +699,20 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_AwsEcrContainerAggregation_LastInUseAt")]
         public Amazon.Inspector2.Model.DateFilter[] AwsEcrContainerAggregation_LastInUseAt { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_LastInUseAt
+        /// <summary>
+        /// <para>
+        /// <para>The last in-use timestamps to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] AggregationRequest_ContainerImageAggregation_LastInUseAt { get; set; }
         #endregion
         
         #region Parameter LambdaLayerAggregation_LayerArn
@@ -339,6 +761,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] Ec2InstanceAggregation_OperatingSystem { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_VmInstanceAggregation_OperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>The operating systems to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_OperatingSystems")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_OperatingSystem { get; set; }
+        #endregion
+        
         #region Parameter PackageAggregation_PackageName
         /// <summary>
         /// <para>
@@ -384,6 +821,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] CodeRepositoryAggregation_ProviderType { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ContainerImageAggregation_Registry
+        /// <summary>
+        /// <para>
+        /// <para>The image registries to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_Registries")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_Registry { get; set; }
+        #endregion
+        
         #region Parameter AwsEcrContainerAggregation_Repository
         /// <summary>
         /// <para>
@@ -397,6 +849,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_AwsEcrContainerAggregation_Repositories")]
         public Amazon.Inspector2.Model.StringFilter[] AwsEcrContainerAggregation_Repository { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_Repository
+        /// <summary>
+        /// <para>
+        /// <para>The image repositories to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_Repositories")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_Repository { get; set; }
         #endregion
         
         #region Parameter ImageLayerAggregation_Repository
@@ -459,6 +926,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] CodeRepositoryAggregation_ResourceId { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ContainerImageAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ContainerImageAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ContainerImageAggregation_ResourceId { get; set; }
+        #endregion
+        
         #region Parameter ImageLayerAggregation_ResourceId
         /// <summary>
         /// <para>
@@ -502,6 +984,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_LambdaLayerAggregation_ResourceIds")]
         public Amazon.Inspector2.Model.StringFilter[] LambdaLayerAggregation_ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_ResourceId { get; set; }
         #endregion
         
         #region Parameter AccountAggregation_ResourceType
@@ -555,6 +1067,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] LambdaFunctionAggregation_Runtime { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The runtimes to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_ServerlessFunctionAggregation_Runtimes")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_ServerlessFunctionAggregation_Runtime { get; set; }
+        #endregion
+        
         #region Parameter AccountAggregation_SortBy
         /// <summary>
         /// <para>
@@ -601,6 +1128,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_CodeRepositoryAggregation_SortBy")]
         [AWSConstantClassSource("Amazon.Inspector2.CodeRepositorySortBy")]
         public Amazon.Inspector2.CodeRepositorySortBy CodeRepositoryAggregation_SortBy { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value to sort results by. Specify a field name from the aggregation response,
+        /// such as <c>CRITICAL</c>, <c>HIGH</c>, or <c>ALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.ContainerImageSortBy")]
+        public Amazon.Inspector2.ContainerImageSortBy AggregationRequest_ContainerImageAggregation_SortBy { get; set; }
         #endregion
         
         #region Parameter Ec2InstanceAggregation_SortBy
@@ -687,6 +1226,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.RepositorySortBy RepositoryAggregation_SortBy { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value to sort results by. Specify a field name from the aggregation response,
+        /// such as <c>CRITICAL</c>, <c>HIGH</c>, or <c>ALL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.ServerlessFunctionSortBy")]
+        public Amazon.Inspector2.ServerlessFunctionSortBy AggregationRequest_ServerlessFunctionAggregation_SortBy { get; set; }
+        #endregion
+        
         #region Parameter TitleAggregation_SortBy
         /// <summary>
         /// <para>
@@ -697,6 +1248,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_TitleAggregation_SortBy")]
         [AWSConstantClassSource("Amazon.Inspector2.TitleSortBy")]
         public Amazon.Inspector2.TitleSortBy TitleAggregation_SortBy { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The value to sort results by. Specify a field name from the aggregation response,
+        /// such as <c>CRITICAL</c>, <c>HIGH</c>, <c>ALL</c>, or <c>NETWORK_FINDINGS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.VmInstanceSortBy")]
+        public Amazon.Inspector2.VmInstanceSortBy AggregationRequest_VmInstanceAggregation_SortBy { get; set; }
         #endregion
         
         #region Parameter AccountAggregation_SortOrder
@@ -745,6 +1308,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_CodeRepositoryAggregation_SortOrder")]
         [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
         public Amazon.Inspector2.SortOrder CodeRepositoryAggregation_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_ContainerImageAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to sort results by. Valid values are <c>ASC</c> and <c>DESC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder AggregationRequest_ContainerImageAggregation_SortOrder { get; set; }
         #endregion
         
         #region Parameter Ec2InstanceAggregation_SortOrder
@@ -831,6 +1405,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.SortOrder RepositoryAggregation_SortOrder { get; set; }
         #endregion
         
+        #region Parameter AggregationRequest_ServerlessFunctionAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to sort results by. Valid values are <c>ASC</c> and <c>DESC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder AggregationRequest_ServerlessFunctionAggregation_SortOrder { get; set; }
+        #endregion
+        
         #region Parameter TitleAggregation_SortOrder
         /// <summary>
         /// <para>
@@ -841,6 +1426,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_TitleAggregation_SortOrder")]
         [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
         public Amazon.Inspector2.SortOrder TitleAggregation_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to sort results by. Valid values are <c>ASC</c> and <c>DESC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder AggregationRequest_VmInstanceAggregation_SortOrder { get; set; }
         #endregion
         
         #region Parameter TitleAggregation_Title
@@ -856,6 +1452,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_TitleAggregation_Titles")]
         public Amazon.Inspector2.Model.StringFilter[] TitleAggregation_Title { get; set; }
+        #endregion
+        
+        #region Parameter AggregationRequest_VmInstanceAggregation_VmImageReference
+        /// <summary>
+        /// <para>
+        /// <para>The VM image references to aggregate findings for.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_VmInstanceAggregation_VmImageReferences")]
+        public Amazon.Inspector2.Model.StringFilter[] AggregationRequest_VmInstanceAggregation_VmImageReference { get; set; }
         #endregion
         
         #region Parameter TitleAggregation_VulnerabilityId
@@ -1008,6 +1619,60 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.CodeRepositoryAggregation_SortBy = this.CodeRepositoryAggregation_SortBy;
             context.CodeRepositoryAggregation_SortOrder = this.CodeRepositoryAggregation_SortOrder;
+            if (this.AggregationRequest_ContainerImageAggregation_Architecture != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_Architecture = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_Architecture);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_CloudAccountId != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_CloudAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_CloudAccountId);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_CloudOrgId != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_CloudOrgId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_CloudOrgId);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_CloudPartition != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_CloudPartition = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_CloudPartition);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_CloudProvider != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_CloudProvider = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_CloudProvider);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_CloudRegion != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_CloudRegion = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_CloudRegion);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_ImageDigest != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_ImageDigest = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_ImageDigest);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_ImageTag != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_ImageTag = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_ImageTag);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_InUseCount != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_InUseCount = new List<Amazon.Inspector2.Model.NumberFilter>(this.AggregationRequest_ContainerImageAggregation_InUseCount);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_LastInUseAt != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_LastInUseAt = new List<Amazon.Inspector2.Model.DateFilter>(this.AggregationRequest_ContainerImageAggregation_LastInUseAt);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_Registry != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_Registry = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_Registry);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_Repository != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_Repository = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_Repository);
+            }
+            if (this.AggregationRequest_ContainerImageAggregation_ResourceId != null)
+            {
+                context.AggregationRequest_ContainerImageAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ContainerImageAggregation_ResourceId);
+            }
+            context.AggregationRequest_ContainerImageAggregation_SortBy = this.AggregationRequest_ContainerImageAggregation_SortBy;
+            context.AggregationRequest_ContainerImageAggregation_SortOrder = this.AggregationRequest_ContainerImageAggregation_SortOrder;
             if (this.Ec2InstanceAggregation_Ami != null)
             {
                 context.Ec2InstanceAggregation_Ami = new List<Amazon.Inspector2.Model.StringFilter>(this.Ec2InstanceAggregation_Ami);
@@ -1030,6 +1695,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             context.FindingTypeAggregation_ResourceType = this.FindingTypeAggregation_ResourceType;
             context.FindingTypeAggregation_SortBy = this.FindingTypeAggregation_SortBy;
             context.FindingTypeAggregation_SortOrder = this.FindingTypeAggregation_SortOrder;
+            if (this.AggregationRequest_ImageLayerAggregation_CloudAccountId != null)
+            {
+                context.AggregationRequest_ImageLayerAggregation_CloudAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ImageLayerAggregation_CloudAccountId);
+            }
+            if (this.AggregationRequest_ImageLayerAggregation_CloudOrgId != null)
+            {
+                context.AggregationRequest_ImageLayerAggregation_CloudOrgId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ImageLayerAggregation_CloudOrgId);
+            }
+            if (this.AggregationRequest_ImageLayerAggregation_CloudPartition != null)
+            {
+                context.AggregationRequest_ImageLayerAggregation_CloudPartition = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ImageLayerAggregation_CloudPartition);
+            }
+            if (this.AggregationRequest_ImageLayerAggregation_CloudProvider != null)
+            {
+                context.AggregationRequest_ImageLayerAggregation_CloudProvider = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ImageLayerAggregation_CloudProvider);
+            }
+            if (this.AggregationRequest_ImageLayerAggregation_CloudRegion != null)
+            {
+                context.AggregationRequest_ImageLayerAggregation_CloudRegion = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ImageLayerAggregation_CloudRegion);
+            }
             if (this.ImageLayerAggregation_LayerHash != null)
             {
                 context.ImageLayerAggregation_LayerHash = new List<Amazon.Inspector2.Model.StringFilter>(this.ImageLayerAggregation_LayerHash);
@@ -1088,6 +1773,44 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.RepositoryAggregation_SortBy = this.RepositoryAggregation_SortBy;
             context.RepositoryAggregation_SortOrder = this.RepositoryAggregation_SortOrder;
+            if (this.AggregationRequest_ServerlessFunctionAggregation_CloudAccountId != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_CloudAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_CloudAccountId);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_CloudOrgId != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_CloudOrgId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_CloudOrgId);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_CloudPartition != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_CloudPartition = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_CloudPartition);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_CloudProvider != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_CloudProvider = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_CloudProvider);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_CloudRegion != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_CloudRegion = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_CloudRegion);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_FunctionName != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_FunctionName = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_FunctionName);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_FunctionTag != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_FunctionTag = new List<Amazon.Inspector2.Model.MapFilter>(this.AggregationRequest_ServerlessFunctionAggregation_FunctionTag);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_ResourceId != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_ResourceId);
+            }
+            if (this.AggregationRequest_ServerlessFunctionAggregation_Runtime != null)
+            {
+                context.AggregationRequest_ServerlessFunctionAggregation_Runtime = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_ServerlessFunctionAggregation_Runtime);
+            }
+            context.AggregationRequest_ServerlessFunctionAggregation_SortBy = this.AggregationRequest_ServerlessFunctionAggregation_SortBy;
+            context.AggregationRequest_ServerlessFunctionAggregation_SortOrder = this.AggregationRequest_ServerlessFunctionAggregation_SortOrder;
             context.TitleAggregation_FindingType = this.TitleAggregation_FindingType;
             context.TitleAggregation_ResourceType = this.TitleAggregation_ResourceType;
             context.TitleAggregation_SortBy = this.TitleAggregation_SortBy;
@@ -1099,6 +1822,44 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.TitleAggregation_VulnerabilityId != null)
             {
                 context.TitleAggregation_VulnerabilityId = new List<Amazon.Inspector2.Model.StringFilter>(this.TitleAggregation_VulnerabilityId);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_CloudAccountId != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_CloudAccountId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_CloudAccountId);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_CloudOrgId != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_CloudOrgId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_CloudOrgId);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_CloudPartition != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_CloudPartition = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_CloudPartition);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_CloudProvider != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_CloudProvider = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_CloudProvider);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_CloudRegion != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_CloudRegion = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_CloudRegion);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_InstanceTag != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_InstanceTag = new List<Amazon.Inspector2.Model.MapFilter>(this.AggregationRequest_VmInstanceAggregation_InstanceTag);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_OperatingSystem != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_OperatingSystem = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_OperatingSystem);
+            }
+            if (this.AggregationRequest_VmInstanceAggregation_ResourceId != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_ResourceId);
+            }
+            context.AggregationRequest_VmInstanceAggregation_SortBy = this.AggregationRequest_VmInstanceAggregation_SortBy;
+            context.AggregationRequest_VmInstanceAggregation_SortOrder = this.AggregationRequest_VmInstanceAggregation_SortOrder;
+            if (this.AggregationRequest_VmInstanceAggregation_VmImageReference != null)
+            {
+                context.AggregationRequest_VmInstanceAggregation_VmImageReference = new List<Amazon.Inspector2.Model.StringFilter>(this.AggregationRequest_VmInstanceAggregation_VmImageReference);
             }
             context.AggregationType = this.AggregationType;
             #if MODULAR
@@ -1452,71 +2213,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation != null)
             {
                 request.AggregationRequest.CodeRepositoryAggregation = requestAggregationRequest_aggregationRequest_CodeRepositoryAggregation;
-                requestAggregationRequestIsNull = false;
-            }
-            Amazon.Inspector2.Model.ImageLayerAggregation requestAggregationRequest_aggregationRequest_ImageLayerAggregation = null;
-            
-             // populate ImageLayerAggregation
-            var requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = true;
-            requestAggregationRequest_aggregationRequest_ImageLayerAggregation = new Amazon.Inspector2.Model.ImageLayerAggregation();
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash = null;
-            if (cmdletContext.ImageLayerAggregation_LayerHash != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash = cmdletContext.ImageLayerAggregation_LayerHash;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.LayerHashes = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash;
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
-            }
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository = null;
-            if (cmdletContext.ImageLayerAggregation_Repository != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository = cmdletContext.ImageLayerAggregation_Repository;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.Repositories = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository;
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
-            }
-            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId = null;
-            if (cmdletContext.ImageLayerAggregation_ResourceId != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId = cmdletContext.ImageLayerAggregation_ResourceId;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId;
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
-            }
-            Amazon.Inspector2.ImageLayerSortBy requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy = null;
-            if (cmdletContext.ImageLayerAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy = cmdletContext.ImageLayerAggregation_SortBy;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.SortBy = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy;
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
-            }
-            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder = null;
-            if (cmdletContext.ImageLayerAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder = cmdletContext.ImageLayerAggregation_SortOrder;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder != null)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.SortOrder = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder;
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
-            }
-             // determine if requestAggregationRequest_aggregationRequest_ImageLayerAggregation should be set to null
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull)
-            {
-                requestAggregationRequest_aggregationRequest_ImageLayerAggregation = null;
-            }
-            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation != null)
-            {
-                request.AggregationRequest.ImageLayerAggregation = requestAggregationRequest_aggregationRequest_ImageLayerAggregation;
                 requestAggregationRequestIsNull = false;
             }
             Amazon.Inspector2.Model.LambdaLayerAggregation requestAggregationRequest_aggregationRequest_LambdaLayerAggregation = null;
@@ -1914,6 +2610,536 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.AggregationRequest.AwsEcrContainerAggregation = requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation;
                 requestAggregationRequestIsNull = false;
             }
+            Amazon.Inspector2.Model.ImageLayerAggregation requestAggregationRequest_aggregationRequest_ImageLayerAggregation = null;
+            
+             // populate ImageLayerAggregation
+            var requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_ImageLayerAggregation = new Amazon.Inspector2.Model.ImageLayerAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudAccountId = null;
+            if (cmdletContext.AggregationRequest_ImageLayerAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudAccountId = cmdletContext.AggregationRequest_ImageLayerAggregation_CloudAccountId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.CloudAccountIds = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudAccountId;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudOrgId = null;
+            if (cmdletContext.AggregationRequest_ImageLayerAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudOrgId = cmdletContext.AggregationRequest_ImageLayerAggregation_CloudOrgId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.CloudOrgIds = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudOrgId;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudPartition = null;
+            if (cmdletContext.AggregationRequest_ImageLayerAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudPartition = cmdletContext.AggregationRequest_ImageLayerAggregation_CloudPartition;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.CloudPartitions = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudPartition;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudProvider = null;
+            if (cmdletContext.AggregationRequest_ImageLayerAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudProvider = cmdletContext.AggregationRequest_ImageLayerAggregation_CloudProvider;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.CloudProviders = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudProvider;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudRegion = null;
+            if (cmdletContext.AggregationRequest_ImageLayerAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudRegion = cmdletContext.AggregationRequest_ImageLayerAggregation_CloudRegion;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.CloudRegions = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_aggregationRequest_ImageLayerAggregation_CloudRegion;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash = null;
+            if (cmdletContext.ImageLayerAggregation_LayerHash != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash = cmdletContext.ImageLayerAggregation_LayerHash;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.LayerHashes = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_LayerHash;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository = null;
+            if (cmdletContext.ImageLayerAggregation_Repository != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository = cmdletContext.ImageLayerAggregation_Repository;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.Repositories = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_Repository;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId = null;
+            if (cmdletContext.ImageLayerAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId = cmdletContext.ImageLayerAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            Amazon.Inspector2.ImageLayerSortBy requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy = null;
+            if (cmdletContext.ImageLayerAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy = cmdletContext.ImageLayerAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.SortBy = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder = null;
+            if (cmdletContext.ImageLayerAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder = cmdletContext.ImageLayerAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation.SortOrder = requestAggregationRequest_aggregationRequest_ImageLayerAggregation_imageLayerAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_ImageLayerAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_ImageLayerAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_ImageLayerAggregation != null)
+            {
+                request.AggregationRequest.ImageLayerAggregation = requestAggregationRequest_aggregationRequest_ImageLayerAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.ServerlessFunctionAggregation requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation = null;
+            
+             // populate ServerlessFunctionAggregation
+            var requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation = new Amazon.Inspector2.Model.ServerlessFunctionAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudAccountId = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudAccountId = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudAccountId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.CloudAccountIds = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudAccountId;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudOrgId = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudOrgId = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudOrgId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.CloudOrgIds = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudOrgId;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudPartition = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudPartition = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudPartition;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.CloudPartitions = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudPartition;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudProvider = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudProvider = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudProvider;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.CloudProviders = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudProvider;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudRegion = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudRegion = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_CloudRegion;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.CloudRegions = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_CloudRegion;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionName = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionName = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_FunctionName;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.FunctionNames = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionName;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.MapFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionTag = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_FunctionTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionTag = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_FunctionTag;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.FunctionTags = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_FunctionTag;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_ResourceId = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_ResourceId = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_Runtime = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_Runtime != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_Runtime = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_Runtime;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_Runtime != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.Runtimes = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_Runtime;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            Amazon.Inspector2.ServerlessFunctionSortBy requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortBy = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortBy = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.SortBy = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortOrder = null;
+            if (cmdletContext.AggregationRequest_ServerlessFunctionAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortOrder = cmdletContext.AggregationRequest_ServerlessFunctionAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation.SortOrder = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation_aggregationRequest_ServerlessFunctionAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation != null)
+            {
+                request.AggregationRequest.ServerlessFunctionAggregation = requestAggregationRequest_aggregationRequest_ServerlessFunctionAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.VmInstanceAggregation requestAggregationRequest_aggregationRequest_VmInstanceAggregation = null;
+            
+             // populate VmInstanceAggregation
+            var requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_VmInstanceAggregation = new Amazon.Inspector2.Model.VmInstanceAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudAccountId = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudAccountId = cmdletContext.AggregationRequest_VmInstanceAggregation_CloudAccountId;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.CloudAccountIds = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudAccountId;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudOrgId = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudOrgId = cmdletContext.AggregationRequest_VmInstanceAggregation_CloudOrgId;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.CloudOrgIds = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudOrgId;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudPartition = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudPartition = cmdletContext.AggregationRequest_VmInstanceAggregation_CloudPartition;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.CloudPartitions = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudPartition;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudProvider = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudProvider = cmdletContext.AggregationRequest_VmInstanceAggregation_CloudProvider;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.CloudProviders = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudProvider;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudRegion = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudRegion = cmdletContext.AggregationRequest_VmInstanceAggregation_CloudRegion;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.CloudRegions = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_CloudRegion;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.MapFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_InstanceTag = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_InstanceTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_InstanceTag = cmdletContext.AggregationRequest_VmInstanceAggregation_InstanceTag;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_InstanceTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.InstanceTags = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_InstanceTag;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_OperatingSystem = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_OperatingSystem != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_OperatingSystem = cmdletContext.AggregationRequest_VmInstanceAggregation_OperatingSystem;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_OperatingSystem != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.OperatingSystems = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_OperatingSystem;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_ResourceId = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_ResourceId = cmdletContext.AggregationRequest_VmInstanceAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            Amazon.Inspector2.VmInstanceSortBy requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortBy = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortBy = cmdletContext.AggregationRequest_VmInstanceAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.SortBy = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortOrder = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortOrder = cmdletContext.AggregationRequest_VmInstanceAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.SortOrder = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_VmImageReference = null;
+            if (cmdletContext.AggregationRequest_VmInstanceAggregation_VmImageReference != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_VmImageReference = cmdletContext.AggregationRequest_VmInstanceAggregation_VmImageReference;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_VmImageReference != null)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation.VmImageReferences = requestAggregationRequest_aggregationRequest_VmInstanceAggregation_aggregationRequest_VmInstanceAggregation_VmImageReference;
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_VmInstanceAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_VmInstanceAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_VmInstanceAggregation != null)
+            {
+                request.AggregationRequest.VmInstanceAggregation = requestAggregationRequest_aggregationRequest_VmInstanceAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.ContainerImageAggregation requestAggregationRequest_aggregationRequest_ContainerImageAggregation = null;
+            
+             // populate ContainerImageAggregation
+            var requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_ContainerImageAggregation = new Amazon.Inspector2.Model.ContainerImageAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Architecture = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_Architecture != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Architecture = cmdletContext.AggregationRequest_ContainerImageAggregation_Architecture;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Architecture != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.Architectures = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Architecture;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudAccountId = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudAccountId = cmdletContext.AggregationRequest_ContainerImageAggregation_CloudAccountId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudAccountId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.CloudAccountIds = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudAccountId;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudOrgId = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudOrgId = cmdletContext.AggregationRequest_ContainerImageAggregation_CloudOrgId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudOrgId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.CloudOrgIds = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudOrgId;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudPartition = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudPartition = cmdletContext.AggregationRequest_ContainerImageAggregation_CloudPartition;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudPartition != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.CloudPartitions = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudPartition;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudProvider = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudProvider = cmdletContext.AggregationRequest_ContainerImageAggregation_CloudProvider;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudProvider != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.CloudProviders = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudProvider;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudRegion = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudRegion = cmdletContext.AggregationRequest_ContainerImageAggregation_CloudRegion;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudRegion != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.CloudRegions = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_CloudRegion;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageDigest = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_ImageDigest != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageDigest = cmdletContext.AggregationRequest_ContainerImageAggregation_ImageDigest;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageDigest != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.ImageDigests = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageDigest;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageTag = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_ImageTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageTag = cmdletContext.AggregationRequest_ContainerImageAggregation_ImageTag;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.ImageTags = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ImageTag;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.NumberFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_InUseCount = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_InUseCount != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_InUseCount = cmdletContext.AggregationRequest_ContainerImageAggregation_InUseCount;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_InUseCount != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.InUseCount = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_InUseCount;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_LastInUseAt = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_LastInUseAt != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_LastInUseAt = cmdletContext.AggregationRequest_ContainerImageAggregation_LastInUseAt;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_LastInUseAt != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.LastInUseAt = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_LastInUseAt;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Registry = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_Registry != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Registry = cmdletContext.AggregationRequest_ContainerImageAggregation_Registry;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Registry != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.Registries = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Registry;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Repository = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_Repository != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Repository = cmdletContext.AggregationRequest_ContainerImageAggregation_Repository;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Repository != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.Repositories = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_Repository;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ResourceId = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ResourceId = cmdletContext.AggregationRequest_ContainerImageAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            Amazon.Inspector2.ContainerImageSortBy requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortBy = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortBy = cmdletContext.AggregationRequest_ContainerImageAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.SortBy = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortOrder = null;
+            if (cmdletContext.AggregationRequest_ContainerImageAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortOrder = cmdletContext.AggregationRequest_ContainerImageAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation.SortOrder = requestAggregationRequest_aggregationRequest_ContainerImageAggregation_aggregationRequest_ContainerImageAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_ContainerImageAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_ContainerImageAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_ContainerImageAggregation != null)
+            {
+                request.AggregationRequest.ContainerImageAggregation = requestAggregationRequest_aggregationRequest_ContainerImageAggregation;
+                requestAggregationRequestIsNull = false;
+            }
              // determine if request.AggregationRequest should be set to null
             if (requestAggregationRequestIsNull)
             {
@@ -2029,6 +3255,21 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> CodeRepositoryAggregation_ResourceId { get; set; }
             public Amazon.Inspector2.CodeRepositorySortBy CodeRepositoryAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder CodeRepositoryAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_Architecture { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_CloudAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_CloudOrgId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_CloudPartition { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_CloudProvider { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_CloudRegion { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_ImageDigest { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_ImageTag { get; set; }
+            public List<Amazon.Inspector2.Model.NumberFilter> AggregationRequest_ContainerImageAggregation_InUseCount { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> AggregationRequest_ContainerImageAggregation_LastInUseAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_Registry { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_Repository { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ContainerImageAggregation_ResourceId { get; set; }
+            public Amazon.Inspector2.ContainerImageSortBy AggregationRequest_ContainerImageAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder AggregationRequest_ContainerImageAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> Ec2InstanceAggregation_Ami { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> Ec2InstanceAggregation_InstanceId { get; set; }
             public List<Amazon.Inspector2.Model.MapFilter> Ec2InstanceAggregation_InstanceTag { get; set; }
@@ -2039,6 +3280,11 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public Amazon.Inspector2.AggregationResourceType FindingTypeAggregation_ResourceType { get; set; }
             public Amazon.Inspector2.FindingTypeSortBy FindingTypeAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder FindingTypeAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ImageLayerAggregation_CloudAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ImageLayerAggregation_CloudOrgId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ImageLayerAggregation_CloudPartition { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ImageLayerAggregation_CloudProvider { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ImageLayerAggregation_CloudRegion { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> ImageLayerAggregation_LayerHash { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> ImageLayerAggregation_Repository { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> ImageLayerAggregation_ResourceId { get; set; }
@@ -2061,12 +3307,34 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> RepositoryAggregation_Repository { get; set; }
             public Amazon.Inspector2.RepositorySortBy RepositoryAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder RepositoryAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_CloudAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_CloudOrgId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_CloudPartition { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_CloudProvider { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_CloudRegion { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_FunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.MapFilter> AggregationRequest_ServerlessFunctionAggregation_FunctionTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_ResourceId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_ServerlessFunctionAggregation_Runtime { get; set; }
+            public Amazon.Inspector2.ServerlessFunctionSortBy AggregationRequest_ServerlessFunctionAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder AggregationRequest_ServerlessFunctionAggregation_SortOrder { get; set; }
             public Amazon.Inspector2.AggregationFindingType TitleAggregation_FindingType { get; set; }
             public Amazon.Inspector2.AggregationResourceType TitleAggregation_ResourceType { get; set; }
             public Amazon.Inspector2.TitleSortBy TitleAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder TitleAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> TitleAggregation_Title { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> TitleAggregation_VulnerabilityId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_CloudAccountId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_CloudOrgId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_CloudPartition { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_CloudProvider { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_CloudRegion { get; set; }
+            public List<Amazon.Inspector2.Model.MapFilter> AggregationRequest_VmInstanceAggregation_InstanceTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_OperatingSystem { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_ResourceId { get; set; }
+            public Amazon.Inspector2.VmInstanceSortBy AggregationRequest_VmInstanceAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder AggregationRequest_VmInstanceAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> AggregationRequest_VmInstanceAggregation_VmImageReference { get; set; }
             public Amazon.Inspector2.AggregationType AggregationType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

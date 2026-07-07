@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Disable the service for the current Amazon Web Services Region or specified Amazon
-    /// Web Services Region.
+    /// Web Services Region. Disabling the service also disables all opt-in features that
+    /// are currently enabled in that Region.
     /// </summary>
     [Cmdlet("Disable", "SHUBSecurityHubV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

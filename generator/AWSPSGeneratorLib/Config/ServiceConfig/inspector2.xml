@@ -91,6 +91,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnector" OutputProperty="ConnectorArn" Verb="New" Noun="Connector" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFilter" OutputProperty="Arn" Verb="New" Noun="Filter" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeSecurityScanConfiguration" OutputProperty="ScanConfigurationArn" Verb="Remove" Noun="CodeSecurityScanConfiguration" ShouldProcessTarget="ScanConfigurationArn" PipelineParameter="ScanConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnector" Verb="Remove" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +232,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCodeSecurityScanConfigurations" OutputProperty="Configurations" Verb="Get" Noun="CodeSecurityScanConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectors" OutputProperty="Items" Verb="Get" Noun="ConnectorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectorScanConfigurations" OutputProperty="ScanConfigurations" Verb="Get" Noun="ConnectorScanConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -406,6 +422,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguration" Verb="Update" Noun="Configuration" ShouldProcessTarget="EcrConfiguration_RescanDuration" PipelineParameter="EcrConfiguration_RescanDuration" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorArn" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorArn" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectorScanConfiguration" Verb="Update" Noun="ConnectorScanConfiguration" ShouldProcessTarget="AwsConfigConnectorArn" PipelineParameter="AwsConfigConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

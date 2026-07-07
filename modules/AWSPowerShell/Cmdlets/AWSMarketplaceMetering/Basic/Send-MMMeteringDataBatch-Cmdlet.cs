@@ -46,7 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// </para><para>
     /// Usage records should be submitted in quick succession following a recorded event.
     /// Usage records aren't accepted 24 hours or more after an event.
-    /// </para><para><c>BatchMeterUsage</c> can process up to 25 <c>UsageRecords</c> at a time, and each
+    /// </para><note><para>
+    /// At the end of each billing cycle, a 6-hour grace period applies. We accept usage records
+    /// for the previous billing month until 06:00 UTC on the first day of the next month.
+    /// For example, you must submit March usage records before 06:00 UTC on April 1. After
+    /// this grace period, we return a <c>TimestampOutOfBoundsException</c> error.
+    /// </para></note><para><c>BatchMeterUsage</c> can process up to 25 <c>UsageRecords</c> at a time, and each
     /// request must be less than 1 MB in size. Optionally, you can have multiple usage allocations
     /// for usage data that's split into buckets according to predefined tags.
     /// </para><para><c>BatchMeterUsage</c> returns a list of <c>UsageRecordResult</c> objects, which

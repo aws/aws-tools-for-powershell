@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OperatingSystem
         /// <summary>
         /// <para>
-        /// <para>Returns the operating system rule specified for patch groups using the patch baseline.</para>
+        /// <para>Returns the operating system rule specified for patch groups using the patch baseline.
+        /// The default value is <c>WINDOWS</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1120,6 +1120,20 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] ResellerLegalName_ValueList { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>ResellerRole</c> of a ResaleAuthorization with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList { get; set; }
+        #endregion
+        
         #region Parameter Status_ValueList
         /// <summary>
         /// <para>
@@ -1592,6 +1606,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 context.ResellerLegalName_ValueList = new List<System.String>(this.ResellerLegalName_ValueList);
             }
             context.ResellerLegalName_WildCardValue = this.ResellerLegalName_WildCardValue;
+            if (this.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList != null)
+            {
+                context.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList = new List<System.String>(this.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList);
+            }
             if (this.Status_ValueList != null)
             {
                 context.Status_ValueList = new List<System.String>(this.Status_ValueList);
@@ -3136,6 +3154,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.OfferExtendedStatus = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_OfferExtendedStatus;
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.ResaleAuthorizationResellerRoleFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole = null;
+            
+             // populate ResellerRole
+            var requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRoleIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole = new Amazon.MarketplaceCatalog.Model.ResaleAuthorizationResellerRoleFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList = cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole.ValueList = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRoleIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRoleIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.ResellerRole = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.ResaleAuthorizationStatusFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_Status = null;
             
              // populate Status
@@ -4024,6 +4067,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String ResellerAccountID_WildCardValue { get; set; }
             public List<System.String> ResellerLegalName_ValueList { get; set; }
             public System.String ResellerLegalName_WildCardValue { get; set; }
+            public List<System.String> EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList { get; set; }
             public List<System.String> Status_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_SaaSProductFilters_EntityId_ValueList { get; set; }
             public System.String EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_AfterValue { get; set; }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>partnercentral-revenue-measurement</C2jFilename>
+    <AssemblyName>PartnerCentralRevenueMeasurement</AssemblyName>
+    <ServiceNounPrefix>PCRM</ServiceNounPrefix>
+    <ServiceName>Partner Central Revenue Measurement API</ServiceName>
+    <ServiceId>PartnerCentral Revenue Measurement</ServiceId>
+    <ServiceClientInterface>IAmazonPartnerCentralRevenueMeasurement</ServiceClientInterface>
+    <ServiceClient>AmazonPartnerCentralRevenueMeasurementClient</ServiceClient>
+    <ServiceModuleGuid>a76b1172-924b-4caf-9047-d5b3fd9aa542</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateMarketplaceRevenueShare" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShare" ShouldProcessTarget="ProductId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMarketplaceRevenueShareAllocation" OutputProperty="*" Verb="New" Noun="MarketplaceRevenueShareAllocation" ShouldProcessTarget="ProductId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRevenueAttribution" OutputProperty="*" Verb="New" Noun="RevenueAttribution" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMarketplaceRevenueShare" OutputProperty="*" Verb="Get" Noun="MarketplaceRevenueShare" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMarketplaceRevenueShareAllocation" OutputProperty="*" Verb="Get" Noun="MarketplaceRevenueShareAllocation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueAttribution" OutputProperty="*" Verb="Get" Noun="RevenueAttribution" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueAttributionAllocation" OutputProperty="*" Verb="Get" Noun="RevenueAttributionAllocation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRevenueAttributionAllocationsTask" OutputProperty="*" Verb="Get" Noun="RevenueAttributionAllocationsTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMarketplaceRevenueShareAllocations" OutputProperty="MarketplaceRevenueShareAllocationSummaries" Verb="Get" Noun="MarketplaceRevenueShareAllocationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMarketplaceRevenueShares" OutputProperty="MarketplaceRevenueShareSummaries" Verb="Get" Noun="MarketplaceRevenueShareList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRevenueAttributionAllocations" OutputProperty="RevenueAttributionAllocationSummaries" Verb="Get" Noun="RevenueAttributionAllocationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRevenueAttributions" OutputProperty="RevenueAttributionSummaries" Verb="Get" Noun="RevenueAttributionList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRevenueAttributionAllocationsTask" OutputProperty="*" Verb="Start" Noun="RevenueAttributionAllocationsTask" ShouldProcessTarget="RevenueAttributionIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMarketplaceRevenueShareAllocation" OutputProperty="*" Verb="Update" Noun="MarketplaceRevenueShareAllocation" ShouldProcessTarget="MarketplaceRevenueShareAllocationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRevenueAttribution" OutputProperty="*" Verb="Update" Noun="RevenueAttribution" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

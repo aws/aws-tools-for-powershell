@@ -7261,6 +7261,8 @@ Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRe
 Set-Alias -Name CFG-DeleteConfigurationRecorder -Value Remove-CFGConfigurationRecorder
 Set-Alias -Name Delete-CFGConformancePack -Value Remove-CFGConformancePack
 Set-Alias -Name CFG-DeleteConformancePack -Value Remove-CFGConformancePack
+Set-Alias -Name Delete-CFGConnector -Value Remove-CFGConnector
+Set-Alias -Name CFG-DeleteConnector -Value Remove-CFGConnector
 Set-Alias -Name Delete-CFGDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeleteDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name Delete-CFGEvaluationResults -Value Remove-CFGEvaluationResult
@@ -7370,6 +7372,7 @@ Set-Alias -Name CFG-GetComplianceSummaryByResourceType -Value Get-CFGComplianceS
 Set-Alias -Name Get-CFGConformancePackComplianceDetails -Value Get-CFGConformancePackComplianceDetail
 Set-Alias -Name CFG-GetConformancePackComplianceDetails -Value Get-CFGConformancePackComplianceDetail
 Set-Alias -Name CFG-GetConformancePackComplianceSummary -Value Get-CFGConformancePackComplianceSummary
+Set-Alias -Name CFG-GetConnector -Value Get-CFGConnector
 Set-Alias -Name CFG-GetCustomRulePolicy -Value Get-CFGCustomRulePolicy
 Set-Alias -Name Get-CFGDiscoveredResourceCounts -Value Get-CFGDiscoveredResourceCount
 Set-Alias -Name CFG-GetDiscoveredResourceCounts -Value Get-CFGDiscoveredResourceCount
@@ -7388,6 +7391,9 @@ Set-Alias -Name CFG-ListConfigurationRecorders -Value Get-CFGConfigurationRecord
 Set-Alias -Name List-CFGConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
 Set-Alias -Name List-CFGConformancePackComplianceScoreList -Value Get-CFGConformancePackComplianceScoreList
 Set-Alias -Name CFG-ListConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
+Set-Alias -Name List-CFGConnectors -Value Get-CFGConnectorList
+Set-Alias -Name List-CFGConnectorList -Value Get-CFGConnectorList
+Set-Alias -Name CFG-ListConnectors -Value Get-CFGConnectorList
 Set-Alias -Name List-CFGDiscoveredResources -Value Get-CFGDiscoveredResource
 Set-Alias -Name List-CFGDiscoveredResource -Value Get-CFGDiscoveredResource
 Set-Alias -Name CFG-ListDiscoveredResources -Value Get-CFGDiscoveredResource
@@ -7408,6 +7414,8 @@ Set-Alias -Name Put-CFGConfigurationRecorder -Value Write-CFGConfigurationRecord
 Set-Alias -Name CFG-PutConfigurationRecorder -Value Write-CFGConfigurationRecorder
 Set-Alias -Name Put-CFGConformancePack -Value Write-CFGConformancePack
 Set-Alias -Name CFG-PutConformancePack -Value Write-CFGConformancePack
+Set-Alias -Name Put-CFGConnector -Value Write-CFGConnector
+Set-Alias -Name CFG-PutConnector -Value Write-CFGConnector
 Set-Alias -Name Put-CFGDeliveryChannel -Value Write-CFGDeliveryChannel
 Set-Alias -Name CFG-PutDeliveryChannel -Value Write-CFGDeliveryChannel
 Set-Alias -Name Put-CFGEvaluations -Value Write-CFGEvaluation
@@ -7433,6 +7441,8 @@ Set-Alias -Name Put-CFGServiceLinkedConfigurationRecorder -Value Write-CFGServic
 Set-Alias -Name CFG-PutServiceLinkedConfigurationRecorder -Value Write-CFGServiceLinkedConfigurationRecorder
 Set-Alias -Name Put-CFGStoredQuery -Value Write-CFGStoredQuery
 Set-Alias -Name CFG-PutStoredQuery -Value Write-CFGStoredQuery
+Set-Alias -Name Put-CFGThirdPartyServiceLinkedConfigurationRecorder -Value Write-CFGThirdPartyServiceLinkedConfigurationRecorder
+Set-Alias -Name CFG-PutThirdPartyServiceLinkedConfigurationRecorder -Value Write-CFGThirdPartyServiceLinkedConfigurationRecorder
 Set-Alias -Name CFG-SelectAggregateResourceConfig -Value Select-CFGAggregateResourceConfig
 Set-Alias -Name CFG-SelectResourceConfig -Value Select-CFGResourceConfig
 Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
@@ -7524,6 +7534,8 @@ Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name CONN-CreateAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name Create-CONNAttachedFile -Value New-CONNAttachedFile
 Set-Alias -Name CONN-CreateAttachedFile -Value New-CONNAttachedFile
+Set-Alias -Name Create-CONNAuthCode -Value New-CONNAuthCode
+Set-Alias -Name CONN-CreateAuthCode -Value New-CONNAuthCode
 Set-Alias -Name Create-CONNContact -Value New-CONNContact
 Set-Alias -Name CONN-CreateContact -Value New-CONNContact
 Set-Alias -Name Create-CONNContactFlow -Value New-CONNContactFlow
@@ -7646,6 +7658,8 @@ Set-Alias -Name Delete-CONNRule -Value Remove-CONNRule
 Set-Alias -Name CONN-DeleteRule -Value Remove-CONNRule
 Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name CONN-DeleteSecurityProfile -Value Remove-CONNSecurityProfile
+Set-Alias -Name Delete-CONNSession -Value Remove-CONNSession
+Set-Alias -Name CONN-DeleteSession -Value Remove-CONNSession
 Set-Alias -Name Delete-CONNTaskTemplate -Value Remove-CONNTaskTemplate
 Set-Alias -Name CONN-DeleteTaskTemplate -Value Remove-CONNTaskTemplate
 Set-Alias -Name Delete-CONNTestCase -Value Remove-CONNTestCase
@@ -17418,6 +17432,8 @@ Set-Alias -Name Create-INS2CodeSecurityIntegration -Value New-INS2CodeSecurityIn
 Set-Alias -Name INS2-CreateCodeSecurityIntegration -Value New-INS2CodeSecurityIntegration
 Set-Alias -Name Create-INS2CodeSecurityScanConfiguration -Value New-INS2CodeSecurityScanConfiguration
 Set-Alias -Name INS2-CreateCodeSecurityScanConfiguration -Value New-INS2CodeSecurityScanConfiguration
+Set-Alias -Name Create-INS2Connector -Value New-INS2Connector
+Set-Alias -Name INS2-CreateConnector -Value New-INS2Connector
 Set-Alias -Name Create-INS2Filter -Value New-INS2Filter
 Set-Alias -Name INS2-CreateFilter -Value New-INS2Filter
 Set-Alias -Name Create-INS2FindingsReport -Value New-INS2FindingsReport
@@ -17430,6 +17446,8 @@ Set-Alias -Name Delete-INS2CodeSecurityIntegration -Value Remove-INS2CodeSecurit
 Set-Alias -Name INS2-DeleteCodeSecurityIntegration -Value Remove-INS2CodeSecurityIntegration
 Set-Alias -Name Delete-INS2CodeSecurityScanConfiguration -Value Remove-INS2CodeSecurityScanConfiguration
 Set-Alias -Name INS2-DeleteCodeSecurityScanConfiguration -Value Remove-INS2CodeSecurityScanConfiguration
+Set-Alias -Name Delete-INS2Connector -Value Remove-INS2Connector
+Set-Alias -Name INS2-DeleteConnector -Value Remove-INS2Connector
 Set-Alias -Name Delete-INS2Filter -Value Remove-INS2Filter
 Set-Alias -Name INS2-DeleteFilter -Value Remove-INS2Filter
 Set-Alias -Name Describe-INS2OrganizationConfiguration -Value Get-INS2OrganizationConfiguration
@@ -17482,6 +17500,12 @@ Set-Alias -Name INS2-ListCodeSecurityScanConfigurationAssociations -Value Get-IN
 Set-Alias -Name List-INS2CodeSecurityScanConfigurations -Value Get-INS2CodeSecurityScanConfigurationList
 Set-Alias -Name List-INS2CodeSecurityScanConfigurationList -Value Get-INS2CodeSecurityScanConfigurationList
 Set-Alias -Name INS2-ListCodeSecurityScanConfigurations -Value Get-INS2CodeSecurityScanConfigurationList
+Set-Alias -Name List-INS2Connectors -Value Get-INS2ConnectorList
+Set-Alias -Name List-INS2ConnectorList -Value Get-INS2ConnectorList
+Set-Alias -Name INS2-ListConnectors -Value Get-INS2ConnectorList
+Set-Alias -Name List-INS2ConnectorScanConfigurations -Value Get-INS2ConnectorScanConfigurationList
+Set-Alias -Name List-INS2ConnectorScanConfigurationList -Value Get-INS2ConnectorScanConfigurationList
+Set-Alias -Name INS2-ListConnectorScanConfigurations -Value Get-INS2ConnectorScanConfigurationList
 Set-Alias -Name List-INS2Coverage -Value Get-INS2CoverageList
 Set-Alias -Name List-INS2CoverageList -Value Get-INS2CoverageList
 Set-Alias -Name INS2-ListCoverage -Value Get-INS2CoverageList
@@ -17521,6 +17545,8 @@ Set-Alias -Name INS2-UpdateCisScanConfiguration -Value Update-INS2CisScanConfigu
 Set-Alias -Name INS2-UpdateCodeSecurityIntegration -Value Update-INS2CodeSecurityIntegration
 Set-Alias -Name INS2-UpdateCodeSecurityScanConfiguration -Value Update-INS2CodeSecurityScanConfiguration
 Set-Alias -Name INS2-UpdateConfiguration -Value Update-INS2Configuration
+Set-Alias -Name INS2-UpdateConnector -Value Update-INS2Connector
+Set-Alias -Name INS2-UpdateConnectorScanConfiguration -Value Update-INS2ConnectorScanConfiguration
 Set-Alias -Name INS2-UpdateEc2DeepInspectionConfiguration -Value Update-INS2Ec2DeepInspectionConfiguration
 Set-Alias -Name INS2-UpdateEncryptionKey -Value Update-INS2EncryptionKey
 Set-Alias -Name INS2-UpdateFilter -Value Update-INS2Filter
@@ -25284,6 +25310,35 @@ Set-Alias -Name PCC-TagResource -Value Add-PCCResourceTag
 Set-Alias -Name PCC-UntagResource -Value Remove-PCCResourceTag
 Set-Alias -Name PCC-UpdateProgramManagementAccount -Value Update-PCCProgramManagementAccount
 Set-Alias -Name PCC-UpdateRelationship -Value Update-PCCRelationship
+Set-Alias -Name Create-PCRMMarketplaceRevenueShareAllocation -Value New-PCRMMarketplaceRevenueShareAllocation
+Set-Alias -Name PCRM-CreateMarketplaceRevenueShareAllocation -Value New-PCRMMarketplaceRevenueShareAllocation
+Set-Alias -Name Create-PCRMMarketplaceRevenueShare -Value New-PCRMMarketplaceRevenueShare
+Set-Alias -Name PCRM-CreateMarketplaceRevenueShare -Value New-PCRMMarketplaceRevenueShare
+Set-Alias -Name Create-PCRMRevenueAttribution -Value New-PCRMRevenueAttribution
+Set-Alias -Name PCRM-CreateRevenueAttribution -Value New-PCRMRevenueAttribution
+Set-Alias -Name PCRM-GetMarketplaceRevenueShareAllocation -Value Get-PCRMMarketplaceRevenueShareAllocation
+Set-Alias -Name PCRM-GetMarketplaceRevenueShare -Value Get-PCRMMarketplaceRevenueShare
+Set-Alias -Name PCRM-GetRevenueAttributionAllocation -Value Get-PCRMRevenueAttributionAllocation
+Set-Alias -Name PCRM-GetRevenueAttributionAllocationsTask -Value Get-PCRMRevenueAttributionAllocationsTask
+Set-Alias -Name PCRM-GetRevenueAttribution -Value Get-PCRMRevenueAttribution
+Set-Alias -Name List-PCRMMarketplaceRevenueShareAllocations -Value Get-PCRMMarketplaceRevenueShareAllocationList
+Set-Alias -Name List-PCRMMarketplaceRevenueShareAllocationList -Value Get-PCRMMarketplaceRevenueShareAllocationList
+Set-Alias -Name PCRM-ListMarketplaceRevenueShareAllocations -Value Get-PCRMMarketplaceRevenueShareAllocationList
+Set-Alias -Name List-PCRMMarketplaceRevenueShares -Value Get-PCRMMarketplaceRevenueShareList
+Set-Alias -Name List-PCRMMarketplaceRevenueShareList -Value Get-PCRMMarketplaceRevenueShareList
+Set-Alias -Name PCRM-ListMarketplaceRevenueShares -Value Get-PCRMMarketplaceRevenueShareList
+Set-Alias -Name List-PCRMRevenueAttributionAllocations -Value Get-PCRMRevenueAttributionAllocationList
+Set-Alias -Name List-PCRMRevenueAttributionAllocationList -Value Get-PCRMRevenueAttributionAllocationList
+Set-Alias -Name PCRM-ListRevenueAttributionAllocations -Value Get-PCRMRevenueAttributionAllocationList
+Set-Alias -Name List-PCRMRevenueAttributions -Value Get-PCRMRevenueAttributionList
+Set-Alias -Name List-PCRMRevenueAttributionList -Value Get-PCRMRevenueAttributionList
+Set-Alias -Name PCRM-ListRevenueAttributions -Value Get-PCRMRevenueAttributionList
+Set-Alias -Name PCRM-ListTagsForResource -Value Get-PCRMResourceTag
+Set-Alias -Name PCRM-StartRevenueAttributionAllocationsTask -Value Start-PCRMRevenueAttributionAllocationsTask
+Set-Alias -Name PCRM-TagResource -Value Add-PCRMResourceTag
+Set-Alias -Name PCRM-UntagResource -Value Remove-PCRMResourceTag
+Set-Alias -Name PCRM-UpdateMarketplaceRevenueShareAllocation -Value Update-PCRMMarketplaceRevenueShareAllocation
+Set-Alias -Name PCRM-UpdateRevenueAttribution -Value Update-PCRMRevenueAttribution
 Set-Alias -Name Accept-PCEngagementInvitation -Value Invoke-PCAcceptEngagementInvitation
 Set-Alias -Name Accept-PCAcceptEngagementInvitation -Value Invoke-PCAcceptEngagementInvitation
 Set-Alias -Name PC-AcceptEngagementInvitation -Value Invoke-PCAcceptEngagementInvitation
@@ -29407,6 +29462,9 @@ Set-Alias -Name R53GR-ListHostedZoneAssociations -Value Get-R53GRHostedZoneAssoc
 Set-Alias -Name List-R53GRManagedFirewallDomainLists -Value Get-R53GRManagedFirewallDomainListList
 Set-Alias -Name List-R53GRManagedFirewallDomainListList -Value Get-R53GRManagedFirewallDomainListList
 Set-Alias -Name R53GR-ListManagedFirewallDomainLists -Value Get-R53GRManagedFirewallDomainListList
+Set-Alias -Name List-R53GRSharedDNSViews -Value Get-R53GRSharedDNSViewList
+Set-Alias -Name List-R53GRSharedDNSViewList -Value Get-R53GRSharedDNSViewList
+Set-Alias -Name R53GR-ListSharedDNSViews -Value Get-R53GRSharedDNSViewList
 Set-Alias -Name Get-R53GRResourceTag -Value Get-R53GRResourceTagList
 Set-Alias -Name R53GR-ListTagsForResource -Value Get-R53GRResourceTagList
 Set-Alias -Name R53GR-TagResource -Value Add-R53GRResourceTag
@@ -31387,6 +31445,8 @@ Set-Alias -Name Create-SHUBAutomationRuleV2 -Value New-SHUBAutomationRuleV2
 Set-Alias -Name SHUB-CreateAutomationRuleV2 -Value New-SHUBAutomationRuleV2
 Set-Alias -Name Create-SHUBConfigurationPolicy -Value New-SHUBConfigurationPolicy
 Set-Alias -Name SHUB-CreateConfigurationPolicy -Value New-SHUBConfigurationPolicy
+Set-Alias -Name Create-SHUBConnector -Value New-SHUBConnector
+Set-Alias -Name SHUB-CreateConnector -Value New-SHUBConnector
 Set-Alias -Name Create-SHUBConnectorV2 -Value New-SHUBConnectorV2
 Set-Alias -Name SHUB-CreateConnectorV2 -Value New-SHUBConnectorV2
 Set-Alias -Name Create-SHUBFindingAggregator -Value New-SHUBFindingAggregator
@@ -31409,6 +31469,8 @@ Set-Alias -Name Delete-SHUBAutomationRuleV2 -Value Remove-SHUBAutomationRuleV2
 Set-Alias -Name SHUB-DeleteAutomationRuleV2 -Value Remove-SHUBAutomationRuleV2
 Set-Alias -Name Delete-SHUBConfigurationPolicy -Value Remove-SHUBConfigurationPolicy
 Set-Alias -Name SHUB-DeleteConfigurationPolicy -Value Remove-SHUBConfigurationPolicy
+Set-Alias -Name Delete-SHUBConnector -Value Remove-SHUBConnector
+Set-Alias -Name SHUB-DeleteConnector -Value Remove-SHUBConnector
 Set-Alias -Name Delete-SHUBConnectorV2 -Value Remove-SHUBConnectorV2
 Set-Alias -Name SHUB-DeleteConnectorV2 -Value Remove-SHUBConnectorV2
 Set-Alias -Name Delete-SHUBFindingAggregator -Value Remove-SHUBFindingAggregator
@@ -31444,6 +31506,7 @@ Set-Alias -Name SHUB-DescribeStandardsControls -Value Get-SHUBStandardsControl
 Set-Alias -Name SHUB-DisableImportFindingsForProduct -Value Disable-SHUBImportFindingsForProduct
 Set-Alias -Name SHUB-DisableOrganizationAdminAccount -Value Disable-SHUBOrganizationAdminAccount
 Set-Alias -Name SHUB-DisableSecurityHub -Value Disable-SHUBSecurityHub
+Set-Alias -Name SHUB-DisableSecurityHubFeatureV2 -Value Disable-SHUBSecurityHubFeatureV2
 Set-Alias -Name SHUB-DisableSecurityHubV2 -Value Disable-SHUBSecurityHubV2
 Set-Alias -Name Disassociate-SHUBFromAdministratorAccount -Value Remove-SHUBFromAdministratorAccount
 Set-Alias -Name SHUB-DisassociateFromAdministratorAccount -Value Remove-SHUBFromAdministratorAccount
@@ -31456,6 +31519,7 @@ Set-Alias -Name SHUB-DisassociateMembers -Value Remove-SHUBMemberAssociation
 Set-Alias -Name SHUB-EnableImportFindingsForProduct -Value Enable-SHUBImportFindingsForProduct
 Set-Alias -Name SHUB-EnableOrganizationAdminAccount -Value Enable-SHUBOrganizationAdminAccount
 Set-Alias -Name SHUB-EnableSecurityHub -Value Enable-SHUBSecurityHub
+Set-Alias -Name SHUB-EnableSecurityHubFeatureV2 -Value Enable-SHUBSecurityHubFeatureV2
 Set-Alias -Name SHUB-EnableSecurityHubV2 -Value Enable-SHUBSecurityHubV2
 Set-Alias -Name Generate-SHUBRecommendedPolicyV2 -Value New-SHUBRecommendedPolicyV2
 Set-Alias -Name SHUB-GenerateRecommendedPolicyV2 -Value New-SHUBRecommendedPolicyV2
@@ -31464,6 +31528,7 @@ Set-Alias -Name SHUB-GetAggregatorV2 -Value Get-SHUBAggregatorV2
 Set-Alias -Name SHUB-GetAutomationRuleV2 -Value Get-SHUBAutomationRuleV2
 Set-Alias -Name SHUB-GetConfigurationPolicyAssociation -Value Get-SHUBConfigurationPolicyAssociation
 Set-Alias -Name SHUB-GetConfigurationPolicy -Value Get-SHUBConfigurationPolicy
+Set-Alias -Name SHUB-GetConnector -Value Get-SHUBConnector
 Set-Alias -Name SHUB-GetConnectorV2 -Value Get-SHUBConnectorV2
 Set-Alias -Name Get-SHUBEnabledStandards -Value Get-SHUBEnabledStandard
 Set-Alias -Name SHUB-GetEnabledStandards -Value Get-SHUBEnabledStandard
@@ -31505,6 +31570,9 @@ Set-Alias -Name SHUB-ListConfigurationPolicies -Value Get-SHUBConfigurationPolic
 Set-Alias -Name List-SHUBConfigurationPolicyAssociations -Value Get-SHUBConfigurationPolicyAssociationList
 Set-Alias -Name List-SHUBConfigurationPolicyAssociationList -Value Get-SHUBConfigurationPolicyAssociationList
 Set-Alias -Name SHUB-ListConfigurationPolicyAssociations -Value Get-SHUBConfigurationPolicyAssociationList
+Set-Alias -Name List-SHUBConnectors -Value Get-SHUBConnectorList
+Set-Alias -Name List-SHUBConnectorList -Value Get-SHUBConnectorList
+Set-Alias -Name SHUB-ListConnectors -Value Get-SHUBConnectorList
 Set-Alias -Name List-SHUBConnectorsV2 -Value Get-SHUBConnectorsV2List
 Set-Alias -Name List-SHUBConnectorsV2List -Value Get-SHUBConnectorsV2List
 Set-Alias -Name SHUB-ListConnectorsV2 -Value Get-SHUBConnectorsV2List
@@ -31539,6 +31607,7 @@ Set-Alias -Name SHUB-UpdateActionTarget -Value Update-SHUBActionTarget
 Set-Alias -Name SHUB-UpdateAggregatorV2 -Value Update-SHUBAggregatorV2
 Set-Alias -Name SHUB-UpdateAutomationRuleV2 -Value Update-SHUBAutomationRuleV2
 Set-Alias -Name SHUB-UpdateConfigurationPolicy -Value Update-SHUBConfigurationPolicy
+Set-Alias -Name SHUB-UpdateConnector -Value Update-SHUBConnector
 Set-Alias -Name SHUB-UpdateConnectorV2 -Value Update-SHUBConnectorV2
 Set-Alias -Name SHUB-UpdateFindingAggregator -Value Update-SHUBFindingAggregator
 Set-Alias -Name Update-SHUBFindings -Value Update-SHUBFinding
@@ -32724,6 +32793,8 @@ Set-Alias -Name SSM-CreateAssociation -Value New-SSMAssociation
 Set-Alias -Name Create-SSMAssociationBatch -Value New-SSMAssociationFromBatch
 Set-Alias -Name Create-SSMAssociationFromBatch -Value New-SSMAssociationFromBatch
 Set-Alias -Name SSM-CreateAssociationBatch -Value New-SSMAssociationFromBatch
+Set-Alias -Name Create-SSMCloudConnector -Value New-SSMCloudConnector
+Set-Alias -Name SSM-CreateCloudConnector -Value New-SSMCloudConnector
 Set-Alias -Name Create-SSMDocument -Value New-SSMDocument
 Set-Alias -Name SSM-CreateDocument -Value New-SSMDocument
 Set-Alias -Name Create-SSMMaintenanceWindow -Value New-SSMMaintenanceWindow
@@ -32740,6 +32811,8 @@ Set-Alias -Name Delete-SSMActivation -Value Remove-SSMActivation
 Set-Alias -Name SSM-DeleteActivation -Value Remove-SSMActivation
 Set-Alias -Name Delete-SSMAssociation -Value Remove-SSMAssociation
 Set-Alias -Name SSM-DeleteAssociation -Value Remove-SSMAssociation
+Set-Alias -Name Delete-SSMCloudConnector -Value Remove-SSMCloudConnector
+Set-Alias -Name SSM-DeleteCloudConnector -Value Remove-SSMCloudConnector
 Set-Alias -Name Delete-SSMDocument -Value Remove-SSMDocument
 Set-Alias -Name SSM-DeleteDocument -Value Remove-SSMDocument
 Set-Alias -Name Delete-SSMInventory -Value Remove-SSMInventory
@@ -32864,6 +32937,7 @@ Set-Alias -Name SSM-DisassociateOpsItemRelatedItem -Value Unregister-SSMOpsItemR
 Set-Alias -Name SSM-GetAccessToken -Value Get-SSMAccessToken
 Set-Alias -Name SSM-GetAutomationExecution -Value Get-SSMAutomationExecution
 Set-Alias -Name SSM-GetCalendarState -Value Get-SSMCalendarState
+Set-Alias -Name SSM-GetCloudConnector -Value Get-SSMCloudConnector
 Set-Alias -Name Get-SSMCommandInvocation -Value Get-SSMCommandInvocationDetail
 Set-Alias -Name SSM-GetCommandInvocation -Value Get-SSMCommandInvocationDetail
 Set-Alias -Name SSM-GetConnectionStatus -Value Get-SSMConnectionStatus
@@ -32901,6 +32975,9 @@ Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
 Set-Alias -Name List-SSMAssociationVersions -Value Get-SSMAssociationVersionList
 Set-Alias -Name List-SSMAssociationVersionList -Value Get-SSMAssociationVersionList
 Set-Alias -Name SSM-ListAssociationVersions -Value Get-SSMAssociationVersionList
+Set-Alias -Name List-SSMCloudConnectors -Value Get-SSMCloudConnectorList
+Set-Alias -Name List-SSMCloudConnectorList -Value Get-SSMCloudConnectorList
+Set-Alias -Name SSM-ListCloudConnectors -Value Get-SSMCloudConnectorList
 Set-Alias -Name List-SSMCommandInvocations -Value Get-SSMCommandInvocation
 Set-Alias -Name List-SSMCommandInvocation -Value Get-SSMCommandInvocation
 Set-Alias -Name SSM-ListCommandInvocations -Value Get-SSMCommandInvocation
@@ -32979,6 +33056,7 @@ Set-Alias -Name Unlabel-SSMParameterVersionLabel -Value Reset-SSMParameterVersio
 Set-Alias -Name SSM-UnlabelParameterVersion -Value Reset-SSMParameterVersionLabel
 Set-Alias -Name SSM-UpdateAssociation -Value Update-SSMAssociation
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
+Set-Alias -Name SSM-UpdateCloudConnector -Value Update-SSMCloudConnector
 Set-Alias -Name SSM-UpdateDocument -Value Update-SSMDocument
 Set-Alias -Name SSM-UpdateDocumentDefaultVersion -Value Update-SSMDocumentDefaultVersion
 Set-Alias -Name SSM-UpdateDocumentMetadata -Value Update-SSMDocumentMetadata
@@ -32991,6 +33069,8 @@ Set-Alias -Name SSM-UpdateOpsMetadata -Value Update-SSMOpsMetadata
 Set-Alias -Name SSM-UpdatePatchBaseline -Value Update-SSMPatchBaseline
 Set-Alias -Name SSM-UpdateResourceDataSync -Value Update-SSMResourceDataSync
 Set-Alias -Name SSM-UpdateServiceSetting -Value Update-SSMServiceSetting
+Set-Alias -Name Validate-SSMCloudConnector -Value Test-SSMCloudConnector
+Set-Alias -Name SSM-ValidateCloudConnector -Value Test-SSMCloudConnector
 Set-Alias -Name Get-SSMIIncidentFindings -Value Get-SSMIBatchIncidentFinding
 Set-Alias -Name SSMI-BatchGetIncidentFindings -Value Get-SSMIBatchIncidentFinding
 Set-Alias -Name Create-SSMIReplicationSet -Value New-SSMIReplicationSet
