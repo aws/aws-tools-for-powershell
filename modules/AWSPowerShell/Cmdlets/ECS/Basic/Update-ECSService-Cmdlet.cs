@@ -731,9 +731,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ResetOnHealthyTask
         /// <summary>
         /// <para>
-        /// <para>Determines whether the deployment circuit breaker resets its failure count when a
-        /// task reaches a healthy state. When set to <c>true</c>, a healthy task resets the failure
-        /// count to <c>0</c>; when <c>false</c>, it doesn't.</para>
+        /// <para>Specifies whether the deployment circuit breaker resets its failure count when a task
+        /// reaches a healthy state. When set to <c>true</c>, a task that reaches a healthy state
+        /// resets the failure count to <c>0</c>. When set to <c>false</c>, Amazon ECS does not
+        /// reset the failure count. The default is <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -941,10 +942,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>Determines how <c>value</c> is used to calculate the failure threshold. For the percentage
-        /// types (<c>BOUNDED_PERCENT</c> and <c>UNBOUNDED_PERCENT</c>), <c>value</c> is multiplied
-        /// by the latest service desired count; for <c>COUNT</c>, <c>value</c> is used directly.
-        /// The default is <c>BOUNDED_PERCENT</c>.</para>
+        /// <para>Determines how Amazon ECS uses <c>value</c> to calculate the failure threshold. For
+        /// the percentage types (<c>BOUNDED_PERCENT</c> and <c>UNBOUNDED_PERCENT</c>), Amazon
+        /// ECS multiplies <c>value</c> by the latest service desired count. For <c>COUNT</c>,
+        /// Amazon ECS uses <c>value</c> directly as the threshold. The default is <c>BOUNDED_PERCENT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -992,10 +993,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value
         /// <summary>
         /// <para>
-        /// <para>The integer used to calculate the failure threshold. When <c>type</c> is <c>COUNT</c>,
-        /// this is the failure threshold itself. When <c>type</c> is a percentage type, this
-        /// is the percentage that Amazon ECS multiplies by the latest service desired count to
-        /// calculate the failure threshold.</para>
+        /// <para>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When
+        /// <c>type</c> is <c>COUNT</c>, this value is the failure threshold itself. When <c>type</c>
+        /// is a percentage type, Amazon ECS multiplies this value by the latest service desired
+        /// count to produce the failure threshold. The default is <c>50</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

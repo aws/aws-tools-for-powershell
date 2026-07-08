@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Control_FlagValue_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether the feature flag is enabled for this treatment.</para>
+        /// <para>Specifies whether the feature flag is enabled for this treatment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

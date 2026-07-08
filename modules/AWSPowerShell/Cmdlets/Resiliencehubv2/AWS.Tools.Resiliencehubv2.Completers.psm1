@@ -87,6 +87,13 @@ $RH2_Completers = {
             break
         }
 
+        # Amazon.Resiliencehubv2.AssessmentSortField
+        "Get-RH2FailureModeAssessmentList/SortBy"
+        {
+            $v = "STARTED_AT"
+            break
+        }
+
         # Amazon.Resiliencehubv2.AssessmentStatus
         "Get-RH2ServiceList/AssessmentStatus"
         {
@@ -191,6 +198,13 @@ $RH2_Completers = {
             break
         }
 
+        # Amazon.Resiliencehubv2.SortOrder
+        "Get-RH2FailureModeAssessmentList/SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
 
     }
 
@@ -211,6 +225,8 @@ $RH2_map = @{
     "QueryRangeGranularity"=@("Get-RH2DependencyList")
     "ReportType"=@("Get-RH2ReportList","New-RH2Report")
     "Severity"=@("Get-RH2FailureModeFindingList")
+    "SortBy"=@("Get-RH2FailureModeAssessmentList")
+    "SortOrder"=@("Get-RH2FailureModeAssessmentList")
     "Source"=@("Get-RH2AssertionList")
     "Status"=@("Get-RH2FailureModeFindingList","Update-RH2FailureModeFinding")
     "Type"=@("Get-RH2InputSourceList")

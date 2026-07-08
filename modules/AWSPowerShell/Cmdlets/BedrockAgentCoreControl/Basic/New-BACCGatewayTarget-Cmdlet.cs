@@ -441,8 +441,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter TargetConfiguration_Http_Passthrough_ProtocolType
         /// <summary>
         /// <para>
-        /// <para>The application protocol the passthrough target implements. Required for passthrough
-        /// targets.</para>
+        /// <para>The application protocol that the passthrough target implements. This value is required
+        /// for passthrough targets:</para><ul><li><para><c>MCP</c> - The Model Context Protocol.</para></li><li><para><c>A2A</c> - The Agent-to-Agent protocol.</para></li><li><para><c>INFERENCE</c> - The protocol for routing requests to a large language model (LLM)
+        /// provider.</para></li><li><para><c>CUSTOM</c> - A custom application protocol.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

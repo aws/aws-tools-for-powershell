@@ -82,6 +82,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.DlClass LoRaWAN_DlClass { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_DefaultSessionParameters_DlDr
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_DefaultSessionParameters_DlDr { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_DefaultSessionParameters_DlFreq
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_DefaultSessionParameters_DlFreq { get; set; }
+        #endregion
+        
         #region Parameter ParticipatingGateways_GatewayList
         /// <summary>
         /// <para>
@@ -196,6 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.LoRaWAN_DefaultSessionParameters_DlDr = this.LoRaWAN_DefaultSessionParameters_DlDr;
+            context.LoRaWAN_DefaultSessionParameters_DlFreq = this.LoRaWAN_DefaultSessionParameters_DlFreq;
             context.LoRaWAN_DlClass = this.LoRaWAN_DlClass;
             if (this.ParticipatingGateways_GatewayList != null)
             {
@@ -254,6 +276,41 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_RfRegion != null)
             {
                 request.LoRaWAN.RfRegion = requestLoRaWAN_loRaWAN_RfRegion;
+                requestLoRaWANIsNull = false;
+            }
+            Amazon.IoTWireless.Model.DefaultSessionParametersMulticast requestLoRaWAN_loRaWAN_DefaultSessionParameters = null;
+            
+             // populate DefaultSessionParameters
+            var requestLoRaWAN_loRaWAN_DefaultSessionParametersIsNull = true;
+            requestLoRaWAN_loRaWAN_DefaultSessionParameters = new Amazon.IoTWireless.Model.DefaultSessionParametersMulticast();
+            System.Int32? requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlDr = null;
+            if (cmdletContext.LoRaWAN_DefaultSessionParameters_DlDr != null)
+            {
+                requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlDr = cmdletContext.LoRaWAN_DefaultSessionParameters_DlDr.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlDr != null)
+            {
+                requestLoRaWAN_loRaWAN_DefaultSessionParameters.DlDr = requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlDr.Value;
+                requestLoRaWAN_loRaWAN_DefaultSessionParametersIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlFreq = null;
+            if (cmdletContext.LoRaWAN_DefaultSessionParameters_DlFreq != null)
+            {
+                requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlFreq = cmdletContext.LoRaWAN_DefaultSessionParameters_DlFreq.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlFreq != null)
+            {
+                requestLoRaWAN_loRaWAN_DefaultSessionParameters.DlFreq = requestLoRaWAN_loRaWAN_DefaultSessionParameters_loRaWAN_DefaultSessionParameters_DlFreq.Value;
+                requestLoRaWAN_loRaWAN_DefaultSessionParametersIsNull = false;
+            }
+             // determine if requestLoRaWAN_loRaWAN_DefaultSessionParameters should be set to null
+            if (requestLoRaWAN_loRaWAN_DefaultSessionParametersIsNull)
+            {
+                requestLoRaWAN_loRaWAN_DefaultSessionParameters = null;
+            }
+            if (requestLoRaWAN_loRaWAN_DefaultSessionParameters != null)
+            {
+                request.LoRaWAN.DefaultSessionParameters = requestLoRaWAN_loRaWAN_DefaultSessionParameters;
                 requestLoRaWANIsNull = false;
             }
             Amazon.IoTWireless.Model.ParticipatingGatewaysMulticast requestLoRaWAN_loRaWAN_ParticipatingGateways = null;
@@ -361,6 +418,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? LoRaWAN_DefaultSessionParameters_DlDr { get; set; }
+            public System.Int32? LoRaWAN_DefaultSessionParameters_DlFreq { get; set; }
             public Amazon.IoTWireless.DlClass LoRaWAN_DlClass { get; set; }
             public List<System.String> ParticipatingGateways_GatewayList { get; set; }
             public System.Int32? ParticipatingGateways_TransmissionInterval { get; set; }

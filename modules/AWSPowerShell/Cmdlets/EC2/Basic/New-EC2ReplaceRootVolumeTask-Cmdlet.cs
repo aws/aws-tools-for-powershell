@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Replaces the EBS-backed root volume for a <c>running</c> instance with a new volume
     /// that is restored to the original root volume's launch state, that is restored to a
-    /// specific snapshot taken from the original root volume, or that is restored from an
-    /// AMI that has the same key characteristics as that of the instance.
+    /// specific snapshot taken from the original root volume, that is restored from an AMI
+    /// that has the same key characteristics as that of the instance, or that is replaced
+    /// by a specified volume.
     /// 
     ///  
     /// <para>
@@ -84,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The ID of the AMI to use to restore the root volume. The specified AMI must have the
         /// same product code, billing information, architecture type, and virtualization type
-        /// as that of the instance.</para><para>If you want to restore the replacement volume from a specific snapshot, or if you
-        /// want to restore it to its launch state, omit this parameter.</para>
+        /// as that of the instance.</para><para>If you want to restore the replacement volume from a specific snapshot, if you want
+        /// to restore it to its launch state, or if you want to replace the root volume with
+        /// a specified volume, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the snapshot from which to restore the replacement root volume. The specified
-        /// snapshot must be a snapshot that you previously created from the original root volume.</para><para>If you want to restore the replacement root volume to the initial launch state, or
-        /// if you want to restore the replacement root volume from an AMI, omit this parameter.</para>
+        /// snapshot must be a snapshot that you previously created from the original root volume.</para><para>If you want to restore the replacement root volume to the initial launch state, if
+        /// you want to restore the replacement root volume from an AMI, or if you want to replace
+        /// the root volume with a specified volume, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,6 +137,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagSpecifications")]
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter VolumeId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the volume to use as the replacement root volume. The specified volume must
+        /// be in the same Availability Zone as the instance, must be in the <c>available</c>
+        /// state, and must not be attached to an instance. If the original root volume is encrypted,
+        /// the specified volume must also be encrypted.</para><para>If you want to restore the replacement root volume from a specific snapshot, an AMI,
+        /// or to its launch state, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VolumeId { get; set; }
         #endregion
         
         #region Parameter VolumeInitializationRate
@@ -230,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.VolumeId = this.VolumeId;
             context.VolumeInitializationRate = this.VolumeInitializationRate;
             
             // allow further manipulation of loaded context prior to processing
@@ -274,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.VolumeId != null)
+            {
+                request.VolumeId = cmdletContext.VolumeId;
             }
             if (cmdletContext.VolumeInitializationRate != null)
             {
@@ -341,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String InstanceId { get; set; }
             public System.String SnapshotId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.String VolumeId { get; set; }
             public System.Int64? VolumeInitializationRate { get; set; }
             public System.Func<Amazon.EC2.Model.CreateReplaceRootVolumeTaskResponse, NewEC2ReplaceRootVolumeTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplaceRootVolumeTask;

@@ -163,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
-        /// language codes for the results to be rendered in. If there is no data for the result
-        /// in the requested language, data will be returned in the default language for the entry.
-        /// For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// <para>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP
+        /// 47</a> compliant language codes for the results to be rendered in. If there is no
+        /// data for the result in the requested language, data will be returned in the default
+        /// language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
         /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
         /// following codes: <c>en, id, km, lo, ms, my, pt, th, tl, vi, zh</c></para>
         /// </para>
@@ -225,6 +225,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_Circle_Radius")]
         public System.Int64? Circle_Radius { get; set; }
+        #endregion
+        
+        #region Parameter TravelMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the mode of mobility used by the end user. This is used to improve the relevance
+        /// of search results. Valid values are <c>Car</c>, <c>Scooter</c>, and <c>Truck</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoPlaces.SearchTextTravelMode")]
+        public Amazon.GeoPlaces.SearchTextTravelMode TravelMode { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -308,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             context.PoliticalView = this.PoliticalView;
             context.QueryId = this.QueryId;
             context.QueryText = this.QueryText;
+            context.TravelMode = this.TravelMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -428,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             {
                 request.QueryText = cmdletContext.QueryText;
             }
+            if (cmdletContext.TravelMode != null)
+            {
+                request.TravelMode = cmdletContext.TravelMode;
+            }
             
             CmdletOutput output;
             
@@ -497,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             public System.String PoliticalView { get; set; }
             public System.String QueryId { get; set; }
             public System.String QueryText { get; set; }
+            public Amazon.GeoPlaces.SearchTextTravelMode TravelMode { get; set; }
             public System.Func<Amazon.GeoPlaces.Model.SearchTextResponse, SearchGEOPTextCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

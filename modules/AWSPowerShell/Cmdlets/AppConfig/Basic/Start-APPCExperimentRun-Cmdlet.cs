@@ -33,6 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// Starts an experiment run for the specified experiment definition. An experiment run
     /// delivers treatments to the target audience and collects metrics. You can start multiple
     /// experiment runs from the same experiment definition.
+    /// 
+    ///  <note><para>
+    /// Billing for this experiment begins when you call this operation and continues until
+    /// the experiment is stopped. For pricing details, see <a href="https://aws.amazon.com/systems-manager/pricing/">AppConfig
+    /// pricing</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "APPCExperimentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.StartExperimentRunResponse")]

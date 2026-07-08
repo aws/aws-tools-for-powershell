@@ -30,7 +30,7 @@ using Amazon.Resiliencehubv2.Model;
 namespace Amazon.PowerShell.Cmdlets.RH2
 {
     /// <summary>
-    /// Start a failure mode assessment.
+    /// Starts a failure mode assessment.
     /// </summary>
     [Cmdlet("Start", "RH2FailureModeAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Resiliencehubv2.Model.StartFailureModeAssessmentResponse")]

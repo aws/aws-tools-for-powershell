@@ -45,6 +45,32 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AssessmentStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the assessment statuses to include in the results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssessmentStatuses")]
+        public System.String[] AssessmentStatus { get; set; }
+        #endregion
+        
+        #region Parameter EndedBefore
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that only assessments that ended at or before this timestamp appear in the
+        /// results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? EndedBefore { get; set; }
+        #endregion
+        
         #region Parameter ServiceArn
         /// <summary>
         /// <para>
@@ -60,6 +86,39 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceArn { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field to use for sorting failure mode assessments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Resiliencehubv2.AssessmentSortField")]
+        public Amazon.Resiliencehubv2.AssessmentSortField SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sort order for results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Resiliencehubv2.SortOrder")]
+        public Amazon.Resiliencehubv2.SortOrder SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter StartedAfter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that only assessments that started at or after this timestamp appear in
+        /// the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartedAfter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -132,6 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.RH2
                 context.Select = CreateSelectDelegate<Amazon.Resiliencehubv2.Model.ListFailureModeAssessmentsResponse, GetRH2FailureModeAssessmentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssessmentStatus != null)
+            {
+                context.AssessmentStatus = new List<System.String>(this.AssessmentStatus);
+            }
+            context.EndedBefore = this.EndedBefore;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -150,6 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.RH2
                 WriteWarning("You are passing $null as a value for parameter ServiceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
+            context.StartedAfter = this.StartedAfter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,6 +235,14 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             // create request and set iteration invariants
             var request = new Amazon.Resiliencehubv2.Model.ListFailureModeAssessmentsRequest();
             
+            if (cmdletContext.AssessmentStatus != null)
+            {
+                request.AssessmentStatuses = cmdletContext.AssessmentStatus;
+            }
+            if (cmdletContext.EndedBefore != null)
+            {
+                request.EndedBefore = cmdletContext.EndedBefore.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -175,6 +250,18 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             if (cmdletContext.ServiceArn != null)
             {
                 request.ServiceArn = cmdletContext.ServiceArn;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.StartedAfter != null)
+            {
+                request.StartedAfter = cmdletContext.StartedAfter.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -255,9 +342,14 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AssessmentStatus { get; set; }
+            public System.DateTime? EndedBefore { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ServiceArn { get; set; }
+            public Amazon.Resiliencehubv2.AssessmentSortField SortBy { get; set; }
+            public Amazon.Resiliencehubv2.SortOrder SortOrder { get; set; }
+            public System.DateTime? StartedAfter { get; set; }
             public System.Func<Amazon.Resiliencehubv2.Model.ListFailureModeAssessmentsResponse, GetRH2FailureModeAssessmentListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssessmentSummaries;
         }

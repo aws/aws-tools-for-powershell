@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// It supports flexible queries, including free-form text or structured queries with
     /// components like street names, postal codes, and regions. The Geocode API can also
     /// provide additional features such as time zone information and the inclusion of political
-    /// views.
+    /// views. Not supported in <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for
+    /// <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+    /// customers.
     /// 
     ///  
     /// <para>
@@ -71,6 +73,21 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public System.String[] AdditionalFeature { get; set; }
         #endregion
         
+        #region Parameter AddressNamesMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how address names are returned. If not set, the service returns normalized
+        /// (official) names by default. When set to <c>Matched</c>, address names in the response
+        /// are based on the input query rather than official names. When set to <c>Administrative</c>,
+        /// the service returns the official administrative names for address components. <c>Administrative</c>
+        /// currently applies only to addresses in the United States.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoPlaces.GeocodeAddressNamesMode")]
+        public Amazon.GeoPlaces.GeocodeAddressNamesMode AddressNamesMode { get; set; }
+        #endregion
+        
         #region Parameter QueryComponents_AddressNumber
         /// <summary>
         /// <para>
@@ -79,6 +96,23 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueryComponents_AddressNumber { get; set; }
+        #endregion
+        
+        #region Parameter AddressTranslation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which address components to include translations for. Translations include
+        /// all name variants and alternative names for the requested fields in all available
+        /// languages. Valid values are <c>District</c>, <c>Locality</c>, <c>Region</c>, and <c>SubRegion</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddressTranslations")]
+        public System.String[] AddressTranslation { get; set; }
         #endregion
         
         #region Parameter BiasPosition
@@ -181,9 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
-        /// language codes for the results to be rendered in. If there is no data for the result
-        /// in the requested language, data will be returned in the default language for the entry.</para>
+        /// <para>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP
+        /// 47</a> compliant language codes for the results to be rendered in. If there is no
+        /// data for the result in the requested language, data will be returned in the default
+        /// language for the entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +256,22 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueryComponents_PostalCode { get; set; }
+        #endregion
+        
+        #region Parameter PostalCodeMode
+        /// <summary>
+        /// <para>
+        /// <para>The <c>PostalCodeMode</c> affects how postal code results are returned. If a postal
+        /// code spans multiple localities and this value is empty, partial district or locality
+        /// information may be returned under a single postal code result entry. If it's populated
+        /// with the value <c>EnumerateSpannedLocalities</c>, all cities in that postal code are
+        /// returned. If it's populated with the value <c>EnumerateSpannedDistricts</c>, all combinations
+        /// of the postal code with the corresponding district and city names are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoPlaces.PostalCodeMode")]
+        public Amazon.GeoPlaces.PostalCodeMode PostalCodeMode { get; set; }
         #endregion
         
         #region Parameter QueryText
@@ -325,6 +376,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             {
                 context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
             }
+            context.AddressNamesMode = this.AddressNamesMode;
+            if (this.AddressTranslation != null)
+            {
+                context.AddressTranslation = new List<System.String>(this.AddressTranslation);
+            }
             if (this.BiasPosition != null)
             {
                 context.BiasPosition = new List<System.Double>(this.BiasPosition);
@@ -342,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             context.Language = this.Language;
             context.MaxResult = this.MaxResult;
             context.PoliticalView = this.PoliticalView;
+            context.PostalCodeMode = this.PostalCodeMode;
             context.QueryComponents_AddressNumber = this.QueryComponents_AddressNumber;
             context.QueryComponents_Country = this.QueryComponents_Country;
             context.QueryComponents_District = this.QueryComponents_District;
@@ -370,6 +427,14 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             if (cmdletContext.AdditionalFeature != null)
             {
                 request.AdditionalFeatures = cmdletContext.AdditionalFeature;
+            }
+            if (cmdletContext.AddressNamesMode != null)
+            {
+                request.AddressNamesMode = cmdletContext.AddressNamesMode;
+            }
+            if (cmdletContext.AddressTranslation != null)
+            {
+                request.AddressTranslations = cmdletContext.AddressTranslation;
             }
             if (cmdletContext.BiasPosition != null)
             {
@@ -423,6 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             if (cmdletContext.PoliticalView != null)
             {
                 request.PoliticalView = cmdletContext.PoliticalView;
+            }
+            if (cmdletContext.PostalCodeMode != null)
+            {
+                request.PostalCodeMode = cmdletContext.PostalCodeMode;
             }
             
              // populate QueryComponents
@@ -573,6 +642,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AdditionalFeature { get; set; }
+            public Amazon.GeoPlaces.GeocodeAddressNamesMode AddressNamesMode { get; set; }
+            public List<System.String> AddressTranslation { get; set; }
             public List<System.Double> BiasPosition { get; set; }
             public List<System.String> Filter_IncludeCountry { get; set; }
             public List<System.String> Filter_IncludePlaceType { get; set; }
@@ -581,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             public System.String Language { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String PoliticalView { get; set; }
+            public Amazon.GeoPlaces.PostalCodeMode PostalCodeMode { get; set; }
             public System.String QueryComponents_AddressNumber { get; set; }
             public System.String QueryComponents_Country { get; set; }
             public System.String QueryComponents_District { get; set; }

@@ -1,4 +1,32 @@
-﻿### 5.0.247 (2026-07-07 19:16Z)
+﻿### 5.0.248 (2026-07-08 19:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.283.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet New-BACCGateway: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet New-BACCHarness: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet New-BACCPaymentManager: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet New-BACCRegistry: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet Update-BACCGateway: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet Update-BACCHarness: added parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet Update-BACCPaymentManager: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.
+    * Modified cmdlet Update-BACCRegistry: added parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AdvertisedScopeMapping.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2ReplaceRootVolumeTask: added parameter VolumeId.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWMulticastGroup: added parameters LoRaWAN_DefaultSessionParameters_DlDr and LoRaWAN_DefaultSessionParameters_DlFreq.
+    * Modified cmdlet Update-IOTWMulticastGroup: added parameters LoRaWAN_DefaultSessionParameters_DlDr and LoRaWAN_DefaultSessionParameters_DlFreq.
+  * Amazon Location Service Places V2
+    * Modified cmdlet Get-GEOPPlace: added parameter AddressNamesMode.
+    * Modified cmdlet Invoke-GEOPGeocode: added parameters AddressNamesMode, AddressTranslation and PostalCodeMode.
+    * Modified cmdlet Invoke-GEOPReverseGeocode: added parameter AddressNamesMode.
+    * Modified cmdlet Invoke-GEOPSuggest: added parameter TravelMode.
+    * Modified cmdlet Search-GEOPText: added parameter TravelMode.
+  * Amazon Resilience Hub V2
+    * Modified cmdlet Get-RH2FailureModeAssessmentList: added parameters AssessmentStatus, EndedBefore, SortBy, SortOrder and StartedAfter.
+    * Modified cmdlet Get-RH2ResourceList: added parameters Billable and ResourceType.
+
+### 5.0.247 (2026-07-07 19:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.282.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Config
     * Added cmdlet Get-CFGConnector leveraging the GetConnector service API.

@@ -88,6 +88,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Management.Automation.PSObject Model_OpenAiModelConfig_AdditionalParam { get; set; }
         #endregion
         
+        #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping
+        /// <summary>
+        /// <para>
+        /// <para>A map that associates each scope in <c>allowedScopes</c> with a corresponding advertised
+        /// scope value. The advertised scope appears in OAuth protected resource metadata and
+        /// <c>WWW-Authenticate</c> response headers. Use this parameter when the scope that clients
+        /// request from your identity provider differs from the scope in the validated token.
+        /// Each key is a scope from <c>allowedScopes</c> that the service uses for token validation.
+        /// Each value is the corresponding scope that the service advertises to clients. Scopes
+        /// without a mapping entry appear unchanged to clients.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience
         /// <summary>
         /// <para>
@@ -1014,6 +1034,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.AllowedTool = new List<System.String>(this.AllowedTool);
             }
+            if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping != null)
+            {
+                context.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.Keys)
+                {
+                    context.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.Add((String)hashKey, (System.String)(this.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping[hashKey]));
+                }
+            }
             if (this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience = new List<System.String>(this.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience);
@@ -1205,6 +1233,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate CustomJWTAuthorizer
             var requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = true;
             requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer = new Amazon.BedrockAgentCoreControl.Model.CustomJWTAuthorizerConfiguration();
+            Dictionary<System.String, System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping = null;
+            if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping = cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AdvertisedScopeMapping = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
+            }
             List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_authorizerConfiguration_CustomJWTAuthorizer_AllowedAudience = null;
             if (cmdletContext.AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
@@ -2265,6 +2303,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AllowedTool { get; set; }
+            public Dictionary<System.String, System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient { get; set; }
             public List<System.String> AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScope { get; set; }

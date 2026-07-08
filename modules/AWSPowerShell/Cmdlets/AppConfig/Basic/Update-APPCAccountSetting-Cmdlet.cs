@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter VendedMetrics_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether vended metrics are enabled for the account.</para>
+        /// <para>Specifies whether vended metrics are enabled for the account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

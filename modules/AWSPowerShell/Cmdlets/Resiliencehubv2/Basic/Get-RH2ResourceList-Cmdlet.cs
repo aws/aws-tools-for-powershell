@@ -54,6 +54,32 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         public System.String AwsRegion { get; set; }
         #endregion
         
+        #region Parameter Billable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to filter non-billable resources. When true (the default), the operation
+        /// returns only billable resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Billable { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The CloudFormation resource types to include in the response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
+        #endregion
+        
         #region Parameter ServiceArn
         /// <summary>
         /// <para>
@@ -152,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AwsRegion = this.AwsRegion;
+            context.Billable = this.Billable;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -163,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.ResourceType != null)
+            {
+                context.ResourceType = new List<System.String>(this.ResourceType);
+            }
             context.ServiceArn = this.ServiceArn;
             #if MODULAR
             if (this.ServiceArn == null && ParameterWasBound(nameof(this.ServiceArn)))
@@ -193,9 +224,17 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             {
                 request.AwsRegion = cmdletContext.AwsRegion;
             }
+            if (cmdletContext.Billable != null)
+            {
+                request.Billable = cmdletContext.Billable.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceType != null)
+            {
+                request.ResourceTypes = cmdletContext.ResourceType;
             }
             if (cmdletContext.ServiceArn != null)
             {
@@ -285,8 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsRegion { get; set; }
+            public System.Boolean? Billable { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> ResourceType { get; set; }
             public System.String ServiceArn { get; set; }
             public System.String ServiceFunctionId { get; set; }
             public System.Func<Amazon.Resiliencehubv2.Model.ListResourcesResponse, GetRH2ResourceListCmdlet, object> Select { get; set; } =

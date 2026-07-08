@@ -87,10 +87,24 @@ $GEOP_Completers = {
             break
         }
 
+        # Amazon.GeoPlaces.GeocodeAddressNamesMode
+        "Invoke-GEOPGeocode/AddressNamesMode"
+        {
+            $v = "Administrative","Matched"
+            break
+        }
+
         # Amazon.GeoPlaces.GeocodeIntendedUse
         "Invoke-GEOPGeocode/IntendedUse"
         {
             $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.GetPlaceAddressNamesMode
+        "Get-GEOPPlace/AddressNamesMode"
+        {
+            $v = "Administrative"
             break
         }
 
@@ -102,9 +116,19 @@ $GEOP_Completers = {
         }
 
         # Amazon.GeoPlaces.PostalCodeMode
-        "Invoke-GEOPAutocomplete/PostalCodeMode"
         {
-            $v = "EnumerateSpannedLocalities","MergeAllSpannedLocalities"
+            ($_ -eq "Invoke-GEOPAutocomplete/PostalCodeMode") -Or
+            ($_ -eq "Invoke-GEOPGeocode/PostalCodeMode")
+        }
+        {
+            $v = "EnumerateSpannedDistricts","EnumerateSpannedLocalities","MergeAllSpannedLocalities"
+            break
+        }
+
+        # Amazon.GeoPlaces.ReverseGeocodeAddressNamesMode
+        "Invoke-GEOPReverseGeocode/AddressNamesMode"
+        {
+            $v = "Administrative"
             break
         }
 
@@ -129,10 +153,24 @@ $GEOP_Completers = {
             break
         }
 
+        # Amazon.GeoPlaces.SearchTextTravelMode
+        "Search-GEOPText/TravelMode"
+        {
+            $v = "Car","Scooter","Truck"
+            break
+        }
+
         # Amazon.GeoPlaces.SuggestIntendedUse
         "Invoke-GEOPSuggest/IntendedUse"
         {
             $v = "SingleUse"
+            break
+        }
+
+        # Amazon.GeoPlaces.SuggestTravelMode
+        "Invoke-GEOPSuggest/TravelMode"
+        {
+            $v = "Car","Scooter","Truck"
             break
         }
 
@@ -145,8 +183,10 @@ $GEOP_Completers = {
 }
 
 $GEOP_map = @{
+    "AddressNamesMode"=@("Get-GEOPPlace","Invoke-GEOPGeocode","Invoke-GEOPReverseGeocode")
     "IntendedUse"=@("Get-GEOPPlace","Invoke-GEOPAutocomplete","Invoke-GEOPGeocode","Invoke-GEOPReverseGeocode","Invoke-GEOPSuggest","Search-GEOPNearby","Search-GEOPText")
-    "PostalCodeMode"=@("Invoke-GEOPAutocomplete")
+    "PostalCodeMode"=@("Invoke-GEOPAutocomplete","Invoke-GEOPGeocode")
+    "TravelMode"=@("Invoke-GEOPSuggest","Search-GEOPText")
 }
 
 _awsArgumentCompleterRegistration $GEOP_Completers $GEOP_map

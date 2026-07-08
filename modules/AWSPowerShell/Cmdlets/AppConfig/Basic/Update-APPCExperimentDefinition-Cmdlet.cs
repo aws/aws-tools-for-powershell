@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Control_FlagValue_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether the feature flag is enabled for this treatment.</para>
+        /// <para>Specifies whether the feature flag is enabled for this treatment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Treatment
         /// <summary>
         /// <para>
-        /// <para>An updated list of treatments.</para><para />
+        /// <para>The updated list of treatments to evaluate during the experiment. Each treatment defines
+        /// a distinct variation compared to the control.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

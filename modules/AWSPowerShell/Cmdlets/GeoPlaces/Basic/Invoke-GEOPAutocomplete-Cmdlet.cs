@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
     /// query based on a few entered keystrokes. It helps you by completing partial queries
     /// with valid address completion. Also, the API supports the filtering of results based
     /// on geographic location, country, or specific place types, and can be tailored using
-    /// optional parameters like language and political views.
+    /// optional parameters like language and political views. Not supported in <c>ap-southeast-1</c>
+    /// and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+    /// customers.
     /// 
     ///  
     /// <para>
@@ -176,9 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
-        /// language codes for the results to be rendered in. If there is no data for the result
-        /// in the requested language, data will be returned in the default language for the entry.</para>
+        /// <para>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP
+        /// 47</a> compliant language codes for the results to be rendered in. If there is no
+        /// data for the result in the requested language, data will be returned in the default
+        /// language for the entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         /// code spans multiple localities and this value is empty, partial district or locality
         /// information may be returned under a single postal code result entry. If it's populated
         /// with the value <c>EnumerateSpannedLocalities</c>, all cities in that postal code are
-        /// returned.</para>
+        /// returned. If it's populated with the value <c>EnumerateSpannedDistricts</c>, all combinations
+        /// of the postal code with the corresponding district and city names are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

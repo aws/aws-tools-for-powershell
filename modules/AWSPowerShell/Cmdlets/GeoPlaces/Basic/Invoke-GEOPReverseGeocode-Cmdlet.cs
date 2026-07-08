@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         public System.String[] AdditionalFeature { get; set; }
         #endregion
         
+        #region Parameter AddressNamesMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how address names are returned. When set to <c>Administrative</c>, the service
+        /// returns the official administrative names for address components. <c>Administrative</c>
+        /// currently applies only to addresses in the United States.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoPlaces.ReverseGeocodeAddressNamesMode")]
+        public Amazon.GeoPlaces.ReverseGeocodeAddressNamesMode AddressNamesMode { get; set; }
+        #endregion
+        
         #region Parameter Heading
         /// <summary>
         /// <para>
@@ -132,10 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant
-        /// language codes for the results to be rendered in. If there is no data for the result
-        /// in the requested language, data will be returned in the default language for the entry.
-        /// For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// <para> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP
+        /// 47</a> compliant language codes for the results to be rendered in. If there is no
+        /// data for the result in the requested language, data will be returned in the default
+        /// language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
         /// customers, <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions support only the
         /// following codes: <c>en, id, km, lo, ms, my, pt, th, tl, vi, zh</c></para>
         /// </para>
@@ -255,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             {
                 context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
             }
+            context.AddressNamesMode = this.AddressNamesMode;
             if (this.Filter_IncludePlaceType != null)
             {
                 context.Filter_IncludePlaceType = new List<System.String>(this.Filter_IncludePlaceType);
@@ -295,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
             if (cmdletContext.AdditionalFeature != null)
             {
                 request.AdditionalFeatures = cmdletContext.AdditionalFeature;
+            }
+            if (cmdletContext.AddressNamesMode != null)
+            {
+                request.AddressNamesMode = cmdletContext.AddressNamesMode;
             }
             
              // populate Filter
@@ -403,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AdditionalFeature { get; set; }
+            public Amazon.GeoPlaces.ReverseGeocodeAddressNamesMode AddressNamesMode { get; set; }
             public List<System.String> Filter_IncludePlaceType { get; set; }
             public System.Double? Heading { get; set; }
             public Amazon.GeoPlaces.ReverseGeocodeIntendedUse IntendedUse { get; set; }
