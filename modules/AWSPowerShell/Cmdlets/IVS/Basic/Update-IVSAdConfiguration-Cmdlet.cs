@@ -62,6 +62,27 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter PostRollConfiguration_DurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>Duration of the post-roll ad break, in seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostRollConfiguration_DurationSeconds")]
+        public System.Int32? PostRollConfiguration_DurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter PostRollConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether the post-roll ad configuration is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostRollConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter MediaTailorPlaybackConfiguration
         /// <summary>
         /// <para>
@@ -148,6 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.MediaTailorPlaybackConfiguration = new List<Amazon.IVS.Model.MediaTailorPlaybackConfiguration>(this.MediaTailorPlaybackConfiguration);
             }
             context.Name = this.Name;
+            context.PostRollConfiguration_DurationSecond = this.PostRollConfiguration_DurationSecond;
+            context.PostRollConfiguration_Enabled = this.PostRollConfiguration_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +198,35 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate PostRollConfiguration
+            var requestPostRollConfigurationIsNull = true;
+            request.PostRollConfiguration = new Amazon.IVS.Model.PostRollConfiguration();
+            System.Int32? requestPostRollConfiguration_postRollConfiguration_DurationSecond = null;
+            if (cmdletContext.PostRollConfiguration_DurationSecond != null)
+            {
+                requestPostRollConfiguration_postRollConfiguration_DurationSecond = cmdletContext.PostRollConfiguration_DurationSecond.Value;
+            }
+            if (requestPostRollConfiguration_postRollConfiguration_DurationSecond != null)
+            {
+                request.PostRollConfiguration.DurationSeconds = requestPostRollConfiguration_postRollConfiguration_DurationSecond.Value;
+                requestPostRollConfigurationIsNull = false;
+            }
+            System.Boolean? requestPostRollConfiguration_postRollConfiguration_Enabled = null;
+            if (cmdletContext.PostRollConfiguration_Enabled != null)
+            {
+                requestPostRollConfiguration_postRollConfiguration_Enabled = cmdletContext.PostRollConfiguration_Enabled.Value;
+            }
+            if (requestPostRollConfiguration_postRollConfiguration_Enabled != null)
+            {
+                request.PostRollConfiguration.Enabled = requestPostRollConfiguration_postRollConfiguration_Enabled.Value;
+                requestPostRollConfigurationIsNull = false;
+            }
+             // determine if request.PostRollConfiguration should be set to null
+            if (requestPostRollConfigurationIsNull)
+            {
+                request.PostRollConfiguration = null;
             }
             
             CmdletOutput output;
@@ -234,6 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.String Arn { get; set; }
             public List<Amazon.IVS.Model.MediaTailorPlaybackConfiguration> MediaTailorPlaybackConfiguration { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? PostRollConfiguration_DurationSecond { get; set; }
+            public System.Boolean? PostRollConfiguration_Enabled { get; set; }
             public System.Func<Amazon.IVS.Model.UpdateAdConfigurationResponse, UpdateIVSAdConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AdConfiguration;
         }

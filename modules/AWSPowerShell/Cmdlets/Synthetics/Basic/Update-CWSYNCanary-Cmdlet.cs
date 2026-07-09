@@ -359,6 +359,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String S3Encryption_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service
+        /// (AWS KMS) key used to encrypt the canary's AWS Lambda function environment variables
+        /// at rest. If you don't specify a value, the service uses an AWS-managed key. If you
+        /// omit this parameter, the service retains the existing value. To revert to the AWS-managed
+        /// key, set this parameter to an empty string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter RetryConfig_MaxRetry
         /// <summary>
         /// <para>
@@ -642,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.DryRunId = this.DryRunId;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.FailureRetentionPeriodInDay = this.FailureRetentionPeriodInDay;
+            context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -857,6 +872,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.FailureRetentionPeriodInDay != null)
                 {
                     request.FailureRetentionPeriodInDays = cmdletContext.FailureRetentionPeriodInDay.Value;
+                }
+                if (cmdletContext.KmsKeyArn != null)
+                {
+                    request.KmsKeyArn = cmdletContext.KmsKeyArn;
                 }
                 if (cmdletContext.Name != null)
                 {
@@ -1151,6 +1170,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String DryRunId { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.Synthetics.ProvisionedResourceCleanupSetting ProvisionedResourceCleanup { get; set; }
             public List<System.String> RemoveReplicaLocation { get; set; }

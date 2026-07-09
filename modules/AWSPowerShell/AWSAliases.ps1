@@ -7612,6 +7612,8 @@ Set-Alias -Name Deactivate-CONNEvaluationForm -Value Disable-CONNEvaluationForm
 Set-Alias -Name CONN-DeactivateEvaluationForm -Value Disable-CONNEvaluationForm
 Set-Alias -Name Delete-CONNAttachedFile -Value Remove-CONNAttachedFile
 Set-Alias -Name CONN-DeleteAttachedFile -Value Remove-CONNAttachedFile
+Set-Alias -Name Delete-CONNContactData -Value Remove-CONNContactData
+Set-Alias -Name CONN-DeleteContactData -Value Remove-CONNContactData
 Set-Alias -Name Delete-CONNContactEvaluation -Value Remove-CONNContactEvaluation
 Set-Alias -Name CONN-DeleteContactEvaluation -Value Remove-CONNContactEvaluation
 Set-Alias -Name Delete-CONNContactFlow -Value Remove-CONNContactFlow

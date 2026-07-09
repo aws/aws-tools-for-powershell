@@ -1155,6 +1155,7 @@ $CONN_SelectMap = @{
                "New-CONNWorkspacePage",
                "Disable-CONNEvaluationForm",
                "Remove-CONNAttachedFile",
+               "Remove-CONNContactData",
                "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",

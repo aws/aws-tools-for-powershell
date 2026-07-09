@@ -1,4 +1,15 @@
-﻿### 5.0.249 (2026-07-09 00:16Z)
+﻿### 5.0.250 (2026-07-09 19:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.285.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter KmsKeyArn.
+    * Modified cmdlet Update-CWSYNCanary: added parameter KmsKeyArn.
+  * Amazon Connect Service
+    * Added cmdlet Remove-CONNContactData leveraging the DeleteContactData service API.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSAdConfiguration: added parameters PostRollConfiguration_DurationSecond and PostRollConfiguration_Enabled.
+    * Modified cmdlet Update-IVSAdConfiguration: added parameters PostRollConfiguration_DurationSecond and PostRollConfiguration_Enabled.
+
+### 5.0.249 (2026-07-09 00:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.284.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Sign-In Data Plane
     * Added cmdlet Invoke-AMSPIntrospectOAuth2TokenWithIAM leveraging the IntrospectOAuth2TokenWithIAM service API.
