@@ -1,4 +1,11 @@
-﻿### 5.0.248 (2026-07-08 19:28Z)
+﻿### 5.0.249 (2026-07-09 00:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.284.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Sign-In Data Plane
+    * Added cmdlet Invoke-AMSPIntrospectOAuth2TokenWithIAM leveraging the IntrospectOAuth2TokenWithIAM service API.
+    * Added cmdlet New-AMSPOAuth2TokenWithIAM leveraging the CreateOAuth2TokenWithIAM service API.
+    * Added cmdlet Revoke-AMSPOAuth2TokenWithIAM leveraging the RevokeOAuth2TokenWithIAM service API.
+
+### 5.0.248 (2026-07-08 19:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.283.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameter AuthorizerConfiguration_CustomJWTAuthorizer_AdvertisedScopeMapping.

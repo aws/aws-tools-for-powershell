@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOAuth2TokenWithIAM" OutputProperty="*" Verb="New" Noun="OAuth2TokenWithIAM" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConsoleAuthorizationConfiguration" OutputProperty="*" Verb="Remove" Noun="ConsoleAuthorizationConfiguration" ShouldProcessTarget="TargetId" PipelineParameter="TargetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="IntrospectOAuth2TokenWithIAM" OutputProperty="*" Verb="Invoke" Noun="IntrospectOAuth2TokenWithIAM" ShouldProcessTarget="Token" PipelineParameter="Token" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResourcePermissionStatements" OutputProperty="PermissionStatements" Verb="Get" Noun="ResourcePermissionStatementList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +56,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutResourcePermissionStatement" OutputProperty="StatementId" Verb="Write" Noun="ResourcePermissionStatement" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeOAuth2TokenWithIAM" Verb="Revoke" Noun="OAuth2TokenWithIAM" ShouldProcessTarget="Token" PipelineParameter="Token" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

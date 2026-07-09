@@ -124,13 +124,16 @@ $AMSP_SelectCompleters = {
 
 $AMSP_SelectMap = @{
     "Select"=@("New-AMSPOAuth2Token",
+               "New-AMSPOAuth2TokenWithIAM",
                "Remove-AMSPConsoleAuthorizationConfiguration",
                "Remove-AMSPResourcePermissionStatement",
                "Get-AMSPConsoleAuthorizationConfiguration",
                "Get-AMSPResourcePolicy",
+               "Invoke-AMSPIntrospectOAuth2TokenWithIAM",
                "Get-AMSPResourcePermissionStatementList",
                "Write-AMSPConsoleAuthorizationConfiguration",
-               "Write-AMSPResourcePermissionStatement")
+               "Write-AMSPResourcePermissionStatement",
+               "Revoke-AMSPOAuth2TokenWithIAM")
 }
 
 _awsArgumentCompleterRegistration $AMSP_SelectCompleters $AMSP_SelectMap

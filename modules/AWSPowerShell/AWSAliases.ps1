@@ -32338,12 +32338,17 @@ Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
 Set-Alias -Name SGND-GetRevocationStatus -Value Get-SGNDRevocationStatus
 Set-Alias -Name Create-AMSPOAuth2Token -Value New-AMSPOAuth2Token
 Set-Alias -Name AMSP-CreateOAuth2Token -Value New-AMSPOAuth2Token
+Set-Alias -Name Create-AMSPOAuth2TokenWithIAM -Value New-AMSPOAuth2TokenWithIAM
+Set-Alias -Name AMSP-CreateOAuth2TokenWithIAM -Value New-AMSPOAuth2TokenWithIAM
 Set-Alias -Name Delete-AMSPConsoleAuthorizationConfiguration -Value Remove-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name AMSP-DeleteConsoleAuthorizationConfiguration -Value Remove-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name Delete-AMSPResourcePermissionStatement -Value Remove-AMSPResourcePermissionStatement
 Set-Alias -Name AMSP-DeleteResourcePermissionStatement -Value Remove-AMSPResourcePermissionStatement
 Set-Alias -Name AMSP-GetConsoleAuthorizationConfiguration -Value Get-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name AMSP-GetResourcePolicy -Value Get-AMSPResourcePolicy
+Set-Alias -Name Introspect-AMSPOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
+Set-Alias -Name Introspect-AMSPIntrospectOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
+Set-Alias -Name AMSP-IntrospectOAuth2TokenWithIAM -Value Invoke-AMSPIntrospectOAuth2TokenWithIAM
 Set-Alias -Name List-AMSPResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
 Set-Alias -Name List-AMSPResourcePermissionStatementList -Value Get-AMSPResourcePermissionStatementList
 Set-Alias -Name AMSP-ListResourcePermissionStatements -Value Get-AMSPResourcePermissionStatementList
@@ -32351,6 +32356,7 @@ Set-Alias -Name Put-AMSPConsoleAuthorizationConfiguration -Value Write-AMSPConso
 Set-Alias -Name AMSP-PutConsoleAuthorizationConfiguration -Value Write-AMSPConsoleAuthorizationConfiguration
 Set-Alias -Name Put-AMSPResourcePermissionStatement -Value Write-AMSPResourcePermissionStatement
 Set-Alias -Name AMSP-PutResourcePermissionStatement -Value Write-AMSPResourcePermissionStatement
+Set-Alias -Name AMSP-RevokeOAuth2TokenWithIAM -Value Revoke-AMSPOAuth2TokenWithIAM
 Set-Alias -Name SDBV2-GetExport -Value Get-SDBV2Export
 Set-Alias -Name List-SDBV2Exports -Value Get-SDBV2ExportList
 Set-Alias -Name List-SDBV2ExportList -Value Get-SDBV2ExportList
