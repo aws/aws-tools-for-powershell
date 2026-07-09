@@ -346,7 +346,7 @@ if ($BuildType -ne 'PREVIEW') {
         # All other AWS Tools modules will be tested with TestImportModule to speed up testing
         try {
             if ($_.Name -eq 'AWS.Tools.S3') {
-                ValidateModule $_ $false $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
+                ValidateModule $_ $false $testVersion $signingCheck { $h = Get-Help Get-S3Bucket -Full; if ([string]::IsNullOrWhiteSpace(($h.description | Out-String).Trim()) -or @($h.examples.example).Count -eq 0) { throw "Get-Help Get-S3Bucket empty; AWS.Tools.S3 help XML did not parse" }; Get-S3Bucket -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
             }
             elseif ($_.Name -eq 'AWS.Tools.StepFunctions') {
                 ValidateModule $_ $false $testVersion $signingCheck { Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner } $testCmdlets $importCommonModuleCmd

@@ -291,14 +291,14 @@ try {
     
     
     if ($RunAsStagingBuild -eq 'true') {
-      msbuild ./buildtools/build.proj /v:minimal `
+      dotnet msbuild ./buildtools/build.proj /v:minimal `
         /t:staging-build `
         /p:Configuration=$Configuration `
         /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild `
         /p:PreviewLabel=$PreviewLabel
     }
     else {
-      msbuild ./buildtools/build.proj /v:minimal `
+      dotnet msbuild ./buildtools/build.proj /v:minimal `
         /t:full-build `
         /p:PatchNumber=$Version `
         /p:RunTests=$RunTests `

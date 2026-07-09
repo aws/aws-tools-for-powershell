@@ -301,7 +301,7 @@ namespace AWSPowerShellGenerator
 
             if (doPsHelp)
             {
-                var xmlPath = Path.Combine(basePath, assemblyName + ".XML");
+                var xmlPath = Path.Combine(basePath, assemblyName + ".xml");
                 if (!File.Exists(xmlPath))
                 {
                     throw new FileNotFoundException($"XML documentation not found: {xmlPath}. Ensure 'build-modular-modules' completed successfully.");
@@ -332,7 +332,7 @@ namespace AWSPowerShellGenerator
                 string membersXpath = "doc/members";
 
                 // Include help for parameters defined in AWS.Tools.Common.
-                string awsToolsCommonHelpXmlPath = Path.Combine(basePath, "AWS.Tools.Common.XML");
+                string awsToolsCommonHelpXmlPath = Path.Combine(basePath, "AWS.Tools.Common.xml");
 
                 if (!File.Exists(awsToolsCommonHelpXmlPath))
                 {

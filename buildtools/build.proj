@@ -164,10 +164,7 @@
     <Target Name="package-webhelp" Condition="Exists('$(InternalBuildTools)/references.targets')">
         <CreateSitemapTask SourceFolder="$(DocDeployment)/docs" BaseUrl="http://docs.aws.amazon.com/powershell/v5/reference/" OutputFile="$(DocDeployment)/docs/sitemap.xml" />
 
-        <ItemGroup>
-            <FilesToZip Include="$(DocDeployment)/docs/**" />
-        </ItemGroup>
-        <Zip InputDirectory="$(DocDeployment)/docs" OutputFileName="$(DocDeployment)/help.zip" />
+        <ZipDirectory SourceDirectory="$(DocDeployment)/docs" DestinationFile="$(DocDeployment)/help.zip" Overwrite="true" />
     </Target>
 
     <Target Name="build-test-modules" DependsOnTargets="create-cmdlets">
@@ -284,7 +281,7 @@
 
     <Target Name="copy-tests">
         <PropertyGroup>
-            <TestSourceFolder>$(RootPath)/Tests</TestSourceFolder>
+            <TestSourceFolder>$(RootPath)/tests</TestSourceFolder>
         </PropertyGroup>
 
         <ItemGroup>
@@ -296,7 +293,7 @@
 
     <Target Name="copy-test-module-artifacts" DependsOnTargets="build-test-modules">
 		<PropertyGroup>
-            <TestModuleSourceFolder>$(RootPath)/Tests/modules/bin/$(Configuration)/netstandard2.0</TestModuleSourceFolder>
+            <TestModuleSourceFolder>$(RootPath)/tests/modules/bin/$(Configuration)/netstandard2.0</TestModuleSourceFolder>
         </PropertyGroup>
         <Message Text="Consolidating test module artifacts from $(TestModuleSourceFolder) to $(RootPath)/Deployment/Tests/modules"/>
 
