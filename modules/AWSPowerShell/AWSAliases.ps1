@@ -27001,6 +27001,8 @@ Set-Alias -Name Create-QSIAMPolicyAssignment -Value New-QSIAMPolicyAssignment
 Set-Alias -Name QS-CreateIAMPolicyAssignment -Value New-QSIAMPolicyAssignment
 Set-Alias -Name Create-QSIngestion -Value New-QSIngestion
 Set-Alias -Name QS-CreateIngestion -Value New-QSIngestion
+Set-Alias -Name Create-QSKnowledgeBase -Value New-QSKnowledgeBase
+Set-Alias -Name QS-CreateKnowledgeBase -Value New-QSKnowledgeBase
 Set-Alias -Name Create-QSNamespace -Value New-QSNamespace
 Set-Alias -Name QS-CreateNamespace -Value New-QSNamespace
 Set-Alias -Name Create-QSOAuthClientApplication -Value New-QSOAuthClientApplication
@@ -27477,6 +27479,7 @@ Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIdentityPropagationConfig -Value Update-QSIdentityPropagationConfig
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
 Set-Alias -Name QS-UpdateKeyRegistration -Value Update-QSKeyRegistration
+Set-Alias -Name QS-UpdateKnowledgeBase -Value Update-QSKnowledgeBase
 Set-Alias -Name Update-QSKnowledgeBasePermissions -Value Update-QSKnowledgeBasePermission
 Set-Alias -Name QS-UpdateKnowledgeBasePermissions -Value Update-QSKnowledgeBasePermission
 Set-Alias -Name QS-UpdateOAuthClientApplication -Value Update-QSOAuthClientApplication

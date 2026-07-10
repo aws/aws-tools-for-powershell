@@ -236,6 +236,17 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public Amazon.LicenseManager.RenewType ConsumptionConfiguration_RenewType { get; set; }
         #endregion
         
+        #region Parameter ResetUsage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to reset the license usage for the new license version. If you don't
+        /// specify a value, the license usage is not reset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResetUsage { get; set; }
+        #endregion
+        
         #region Parameter Issuer_SignKey
         /// <summary>
         /// <para>
@@ -399,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter ProductName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResetUsage = this.ResetUsage;
             context.SourceVersion = this.SourceVersion;
             context.Status = this.Status;
             #if MODULAR
@@ -567,6 +579,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             {
                 request.ProductName = cmdletContext.ProductName;
             }
+            if (cmdletContext.ResetUsage != null)
+            {
+                request.ResetUsage = cmdletContext.ResetUsage.Value;
+            }
             if (cmdletContext.SourceVersion != null)
             {
                 request.SourceVersion = cmdletContext.SourceVersion;
@@ -672,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public List<Amazon.LicenseManager.Model.Metadata> LicenseMetadata { get; set; }
             public System.String LicenseName { get; set; }
             public System.String ProductName { get; set; }
+            public System.Boolean? ResetUsage { get; set; }
             public System.String SourceVersion { get; set; }
             public Amazon.LicenseManager.LicenseStatus Status { get; set; }
             public System.String Validity_Begin { get; set; }

@@ -163,7 +163,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAnomalyDetector" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutAnomalyDetector" OutputProperty="*" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

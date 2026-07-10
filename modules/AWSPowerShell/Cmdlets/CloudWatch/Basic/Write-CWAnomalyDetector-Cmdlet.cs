@@ -45,11 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWAnomalyDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.CloudWatch.Model.PutAnomalyDetectorResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch PutAnomalyDetector API operation.", Operation = new[] {"PutAnomalyDetector"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutAnomalyDetectorResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutAnomalyDetectorResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutAnomalyDetectorResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.PutAnomalyDetectorResponse",
+        "This cmdlet returns an Amazon.CloudWatch.Model.PutAnomalyDetectorResponse object containing multiple properties."
     )]
     public partial class WriteCWAnomalyDetectorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -235,8 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.PutAnomalyDetectorResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatch.Model.PutAnomalyDetectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -534,7 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             [System.ObsoleteAttribute]
             public System.String Stat { get; set; }
             public System.Func<Amazon.CloudWatch.Model.PutAnomalyDetectorResponse, WriteCWAnomalyDetectorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

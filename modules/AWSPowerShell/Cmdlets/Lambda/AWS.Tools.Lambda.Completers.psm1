@@ -299,7 +299,9 @@ $LM_Completers = {
         # Amazon.Lambda.SystemLogLevel
         {
             ($_ -eq "Publish-LMFunction/LoggingConfig_SystemLogLevel") -Or
-            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_SystemLogLevel")
+            ($_ -eq "Update-LMFunctionConfiguration/LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "New-LMCapacityProvider/TelemetryConfig_LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "Update-LMCapacityProvider/TelemetryConfig_LoggingConfig_SystemLogLevel")
         }
         {
             $v = "DEBUG","INFO","WARN"
@@ -366,6 +368,7 @@ $LM_map = @{
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "State"=@("Get-LMCapacityProviderList")
+    "TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
     "TenancyConfig_TenantIsolationMode"=@("Publish-LMFunction")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "UpdateRuntimeOn"=@("Write-LMRuntimeManagementConfig")

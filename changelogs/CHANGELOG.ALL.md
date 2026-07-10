@@ -1,4 +1,22 @@
-﻿### 5.0.250 (2026-07-09 19:07Z)
+﻿### 5.0.251 (2026-07-10 19:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.286.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Modified cmdlet Set-AWSSSOSessionConfiguration: parameter SSORegion is not mandatory anymore.
+  * Amazon CloudWatch
+    * Modified cmdlet Get-CWAnomalyDetector: added parameter AnomalyDetectorId.
+    * Modified cmdlet Remove-CWAnomalyDetector: added parameter AnomalyDetectorId.
+  * Amazon Lambda
+    * Modified cmdlet New-LMCapacityProvider: added parameters TelemetryConfig_LoggingConfig_LogGroup and TelemetryConfig_LoggingConfig_SystemLogLevel.
+    * Modified cmdlet Update-LMCapacityProvider: added parameters TelemetryConfig_LoggingConfig_LogGroup and TelemetryConfig_LoggingConfig_SystemLogLevel.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMLicenseVersion: added parameter ResetUsage.
+  * Amazon QuickSight
+    * Added cmdlet New-QSKnowledgeBase leveraging the CreateKnowledgeBase service API.
+    * Added cmdlet Update-QSKnowledgeBase leveraging the UpdateKnowledgeBase service API.
+    * Modified cmdlet New-QSDataSource: added parameters DataSourceParameters_FMKBParameters_KnowledgeBaseArn, DataSourceParameters_FMKBParameters_LinkedDataSourceId, DataSourceParameters_GoogleDriveParameters_AuthType, DataSourceParameters_OneDriveParameters_AuthType, DataSourceParameters_OneDriveParameters_ClientId, DataSourceParameters_OneDriveParameters_TenantId, DataSourceParameters_SharePointParameters_AuthType, DataSourceParameters_SharePointParameters_ClientId, DataSourceParameters_SharePointParameters_SharePointDomain and DataSourceParameters_SharePointParameters_TenantId.
+    * Modified cmdlet Update-QSDataSource: added parameters DataSourceParameters_FMKBParameters_KnowledgeBaseArn, DataSourceParameters_FMKBParameters_LinkedDataSourceId, DataSourceParameters_GoogleDriveParameters_AuthType, DataSourceParameters_OneDriveParameters_AuthType, DataSourceParameters_OneDriveParameters_ClientId, DataSourceParameters_OneDriveParameters_TenantId, DataSourceParameters_SharePointParameters_AuthType, DataSourceParameters_SharePointParameters_ClientId, DataSourceParameters_SharePointParameters_SharePointDomain and DataSourceParameters_SharePointParameters_TenantId.
+
+### 5.0.250 (2026-07-09 19:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.285.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet New-CWSYNCanary: added parameter KmsKeyArn.

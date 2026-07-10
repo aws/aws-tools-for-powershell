@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String SingleMetricAnomalyDetector_AccountId { get; set; }
         #endregion
         
+        #region Parameter AnomalyDetectorId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the unique identifier of the anomaly detector to delete. If you specify
+        /// this parameter, you do not need to specify a metric to identify the detector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnomalyDetectorId { get; set; }
+        #endregion
+        
         #region Parameter SingleMetricAnomalyDetector_Dimension
         /// <summary>
         /// <para>
@@ -223,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.DeleteAnomalyDetectorResponse, RemoveCWAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AnomalyDetectorId = this.AnomalyDetectorId;
             if (this.Dimension != null)
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
@@ -258,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.DeleteAnomalyDetectorRequest();
             
+            if (cmdletContext.AnomalyDetectorId != null)
+            {
+                request.AnomalyDetectorId = cmdletContext.AnomalyDetectorId;
+            }
             if (cmdletContext.Dimension != null)
             {
                 request.Dimensions = cmdletContext.Dimension;
@@ -407,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnomalyDetectorId { get; set; }
             [System.ObsoleteAttribute]
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
             public List<Amazon.CloudWatch.Model.MetricDataQuery> MetricMathAnomalyDetector_MetricDataQuery { get; set; }

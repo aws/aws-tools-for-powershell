@@ -329,6 +329,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="*" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1615,6 +1619,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKnowledgeBase" OutputProperty="*" Verb="Update" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

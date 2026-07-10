@@ -257,7 +257,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.EcrPullDateRescanDuration
         "Update-INS2Configuration/EcrConfiguration_PullDateRescanDuration"
         {
-            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_90"
+            $v = "DAYS_14","DAYS_180","DAYS_3","DAYS_30","DAYS_60","DAYS_7","DAYS_90"
             break
         }
 
@@ -271,7 +271,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.EcrRescanDuration
         "Update-INS2Configuration/EcrConfiguration_RescanDuration"
         {
-            $v = "DAYS_14","DAYS_180","DAYS_30","DAYS_60","DAYS_90","LIFETIME"
+            $v = "DAYS_14","DAYS_180","DAYS_3","DAYS_30","DAYS_60","DAYS_7","DAYS_90","LIFETIME"
             break
         }
 

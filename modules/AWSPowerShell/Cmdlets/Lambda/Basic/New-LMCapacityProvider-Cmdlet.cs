@@ -154,6 +154,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter TelemetryConfig_LoggingConfig_LogGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By
+        /// default, Lambda capacity providers send logs to a default log group named <c>/aws/lambda/capacity-provider/&lt;capacity
+        /// provider name&gt;</c>. To use a different log group, enter an existing log group or
+        /// enter a new log group name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TelemetryConfig_LoggingConfig_LogGroup { get; set; }
+        #endregion
+        
         #region Parameter CapacityProviderScalingConfig_MaxVCpuCount
         /// <summary>
         /// <para>
@@ -248,6 +261,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter TelemetryConfig_LoggingConfig_SystemLogLevel
+        /// <summary>
+        /// <para>
+        /// <para>Set this property to filter the system logs for your capacity provider that Lambda
+        /// sends to CloudWatch. Lambda only sends system logs at the selected level of detail
+        /// and lower, where <c>DEBUG</c> is the highest level and <c>WARN</c> is the lowest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.SystemLogLevel")]
+        public Amazon.Lambda.SystemLogLevel TelemetryConfig_LoggingConfig_SystemLogLevel { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -361,6 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TelemetryConfig_LoggingConfig_LogGroup = this.TelemetryConfig_LoggingConfig_LogGroup;
+            context.TelemetryConfig_LoggingConfig_SystemLogLevel = this.TelemetryConfig_LoggingConfig_SystemLogLevel;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -536,6 +564,50 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate TelemetryConfig
+            var requestTelemetryConfigIsNull = true;
+            request.TelemetryConfig = new Amazon.Lambda.Model.CapacityProviderTelemetryConfig();
+            Amazon.Lambda.Model.CapacityProviderLoggingConfig requestTelemetryConfig_telemetryConfig_LoggingConfig = null;
+            
+             // populate LoggingConfig
+            var requestTelemetryConfig_telemetryConfig_LoggingConfigIsNull = true;
+            requestTelemetryConfig_telemetryConfig_LoggingConfig = new Amazon.Lambda.Model.CapacityProviderLoggingConfig();
+            System.String requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_LogGroup = null;
+            if (cmdletContext.TelemetryConfig_LoggingConfig_LogGroup != null)
+            {
+                requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_LogGroup = cmdletContext.TelemetryConfig_LoggingConfig_LogGroup;
+            }
+            if (requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_LogGroup != null)
+            {
+                requestTelemetryConfig_telemetryConfig_LoggingConfig.LogGroup = requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_LogGroup;
+                requestTelemetryConfig_telemetryConfig_LoggingConfigIsNull = false;
+            }
+            Amazon.Lambda.SystemLogLevel requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_SystemLogLevel = null;
+            if (cmdletContext.TelemetryConfig_LoggingConfig_SystemLogLevel != null)
+            {
+                requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_SystemLogLevel = cmdletContext.TelemetryConfig_LoggingConfig_SystemLogLevel;
+            }
+            if (requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_SystemLogLevel != null)
+            {
+                requestTelemetryConfig_telemetryConfig_LoggingConfig.SystemLogLevel = requestTelemetryConfig_telemetryConfig_LoggingConfig_telemetryConfig_LoggingConfig_SystemLogLevel;
+                requestTelemetryConfig_telemetryConfig_LoggingConfigIsNull = false;
+            }
+             // determine if requestTelemetryConfig_telemetryConfig_LoggingConfig should be set to null
+            if (requestTelemetryConfig_telemetryConfig_LoggingConfigIsNull)
+            {
+                requestTelemetryConfig_telemetryConfig_LoggingConfig = null;
+            }
+            if (requestTelemetryConfig_telemetryConfig_LoggingConfig != null)
+            {
+                request.TelemetryConfig.LoggingConfig = requestTelemetryConfig_telemetryConfig_LoggingConfig;
+                requestTelemetryConfigIsNull = false;
+            }
+             // determine if request.TelemetryConfig should be set to null
+            if (requestTelemetryConfigIsNull)
+            {
+                request.TelemetryConfig = null;
+            }
+            
              // populate VpcConfig
             var requestVpcConfigIsNull = true;
             request.VpcConfig = new Amazon.Lambda.Model.CapacityProviderVpcConfig();
@@ -631,6 +703,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public Dictionary<System.String, System.String> PropagateTags_ExplicitTag { get; set; }
             public Amazon.Lambda.PropagateTagsMode PropagateTags_Mode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String TelemetryConfig_LoggingConfig_LogGroup { get; set; }
+            public Amazon.Lambda.SystemLogLevel TelemetryConfig_LoggingConfig_SystemLogLevel { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.Lambda.Model.CreateCapacityProviderResponse, NewLMCapacityProviderCmdlet, object> Select { get; set; } =

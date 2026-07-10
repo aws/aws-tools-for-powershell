@@ -50,6 +50,23 @@ namespace Amazon.PowerShell.Cmdlets.CW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AnomalyDetectorId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the unique identifiers of the anomaly detectors to describe. You can specify
+        /// up to 50 identifiers. If you specify this parameter, you cannot also specify the <c>Namespace</c>,
+        /// <c>MetricName</c>, <c>Dimensions</c>, or <c>AnomalyDetectorTypes</c> metric filters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnomalyDetectorIds")]
+        public System.String[] AnomalyDetectorId { get; set; }
+        #endregion
+        
         #region Parameter AnomalyDetectorType
         /// <summary>
         /// <para>
@@ -173,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.DescribeAnomalyDetectorsResponse, GetCWAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AnomalyDetectorId != null)
+            {
+                context.AnomalyDetectorId = new List<System.String>(this.AnomalyDetectorId);
+            }
             if (this.AnomalyDetectorType != null)
             {
                 context.AnomalyDetectorType = new List<System.String>(this.AnomalyDetectorType);
@@ -203,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request and set iteration invariants
             var request = new Amazon.CloudWatch.Model.DescribeAnomalyDetectorsRequest();
             
+            if (cmdletContext.AnomalyDetectorId != null)
+            {
+                request.AnomalyDetectorIds = cmdletContext.AnomalyDetectorId;
+            }
             if (cmdletContext.AnomalyDetectorType != null)
             {
                 request.AnomalyDetectorTypes = cmdletContext.AnomalyDetectorType;
@@ -302,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AnomalyDetectorId { get; set; }
             public List<System.String> AnomalyDetectorType { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
             public System.Int32? MaxResult { get; set; }

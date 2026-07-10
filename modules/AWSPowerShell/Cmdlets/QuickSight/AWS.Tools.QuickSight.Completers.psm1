@@ -119,6 +119,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AudioExtractionStatus
+        {
+            ($_ -eq "New-QSKnowledgeBase/MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "Update-QSKnowledgeBase/MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.AuthenticationMethodOption
         "New-QSAccountSubscription/AuthenticationMethod"
         {
@@ -145,6 +155,20 @@ $QS_Completers = {
         }
         {
             $v = "PLAIN_CREDENTIALS"
+            break
+        }
+
+        # Amazon.QuickSight.AuthType
+        {
+            ($_ -eq "New-QSDataSource/DataSourceParameters_GoogleDriveParameters_AuthType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_GoogleDriveParameters_AuthType") -Or
+            ($_ -eq "New-QSDataSource/DataSourceParameters_OneDriveParameters_AuthType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_OneDriveParameters_AuthType") -Or
+            ($_ -eq "New-QSDataSource/DataSourceParameters_SharePointParameters_AuthType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_SharePointParameters_AuthType")
+        }
+        {
+            $v = "SERVICE_ACCOUNT","THREE_LEGGED_OAUTH","TWO_LEGGED_OAUTH"
             break
         }
 
@@ -865,6 +889,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ImageExtractionStatus
+        {
+            ($_ -eq "New-QSKnowledgeBase/MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "Update-QSKnowledgeBase/MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.IncludeFolderMembers
         "Start-QSAssetBundleExportJob/IncludeFolderMember"
         {
@@ -1243,6 +1277,26 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.VideoExtractionStatus
+        {
+            ($_ -eq "New-QSKnowledgeBase/MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus") -Or
+            ($_ -eq "Update-QSKnowledgeBase/MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QuickSight.VideoExtractionType
+        {
+            ($_ -eq "New-QSKnowledgeBase/MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionType") -Or
+            ($_ -eq "Update-QSKnowledgeBase/MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionType")
+        }
+        {
+            $v = "AUDIO_TRANSCRIPTION_ONLY","VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION"
+            break
+        }
+
         # Amazon.QuickSight.VisualHighlightTrigger
         {
             ($_ -eq "New-QSAnalysis/HighlightOperation_Trigger") -Or
@@ -1546,6 +1600,9 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSourceParameters_GoogleDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
+    "DataSourceParameters_OneDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
+    "DataSourceParameters_SharePointParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceType"=@("New-QSOAuthClientApplication","Update-QSOAuthClientApplication")
     "DataStoriesSharingOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -1571,6 +1628,10 @@ $QS_map = @{
     "LegendValueFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
     "LegendValueFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
+    "MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus"=@("New-QSKnowledgeBase","Update-QSKnowledgeBase")
+    "MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QSKnowledgeBase","Update-QSKnowledgeBase")
+    "MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus"=@("New-QSKnowledgeBase","Update-QSKnowledgeBase")
+    "MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionType"=@("New-QSKnowledgeBase","Update-QSKnowledgeBase")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "OAuthClientAuthenticationType"=@("New-QSOAuthClientApplication")
     "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -1690,6 +1751,7 @@ $QS_SelectMap = @{
                "New-QSGroupMembership",
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
+               "New-QSKnowledgeBase",
                "New-QSNamespace",
                "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
@@ -1911,6 +1973,7 @@ $QS_SelectMap = @{
                "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
+               "Update-QSKnowledgeBase",
                "Update-QSKnowledgeBasePermission",
                "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",

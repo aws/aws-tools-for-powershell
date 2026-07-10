@@ -103,6 +103,42 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.AuthenticationType StarburstParameters_AuthenticationType { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_GoogleDriveParameters_AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type for the Google Drive data source. Valid values include:</para><ul><li><para><c>SERVICE_ACCOUNT</c> – Server-to-server authentication using a Google service account
+        /// key.</para></li><li><para><c>THREE_LEGGED_OAUTH</c> – Interactive OAuth that requires user consent.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthType")]
+        public Amazon.QuickSight.AuthType DataSourceParameters_GoogleDriveParameters_AuthType { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_OneDriveParameters_AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type for the OneDrive data source. Valid values include:</para><ul><li><para><c>TWO_LEGGED_OAUTH</c> – Server-to-server authentication using client credentials
+        /// that do not require user interaction.</para></li><li><para><c>THREE_LEGGED_OAUTH</c> – Interactive OAuth that requires user consent.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthType")]
+        public Amazon.QuickSight.AuthType DataSourceParameters_OneDriveParameters_AuthType { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_SharePointParameters_AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type for the SharePoint data source. Valid values include:</para><ul><li><para><c>TWO_LEGGED_OAUTH</c> – Server-to-server authentication using client credentials
+        /// that do not require user interaction.</para></li><li><para><c>THREE_LEGGED_OAUTH</c> – Interactive OAuth that requires user consent.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthType")]
+        public Amazon.QuickSight.AuthType DataSourceParameters_SharePointParameters_AuthType { get; set; }
+        #endregion
+        
         #region Parameter IAMParameters_AutoCreateDatabaseUser
         /// <summary>
         /// <para>
@@ -199,6 +235,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Credentials_OAuthClientCredentials_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_OneDriveParameters_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client ID for the OneDrive data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_OneDriveParameters_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_SharePointParameters_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client ID for the SharePoint data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SharePointParameters_ClientId { get; set; }
         #endregion
         
         #region Parameter Credentials_OAuthClientCredentials_ClientSecret
@@ -815,6 +871,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String KeyPairCredentials_KeyPairUsername { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_FMKBParameters_KnowledgeBaseArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Bedrock knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_FMKBParameters_KnowledgeBaseArn { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_FMKBParameters_LinkedDataSourceId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the linked data sources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_FMKBParameters_LinkedDataSourceIds")]
+        public System.String[] DataSourceParameters_FMKBParameters_LinkedDataSourceId { get; set; }
+        #endregion
+        
         #region Parameter WebCrawlerParameters_LoginPageUrl
         /// <summary>
         /// <para>
@@ -1223,6 +1304,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Credentials_SecretArn { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_SharePointParameters_SharePointDomain
+        /// <summary>
+        /// <para>
+        /// <para>The SharePoint domain for the data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SharePointParameters_SharePointDomain { get; set; }
+        #endregion
+        
         #region Parameter JiraParameters_SiteBaseUrl
         /// <summary>
         /// <para>
@@ -1275,6 +1366,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataSourceParameters_S3TablesParameters_TableBucketArn { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_OneDriveParameters_TenantId
+        /// <summary>
+        /// <para>
+        /// <para>The tenant ID for the OneDrive data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_OneDriveParameters_TenantId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_SharePointParameters_TenantId
+        /// <summary>
+        /// <para>
+        /// <para>The tenant ID for the SharePoint data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SharePointParameters_TenantId { get; set; }
         #endregion
         
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl
@@ -1560,6 +1671,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
             context.ExasolParameters_Host = this.ExasolParameters_Host;
             context.ExasolParameters_Port = this.ExasolParameters_Port;
+            context.DataSourceParameters_FMKBParameters_KnowledgeBaseArn = this.DataSourceParameters_FMKBParameters_KnowledgeBaseArn;
+            if (this.DataSourceParameters_FMKBParameters_LinkedDataSourceId != null)
+            {
+                context.DataSourceParameters_FMKBParameters_LinkedDataSourceId = new List<System.String>(this.DataSourceParameters_FMKBParameters_LinkedDataSourceId);
+            }
+            context.DataSourceParameters_GoogleDriveParameters_AuthType = this.DataSourceParameters_GoogleDriveParameters_AuthType;
             context.ImpalaParameters_Database = this.ImpalaParameters_Database;
             context.ImpalaParameters_Host = this.ImpalaParameters_Host;
             context.ImpalaParameters_Port = this.ImpalaParameters_Port;
@@ -1571,6 +1688,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.MySqlParameters_Database = this.MySqlParameters_Database;
             context.MySqlParameters_Host = this.MySqlParameters_Host;
             context.MySqlParameters_Port = this.MySqlParameters_Port;
+            context.DataSourceParameters_OneDriveParameters_AuthType = this.DataSourceParameters_OneDriveParameters_AuthType;
+            context.DataSourceParameters_OneDriveParameters_ClientId = this.DataSourceParameters_OneDriveParameters_ClientId;
+            context.DataSourceParameters_OneDriveParameters_TenantId = this.DataSourceParameters_OneDriveParameters_TenantId;
             context.OracleParameters_Database = this.OracleParameters_Database;
             context.OracleParameters_Host = this.OracleParameters_Host;
             context.OracleParameters_Port = this.OracleParameters_Port;
@@ -1604,6 +1724,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.S3Parameters_RoleArn = this.S3Parameters_RoleArn;
             context.DataSourceParameters_S3TablesParameters_TableBucketArn = this.DataSourceParameters_S3TablesParameters_TableBucketArn;
             context.ServiceNowParameters_SiteBaseUrl = this.ServiceNowParameters_SiteBaseUrl;
+            context.DataSourceParameters_SharePointParameters_AuthType = this.DataSourceParameters_SharePointParameters_AuthType;
+            context.DataSourceParameters_SharePointParameters_ClientId = this.DataSourceParameters_SharePointParameters_ClientId;
+            context.DataSourceParameters_SharePointParameters_SharePointDomain = this.DataSourceParameters_SharePointParameters_SharePointDomain;
+            context.DataSourceParameters_SharePointParameters_TenantId = this.DataSourceParameters_SharePointParameters_TenantId;
             context.SnowflakeParameters_AuthenticationType = this.SnowflakeParameters_AuthenticationType;
             context.SnowflakeParameters_Database = this.SnowflakeParameters_Database;
             context.SnowflakeParameters_DatabaseAccessControlRole = this.SnowflakeParameters_DatabaseAccessControlRole;
@@ -2007,6 +2131,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.CustomConnectionParameters = requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.GoogleDriveParameters requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters = null;
+            
+             // populate GoogleDriveParameters
+            var requestDataSourceParameters_dataSourceParameters_GoogleDriveParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters = new Amazon.QuickSight.Model.GoogleDriveParameters();
+            Amazon.QuickSight.AuthType requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters_dataSourceParameters_GoogleDriveParameters_AuthType = null;
+            if (cmdletContext.DataSourceParameters_GoogleDriveParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters_dataSourceParameters_GoogleDriveParameters_AuthType = cmdletContext.DataSourceParameters_GoogleDriveParameters_AuthType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters_dataSourceParameters_GoogleDriveParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters.AuthType = requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters_dataSourceParameters_GoogleDriveParameters_AuthType;
+                requestDataSourceParameters_dataSourceParameters_GoogleDriveParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_GoogleDriveParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters != null)
+            {
+                request.DataSourceParameters.GoogleDriveParameters = requestDataSourceParameters_dataSourceParameters_GoogleDriveParameters;
+                requestDataSourceParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.JiraParameters requestDataSourceParameters_dataSourceParameters_JiraParameters = null;
             
              // populate JiraParameters
@@ -2175,6 +2324,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_ExasolParameters != null)
             {
                 request.DataSourceParameters.ExasolParameters = requestDataSourceParameters_dataSourceParameters_ExasolParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.FMKBParameters requestDataSourceParameters_dataSourceParameters_FMKBParameters = null;
+            
+             // populate FMKBParameters
+            var requestDataSourceParameters_dataSourceParameters_FMKBParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_FMKBParameters = new Amazon.QuickSight.Model.FMKBParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_KnowledgeBaseArn = null;
+            if (cmdletContext.DataSourceParameters_FMKBParameters_KnowledgeBaseArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_KnowledgeBaseArn = cmdletContext.DataSourceParameters_FMKBParameters_KnowledgeBaseArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_KnowledgeBaseArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_FMKBParameters.KnowledgeBaseArn = requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_KnowledgeBaseArn;
+                requestDataSourceParameters_dataSourceParameters_FMKBParametersIsNull = false;
+            }
+            List<System.String> requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_LinkedDataSourceId = null;
+            if (cmdletContext.DataSourceParameters_FMKBParameters_LinkedDataSourceId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_LinkedDataSourceId = cmdletContext.DataSourceParameters_FMKBParameters_LinkedDataSourceId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_LinkedDataSourceId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_FMKBParameters.LinkedDataSourceIds = requestDataSourceParameters_dataSourceParameters_FMKBParameters_dataSourceParameters_FMKBParameters_LinkedDataSourceId;
+                requestDataSourceParameters_dataSourceParameters_FMKBParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_FMKBParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_FMKBParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_FMKBParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_FMKBParameters != null)
+            {
+                request.DataSourceParameters.FMKBParameters = requestDataSourceParameters_dataSourceParameters_FMKBParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.RdsParameters requestDataSourceParameters_dataSourceParameters_RdsParameters = null;
@@ -2565,6 +2749,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_MySqlParameters != null)
             {
                 request.DataSourceParameters.MySqlParameters = requestDataSourceParameters_dataSourceParameters_MySqlParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.OneDriveParameters requestDataSourceParameters_dataSourceParameters_OneDriveParameters = null;
+            
+             // populate OneDriveParameters
+            var requestDataSourceParameters_dataSourceParameters_OneDriveParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_OneDriveParameters = new Amazon.QuickSight.Model.OneDriveParameters();
+            Amazon.QuickSight.AuthType requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_AuthType = null;
+            if (cmdletContext.DataSourceParameters_OneDriveParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_AuthType = cmdletContext.DataSourceParameters_OneDriveParameters_AuthType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters.AuthType = requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_AuthType;
+                requestDataSourceParameters_dataSourceParameters_OneDriveParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_ClientId = null;
+            if (cmdletContext.DataSourceParameters_OneDriveParameters_ClientId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_ClientId = cmdletContext.DataSourceParameters_OneDriveParameters_ClientId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_ClientId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters.ClientId = requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_ClientId;
+                requestDataSourceParameters_dataSourceParameters_OneDriveParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_TenantId = null;
+            if (cmdletContext.DataSourceParameters_OneDriveParameters_TenantId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_TenantId = cmdletContext.DataSourceParameters_OneDriveParameters_TenantId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_TenantId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters.TenantId = requestDataSourceParameters_dataSourceParameters_OneDriveParameters_dataSourceParameters_OneDriveParameters_TenantId;
+                requestDataSourceParameters_dataSourceParameters_OneDriveParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_OneDriveParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_OneDriveParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_OneDriveParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OneDriveParameters != null)
+            {
+                request.DataSourceParameters.OneDriveParameters = requestDataSourceParameters_dataSourceParameters_OneDriveParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.PostgreSqlParameters requestDataSourceParameters_dataSourceParameters_PostgreSqlParameters = null;
@@ -3015,6 +3244,61 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_OracleParameters != null)
             {
                 request.DataSourceParameters.OracleParameters = requestDataSourceParameters_dataSourceParameters_OracleParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.SharePointParameters requestDataSourceParameters_dataSourceParameters_SharePointParameters = null;
+            
+             // populate SharePointParameters
+            var requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_SharePointParameters = new Amazon.QuickSight.Model.SharePointParameters();
+            Amazon.QuickSight.AuthType requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_AuthType = null;
+            if (cmdletContext.DataSourceParameters_SharePointParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_AuthType = cmdletContext.DataSourceParameters_SharePointParameters_AuthType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_AuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters.AuthType = requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_AuthType;
+                requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_ClientId = null;
+            if (cmdletContext.DataSourceParameters_SharePointParameters_ClientId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_ClientId = cmdletContext.DataSourceParameters_SharePointParameters_ClientId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_ClientId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters.ClientId = requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_ClientId;
+                requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_SharePointDomain = null;
+            if (cmdletContext.DataSourceParameters_SharePointParameters_SharePointDomain != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_SharePointDomain = cmdletContext.DataSourceParameters_SharePointParameters_SharePointDomain;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_SharePointDomain != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters.SharePointDomain = requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_SharePointDomain;
+                requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_TenantId = null;
+            if (cmdletContext.DataSourceParameters_SharePointParameters_TenantId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_TenantId = cmdletContext.DataSourceParameters_SharePointParameters_TenantId;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_TenantId != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters.TenantId = requestDataSourceParameters_dataSourceParameters_SharePointParameters_dataSourceParameters_SharePointParameters_TenantId;
+                requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_SharePointParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_SharePointParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SharePointParameters != null)
+            {
+                request.DataSourceParameters.SharePointParameters = requestDataSourceParameters_dataSourceParameters_SharePointParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
@@ -3686,6 +3970,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String DatabricksParameters_SqlEndpointPath { get; set; }
             public System.String ExasolParameters_Host { get; set; }
             public System.Int32? ExasolParameters_Port { get; set; }
+            public System.String DataSourceParameters_FMKBParameters_KnowledgeBaseArn { get; set; }
+            public List<System.String> DataSourceParameters_FMKBParameters_LinkedDataSourceId { get; set; }
+            public Amazon.QuickSight.AuthType DataSourceParameters_GoogleDriveParameters_AuthType { get; set; }
             public System.String ImpalaParameters_Database { get; set; }
             public System.String ImpalaParameters_Host { get; set; }
             public System.Int32? ImpalaParameters_Port { get; set; }
@@ -3697,6 +3984,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String MySqlParameters_Database { get; set; }
             public System.String MySqlParameters_Host { get; set; }
             public System.Int32? MySqlParameters_Port { get; set; }
+            public Amazon.QuickSight.AuthType DataSourceParameters_OneDriveParameters_AuthType { get; set; }
+            public System.String DataSourceParameters_OneDriveParameters_ClientId { get; set; }
+            public System.String DataSourceParameters_OneDriveParameters_TenantId { get; set; }
             public System.String OracleParameters_Database { get; set; }
             public System.String OracleParameters_Host { get; set; }
             public System.Int32? OracleParameters_Port { get; set; }
@@ -3727,6 +4017,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String S3Parameters_RoleArn { get; set; }
             public System.String DataSourceParameters_S3TablesParameters_TableBucketArn { get; set; }
             public System.String ServiceNowParameters_SiteBaseUrl { get; set; }
+            public Amazon.QuickSight.AuthType DataSourceParameters_SharePointParameters_AuthType { get; set; }
+            public System.String DataSourceParameters_SharePointParameters_ClientId { get; set; }
+            public System.String DataSourceParameters_SharePointParameters_SharePointDomain { get; set; }
+            public System.String DataSourceParameters_SharePointParameters_TenantId { get; set; }
             public Amazon.QuickSight.AuthenticationType SnowflakeParameters_AuthenticationType { get; set; }
             public System.String SnowflakeParameters_Database { get; set; }
             public System.String SnowflakeParameters_DatabaseAccessControlRole { get; set; }
