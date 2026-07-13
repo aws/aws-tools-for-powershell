@@ -105,9 +105,8 @@ $ErrorActionPreference = "Stop"
 $paramSetRemoteName = "remote"
 $paramSetLocalName = "local"
 
-# Import module Microsoft.PowerShell.PSResourceGet using path to psd1 as there is an issue with pwsh 7.4.6 in codebuild where assemblies of other module versions were being loaded.
-$psResourceGetModulePath = (Get-Module 'Microsoft.PowerShell.PSResourceGet' -ListAvailable | Where-Object {$_.Version -eq '1.1.1'})[0].Path
-Import-Module -Name $psResourceGetModulePath -Force
+# Pin PSResourceGet 1.1.1 so publishing does not pick up a different version present on the image.
+Import-Module Microsoft.PowerShell.PSResourceGet -RequiredVersion 1.1.1
 
 # in pwsh 7.1.0, running Publish-PSResource errors out with
 # Cannot retrieve the dynamic parameters for the cmdlet. Loading repository store failed: Could not find file 'C:\Users\ContainerAdministrator\AppData\Local\PSResourceGet\PSResourceRepository.xml'.
@@ -335,7 +334,7 @@ if (Test-Path $installerPath) {
 # --- Publish AWS.Tools.* service modules in dependency layers ---
 
 $OldPath = $Env:PSModulePath
-$Env:PSModulePath = $Env:PSModulePath + ";$awsPowerShellModularModulesLocation"
+$Env:PSModulePath = $Env:PSModulePath + [System.IO.Path]::PathSeparator + $awsPowerShellModularModulesLocation
 
 try {
 

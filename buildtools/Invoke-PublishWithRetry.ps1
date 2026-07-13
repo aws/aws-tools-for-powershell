@@ -71,6 +71,10 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Pin PSResourceGet 1.1.1. Parallel workers start with no module loaded and do not inherit the parent's
+# import, so import the required version here before any cmdlet auto-loads a different one.
+Import-Module Microsoft.PowerShell.PSResourceGet -RequiredVersion 1.1.1
+
 if (-not (Test-Path $ModulePath)) {
     throw "Expected path $ModulePath does not exist"
 }
