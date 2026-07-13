@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MaintainIntegration
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, maintain existing data sharing, zero-ETL and S3 event integrations
+        /// when restoring. Otherwise, integrations will not be maintained after the restore operation.
+        /// Integrations are only maintained when restored to the same serverless namespace.</para><para>Default: true</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MaintainIntegration { get; set; }
+        #endregion
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
@@ -141,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.RestoreFromRecoveryPointResponse, RestoreRSSFromRecoveryPointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaintainIntegration = this.MaintainIntegration;
             context.NamespaceName = this.NamespaceName;
             #if MODULAR
             if (this.NamespaceName == null && ParameterWasBound(nameof(this.NamespaceName)))
@@ -178,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             // create request
             var request = new Amazon.RedshiftServerless.Model.RestoreFromRecoveryPointRequest();
             
+            if (cmdletContext.MaintainIntegration != null)
+            {
+                request.MaintainIntegration = cmdletContext.MaintainIntegration.Value;
+            }
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
@@ -245,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? MaintainIntegration { get; set; }
             public System.String NamespaceName { get; set; }
             public System.String RecoveryPointId { get; set; }
             public System.String WorkgroupName { get; set; }

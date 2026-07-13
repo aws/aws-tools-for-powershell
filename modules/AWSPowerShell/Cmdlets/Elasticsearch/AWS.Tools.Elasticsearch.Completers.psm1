@@ -100,6 +100,26 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.DomainEngineMode
+        {
+            ($_ -eq "New-ESDomain/EngineMode") -Or
+            ($_ -eq "Update-ESDomainConfig/EngineMode")
+        }
+        {
+            $v = "GENERAL","OPTIMIZED"
+            break
+        }
+
+        # Amazon.Elasticsearch.DomainUseCase
+        {
+            ($_ -eq "New-ESDomain/UseCase") -Or
+            ($_ -eq "Update-ESDomainConfig/UseCase")
+        }
+        {
+            $v = "MIXED","OBSERVABILITY","SEARCH","VECTOR"
+            break
+        }
+
         # Amazon.Elasticsearch.EngineType
         "Get-ESDomainNameList/EngineType"
         {
@@ -181,9 +201,11 @@ $ES_map = @{
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_InstanceType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_WarmType"=@("New-ESDomain","Update-ESDomainConfig")
+    "EngineMode"=@("New-ESDomain","Update-ESDomainConfig")
     "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
+    "UseCase"=@("New-ESDomain","Update-ESDomainConfig")
 }
 
 _awsArgumentCompleterRegistration $ES_Completers $ES_map

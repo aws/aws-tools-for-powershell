@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String AdminPasswordSecretKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MaintainIntegration
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, maintain existing data sharing, zero-ETL and S3 event integrations
+        /// when restoring. Otherwise, integrations will not be maintained after the restore operation.
+        /// Integrations are only maintained when restored to the same serverless namespace.</para><para>Default: true</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MaintainIntegration { get; set; }
+        #endregion
+        
         #region Parameter ManageAdminPassword
         /// <summary>
         /// <para>
@@ -182,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AdminPasswordSecretKmsKeyId = this.AdminPasswordSecretKmsKeyId;
+            context.MaintainIntegration = this.MaintainIntegration;
             context.ManageAdminPassword = this.ManageAdminPassword;
             context.NamespaceName = this.NamespaceName;
             #if MODULAR
@@ -219,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.AdminPasswordSecretKmsKeyId != null)
             {
                 request.AdminPasswordSecretKmsKeyId = cmdletContext.AdminPasswordSecretKmsKeyId;
+            }
+            if (cmdletContext.MaintainIntegration != null)
+            {
+                request.MaintainIntegration = cmdletContext.MaintainIntegration.Value;
             }
             if (cmdletContext.ManageAdminPassword != null)
             {
@@ -300,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminPasswordSecretKmsKeyId { get; set; }
+            public System.Boolean? MaintainIntegration { get; set; }
             public System.Boolean? ManageAdminPassword { get; set; }
             public System.String NamespaceName { get; set; }
             public System.String OwnerAccount { get; set; }

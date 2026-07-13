@@ -35444,6 +35444,26 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.DomainEngineMode
+        {
+            ($_ -eq "New-ESDomain/EngineMode") -Or
+            ($_ -eq "Update-ESDomainConfig/EngineMode")
+        }
+        {
+            $v = "GENERAL","OPTIMIZED"
+            break
+        }
+
+        # Amazon.Elasticsearch.DomainUseCase
+        {
+            ($_ -eq "New-ESDomain/UseCase") -Or
+            ($_ -eq "Update-ESDomainConfig/UseCase")
+        }
+        {
+            $v = "MIXED","OBSERVABILITY","SEARCH","VECTOR"
+            break
+        }
+
         # Amazon.Elasticsearch.EngineType
         "Get-ESDomainNameList/EngineType"
         {
@@ -35525,9 +35545,11 @@ $ES_map = @{
     "ElasticsearchClusterConfig_DedicatedMasterType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_InstanceType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_WarmType"=@("New-ESDomain","Update-ESDomainConfig")
+    "EngineMode"=@("New-ESDomain","Update-ESDomainConfig")
     "EngineType"=@("Get-ESDomainNameList")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
     "PackageType"=@("New-ESPackage")
+    "UseCase"=@("New-ESDomain","Update-ESDomainConfig")
 }
 
 _awsArgumentCompleterRegistration $ES_Completers $ES_map
@@ -50236,7 +50258,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
+            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java11.al2023","java17","java17.al2023","java21","java25","java8","java8.al2","java8.al2023","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
             break
         }
 

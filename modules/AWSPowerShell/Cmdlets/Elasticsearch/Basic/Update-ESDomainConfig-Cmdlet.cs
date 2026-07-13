@@ -328,6 +328,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean? DomainEndpointOptions_EnforceHTTPS { get; set; }
         #endregion
         
+        #region Parameter EngineMode
+        /// <summary>
+        /// <para>
+        /// <para>The engine mode for the domain. For valid values and requirements, see <c>DomainEngineMode</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.DomainEngineMode")]
+        public Amazon.Elasticsearch.DomainEngineMode EngineMode { get; set; }
+        #endregion
+        
         #region Parameter Idp_EntityId
         /// <summary>
         /// <para>
@@ -615,6 +626,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public Amazon.Elasticsearch.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
         #endregion
         
+        #region Parameter UseCase
+        /// <summary>
+        /// <para>
+        /// <para>The primary use case for the domain. For valid values, see <c>DomainUseCase</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.DomainUseCase")]
+        public Amazon.Elasticsearch.DomainUseCase UseCase { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_UserPoolId
         /// <summary>
         /// <para>
@@ -800,6 +822,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ZoneAwarenessConfig_AvailabilityZoneCount = this.ZoneAwarenessConfig_AvailabilityZoneCount;
             context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
             context.EncryptionAtRestOption = this.EncryptionAtRestOption;
+            context.EngineMode = this.EngineMode;
             if (this.LogPublishingOption != null)
             {
                 context.LogPublishingOption = new Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption>(StringComparer.Ordinal);
@@ -810,6 +833,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             }
             context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;
             context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
+            context.UseCase = this.UseCase;
             if (this.VPCOptions_SecurityGroupId != null)
             {
                 context.VPCOptions_SecurityGroupId = new List<System.String>(this.VPCOptions_SecurityGroupId);
@@ -1461,6 +1485,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.EncryptionAtRestOptions = cmdletContext.EncryptionAtRestOption;
             }
+            if (cmdletContext.EngineMode != null)
+            {
+                request.EngineMode = cmdletContext.EngineMode;
+            }
             if (cmdletContext.LogPublishingOption != null)
             {
                 request.LogPublishingOptions = cmdletContext.LogPublishingOption;
@@ -1502,6 +1530,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestSnapshotOptionsIsNull)
             {
                 request.SnapshotOptions = null;
+            }
+            if (cmdletContext.UseCase != null)
+            {
+                request.UseCase = cmdletContext.UseCase;
             }
             
              // populate VPCOptions
@@ -1638,9 +1670,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Int32? ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
             public Amazon.Elasticsearch.Model.EncryptionAtRestOptions EncryptionAtRestOption { get; set; }
+            public Amazon.Elasticsearch.DomainEngineMode EngineMode { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+            public Amazon.Elasticsearch.DomainUseCase UseCase { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }
             public System.Func<Amazon.Elasticsearch.Model.UpdateElasticsearchDomainConfigResponse, UpdateESDomainConfigCmdlet, object> Select { get; set; } =

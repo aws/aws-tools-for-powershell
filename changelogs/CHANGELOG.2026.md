@@ -1,4 +1,13 @@
-﻿### 5.0.251 (2026-07-10 19:12Z)
+﻿### 5.0.252 (2026-07-13 19:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.287.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elasticsearch
+    * Modified cmdlet New-ESDomain: added parameters EngineMode and UseCase.
+    * Modified cmdlet Update-ESDomainConfig: added parameters EngineMode and UseCase.
+  * Amazon Redshift Serverless
+    * Modified cmdlet Restore-RSSFromRecoveryPoint: added parameter MaintainIntegration.
+    * Modified cmdlet Restore-RSSFromSnapshot: added parameter MaintainIntegration.
+
+### 5.0.251 (2026-07-10 19:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.286.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Modified cmdlet Set-AWSSSOSessionConfiguration: parameter SSORegion is not mandatory anymore.
