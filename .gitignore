@@ -49,3 +49,7 @@ PSGalleryDownloads
 
 codesign-zip
 *.binlog
+
+# Developer-only scratchpad for the S3 PSDrive work (progress notes, dev test runners, perf scripts).
+# The real code ships from Cmdlets/S3/ + tests/S3/ — nothing in this folder should reach the public repo.
+/modules/PSDriveForS3/
