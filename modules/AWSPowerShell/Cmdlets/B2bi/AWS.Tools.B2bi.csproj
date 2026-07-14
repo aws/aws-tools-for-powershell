@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyName>AWS.Tools.B2bi</AssemblyName>
-    <DocumentationFile>$(OutputPath)/AWS.Tools.B2bi.XML</DocumentationFile>
+    <DocumentationFile>$(OutputPath)/AWS.Tools.B2bi.xml</DocumentationFile>
     <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR;MODULAR</DefineConstants>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>

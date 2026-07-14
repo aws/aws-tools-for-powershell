@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyName>AWS.Tools.IdentityStore</AssemblyName>
-    <DocumentationFile>$(OutputPath)/AWS.Tools.IdentityStore.XML</DocumentationFile>
+    <DocumentationFile>$(OutputPath)/AWS.Tools.IdentityStore.xml</DocumentationFile>
     <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR;MODULAR</DefineConstants>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>

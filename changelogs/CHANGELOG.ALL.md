@@ -1,4 +1,20 @@
-﻿### 5.0.252 (2026-07-13 19:07Z)
+﻿### 5.0.253 (2026-07-14 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.288.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNRule leveraging the SearchRules service API.
+  * Amazon Elastic Disaster Recovery Service
+    * Modified cmdlet New-EDRSLaunchConfigurationTemplate: added parameter RecoveryMode.
+    * Modified cmdlet Update-EDRSLaunchConfiguration: added parameter RecoveryMode.
+    * Modified cmdlet Update-EDRSLaunchConfigurationTemplate: added parameter RecoveryMode.
+  * Amazon EMR Containers
+    * Modified cmdlet New-EMRCManagedEndpoint: added parameters ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn and SessionIdleTimeoutInMinute.
+    * Modified cmdlet New-EMRCVirtualCluster: added parameter SessionEnabled.
+    * Modified cmdlet Start-EMRCJobRun: added parameter ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn.
+  * Amazon MQ
+    * Modified cmdlet New-MQBroker: added parameter StorageSize.
+    * Modified cmdlet Update-MQBroker: added parameter StorageSize.
+
+### 5.0.252 (2026-07-13 19:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.287.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elasticsearch
     * Modified cmdlet New-ESDomain: added parameters EngineMode and UseCase.

@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Provider_Azure_AWSConfigConnectorArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Config connector used to establish the connection to Azure.</para>
+        /// <para>The ARN of the multi-cloud configuration connector used to establish the connection
+        /// to Azure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

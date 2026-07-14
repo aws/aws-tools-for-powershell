@@ -115,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String SecurityConfigurationId { get; set; }
         #endregion
         
+        #region Parameter SessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the virtual cluster has session support enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SessionEnabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -228,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             }
             #endif
             context.SecurityConfigurationId = this.SecurityConfigurationId;
+            context.SessionEnabled = this.SessionEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -343,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             {
                 request.SecurityConfigurationId = cmdletContext.SecurityConfigurationId;
             }
+            if (cmdletContext.SessionEnabled != null)
+            {
+                request.SessionEnabled = cmdletContext.SessionEnabled.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -409,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
             public System.String SecurityConfigurationId { get; set; }
+            public System.Boolean? SessionEnabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.EMRContainers.Model.CreateVirtualClusterResponse, NewEMRCVirtualClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

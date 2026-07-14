@@ -21405,6 +21405,7 @@ $CONN_Completers = {
         # Amazon.Connect.StringComparisonType
         {
             ($_ -eq "Search-CONNNotification/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNRule/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNTestCase/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNAgentStatus/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
@@ -21657,7 +21658,7 @@ $CONN_map = @{
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNTestCase")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNNotification","Search-CONNTestCase")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNNotification","Search-CONNRule","Search-CONNTestCase")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
@@ -22021,6 +22022,7 @@ $CONN_SelectMap = @{
                "Search-CONNQuickConnect",
                "Search-CONNResourceTag",
                "Search-CONNRoutingProfile",
+               "Search-CONNRule",
                "Search-CONNSecurityProfile",
                "Search-CONNTestCase",
                "Search-CONNUserHierarchyGroup",
@@ -28389,6 +28391,17 @@ $EDRS_Completers = {
             break
         }
 
+        # Amazon.Drs.RecoveryMode
+        {
+            ($_ -eq "New-EDRSLaunchConfigurationTemplate/RecoveryMode") -Or
+            ($_ -eq "Update-EDRSLaunchConfiguration/RecoveryMode") -Or
+            ($_ -eq "Update-EDRSLaunchConfigurationTemplate/RecoveryMode")
+        }
+        {
+            $v = "FAST","OPTIMAL"
+            break
+        }
+
         # Amazon.Drs.RecoverySnapshotsOrder
         "Get-EDRSRecoverySnapshot/Order"
         {
@@ -28456,6 +28469,7 @@ $EDRS_map = @{
     "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "Order"=@("Get-EDRSRecoverySnapshot")
+    "RecoveryMode"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
 }
 

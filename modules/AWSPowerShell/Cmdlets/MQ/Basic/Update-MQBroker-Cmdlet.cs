@@ -283,6 +283,16 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String LdapServerMetadata_ServiceAccountUsername { get; set; }
         #endregion
         
+        #region Parameter StorageSize
+        /// <summary>
+        /// <para>
+        /// <para>The broker's storage size in GB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageSize { get; set; }
+        #endregion
+        
         #region Parameter LdapServerMetadata_UserBase
         /// <summary>
         /// <para>
@@ -416,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 context.SecurityGroup = new List<System.String>(this.SecurityGroup);
             }
+            context.StorageSize = this.StorageSize;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -620,6 +631,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.SecurityGroups = cmdletContext.SecurityGroup;
             }
+            if (cmdletContext.StorageSize != null)
+            {
+                request.StorageSize = cmdletContext.StorageSize.Value;
+            }
             
             CmdletOutput output;
             
@@ -698,6 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
             public List<System.String> ResourceShareArn { get; set; }
             public List<System.String> SecurityGroup { get; set; }
+            public System.Int32? StorageSize { get; set; }
             public System.Func<Amazon.MQ.Model.UpdateBrokerResponse, UpdateMQBrokerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

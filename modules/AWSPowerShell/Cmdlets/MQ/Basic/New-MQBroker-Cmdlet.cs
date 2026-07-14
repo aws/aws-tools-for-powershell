@@ -404,6 +404,16 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String LdapServerMetadata_ServiceAccountUsername { get; set; }
         #endregion
         
+        #region Parameter StorageSize
+        /// <summary>
+        /// <para>
+        /// <para>The broker's storage size in GB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageSize { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -646,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 context.SecurityGroup = new List<System.String>(this.SecurityGroup);
             }
+            context.StorageSize = this.StorageSize;
             context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
@@ -912,6 +923,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.SecurityGroups = cmdletContext.SecurityGroup;
             }
+            if (cmdletContext.StorageSize != null)
+            {
+                request.StorageSize = cmdletContext.StorageSize.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -1012,6 +1027,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroup { get; set; }
+            public System.Int32? StorageSize { get; set; }
             public Amazon.MQ.BrokerStorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

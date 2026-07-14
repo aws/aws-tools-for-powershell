@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter OverrideType
         /// <summary>
         /// <para>
-        /// <para>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</para><para>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build
+        /// <para>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</para><para>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build
         /// your list of overrides</a> in the <i> Administrator Guide</i>.</para>
         /// </para>
         /// </summary>

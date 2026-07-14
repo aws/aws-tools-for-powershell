@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ParentHoursOfOperationConfig
         /// <summary>
         /// <para>
-        /// <para>Configuration for parent hours of operations. Eg: ResourceArn. </para><para>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link
+        /// <para>Configuration for parent hours of operations. Eg: ResourceArn. </para><para>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link
         /// overrides from different hours of operation</a> in the <i> Administrator Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

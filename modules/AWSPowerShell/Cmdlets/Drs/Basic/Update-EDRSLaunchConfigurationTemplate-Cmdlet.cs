@@ -136,6 +136,17 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? PostLaunchEnabled { get; set; }
         #endregion
         
+        #region Parameter RecoveryMode
+        /// <summary>
+        /// <para>
+        /// <para>Recovery mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Drs.RecoveryMode")]
+        public Amazon.Drs.RecoveryMode RecoveryMode { get; set; }
+        #endregion
+        
         #region Parameter TargetInstanceTypeRightSizingMethod
         /// <summary>
         /// <para>
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             context.LaunchIntoSourceInstance = this.LaunchIntoSourceInstance;
             context.Licensing_OsByol = this.Licensing_OsByol;
             context.PostLaunchEnabled = this.PostLaunchEnabled;
+            context.RecoveryMode = this.RecoveryMode;
             context.TargetInstanceTypeRightSizingMethod = this.TargetInstanceTypeRightSizingMethod;
             
             // allow further manipulation of loaded context prior to processing
@@ -270,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.PostLaunchEnabled != null)
             {
                 request.PostLaunchEnabled = cmdletContext.PostLaunchEnabled.Value;
+            }
+            if (cmdletContext.RecoveryMode != null)
+            {
+                request.RecoveryMode = cmdletContext.RecoveryMode;
             }
             if (cmdletContext.TargetInstanceTypeRightSizingMethod != null)
             {
@@ -338,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.Boolean? LaunchIntoSourceInstance { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public System.Boolean? PostLaunchEnabled { get; set; }
+            public Amazon.Drs.RecoveryMode RecoveryMode { get; set; }
             public Amazon.Drs.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }
             public System.Func<Amazon.Drs.Model.UpdateLaunchConfigurationTemplateResponse, UpdateEDRSLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LaunchConfigurationTemplate;

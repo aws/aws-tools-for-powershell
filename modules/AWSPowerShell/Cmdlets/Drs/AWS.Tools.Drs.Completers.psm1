@@ -110,6 +110,17 @@ $EDRS_Completers = {
             break
         }
 
+        # Amazon.Drs.RecoveryMode
+        {
+            ($_ -eq "New-EDRSLaunchConfigurationTemplate/RecoveryMode") -Or
+            ($_ -eq "Update-EDRSLaunchConfiguration/RecoveryMode") -Or
+            ($_ -eq "Update-EDRSLaunchConfigurationTemplate/RecoveryMode")
+        }
+        {
+            $v = "FAST","OPTIMAL"
+            break
+        }
+
         # Amazon.Drs.RecoverySnapshotsOrder
         "Get-EDRSRecoverySnapshot/Order"
         {
@@ -177,6 +188,7 @@ $EDRS_map = @{
     "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "Order"=@("Get-EDRSRecoverySnapshot")
+    "RecoveryMode"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
 }
 

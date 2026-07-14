@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// You can use <c>Scopes</c> and <c>Filters</c> independently or together. When both
     /// are provided, <c>Scopes</c> narrows the data set first, and then <c>Filters</c> refines
     /// results within that scoped data set.
+    /// </para><para>
+    /// For AI/ML resources, the response includes the <c>ResourceSubCategory</c> field. For
+    /// self-hosted AI resources and their host resources, the response also includes <c>ResourceInfo</c>
+    /// with AI-specific details. Self-hosted AI resources use a <c>ResourceType</c> with
+    /// the <c>SelfHosted::AI::</c> prefix, such as <c>SelfHosted::AI::Model</c>, <c>SelfHosted::AI::Agent</c>,
+    /// <c>SelfHosted::AI::InferenceEndpoint</c>, and <c>SelfHosted::AI::ExternalEndpoint</c>.
+    /// </para><para>
+    /// If you filter by <c>ResourceSubCategory</c>, you must also include a <c>ResourceCategory</c>
+    /// string filter with comparison set to <c>EQUALS</c> and value <c>AI/ML</c> in the same
+    /// request.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBResourcesV2")]

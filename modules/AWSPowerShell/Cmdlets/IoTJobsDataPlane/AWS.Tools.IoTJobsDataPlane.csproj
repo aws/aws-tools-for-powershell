@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyName>AWS.Tools.IoTJobsDataPlane</AssemblyName>
-    <DocumentationFile>$(OutputPath)/AWS.Tools.IoTJobsDataPlane.XML</DocumentationFile>
+    <DocumentationFile>$(OutputPath)/AWS.Tools.IoTJobsDataPlane.xml</DocumentationFile>
     <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR;MODULAR</DefineConstants>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>

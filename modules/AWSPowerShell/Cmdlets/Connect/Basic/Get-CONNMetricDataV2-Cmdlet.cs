@@ -106,19 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>AGENT_HIERARCHY_LEVEL_ONE</c> | <c>AGENT_HIERARCHY_LEVEL_TWO</c> | <c>AGENT_HIERARCHY_LEVEL_THREE</c>
         /// | <c>AGENT_HIERARCHY_LEVEL_FOUR</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c> | <c>ANSWERING_MACHINE_DETECTION_STATUS</c>
         /// | <c>BOT_ALIAS</c> | <c>BOT_ID</c> | <c>BOT_INTENT_NAME</c> | <c>BOT_LOCALE</c> |
-        /// <c>BOT_VERSION</c> | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c>
-        /// | <c>CASE_STATUS</c> | <c>CASE_TEMPLATE_ARN</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
-        /// | <c>contact/segmentAttributes/connect:ValidationTestType</c> | <c>DISCONNECT_REASON</c>
-        /// | <c>EVALUATION_FORM</c> | <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SECTION</c>
-        /// | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c>
-        /// | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
-        /// | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c>
-        /// | <c>FORM_VERSION</c> | <c>INITIATING_FLOW</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
-        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>KNOWLEDGE_BASE_NAME</c> | <c>PARENT_FLOWS_RESOURCE_ID</c>
-        /// | <c>Q_CONNECT_ENABLED</c> | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> |
-        /// <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>SESSION_ID</c> | <c>TEST_CASE</c>
-        /// | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_EXECUTION_RESULT</c> |
-        /// <c>TEST_CASE_EXECUTION_STATE</c></para><note><para>The following filter keys correspond to Connect Customer resources and are used for
+        /// <c>BOT_VERSION</c> | <c>BROWSER_NAME</c> | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>
+        /// | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c> | <c>CASE_STATUS</c> | <c>CASE_TEMPLATE_ARN</c>
+        /// | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c> | <c>contact/segmentAttributes/connect:ValidationTestType</c>
+        /// | <c>DEVICE_MODEL</c> | <c>DEVICE_TYPE</c> | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c>
+        /// | <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SECTION</c> | <c>EVALUATION_SOURCE</c>
+        /// | <c>EVALUATOR_ID</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c>
+        /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c>
+        /// | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c> | <c>FORM_VERSION</c> | <c>INITIATING_FLOW</c>
+        /// | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>INVOKING_RESOURCE_TYPE</c>
+        /// | <c>KNOWLEDGE_BASE_NAME</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
+        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
+        /// | <c>SESSION_ID</c> | <c>TEST_CASE</c> | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c>
+        /// | <c>TEST_CASE_EXECUTION_RESULT</c> | <c>TEST_CASE_EXECUTION_STATE</c> | <c>WEB_NOTIFICATION_TYPE</c></para><note><para>The following filter keys correspond to Connect Customer resources and are used for
         /// authorizing requests. A <c>GetMetricDataV2</c> request requires at least one of these
         /// filters:</para><para><c>QUEUE</c>, <c>ROUTING_PROFILE</c>, <c>AGENT</c>, <c>AGENT_HIERARCHY_LEVEL_ONE</c>,
         /// <c>AGENT_HIERARCHY_LEVEL_TWO</c>, <c>AGENT_HIERARCHY_LEVEL_THREE</c>, <c>AGENT_HIERARCHY_LEVEL_FOUR</c>,
@@ -169,17 +169,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>AGENT_HIERARCHY_LEVEL_ONE</c> | <c>AGENT_HIERARCHY_LEVEL_TWO</c> | <c>AGENT_HIERARCHY_LEVEL_THREE</c>
         /// | <c>AGENT_HIERARCHY_LEVEL_FOUR</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c> | <c>ANSWERING_MACHINE_DETECTION_STATUS</c>
         /// | <c>BOT_ID</c> | <c>BOT_ALIAS</c> | <c>BOT_VERSION</c> | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c>
-        /// | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c>
+        /// | <c>BROWSER_NAME</c> | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c>
         /// | <c>CAMPAIGN_EXECUTION_TIMESTAMP</c> | <c>CASE_TEMPLATE_ARN</c> | <c>CASE_STATUS</c>
-        /// | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c> | <c>DISCONNECT_REASON</c>
-        /// | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> | <c>EVALUATION_QUESTION</c>
-        /// | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FLOWS_RESOURCE_ID</c> | <c>FLOWS_MODULE_RESOURCE_ID</c>
-        /// | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>FORM_VERSION</c>
-        /// | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>INVOKING_RESOURCE_TYPE</c>
-        /// | <c>KNOWLEDGE_ARTICLE_NAME</c> | <c>KNOWLEDGE_BASE_NAME</c> | <c>PARENT_FLOWS_RESOURCE_ID</c>
-        /// | <c>Q_CONNECT_ENABLED</c> | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> |
-        /// <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>SESSION_ID</c> | <c>TEST_CASE</c>
-        /// | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_INVOCATION_METHOD</c></para><note><para><c>AI_AGENT_NAME_VERSION</c>, <c>AI_PROMPT_NAME_VERSION</c>, and <c>KNOWLEDGE_ARTICLE_NAME</c>
+        /// | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c> | <c>DEVICE_MODEL</c>
+        /// | <c>DEVICE_TYPE</c> | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c>
+        /// | <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FLOWS_RESOURCE_ID</c>
+        /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
+        /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>KNOWLEDGE_ARTICLE_NAME</c> | <c>KNOWLEDGE_BASE_NAME</c>
+        /// | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c> | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>SESSION_ID</c> | <c>TEST_CASE</c>
+        /// | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_INVOCATION_METHOD</c> |
+        /// <c>WEB_NOTIFICATION_TYPE</c></para><note><para><c>AI_AGENT_NAME_VERSION</c>, <c>AI_PROMPT_NAME_VERSION</c>, and <c>KNOWLEDGE_ARTICLE_NAME</c>
         /// are valid groupings but not valid filters.</para></note><para>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</para><para>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the
         /// only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -439,8 +440,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contacts abandoned after X</a></para></dd><dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE</dt><dd><para>This metric is available only for outbound campaigns using the agent assisted voice
         /// and automated voice delivery modes.</para><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Campaign</para><para>Threshold: For <c>ThresholdValue</c>, enter any whole number from 1 to 604800 (inclusive),
         /// in seconds. For <c>Comparison</c>, you must enter <c>GT</c> (for <i>Greater than</i>).</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-contacts-abandoned-after-x-rate">Campaign
-        /// contacts abandoned after X rate</a></para></dd><dt>CAMPAIGN_INTERACTIONS</dt><dd><para>This metric is available only for outbound campaigns using the email delivery mode.
-        /// </para><para>Unit: Count</para><para>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</para><para>Valid groupings and filters: Campaign</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-interactions">Campaign
+        /// contacts abandoned after X rate</a></para></dd><dt>CAMPAIGN_INTERACTIONS</dt><dd><para>This metric is available only for outbound campaigns using the email, WhatsApp, and
+        /// web notification delivery modes. </para><para>Unit: Count</para><para>Valid metric filter key: CAMPAIGN_INTERACTION_EVENT_TYPE</para><para>Valid groupings and filters: Browser Name, Campaign, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Device Model, Device Type, Web Notification Type</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-interactions">Campaign
         /// interactions</a></para></dd><dt>CAMPAIGN_PROGRESS_RATE</dt><dd><para>This metric is only available for outbound campaigns initiated using a customer segment.
         /// It is not available for event triggered campaigns.</para><para>Unit: Percent</para><para>Valid groupings and filters: Campaign, Campaign Execution Timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#campaign-progress-rate">Campaign
         /// progress rate</a></para></dd><dt>CAMPAIGN_SEND_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid groupings and filters: Campaign, Channel, contact/segmentAttributes/connect:Subtype
@@ -487,22 +489,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// Disconnect Reason, Feature, RoutingStepExpression, Initiation method, Routing Profile,
         /// Queue, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#conversations-abandoned">Conversations
         /// abandoned</a></para></dd><dt>DELIVERY_ATTEMPTS</dt><dd><para>This metric is available only for outbound campaigns.</para><para>Unit: Count</para><para>Valid metric filter key: <c>ANSWERING_MACHINE_DETECTION_STATUS</c>, <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>,
-        /// <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign,
-        /// Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype, Disconnect
-        /// Reason, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempts">Delivery
-        /// attempts</a></para><note><para>Campaign Delivery EventType filter and grouping are only available for SMS and Email
-        /// campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection
-        /// Status and Disconnect Reason are only available for agent assisted voice and automated
-        /// voice delivery modes. </para></note></dd><dt>DELIVERY_ATTEMPT_DISPOSITION_RATE</dt><dd><para>This metric is available only for outbound campaigns. Dispositions for the agent assisted
+        /// <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Agent, Answering Machine Detection Status, Browser Name,
+        /// Campaign, Campaign Delivery EventType, Channel, contact/segmentAttributes/connect:Subtype,
+        /// Device Model, Device Type, Disconnect Reason, Queue, Routing Profile, Web Notification
+        /// Type</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempts">Delivery
+        /// attempts</a></para><note><para>Campaign Delivery EventType filter and grouping are only available for SMS, Email,
+        /// WhatsApp, and web notification campaign delivery modes. Agent, Queue, Routing Profile,
+        /// Answering Machine Detection Status and Disconnect Reason are only available for agent
+        /// assisted voice and automated voice delivery modes. </para></note></dd><dt>DELIVERY_ATTEMPT_DISPOSITION_RATE</dt><dd><para>This metric is available only for outbound campaigns. Dispositions for the agent assisted
         /// voice and automated voice delivery modes are only available with answering machine
         /// detection enabled.</para><para>Unit: Percent</para><para>Valid metric filter key: <c>ANSWERING_MACHINE_DETECTION_STATUS</c>, <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>,
-        /// <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Agent, Answering Machine Detection Status, Campaign,
-        /// Channel, contact/segmentAttributes/connect:Subtype, Disconnect Reason, Queue, Routing
-        /// Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempt-disposition-rate">Delivery
-        /// attempt disposition rate</a></para><note><para>Campaign Delivery Event Type filter and grouping are only available for SMS and Email
-        /// campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection
-        /// Status and Disconnect Reason are only available for agent assisted voice and automated
-        /// voice delivery modes. </para></note></dd><dt>EVALUATIONS_PERFORMED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// <c>DISCONNECT_REASON</c></para><para>Valid groupings and filters: Agent, Answering Machine Detection Status, Browser Name,
+        /// Campaign, Channel, contact/segmentAttributes/connect:Subtype, Device Model, Device
+        /// Type, Disconnect Reason, Queue, Routing Profile, Web Notification Type</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#delivery-attempt-disposition-rate">Delivery
+        /// attempt disposition rate</a></para><note><para>Campaign Delivery Event Type filter and grouping are only available for SMS, Email,
+        /// WhatsApp, and web notification campaign delivery modes. Agent, Queue, Routing Profile,
+        /// Answering Machine Detection Status and Disconnect Reason are only available for agent
+        /// assisted voice and automated voice delivery modes. </para></note></dd><dt>EVALUATIONS_PERFORMED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
         /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#evaluations-performed">Evaluations
         /// performed</a></para></dd><dt>FLOWS_OUTCOME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue

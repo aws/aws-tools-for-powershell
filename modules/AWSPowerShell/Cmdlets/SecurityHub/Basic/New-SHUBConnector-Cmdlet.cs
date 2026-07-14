@@ -30,10 +30,10 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Creates a cloud service provider management (CSPM) connector in Security Hub CSPM.
-    /// A connector establishes a connection between Security Hub CSPM and a third-party cloud
-    /// provider, enabling Security Hub CSPM to ingest security findings and resource data
-    /// from the connected environment.
+    /// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector
+    /// establishes a connection between Security Hub CSPM and a third-party cloud provider,
+    /// enabling Security Hub CSPM to ingest security findings and resource data from the
+    /// connected environment.
     /// </summary>
     [Cmdlet("New", "SHUBConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConnectorResponse")]
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Provider_Azure_AWSConfigConnectorArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Config connector used to establish the connection to Azure.</para>
+        /// <para>The ARN of the multi-cloud configuration connector used to establish the connection
+        /// to Azure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

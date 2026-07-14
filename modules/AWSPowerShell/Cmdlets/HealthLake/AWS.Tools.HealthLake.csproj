@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyName>AWS.Tools.HealthLake</AssemblyName>
-    <DocumentationFile>$(OutputPath)/AWS.Tools.HealthLake.XML</DocumentationFile>
+    <DocumentationFile>$(OutputPath)/AWS.Tools.HealthLake.xml</DocumentationFile>
     <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR;MODULAR</DefineConstants>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>

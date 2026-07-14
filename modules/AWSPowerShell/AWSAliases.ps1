@@ -8084,6 +8084,8 @@ Set-Alias -Name Search-CONNResourceTags -Value Search-CONNResourceTag
 Set-Alias -Name CONN-SearchResourceTags -Value Search-CONNResourceTag
 Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
+Set-Alias -Name Search-CONNRules -Value Search-CONNRule
+Set-Alias -Name CONN-SearchRules -Value Search-CONNRule
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name CONN-SearchSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name Search-CONNTestCases -Value Search-CONNTestCase
