@@ -233,7 +233,9 @@ namespace Amazon.PowerShell.Installer
         /// <summary>
         /// When the caller specifies modules, build a small filtered dictionary by lookup
         /// (O(|requested|)) instead of walking all entries. Throws
-        /// <see cref="MissingModulesException"/> if any requested name is not in the archive.
+        /// <see cref="MissingModulesException"/> only when a mandatory module is absent.
+        /// Non-mandatory modules that are missing from the archive are silently skipped;
+        /// the caller detects them by comparing requested vs. returned module lists.
         /// </summary>
         private static Dictionary<string, List<string>> FilterRequested(
             Dictionary<string, List<string>> entriesByModule,
@@ -250,14 +252,20 @@ namespace Amazon.PowerShell.Installer
             // caller can derive the install's version string from a stable source.
             if (entriesByModule.ContainsKey("AWS.Tools")) requested.Add("AWS.Tools");
 
-            var missing = new List<string>();
+            var mandatorySet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            if (mandatoryModules != null)
+                foreach (var m in mandatoryModules) mandatorySet.Add(m);
+
+            var missingMandatory = new List<string>();
             var filtered = new Dictionary<string, List<string>>(requested.Count, StringComparer.OrdinalIgnoreCase);
             foreach (var name in requested)
             {
-                if (entriesByModule.TryGetValue(name, out var list)) filtered[name] = list;
-                else missing.Add(name);
+                if (entriesByModule.TryGetValue(name, out var list))
+                    filtered[name] = list;
+                else if (mandatorySet.Contains(name))
+                    missingMandatory.Add(name);
             }
-            if (missing.Count > 0) throw new MissingModulesException(missing);
+            if (missingMandatory.Count > 0) throw new MissingModulesException(missingMandatory);
             return filtered;
         }
 

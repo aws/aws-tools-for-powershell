@@ -43,7 +43,8 @@ BeforeAll {
         } elseif ($Version -and $Version.Trim() -ne '') {
             return [Version]$Version
         } else {
-            return $null
+            # No version specified: resolve latest (mimics real behavior after fix)
+            return [Version]"5.0.233"
         }
     }
 
@@ -323,6 +324,90 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
         }
         
+        It "Should skip installation when no version specified and latest is already installed" {
+            # Arrange - Resolve-AWSToolsVersion returns the latest version (5.0.233)
+            # and Get-InstalledAWSToolsModule shows that same version is already installed
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.233" }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return [PSCustomObject]@{
+                    Name = 'AWS.Tools.Common'
+                    Version = [Version]"5.0.233"
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+
+            # Act - No -Version parameter specified
+            Install-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert - Should skip download and installation
+            Should -Invoke -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule -ParameterFilter {
+                $Name -eq 'AWS.Tools'
+            }
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+        }
+
+        It "Should install a named module that is missing even when AWS.Tools.Common is already present at the target version" {
+            # Arrange: Common is installed at the target version but the requested
+            # service module (AWS.Tools.S3) is not. The skip must NOT fire — Common
+            # presence is not a proxy for the requested module's presence.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.154" }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsModuleNames { return @('AWS.Tools.Common', 'AWS.Tools.S3') }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @([PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.154" })
+            }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { @{ Version = "5.0.154"; Modules = @() } }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'AWS.Tools.S3' -Version "5.0.154" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip -Times 1
+        }
+
+        It "Should skip a named install when every requested module is already present at the target version" {
+            # Arrange: both Common and the requested service module are installed at
+            # the target version, so the install is genuinely redundant.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.154" }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsModuleNames { return @('AWS.Tools.Common', 'AWS.Tools.S3') }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @(
+                    [PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.154" }
+                    [PSCustomObject]@{ Name = 'AWS.Tools.S3'; Version = [Version]"5.0.154" }
+                )
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+
+            # Act
+            Install-AWSToolsModule -Name 'AWS.Tools.S3' -Version "5.0.154" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+        }
+
+        It "Should install a named module set when one requested module is present but another is on a different version" {
+            # Arrange: Common matches the target but the requested S3 is on an older
+            # version, so the set is not fully satisfied and the install must proceed.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.154" }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsModuleNames { return @('AWS.Tools.Common', 'AWS.Tools.S3') }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @(
+                    [PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.154" }
+                    [PSCustomObject]@{ Name = 'AWS.Tools.S3'; Version = [Version]"5.0.100" }
+                )
+            }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { @{ Version = "5.0.154"; Modules = @() } }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'AWS.Tools.S3' -Version "5.0.154" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip -Times 1
+        }
+
         It "Should install if version already exists with Force" {
             # Arrange
             Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
