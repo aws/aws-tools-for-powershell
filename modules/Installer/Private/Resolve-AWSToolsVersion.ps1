@@ -79,8 +79,64 @@ function Resolve-AWSToolsVersion {
                     Major = $majorVersion
                 }
             }
-            Write-Verbose ("[$($MyInvocation.MyCommand)] No version specified, will use latest")
-            return $null
+            
+            # Resolve "latest" to a concrete version via HEAD request (same approach as wildcard resolution)
+            $majorVersion = $moduleConfig.DefaultMajorVersion
+            Write-Verbose ("[$($MyInvocation.MyCommand)] No version specified, resolving latest for major version $majorVersion")
+            
+            try {
+                # Build the URL using configuration patterns (same as wildcard path)
+                $baseUrl = $script:Config.general.CloudFront.BaseUrl
+                $path = $script:Config.general.CloudFront.Paths[$Name.Replace('.', '')]
+                
+                $zipUrl = $moduleConfig.CloudFrontUrls.ZipDownloadUrlPattern `
+                    -replace '\{baseUrl\}', $baseUrl `
+                    -replace '\{path\}', $path `
+                    -replace '\{majorVersion\}', $majorVersion
+                
+                $invokeWithRetryParams = @{
+                    ScriptBlock = { 
+                        $response = Invoke-WebRequestWithStatusHandling -Uri $zipUrl -Method 'HEAD' -TimeoutSec $Timeout
+                        
+                        if (-not $response.Success) {
+                            $customMessages = @{
+                                404 = "Latest version not found for major version $majorVersion."
+                                403 = "Latest version not found for major version $majorVersion."
+                                503 = "CloudFront service temporarily unavailable."
+                            }
+                            
+                            Get-HttpStatusErrorMessage -Response $response -Operation "resolving latest version" -CustomMessages $customMessages
+                        }
+                        
+                        return $response.RawResponse
+                    }
+                    MaxRetries = $script:Config.retry.VersionCheckMaxRetries
+                    BaseDelaySeconds = $script:Config.retry.BaseDelaySeconds
+                    OperationName = "Resolve latest version"
+                    RetryableExceptions = $script:Config.retry.RetryableExceptions.Network
+                }
+                
+                $response = Invoke-WithRetry @invokeWithRetryParams
+                $contentDisposition = $response.Headers.'Content-Disposition'
+                
+                # Handle array responses from headers
+                if ($contentDisposition -is [array]) { 
+                    $contentDisposition = $contentDisposition[0] 
+                }
+                
+                $actualVersion = $contentDisposition -replace "attachment; filename=$($moduleConfig.ModulePrefix).", '' 
+                $actualVersion = $actualVersion -replace '.zip', ''
+                $resolvedVersion = [Version]$actualVersion
+                
+                Write-Verbose ("[$($MyInvocation.MyCommand)] Resolved latest to " +
+                    "actual version: $resolvedVersion")
+                return $resolvedVersion
+            }
+            catch {
+                Write-Verbose ("[$($MyInvocation.MyCommand)] Failed to resolve latest " +
+                    "version: $($_.Exception.Message). Will use latest endpoint at download time")
+                return $null
+            }
         }
         
         # Handle wildcard patterns like "4.*" or "5.*" for AWS.Tools, "1.*" for AWS.Tools.Installer
