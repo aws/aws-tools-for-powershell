@@ -35,15 +35,14 @@ function Test-InstallerVersion([string]$from, [string]$to) {
 
     # get the local version of the installer
 
-    # Unload the module if it is already loaded
-    if(Get-Module -Name AWS.Tools.Installer)
-    {
-        Remove-Module -Name AWS.Tools.Installer
-    }
+    # Read ModuleVersion directly from the manifest as data. We must not Import-Module
+    # here: the source-tree manifest declares RequiredAssemblies = @('AWS.Tools.Installer.dll'),
+    # a compiled build artifact that does not exist in this source-only checkout, so
+    # Import-Module fails. Importability is validated downstream against the built module
+    # (see tests/Include/InstallerTestIncludes.ps1). This check only needs the version.
     $installerModulePath = Join-Path  "." "modules" "Installer" "AWS.Tools.Installer.psd1"
-    Import-Module $installerModulePath
-    $localInstallerModule = Get-Module -Name AWS.Tools.Installer
-    $localVersion = $localInstallerModule.Version
+    $manifest = Import-PowerShellDataFile $installerModulePath
+    [System.Version]$localVersion = $manifest.ModuleVersion
     Write-Host "Local AWS.Tools.Installer version: $localVersion"
 
     # check if the new version has 0 revision
