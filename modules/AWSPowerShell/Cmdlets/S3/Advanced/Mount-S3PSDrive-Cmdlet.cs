@@ -22,35 +22,6 @@ using Amazon.S3;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Credential/region parameters the provider contributes to New-PSDrive (via
-    /// NewDriveDynamicParameters) and that Mount-S3PSDrive forwards. The provider's NewDrive
-    /// reads these to build the client. When omitted, NewDrive falls back to the AWS.Tools.Common
-    /// session defaults ($StoredAWSCredentials / $StoredAWSRegion), then the SDK default chain.
-    /// </summary>
-    public sealed class S3DriveParameters
-    {
-        [Parameter] public string ProfileName { get; set; }
-        [Parameter] public string Region { get; set; }
-        [Parameter] public string AccessKey { get; set; }
-        [Parameter] public string SecretKey { get; set; }
-        [Parameter] public string SessionToken { get; set; }
-        /// <summary>
-        /// Named -AWSCredential, NOT -Credential. New-PSDrive already defines a built-in
-        /// -Credential (PSCredential); reusing that name as a dynamic parameter collides
-        /// ("parameter defined multiple times") and breaks both New-PSDrive and the wrapper.
-        /// </summary>
-        [Parameter] public AWSCredentials AWSCredential { get; set; }
-
-        /// <summary>
-        /// Default storage class applied to every upload on this drive (e.g. STANDARD_IA, GLACIER).
-        /// Unlike encryption (which S3 can default at the bucket) there is NO server-side default for
-        /// storage class, so a drive-level default is the only "set once" option. Optional; when unset
-        /// S3 uses STANDARD. A per-upload -StorageClass on Set-Content overrides this.
-        /// </summary>
-        [Parameter] public S3StorageClass StorageClass { get; set; }
-    }
-
-    /// <summary>
     /// Mounts an S3 drive so buckets, prefixes, and objects can be explored with the standard
     /// navigation commands (Set-Location, Get-ChildItem, Get-Content, Set-Content, Remove-Item).
     /// Credentials and region resolve the same way as the S3 cmdlets: explicit keys, then
@@ -150,53 +121,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (PassThru)
                     foreach (var r in results)
                         WriteObject(r, false);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Unmounts an S3 drive previously created with Mount-S3PSDrive. Thin wrapper over
-    /// Remove-PSDrive. Step off the drive first (e.g. `Set-Location C:\`) — PowerShell won't
-    /// remove a drive that is the current location.
-    /// </summary>
-    /// <example>
-    ///   <code>Set-Location C:\; Dismount-S3PSDrive -Name S3</code>
-    ///   <para>Steps off the S3: drive and removes it.</para>
-    /// </example>
-    [Cmdlet(VerbsData.Dismount, "S3PSDrive")]
-    public sealed class DismountS3PSDriveCmdlet : PSCmdlet
-    {
-        /// <summary>Name of the drive to unmount (the -Name given to Mount-S3PSDrive).</summary>
-        [Parameter(Mandatory = true, Position = 0)]
-        public string Name { get; set; }
-
-        protected override void ProcessRecord()
-        {
-            using (var ps = System.Management.Automation.PowerShell.Create(RunspaceMode.CurrentRunspace))
-            {
-                ps.AddCommand("Remove-PSDrive")
-                  .AddParameter("Name", Name)
-                  .AddParameter("Scope", "Global");
-                ps.Invoke();
-                if (ps.HadErrors)
-                    foreach (var err in ps.Streams.Error)
-                    {
-                        // Remove-PSDrive refuses to remove the drive you are standing on, with a
-                        // generic "in use" message. Add an actionable hint to step off first.
-                        if (err.CategoryInfo?.Category == ErrorCategory.ResourceBusy ||
-                            (err.Exception?.Message?.IndexOf("in use", System.StringComparison.OrdinalIgnoreCase) ?? -1) >= 0)
-                        {
-                            WriteError(new ErrorRecord(
-                                new System.Management.Automation.PSInvalidOperationException(
-                                    $"Cannot dismount drive '{Name}' because it is in use - it may be your current location. Step off it first (e.g. Set-Location $HOME), then Dismount-S3PSDrive -Name {Name}.",
-                                    err.Exception),
-                                "DismountDriveInUse", ErrorCategory.ResourceBusy, Name));
-                        }
-                        else
-                        {
-                            WriteError(err);
-                        }
-                    }
             }
         }
     }
