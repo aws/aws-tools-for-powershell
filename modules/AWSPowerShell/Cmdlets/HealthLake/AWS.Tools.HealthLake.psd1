@@ -88,6 +88,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-AHLResourceTag', 
+        'Get-AHLDataTransformationJobDetail', 
+        'Get-AHLDataTransformationJobList', 
+        'Get-AHLDataTransformationProfile', 
+        'Get-AHLDataTransformationProfileList', 
+        'Get-AHLDataTransformationProfileVersionList', 
         'Get-AHLFHIRDatastore', 
         'Get-AHLFHIRDatastoreList', 
         'Get-AHLFHIRExportJob', 
@@ -95,12 +100,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AHLFHIRImportJob', 
         'Get-AHLFHIRImportJobList', 
         'Get-AHLResourceTag', 
+        'New-AHLDataTransformationProfile', 
         'New-AHLFHIRDatastore', 
+        'Publish-AHLDataTransformationProfile', 
+        'Remove-AHLDataTransformationProfile', 
         'Remove-AHLFHIRDatastore', 
         'Remove-AHLResourceTag', 
+        'Start-AHLDataTransformationJob', 
         'Start-AHLFHIRExportJob', 
         'Start-AHLFHIRImportJob', 
-        'Update-AHLFHIRDatastore')
+        'Update-AHLDataTransformationProfile', 
+        'Update-AHLFHIRDatastore', 
+        'Update-AHLProfileWithAgent')
 
     # Variables to export from this module
     VariablesToExport = '*'

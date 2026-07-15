@@ -309,7 +309,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/EmvMac_SessionKeyDerivationMode")
         }
         {
-            $v = "AMEX","EMV2000","EMV_COMMON_SESSION_KEY","MASTERCARD_SESSION_KEY","VISA"
+            $v = "AMEX","EMV2000","EMV_COMMON_SESSION_KEY","MASTERCARD_SESSION_KEY","UNION_PAY","VISA"
             break
         }
 

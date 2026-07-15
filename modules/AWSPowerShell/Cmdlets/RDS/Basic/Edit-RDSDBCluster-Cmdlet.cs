@@ -400,6 +400,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? EnablePerformanceInsight { get; set; }
         #endregion
         
+        #region Parameter EngineLifecycleSupport
+        /// <summary>
+        /// <para>
+        /// <para>The lifecycle type for this DB cluster.</para><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support
+        /// or to opt out. With RDS Extended Support, you can run the selected major engine version
+        /// on your DB cluster past the end of standard support for that engine version. For more
+        /// information, see the following sections:</para><ul><li><para>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Amazon
+        /// RDS Extended Support with Amazon Aurora</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon
+        /// RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineLifecycleSupport { get; set; }
+        #endregion
+        
         #region Parameter EngineMode
         /// <summary>
         /// <para>
@@ -859,6 +874,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableLimitlessDatabase = this.EnableLimitlessDatabase;
             context.EnableLocalWriteForwarding = this.EnableLocalWriteForwarding;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
@@ -1031,6 +1047,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.EngineLifecycleSupport != null)
+            {
+                request.EngineLifecycleSupport = cmdletContext.EngineLifecycleSupport;
             }
             if (cmdletContext.EngineMode != null)
             {
@@ -1301,6 +1321,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableLimitlessDatabase { get; set; }
             public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }

@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineLifecycleSupport
         /// <summary>
         /// <para>
-        /// <para>The life cycle type for this DB cluster.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
+        /// <para>The lifecycle type for this DB cluster.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
         /// your DB cluster into Amazon RDS Extended Support. At the end of standard support,
         /// you can avoid charges for Extended Support by setting the value to <c>open-source-rds-extended-support-disabled</c>.
         /// In this case, RDS automatically upgrades your restored DB cluster to a higher engine

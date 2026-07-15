@@ -41851,6 +41851,13 @@ $AHL_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.HealthLake.AgentInputMessageType
+        "Update-AHLProfileWithAgent/InputMessage_Type"
+        {
+            $v = "confirmation_response","normal"
+            break
+        }
+
         # Amazon.HealthLake.AnalyticsStatus
         {
             ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
@@ -41919,6 +41926,26 @@ $AHL_Completers = {
             break
         }
 
+        # Amazon.HealthLake.SourceFormat
+        {
+            ($_ -eq "Start-AHLDataTransformationJob/InputDataConfig_SourceFormat") -Or
+            ($_ -eq "Get-AHLDataTransformationProfileList/SourceFormat") -Or
+            ($_ -eq "New-AHLDataTransformationProfile/SourceFormat") -Or
+            ($_ -eq "Publish-AHLDataTransformationProfile/SourceFormat") -Or
+            ($_ -eq "Update-AHLProfileWithAgent/SourceFormat")
+        }
+        {
+            $v = "CCDA","CSV"
+            break
+        }
+
+        # Amazon.HealthLake.TransformationJobStatus
+        "Get-AHLDataTransformationJobList/JobStatus"
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","QUEUED","SUBMITTED"
+            break
+        }
+
         # Amazon.HealthLake.ValidationLevel
         "Start-AHLFHIRImportJob/ValidationLevel"
         {
@@ -41939,10 +41966,13 @@ $AHL_map = @{
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
-    "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
+    "InputDataConfig_SourceFormat"=@("Start-AHLDataTransformationJob")
+    "InputMessage_Type"=@("Update-AHLProfileWithAgent")
+    "JobStatus"=@("Get-AHLDataTransformationJobList","Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
+    "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile","Update-AHLProfileWithAgent")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
 
@@ -41996,20 +42026,31 @@ $AHL_SelectCompleters = {
 }
 
 $AHL_SelectMap = @{
-    "Select"=@("New-AHLFHIRDatastore",
+    "Select"=@("New-AHLDataTransformationProfile",
+               "New-AHLFHIRDatastore",
+               "Remove-AHLDataTransformationProfile",
                "Remove-AHLFHIRDatastore",
+               "Get-AHLDataTransformationJobDetail",
                "Get-AHLFHIRDatastore",
                "Get-AHLFHIRExportJob",
                "Get-AHLFHIRImportJob",
+               "Get-AHLDataTransformationProfile",
+               "Get-AHLDataTransformationJobList",
+               "Get-AHLDataTransformationProfileList",
+               "Get-AHLDataTransformationProfileVersionList",
                "Get-AHLFHIRDatastoreList",
                "Get-AHLFHIRExportJobList",
                "Get-AHLFHIRImportJobList",
                "Get-AHLResourceTag",
+               "Publish-AHLDataTransformationProfile",
+               "Start-AHLDataTransformationJob",
                "Start-AHLFHIRExportJob",
                "Start-AHLFHIRImportJob",
                "Add-AHLResourceTag",
                "Remove-AHLResourceTag",
-               "Update-AHLFHIRDatastore")
+               "Update-AHLDataTransformationProfile",
+               "Update-AHLFHIRDatastore",
+               "Update-AHLProfileWithAgent")
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap
@@ -65034,7 +65075,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDMac/EmvMac_SessionKeyDerivationMode")
         }
         {
-            $v = "AMEX","EMV2000","EMV_COMMON_SESSION_KEY","MASTERCARD_SESSION_KEY","VISA"
+            $v = "AMEX","EMV2000","EMV_COMMON_SESSION_KEY","MASTERCARD_SESSION_KEY","UNION_PAY","VISA"
             break
         }
 

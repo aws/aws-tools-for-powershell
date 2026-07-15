@@ -1,4 +1,29 @@
-﻿### 5.0.253 (2026-07-14 19:05Z)
+﻿### 5.0.254 (2026-07-15 19:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.289.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCHarness: added parameter Model_GeminiModelConfig_AdditionalParam.
+    * Modified cmdlet Update-BACCHarness: added parameter Model_GeminiModelConfig_AdditionalParam.
+  * Amazon HealthLake
+    * Added cmdlet Get-AHLDataTransformationJobDetail leveraging the DescribeDataTransformationJob service API.
+    * Added cmdlet Get-AHLDataTransformationJobList leveraging the ListDataTransformationJobs service API.
+    * Added cmdlet Get-AHLDataTransformationProfile leveraging the GetDataTransformationProfile service API.
+    * Added cmdlet Get-AHLDataTransformationProfileList leveraging the ListDataTransformationProfiles service API.
+    * Added cmdlet Get-AHLDataTransformationProfileVersionList leveraging the ListDataTransformationProfileVersions service API.
+    * Added cmdlet New-AHLDataTransformationProfile leveraging the CreateDataTransformationProfile service API.
+    * Added cmdlet Publish-AHLDataTransformationProfile leveraging the PublishDataTransformationProfile service API.
+    * Added cmdlet Remove-AHLDataTransformationProfile leveraging the DeleteDataTransformationProfile service API.
+    * Added cmdlet Start-AHLDataTransformationJob leveraging the StartDataTransformationJob service API.
+    * Added cmdlet Update-AHLDataTransformationProfile leveraging the UpdateDataTransformationProfile service API.
+    * Added cmdlet Update-AHLProfileWithAgent leveraging the UpdateProfileWithAgent service API.
+    * Modified cmdlet Start-AHLFHIRImportJob: added parameters DriftDetectionEnabled, InputFormat and ProfileId.
+  * Amazon Payment Cryptography Data
+    * Modified cmdlet New-PAYCDAuthRequestCryptogram: added parameters SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter, SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber and SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber.
+    * Modified cmdlet Test-PAYCDAuthRequestCryptogram: added parameters SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter, SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber and SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter EngineLifecycleSupport.
+
+### 5.0.253 (2026-07-14 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.288.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNRule leveraging the SearchRules service API.

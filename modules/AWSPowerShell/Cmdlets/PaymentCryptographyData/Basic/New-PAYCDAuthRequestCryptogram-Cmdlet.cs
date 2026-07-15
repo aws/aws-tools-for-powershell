@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String SessionKeyDerivationAttributes_Mastercard_ApplicationTransactionCounter { get; set; }
         #endregion
         
+        #region Parameter SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter
+        /// <summary>
+        /// <para>
+        /// <para>The transaction counter that the terminal provides during transaction processing.
+        /// This value is in hexadecimal format. For example, enter a decimal counter of 109 as
+        /// <c>006D</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter { get; set; }
+        #endregion
+        
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
@@ -180,6 +192,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String SessionKeyDerivationAttributes_Mastercard_PanSequenceNumber { get; set; }
         #endregion
         
+        #region Parameter SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber
+        /// <summary>
+        /// <para>
+        /// <para>A number that identifies and differentiates payment cards with the same Primary Account
+        /// Number (PAN). If not used, enter <c>00</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber { get; set; }
+        #endregion
+        
         #region Parameter SessionKeyDerivationAttributes_Visa_PanSequenceNumber
         /// <summary>
         /// <para>
@@ -233,6 +256,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SessionKeyDerivationAttributes_Mastercard_PrimaryAccountNumber { get; set; }
+        #endregion
+        
+        #region Parameter SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber
+        /// <summary>
+        /// <para>
+        /// <para>The Primary Account Number (PAN) of the cardholder. A PAN is a unique identifier for
+        /// a payment credit or debit card and associates the card to a specific account holder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber { get; set; }
         #endregion
         
         #region Parameter SessionKeyDerivationAttributes_Visa_PrimaryAccountNumber
@@ -346,6 +380,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             context.SessionKeyDerivationAttributes_Mastercard_PanSequenceNumber = this.SessionKeyDerivationAttributes_Mastercard_PanSequenceNumber;
             context.SessionKeyDerivationAttributes_Mastercard_PrimaryAccountNumber = this.SessionKeyDerivationAttributes_Mastercard_PrimaryAccountNumber;
             context.SessionKeyDerivationAttributes_Mastercard_UnpredictableNumber = this.SessionKeyDerivationAttributes_Mastercard_UnpredictableNumber;
+            context.SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter = this.SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter;
+            context.SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber = this.SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber;
+            context.SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber = this.SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber;
             context.SessionKeyDerivationAttributes_Visa_PanSequenceNumber = this.SessionKeyDerivationAttributes_Visa_PanSequenceNumber;
             context.SessionKeyDerivationAttributes_Visa_PrimaryAccountNumber = this.SessionKeyDerivationAttributes_Visa_PrimaryAccountNumber;
             context.TransactionData = this.TransactionData;
@@ -543,6 +580,51 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.SessionKeyDerivationAttributes.EmvCommon = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_EmvCommon;
                 requestSessionKeyDerivationAttributesIsNull = false;
             }
+            Amazon.PaymentCryptographyData.Model.SessionKeyUnionPay requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay = null;
+            
+             // populate UnionPay
+            var requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPayIsNull = true;
+            requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay = new Amazon.PaymentCryptographyData.Model.SessionKeyUnionPay();
+            System.String requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter = null;
+            if (cmdletContext.SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter = cmdletContext.SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter;
+            }
+            if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay.ApplicationTransactionCounter = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter;
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPayIsNull = false;
+            }
+            System.String requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PanSequenceNumber = null;
+            if (cmdletContext.SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PanSequenceNumber = cmdletContext.SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber;
+            }
+            if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PanSequenceNumber != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay.PanSequenceNumber = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PanSequenceNumber;
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPayIsNull = false;
+            }
+            System.String requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber = null;
+            if (cmdletContext.SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber = cmdletContext.SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber;
+            }
+            if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber != null)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay.PrimaryAccountNumber = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay_sessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber;
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPayIsNull = false;
+            }
+             // determine if requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay should be set to null
+            if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPayIsNull)
+            {
+                requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay = null;
+            }
+            if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay != null)
+            {
+                request.SessionKeyDerivationAttributes.UnionPay = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_UnionPay;
+                requestSessionKeyDerivationAttributesIsNull = false;
+            }
             Amazon.PaymentCryptographyData.Model.SessionKeyMastercard requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Mastercard = null;
             
              // populate Mastercard
@@ -676,6 +758,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public System.String SessionKeyDerivationAttributes_Mastercard_PanSequenceNumber { get; set; }
             public System.String SessionKeyDerivationAttributes_Mastercard_PrimaryAccountNumber { get; set; }
             public System.String SessionKeyDerivationAttributes_Mastercard_UnpredictableNumber { get; set; }
+            public System.String SessionKeyDerivationAttributes_UnionPay_ApplicationTransactionCounter { get; set; }
+            public System.String SessionKeyDerivationAttributes_UnionPay_PanSequenceNumber { get; set; }
+            public System.String SessionKeyDerivationAttributes_UnionPay_PrimaryAccountNumber { get; set; }
             public System.String SessionKeyDerivationAttributes_Visa_PanSequenceNumber { get; set; }
             public System.String SessionKeyDerivationAttributes_Visa_PrimaryAccountNumber { get; set; }
             public System.String TransactionData { get; set; }

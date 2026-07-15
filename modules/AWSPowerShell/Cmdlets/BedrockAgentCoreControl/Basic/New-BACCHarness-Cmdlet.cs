@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Management.Automation.PSObject Model_BedrockModelConfig_AdditionalParam { get; set; }
         #endregion
         
+        #region Parameter Model_GeminiModelConfig_AdditionalParam
+        /// <summary>
+        /// <para>
+        /// <para>Provider-specific parameters passed through to the Gemini model provider unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Model_GeminiModelConfig_AdditionalParams")]
+        public System.Management.Automation.PSObject Model_GeminiModelConfig_AdditionalParam { get; set; }
+        #endregion
+        
         #region Parameter Model_LiteLlmModelConfig_AdditionalParam
         /// <summary>
         /// <para>
@@ -1158,6 +1169,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Model_BedrockModelConfig_ModelId = this.Model_BedrockModelConfig_ModelId;
             context.Model_BedrockModelConfig_Temperature = this.Model_BedrockModelConfig_Temperature;
             context.Model_BedrockModelConfig_TopP = this.Model_BedrockModelConfig_TopP;
+            context.Model_GeminiModelConfig_AdditionalParam = this.Model_GeminiModelConfig_AdditionalParam;
             context.Model_GeminiModelConfig_ApiKeyArn = this.Model_GeminiModelConfig_ApiKeyArn;
             context.Model_GeminiModelConfig_MaxToken = this.Model_GeminiModelConfig_MaxToken;
             context.Model_GeminiModelConfig_ModelId = this.Model_GeminiModelConfig_ModelId;
@@ -1878,6 +1890,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate GeminiModelConfig
             var requestModel_model_GeminiModelConfigIsNull = true;
             requestModel_model_GeminiModelConfig = new Amazon.BedrockAgentCoreControl.Model.HarnessGeminiModelConfig();
+            Amazon.Runtime.Documents.Document? requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam = null;
+            if (cmdletContext.Model_GeminiModelConfig_AdditionalParam != null)
+            {
+                requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Model_GeminiModelConfig_AdditionalParam);
+            }
+            if (requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam != null)
+            {
+                requestModel_model_GeminiModelConfig.AdditionalParams = requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam.Value;
+                requestModel_model_GeminiModelConfigIsNull = false;
+            }
             System.String requestModel_model_GeminiModelConfig_model_GeminiModelConfig_ApiKeyArn = null;
             if (cmdletContext.Model_GeminiModelConfig_ApiKeyArn != null)
             {
@@ -2348,6 +2370,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Model_BedrockModelConfig_ModelId { get; set; }
             public System.Single? Model_BedrockModelConfig_Temperature { get; set; }
             public System.Single? Model_BedrockModelConfig_TopP { get; set; }
+            public System.Management.Automation.PSObject Model_GeminiModelConfig_AdditionalParam { get; set; }
             public System.String Model_GeminiModelConfig_ApiKeyArn { get; set; }
             public System.Int32? Model_GeminiModelConfig_MaxToken { get; set; }
             public System.String Model_GeminiModelConfig_ModelId { get; set; }

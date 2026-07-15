@@ -326,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineLifecycleSupport
         /// <summary>
         /// <para>
-        /// <para>The life cycle type for this DB instance.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
+        /// <para>The lifecycle type for this DB instance.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
         /// your DB instance into Amazon RDS Extended Support. At the end of standard support,
         /// you can avoid charges for Extended Support by setting the value to <c>open-source-rds-extended-support-disabled</c>.
         /// In this case, RDS automatically upgrades your restored DB instance to a higher engine
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// instance past the end of standard support for that engine version. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon
         /// RDS Extended Support Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora
-        /// DB instances, the life cycle type is managed by the DB cluster.</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
+        /// DB instances, the engine lifecycle support is managed by the DB cluster.</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

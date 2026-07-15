@@ -20,6 +20,12 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateDataTransformationProfile" OutputProperty="*" Verb="New" Noun="DataTransformationProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ProfileName" NewName="Profile" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFHIRDatastore" OutputProperty="*" Verb="New" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreTypeVersion" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SseConfiguration_KmsEncryptionConfig_CmkType" NewName="KmsEncryptionConfig_CmkType" />
@@ -27,7 +33,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataTransformationProfile" OutputProperty="*" Verb="Remove" Noun="DataTransformationProfile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFHIRDatastore" OutputProperty="*" Verb="Remove" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataTransformationJob" OutputProperty="TransformationJobProperties" Verb="Get" Noun="DataTransformationJobDetail" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -40,6 +54,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFHIRImportJob" OutputProperty="ImportJobProperties" Verb="Get" Noun="FHIRImportJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataTransformationProfile" OutputProperty="*" Verb="Get" Noun="DataTransformationProfile" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTransformationJobs" OutputProperty="Items" Verb="Get" Noun="DataTransformationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTransformationProfiles" OutputProperty="Items" Verb="Get" Noun="DataTransformationProfileList" PipelineParameter="SourceFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTransformationProfileVersions" OutputProperty="Items" Verb="Get" Noun="DataTransformationProfileVersionList" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -56,6 +86,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishDataTransformationProfile" OutputProperty="*" Verb="Publish" Noun="DataTransformationProfile" ShouldProcessTarget="ProfileId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataTransformationJob" OutputProperty="*" Verb="Start" Noun="DataTransformationJob" ShouldProcessTarget="ProfileId,DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -81,7 +119,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataTransformationProfile" OutputProperty="*" Verb="Update" Noun="DataTransformationProfile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFHIRDatastore" OutputProperty="DatastoreProperties" Verb="Update" Noun="FHIRDatastore" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfileWithAgent" OutputProperty="*" Verb="Update" Noun="ProfileWithAgent" ShouldProcessTarget="ProfileId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -80,6 +80,26 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String DatastoreId { get; set; }
         #endregion
         
+        #region Parameter DriftDetectionEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DriftDetectionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter InputFormat
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputFormat { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -99,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobOutputDataConfig_S3Configuration_KmsKeyId")]
         public System.String S3Configuration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ProfileId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProfileId { get; set; }
         #endregion
         
         #region Parameter InputDataConfig_S3Uri
@@ -206,10 +236,13 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                 WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DriftDetectionEnabled = this.DriftDetectionEnabled;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
+            context.InputFormat = this.InputFormat;
             context.JobName = this.JobName;
             context.S3Configuration_KmsKeyId = this.S3Configuration_KmsKeyId;
             context.S3Configuration_S3Uri = this.S3Configuration_S3Uri;
+            context.ProfileId = this.ProfileId;
             context.ValidationLevel = this.ValidationLevel;
             
             // allow further manipulation of loaded context prior to processing
@@ -239,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             {
                 request.DatastoreId = cmdletContext.DatastoreId;
             }
+            if (cmdletContext.DriftDetectionEnabled != null)
+            {
+                request.DriftDetectionEnabled = cmdletContext.DriftDetectionEnabled.Value;
+            }
             
              // populate InputDataConfig
             var requestInputDataConfigIsNull = true;
@@ -257,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestInputDataConfigIsNull)
             {
                 request.InputDataConfig = null;
+            }
+            if (cmdletContext.InputFormat != null)
+            {
+                request.InputFormat = cmdletContext.InputFormat;
             }
             if (cmdletContext.JobName != null)
             {
@@ -305,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestJobOutputDataConfigIsNull)
             {
                 request.JobOutputDataConfig = null;
+            }
+            if (cmdletContext.ProfileId != null)
+            {
+                request.ProfileId = cmdletContext.ProfileId;
             }
             if (cmdletContext.ValidationLevel != null)
             {
@@ -368,10 +413,13 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String ClientToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DatastoreId { get; set; }
+            public System.Boolean? DriftDetectionEnabled { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
+            public System.String InputFormat { get; set; }
             public System.String JobName { get; set; }
             public System.String S3Configuration_KmsKeyId { get; set; }
             public System.String S3Configuration_S3Uri { get; set; }
+            public System.String ProfileId { get; set; }
             public Amazon.HealthLake.ValidationLevel ValidationLevel { get; set; }
             public System.Func<Amazon.HealthLake.Model.StartFHIRImportJobResponse, StartAHLFHIRImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

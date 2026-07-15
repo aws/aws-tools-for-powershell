@@ -513,6 +513,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String Engine { get; set; }
         #endregion
         
+        #region Parameter EngineLifecycleSupport
+        /// <summary>
+        /// <para>
+        /// <para>The lifecycle type for this DB instance.</para><para>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora
+        /// DB instances, the engine lifecycle support is managed by the DB cluster.</para><para>You can use this setting to enroll your DB instance into Amazon RDS Extended Support
+        /// or to opt out. With RDS Extended Support, you can run the selected major engine version
+        /// on your DB instance past the end of standard support for that engine version. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Amazon
+        /// RDS Extended Support with Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>This setting doesn't apply to RDS Custom DB instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineLifecycleSupport { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -1115,6 +1130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Engine = this.Engine;
+            context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
@@ -1324,6 +1340,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.EngineLifecycleSupport != null)
+            {
+                request.EngineLifecycleSupport = cmdletContext.EngineLifecycleSupport;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -1541,6 +1561,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String Engine { get; set; }
+            public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
