@@ -62,6 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Encoding { get; set; }
 
         /// <summary>
+        /// Do not append the provider's default LF after each text value. Ignored with
+        /// -AsByteStream, where bytes are written exactly as provided.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter NoNewline { get; set; }
+
+        /// <summary>
         /// Storage class for THIS upload; overrides the drive's default (-StorageClass at mount).
         /// Null when unspecified -> fall back to the drive default, then S3's STANDARD.
         /// </summary>

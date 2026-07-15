@@ -1027,6 +1027,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
             var asByteStream = writerParams?.AsByteStream ?? false;
+            var noNewline = writerParams?.NoNewline ?? false;
             // Effective storage class: per-upload -StorageClass wins, else the drive default, else
             // null (S3 uses STANDARD). Null all the way through means we set nothing on the request.
             var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
@@ -1066,7 +1067,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         ErrorCategory.WriteError, $"{bucket}\\{key}")),
                     onDispose: () => { UnregisterContentCts(writerCts); Drive.EndContentOperation(); },
                     storageClass: storageClass,
-                    encoding: encoding);
+                    encoding: encoding,
+                    noNewline: noNewline);
                 handedOff = true;   // writer now owns tu + writerCts
                 return writer;
             }

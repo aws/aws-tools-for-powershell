@@ -80,6 +80,24 @@ BeforeAll {
         }
     }
 
+    function script:S3GetBytes([string]$bucket, [string]$key, $client = $null) {
+        if (-not $client) { $client = $script:S3 }
+        $req = New-Object Amazon.S3.Model.GetObjectRequest
+        $req.BucketName = $bucket; $req.Key = $key
+        $resp = $client.GetObjectAsync($req).GetAwaiter().GetResult()
+        try {
+            $ms = New-Object System.IO.MemoryStream
+            try {
+                $resp.ResponseStream.CopyTo($ms)
+                return ,$ms.ToArray()
+            } finally {
+                $ms.Dispose()
+            }
+        } finally {
+            $resp.Dispose()
+        }
+    }
+
     function script:S3PrefixObjectCount([string]$bucket, [string]$prefix) {
         $req = New-Object Amazon.S3.Model.ListObjectsV2Request
         $req.BucketName = $bucket; $req.Prefix = $prefix
@@ -540,6 +558,15 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             # and the object's content is untouched
             (Get-Content "PSTest:\$($script:Bucket)\top.txt" -Raw).Trim() | Should -Be 'top level'
         }
+        It "rejects Add-Content without truncating the existing object" {
+            $key = "unsupported-$([DateTime]::Now.ToFileTime())/append.txt"
+            S3PutText $key 'original'
+
+            { Add-Content "PSTest:\$($script:Bucket)\$key" -Value 'appended' -ErrorAction Stop } |
+                Should -Throw
+
+            (S3GetText $script:Bucket $key).TrimEnd("`r","`n") | Should -Be 'original'
+        }
     }
 
     # ---- Edge-case coverage (added to close roadmap gaps) --------------------------------------
@@ -872,8 +899,21 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         # regression silently coercing or dropping the value would go unseen (the byte-stream happy
         # paths only ever feed valid byte[]).
         It "rejects a non-byte element under -AsByteStream" {
-            { Set-Content "PSTest:\$($script:Bucket)\shape-$([DateTime]::Now.ToFileTime())/bad.bin" -AsByteStream -Value 'not-a-byte' -ErrorAction Stop } |
+            $key = "shape-$([DateTime]::Now.ToFileTime())/bad.bin"
+            { Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value 'not-a-byte' -ErrorAction Stop } |
                 Should -Throw
+            S3ObjectExists $script:Bucket $key | Should -BeFalse
+        }
+        It "honors -NoNewline for text-mode uploads" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/no-newline.txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value @('alpha','beta') -NoNewline
+            [System.Text.Encoding]::UTF8.GetString((S3GetBytes $script:Bucket $key)) |
+                Should -Be 'alphabeta'
+        }
+        It "creates a zero-byte object from an explicit empty byte array" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]]@())
+            (S3GetBytes $script:Bucket $key).Length | Should -Be 0
         }
     }
 
@@ -912,6 +952,14 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $val = 'ünïcödé'
             Set-Content "PSTest:\$($script:Bucket)\$key" -Value $val -Encoding utf8
             (Get-Content "PSTest:\$($script:Bucket)\$key" -Raw -Encoding utf8).TrimEnd("`r","`n") | Should -Be $val
+        }
+        It "writes the requested BOM for utf8BOM uploads" {
+            $key = "encw-$([DateTime]::Now.ToFileTime())/bom.txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'hello' -Encoding utf8BOM
+            $bytes = S3GetBytes $script:Bucket $key
+            $bytes[0] | Should -Be 0xEF
+            $bytes[1] | Should -Be 0xBB
+            $bytes[2] | Should -Be 0xBF
         }
         It "rejects an unknown -Encoding value on write with a clear error" {
             { Set-Content "PSTest:\$($script:Bucket)\encw-$([DateTime]::Now.ToFileTime()).txt" -Value 'x' -Encoding not-a-real-encoding -ErrorAction Stop } |
