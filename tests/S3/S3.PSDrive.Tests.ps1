@@ -21,6 +21,8 @@
 #>
 
 BeforeAll {
+    $script:OriginalLocation = (Get-Location).Path
+
     . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
     . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
     . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
@@ -178,6 +180,9 @@ AfterAll {
     }
 
     $helper.AfterAll()
+    if ($script:OriginalLocation) {
+        Set-Location -LiteralPath $script:OriginalLocation -ErrorAction SilentlyContinue
+    }
 }
 
 Describe -Tag "Smoke" "S3 PowerShell drive provider" {
