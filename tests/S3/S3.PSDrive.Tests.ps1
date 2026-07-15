@@ -337,8 +337,8 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    # Tagged 'Slow': seeds 1050 objects (~3 min). Exclude with -ExcludeTagFilter Slow for a quick run.
-    Context "Listing and recursive delete with pagination" -Tag 'Slow' {
+    # Slow: seeds 1050 objects (~3 min) to force ListObjectsV2 pagination past the 1000-key page.
+    Context "Listing and recursive delete with pagination" {
         BeforeAll {
             # Seed > one page (1000) of objects under a prefix so the provider must follow
             # continuation tokens. Raw SDK put (fixture-only), same client as BeforeAll.
@@ -366,11 +366,11 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # verify byte-for-byte via SHA-256 (and every upload is multipart anyway, so there was no unique
     # single-part path to guard).
 
-    # Tagged 'Slow': moves a >8MB object, so it exercises the TransferUtility MULTIPART paths on
+    # Slow: moves a >8MB object, so it exercises the TransferUtility MULTIPART paths on
     # both ends (upload via UploadUnseekableStreamAsync through the PushPullStream bridge; download
     # via OpenStream with MultipartDownloadType.PART) - the whole reason the content layer moved to
     # TransferUtility. Small round-trips above only hit the single-part path. ~20MB.
-    Context "Large-object multipart round-trip" -Tag 'Slow' {
+    Context "Large-object multipart round-trip" {
         It "uploads and downloads a 20MB object byte-for-byte (SHA-256)" {
             $key = "large/multipart-$([DateTime]::Now.ToFileTime()).bin"
             # Deterministic 20MB payload (well over the 8MB multipart threshold).
@@ -392,7 +392,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    # Tagged 'Slow': starts a large multipart upload then cancels it mid-flight. Verifies the
+    # Slow: starts a large multipart upload then cancels it mid-flight. Verifies the
     # design's marquee interruption-safety claim: because every upload is multipart (the bridge
     # stream is non-seekable), the destination is only ever replaced by the final
     # CompleteMultipartUpload - so cancelling BEFORE completion leaves any PRE-EXISTING object at
@@ -405,7 +405,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # bypasses the abort) can race it. That count is non-deterministic and would flake. The
     # DEPENDABLE contract - and the one that matters for data safety - is that the existing object
     # is untouched. AfterAll aborts any parts left by the race so no billable data lingers.
-    Context "Interrupted upload leaves the existing object intact" -Tag 'Slow' {
+    Context "Interrupted upload leaves the existing object intact" {
         BeforeAll {
             $script:CxKey = "interrupt/target-$([DateTime]::Now.ToFileTime()).bin"
             S3PutText $script:CxKey "ORIGINAL-CONTENT"   # small known pre-existing object
@@ -477,21 +477,13 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     }
 
     Context "Delete" {
-        # INTERACTIVE-ONLY: deleting a non-empty prefix without -Recurse triggers PowerShell's OWN
-        # container-recurse confirmation ("...has children and the Recurse parameter was not
-        # specified..."), fired by the engine BEFORE our RemoveItem runs (even under -WhatIf). In a
-        # non-interactive host that prompt has nothing to answer it and BLOCKS - verified identical
-        # to the built-in FileSystem provider (Remove-Item <non-empty-folder> hangs the same way),
-        # so it's standard engine behavior, NOT a provider bug, and we deliberately don't work
-        # around it. Tagged Interactive so automated/non-interactive runs skip it (it would hang);
-        # exclude with -ExcludeTagFilter Interactive. Assert only when a real console can answer.
-        It "refuses to delete a non-empty prefix without -Recurse" -Tag 'Interactive' {
-            $prefix = "delguard-$([DateTime]::Now.ToFileTime())"
-            Set-Content "PSTest:\$($script:Bucket)\$prefix/c.txt" -Value "c"
-            { Remove-Item "PSTest:\$($script:Bucket)\$prefix" -Force -ErrorAction Stop } | Should -Throw
-            Remove-Item "PSTest:\$($script:Bucket)\$prefix" -Recurse -Force   # cleanup
-        }
-
+        # NOTE (not tested here, by design): deleting a non-empty prefix without -Recurse triggers
+        # PowerShell's OWN container-recurse confirmation ("...has children and the Recurse parameter
+        # was not specified..."), fired by the engine BEFORE our RemoveItem runs (even under -WhatIf).
+        # In a non-interactive host that prompt blocks with nothing to answer it - verified identical
+        # to the built-in FileSystem provider (Remove-Item <non-empty-folder> hangs the same way), so
+        # it's standard engine behavior, NOT a provider bug. It can't be asserted headlessly, so there
+        # is no test for it (the recursive-delete path IS covered below).
         # --- Confirmation: the S3 drive matches the built-in FileSystem provider (and `aws s3 rm`) -
         # Remove-Item is gated by ShouldProcess ONLY and does NOT prompt by default. -WhatIf / -Confirm
         # and $ConfirmPreference are the native ways to preview or gate a delete. We assert the
@@ -667,7 +659,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # scope (that's Remove-S3Bucket). RemoveItem rejects an empty-key path (bucket-only) with
     # InvalidRemovePath BEFORE any S3 call. We pass -Recurse -Force so the request reaches our
     # RemoveItem (recurse handled in the provider) rather than tripping PowerShell's own
-    # container-recurse prompt, which would hang non-interactively (see the Interactive test).
+    # container-recurse prompt, which would hang non-interactively (see the Delete context note).
     # Runs against an ISOLATED throwaway bucket so a delete-safety test can never risk the shared
     # fixture bucket, even under an unexpected engine dispatch.
     Context "Remove-Item safety guards" {
