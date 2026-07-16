@@ -87,6 +87,16 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.CallDistributionType
+        {
+            ($_ -eq "New-CHMVOVoiceConnectorGroup/CallDistributionType") -Or
+            ($_ -eq "Update-CHMVOVoiceConnectorGroup/CallDistributionType")
+        }
+        {
+            $v = "LoadBalancedDistribution","PriorityWeightedDistribution"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.CallLegType
         "Start-CHMVOSpeakerSearchTask/CallLeg"
         {
@@ -186,6 +196,7 @@ $CHMVO_Completers = {
 
 $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
+    "CallDistributionType"=@("New-CHMVOVoiceConnectorGroup","Update-CHMVOVoiceConnectorGroup")
     "CallLeg"=@("Start-CHMVOSpeakerSearchTask")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")

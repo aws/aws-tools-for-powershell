@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SUST
         #region Parameter FilterBy_Dimension
         /// <summary>
         /// <para>
-        /// <para>Filters emission values by specific dimension values.</para><para />
+        /// <para>Filters environmental impact values by specific dimension values.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -109,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.SUST
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>The time granularity for the results. If absent, uses <c>MONTHLY</c> time granularity.</para>
+        /// <para> The time granularity for the results. If absent, uses <c>MONTHLY</c> time granularity.
+        /// The smallest supported granularity for carbon emissions is <c>MONTHLY</c>. </para><para> If requesting partial time periods, data will be returned based on the smallest supported
+        /// granularity. For example, requesting <c>2025-04-01T00:00:00Z</c> to <c>2026-04-01T00:00:00Z</c>
+        /// with <c>YEARLY_CALENDAR</c> granularity will return the last 9 months for 2025 and
+        /// the first 3 months of 2026. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SUST
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Default is 40.</para>
+        /// <para>The maximum number of results to return in a single call. Default is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

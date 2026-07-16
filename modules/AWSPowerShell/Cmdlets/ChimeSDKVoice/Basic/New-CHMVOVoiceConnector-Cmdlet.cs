@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// Voice Response (IVR) with their existing voice systems to modernize the IVR experience
         /// of their existing contact center and their enterprise and branch voice systems. Additionally,
         /// enterprises migrating their contact center to Connect Customer can start with Connect
-        /// telephony and IVR for immediate modernization ahead of agent migration.</para></li><li><para><c>CONNECT_ANALYTICS_CONNECTOR</c> - Enables enterprises to integrate Connect Customer
+        /// telephony and IVR for immediate modernization ahead of agent migration.</para><note><para>This integration is a gated feature. Please reach out to your account team to discuss
+        /// this feature with a Connect Specialist.</para></note></li><li><para><c>CONNECT_ANALYTICS_CONNECTOR</c> - Enables enterprises to integrate Connect Customer
         /// with other voice systems for real-time and post-call analytics. They can use Connect
         /// Customer Contact Lens with their existing voice systems to provides call recordings,
         /// conversational analytics (including contact transcript, sensitive data redaction,
@@ -106,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4
-        /// and IPv6).</para>
+        /// <para>The type of network for the Voice Connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

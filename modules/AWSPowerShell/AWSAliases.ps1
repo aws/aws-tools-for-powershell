@@ -33748,6 +33748,9 @@ Set-Alias -Name Get-SUSTEstimatedCarbonEmissions -Value Get-SUSTEstimatedCarbonE
 Set-Alias -Name SUST-GetEstimatedCarbonEmissions -Value Get-SUSTEstimatedCarbonEmission
 Set-Alias -Name Get-SUSTEstimatedCarbonEmissionsDimensionValues -Value Get-SUSTEstimatedCarbonEmissionsDimensionValue
 Set-Alias -Name SUST-GetEstimatedCarbonEmissionsDimensionValues -Value Get-SUSTEstimatedCarbonEmissionsDimensionValue
+Set-Alias -Name SUST-GetEstimatedWaterAllocation -Value Get-SUSTEstimatedWaterAllocation
+Set-Alias -Name Get-SUSTEstimatedWaterAllocationDimensionValues -Value Get-SUSTEstimatedWaterAllocationDimensionValue
+Set-Alias -Name SUST-GetEstimatedWaterAllocationDimensionValues -Value Get-SUSTEstimatedWaterAllocationDimensionValue
 Set-Alias -Name Count-SWFClosedWorkflowExecutions -Value Get-SWFClosedWorkflowExecutionCount
 Set-Alias -Name Count-SWFClosedWorkflowExecutionCount -Value Get-SWFClosedWorkflowExecutionCount
 Set-Alias -Name SWF-CountClosedWorkflowExecutions -Value Get-SWFClosedWorkflowExecutionCount

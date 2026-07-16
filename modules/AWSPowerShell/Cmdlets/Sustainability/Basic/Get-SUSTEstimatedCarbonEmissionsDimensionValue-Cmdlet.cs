@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SUST
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Default is 40.</para>
+        /// <para>The maximum number of results to return in a single call. Default is 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

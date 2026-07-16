@@ -12813,6 +12813,16 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.CallDistributionType
+        {
+            ($_ -eq "New-CHMVOVoiceConnectorGroup/CallDistributionType") -Or
+            ($_ -eq "Update-CHMVOVoiceConnectorGroup/CallDistributionType")
+        }
+        {
+            $v = "LoadBalancedDistribution","PriorityWeightedDistribution"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.CallLegType
         "Start-CHMVOSpeakerSearchTask/CallLeg"
         {
@@ -12912,6 +12922,7 @@ $CHMVO_Completers = {
 
 $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
+    "CallDistributionType"=@("New-CHMVOVoiceConnectorGroup","Update-CHMVOVoiceConnectorGroup")
     "CallLeg"=@("Start-CHMVOSpeakerSearchTask")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")
@@ -15498,8 +15509,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -15960,8 +15971,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Get-CSDSuggestion",
-               "Search-CSDDocument",
-               "Write-CSDDocument")
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29379,12 +29390,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
-               "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem",
                "New-DDBTable",
-               "New-DDBTableSchema")
+               "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem",
+               "Add-DDBKeySchema",
+               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -76045,16 +76056,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
+               "New-S3Bucket",
+               "Remove-S3Object",
+               "Remove-S3Bucket",
+               "Read-S3Object",
+               "Remove-S3MultipartUpload",
+               "Write-S3Object",
                "Get-S3MultipartUpload",
                "Get-S3PreSignedURL",
-               "New-S3Bucket",
-               "Read-S3Object",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Object",
                "Test-S3Bucket",
-               "Write-S3Object")
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -78840,7 +78851,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMInferenceComponent/Specification_InstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.large","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.large","ml.c5d.xlarge","ml.c6g.12xlarge","ml.c6g.16xlarge","ml.c6g.2xlarge","ml.c6g.4xlarge","ml.c6g.8xlarge","ml.c6g.large","ml.c6g.xlarge","ml.c6gd.12xlarge","ml.c6gd.16xlarge","ml.c6gd.2xlarge","ml.c6gd.4xlarge","ml.c6gd.8xlarge","ml.c6gd.large","ml.c6gd.xlarge","ml.c6gn.12xlarge","ml.c6gn.16xlarge","ml.c6gn.2xlarge","ml.c6gn.4xlarge","ml.c6gn.8xlarge","ml.c6gn.large","ml.c6gn.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6in.12xlarge","ml.c6in.16xlarge","ml.c6in.24xlarge","ml.c6in.2xlarge","ml.c6in.32xlarge","ml.c6in.4xlarge","ml.c6in.8xlarge","ml.c6in.large","ml.c6in.xlarge","ml.c7g.12xlarge","ml.c7g.16xlarge","ml.c7g.2xlarge","ml.c7g.4xlarge","ml.c7g.8xlarge","ml.c7g.large","ml.c7g.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8g.12xlarge","ml.c8g.16xlarge","ml.c8g.24xlarge","ml.c8g.2xlarge","ml.c8g.48xlarge","ml.c8g.4xlarge","ml.c8g.8xlarge","ml.c8g.large","ml.c8g.medium","ml.c8g.xlarge","ml.dl1.24xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.inf1.24xlarge","ml.inf1.2xlarge","ml.inf1.6xlarge","ml.inf1.xlarge","ml.inf2.24xlarge","ml.inf2.48xlarge","ml.inf2.8xlarge","ml.inf2.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6g.12xlarge","ml.m6g.16xlarge","ml.m6g.2xlarge","ml.m6g.4xlarge","ml.m6g.8xlarge","ml.m6g.large","ml.m6g.xlarge","ml.m6gd.12xlarge","ml.m6gd.16xlarge","ml.m6gd.2xlarge","ml.m6gd.4xlarge","ml.m6gd.8xlarge","ml.m6gd.large","ml.m6gd.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8g.12xlarge","ml.m8g.16xlarge","ml.m8g.24xlarge","ml.m8g.2xlarge","ml.m8g.48xlarge","ml.m8g.4xlarge","ml.m8g.8xlarge","ml.m8g.large","ml.m8g.medium","ml.m8g.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6g.12xlarge","ml.r6g.16xlarge","ml.r6g.2xlarge","ml.r6g.4xlarge","ml.r6g.8xlarge","ml.r6g.large","ml.r6g.xlarge","ml.r6gd.12xlarge","ml.r6gd.16xlarge","ml.r6gd.2xlarge","ml.r6gd.4xlarge","ml.r6gd.8xlarge","ml.r6gd.large","ml.r6gd.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7gd.12xlarge","ml.r7gd.16xlarge","ml.r7gd.2xlarge","ml.r7gd.4xlarge","ml.r7gd.8xlarge","ml.r7gd.large","ml.r7gd.medium","ml.r7gd.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8g.12xlarge","ml.r8g.16xlarge","ml.r8g.24xlarge","ml.r8g.2xlarge","ml.r8g.48xlarge","ml.r8g.4xlarge","ml.r8g.8xlarge","ml.r8g.large","ml.r8g.medium","ml.r8g.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.large","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.large","ml.c5d.xlarge","ml.c6g.12xlarge","ml.c6g.16xlarge","ml.c6g.2xlarge","ml.c6g.4xlarge","ml.c6g.8xlarge","ml.c6g.large","ml.c6g.xlarge","ml.c6gd.12xlarge","ml.c6gd.16xlarge","ml.c6gd.2xlarge","ml.c6gd.4xlarge","ml.c6gd.8xlarge","ml.c6gd.large","ml.c6gd.xlarge","ml.c6gn.12xlarge","ml.c6gn.16xlarge","ml.c6gn.2xlarge","ml.c6gn.4xlarge","ml.c6gn.8xlarge","ml.c6gn.large","ml.c6gn.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6in.12xlarge","ml.c6in.16xlarge","ml.c6in.24xlarge","ml.c6in.2xlarge","ml.c6in.32xlarge","ml.c6in.4xlarge","ml.c6in.8xlarge","ml.c6in.large","ml.c6in.xlarge","ml.c7g.12xlarge","ml.c7g.16xlarge","ml.c7g.2xlarge","ml.c7g.4xlarge","ml.c7g.8xlarge","ml.c7g.large","ml.c7g.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8g.12xlarge","ml.c8g.16xlarge","ml.c8g.24xlarge","ml.c8g.2xlarge","ml.c8g.48xlarge","ml.c8g.4xlarge","ml.c8g.8xlarge","ml.c8g.large","ml.c8g.medium","ml.c8g.xlarge","ml.dl1.24xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.inf1.24xlarge","ml.inf1.2xlarge","ml.inf1.6xlarge","ml.inf1.xlarge","ml.inf2.24xlarge","ml.inf2.48xlarge","ml.inf2.8xlarge","ml.inf2.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6g.12xlarge","ml.m6g.16xlarge","ml.m6g.2xlarge","ml.m6g.4xlarge","ml.m6g.8xlarge","ml.m6g.large","ml.m6g.xlarge","ml.m6gd.12xlarge","ml.m6gd.16xlarge","ml.m6gd.2xlarge","ml.m6gd.4xlarge","ml.m6gd.8xlarge","ml.m6gd.large","ml.m6gd.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8g.12xlarge","ml.m8g.16xlarge","ml.m8g.24xlarge","ml.m8g.2xlarge","ml.m8g.48xlarge","ml.m8g.4xlarge","ml.m8g.8xlarge","ml.m8g.large","ml.m8g.medium","ml.m8g.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6g.12xlarge","ml.r6g.16xlarge","ml.r6g.2xlarge","ml.r6g.4xlarge","ml.r6g.8xlarge","ml.r6g.large","ml.r6g.xlarge","ml.r6gd.12xlarge","ml.r6gd.16xlarge","ml.r6gd.2xlarge","ml.r6gd.4xlarge","ml.r6gd.8xlarge","ml.r6gd.large","ml.r6gd.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7gd.12xlarge","ml.r7gd.16xlarge","ml.r7gd.2xlarge","ml.r7gd.4xlarge","ml.r7gd.8xlarge","ml.r7gd.large","ml.r7gd.medium","ml.r7gd.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8g.12xlarge","ml.r8g.16xlarge","ml.r8g.24xlarge","ml.r8g.2xlarge","ml.r8g.48xlarge","ml.r8g.4xlarge","ml.r8g.8xlarge","ml.r8g.large","ml.r8g.medium","ml.r8g.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -85764,8 +85775,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -86182,7 +86193,10 @@ $SUST_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Sustainability.TimeGranularity
-        "Get-SUSTEstimatedCarbonEmission/Granularity"
+        {
+            ($_ -eq "Get-SUSTEstimatedCarbonEmission/Granularity") -Or
+            ($_ -eq "Get-SUSTEstimatedWaterAllocation/Granularity")
+        }
         {
             $v = "MONTHLY","QUARTERLY_CALENDAR","QUARTERLY_FISCAL","YEARLY_CALENDAR","YEARLY_FISCAL"
             break
@@ -86197,7 +86211,7 @@ $SUST_Completers = {
 }
 
 $SUST_map = @{
-    "Granularity"=@("Get-SUSTEstimatedCarbonEmission")
+    "Granularity"=@("Get-SUSTEstimatedCarbonEmission","Get-SUSTEstimatedWaterAllocation")
 }
 
 _awsArgumentCompleterRegistration $SUST_Completers $SUST_map
@@ -86251,7 +86265,9 @@ $SUST_SelectCompleters = {
 
 $SUST_SelectMap = @{
     "Select"=@("Get-SUSTEstimatedCarbonEmission",
-               "Get-SUSTEstimatedCarbonEmissionsDimensionValue")
+               "Get-SUSTEstimatedCarbonEmissionsDimensionValue",
+               "Get-SUSTEstimatedWaterAllocation",
+               "Get-SUSTEstimatedWaterAllocationDimensionValue")
 }
 
 _awsArgumentCompleterRegistration $SUST_SelectCompleters $SUST_SelectMap

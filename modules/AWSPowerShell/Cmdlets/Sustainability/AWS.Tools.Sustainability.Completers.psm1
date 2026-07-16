@@ -81,7 +81,10 @@ $SUST_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Sustainability.TimeGranularity
-        "Get-SUSTEstimatedCarbonEmission/Granularity"
+        {
+            ($_ -eq "Get-SUSTEstimatedCarbonEmission/Granularity") -Or
+            ($_ -eq "Get-SUSTEstimatedWaterAllocation/Granularity")
+        }
         {
             $v = "MONTHLY","QUARTERLY_CALENDAR","QUARTERLY_FISCAL","YEARLY_CALENDAR","YEARLY_FISCAL"
             break
@@ -96,7 +99,7 @@ $SUST_Completers = {
 }
 
 $SUST_map = @{
-    "Granularity"=@("Get-SUSTEstimatedCarbonEmission")
+    "Granularity"=@("Get-SUSTEstimatedCarbonEmission","Get-SUSTEstimatedWaterAllocation")
 }
 
 _awsArgumentCompleterRegistration $SUST_Completers $SUST_map
@@ -150,7 +153,9 @@ $SUST_SelectCompleters = {
 
 $SUST_SelectMap = @{
     "Select"=@("Get-SUSTEstimatedCarbonEmission",
-               "Get-SUSTEstimatedCarbonEmissionsDimensionValue")
+               "Get-SUSTEstimatedCarbonEmissionsDimensionValue",
+               "Get-SUSTEstimatedWaterAllocation",
+               "Get-SUSTEstimatedWaterAllocationDimensionValue")
 }
 
 _awsArgumentCompleterRegistration $SUST_SelectCompleters $SUST_SelectMap

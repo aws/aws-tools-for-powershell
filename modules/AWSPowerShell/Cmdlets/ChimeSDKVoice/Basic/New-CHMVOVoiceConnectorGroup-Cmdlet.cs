@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CallDistributionType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKVoice.CallDistributionType")]
+        public Amazon.ChimeSDKVoice.CallDistributionType CallDistributionType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -131,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 context.Select = CreateSelectDelegate<Amazon.ChimeSDKVoice.Model.CreateVoiceConnectorGroupResponse, NewCHMVOVoiceConnectorGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CallDistributionType = this.CallDistributionType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -158,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             // create request
             var request = new Amazon.ChimeSDKVoice.Model.CreateVoiceConnectorGroupRequest();
             
+            if (cmdletContext.CallDistributionType != null)
+            {
+                request.CallDistributionType = cmdletContext.CallDistributionType;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -221,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ChimeSDKVoice.CallDistributionType CallDistributionType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ChimeSDKVoice.Model.VoiceConnectorItem> VoiceConnectorItem { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.CreateVoiceConnectorGroupResponse, NewCHMVOVoiceConnectorGroupCmdlet, object> Select { get; set; } =

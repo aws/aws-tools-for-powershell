@@ -85,7 +85,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TargetApplications")]
         public Amazon.ChimeSDKVoice.Model.SipRuleTargetApplication[] TargetApplication { get; set; }
         #endregion
@@ -188,6 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             {
                 context.TargetApplication = new List<Amazon.ChimeSDKVoice.Model.SipRuleTargetApplication>(this.TargetApplication);
             }
+            #if MODULAR
+            if (this.TargetApplication == null && ParameterWasBound(nameof(this.TargetApplication)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TargetApplication which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.TriggerType = this.TriggerType;
             #if MODULAR
             if (this.TriggerType == null && ParameterWasBound(nameof(this.TriggerType)))

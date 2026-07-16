@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEstimatedWaterAllocation" OutputProperty="Results" Verb="Get" Noun="EstimatedWaterAllocation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEstimatedWaterAllocationDimensionValues" OutputProperty="Results" Verb="Get" Noun="EstimatedWaterAllocationDimensionValue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

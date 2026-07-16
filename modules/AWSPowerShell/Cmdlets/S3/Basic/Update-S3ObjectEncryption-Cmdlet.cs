@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// request.
     /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para>
     /// To use the <c>UpdateObjectEncryption</c> operation, you must have the following permissions:
-    /// </para><ul><li><para><c>s3:PutObject</c></para></li><li><para><c>s3:UpdateObjectEncryption</c></para></li><li><para><c>kms:Encrypt</c></para></li><li><para><c>kms:Decrypt</c></para></li><li><para><c>kms:GenerateDataKey</c></para></li><li><para><c>kms:ReEncrypt*</c></para></li></ul></li><li><para>
+    /// </para><ul><li><para><c>s3:UpdateObjectEncryption</c></para></li><li><para><c>kms:Encrypt</c></para></li><li><para><c>kms:Decrypt</c></para></li><li><para><c>kms:GenerateDataKey</c></para></li><li><para><c>kms:ReEncrypt*</c></para></li></ul></li><li><para>
     /// If you're using Organizations, to use this operation with customer-managed KMS keys
     /// from other Amazon Web Services accounts within your organization, you must have the
     /// <c>organizations:DescribeAccount</c> permission.

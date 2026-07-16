@@ -1,4 +1,13 @@
-﻿### 5.0.254 (2026-07-15 19:09Z)
+﻿### 5.0.255 (2026-07-16 19:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.290.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet New-CHMVOVoiceConnectorGroup: added parameter CallDistributionType.
+    * Modified cmdlet Update-CHMVOVoiceConnectorGroup: added parameter CallDistributionType.
+  * Amazon Sustainability
+    * Added cmdlet Get-SUSTEstimatedWaterAllocation leveraging the GetEstimatedWaterAllocation service API.
+    * Added cmdlet Get-SUSTEstimatedWaterAllocationDimensionValue leveraging the GetEstimatedWaterAllocationDimensionValues service API.
+
+### 5.0.254 (2026-07-15 19:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.289.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCHarness: added parameter Model_GeminiModelConfig_AdditionalParam.

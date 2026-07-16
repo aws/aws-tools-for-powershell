@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     /// <summary>
     /// Retrieves the specified proxy session details for the specified Amazon Chime SDK Voice
     /// Connector.
+    /// 
+    ///  <important><para>
+    /// End of support notice: On April 7, 2026, AWS will end support for Amazon Chime SDK
+    /// proxy sessions.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CHMVOProxySession")]
     [OutputType("Amazon.ChimeSDKVoice.Model.ProxySession")]
@@ -40,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.ProxySession object.",
         "The service call response (type Amazon.ChimeSDKVoice.Model.GetProxySessionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetProxySession.html")]
     public partial class GetCHMVOProxySessionCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
