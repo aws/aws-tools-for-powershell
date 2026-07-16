@@ -907,6 +907,12 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             [System.Text.Encoding]::UTF8.GetString((S3GetBytes $script:Bucket $key)) |
                 Should -Be 'alphabeta'
         }
+        It "accepts a per-upload -PartSize override" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/part-size.txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'custom part size' -PartSize 8MB
+            (S3GetText $script:Bucket $key).TrimEnd("`r","`n") |
+                Should -Be 'custom part size'
+        }
         It "creates a zero-byte object from an explicit empty byte array" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
             Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]]@())

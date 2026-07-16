@@ -48,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>Dynamic parameters contributed to Set-Content on an S3 path.</summary>
     public sealed class S3ContentWriterDynamicParameters
     {
+        private const long MinMultipartUploadPartSize = 5L * 1024 * 1024;
+        private const long MaxMultipartUploadPartSize = 5L * 1024 * 1024 * 1024;
+
         /// <summary>Write the pipeline's raw bytes instead of encoding text.</summary>
         [Parameter]
         public SwitchParameter AsByteStream { get; set; }
@@ -74,5 +77,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public S3StorageClass StorageClass { get; set; }
+
+        /// <summary>
+        /// Multipart upload part size for this upload. Overrides the provider default while still
+        /// leaving multipart upload management to TransferUtility. Must be between S3's 5 MiB
+        /// minimum and 5 GiB maximum part sizes.
+        /// </summary>
+        [Parameter]
+        [ValidateRange(MinMultipartUploadPartSize, MaxMultipartUploadPartSize)]
+        public long PartSize { get; set; }
     }
 }

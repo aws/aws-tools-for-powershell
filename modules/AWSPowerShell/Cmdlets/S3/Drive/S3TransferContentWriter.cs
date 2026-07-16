@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///
     /// Because the bridge is non-seekable / unknown-length, TransferUtility takes its
     /// UploadUnseekableStreamAsync path (reads to EOF, multipart) - so we inherit its upload
-    /// management and its abort-on-failure. We set PartSize explicitly because that SDK path
-    /// otherwise falls back to S3's 5 MiB minimum part size. We no longer
-    /// Initiate/UploadPart/Complete by hand.
+    /// management and its abort-on-failure. We set PartSize explicitly (provider default or
+    /// Set-Content -PartSize) because that SDK path otherwise falls back to S3's 5 MiB minimum
+    /// part size. We no longer Initiate/UploadPart/Complete by hand.
     ///
     /// Threading rule: NEVER touch the cmdlet write methods from the background task. Faults are
     /// surfaced by rethrowing on the pipeline thread (Write/Close). Cancellation (Ctrl+C) cancels
