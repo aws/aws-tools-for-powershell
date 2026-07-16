@@ -547,18 +547,18 @@ namespace AWSPowerShellGenerator.Utils
                 customCompleterFiles = File.Exists(fileName) ? new string[] { fileName } : Array.Empty<string>();
             }
 
-            using (var writer = File.CreateText(completorsScriptModuleFile))
+            var builder = new StringBuilder();
+            builder.AppendLine(fileHeader);
+            builder.AppendLine();
+            builder.AppendLine(completionScript);
+            foreach (var customCompleterFile in customCompleterFiles)
             {
-                writer.WriteLine(fileHeader);
-                writer.WriteLine();
-                writer.WriteLine(completionScript);
-                foreach (var customCompleterFile in customCompleterFiles)
-                {
-                    string content = File.ReadAllText(customCompleterFile);
-                    writer.WriteLine();
-                    writer.Write(content);
-                }
+                string content = File.ReadAllText(customCompleterFile);
+                builder.AppendLine();
+                builder.Append(content);
             }
+
+            File.WriteAllText(completorsScriptModuleFile, builder.ToString().NormalizeLineEndingsToCrlf(), new UTF8Encoding(false));
         }
 
         /// <summary>
@@ -622,10 +622,7 @@ namespace AWSPowerShellGenerator.Utils
         {
             string scriptFile = Path.Combine(AwsPowerShellModuleFolder, AdditionalAliasesFilename);
 
-            using (var sw = new StreamWriter(scriptFile, false, new UTF8Encoding(false)))
-            {
-                sw.WriteLine(aliases);
-            }
+            File.WriteAllText(scriptFile, (aliases + "\n").NormalizeLineEndingsToCrlf(), new UTF8Encoding(false));
         }
 
         public void WriteMonolithicProjectFile()

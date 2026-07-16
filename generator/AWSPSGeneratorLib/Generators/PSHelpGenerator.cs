@@ -102,9 +102,11 @@ namespace AWSPowerShellGenerator.Generators
                                 }
 
                                 sectionXmlWriter.Close();
+                                // Normalize each cmdlet section to CRLF so output is the same on Windows and Linux.
+                                var sectionXml = sectionWriter.ToString().NormalizeLineEndingsToCrlf();
                                 lock (psHelpWriter)
                                 {
-                                    psHelpWriter.WriteRaw(sectionWriter.ToString());
+                                    psHelpWriter.WriteRaw(sectionXml);
                                 }
                             }
                         });

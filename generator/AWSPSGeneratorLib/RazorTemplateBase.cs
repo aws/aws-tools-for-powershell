@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator
 {
@@ -29,7 +30,8 @@ namespace AWSPowerShellGenerator
             {
                 Output = new StringWriter();
                 await ExecuteAsync();
-                return Output.ToString();
+                // Normalize so template output is the same on Windows and Linux.
+                return Output.ToString().NormalizeLineEndingsToCrlf();
             }
             finally
             {

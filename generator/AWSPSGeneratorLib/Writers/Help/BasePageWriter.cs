@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using System.Reflection;
 
 using AWSPowerShellGenerator.Generators;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator.Writers.Help
 {
@@ -101,7 +102,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                     writer.WriteLine("</body>");
                 writer.WriteLine("</html>");
 
-                var content = writer.ToString();
+                var content = writer.ToString().NormalizeLineEndingsToCrlf();
 
                 using (var fileWriter = new StreamWriter(filename))
                 {

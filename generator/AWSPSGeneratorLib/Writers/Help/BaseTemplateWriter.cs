@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using AWSPowerShellGenerator.Generators;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator.Writers.Help
 {
@@ -30,7 +31,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             using (var reader = new StreamReader(stream))
             {
                 var templateBody = reader.ReadToEnd();
-                var finalBody = ReplaceTokens(templateBody);
+                var finalBody = ReplaceTokens(templateBody).NormalizeLineEndingsToCrlf();
 
                 var filename = Path.Combine(OutputFolder, templateName);
                 using (var writer = new StreamWriter(filename))

@@ -47,6 +47,17 @@ namespace AWSPowerShellGenerator.Utils
             return typeName + "<" + args + ">";
         }
 
+        // Normalize LF and CRLF line endings to CRLF so generated output is the same on Windows and Linux.
+        // Matches the AWS .NET SDK doc generator pattern (SDKDocGeneratorLib BaseWriter); a standalone CR
+        // is not a line ending we emit, so it is left as-is.
+        public static string NormalizeLineEndingsToCrlf(this string content)
+        {
+            if (string.IsNullOrEmpty(content))
+                return content;
+
+            return content.Replace("\r\n", "\n").Replace("\n", "\r\n");
+        }
+
         public static bool IsSensitive(this PropertyInfo propertyInfo)
         {
             dynamic awsPropertyAttribute = propertyInfo

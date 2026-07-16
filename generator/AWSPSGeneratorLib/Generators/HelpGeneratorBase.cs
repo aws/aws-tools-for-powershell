@@ -397,7 +397,7 @@ namespace AWSPowerShellGenerator.Generators
         {
 
             var examplesXml = new XmlDocument() { PreserveWhitespace = true };
-            var newLine = Environment.NewLine;
+            var newLine = "\r\n";  // fixed CRLF so example blocks are the same on Windows and Linux
             var settings = new XmlWriterSettings() { Indent = true, IndentChars = "  ", Encoding = Encoding.UTF8 };
             var sw = new StringWriter();
             using var writer = XmlWriter.Create(sw, settings);

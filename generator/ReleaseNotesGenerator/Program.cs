@@ -175,6 +175,8 @@ namespace PSReleaseNotesGenerator
             {
                 var fullOutputPath = Path.GetFullPath(OutputFilePath);
                 Console.WriteLine($"Writing report to {fullOutputPath}");
+                // Normalize line endings to CRLF so output is the same on Windows and Linux.
+                report = report.Replace("\r\n", "\n").Replace("\n", "\r\n");
                 File.WriteAllText(fullOutputPath, report);
             }
 
@@ -230,6 +232,8 @@ namespace PSReleaseNotesGenerator
             var fullOutputPath = Path.GetFullPath(breakingChangesLookupOutputFilePath);
             Console.WriteLine($"Writing breaking changes lookup file to {fullOutputPath}");
             Console.WriteLine(lookupReport);
+            // Normalize line endings to CRLF so output is the same on Windows and Linux.
+            lookupReport = lookupReport.Replace("\r\n", "\n").Replace("\n", "\r\n");
             File.WriteAllText(fullOutputPath, lookupReport);
         }
 
