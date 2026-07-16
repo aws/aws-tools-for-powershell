@@ -39,8 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///   Close()           --> flush, start an empty upload if needed, then EOF/await
     ///
     /// Because the bridge is non-seekable / unknown-length, TransferUtility takes its
-    /// UploadUnseekableStreamAsync path (reads to EOF, multipart) - so we inherit its part
-    /// management and its abort-on-failure. We no longer Initiate/UploadPart/Complete by hand.
+    /// UploadUnseekableStreamAsync path (reads to EOF, multipart) - so we inherit its upload
+    /// management and its abort-on-failure. We set PartSize explicitly because that SDK path
+    /// otherwise falls back to S3's 5 MiB minimum part size. We no longer
+    /// Initiate/UploadPart/Complete by hand.
     ///
     /// Threading rule: NEVER touch the cmdlet write methods from the background task. Faults are
     /// surfaced by rethrowing on the pipeline thread (Write/Close). Cancellation (Ctrl+C) cancels
@@ -58,6 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly string _bucket;
         private readonly string _key;
         private readonly S3StorageClass _storageClass;
+        private readonly long _partSize;
         private readonly bool _noNewline;
         private readonly PushPullStream _bridge;
         private readonly MemoryStream _pending = new MemoryStream();
@@ -74,6 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             TransferUtility transferUtility, string bucket, string key, bool asByteStream,
             CancellationTokenSource cts, Action onComplete, Action<Exception> onFault,
             Action onDispose,
+            long partSize = 0,
             S3StorageClass storageClass = null, System.Text.Encoding encoding = null,
             bool noNewline = false)
         {
@@ -87,6 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _bucket = bucket;
             _key = key;
             _storageClass = storageClass;
+            _partSize = partSize;
             _noNewline = noNewline;
             _bridge = new PushPullStream(cts.Token);
         }
@@ -107,6 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // STANDARD (same as an upload with no storage class specified).
             if (_storageClass != null)
                 request.StorageClass = _storageClass;
+            if (_partSize > 0)
+                request.PartSize = _partSize;
 
             // Start the upload lazily, after content has successfully flattened. That keeps
             // unsupported operations (Add-Content calls Seek) and invalid byte-stream input from
