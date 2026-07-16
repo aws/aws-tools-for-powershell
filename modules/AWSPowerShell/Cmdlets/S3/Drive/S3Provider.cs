@@ -124,7 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return loc;
         }
 
-        // 8 MB single-vs-multipart threshold, reused as TransferUtility's MinSizeBeforePartUpload.
+        // 8 MB single-vs-multipart threshold, reused as TransferUtility's MinSizeBeforePartUpload
+        // and as the explicit PartSize for non-seekable PSDrive uploads. The SDK's non-seekable
+        // path falls back to S3's 5 MiB minimum when PartSize is unset, which can exceed S3's
+        // 10,000-part limit for 50 GiB uploads.
         private const long MultipartThreshold = 8 * 1024 * 1024;
 
         /// <summary>
@@ -1066,6 +1069,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     onFault: ex => WriteError(new ErrorRecord(ex, "UploadFailed",
                         ErrorCategory.WriteError, $"{bucket}\\{key}")),
                     onDispose: () => { UnregisterContentCts(writerCts); Drive.EndContentOperation(); },
+                    partSize: MultipartThreshold,
                     storageClass: storageClass,
                     encoding: encoding,
                     noNewline: noNewline);
