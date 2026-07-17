@@ -15509,8 +15509,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -15971,8 +15971,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+               "Search-CSDDocument",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -19049,6 +19049,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.PasswordHashingAlgorithmType
+        "New-CGIPUserImportJob/PasswordHashingAlgorithm"
+        {
+            $v = "ARGON2ID","BCRYPT","PBKDF2_SHA256","SCRYPT"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType
         {
             ($_ -eq "New-CGIPUserPool/PreTokenGenerationConfig_LambdaVersion") -Or
@@ -19185,6 +19192,7 @@ $CGIP_map = @{
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
+    "PasswordHashingAlgorithm"=@("New-CGIPUserImportJob")
     "PreTokenGenerationConfig_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
@@ -29390,12 +29398,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
                "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
                "New-DDBTableSchema",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32106,8 +32114,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -39570,8 +39578,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -49050,7 +49058,7 @@ $KINA2_Completers = {
             ($_ -eq "Update-KINA2Application/RuntimeEnvironmentUpdate")
         }
         {
-            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","FLINK-2_2","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","FLINK-2_2","FLINK-2_3","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
         }
 
@@ -61548,6 +61556,7 @@ $ODB_Completers = {
     {
         # Amazon.Odb.Access
         {
+            ($_ -eq "Initialize-ODBService/AutonomousDatabaseOciAwsSecretsManagerIntegration") -Or
             ($_ -eq "New-ODBOdbNetwork/KmsAccess") -Or
             ($_ -eq "Update-ODBOdbNetwork/KmsAccess") -Or
             ($_ -eq "New-ODBOdbNetwork/S3Access") -Or
@@ -61559,6 +61568,16 @@ $ODB_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Odb.AdminPasswordSource
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSource") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/AdminPasswordSource")
+        }
+        {
+            $v = "API_REQUEST_PARAMETER","CUSTOMER_MANAGED_AWS_SECRET"
             break
         }
 
@@ -61645,8 +61664,11 @@ $ODB_Completers = {
 
         # Amazon.Odb.ExternalIdType
         {
+            ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
             ($_ -eq "New-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType") -Or
-            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType")
+            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType") -Or
+            ($_ -eq "New-ODBAutonomousDatabaseWallet/PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType")
         }
         {
             $v = "compartment_ocid","database_ocid","tenant_ocid"
@@ -61748,6 +61770,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.WalletPasswordSource
+        "New-ODBAutonomousDatabaseWallet/PasswordSource"
+        {
+            $v = "API_REQUEST_PARAMETER","CUSTOMER_MANAGED_AWS_SECRET"
+            break
+        }
+
         # Amazon.Odb.WalletType
         "New-ODBAutonomousDatabaseWallet/WalletType"
         {
@@ -61764,6 +61793,9 @@ $ODB_Completers = {
 }
 
 $ODB_map = @{
+    "AdminPasswordSource"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "AutonomousDatabaseOciAwsSecretsManagerIntegration"=@("Initialize-ODBService")
     "AutonomousMaintenanceScheduleType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "AwsIntegration"=@("Add-ODBIamRoleToResource","Remove-ODBIamRoleFromResource")
     "CharacterSetType"=@("Get-ODBAutonomousDatabaseCharacterSetList")
@@ -61777,6 +61809,8 @@ $ODB_map = @{
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "OpenMode"=@("Update-ODBAutonomousDatabase")
+    "PasswordSource"=@("New-ODBAutonomousDatabaseWallet")
+    "PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabaseWallet")
     "PermissionLevel"=@("Update-ODBAutonomousDatabase")
     "RefreshableMode"=@("Update-ODBAutonomousDatabase")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
@@ -76056,16 +76090,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "New-S3Bucket",
                "Remove-S3Object",
-               "Remove-S3Bucket",
-               "Read-S3Object",
+               "New-S3Bucket",
                "Remove-S3MultipartUpload",
-               "Write-S3Object",
                "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
                "Test-S3Bucket",
-               "Copy-S3Object")
+               "Copy-S3Object",
+               "Read-S3Object",
+               "Get-S3PreSignedURL",
+               "Write-S3Object",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

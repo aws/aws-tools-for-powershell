@@ -137,10 +137,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The security policy for the custom domain. Defines the minimum TLS version and cipher
-        /// suites that CloudFront uses when communicating with viewers (clients). Valid values
-        /// are as follows:</para><ul><li><para><c>TLS_V1</c>: Supports TLS 1.0 and later. Provides the broadest client compatibility.</para></li><li><para><c>TLS_V1_2_2021</c>: Supports TLS 1.2 and later with 2021 cipher suites. Recommended
-        /// minimum for most use cases.</para></li><li><para><c>TLS_V1_3_2025</c>: Supports TLS 1.3 and later with 2025 cipher suites. Provides
-        /// the strongest security posture.</para></li></ul>
+        /// suites that Amazon CloudFront supports when communicating with clients. For specific
+        /// guidance, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported
+        /// protocols and ciphers between viewers and CloudFront</a>. Valid values are as follows:</para><ul><li><para><c>TLS_V1_3_2025</c> (strictest): A post-quantum-ready policy requiring TLS 1.3.
+        /// It provides the strongest security posture and is ideal for workloads where all clients
+        /// and browsers are updated to the latest versions. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported
+        /// protocols and ciphers for TLSv1.3_2025</a>.</para></li><li><para><c>TLS_V1_2_2021</c> (recommended): A post-quantum-ready policy which prefers TLS
+        /// 1.3 but allows fallback to TLS 1.2 to accommodate older clients. It is the recommended
+        /// minimum for typical commercial-grade consumer applications. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported
+        /// protocols and ciphers for TLSv1.2_2021</a>.</para></li><li><para><c>TLS_V1</c> (strongly discouraged): Permits fallback to TLS 1.0. It offers the
+        /// broadest compatibility, including support for legacy clients that are more than a
+        /// decade old. This compatibility comes at the expense of allowing TLS versions and cryptographic
+        /// algorithms that are no longer considered safe for commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported
+        /// protocols and ciphers for TLSv1</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

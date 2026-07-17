@@ -173,6 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] AutoVerifiedAttribute { get; set; }
         #endregion
         
+        #region Parameter SmsConfiguration_EumsSms_CallerArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that Amazon Cognito assumes to send SMS messages through Amazon
+        /// Web Services End User Messaging SMS. The role must grant permission to call the <c>sms-voice:SendTextMessage</c>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_CallerArn { get; set; }
+        #endregion
+        
         #region Parameter UsernameConfiguration_CaseSensitive
         /// <summary>
         /// <para>
@@ -221,6 +233,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EmailConfiguration_ConfigurationSet { get; set; }
+        #endregion
+        
+        #region Parameter SmsConfiguration_EumsSms_ConfigurationSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Web Services End User Messaging SMS configuration set that
+        /// Amazon Cognito applies to messages, for logging and event destinations. If you omit
+        /// this member, Amazon Cognito sends messages without applying a configuration set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_ConfigurationSetName { get; set; }
         #endregion
         
         #region Parameter LambdaConfig_CreateAuthChallenge
@@ -447,6 +471,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String EmailVerificationSubject { get; set; }
         #endregion
         
+        #region Parameter SmsConfiguration_EumsSms_ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>The external ID that Amazon Cognito includes when it assumes the <c>CallerArn</c>
+        /// role. Use this value as a condition in the role trust policy to prevent the confused
+        /// deputy problem.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_ExternalId { get; set; }
+        #endregion
+        
         #region Parameter SmsConfiguration_ExternalId
         /// <summary>
         /// <para>
@@ -476,6 +512,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EmailConfiguration_From { get; set; }
+        #endregion
+        
+        #region Parameter SmsConfiguration_EumsSms_InEntityId
+        /// <summary>
+        /// <para>
+        /// <para>The principal entity ID required by India's Distributed Ledger Technology (DLT) regulations
+        /// for SMS messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_InEntityId { get; set; }
+        #endregion
+        
+        #region Parameter SmsConfiguration_EumsSms_InTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The registered template ID for the message template required by India's DLT regulations
+        /// for SMS messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_InTemplateId { get; set; }
         #endregion
         
         #region Parameter KeyConfiguration_KeyType
@@ -640,6 +698,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32? PasswordPolicy_MinimumLength { get; set; }
         #endregion
         
+        #region Parameter SmsConfiguration_EumsSms_OriginationIdentity
+        /// <summary>
+        /// <para>
+        /// <para>The origination identity that Amazon Web Services End User Messaging SMS uses to send
+        /// messages to your users. This value can be one of the following:</para><ul><li><para>A phone number – A long code, toll-free number, or short code that is assigned to
+        /// your account.</para></li><li><para>A sender ID – An alphabetic name that identifies the message sender in supported countries.</para></li><li><para>A phone pool – A group of phone numbers that Amazon Web Services End User Messaging
+        /// SMS selects from when it sends messages.</para></li></ul><para>You can provide an E.164 phone number or the ARN of the phone number, sender ID, or
+        /// phone pool. Amazon Web Services End User Messaging SMS evaluates IAM authorization
+        /// with the value that you provide. If the permissions policy of your <c>CallerArn</c>
+        /// role scopes the <c>sms-voice:SendTextMessage</c> resource to a specific ARN, provide
+        /// that same ARN. If the formats do not match, requests fail with an <c>InvalidSmsRoleAccessPolicyException</c>.</para><para>Depending on the destination country, you must provide an origination identity. For
+        /// country-specific requirements, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported
+        /// countries and regions for SMS messaging</a> in the Amazon Web Services End User Messaging
+        /// SMS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_OriginationIdentity { get; set; }
+        #endregion
+        
         #region Parameter PasswordPolicy_PasswordHistorySize
         /// <summary>
         /// <para>
@@ -748,6 +826,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AccountRecoverySetting_RecoveryMechanisms")]
         public Amazon.CognitoIdentityProvider.Model.RecoveryOptionType[] AccountRecoverySetting_RecoveryMechanism { get; set; }
+        #endregion
+        
+        #region Parameter SmsConfiguration_EumsSms_Region
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region of the Amazon Web Services End User Messaging SMS resources
+        /// that Amazon Cognito uses to send messages. Amazon Web Services End User Messaging
+        /// SMS must be available in your user pool's Region.</para><para>If you omit this parameter, Amazon Cognito uses the same Region as your user pool.
+        /// You can also set this parameter to your user pool's Region explicitly. Amazon Cognito
+        /// rejects any other value with an <c>InvalidParameterException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SmsConfiguration_EumsSms_Region { get; set; }
         #endregion
         
         #region Parameter EmailConfiguration_ReplyToEmailAddress
@@ -1154,6 +1246,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Schema = new List<Amazon.CognitoIdentityProvider.Model.SchemaAttributeType>(this.Schema);
             }
             context.SmsAuthenticationMessage = this.SmsAuthenticationMessage;
+            context.SmsConfiguration_EumsSms_CallerArn = this.SmsConfiguration_EumsSms_CallerArn;
+            context.SmsConfiguration_EumsSms_ConfigurationSetName = this.SmsConfiguration_EumsSms_ConfigurationSetName;
+            context.SmsConfiguration_EumsSms_ExternalId = this.SmsConfiguration_EumsSms_ExternalId;
+            context.SmsConfiguration_EumsSms_InEntityId = this.SmsConfiguration_EumsSms_InEntityId;
+            context.SmsConfiguration_EumsSms_InTemplateId = this.SmsConfiguration_EumsSms_InTemplateId;
+            context.SmsConfiguration_EumsSms_OriginationIdentity = this.SmsConfiguration_EumsSms_OriginationIdentity;
+            context.SmsConfiguration_EumsSms_Region = this.SmsConfiguration_EumsSms_Region;
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsConfiguration_SnsRegion = this.SmsConfiguration_SnsRegion;
@@ -1877,6 +1976,91 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.SmsConfiguration.SnsRegion = requestSmsConfiguration_smsConfiguration_SnsRegion;
                 requestSmsConfigurationIsNull = false;
             }
+            Amazon.CognitoIdentityProvider.Model.EumsSmsConfigurationType requestSmsConfiguration_smsConfiguration_EumsSms = null;
+            
+             // populate EumsSms
+            var requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = true;
+            requestSmsConfiguration_smsConfiguration_EumsSms = new Amazon.CognitoIdentityProvider.Model.EumsSmsConfigurationType();
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_CallerArn = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_CallerArn != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_CallerArn = cmdletContext.SmsConfiguration_EumsSms_CallerArn;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_CallerArn != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.CallerArn = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_CallerArn;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ConfigurationSetName = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_ConfigurationSetName != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ConfigurationSetName = cmdletContext.SmsConfiguration_EumsSms_ConfigurationSetName;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ConfigurationSetName != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.ConfigurationSetName = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ConfigurationSetName;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ExternalId = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_ExternalId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ExternalId = cmdletContext.SmsConfiguration_EumsSms_ExternalId;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ExternalId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.ExternalId = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_ExternalId;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InEntityId = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_InEntityId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InEntityId = cmdletContext.SmsConfiguration_EumsSms_InEntityId;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InEntityId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.InEntityId = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InEntityId;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InTemplateId = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_InTemplateId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InTemplateId = cmdletContext.SmsConfiguration_EumsSms_InTemplateId;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InTemplateId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.InTemplateId = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_InTemplateId;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_OriginationIdentity = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_OriginationIdentity != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_OriginationIdentity = cmdletContext.SmsConfiguration_EumsSms_OriginationIdentity;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_OriginationIdentity != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.OriginationIdentity = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_OriginationIdentity;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_Region = null;
+            if (cmdletContext.SmsConfiguration_EumsSms_Region != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_Region = cmdletContext.SmsConfiguration_EumsSms_Region;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_Region != null)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms.Region = requestSmsConfiguration_smsConfiguration_EumsSms_smsConfiguration_EumsSms_Region;
+                requestSmsConfiguration_smsConfiguration_EumsSmsIsNull = false;
+            }
+             // determine if requestSmsConfiguration_smsConfiguration_EumsSms should be set to null
+            if (requestSmsConfiguration_smsConfiguration_EumsSmsIsNull)
+            {
+                requestSmsConfiguration_smsConfiguration_EumsSms = null;
+            }
+            if (requestSmsConfiguration_smsConfiguration_EumsSms != null)
+            {
+                request.SmsConfiguration.EumsSms = requestSmsConfiguration_smsConfiguration_EumsSms;
+                requestSmsConfigurationIsNull = false;
+            }
              // determine if request.SmsConfiguration should be set to null
             if (requestSmsConfigurationIsNull)
             {
@@ -2156,6 +2340,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String PoolName { get; set; }
             public List<Amazon.CognitoIdentityProvider.Model.SchemaAttributeType> Schema { get; set; }
             public System.String SmsAuthenticationMessage { get; set; }
+            public System.String SmsConfiguration_EumsSms_CallerArn { get; set; }
+            public System.String SmsConfiguration_EumsSms_ConfigurationSetName { get; set; }
+            public System.String SmsConfiguration_EumsSms_ExternalId { get; set; }
+            public System.String SmsConfiguration_EumsSms_InEntityId { get; set; }
+            public System.String SmsConfiguration_EumsSms_InTemplateId { get; set; }
+            public System.String SmsConfiguration_EumsSms_OriginationIdentity { get; set; }
+            public System.String SmsConfiguration_EumsSms_Region { get; set; }
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsConfiguration_SnsRegion { get; set; }

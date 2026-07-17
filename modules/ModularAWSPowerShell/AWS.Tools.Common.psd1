@@ -93,6 +93,20 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Set-DefaultAWSRegion', 
+        'Clear-DefaultAWSRegion', 
+        'Get-DefaultAWSRegion', 
+        'Get-AWSRegion', 
+        'Set-AWSProxy', 
+        'Clear-AWSProxy', 
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout', 
+        'Invoke-AWSSSOLogin', 
+        'Initialize-AWSSSOConfiguration', 
+        'Set-AWSSSOSessionConfiguration', 
+        'Invoke-AWSSSOLogout', 
+        'Remove-AWSCredentialProfile', 
+        'Get-AWSPublicIpAddressRange', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -100,20 +114,11 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Get-AWSSensitiveDataConfiguration', 
         'Set-AWSAutoIterationMode', 
         'Get-AWSAutoIterationMode', 
-        'Set-DefaultAWSRegion', 
-        'Clear-DefaultAWSRegion', 
-        'Get-DefaultAWSRegion', 
-        'Get-AWSRegion', 
         'Add-AWSLoggingListener', 
         'Remove-AWSLoggingListener', 
         'Set-AWSResponseLogging', 
         'Enable-AWSMetricsLogging', 
         'Disable-AWSMetricsLogging', 
-        'Invoke-AWSSSOLogin', 
-        'Initialize-AWSSSOConfiguration', 
-        'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout', 
-        'Get-AWSPublicIpAddressRange', 
         'Get-AWSService', 
         'Get-AWSCmdletName', 
         'New-AWSCredential', 
@@ -121,12 +126,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Clear-AWSCredential', 
         'Get-AWSCredential', 
         'Set-AWSSamlEndpoint', 
-        'Set-AWSSamlRoleProfile', 
-        'Set-AWSProxy', 
-        'Clear-AWSProxy', 
-        'Remove-AWSCredentialProfile', 
-        'Invoke-AWSLogin', 
-        'Invoke-AWSLogout')
+        'Set-AWSSamlRoleProfile')
 
     # Variables to export from this module
     VariablesToExport = '*'

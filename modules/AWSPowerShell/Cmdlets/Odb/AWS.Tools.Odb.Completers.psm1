@@ -82,6 +82,7 @@ $ODB_Completers = {
     {
         # Amazon.Odb.Access
         {
+            ($_ -eq "Initialize-ODBService/AutonomousDatabaseOciAwsSecretsManagerIntegration") -Or
             ($_ -eq "New-ODBOdbNetwork/KmsAccess") -Or
             ($_ -eq "Update-ODBOdbNetwork/KmsAccess") -Or
             ($_ -eq "New-ODBOdbNetwork/S3Access") -Or
@@ -93,6 +94,16 @@ $ODB_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Odb.AdminPasswordSource
+        {
+            ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSource") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/AdminPasswordSource")
+        }
+        {
+            $v = "API_REQUEST_PARAMETER","CUSTOMER_MANAGED_AWS_SECRET"
             break
         }
 
@@ -179,8 +190,11 @@ $ODB_Completers = {
 
         # Amazon.Odb.ExternalIdType
         {
+            ($_ -eq "New-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType") -Or
             ($_ -eq "New-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType") -Or
-            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType")
+            ($_ -eq "Update-ODBAutonomousDatabase/EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType") -Or
+            ($_ -eq "New-ODBAutonomousDatabaseWallet/PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType")
         }
         {
             $v = "compartment_ocid","database_ocid","tenant_ocid"
@@ -282,6 +296,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.WalletPasswordSource
+        "New-ODBAutonomousDatabaseWallet/PasswordSource"
+        {
+            $v = "API_REQUEST_PARAMETER","CUSTOMER_MANAGED_AWS_SECRET"
+            break
+        }
+
         # Amazon.Odb.WalletType
         "New-ODBAutonomousDatabaseWallet/WalletType"
         {
@@ -298,6 +319,9 @@ $ODB_Completers = {
 }
 
 $ODB_map = @{
+    "AdminPasswordSource"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
+    "AutonomousDatabaseOciAwsSecretsManagerIntegration"=@("Initialize-ODBService")
     "AutonomousMaintenanceScheduleType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "AwsIntegration"=@("Add-ODBIamRoleToResource","Remove-ODBIamRoleFromResource")
     "CharacterSetType"=@("Get-ODBAutonomousDatabaseCharacterSetList")
@@ -311,6 +335,8 @@ $ODB_map = @{
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "OpenMode"=@("Update-ODBAutonomousDatabase")
+    "PasswordSource"=@("New-ODBAutonomousDatabaseWallet")
+    "PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType"=@("New-ODBAutonomousDatabaseWallet")
     "PermissionLevel"=@("Update-ODBAutonomousDatabase")
     "RefreshableMode"=@("Update-ODBAutonomousDatabase")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")

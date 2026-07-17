@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and must be enabled using <c>EnableIAMDatabaseAuthentication</c>. Once the cluster
     /// is restored, you need to modify the DB cluster to update <c>MasterUserAuthenticationType</c>
     /// to <c>iam-db-auth</c>. 
+    /// </para><para>
+    /// You can use the <c>AssociatedRoles</c> parameter to associate one or more Amazon Web
+    /// Services Identity and Access Management (IAM) roles with an Aurora DB cluster when
+    /// you restore it to a point in time.
     /// </para><note><para>
     /// For Aurora, this operation only restores the DB cluster, not the DB instances for
     /// that DB cluster. You must invoke the <c>CreateDBInstance</c> operation to create DB
@@ -76,6 +80,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AssociatedRole
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services Identity and Access Management (IAM) roles to associate
+        /// with the DB cluster when it's restored to a point in time. Each role grants the DB
+        /// cluster permission to access other Amazon Web Services on your behalf. For each role,
+        /// specify a role ARN and, optionally, the feature name (such as <c>s3Import</c>, <c>s3Export</c>,
+        /// or <c>Lambda</c>).</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssociatedRoles")]
+        public Amazon.RDS.Model.DBClusterAssociatedRole[] AssociatedRole { get; set; }
+        #endregion
         
         #region Parameter ScalingConfiguration_AutoPause
         /// <summary>
@@ -756,6 +779,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = CreateSelectDelegate<Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse, RestoreRDSDBClusterToPointInTimeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssociatedRole != null)
+            {
+                context.AssociatedRole = new List<Amazon.RDS.Model.DBClusterAssociatedRole>(this.AssociatedRole);
+            }
             context.BacktrackWindow = this.BacktrackWindow;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
@@ -839,6 +866,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.RestoreDBClusterToPointInTimeRequest();
             
+            if (cmdletContext.AssociatedRole != null)
+            {
+                request.AssociatedRoles = cmdletContext.AssociatedRole;
+            }
             if (cmdletContext.BacktrackWindow != null)
             {
                 request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
@@ -1189,6 +1220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.RDS.Model.DBClusterAssociatedRole> AssociatedRole { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }

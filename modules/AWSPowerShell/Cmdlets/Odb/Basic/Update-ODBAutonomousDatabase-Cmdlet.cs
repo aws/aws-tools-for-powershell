@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String AdminPassword { get; set; }
         #endregion
         
+        #region Parameter AdminPasswordSource
+        /// <summary>
+        /// <para>
+        /// <para>The source of the admin password for the Autonomous Database. When set to <c>CUSTOMER_MANAGED_AWS_SECRET</c>,
+        /// the admin password is retrieved from an Amazon Web Services Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.AdminPasswordSource")]
+        public Amazon.Odb.AdminPasswordSource AdminPasswordSource { get; set; }
+        #endregion
+        
         #region Parameter AllowlistedIp
         /// <summary>
         /// <para>
@@ -297,6 +309,18 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public Amazon.Odb.EncryptionKeyProviderInput EncryptionKeyProvider { get; set; }
         #endregion
         
+        #region Parameter AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType
+        /// <summary>
+        /// <para>
+        /// <para>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the
+        /// IAM role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.ExternalIdType")]
+        public Amazon.Odb.ExternalIdType AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType
         /// <summary>
         /// <para>
@@ -306,6 +330,17 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Odb.ExternalIdType")]
         public Amazon.Odb.ExternalIdType EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType { get; set; }
+        #endregion
+        
+        #region Parameter AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+        /// (IAM) role that OCI assumes to retrieve the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn { get; set; }
         #endregion
         
         #region Parameter EncryptionKeyConfiguration_AwsEncryptionKey_IamRoleArn
@@ -574,6 +609,17 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public Amazon.Odb.Model.ScheduledOperationDetails[] ScheduledOperation { get; set; }
         #endregion
         
+        #region Parameter AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or ARN of the Amazon Web Services Secrets Manager secret that contains
+        /// the password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
+        #endregion
+        
         #region Parameter StandbyAllowlistedIp
         /// <summary>
         /// <para>
@@ -678,6 +724,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AdminPassword = this.AdminPassword;
+            context.AdminPasswordSource = this.AdminPasswordSource;
+            context.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = this.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+            context.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = this.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+            context.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId = this.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
             if (this.AllowlistedIp != null)
             {
                 context.AllowlistedIp = new List<System.String>(this.AllowlistedIp);
@@ -770,6 +820,64 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.AdminPassword != null)
             {
                 request.AdminPassword = cmdletContext.AdminPassword;
+            }
+            if (cmdletContext.AdminPasswordSource != null)
+            {
+                request.AdminPasswordSource = cmdletContext.AdminPasswordSource;
+            }
+            
+             // populate AdminPasswordSourceConfiguration
+            var requestAdminPasswordSourceConfigurationIsNull = true;
+            request.AdminPasswordSourceConfiguration = new Amazon.Odb.Model.AdminPasswordSourceConfigurationInput();
+            Amazon.Odb.Model.CustomerManagedAwsSecretConfigurationInput requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret = null;
+            
+             // populate CustomerManagedAwsSecret
+            var requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecretIsNull = true;
+            requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret = new Amazon.Odb.Model.CustomerManagedAwsSecretConfigurationInput();
+            Amazon.Odb.ExternalIdType requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = null;
+            if (cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+            }
+            if (requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret.ExternalIdType = requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+            System.String requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = null;
+            if (cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+            }
+            if (requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret.IamRoleArn = requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+            System.String requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId = null;
+            if (cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId = cmdletContext.AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
+            }
+            if (requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId != null)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret.SecretId = requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_adminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+             // determine if requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret should be set to null
+            if (requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecretIsNull)
+            {
+                requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret = null;
+            }
+            if (requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret != null)
+            {
+                request.AdminPasswordSourceConfiguration.CustomerManagedAwsSecret = requestAdminPasswordSourceConfiguration_adminPasswordSourceConfiguration_CustomerManagedAwsSecret;
+                requestAdminPasswordSourceConfigurationIsNull = false;
+            }
+             // determine if request.AdminPasswordSourceConfiguration should be set to null
+            if (requestAdminPasswordSourceConfigurationIsNull)
+            {
+                request.AdminPasswordSourceConfiguration = null;
             }
             if (cmdletContext.AllowlistedIp != null)
             {
@@ -1155,6 +1263,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminPassword { get; set; }
+            public Amazon.Odb.AdminPasswordSource AdminPasswordSource { get; set; }
+            public Amazon.Odb.ExternalIdType AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType { get; set; }
+            public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn { get; set; }
+            public System.String AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
             public List<System.String> AllowlistedIp { get; set; }
             public System.String AutonomousDatabaseId { get; set; }
             public Amazon.Odb.AutonomousMaintenanceScheduleType AutonomousMaintenanceScheduleType { get; set; }

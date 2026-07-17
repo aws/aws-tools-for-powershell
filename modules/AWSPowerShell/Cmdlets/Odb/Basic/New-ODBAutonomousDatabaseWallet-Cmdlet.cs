@@ -62,21 +62,60 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String AutonomousDatabaseId { get; set; }
         #endregion
         
+        #region Parameter PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType
+        /// <summary>
+        /// <para>
+        /// <para>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the
+        /// IAM role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.ExternalIdType")]
+        public Amazon.Odb.ExternalIdType PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType { get; set; }
+        #endregion
+        
+        #region Parameter PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+        /// (IAM) role that OCI assumes to retrieve the secret value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password to encrypt the keys inside the wallet.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter PasswordSource
+        /// <summary>
+        /// <para>
+        /// <para>The source of the password for encrypting the wallet. When set to <c>CUSTOMER_MANAGED_AWS_SECRET</c>,
+        /// the password is retrieved from an Amazon Web Services Secrets Manager secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.WalletPasswordSource")]
+        public Amazon.Odb.WalletPasswordSource PasswordSource { get; set; }
+        #endregion
+        
+        #region Parameter PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or ARN of the Amazon Web Services Secrets Manager secret that contains
+        /// the password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
         #endregion
         
         #region Parameter WalletType
@@ -155,12 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             #endif
             context.ClientToken = this.ClientToken;
             context.Password = this.Password;
-            #if MODULAR
-            if (this.Password == null && ParameterWasBound(nameof(this.Password)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.PasswordSource = this.PasswordSource;
+            context.PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = this.PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+            context.PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = this.PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+            context.PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId = this.PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
             context.WalletType = this.WalletType;
             
             // allow further manipulation of loaded context prior to processing
@@ -189,6 +226,64 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.PasswordSource != null)
+            {
+                request.PasswordSource = cmdletContext.PasswordSource;
+            }
+            
+             // populate PasswordSourceConfiguration
+            var requestPasswordSourceConfigurationIsNull = true;
+            request.PasswordSourceConfiguration = new Amazon.Odb.Model.WalletPasswordSourceConfigurationInput();
+            Amazon.Odb.Model.CustomerManagedAwsSecretConfigurationInput requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret = null;
+            
+             // populate CustomerManagedAwsSecret
+            var requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecretIsNull = true;
+            requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret = new Amazon.Odb.Model.CustomerManagedAwsSecretConfigurationInput();
+            Amazon.Odb.ExternalIdType requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = null;
+            if (cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType = cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+            }
+            if (requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret.ExternalIdType = requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType;
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+            System.String requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = null;
+            if (cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn = cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+            }
+            if (requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret.IamRoleArn = requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn;
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+            System.String requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_SecretId = null;
+            if (cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_SecretId = cmdletContext.PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
+            }
+            if (requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_SecretId != null)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret.SecretId = requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret_passwordSourceConfiguration_CustomerManagedAwsSecret_SecretId;
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecretIsNull = false;
+            }
+             // determine if requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret should be set to null
+            if (requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecretIsNull)
+            {
+                requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret = null;
+            }
+            if (requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret != null)
+            {
+                request.PasswordSourceConfiguration.CustomerManagedAwsSecret = requestPasswordSourceConfiguration_passwordSourceConfiguration_CustomerManagedAwsSecret;
+                requestPasswordSourceConfigurationIsNull = false;
+            }
+             // determine if request.PasswordSourceConfiguration should be set to null
+            if (requestPasswordSourceConfigurationIsNull)
+            {
+                request.PasswordSourceConfiguration = null;
             }
             if (cmdletContext.WalletType != null)
             {
@@ -252,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String AutonomousDatabaseId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Password { get; set; }
+            public Amazon.Odb.WalletPasswordSource PasswordSource { get; set; }
+            public Amazon.Odb.ExternalIdType PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType { get; set; }
+            public System.String PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn { get; set; }
+            public System.String PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId { get; set; }
             public Amazon.Odb.WalletType WalletType { get; set; }
             public System.Func<Amazon.Odb.Model.CreateAutonomousDatabaseWalletResponse, NewODBAutonomousDatabaseWalletCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AutonomousDatabaseWalletFile;

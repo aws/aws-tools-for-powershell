@@ -271,6 +271,20 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         public Amazon.GameLiftStreams.Protocol Protocol { get; set; }
         #endregion
         
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an AWS Identity and Access Management (IAM) role that Amazon GameLift Streams
+        /// assumes on your behalf during the stream session. The role grants Amazon GameLift
+        /// Streams permission to obtain temporary credentials for your application. The role's
+        /// trust policy must allow the <c>gameliftstreams.amazonaws.com</c> service principal
+        /// to assume it. The role name must start with <c>GameLiftStreams-</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SessionLengthSecond
         /// <summary>
         /// <para>
@@ -425,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
                 WriteWarning("You are passing $null as a value for parameter Protocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RoleArn = this.RoleArn;
             context.SessionLengthSecond = this.SessionLengthSecond;
             context.SignalRequest = this.SignalRequest;
             #if MODULAR
@@ -505,6 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             {
                 request.Protocol = cmdletContext.Protocol;
             }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
             if (cmdletContext.SessionLengthSecond != null)
             {
                 request.SessionLengthSeconds = cmdletContext.SessionLengthSecond.Value;
@@ -582,6 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             public List<System.String> Location { get; set; }
             public System.Boolean? PerformanceStatsConfiguration_SharedWithClient { get; set; }
             public Amazon.GameLiftStreams.Protocol Protocol { get; set; }
+            public System.String RoleArn { get; set; }
             public System.Int32? SessionLengthSecond { get; set; }
             public System.String SignalRequest { get; set; }
             public System.String UserId { get; set; }

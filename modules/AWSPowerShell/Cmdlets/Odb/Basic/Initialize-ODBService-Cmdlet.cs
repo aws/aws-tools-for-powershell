@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AutonomousDatabaseOciAwsSecretsManagerIntegration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable or disable the OCI service-account role for Amazon Web
+        /// Services Secrets Manager integration with Autonomous Database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.Access")]
+        public Amazon.Odb.Access AutonomousDatabaseOciAwsSecretsManagerIntegration { get; set; }
+        #endregion
+        
         #region Parameter OciIdentityDomain
         /// <summary>
         /// <para>
@@ -100,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 context.Select = CreateSelectDelegate<Amazon.Odb.Model.InitializeServiceResponse, InitializeODBServiceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutonomousDatabaseOciAwsSecretsManagerIntegration = this.AutonomousDatabaseOciAwsSecretsManagerIntegration;
             context.OciIdentityDomain = this.OciIdentityDomain;
             
             // allow further manipulation of loaded context prior to processing
@@ -117,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             // create request
             var request = new Amazon.Odb.Model.InitializeServiceRequest();
             
+            if (cmdletContext.AutonomousDatabaseOciAwsSecretsManagerIntegration != null)
+            {
+                request.AutonomousDatabaseOciAwsSecretsManagerIntegration = cmdletContext.AutonomousDatabaseOciAwsSecretsManagerIntegration;
+            }
             if (cmdletContext.OciIdentityDomain != null)
             {
                 request.OciIdentityDomain = cmdletContext.OciIdentityDomain.Value;
@@ -176,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Odb.Access AutonomousDatabaseOciAwsSecretsManagerIntegration { get; set; }
             public System.Boolean? OciIdentityDomain { get; set; }
             public System.Func<Amazon.Odb.Model.InitializeServiceResponse, InitializeODBServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

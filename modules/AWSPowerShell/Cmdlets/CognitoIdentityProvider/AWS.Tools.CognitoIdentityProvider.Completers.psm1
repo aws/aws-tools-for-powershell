@@ -272,6 +272,13 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.PasswordHashingAlgorithmType
+        "New-CGIPUserImportJob/PasswordHashingAlgorithm"
+        {
+            $v = "ARGON2ID","BCRYPT","PBKDF2_SHA256","SCRYPT"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType
         {
             ($_ -eq "New-CGIPUserPool/PreTokenGenerationConfig_LambdaVersion") -Or
@@ -408,6 +415,7 @@ $CGIP_map = @{
     "MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
+    "PasswordHashingAlgorithm"=@("New-CGIPUserImportJob")
     "PreTokenGenerationConfig_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")

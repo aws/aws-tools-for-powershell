@@ -90,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String JobName { get; set; }
         #endregion
         
+        #region Parameter PasswordHashingAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The password hashing algorithm used to generate the hashes in the CSV file for this
+        /// import job.</para><para>Valid values: <c>BCRYPT</c> | <c>SCRYPT</c> | <c>ARGON2ID</c> | <c>PBKDF2_SHA256</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.PasswordHashingAlgorithmType")]
+        public Amazon.CognitoIdentityProvider.PasswordHashingAlgorithmType PasswordHashingAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -167,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PasswordHashingAlgorithm = this.PasswordHashingAlgorithm;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -197,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.JobName != null)
             {
                 request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.PasswordHashingAlgorithm != null)
+            {
+                request.PasswordHashingAlgorithm = cmdletContext.PasswordHashingAlgorithm;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -259,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String CloudWatchLogsRoleArn { get; set; }
             public System.String JobName { get; set; }
+            public Amazon.CognitoIdentityProvider.PasswordHashingAlgorithmType PasswordHashingAlgorithm { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.CreateUserImportJobResponse, NewCGIPUserImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UserImportJob;

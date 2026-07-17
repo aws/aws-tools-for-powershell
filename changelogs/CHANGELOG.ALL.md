@@ -1,4 +1,23 @@
-﻿### 5.0.255 (2026-07-16 19:11Z)
+﻿### 5.0.256 (2026-07-17 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.291.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserImportJob: added parameter PasswordHashingAlgorithm.
+    * Modified cmdlet New-CGIPUserPool: added parameters SmsConfiguration_EumsSms_CallerArn, SmsConfiguration_EumsSms_ConfigurationSetName, SmsConfiguration_EumsSms_ExternalId, SmsConfiguration_EumsSms_InEntityId, SmsConfiguration_EumsSms_InTemplateId, SmsConfiguration_EumsSms_OriginationIdentity and SmsConfiguration_EumsSms_Region.
+    * Modified cmdlet Update-CGIPUserPool: added parameters SmsConfiguration_EumsSms_CallerArn, SmsConfiguration_EumsSms_ConfigurationSetName, SmsConfiguration_EumsSms_ExternalId, SmsConfiguration_EumsSms_InEntityId, SmsConfiguration_EumsSms_InTemplateId, SmsConfiguration_EumsSms_OriginationIdentity and SmsConfiguration_EumsSms_Region.
+  * Amazon GameLiftStreams
+    * Modified cmdlet Start-GMLSStreamSession: added parameter RoleArn.
+  * Amazon Oracle Database@Amazon Web Services
+    * Modified cmdlet Initialize-ODBService: added parameter AutonomousDatabaseOciAwsSecretsManagerIntegration.
+    * Modified cmdlet New-ODBAutonomousDatabase: added parameters AdminPasswordSource, AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType, AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn and AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId.
+    * Modified cmdlet New-ODBAutonomousDatabaseWallet: added parameters PasswordSource, PasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType, PasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn and PasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId.
+    * Modified cmdlet Update-ODBAutonomousDatabase: added parameters AdminPasswordSource, AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_ExternalIdType, AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_IamRoleArn and AdminPasswordSourceConfiguration_CustomerManagedAwsSecret_SecretId.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter AssociatedRole.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter AssociatedRole.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter AssociatedRole.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter AssociatedRole.
+
+### 5.0.255 (2026-07-16 19:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.290.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet New-CHMVOVoiceConnectorGroup: added parameter CallDistributionType.
