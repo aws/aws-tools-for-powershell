@@ -135,6 +135,28 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String ContentType { get; set; }
         #endregion
         
+        #region Parameter McpMethod
+        /// <summary>
+        /// <para>
+        /// <para>The MCP method being invoked. For example, <c>tools/call</c>, <c>resources/read</c>,
+        /// or <c>prompts/get</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String McpMethod { get; set; }
+        #endregion
+        
+        #region Parameter McpName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the MCP resource, tool, or prompt being accessed. The value depends on
+        /// the method:</para><ul><li><para><c>tools/call</c> – The tool name.</para></li><li><para><c>resources/read</c> – The resource URI.</para></li><li><para><c>prompts/get</c> – The prompt name.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String McpName { get; set; }
+        #endregion
+        
         #region Parameter McpProtocolVersion
         /// <summary>
         /// <para>
@@ -294,6 +316,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             #endif
             context.Baggage = this.Baggage;
             context.ContentType = this.ContentType;
+            context.McpMethod = this.McpMethod;
+            context.McpName = this.McpName;
             context.McpProtocolVersion = this.McpProtocolVersion;
             context.McpSessionId = this.McpSessionId;
             context.Payload = this.Payload;
@@ -348,6 +372,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 if (cmdletContext.ContentType != null)
                 {
                     request.ContentType = cmdletContext.ContentType;
+                }
+                if (cmdletContext.McpMethod != null)
+                {
+                    request.McpMethod = cmdletContext.McpMethod;
+                }
+                if (cmdletContext.McpName != null)
+                {
+                    request.McpName = cmdletContext.McpName;
                 }
                 if (cmdletContext.McpProtocolVersion != null)
                 {
@@ -454,6 +486,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String AgentRuntimeArn { get; set; }
             public System.String Baggage { get; set; }
             public System.String ContentType { get; set; }
+            public System.String McpMethod { get; set; }
+            public System.String McpName { get; set; }
             public System.String McpProtocolVersion { get; set; }
             public System.String McpSessionId { get; set; }
             public byte[] Payload { get; set; }

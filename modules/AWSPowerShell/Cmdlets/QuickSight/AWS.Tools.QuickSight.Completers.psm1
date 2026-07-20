@@ -356,6 +356,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_HubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_HuggingFaceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_HuggingFaceAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_InboundEmailTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_InboundEmailTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IntercomAction") -Or
@@ -394,6 +396,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_PrintReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_PublishWithoutApproval") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_PublishWithoutApproval") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Research") -Or
@@ -416,6 +420,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SAPProductMasterDataAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Scenario") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Scenario") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ScheduleTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ScheduleTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ServiceNowAction") -Or
@@ -536,6 +542,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_TextractAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Topic") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Topic") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Trigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Trigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
@@ -1146,7 +1154,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSIdentityPropagationConfig/Service")
         }
         {
-            $v = "ATHENA","QBUSINESS","REDSHIFT"
+            $v = "ATHENA","GLUE_DATA_CATALOG","QBUSINESS","REDSHIFT"
             break
         }
 
@@ -1432,6 +1440,7 @@ $QS_map = @{
     "Capabilities_GoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_InboundEmailTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IncludeContentInScheduledReportsEmail"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IntercomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_InvokeAppsAIInference"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1451,6 +1460,7 @@ $QS_map = @{
     "Capabilities_PerformFlowUiTask"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PrintReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PublishWithoutApproval"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_QuickEventTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Research"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1462,6 +1472,7 @@ $QS_map = @{
     "Capabilities_SAPPhysicalInventoryAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SAPProductMasterDataAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Scenario"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ScheduleTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SelfUpgradeUserRole"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1522,6 +1533,7 @@ $QS_map = @{
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Trigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAgentWebSearch"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")

@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
         #endregion
         
+        #region Parameter AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision
+        /// server response during live or VOD playback. The default is 3000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationTimeouts_AdsRequestTimeoutMilliseconds")]
+        public System.Int32? AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond { get; set; }
+        #endregion
+        
         #region Parameter HttpRequest_Body
         /// <summary>
         /// <para>
@@ -148,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Boolean? AdMarkerPassthrough_Enabled { get; set; }
         #endregion
         
+        #region Parameter AdsPersonalizationConcurrency_EnableVodVastParallelization
+        /// <summary>
+        /// <para>
+        /// <para>Enables parallel processing of ad decision server requests in VOD workflows when the
+        /// ADS returns VAST responses. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdsPersonalizationConcurrency_EnableVodVastParallelization { get; set; }
+        #endregion
+        
         #region Parameter Bumper_EndUrl
         /// <summary>
         /// <para>
@@ -218,6 +241,31 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.InsertionMode")]
         public Amazon.MediaTailor.InsertionMode InsertionMode { get; set; }
+        #endregion
+        
+        #region Parameter AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server
+        /// activity for live manifests, including making requests, waiting for responses, and
+        /// following VAST wrapper redirects. The default is 10000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMilliseconds")]
+        public System.Int32? AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter AdsPersonalizationConcurrency_MaxConcurrentAdsRequest
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of simultaneous requests that MediaTailor makes to the ad decision
+        /// server per manifest request. The default is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationConcurrency_MaxConcurrentAdsRequests")]
+        public System.Int32? AdsPersonalizationConcurrency_MaxConcurrentAdsRequest { get; set; }
         #endregion
         
         #region Parameter LivePreRollConfiguration_MaxDurationSecond
@@ -294,6 +342,32 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PersonalizationThresholdSeconds")]
         public System.Int32? PersonalizationThresholdSecond { get; set; }
+        #endregion
+        
+        #region Parameter AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision
+        /// server response during prefetch retrieval. If not set, the value of AdsRequestTimeoutMilliseconds
+        /// is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMilliseconds")]
+        public System.Int32? AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server
+        /// activity during prefetch retrieval, including making requests, waiting for responses,
+        /// and following VAST wrapper redirects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMilliseconds")]
+        public System.Int32? AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond { get; set; }
         #endregion
         
         #region Parameter SlateAdUrl
@@ -395,6 +469,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String VideoContentSourceUrl { get; set; }
         #endregion
         
+        #region Parameter AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server
+        /// activity for VOD manifests, including making requests, waiting for responses, and
+        /// following VAST wrapper redirects. The default is 10000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMilliseconds")]
+        public System.Int32? AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -454,6 +541,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             context.HttpRequest_Method = this.HttpRequest_Method;
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
+            context.AdsPersonalizationConcurrency_EnableVodVastParallelization = this.AdsPersonalizationConcurrency_EnableVodVastParallelization;
+            context.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest = this.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest;
+            context.AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond = this.AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond;
+            context.AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond = this.AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond;
+            context.AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond = this.AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond;
+            context.AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond = this.AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond;
+            context.AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond = this.AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond;
             context.AvailSuppression_FillPolicy = this.AvailSuppression_FillPolicy;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
             context.AvailSuppression_Value = this.AvailSuppression_Value;
@@ -602,6 +696,94 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.AdDecisionServerUrl != null)
             {
                 request.AdDecisionServerUrl = cmdletContext.AdDecisionServerUrl;
+            }
+            
+             // populate AdsPersonalizationConcurrency
+            var requestAdsPersonalizationConcurrencyIsNull = true;
+            request.AdsPersonalizationConcurrency = new Amazon.MediaTailor.Model.AdsPersonalizationConcurrency();
+            System.Boolean? requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_EnableVodVastParallelization = null;
+            if (cmdletContext.AdsPersonalizationConcurrency_EnableVodVastParallelization != null)
+            {
+                requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_EnableVodVastParallelization = cmdletContext.AdsPersonalizationConcurrency_EnableVodVastParallelization.Value;
+            }
+            if (requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_EnableVodVastParallelization != null)
+            {
+                request.AdsPersonalizationConcurrency.EnableVodVastParallelization = requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_EnableVodVastParallelization.Value;
+                requestAdsPersonalizationConcurrencyIsNull = false;
+            }
+            System.Int32? requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_MaxConcurrentAdsRequest = null;
+            if (cmdletContext.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest != null)
+            {
+                requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_MaxConcurrentAdsRequest = cmdletContext.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest.Value;
+            }
+            if (requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_MaxConcurrentAdsRequest != null)
+            {
+                request.AdsPersonalizationConcurrency.MaxConcurrentAdsRequests = requestAdsPersonalizationConcurrency_adsPersonalizationConcurrency_MaxConcurrentAdsRequest.Value;
+                requestAdsPersonalizationConcurrencyIsNull = false;
+            }
+             // determine if request.AdsPersonalizationConcurrency should be set to null
+            if (requestAdsPersonalizationConcurrencyIsNull)
+            {
+                request.AdsPersonalizationConcurrency = null;
+            }
+            
+             // populate AdsPersonalizationTimeouts
+            var requestAdsPersonalizationTimeoutsIsNull = true;
+            request.AdsPersonalizationTimeouts = new Amazon.MediaTailor.Model.AdsPersonalizationTimeouts();
+            System.Int32? requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_AdsRequestTimeoutMillisecond = null;
+            if (cmdletContext.AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond != null)
+            {
+                requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_AdsRequestTimeoutMillisecond = cmdletContext.AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond.Value;
+            }
+            if (requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_AdsRequestTimeoutMillisecond != null)
+            {
+                request.AdsPersonalizationTimeouts.AdsRequestTimeoutMilliseconds = requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_AdsRequestTimeoutMillisecond.Value;
+                requestAdsPersonalizationTimeoutsIsNull = false;
+            }
+            System.Int32? requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond = null;
+            if (cmdletContext.AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond = cmdletContext.AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond.Value;
+            }
+            if (requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                request.AdsPersonalizationTimeouts.LiveMaximumAdsPersonalizationTimeMilliseconds = requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond.Value;
+                requestAdsPersonalizationTimeoutsIsNull = false;
+            }
+            System.Int32? requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond = null;
+            if (cmdletContext.AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond != null)
+            {
+                requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond = cmdletContext.AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond.Value;
+            }
+            if (requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond != null)
+            {
+                request.AdsPersonalizationTimeouts.PrefetchAdsRequestTimeoutMilliseconds = requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond.Value;
+                requestAdsPersonalizationTimeoutsIsNull = false;
+            }
+            System.Int32? requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond = null;
+            if (cmdletContext.AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond = cmdletContext.AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond.Value;
+            }
+            if (requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                request.AdsPersonalizationTimeouts.PrefetchMaximumAdsPersonalizationTimeMilliseconds = requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond.Value;
+                requestAdsPersonalizationTimeoutsIsNull = false;
+            }
+            System.Int32? requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond = null;
+            if (cmdletContext.AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond = cmdletContext.AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond.Value;
+            }
+            if (requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond != null)
+            {
+                request.AdsPersonalizationTimeouts.VodMaximumAdsPersonalizationTimeMilliseconds = requestAdsPersonalizationTimeouts_adsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond.Value;
+                requestAdsPersonalizationTimeoutsIsNull = false;
+            }
+             // determine if request.AdsPersonalizationTimeouts should be set to null
+            if (requestAdsPersonalizationTimeoutsIsNull)
+            {
+                request.AdsPersonalizationTimeouts = null;
             }
             
              // populate AvailSuppression
@@ -839,6 +1021,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Dictionary<System.String, System.String> HttpRequest_Header { get; set; }
             public Amazon.MediaTailor.Method HttpRequest_Method { get; set; }
             public System.String AdDecisionServerUrl { get; set; }
+            public System.Boolean? AdsPersonalizationConcurrency_EnableVodVastParallelization { get; set; }
+            public System.Int32? AdsPersonalizationConcurrency_MaxConcurrentAdsRequest { get; set; }
+            public System.Int32? AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond { get; set; }
+            public System.Int32? AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond { get; set; }
+            public System.Int32? AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond { get; set; }
+            public System.Int32? AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond { get; set; }
+            public System.Int32? AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond { get; set; }
             public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
             public System.String AvailSuppression_Value { get; set; }

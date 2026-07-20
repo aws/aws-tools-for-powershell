@@ -36,7 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// this API to obtain a <c>CustomerIdentifier</c> along with the <c>CustomerAWSAccountId</c>,
     /// <c>ProductCode</c>, and <c>LicenseArn</c>.
     /// 
-    ///  <note><para>
+    ///  <important><para>
+    /// For new SaaS product integrations, the <c>CustomerIdentifier</c> field is not populated
+    /// in the <c>ResolveCustomer</c> API response. New integrations must use <c>CustomerAWSAccountId</c>
+    /// and <c>LicenseArn</c> to identify customers. Existing integrations continue to work
+    /// unchanged.
+    /// </para></important><note><para>
     /// To successfully resolve the token, the API must be called from the account that was
     /// used to publish the SaaS application. For an example of using <c>ResolveCustomer</c>,
     /// see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example">
@@ -71,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <para>When a buyer visits your website during the registration process, the buyer submits
         /// a registration token through the browser. The registration token is resolved to obtain
         /// a <c>CustomerIdentifier</c> along with the <c>CustomerAWSAccountId</c>, <c>ProductCode</c>,
-        /// and <c>LicenseArn</c>.</para>
+        /// and <c>LicenseArn</c>.</para><note><para>For new SaaS product integrations, the <c>CustomerIdentifier</c> field is not populated.
+        /// Use <c>CustomerAWSAccountId</c> and <c>LicenseArn</c> for customer identification.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.Management.Automation.PSObject Model_BedrockModelConfig_AdditionalParam { get; set; }
         #endregion
         
+        #region Parameter Model_GeminiModelConfig_AdditionalParam
+        /// <summary>
+        /// <para>
+        /// <para>Provider-specific parameters passed through to the Gemini model provider unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Model_GeminiModelConfig_AdditionalParams")]
+        public System.Management.Automation.PSObject Model_GeminiModelConfig_AdditionalParam { get; set; }
+        #endregion
+        
         #region Parameter Model_LiteLlmModelConfig_AdditionalParam
         /// <summary>
         /// <para>
@@ -164,6 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Model_OpenAiModelConfig_ApiKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter Baggage
+        /// <summary>
+        /// <para>
+        /// <para>W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Baggage { get; set; }
         #endregion
         
         #region Parameter HarnessArn
@@ -501,6 +522,37 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.Single? Model_OpenAiModelConfig_TopP { get; set; }
         #endregion
         
+        #region Parameter TraceId
+        /// <summary>
+        /// <para>
+        /// <para>Trace ID for maintaining observability through the operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceId { get; set; }
+        #endregion
+        
+        #region Parameter TraceParent
+        /// <summary>
+        /// <para>
+        /// <para>W3C trace context parent header containing version, trace ID, parent span ID, and
+        /// trace flags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceParent { get; set; }
+        #endregion
+        
+        #region Parameter TraceState
+        /// <summary>
+        /// <para>
+        /// <para>W3C trace context state header for vendor-specific trace information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceState { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Stream'.
@@ -552,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.AllowedTool = new List<System.String>(this.AllowedTool);
             }
+            context.Baggage = this.Baggage;
             context.HarnessArn = this.HarnessArn;
             #if MODULAR
             if (this.HarnessArn == null && ParameterWasBound(nameof(this.HarnessArn)))
@@ -577,6 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.Model_BedrockModelConfig_ModelId = this.Model_BedrockModelConfig_ModelId;
             context.Model_BedrockModelConfig_Temperature = this.Model_BedrockModelConfig_Temperature;
             context.Model_BedrockModelConfig_TopP = this.Model_BedrockModelConfig_TopP;
+            context.Model_GeminiModelConfig_AdditionalParam = this.Model_GeminiModelConfig_AdditionalParam;
             context.Model_GeminiModelConfig_ApiKeyArn = this.Model_GeminiModelConfig_ApiKeyArn;
             context.Model_GeminiModelConfig_MaxToken = this.Model_GeminiModelConfig_MaxToken;
             context.Model_GeminiModelConfig_ModelId = this.Model_GeminiModelConfig_ModelId;
@@ -619,6 +673,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.Tool = new List<Amazon.BedrockAgentCore.Model.HarnessTool>(this.Tool);
             }
+            context.TraceId = this.TraceId;
+            context.TraceParent = this.TraceParent;
+            context.TraceState = this.TraceState;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -642,6 +699,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.AllowedTool != null)
             {
                 request.AllowedTools = cmdletContext.AllowedTool;
+            }
+            if (cmdletContext.Baggage != null)
+            {
+                request.Baggage = cmdletContext.Baggage;
             }
             if (cmdletContext.HarnessArn != null)
             {
@@ -743,6 +804,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate GeminiModelConfig
             var requestModel_model_GeminiModelConfigIsNull = true;
             requestModel_model_GeminiModelConfig = new Amazon.BedrockAgentCore.Model.HarnessGeminiModelConfig();
+            Amazon.Runtime.Documents.Document? requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam = null;
+            if (cmdletContext.Model_GeminiModelConfig_AdditionalParam != null)
+            {
+                requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Model_GeminiModelConfig_AdditionalParam);
+            }
+            if (requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam != null)
+            {
+                requestModel_model_GeminiModelConfig.AdditionalParams = requestModel_model_GeminiModelConfig_model_GeminiModelConfig_AdditionalParam.Value;
+                requestModel_model_GeminiModelConfigIsNull = false;
+            }
             System.String requestModel_model_GeminiModelConfig_model_GeminiModelConfig_ApiKeyArn = null;
             if (cmdletContext.Model_GeminiModelConfig_ApiKeyArn != null)
             {
@@ -1016,6 +1087,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.Tools = cmdletContext.Tool;
             }
+            if (cmdletContext.TraceId != null)
+            {
+                request.TraceId = cmdletContext.TraceId;
+            }
+            if (cmdletContext.TraceParent != null)
+            {
+                request.TraceParent = cmdletContext.TraceParent;
+            }
+            if (cmdletContext.TraceState != null)
+            {
+                request.TraceState = cmdletContext.TraceState;
+            }
             
             CmdletOutput output;
             
@@ -1073,6 +1156,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             public System.String ActorId { get; set; }
             public List<System.String> AllowedTool { get; set; }
+            public System.String Baggage { get; set; }
             public System.String HarnessArn { get; set; }
             public System.Int32? MaxIteration { get; set; }
             public System.Int32? MaxToken { get; set; }
@@ -1083,6 +1167,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String Model_BedrockModelConfig_ModelId { get; set; }
             public System.Single? Model_BedrockModelConfig_Temperature { get; set; }
             public System.Single? Model_BedrockModelConfig_TopP { get; set; }
+            public System.Management.Automation.PSObject Model_GeminiModelConfig_AdditionalParam { get; set; }
             public System.String Model_GeminiModelConfig_ApiKeyArn { get; set; }
             public System.Int32? Model_GeminiModelConfig_MaxToken { get; set; }
             public System.String Model_GeminiModelConfig_ModelId { get; set; }
@@ -1110,6 +1195,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.HarnessSystemContentBlock> SystemPrompt { get; set; }
             public System.Int32? TimeoutSecond { get; set; }
             public List<Amazon.BedrockAgentCore.Model.HarnessTool> Tool { get; set; }
+            public System.String TraceId { get; set; }
+            public System.String TraceParent { get; set; }
+            public System.String TraceState { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.InvokeHarnessResponse, InvokeBACHarnessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Stream;
         }

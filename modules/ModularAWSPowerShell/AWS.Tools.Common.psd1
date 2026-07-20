@@ -93,20 +93,15 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Set-DefaultAWSRegion', 
-        'Clear-DefaultAWSRegion', 
-        'Get-DefaultAWSRegion', 
-        'Get-AWSRegion', 
-        'Set-AWSProxy', 
-        'Clear-AWSProxy', 
         'Invoke-AWSLogin', 
         'Invoke-AWSLogout', 
-        'Invoke-AWSSSOLogin', 
-        'Initialize-AWSSSOConfiguration', 
-        'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout', 
-        'Remove-AWSCredentialProfile', 
         'Get-AWSPublicIpAddressRange', 
+        'New-AWSCredential', 
+        'Set-AWSCredential', 
+        'Clear-AWSCredential', 
+        'Get-AWSCredential', 
+        'Set-AWSSamlEndpoint', 
+        'Set-AWSSamlRoleProfile', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -114,6 +109,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Get-AWSSensitiveDataConfiguration', 
         'Set-AWSAutoIterationMode', 
         'Get-AWSAutoIterationMode', 
+        'Set-AWSProxy', 
+        'Clear-AWSProxy', 
         'Add-AWSLoggingListener', 
         'Remove-AWSLoggingListener', 
         'Set-AWSResponseLogging', 
@@ -121,12 +118,15 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Disable-AWSMetricsLogging', 
         'Get-AWSService', 
         'Get-AWSCmdletName', 
-        'New-AWSCredential', 
-        'Set-AWSCredential', 
-        'Clear-AWSCredential', 
-        'Get-AWSCredential', 
-        'Set-AWSSamlEndpoint', 
-        'Set-AWSSamlRoleProfile')
+        'Remove-AWSCredentialProfile', 
+        'Set-DefaultAWSRegion', 
+        'Clear-DefaultAWSRegion', 
+        'Get-DefaultAWSRegion', 
+        'Get-AWSRegion', 
+        'Invoke-AWSSSOLogin', 
+        'Initialize-AWSSSOConfiguration', 
+        'Set-AWSSSOSessionConfiguration', 
+        'Invoke-AWSSSOLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -32217,6 +32217,9 @@ Set-Alias -Name SES2-PutAccountDedicatedIpWarmupAttributes -Value Write-SES2Acco
 Set-Alias -Name Put-SES2AccountDetails -Value Write-SES2AccountDetail
 Set-Alias -Name Put-SES2AccountDetail -Value Write-SES2AccountDetail
 Set-Alias -Name SES2-PutAccountDetails -Value Write-SES2AccountDetail
+Set-Alias -Name Put-SES2AccountPricingAttributes -Value Write-SES2AccountPricingAttribute
+Set-Alias -Name Put-SES2AccountPricingAttribute -Value Write-SES2AccountPricingAttribute
+Set-Alias -Name SES2-PutAccountPricingAttributes -Value Write-SES2AccountPricingAttribute
 Set-Alias -Name Put-SES2AccountSendingAttributes -Value Write-SES2AccountSendingAttribute
 Set-Alias -Name Put-SES2AccountSendingAttribute -Value Write-SES2AccountSendingAttribute
 Set-Alias -Name SES2-PutAccountSendingAttributes -Value Write-SES2AccountSendingAttribute

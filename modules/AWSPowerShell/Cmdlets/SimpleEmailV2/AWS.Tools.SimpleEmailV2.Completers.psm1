@@ -195,6 +195,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.PricingPlan
+        "Write-SES2AccountPricingAttribute/Plan"
+        {
+            $v = "ENTERPRISE","ESSENTIALS","NONE","PRO"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ReputationEntityType
         {
             ($_ -eq "Get-SES2ReputationEntity/ReputationEntityType") -Or
@@ -305,6 +312,7 @@ $SES2_map = @{
     "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
+    "Plan"=@("Write-SES2AccountPricingAttribute")
     "Reason"=@("Write-SES2SuppressedDestination")
     "ReputationEntityType"=@("Get-SES2ReputationEntity","Update-SES2ReputationEntityCustomerManagedStatus","Update-SES2ReputationEntityPolicy")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
@@ -453,6 +461,7 @@ $SES2_SelectMap = @{
                "Get-SES2TenantList",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountDetail",
+               "Write-SES2AccountPricingAttribute",
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
                "Write-SES2AccountVdmAttribute",

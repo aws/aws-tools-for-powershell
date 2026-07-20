@@ -177,6 +177,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SES2ReputationEntityPolicy', 
         'Write-SES2AccountDedicatedIpWarmupAttribute', 
         'Write-SES2AccountDetail', 
+        'Write-SES2AccountPricingAttribute', 
         'Write-SES2AccountSendingAttribute', 
         'Write-SES2AccountSuppressionAttribute', 
         'Write-SES2AccountVdmAttribute', 

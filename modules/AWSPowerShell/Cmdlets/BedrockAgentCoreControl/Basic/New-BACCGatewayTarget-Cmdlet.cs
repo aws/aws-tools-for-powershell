@@ -698,6 +698,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String SmithyModel_S3_Uri { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Mcp_Connector_Source_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version of the connector to use (for example, <c>1.1.0</c>). If you don't specify
+        /// a version, the service uses the latest available version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Mcp_Connector_Source_Version { get; set; }
+        #endregion
+        
         #region Parameter PrivateEndpoint_ManagedVpcResource_VpcIdentifier
         /// <summary>
         /// <para>
@@ -853,6 +864,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.TargetConfiguration_Mcp_Connector_Enabled = new List<System.String>(this.TargetConfiguration_Mcp_Connector_Enabled);
             }
             context.TargetConfiguration_Mcp_Connector_Source_ConnectorId = this.TargetConfiguration_Mcp_Connector_Source_ConnectorId;
+            context.TargetConfiguration_Mcp_Connector_Source_Version = this.TargetConfiguration_Mcp_Connector_Source_Version;
             context.Lambda_LambdaArn = this.Lambda_LambdaArn;
             if (this.ToolSchema_InlinePayload != null)
             {
@@ -1790,6 +1802,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source.ConnectorId = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source_targetConfiguration_Mcp_Connector_Source_ConnectorId;
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_SourceIsNull = false;
             }
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source_targetConfiguration_Mcp_Connector_Source_Version = null;
+            if (cmdletContext.TargetConfiguration_Mcp_Connector_Source_Version != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source_targetConfiguration_Mcp_Connector_Source_Version = cmdletContext.TargetConfiguration_Mcp_Connector_Source_Version;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source_targetConfiguration_Mcp_Connector_Source_Version != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source.Version = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source_targetConfiguration_Mcp_Connector_Source_Version;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_SourceIsNull = false;
+            }
              // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_Source should be set to null
             if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Connector_targetConfiguration_Mcp_Connector_SourceIsNull)
             {
@@ -2024,6 +2046,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.ConnectorConfiguration> TargetConfiguration_Mcp_Connector_Configuration { get; set; }
             public List<System.String> TargetConfiguration_Mcp_Connector_Enabled { get; set; }
             public System.String TargetConfiguration_Mcp_Connector_Source_ConnectorId { get; set; }
+            public System.String TargetConfiguration_Mcp_Connector_Source_Version { get; set; }
             public System.String Lambda_LambdaArn { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ToolDefinition> ToolSchema_InlinePayload { get; set; }
             public System.String Lambda_ToolSchema_S3_BucketOwnerAccountId { get; set; }

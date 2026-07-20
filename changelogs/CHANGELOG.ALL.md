@@ -1,4 +1,20 @@
-﻿### 5.0.256 (2026-07-17 19:13Z)
+﻿### 5.0.257 (2026-07-20 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.292.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_Connector_Source_Version.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_Connector_Source_Version.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACAgentRuntime: added parameters McpMethod and McpName.
+    * Modified cmdlet Invoke-BACHarness: added parameters Baggage, Model_GeminiModelConfig_AdditionalParam, TraceId, TraceParent and TraceState.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameters AdsPersonalizationConcurrency_EnableVodVastParallelization, AdsPersonalizationConcurrency_MaxConcurrentAdsRequest, AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond, AdsPersonalizationTimeouts_LiveMaximumAdsPersonalizationTimeMillisecond, AdsPersonalizationTimeouts_PrefetchAdsRequestTimeoutMillisecond, AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond and AdsPersonalizationTimeouts_VodMaximumAdsPersonalizationTimeMillisecond.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_InboundEmailTrigger, Capabilities_QuickEventTrigger, Capabilities_ScheduleTrigger and Capabilities_Trigger.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_InboundEmailTrigger, Capabilities_QuickEventTrigger, Capabilities_ScheduleTrigger and Capabilities_Trigger.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2AccountPricingAttribute leveraging the PutAccountPricingAttributes service API.
+
+### 5.0.256 (2026-07-17 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.291.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserImportJob: added parameter PasswordHashingAlgorithm.

@@ -14826,8 +14826,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15509,8 +15509,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -15970,9 +15970,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Search-CSDDocument",
-               "Write-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29398,12 +29398,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
+               "New-DDBTable",
                "ConvertTo-DDBItem",
+               "Add-DDBIndexSchema",
                "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "New-DDBTableSchema",
-               "New-DDBTable")
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32114,8 +32114,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -69387,6 +69387,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_HubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_HuggingFaceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_HuggingFaceAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_InboundEmailTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_InboundEmailTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_IncludeContentInScheduledReportsEmail") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_IntercomAction") -Or
@@ -69425,6 +69427,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_PrintReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_PublishWithoutApproval") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_PublishWithoutApproval") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Research") -Or
@@ -69447,6 +69451,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SAPProductMasterDataAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Scenario") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Scenario") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ScheduleTrigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ScheduleTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ServiceNowAction") -Or
@@ -69567,6 +69573,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_TextractAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Topic") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Topic") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Trigger") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Trigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
@@ -70177,7 +70185,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSIdentityPropagationConfig/Service")
         }
         {
-            $v = "ATHENA","QBUSINESS","REDSHIFT"
+            $v = "ATHENA","GLUE_DATA_CATALOG","QBUSINESS","REDSHIFT"
             break
         }
 
@@ -70463,6 +70471,7 @@ $QS_map = @{
     "Capabilities_GoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_InboundEmailTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IncludeContentInScheduledReportsEmail"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IntercomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_InvokeAppsAIInference"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -70482,6 +70491,7 @@ $QS_map = @{
     "Capabilities_PerformFlowUiTask"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PrintReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PublishWithoutApproval"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_QuickEventTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Research"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -70493,6 +70503,7 @@ $QS_map = @{
     "Capabilities_SAPPhysicalInventoryAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SAPProductMasterDataAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Scenario"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ScheduleTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SelfUpgradeUserRole"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -70553,6 +70564,7 @@ $QS_map = @{
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Trigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAgentWebSearch"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -76090,16 +76102,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "New-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Get-S3MultipartUpload",
-               "Test-S3Bucket",
+               "Remove-S3Bucket",
                "Copy-S3Object",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
+               "Remove-S3MultipartUpload",
+               "New-S3Bucket",
                "Write-S3Object",
-               "Remove-S3Bucket")
+               "Remove-S3Object",
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Read-S3Object",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -82571,6 +82583,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.PricingPlan
+        "Write-SES2AccountPricingAttribute/Plan"
+        {
+            $v = "ENTERPRISE","ESSENTIALS","NONE","PRO"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ReputationEntityType
         {
             ($_ -eq "Get-SES2ReputationEntity/ReputationEntityType") -Or
@@ -82681,6 +82700,7 @@ $SES2_map = @{
     "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
+    "Plan"=@("Write-SES2AccountPricingAttribute")
     "Reason"=@("Write-SES2SuppressedDestination")
     "ReputationEntityType"=@("Get-SES2ReputationEntity","Update-SES2ReputationEntityCustomerManagedStatus","Update-SES2ReputationEntityPolicy")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
@@ -82829,6 +82849,7 @@ $SES2_SelectMap = @{
                "Get-SES2TenantList",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountDetail",
+               "Write-SES2AccountPricingAttribute",
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
                "Write-SES2AccountVdmAttribute",
@@ -85809,8 +85830,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -92536,6 +92557,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -92575,41 +92634,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
