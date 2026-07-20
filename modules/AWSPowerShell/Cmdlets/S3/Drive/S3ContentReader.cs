@@ -60,13 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var enc = encoding ?? new System.Text.UTF8Encoding(false);
                 // leaveOpen:true so the StreamReader does NOT dispose _stream - Dispose() owns the
                 // stream's lifetime in one place (no double-dispose, and byte/text modes symmetric).
-                // netstandard2.0 has no 3-arg overload, so pass the default 1KB buffer + leaveOpen.
+                // netstandard2.0 has no 3-arg overload, so pass the default 1 KiB buffer + leaveOpen.
                 _textReader = new StreamReader(_stream, enc, detectEncodingFromByteOrderMarks: true,
                     bufferSize: 1024, leaveOpen: true);
             }
         }
 
-        // 80 KB transfer chunk - large enough to amortize per-call overhead, small enough
+        // 80 KiB transfer chunk - large enough to amortize per-call overhead, small enough
         // to keep memory bounded. (Byte-per-call reads were ~32 KB/s; this is the fix.)
         private const int ChunkSize = 80 * 1024;
         private readonly byte[] _chunk = new byte[ChunkSize];

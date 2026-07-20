@@ -9,8 +9,8 @@
 
     HARNESS: uses the repo's shared test harness (tests/Include/*.ps1), which imports the built
     module and sets the 'test-runner' credential profile + us-east-1 region — same as the sibling
-    tests/S3/*.Tests.ps1. The provider and its two cmdlets are compiled into that module (their
-    source lives in Cmdlets/S3/Advanced/), so no separate import is needed.
+    tests/S3/*.Tests.ps1. The provider (Cmdlets/S3/Drive/) and its two cmdlets (Cmdlets/S3/Advanced/)
+    are compiled into that module, so no separate import is needed.
 
     A raw AmazonS3Client is still used for FIXTURE setup/teardown (create/delete buckets, seed
     directory-marker objects, bucket policies, list/abort multipart uploads) — operations the
@@ -547,7 +547,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Should -Throw
             Test-Path $localDst | Should -BeFalse
         }
-        # ClearContent is a deliberate override that throws PSNotSupportedException (Provider.cs:1026)
+        # ClearContent is a deliberate override in S3Provider that throws PSNotSupportedException
         # - distinct from Copy/Move (which are simply not overridden). A regression turning it into a
         # no-op or a truncation would be silent without this.
         It "rejects Clear-Content (deliberately unsupported)" {
@@ -696,9 +696,8 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    # Get-ChildItem -Recurse. DEVELOPMENT.md marks recursive listing as an out-of-scope
-    # "prototype extra" that is nonetheless IMPLEMENTED and shipping (GetChildItems recurse=true
-    # -> StreamAllUnder). Nothing exercised it through the real command surface. This asserts the
+    # Get-ChildItem -Recurse. Recursive listing is supported and shipping (GetChildItems recurse=true
+    # -> StreamAllUnder), but nothing exercised it through the real command surface. This asserts the
     # contract that holds regardless of how PowerShell dispatches -Recurse (flat StreamAllUnder, or
     # engine-driven per-level walk): every object at every depth is surfaced, and a directory
     # marker is NOT surfaced as a file. Unique prefix => no prior cache, no cross-test bleed.
@@ -807,7 +806,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
 
     # Piping listed items straight into another provider cmdlet (Get-ChildItem | Get-Content /
     # | Remove-Item) binds each item's PSPath, which is PROVIDER-QUALIFIED
-    # ("AWS.Tools.PSDriveForS3\AWS.S3::bucket\key"). The provider must emit a drive-INDEPENDENT
+    # ("AWS.Tools.S3\AWS.S3::bucket\key"). The provider must emit a drive-INDEPENDENT
     # item path (bucket\key, not "S3:\...") and recover its S3DriveInfo when the engine resolves
     # that PSPath against the hidden drive - otherwise the pipe fails "Cannot find path ..." before
     # the content/remove op runs. Regression guard for that bug (it was invisible because earlier
@@ -919,7 +918,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             [BitConverter]::ToString($got) | Should -Be ([BitConverter]::ToString($bytes))
         }
         # -AsByteStream accepts byte / byte[] / nested object[]; a non-byte element throws
-        # InvalidCastException from AppendItem (TransferContentWriter.cs:154). Without this, a
+        # InvalidCastException from S3TransferContentWriter.AppendItem. Without this, a
         # regression silently coercing or dropping the value would go unseen (the byte-stream happy
         # paths only ever feed valid byte[]).
         It "rejects a non-byte element under -AsByteStream" {
