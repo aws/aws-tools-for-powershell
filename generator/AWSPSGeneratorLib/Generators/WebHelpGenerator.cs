@@ -623,7 +623,7 @@ namespace AWSPowerShellGenerator.Generators
             const string docsRootToken = "%INSTALLER_DOCS_ROOT%";
 
             var installerVersion = ReadInstallerModuleVersion();
-            var majorVersion = installerVersion.Split('.')[0];
+            var majorVersion = GetInstallerMajorVersion(installerVersion);
             // Relative path within /powershell/ that the installer docs deploy to. The Catapult
             // docs step lifts the installer/ folder to sit alongside the versioned reference tree.
             var docsRoot = $"powershell/installer/v{majorVersion}/reference";
@@ -633,7 +633,8 @@ namespace AWSPowerShellGenerator.Generators
             var sourceLocation = Directory.GetParent(typeof(PsHelpGenerator).Assembly.Location).FullName;
             var helpMaterials = Path.Combine(sourceLocation, "..", "..", "..", "..", "AWSPSGeneratorLib", "HelpMaterials", "WebHelp");
             var installerSource = Path.Combine(helpMaterials, "InstallerContent");
-            var resourcesSource = Path.Combine(helpMaterials, "StaticContent", "resources");
+            var staticContentSource = Path.Combine(helpMaterials, "StaticContent");
+            var resourcesSource = Path.Combine(staticContentSource, "resources");
 
             // The installer subtree is generated under installer/v{major}/reference within the doc
             // output. The Catapult docs artifact step relocates installer/ to the /powershell/ root
@@ -649,20 +650,44 @@ namespace AWSPowerShellGenerator.Generators
             IOUtils.DirectoryCopy(installerSource, installerOutput, true);
             IOUtils.DirectoryCopy(resourcesSource, Path.Combine(installerOutput, "resources"), true);
 
+            // The installer pages link to feedbackyes/no.html and favicon.ico relative to their own
+            // reference root. In the main tree these live at the reference root (copied by
+            // CopyWebHelpStaticFiles); the installer subtree needs its own copies so those links
+            // resolve. favicon.ico is binary and copied as-is; the feedback pages are HTML and get
+            // the same token/URL substitution as the rest of the subtree (below).
+            foreach (var sharedFile in new[] { "feedbackyes.html", "feedbackno.html", "favicon.ico" })
+            {
+                var src = Path.Combine(staticContentSource, sharedFile);
+                if (File.Exists(src))
+                    File.Copy(src, Path.Combine(installerOutput, sharedFile), true);
+            }
+
             var tokens = new Dictionary<string, string>
             {
                 { versionToken, installerVersion },
                 { docsRootToken, docsRoot }
             };
 
+            // Preserve the UTF-8 BOM used by every other page in the doc set (File.ReadAllText strips
+            // it from the string, File.WriteAllText would otherwise write no BOM).
+            var utf8WithBom = new UTF8Encoding(true);
+
             foreach (var htmlFile in Directory.GetFiles(installerOutput, "*.html", SearchOption.AllDirectories))
             {
                 var content = File.ReadAllText(htmlFile);
                 foreach (var token in tokens)
                     content = content.Replace(token.Key, token.Value);
-                File.WriteAllText(htmlFile, content);
+                // The shared feedback pages reference the reference root with a hardcoded
+                // /powershell/v5/reference path rather than the token; repoint those to the
+                // installer docs root as well so their canonical URL and topic links are correct.
+                content = content.Replace("powershell/v5/reference", docsRoot);
+                File.WriteAllText(htmlFile, content, utf8WithBom);
             }
         }
+
+        // Default installer docs version used when the manifest is missing or unparseable, so a
+        // doc build never fails outright over the version lookup.
+        internal const string DefaultInstallerVersion = "1.0.0";
 
         // Reads ModuleVersion from the AWS.Tools.Installer module manifest. The manifest is the
         // canonical source of truth for the installer version and is always available in the source
@@ -670,22 +695,37 @@ namespace AWSPowerShellGenerator.Generators
         private string ReadInstallerModuleVersion()
         {
             var manifestPath = Path.Combine(Options.RootPath, "modules", "Installer", "AWS.Tools.Installer.psd1");
-            if (File.Exists(manifestPath))
+            if (!File.Exists(manifestPath))
             {
-                var manifestContent = File.ReadAllText(manifestPath);
-                // Match the top-level ModuleVersion assignment, e.g. ModuleVersion = '1.0.3'.
-                var match = Regex.Match(manifestContent, @"^\s*ModuleVersion\s*=\s*'([^']+)'", RegexOptions.Multiline);
-                if (match.Success)
-                    return match.Groups[1].Value;
-
-                Console.WriteLine("WARNING: Could not find ModuleVersion in '{0}'; defaulting installer docs version to 1.0.0", manifestPath);
-            }
-            else
-            {
-                Console.WriteLine("WARNING: Installer module manifest not found at '{0}'; defaulting installer docs version to 1.0.0", manifestPath);
+                Console.WriteLine("WARNING: Installer module manifest not found at '{0}'; defaulting installer docs version to {1}", manifestPath, DefaultInstallerVersion);
+                return DefaultInstallerVersion;
             }
 
-            return "1.0.0";
+            var version = ExtractModuleVersion(File.ReadAllText(manifestPath));
+            if (version == null)
+                Console.WriteLine("WARNING: Could not find ModuleVersion in '{0}'; defaulting installer docs version to {1}", manifestPath, DefaultInstallerVersion);
+
+            return version ?? DefaultInstallerVersion;
+        }
+
+        // Extracts the top-level ModuleVersion value (e.g. "1.0.3") from a .psd1 manifest's text, or
+        // null if not present. Anchored to the start of a line so nested ModuleVersion entries under
+        // RequiredModules (which are indented differently in intent but can share leading whitespace)
+        // are not matched ahead of the top-level declaration - Regex.Match returns the first match,
+        // and the top-level ModuleVersion always precedes the RequiredModules block in the manifest.
+        internal static string ExtractModuleVersion(string manifestContent)
+        {
+            if (string.IsNullOrEmpty(manifestContent))
+                return null;
+
+            var match = Regex.Match(manifestContent, @"^\s*ModuleVersion\s*=\s*'([^']+)'", RegexOptions.Multiline);
+            return match.Success ? match.Groups[1].Value : null;
+        }
+
+        // Derives the major-version path segment value (e.g. "1") from an installer version string.
+        internal static string GetInstallerMajorVersion(string installerVersion)
+        {
+            return installerVersion.Split('.')[0];
         }
 
         private void CreateVersionInfoFile(string path)
