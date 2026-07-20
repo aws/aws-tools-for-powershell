@@ -35,11 +35,11 @@ param (
   [Parameter()]
   [string] $PreviewLabel = "",
 
-  # Comma-separated service C2jFilenames (e.g. "bedrock-agent-runtime") that this build targets.
+  # Comma-separated service AssemblyNames (e.g. "PrometheusService") that this build targets.
   # These services are flagged InOverrides="true" in BreakingChangesLookup.xml so their breaking
   # changes are surfaced even when the buildconfig (overrides.xml) is empty. Defaults to empty.
   [Parameter()]
-  [string] $TargetServiceC2jFilenames = "",
+  [string] $TargetServiceAssemblyNames = "",
 
   # Indicates if we should skip/remove AWSSDK.Core DLLs from extracted .NET artifact.
   [Parameter()]
@@ -226,7 +226,7 @@ try {
       /p:Configuration=$Configuration `
       /p:SignModules=$SignModules `
       /p:PatchNumber=$Version `
-      /p:TargetServiceC2jFilenames=$TargetServiceC2jFilenames `
+      /p:TargetServiceAssemblyNames=$TargetServiceAssemblyNames `
       /p:IsPreviewBuild=true
     $BuildResult = $LASTEXITCODE
   }

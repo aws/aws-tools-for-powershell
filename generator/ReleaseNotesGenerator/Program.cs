@@ -25,7 +25,7 @@ namespace PSReleaseNotesGenerator
         private const string OutputFilePathOptionName = "out-file";
         private const string BreakingChangesOutputFilePathOptionName = "breaking-changes-out-file";
         private const string OverridesFilePathOptionName = "overrides-file";
-        private const string TargetServiceC2jFilenamesOptionName = "target-service-c2j-filenames";
+        private const string TargetServiceAssemblyNamesOptionName = "target-service-assembly-names";
         private const string PreviewLabelOptionName = "preview-label";
         private const string NewVersionOptionName = "new-version";
 
@@ -68,8 +68,8 @@ namespace PSReleaseNotesGenerator
         [Option("-or|--" + OverridesFilePathOptionName + " <FILE_PATH>", Description = "Optional path to the overrides file.")]
         public string OverridesFilePath { get; set; }
 
-        [Option("-tsc|--" + TargetServiceC2jFilenamesOptionName + " <C2J_FILENAMES>", Description = "Optional comma-separated list of service C2jFilenames (e.g. \"bedrock-agent-runtime\") that this build targets. These services are flagged InOverrides=\"true\" in the breaking changes lookup file even when they are absent from the overrides file (e.g. a parameter change on an existing operation with an empty buildconfig).")]
-        public string TargetServiceC2jFilenames { get; set; }
+        [Option("-tsa|--" + TargetServiceAssemblyNamesOptionName + " <ASSEMBLY_NAMES>", Description = "Optional comma-separated list of service AssemblyNames (e.g. \"PrometheusService\") that this build targets. These services are flagged InOverrides=\"true\" in the breaking changes lookup file even when they are absent from the overrides file (e.g. a parameter change on an existing operation with an empty buildconfig). AssemblyName is used (not C2jFilename) because it is the reliable 1:1 identifier shared by .NET and PowerShell.")]
+        public string TargetServiceAssemblyNames { get; set; }
 
         [Option("-pl|--" + PreviewLabelOptionName + " <NAME>", Description = "Preview Label.")]
         public string PreviewLabel { get; set; }
@@ -92,9 +92,6 @@ namespace PSReleaseNotesGenerator
 
         private void OnExecute()
         {
-            // Temporarily disabled: some targeted services have no ServiceConfig, so ignore the value for now.
-            TargetServiceC2jFilenames = string.Empty;
-
             IDictionary<string, Cmdlet> newModule;
             try
             {
@@ -186,13 +183,13 @@ namespace PSReleaseNotesGenerator
             //Optionally write the breaking changes lookup file
             if (!string.IsNullOrWhiteSpace(BreakingChangesLookupOutputFilePath))
             {
-                WriteBreakingChangesLookupFile(BreakingChangesLookupOutputFilePath, OverridesFilePath, TargetServiceC2jFilenames, breakingChanges);
+                WriteBreakingChangesLookupFile(BreakingChangesLookupOutputFilePath, OverridesFilePath, TargetServiceAssemblyNames, breakingChanges);
             }
         }
 
         private static void WriteBreakingChangesLookupFile(string breakingChangesLookupOutputFilePath,
             string overridesFilePath,
-            string targetServiceC2jFilenames,
+            string targetServiceAssemblyNames,
             BreakingChanges breakingChanges)
         {
             var overridesXML = string.Empty;
@@ -223,10 +220,14 @@ namespace PSReleaseNotesGenerator
             //Flag the services this build explicitly targets so their breaking changes are surfaced
             //even when they are absent from the overrides file. This covers the empty-buildconfig case
             //where a parameter change on an existing operation would otherwise be marked InOverrides="false".
-            //The target services are passed as C2jFilenames and resolved to their ServiceNounPrefix using
-            //the same service configuration loader, so they merge cleanly with the overrides service keys.
-            var targetC2jFilenames = Overrides.ParseTargetServiceC2jFilenames(targetServiceC2jFilenames);
-            foreach (var nounPrefix in Overrides.ResolveServiceNounPrefixes(targetC2jFilenames, serviceConfigLoader))
+            //The target services are passed as AssemblyNames (the reliable 1:1 identifier shared by .NET
+            //and PowerShell) and resolved to their ServiceNounPrefix by matching the <AssemblyName> element
+            //of the service configurations, so they merge cleanly with the overrides service keys.
+            var targetAssemblyNames = Overrides.ParseTargetServiceAssemblyNames(targetServiceAssemblyNames);
+            var configsXmlPath = Path.Combine(Path.GetDirectoryName(pathToConfigs), "Configs.xml");
+            var skippedServiceAssemblyNames = Overrides.ParseSkippedServiceAssemblyNames(
+                File.Exists(configsXmlPath) ? File.ReadAllText(configsXmlPath) : string.Empty);
+            foreach (var nounPrefix in Overrides.ResolveServiceNounPrefixesByAssemblyName(targetAssemblyNames, pathToConfigs, skippedServiceAssemblyNames))
             {
                 serviceKeys.Add(nounPrefix);
             }

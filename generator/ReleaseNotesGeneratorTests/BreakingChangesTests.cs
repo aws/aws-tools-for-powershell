@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PSReleaseNotesGenerator;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ReleaseNotesGeneratorTests
 {
@@ -58,7 +59,7 @@ namespace ReleaseNotesGeneratorTests
         /// <summary>
         /// Reproduces the empty-buildconfig scenario (PowerShell-498): a parameter change on an
         /// existing operation of an existing service (BAR / Bedrock Agent Runtime) is detected but
-        /// the service is absent from overrides.xml. Passing the service's C2jFilename as a build
+        /// the service is absent from overrides.xml. Passing the service's AssemblyName as a build
         /// target resolves it to its ServiceNounPrefix (BAR) and flags it InOverrides="true" so the
         /// breaking change is surfaced, while an unrelated service whose SDK model also shifted (EC2)
         /// stays InOverrides="false" and is not surfaced.
@@ -79,24 +80,35 @@ namespace ReleaseNotesGeneratorTests
             breakingChanges.Add("BAR", "[Breaking Change] Modified cmdlet Invoke-BARRetrieve: removed parameter NoAutoIteration.", BreakingChangeType.ParameterRemoved);
             breakingChanges.Add("EC2", "[Breaking Change] Modified cmdlet Get-EC2Something: removed parameter Unrelated.", BreakingChangeType.ParameterRemoved);
 
-            var barConfig = @"<?xml version=""1.0"" encoding=""utf-8""?>
+            // overrides.xml is empty (no service keys); the build targets the service by its AssemblyName
+            // (BedrockAgentRuntime), which is resolved to its ServiceNounPrefix (BAR) by matching the
+            // <AssemblyName> element of the service configuration.
+            var tempDir = Path.Combine(Path.GetTempPath(), "rng-bc-test-" + Path.GetRandomFileName());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                File.WriteAllText(Path.Combine(tempDir, "bedrock-agent-runtime.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
 <ConfigModel>
     <C2jFilename>bedrock-agent-runtime</C2jFilename>
+    <AssemblyName>BedrockAgentRuntime</AssemblyName>
     <ServiceNounPrefix>BAR</ServiceNounPrefix>
-</ConfigModel>";
+</ConfigModel>");
 
-            // overrides.xml is empty (no service keys); the build targets the bedrock-agent-runtime
-            // C2jFilename, which is resolved to its ServiceNounPrefix (BAR).
-            var serviceKeys = new HashSet<string>();
-            var targetC2jFilenames = Overrides.ParseTargetServiceC2jFilenames("bedrock-agent-runtime");
-            foreach (var nounPrefix in Overrides.ResolveServiceNounPrefixes(targetC2jFilenames, (filetitle) => barConfig))
-            {
-                serviceKeys.Add(nounPrefix);
+                var serviceKeys = new HashSet<string>();
+                var targetAssemblyNames = Overrides.ParseTargetServiceAssemblyNames("BedrockAgentRuntime");
+                foreach (var nounPrefix in Overrides.ResolveServiceNounPrefixesByAssemblyName(targetAssemblyNames, tempDir, new HashSet<string>()))
+                {
+                    serviceKeys.Add(nounPrefix);
+                }
+
+                var xml = breakingChanges.CreateLookupXML(serviceKeys);
+                Assert.IsNotNull(xml);
+                Assert.AreEqual(expectedXML, xml);
             }
-
-            var xml = breakingChanges.CreateLookupXML(serviceKeys);
-            Assert.IsNotNull(xml);
-            Assert.AreEqual(expectedXML, xml);
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
         }
     }
 }

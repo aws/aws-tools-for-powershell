@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PSReleaseNotesGenerator;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace ReleaseNotesGeneratorTests
@@ -122,26 +123,26 @@ namespace ReleaseNotesGeneratorTests
         }
 
         [TestMethod]
-        public void ParseTargetServiceC2jFilenames_NullOrEmpty_ReturnsEmpty()
+        public void ParseTargetServiceAssemblyNames_NullOrEmpty_ReturnsEmpty()
         {
-            Assert.AreEqual(0, Overrides.ParseTargetServiceC2jFilenames(null).Count());
-            Assert.AreEqual(0, Overrides.ParseTargetServiceC2jFilenames(string.Empty).Count());
-            Assert.AreEqual(0, Overrides.ParseTargetServiceC2jFilenames("   ").Count());
+            Assert.AreEqual(0, Overrides.ParseTargetServiceAssemblyNames(null).Count());
+            Assert.AreEqual(0, Overrides.ParseTargetServiceAssemblyNames(string.Empty).Count());
+            Assert.AreEqual(0, Overrides.ParseTargetServiceAssemblyNames("   ").Count());
         }
 
         [TestMethod]
-        public void ParseTargetServiceC2jFilenames_SingleFilename()
+        public void ParseTargetServiceAssemblyNames_SingleAssemblyName()
         {
-            var filenames = Overrides.ParseTargetServiceC2jFilenames("bedrock-agent-runtime").ToList();
-            Assert.AreEqual(1, filenames.Count);
-            Assert.AreEqual("bedrock-agent-runtime", filenames[0]);
+            var names = Overrides.ParseTargetServiceAssemblyNames("PrometheusService").ToList();
+            Assert.AreEqual(1, names.Count);
+            Assert.AreEqual("PrometheusService", names[0]);
         }
 
         [TestMethod]
-        public void ParseTargetServiceC2jFilenames_MultipleFilenamesTrimmedAndEmptyEntriesIgnored()
+        public void ParseTargetServiceAssemblyNames_MultipleNamesTrimmedAndEmptyEntriesIgnored()
         {
-            var filenames = Overrides.ParseTargetServiceC2jFilenames(" bedrock-agent-runtime , ec2 ,,  s3 ").ToList();
-            CollectionAssert.AreEqual(new List<string> { "bedrock-agent-runtime", "ec2", "s3" }, filenames);
+            var names = Overrides.ParseTargetServiceAssemblyNames(" PrometheusService , DynamoDBStreams ,,  EC2 ").ToList();
+            CollectionAssert.AreEqual(new List<string> { "PrometheusService", "DynamoDBStreams", "EC2" }, names);
         }
 
         [TestMethod]
@@ -161,6 +162,168 @@ namespace ReleaseNotesGeneratorTests
 
             Assert.AreEqual(1, nounPrefixes.Count);
             Assert.IsTrue(nounPrefixes.Contains("BAR"));
+        }
+
+        [TestMethod]
+        public void ResolveServiceNounPrefixesByAssemblyName_ResolvesByInternalAssemblyName()
+        {
+            // aps.xml: the .NET C2J model / assembly is "PrometheusService" but the PowerShell C2jFilename
+            // is "aps", and dynamodbstreams.xml's file name differs from its internal <C2jFilename>. The
+            // target path resolves by the internal <AssemblyName>, so both resolve.
+            var tempDir = Path.Combine(Path.GetTempPath(), "rng-asm-test-" + Path.GetRandomFileName());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                File.WriteAllText(Path.Combine(tempDir, "aps.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModel>
+    <C2jFilename>aps</C2jFilename>
+    <AssemblyName>PrometheusService</AssemblyName>
+    <ServiceNounPrefix>PROM</ServiceNounPrefix>
+</ConfigModel>");
+                File.WriteAllText(Path.Combine(tempDir, "dynamodbstreams.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModel>
+    <C2jFilename>streams.dynamodb</C2jFilename>
+    <AssemblyName>DynamoDBStreams</AssemblyName>
+    <ServiceNounPrefix>DDBS</ServiceNounPrefix>
+</ConfigModel>");
+
+                var nounPrefixes = Overrides.ResolveServiceNounPrefixesByAssemblyName(
+                    new List<string> { "PrometheusService", "DynamoDBStreams" },
+                    tempDir,
+                    new HashSet<string>());
+
+                Assert.AreEqual(2, nounPrefixes.Count);
+                Assert.IsTrue(nounPrefixes.Contains("PROM"));
+                Assert.IsTrue(nounPrefixes.Contains("DDBS"));
+            }
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
+        }
+
+        [TestMethod]
+        public void ResolveServiceNounPrefixesByAssemblyName_MatchesAssemblyNameCaseInsensitively()
+        {
+            // The AssemblyName is user/build-supplied and travels through several build steps, so a
+            // casing difference from the config's <AssemblyName> must not cause the target service to
+            // be missed. AssemblyNames are unique even case-insensitively, so this cannot mis-match.
+            var tempDir = Path.Combine(Path.GetTempPath(), "rng-asm-case-test-" + Path.GetRandomFileName());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                File.WriteAllText(Path.Combine(tempDir, "aps.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModel>
+    <C2jFilename>aps</C2jFilename>
+    <AssemblyName>PrometheusService</AssemblyName>
+    <ServiceNounPrefix>PROM</ServiceNounPrefix>
+</ConfigModel>");
+
+                var nounPrefixes = Overrides.ResolveServiceNounPrefixesByAssemblyName(
+                    new List<string> { "prometheusservice" },
+                    tempDir,
+                    new HashSet<string>());
+
+                Assert.AreEqual(1, nounPrefixes.Count);
+                Assert.IsTrue(nounPrefixes.Contains("PROM"));
+            }
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
+        }
+
+        [TestMethod]
+        public void ResolveServiceNounPrefixesByAssemblyName_NullEnumerable_ReturnsEmpty()
+        {
+            var nounPrefixes = Overrides.ResolveServiceNounPrefixesByAssemblyName(null, Path.GetTempPath(), new HashSet<string>());
+            Assert.AreEqual(0, nounPrefixes.Count);
+        }
+
+        [TestMethod]
+        public void ResolveServiceNounPrefixesByAssemblyName_SkippedService_WarnsAndSkipsWithoutThrowing()
+        {
+            // A target AssemblyName that has no service configuration but is intentionally skipped from
+            // PowerShell (Configs.xml IncludeLibraries) has no cmdlets and no breaking changes, so it is
+            // skipped without throwing; the configured service still resolves.
+            var tempDir = Path.Combine(Path.GetTempPath(), "rng-asm-skip-test-" + Path.GetRandomFileName());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                File.WriteAllText(Path.Combine(tempDir, "aps.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModel>
+    <C2jFilename>aps</C2jFilename>
+    <AssemblyName>PrometheusService</AssemblyName>
+    <ServiceNounPrefix>PROM</ServiceNounPrefix>
+</ConfigModel>");
+
+                var nounPrefixes = Overrides.ResolveServiceNounPrefixesByAssemblyName(
+                    new List<string> { "PrometheusService", "SimpleDB" },
+                    tempDir,
+                    new HashSet<string>(new[] { "SimpleDB" }, StringComparer.OrdinalIgnoreCase));
+
+                Assert.AreEqual(1, nounPrefixes.Count);
+                Assert.IsTrue(nounPrefixes.Contains("PROM"));
+            }
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
+        }
+
+        [TestMethod]
+        public void ResolveServiceNounPrefixesByAssemblyName_UnexpectedAssemblyName_Throws()
+        {
+            // A target AssemblyName that resolves to neither a service configuration nor a skipped service
+            // is unexpected and must throw so the mismatch is surfaced instead of silently hidden.
+            var tempDir = Path.Combine(Path.GetTempPath(), "rng-asm-throw-test-" + Path.GetRandomFileName());
+            Directory.CreateDirectory(tempDir);
+            try
+            {
+                File.WriteAllText(Path.Combine(tempDir, "aps.xml"), @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModel>
+    <C2jFilename>aps</C2jFilename>
+    <AssemblyName>PrometheusService</AssemblyName>
+    <ServiceNounPrefix>PROM</ServiceNounPrefix>
+</ConfigModel>");
+
+                Assert.ThrowsException<Exception>(() =>
+                    Overrides.ResolveServiceNounPrefixesByAssemblyName(
+                        new List<string> { "PrometheusService", "NonexistentService" },
+                        tempDir,
+                        new HashSet<string>()));
+            }
+            finally
+            {
+                Directory.Delete(tempDir, true);
+            }
+        }
+
+        [TestMethod]
+        public void ParseSkippedServiceAssemblyNames_ParsesIncludeLibrariesWithoutPrefix()
+        {
+            var configsXml = @"<?xml version=""1.0"" encoding=""utf-8""?>
+<ConfigModelCollection>
+  <IncludeLibraries>
+    <Library Name=""AWSSDK.CloudSearchDomain"" AddAsReference=""true"" />
+    <Library Name=""AWSSDK.SimpleDB"" />
+  </IncludeLibraries>
+</ConfigModelCollection>";
+
+            var skipped = Overrides.ParseSkippedServiceAssemblyNames(configsXml);
+
+            Assert.AreEqual(2, skipped.Count);
+            Assert.IsTrue(skipped.Contains("CloudSearchDomain"));
+            Assert.IsTrue(skipped.Contains("SimpleDB"));
+            // Matching is case-insensitive.
+            Assert.IsTrue(skipped.Contains("simpledb"));
+        }
+
+        [TestMethod]
+        public void ParseSkippedServiceAssemblyNames_NullOrEmpty_ReturnsEmpty()
+        {
+            Assert.AreEqual(0, Overrides.ParseSkippedServiceAssemblyNames(null).Count);
+            Assert.AreEqual(0, Overrides.ParseSkippedServiceAssemblyNames(string.Empty).Count);
         }
     }
 }
