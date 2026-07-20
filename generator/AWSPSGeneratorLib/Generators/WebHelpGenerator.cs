@@ -113,6 +113,7 @@ namespace AWSPowerShellGenerator.Generators
                     CleanWebHelpOutputFolder(OutputFolder);
                     CopyWebHelpStaticFiles(OutputFolder);
                     CreateVersionInfoFile(Path.Combine(OutputFolder, "items"));
+                    WriteInstallerWebHelp(OutputFolder);
 
                     var tocWriter = new TOCWriter(Options, OutputFolder);
                     tocWriter.AddFixedSection();
@@ -603,6 +604,88 @@ namespace AWSPowerShellGenerator.Generators
 
             var sourceLocation = Directory.GetParent(typeof(PsHelpGenerator).Assembly.Location).FullName;
             IOUtils.DirectoryCopy(Path.Combine(sourceLocation, "..", "..", "..", "..", "AWSPSGeneratorLib", "HelpMaterials", "WebHelp", "StaticContent"), webFilesRoot, true);
+        }
+
+        // Reference documentation for the AWS.Tools.Installer cmdlets is published to its own
+        // version-specific subtree, /powershell/installer/v{majorVersion}/reference/, so that
+        // successive installer major versions can coexist independently of the AWS Tools for
+        // PowerShell version line. The subtree is self-contained (its own frameset, TOC, summary
+        // page, cmdlet pages and a private copy of the shared resources) so that it deploys as a
+        // sibling of the main reference tree. The installer version - both the "v{major}" path
+        // segment and the version string rendered on each page - is read from the installer module
+        // manifest (AWS.Tools.Installer.psd1), which is the canonical source of truth and is always
+        // present in the source tree at doc-generation time. This means the same implementation
+        // publishes V1 today and, once the V2 installer merges, V2 automatically - with no code
+        // change and no hand-edited HTML.
+        private void WriteInstallerWebHelp(string webFilesRoot)
+        {
+            const string versionToken = "%INSTALLER_VERSION%";
+            const string docsRootToken = "%INSTALLER_DOCS_ROOT%";
+
+            var installerVersion = ReadInstallerModuleVersion();
+            var majorVersion = installerVersion.Split('.')[0];
+            // Relative path within /powershell/ that the installer docs deploy to. The Catapult
+            // docs step lifts the installer/ folder to sit alongside the versioned reference tree.
+            var docsRoot = $"powershell/installer/v{majorVersion}/reference";
+
+            Console.WriteLine("Generating AWS.Tools.Installer web help (version {0}) at {1}", installerVersion, docsRoot);
+
+            var sourceLocation = Directory.GetParent(typeof(PsHelpGenerator).Assembly.Location).FullName;
+            var helpMaterials = Path.Combine(sourceLocation, "..", "..", "..", "..", "AWSPSGeneratorLib", "HelpMaterials", "WebHelp");
+            var installerSource = Path.Combine(helpMaterials, "InstallerContent");
+            var resourcesSource = Path.Combine(helpMaterials, "StaticContent", "resources");
+
+            // The installer subtree is generated under installer/v{major}/reference within the doc
+            // output. The Catapult docs artifact step relocates installer/ to the /powershell/ root
+            // so it publishes to /powershell/installer/v{major}/reference/.
+            var installerOutput = Path.Combine(webFilesRoot, "installer", $"v{majorVersion}", "reference");
+
+            if (Directory.Exists(installerOutput))
+                Directory.Delete(installerOutput, true);
+            Directory.CreateDirectory(installerOutput);
+
+            // Copy the templated pages (index.html, TOC.html and items/*.html) and a private copy of
+            // the shared resources so the subtree is fully self-contained.
+            IOUtils.DirectoryCopy(installerSource, installerOutput, true);
+            IOUtils.DirectoryCopy(resourcesSource, Path.Combine(installerOutput, "resources"), true);
+
+            var tokens = new Dictionary<string, string>
+            {
+                { versionToken, installerVersion },
+                { docsRootToken, docsRoot }
+            };
+
+            foreach (var htmlFile in Directory.GetFiles(installerOutput, "*.html", SearchOption.AllDirectories))
+            {
+                var content = File.ReadAllText(htmlFile);
+                foreach (var token in tokens)
+                    content = content.Replace(token.Key, token.Value);
+                File.WriteAllText(htmlFile, content);
+            }
+        }
+
+        // Reads ModuleVersion from the AWS.Tools.Installer module manifest. The manifest is the
+        // canonical source of truth for the installer version and is always available in the source
+        // tree when the docs are generated.
+        private string ReadInstallerModuleVersion()
+        {
+            var manifestPath = Path.Combine(Options.RootPath, "modules", "Installer", "AWS.Tools.Installer.psd1");
+            if (File.Exists(manifestPath))
+            {
+                var manifestContent = File.ReadAllText(manifestPath);
+                // Match the top-level ModuleVersion assignment, e.g. ModuleVersion = '1.0.3'.
+                var match = Regex.Match(manifestContent, @"^\s*ModuleVersion\s*=\s*'([^']+)'", RegexOptions.Multiline);
+                if (match.Success)
+                    return match.Groups[1].Value;
+
+                Console.WriteLine("WARNING: Could not find ModuleVersion in '{0}'; defaulting installer docs version to 1.0.0", manifestPath);
+            }
+            else
+            {
+                Console.WriteLine("WARNING: Installer module manifest not found at '{0}'; defaulting installer docs version to 1.0.0", manifestPath);
+            }
+
+            return "1.0.0";
         }
 
         private void CreateVersionInfoFile(string path)

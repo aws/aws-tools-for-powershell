@@ -41,10 +41,12 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         public void AddFixedSection()
         {
-            //This should be replaced with proper help generation for script cmdlets
-            AddServiceCmdlet(InstallerModuleName, InstallerTOCName, "Install-AWSToolsModule", "Install-AWSToolsModule", "Installs AWS.Tools modules.", null);
-            AddServiceCmdlet(InstallerModuleName, InstallerTOCName, "Uninstall-AWSToolsModule", "Uninstall-AWSToolsModule", "Uninstalls all currently installed AWS.Tools modules.", null);
-            AddServiceCmdlet(InstallerModuleName, InstallerTOCName, "Update-AWSToolsModule", "Update-AWSToolsModule", "Updates all currently installed AWS.Tools modules.", null);
+            // AWS.Tools.Installer cmdlet reference is published to its own version-specific
+            // documentation subtree (/powershell/installer/v{majorVersion}/reference/) so that
+            // successive installer major versions can coexist independently of the AWS Tools for
+            // PowerShell version line. That self-contained subtree (its own frameset, TOC and
+            // pages) is emitted by WebHelpGenerator.WriteInstallerWebHelp(), so the installer
+            // cmdlets are intentionally not added to this (main AWS Tools) TOC.
         }
 
         // target page is synthesized from the cmdlet name once we emit the overall TOC; we will also

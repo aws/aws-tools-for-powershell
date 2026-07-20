@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,11 +8,11 @@
     <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
     <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
     <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
-    <meta name="description" content="This cmdlet uses Install-Module to update all AWS.Tools modules.">
-    <title>AWS.Tools.Installer: Update-AWSToolsModule Cmdlet | AWS Tools for PowerShell</title>
+    <meta name="description" content="Install AWS.Tools modules.">
+    <title>AWS.Tools.Installer: Install-AWSToolsModule Cmdlet | AWS Tools for PowerShell</title>
     <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
-    <meta name="aws-tocid" content="Update-AWSToolsModule"/>
-    <link rel="canonical" href="https://docs.aws.amazon.com/powershell/v5/reference/items/Update-AWSToolsModule.html"/>
+    <meta name="aws-tocid" content="Install-AWSToolsModule"/>
+    <link rel="canonical" href="https://docs.aws.amazon.com/%INSTALLER_DOCS_ROOT%/items/Install-AWSToolsModule.html"/>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <!-- END-SECTION -->
     <div id="pageHeader">
         <div id="titles">
-            <h1>Update-AWSToolsModule Cmdlet</h1>
+            <h1>Install-AWSToolsModule Cmdlet</h1>
             <h2>
                 <div>Available in <a
                         href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="sectionbody">
-                <div class="synopsis">Updates all currently installed AWS.Tools modules.</div>
+                <div class="synopsis">Installs AWS.Tools modules.</div>
             </div>
         </div>
         <div>
@@ -84,7 +84,7 @@
             </div>
             <div class="sectionbody">
                 <div class="syntax">
-                    <pre><div class="syntaxblock"><div class="cmdlet">Update-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipPublisherCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                    <pre><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-Name &lt;String&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MinimumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipUpdate &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipPublisherCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
                 </div>
             </div>
         </div>
@@ -95,7 +95,9 @@
                 </div>
             </div>
             <div class="sectionbody">
-                <div class="description">This cmdlet uses Install-Module to update all AWS.Tools modules.</div>
+                <div class="description">This cmdlet uses Install-Module to install AWS.Tools modules. Unless -SkipUpdate
+                    is specified, this cmdlet also updates all other currently installed AWS.Tools modules to the
+                    version being installed.</div>
             </div>
         </div>
         <div>
@@ -107,10 +109,32 @@
             <div class="sectionbody">
                 <div class="parameters">
                     <div class="parameter">
+                        <div class="parameterName">-Name &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String[]</a>&gt;</div>
+                        <div class="parameterDescription">Specifies names of the AWS.Tools modules to install. The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common").</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">True</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByValue, ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
                         <div class="parameterName">-RequiredVersion &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
                                 target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
-                        <div class="parameterDescription">Specifies exact version number of the module to update to.</div>
+                        <div class="parameterDescription">Specifies exact version number of the module to install.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -119,7 +143,29 @@
                                 </tr>
                                 <tr>
                                     <td class="col1">Position?</td>
-                                    <td class="col2">1</td>
+                                    <td class="col2">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-MinimumVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the minimum version of the modules to install.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
                                 </tr>
                                 <tr>
                                     <td class="col1">Accept pipeline input?</td>
@@ -132,7 +178,7 @@
                         <div class="parameterName">-MaximumVersion &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
                                 target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
-                        <div class="parameterDescription">Specifies the maximum version of the modules to update to.</div>
+                        <div class="parameterDescription">Specifies the maximum version of the modules to install.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -152,7 +198,29 @@
                     </div>
                     <div class="parameter">
                         <div class="parameterName">-CleanUp &lt;SwitchParameter&gt;</div>
-                        <div class="parameterDescription">Specifies that, after a successful install, all other versions of the AWS Tools modules should be uninstalled.</div>
+                        <div class="parameterDescription">Specifies that, after a successful install, all other versions
+                            of the AWS Tools modules should be uninstalled.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SkipUpdate &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Install-AWSToolsModule by default also updates all currently
+                            installed AWS.Tools modules. -SkipUpdate disables the update.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -194,7 +262,12 @@
                         <div class="parameterName">-Scope &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
                                 target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Specifies the installation scope of the module. The acceptable values for this parameter are AllUsers and CurrentUser. The AllUsers scope installs modules in a location that is accessible to all users of the computer: $env:ProgramFiles\PowerShell\Modules. The CurrentUser installs modules in a location that is accessible only to the current user of the computer: $home\Documents\PowerShell\Modules. When no Scope is defined, the default is CurrentUser.</div>
+                        <div class="parameterDescription">Specifies the installation scope of the module. The acceptable
+                            values for this parameter are AllUsers and CurrentUser. The AllUsers scope installs modules
+                            in a location that is accessible to all users of the computer:
+                            $env:ProgramFiles\PowerShell\Modules The CurrentUser installs modules in a location that is
+                            accessible only to the current user of the computer: $home\Documents\PowerShell\Modules When
+                            no Scope is defined, the default is CurrentUser.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -279,7 +352,8 @@
                     </div>
                     <div class="parameter">
                         <div class="parameterName">-Force &lt;SwitchParameter&gt;</div>
-                        <div class="parameterDescription">Forces an update of each specified module without a prompt to request confirmation.</div>
+                        <div class="parameterDescription">Forces an install of each specified module without a prompt to
+                            request confirmation.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -295,6 +369,21 @@
                                     <td class="col2">True (ByPropertyName)</td>
                                 </tr>
                             </table>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div class="collapsibleSection">
+                            <h2 id="inputs" class="title">Inputs</h2>
+                        </div>
+                    </div>
+                    <div class="sectionbody">
+                        <div class="inputs">
+                            <div class="inputType"><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                    target="_blank" rel="noopener noreferrer">System.String</a></div>
+                            <div class="inputDescription">You can pipe a String object to this cmdlet for the Name
+                                parameter.</div>
                         </div>
                     </div>
                 </div>
@@ -319,7 +408,7 @@
                 </div>
                 <div class="sectionbody">
                     <div class="examples">
-                        <h4>Example 1</h4><pre class="example"><div class="code">Update-AWSToolsModule -CleanUp</div><div class="description">This example updates all installed AWS.Tools modules to the latest version available on the PSGallery and uninstalls all other versions.</div></pre>
+                        <h4>Example 1</h4><pre class="example"><div class="code">Install-AWSToolsModule EC2,S3 -RequiredVersion 4.0.0.0</div><div class="description">This example installs version 4.0.0.0 of AWS.Tools.EC2, AWS.Tools.S3 and their dependencies.</div></pre>
                     </div>
                 </div>
             </div>
@@ -350,22 +439,22 @@
                 </div>
                 <div class="sectionbody">
                     <div class="versioninfo">
-                        <p><strong>AWS Tools for PowerShell: </strong><span id="assemblyVersion">2.x.y.z</span></p>
+                        <p><strong>AWS.Tools.Installer: </strong><span id="assemblyVersion">%INSTALLER_VERSION%</span></p>
                     </div>
                 </div>
             </div>
             <div id="pageFooter">
                 <span class="newline linkto"><a href="javascript:void(0)"
-                        onclick="AWSHelpObj.displayLink('Update-AWSToolsModule.html', 'Update-AWSToolsModule')">Link
+                        onclick="AWSHelpObj.displayLink('Install-AWSToolsModule.html', 'Install-AWSToolsModule')">Link
                         to this page</a></span>
                 <span class="divider">&nbsp;</span>
                 <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
                         <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
-                            href="http://docs.aws.amazon.com/powershell/v5/reference/feedbackyes.html?topic_id=Update-AWSToolsModule"
+                            href="http://docs.aws.amazon.com/%INSTALLER_DOCS_ROOT%/feedbackyes.html?topic_id=Install-AWSToolsModule"
                             target="_parent">Yes</a>&nbsp;&nbsp;<a
-                            href="http://docs.aws.amazon.com/powershell/v5/reference/feedbackno.html?topic_id=Update-AWSToolsModule"
+                            href="http://docs.aws.amazon.com/%INSTALLER_DOCS_ROOT%/feedbackno.html?topic_id=Install-AWSToolsModule"
                             target="_parent">No</a>&nbsp;&nbsp;&nbsp;<a
-                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/powershell/v5/reference/items/Update-AWSToolsModule.html"
+                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/%INSTALLER_DOCS_ROOT%/items/Install-AWSToolsModule.html"
                             target="_parent">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
                 <!-- END-FEEDBACK-SECTION -->
                 <div id="awsdocs-legal-zone-copyright"></div>
@@ -384,7 +473,6 @@ $("div#regionDisclaimer").css("display", "block");
 } else {
 $("div#regionDisclaimer").remove();
 }
-AWSHelpObj.setAssemblyVersion();
 AWSHelpObj.setCopyrightText();
 });
 </script>
