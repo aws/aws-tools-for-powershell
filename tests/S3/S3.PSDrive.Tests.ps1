@@ -780,8 +780,22 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             (New-Object System.Random 8601).NextBytes($bytes)
             [System.IO.File]::WriteAllBytes($localSrc, $bytes)
 
-            Get-Content $localSrc -AsByteStream | Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream
-            Get-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream | Set-Content $localDst -AsByteStream
+            # Local-file byte I/O differs by edition (a built-in FileSystem-provider difference, NOT
+            # the S3 provider): PS7+ uses -AsByteStream; Windows PowerShell 5.1 has no -AsByteStream on
+            # its FileSystem provider and uses -Encoding Byte instead. The S3 side uses -AsByteStream on
+            # both. This mirrors the local<->S3 copy guidance in docs/psdrive-s3/guide.md.
+            $s3Path = "PSTest:\$($script:Bucket)\$key"
+            if ($PSVersionTable.PSEdition -eq 'Desktop') {
+                Get-Content $localSrc -Encoding Byte -ReadCount 8MB |
+                    Set-Content -LiteralPath $s3Path -AsByteStream
+                Get-Content -LiteralPath $s3Path -AsByteStream |
+                    Set-Content $localDst -Encoding Byte
+            } else {
+                Get-Content $localSrc -AsByteStream |
+                    Set-Content -LiteralPath $s3Path -AsByteStream
+                Get-Content -LiteralPath $s3Path -AsByteStream |
+                    Set-Content $localDst -AsByteStream
+            }
 
             $got = [System.IO.File]::ReadAllBytes($localDst)
             $got.Length | Should -Be $bytes.Length
@@ -818,7 +832,10 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             Set-Content "PSTest:\$($script:Bucket)\$prefix/payload.bin" -AsByteStream -Value $bytes
             $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
             (ListWhenReady $prefixPath 1).Count | Should -Be 1   # wait out the cache TTL first
-            $got = [byte[]](Get-ChildItem $prefixPath | Get-Content -AsByteStream -Raw)
+            $got = [byte[]](
+                Get-ChildItem $prefixPath |
+                    ForEach-Object { Get-Content -LiteralPath $_.PSPath -AsByteStream -Raw }
+            )
             [BitConverter]::ToString($got) | Should -Be ([BitConverter]::ToString($bytes))
         }
         It "Get-ChildItem | Remove-Item deletes the piped objects" {
@@ -891,6 +908,16 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $bytes = [byte[]]((Get-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Raw) | ForEach-Object { $_ })
             $bytes[-1] | Should -Be 10   # trailing LF
         }
+        It "round-trips bytes through explicit S3 -AsByteStream paths" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/explicit-bytes.bin"
+            $s3Path = "PSTest:\$($script:Bucket)\$key"
+            $bytes = [byte[]](0,1,2,3,4,5,254,255)
+
+            Set-Content -LiteralPath $s3Path -AsByteStream -Value $bytes
+            $got = [byte[]]((Get-Content -LiteralPath $s3Path -AsByteStream -Raw) | ForEach-Object { $_ })
+
+            [BitConverter]::ToString($got) | Should -Be ([BitConverter]::ToString($bytes))
+        }
         # -AsByteStream accepts byte / byte[] / nested object[]; a non-byte element throws
         # InvalidCastException from AppendItem (TransferContentWriter.cs:154). Without this, a
         # regression silently coercing or dropping the value would go unseen (the byte-stream happy
@@ -917,6 +944,48 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
             Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]]@())
             (S3GetBytes $script:Bucket $key).Length | Should -Be 0
+        }
+    }
+
+    Context "Set-Content writer parameters on pipeline-bound S3 paths" {
+        It "honors -NoNewline when the destination path comes from Get-Item" {
+            $key = "pipe-write-$([DateTime]::Now.ToFileTime())/no-newline.txt"
+            $s3Path = "PSTest:\$($script:Bucket)\$key"
+            Set-Content $s3Path -Value 'seed'
+
+            Get-Item $s3Path | Set-Content -NoNewline
+
+            [System.Text.Encoding]::UTF8.GetString((S3GetBytes $script:Bucket $key)) |
+                Should -Be 'no-newline.txt'
+        }
+
+        It "honors -Encoding and -NoNewline when the destination path comes from Get-Item" {
+            $leaf = "caf$([char]0x00E9).txt"
+            $key = "pipe-write-$([DateTime]::Now.ToFileTime())/$leaf"
+            $s3Path = "PSTest:\$($script:Bucket)\$key"
+            Set-Content $s3Path -Value 'seed'
+
+            Get-Item $s3Path | Set-Content -Encoding ASCII -NoNewline
+
+            [BitConverter]::ToString((S3GetBytes $script:Bucket $key)) |
+                Should -Be ([BitConverter]::ToString([System.Text.Encoding]::ASCII.GetBytes($leaf)))
+        }
+
+        # PS7-only: pipeline-bound -AsByteStream can't bind on Windows PowerShell 5.1 - its FileSystem
+        # provider has no -AsByteStream, so the engine rejects the parameter before the S3 provider
+        # runs (a platform limitation, not a provider gap; explicit-path -AsByteStream works on both,
+        # covered elsewhere). -Skip on 5.1 rather than omitting the It, so it shows as Skipped.
+        It "honors -AsByteStream when the destination path comes from Get-Item" -Skip:($PSVersionTable.PSVersion.Major -lt 7) {
+            $key = "pipe-write-$([DateTime]::Now.ToFileTime())/bytes.bin"
+            $s3Path = "PSTest:\$($script:Bucket)\$key"
+            $bytes = [byte[]](0,1,2,3,254,255)
+            Set-Content $s3Path -Value 'seed'
+
+            Get-Item $s3Path | Set-Content -Value $bytes -AsByteStream
+            $got = [byte[]]((Get-Content -LiteralPath $s3Path -AsByteStream -Raw) | ForEach-Object { $_ })
+
+            [BitConverter]::ToString($got) |
+                Should -Be ([BitConverter]::ToString($bytes))
         }
     }
 
