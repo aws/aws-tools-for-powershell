@@ -1003,6 +1003,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // else: leave the UTF-8 default (enc null, or some other type we don't recognize)
         }
 
+        // Read AsByteStream / Encoding / NoNewline off the content-writer dynamic-params object.
+        // On explicit S3 paths this is our S3ContentWriterDynamicParameters. On a PIPELINE bind
+        // (Get-Item | Set-Content), PowerShell may hand us another provider's dynamic params object;
+        // FileSystem uses the same common property names, so duck-type those. S3-only writer params
+        // (PartSize, StorageClass) intentionally remain available only from our native type.
+        private static void ReadContentWriterParams(object dp, out bool asByteStream, out bool noNewline, out System.Text.Encoding encoding)
+        {
+            asByteStream = false; noNewline = false; encoding = ResolveEncoding(null);   // default UTF-8 no-BOM
+            if (dp == null) return;
+
+            if (dp is S3ContentWriterDynamicParameters ours)
+            {
+                asByteStream = ours.AsByteStream.IsPresent;
+                noNewline = ours.NoNewline.IsPresent;
+                encoding = ResolveEncoding(ours.Encoding);
+                return;
+            }
+
+            // Foreign params object (e.g. FileSystem's): duck-type by property name.
+            var t = dp.GetType();
+            asByteStream = ReadSwitchLike(dp, t, "AsByteStream");
+            noNewline = ReadSwitchLike(dp, t, "NoNewline");
+            encoding = ReadEncodingLike(t.GetProperty("Encoding")?.GetValue(dp), encoding);
+        }
+
         // True if property 'name' on dp is a set SwitchParameter (or a bool that is true). Tolerates
         // both SwitchParameter (has .IsPresent / bool conversion) and plain bool.
         private static bool ReadSwitchLike(object dp, Type t, string name)
@@ -1012,6 +1037,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (val is SwitchParameter sw) return sw.IsPresent;
             if (val is bool b) return b;
             return false;
+        }
+
+        private static System.Text.Encoding ReadEncodingLike(object val, System.Text.Encoding defaultEncoding)
+        {
+            if (val == null) return defaultEncoding;
+            if (val is System.Text.Encoding realEnc) return realEnc;
+
+            var encName = val as string;
+            if (encName == null && val.GetType().IsEnum)
+                encName = val.ToString();   // Windows PowerShell 5.1 FileSystem dynamic params use an enum.
+
+            if (string.IsNullOrWhiteSpace(encName))
+                return defaultEncoding;
+
+            // FileSystem's Windows PowerShell enum uses String/Unknown as unspecified sentinels.
+            if (string.Equals(encName, "String", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(encName, "Unknown", StringComparison.OrdinalIgnoreCase))
+                return defaultEncoding;
+
+            return ResolveEncoding(encName);
         }
 
         /// <summary>
@@ -1028,25 +1073,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
 
-            var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
-            var asByteStream = writerParams?.AsByteStream ?? false;
-            var noNewline = writerParams?.NoNewline ?? false;
-            // Effective storage class: per-upload -StorageClass wins, else the drive default, else
-            // null (S3 uses STANDARD). Null all the way through means we set nothing on the request.
-            var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
-            var partSize = writerParams != null && writerParams.PartSize > 0
-                ? writerParams.PartSize
-                : MultipartThreshold;
+            bool asByteStream, noNewline;
             System.Text.Encoding encoding;
             try
             {
-                encoding = ResolveEncoding(writerParams?.Encoding);   // null/empty => UTF-8 (no BOM)
+                ReadContentWriterParams(DynamicParameters, out asByteStream, out noNewline, out encoding);
             }
             catch (ArgumentException ex)
             {
                 WriteError(new ErrorRecord(ex, "BadEncoding", ErrorCategory.InvalidArgument, path));
                 return null;
             }
+
+            var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
+            // Effective storage class: per-upload -StorageClass wins, else the drive default, else
+            // null (S3 uses STANDARD). Null all the way through means we set nothing on the request.
+            var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
+            var partSize = writerParams != null && writerParams.PartSize > 0
+                ? writerParams.PartSize
+                : MultipartThreshold;
             var cache = Drive.ListingCache;
 
             // Upload via TransferUtility. TU pulls from a stream while PowerShell pushes blocks at
