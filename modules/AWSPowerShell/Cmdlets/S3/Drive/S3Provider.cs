@@ -124,16 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return loc;
         }
 
-        // 8 MB single-vs-multipart threshold, reused as TransferUtility's MinSizeBeforePartUpload
+        // 8 MiB single-vs-multipart threshold, reused as TransferUtility's MinSizeBeforePartUpload
         // and as the default PartSize for non-seekable PSDrive uploads. The SDK's non-seekable
         // path falls back to S3's 5 MiB minimum when PartSize is unset, which can exceed S3's
-        // 10,000-part limit for 50 GiB uploads. Set-Content -PartSize can override this per upload.
+        // 10,000-part limit for uploads past ~49 GiB (5 MiB x 10,000). Set-Content -PartSize can override this per upload.
         private const long MultipartThreshold = 8 * 1024 * 1024;
 
         /// <summary>
         /// A TransferUtility bound to the bucket's region client. Built per call (cheap - it is a
         /// thin wrapper over the already-cached client); reusing the client preserves multi-region
-        /// routing and the drive's resolved credentials. MinSizeBeforePartUpload reuses our 8 MB
+        /// routing and the drive's resolved credentials. MinSizeBeforePartUpload reuses our 8 MiB
         /// single-vs-multipart threshold.
         /// </summary>
         private Amazon.S3.Transfer.TransferUtility TransferUtilityForBucket(string bucket) =>
@@ -876,10 +876,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // ---- Content: download / upload (IContentCmdletProvider) -------------
 
         /// <summary>
-        /// Backs Get-Content on an S3 object path (DOWNLOAD). Opens a single GetObject and
-        /// hands back a reader over the response stream; the reader pulls blocks lazily as
-        /// PowerShell calls Read(). No size threshold and no multipart - GetObject streams
-        /// any size with bounded memory (one block at a time).
+        /// Backs Get-Content on an S3 object path (DOWNLOAD). Opens the object via
+        /// TransferUtility.OpenStream (parallel multipart download + ranged retries) and hands
+        /// back a reader over that forward-only stream; the reader pulls blocks lazily as
+        /// PowerShell calls Read(), so any size streams back with bounded memory (one block at
+        /// a time). No size threshold - TransferUtility manages part sizing for the download.
         /// </summary>
         public IContentReader GetContentReader(string path)
         {
