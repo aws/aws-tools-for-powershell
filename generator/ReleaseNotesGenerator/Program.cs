@@ -92,6 +92,9 @@ namespace PSReleaseNotesGenerator
 
         private void OnExecute()
         {
+            // Temporarily disabled: some targeted services have no ServiceConfig, so ignore the value for now.
+            TargetServiceC2jFilenames = string.Empty;
+
             IDictionary<string, Cmdlet> newModule;
             try
             {
