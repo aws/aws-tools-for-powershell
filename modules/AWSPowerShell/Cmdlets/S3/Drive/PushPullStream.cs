@@ -23,23 +23,14 @@ using System.Threading;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// One-way bridge between PowerShell's PUSH content model and TransferUtility's PULL model.
-    ///
-    /// PowerShell hands the upload writer blocks via Write()/Close() (it pushes). TransferUtility
-    /// wants to read an input Stream on its own clock (it pulls). This Stream sits between them:
-    /// the writer calls <see cref="Produce"/> to enqueue byte chunks; TransferUtility calls
-    /// <see cref="Read"/> to dequeue them. A bounded queue gives backpressure - if TU falls
-    /// behind, Produce blocks instead of buffering unboundedly (memory stays ~capacity x chunk).
-    ///
-    /// CanSeek is false and Length throws on purpose: that is what routes TransferUtility into
-    /// its non-seekable / unknown-length multipart path (UploadUnseekableStreamAsync), which
-    /// reads to end-of-stream rather than needing a size up front.
+    /// A read-only Stream bridging the writer (which pushes chunks via <see cref="Produce"/>) to
+    /// TransferUtility (which pulls via Read). The bounded queue gives backpressure: Produce blocks
+    /// when TU falls behind instead of buffering unboundedly. CanSeek false / Length throwing is
+    /// deliberate - it routes TU into its unseekable multipart path, which reads to EOF.
     /// </summary>
     internal sealed class PushPullStream : Stream
     {
-        // 8 chunks of buffering before Produce() blocks. Each chunk is one Write() call's worth of
-        // bytes (sized by the engine's content block size, not a fixed flush), so the in-flight
-        // memory ceiling is 8 x that block size - the backpressure bound.
+        // Backpressure bound: Produce blocks past 8 buffered chunks (each one Write() call's worth).
         private readonly BlockingCollection<byte[]> _chunks = new BlockingCollection<byte[]>(boundedCapacity: 8);
         private readonly CancellationToken _token;
         private byte[] _current;
@@ -70,9 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     return 0;   // CompleteAdding + drained => clean EOF => TU completes the upload
                 }
-                // OperationCanceledException is intentionally NOT caught: on cancel we want TU's
-                // Read to FAULT (so it aborts the multipart upload), not see a fake EOF and
-                // complete a truncated object.
+                // OperationCanceledException is deliberately NOT caught: on cancel, TU's Read should
+                // fault and abort the upload, not see a fake EOF and complete a truncated object.
             }
 
             int n = Math.Min(count, _current.Length - _pos);

@@ -22,10 +22,9 @@ using Amazon.S3;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Credential/region parameters the provider contributes to New-PSDrive (via
-    /// NewDriveDynamicParameters) and that Mount-S3PSDrive forwards. The provider's NewDrive
-    /// reads these to build the client. When omitted, NewDrive falls back to the AWS.Tools.Common
-    /// session defaults ($StoredAWSCredentials / $StoredAWSRegion), then the SDK default chain.
+    /// Credential/region parameters the provider contributes to New-PSDrive (and Mount-S3PSDrive
+    /// forwards). NewDrive reads these to build the client; see ResolveRegion/ResolveCredentials for
+    /// the fallback order when they're omitted.
     /// </summary>
     public sealed class S3DriveParameters
     {
@@ -35,17 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter] public string SecretKey { get; set; }
         [Parameter] public string SessionToken { get; set; }
         /// <summary>
-        /// Named -AWSCredential, NOT -Credential. New-PSDrive already defines a built-in
-        /// -Credential (PSCredential); reusing that name as a dynamic parameter collides
-        /// ("parameter defined multiple times") and breaks both New-PSDrive and the wrapper.
+        /// Named -AWSCredential, not -Credential: New-PSDrive already defines a built-in -Credential
+        /// (PSCredential), and reusing that name would collide.
         /// </summary>
         [Parameter] public AWSCredentials AWSCredential { get; set; }
 
         /// <summary>
-        /// Default storage class applied to every upload on this drive (e.g. STANDARD_IA, GLACIER).
-        /// Unlike encryption (which S3 can default at the bucket) there is NO server-side default for
-        /// storage class, so a drive-level default is the only "set once" option. Optional; when unset
-        /// S3 uses STANDARD. A per-upload -StorageClass on Set-Content overrides this.
+        /// Default storage class for every upload on this drive. S3 has no server-side default, so this
+        /// is the only "set once" option; unset -> STANDARD. Per-upload -StorageClass overrides it.
         /// </summary>
         [Parameter] public S3StorageClass StorageClass { get; set; }
     }

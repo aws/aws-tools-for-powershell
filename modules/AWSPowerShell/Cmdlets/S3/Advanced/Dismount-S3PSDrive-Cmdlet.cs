@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (ps.HadErrors)
                     foreach (var err in ps.Streams.Error)
                     {
-                        // Remove-PSDrive refuses to remove the drive you are standing on, with a
-                        // generic "in use" message. Add an actionable hint to step off first.
+                        // Remove-PSDrive refuses to remove the current-location drive with a generic
+                        // "in use" message; replace it with an actionable hint to step off first.
                         if (err.CategoryInfo?.Category == ErrorCategory.ResourceBusy ||
                             (err.Exception?.Message?.IndexOf("in use", System.StringComparison.OrdinalIgnoreCase) ?? -1) >= 0)
                         {
