@@ -191,6 +191,7 @@ $EMRC_SelectMap = @{
                "New-EMRCVirtualCluster",
                "Remove-EMRCJobTemplate",
                "Remove-EMRCManagedEndpoint",
+               "Remove-EMRCSecurityConfiguration",
                "Remove-EMRCVirtualCluster",
                "Get-EMRCJobRun",
                "Get-EMRCJobTemplate",

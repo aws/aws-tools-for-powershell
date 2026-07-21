@@ -81,6 +81,26 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String SecureNamespaceInfo_ClusterId { get; set; }
         #endregion
         
+        #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the EMR Identity Center application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN { get; set; }
+        #endregion
+        
+        #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether Identity Center is enabled for the security configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter { get; set; }
+        #endregion
+        
         #region Parameter ContainerProvider_Id
         /// <summary>
         /// <para>
@@ -89,6 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContainerProvider_Id { get; set; }
+        #endregion
+        
+        #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether user assignment is required for the Identity Center application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired { get; set; }
+        #endregion
+        
+        #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN { get; set; }
         #endregion
         
         #region Parameter Name
@@ -176,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SecurityConfigurationData_AuthorizationConfiguration_LakeFormationConfiguration_QueryEngineRoleArn")]
         public System.String LakeFormationConfiguration_QueryEngineRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the system role used by the security configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -272,6 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole = this.SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole;
+            context.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN = this.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN;
+            context.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter = this.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter;
+            context.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired = this.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired;
+            context.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN = this.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN;
             context.TlsCertificateConfiguration_CertificateProviderType = this.TlsCertificateConfiguration_CertificateProviderType;
             context.TlsCertificateConfiguration_PrivateCertificateSecretArn = this.TlsCertificateConfiguration_PrivateCertificateSecretArn;
             context.TlsCertificateConfiguration_PublicCertificateSecretArn = this.TlsCertificateConfiguration_PublicCertificateSecretArn;
@@ -394,6 +449,101 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
              // populate SecurityConfigurationData
             var requestSecurityConfigurationDataIsNull = true;
             request.SecurityConfigurationData = new Amazon.EMRContainers.Model.SecurityConfigurationData();
+            Amazon.EMRContainers.Model.AuthenticationConfiguration requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration = null;
+            
+             // populate AuthenticationConfiguration
+            var requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfigurationIsNull = true;
+            requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration = new Amazon.EMRContainers.Model.AuthenticationConfiguration();
+            Amazon.EMRContainers.Model.IAMConfiguration requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration = null;
+            
+             // populate IamConfiguration
+            var requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfigurationIsNull = true;
+            requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration = new Amazon.EMRContainers.Model.IAMConfiguration();
+            System.String requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole = null;
+            if (cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole = cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration.SystemRole = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfigurationIsNull = false;
+            }
+             // determine if requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration should be set to null
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfigurationIsNull)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration = null;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration.IamConfiguration = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IamConfiguration;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfigurationIsNull = false;
+            }
+            Amazon.EMRContainers.Model.IdentityCenterConfiguration requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration = null;
+            
+             // populate IdentityCenterConfiguration
+            var requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull = true;
+            requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration = new Amazon.EMRContainers.Model.IdentityCenterConfiguration();
+            System.String requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN = null;
+            if (cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN = cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration.EmrIdentityCenterApplicationARN = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull = false;
+            }
+            System.Boolean? requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter = null;
+            if (cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter = cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter.Value;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration.EnableIdentityCenter = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter.Value;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull = false;
+            }
+            System.Boolean? requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired = null;
+            if (cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired = cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired.Value;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration.IdentityCenterApplicationAssignmentRequired = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired.Value;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull = false;
+            }
+            System.String requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN = null;
+            if (cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN = cmdletContext.SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration.IdentityCenterInstanceARN = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull = false;
+            }
+             // determine if requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration should be set to null
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfigurationIsNull)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration = null;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration != null)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration.IdentityCenterConfiguration = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration_securityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration;
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfigurationIsNull = false;
+            }
+             // determine if requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration should be set to null
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfigurationIsNull)
+            {
+                requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration = null;
+            }
+            if (requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration != null)
+            {
+                request.SecurityConfigurationData.AuthenticationConfiguration = requestSecurityConfigurationData_securityConfigurationData_AuthenticationConfiguration;
+                requestSecurityConfigurationDataIsNull = false;
+            }
             Amazon.EMRContainers.Model.AuthorizationConfiguration requestSecurityConfigurationData_securityConfigurationData_AuthorizationConfiguration = null;
             
              // populate AuthorizationConfiguration
@@ -624,6 +774,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public System.String EksInfo_NodeLabel { get; set; }
             public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
+            public System.String SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole { get; set; }
+            public System.String SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN { get; set; }
+            public System.Boolean? SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter { get; set; }
+            public System.Boolean? SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired { get; set; }
+            public System.String SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN { get; set; }
             public Amazon.EMRContainers.CertificateProviderType TlsCertificateConfiguration_CertificateProviderType { get; set; }
             public System.String TlsCertificateConfiguration_PrivateCertificateSecretArn { get; set; }
             public System.String TlsCertificateConfiguration_PublicCertificateSecretArn { get; set; }

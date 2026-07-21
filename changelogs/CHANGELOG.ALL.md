@@ -1,4 +1,23 @@
-﻿### 5.0.257 (2026-07-20 19:13Z)
+﻿### 5.0.258 (2026-07-21 19:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.293.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Containers
+    * Added cmdlet Remove-EMRCSecurityConfiguration leveraging the DeleteSecurityConfiguration service API.
+    * Modified cmdlet New-EMRCSecurityConfiguration: added parameters SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole, SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN, SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter, SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired and SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN.
+  * Amazon EntityResolution
+    * Modified cmdlet New-ERESMatchingWorkflow: added parameter ResolutionTechniques_EnableRealTimeMatching.
+    * Modified cmdlet Update-ERESMatchingWorkflow: added parameter ResolutionTechniques_EnableRealTimeMatching.
+  * Amazon Invoicing
+    * Added cmdlet Confirm-INVProcurementPortalValidation leveraging the VerifyProcurementPortalValidation service API.
+    * Added cmdlet Send-INVProcurementPortalValidation leveraging the SendProcurementPortalValidation service API.
+  * Amazon Redshift
+    * Added cmdlet Edit-RSQev2IdcApplication leveraging the ModifyQev2IdcApplication service API.
+    * Added cmdlet Get-RSQev2IdcApplication leveraging the DescribeQev2IdcApplications service API.
+    * Added cmdlet New-RSQev2IdcApplication leveraging the CreateQev2IdcApplication service API.
+    * Added cmdlet Remove-RSQev2IdcApplication leveraging the DeleteQev2IdcApplication service API.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbParameterGroup: added parameters Parameters_InfluxDBv3Core_PluginRepositorySecretArn, Parameters_InfluxDBv3Core_PluginRepositoryUrl, Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn and Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl.
+
+### 5.0.257 (2026-07-20 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.292.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGatewayTarget: added parameter TargetConfiguration_Mcp_Connector_Source_Version.

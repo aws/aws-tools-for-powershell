@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// 
     /// 
     ///  <important><para>
-    /// For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c> or <c>PROVIDER</c>,
-    /// incremental processing is not supported. 
+    /// For workflows where <c>resolutionType</c> is <c>PROVIDER</c>, incremental processing
+    /// is not supported. 
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ResolutionTechniques_EnableRealTimeMatching
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether real-time matching is enabled for the rule-based matching workflow.
+        /// When you enable real-time matching, you can use the <c>GenerateMatchId</c> operation
+        /// with the workflow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResolutionTechniques_EnableRealTimeMatching { get; set; }
+        #endregion
+        
         #region Parameter ResolutionTechniques_RuleConditionProperties_MatchingConfig_EnableTransitiveMatching
         /// <summary>
         /// <para>
@@ -95,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>The type of incremental run. The only valid value is <c>IMMEDIATE</c>. This appears
-        /// as "Automatic" in the console.</para><important><para>For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c> or <c>PROVIDER</c>,
-        /// incremental processing is not supported. </para></important>
+        /// as "Automatic" in the console.</para><important><para>For workflows where <c>resolutionType</c> is <c>PROVIDER</c>, incremental processing
+        /// is not supported. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 WriteWarning("You are passing $null as a value for parameter OutputSourceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResolutionTechniques_EnableRealTimeMatching = this.ResolutionTechniques_EnableRealTimeMatching;
             context.IntermediateSourceConfiguration_IntermediateS3Path = this.IntermediateSourceConfiguration_IntermediateS3Path;
             context.ProviderProperties_ProviderConfiguration = this.ProviderProperties_ProviderConfiguration;
             context.ProviderProperties_ProviderServiceArn = this.ProviderProperties_ProviderServiceArn;
@@ -455,6 +468,16 @@ namespace Amazon.PowerShell.Cmdlets.ERES
              // populate ResolutionTechniques
             var requestResolutionTechniquesIsNull = true;
             request.ResolutionTechniques = new Amazon.EntityResolution.Model.ResolutionTechniques();
+            System.Boolean? requestResolutionTechniques_resolutionTechniques_EnableRealTimeMatching = null;
+            if (cmdletContext.ResolutionTechniques_EnableRealTimeMatching != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_EnableRealTimeMatching = cmdletContext.ResolutionTechniques_EnableRealTimeMatching.Value;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_EnableRealTimeMatching != null)
+            {
+                request.ResolutionTechniques.EnableRealTimeMatching = requestResolutionTechniques_resolutionTechniques_EnableRealTimeMatching.Value;
+                requestResolutionTechniquesIsNull = false;
+            }
             Amazon.EntityResolution.ResolutionType requestResolutionTechniques_resolutionTechniques_ResolutionType = null;
             if (cmdletContext.ResolutionTechniques_ResolutionType != null)
             {
@@ -696,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public Amazon.EntityResolution.IncrementalRunType IncrementalRunConfig_IncrementalRunType { get; set; }
             public List<Amazon.EntityResolution.Model.InputSource> InputSourceConfig { get; set; }
             public List<Amazon.EntityResolution.Model.OutputSource> OutputSourceConfig { get; set; }
+            public System.Boolean? ResolutionTechniques_EnableRealTimeMatching { get; set; }
             public System.String IntermediateSourceConfiguration_IntermediateS3Path { get; set; }
             public System.Management.Automation.PSObject ProviderProperties_ProviderConfiguration { get; set; }
             public System.String ProviderProperties_ProviderServiceArn { get; set; }

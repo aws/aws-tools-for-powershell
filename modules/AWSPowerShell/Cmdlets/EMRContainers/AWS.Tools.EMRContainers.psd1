@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMRCJobTemplate', 
         'Remove-EMRCManagedEndpoint', 
         'Remove-EMRCResourceTag', 
+        'Remove-EMRCSecurityConfiguration', 
         'Remove-EMRCVirtualCluster', 
         'Start-EMRCJobRun', 
         'Stop-EMRCJobRun')

@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-INVResourceTag', 
+        'Confirm-INVProcurementPortalValidation', 
         'Get-INVBatchInvoiceProfile', 
         'Get-INVInvoicePDF', 
         'Get-INVInvoiceSummaryList', 
@@ -101,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-INVInvoiceUnit', 
         'Remove-INVProcurementPortalPreference', 
         'Remove-INVResourceTag', 
+        'Send-INVProcurementPortalValidation', 
         'Update-INVInvoiceUnit', 
         'Update-INVProcurementPortalPreferenceStatus', 
         'Write-INVProcurementPortalPreference')

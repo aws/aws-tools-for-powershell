@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.292.0",
-    "CoreVersion"       : "4.0.100.6",
+    "ProductVersion"    : "4.0.293.0",
+    "CoreVersion"       : "4.0.100.7",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : "",
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -364,7 +364,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -1228,7 +1228,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.102.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -1700,7 +1700,7 @@
             "InPreview"               : false
         },
         "RedshiftDataAPIService"          : {
-            "Version" : "4.0.100.5",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -1828,7 +1828,7 @@
             "InPreview"               : false
         },
         "EMRContainers"                   : {
-            "Version" : "4.0.101.1",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -2164,7 +2164,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "4.0.103.0",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -2596,7 +2596,7 @@
             "InPreview"               : false
         },
         "EntityResolution"                    : {
-            "Version" : "4.0.100.5",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -2836,7 +2836,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "4.0.100.5",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"
@@ -3052,7 +3052,7 @@
             "InPreview"               : false
         },
         "Invoicing"                           : {
-            "Version" : "4.0.100.5",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.6"

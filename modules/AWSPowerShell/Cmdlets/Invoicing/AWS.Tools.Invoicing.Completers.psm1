@@ -121,7 +121,7 @@ $INV_Completers = {
             ($_ -eq "Update-INVProcurementPortalPreferenceStatus/PurchaseOrderRetrievalPreferenceStatus")
         }
         {
-            $v = "ACTIVE","PENDING_VERIFICATION","SUSPENDED","TEST_FAILED","TEST_INITIALIZATION_FAILED","TEST_INITIALIZED"
+            $v = "ACTIVE","PENDING_VERIFICATION","SUSPENDED","TEST_FAILED","TEST_INITIALIZATION_FAILED","TEST_INITIALIZED","VALIDATED"
             break
         }
 
@@ -238,10 +238,12 @@ $INV_SelectMap = @{
                "Get-INVProcurementPortalPreferenceList",
                "Get-INVResourceTag",
                "Write-INVProcurementPortalPreference",
+               "Send-INVProcurementPortalValidation",
                "Add-INVResourceTag",
                "Remove-INVResourceTag",
                "Update-INVInvoiceUnit",
-               "Update-INVProcurementPortalPreferenceStatus")
+               "Update-INVProcurementPortalPreferenceStatus",
+               "Confirm-INVProcurementPortalValidation")
 }
 
 _awsArgumentCompleterRegistration $INV_SelectCompleters $INV_SelectMap

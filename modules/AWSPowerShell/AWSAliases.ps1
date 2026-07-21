@@ -13975,6 +13975,8 @@ Set-Alias -Name Delete-EMRCJobTemplate -Value Remove-EMRCJobTemplate
 Set-Alias -Name EMRC-DeleteJobTemplate -Value Remove-EMRCJobTemplate
 Set-Alias -Name Delete-EMRCManagedEndpoint -Value Remove-EMRCManagedEndpoint
 Set-Alias -Name EMRC-DeleteManagedEndpoint -Value Remove-EMRCManagedEndpoint
+Set-Alias -Name Delete-EMRCSecurityConfiguration -Value Remove-EMRCSecurityConfiguration
+Set-Alias -Name EMRC-DeleteSecurityConfiguration -Value Remove-EMRCSecurityConfiguration
 Set-Alias -Name Delete-EMRCVirtualCluster -Value Remove-EMRCVirtualCluster
 Set-Alias -Name EMRC-DeleteVirtualCluster -Value Remove-EMRCVirtualCluster
 Set-Alias -Name Describe-EMRCJobRun -Value Get-EMRCJobRun
@@ -17651,10 +17653,13 @@ Set-Alias -Name INV-ListProcurementPortalPreferences -Value Get-INVProcurementPo
 Set-Alias -Name INV-ListTagsForResource -Value Get-INVResourceTag
 Set-Alias -Name Put-INVProcurementPortalPreference -Value Write-INVProcurementPortalPreference
 Set-Alias -Name INV-PutProcurementPortalPreference -Value Write-INVProcurementPortalPreference
+Set-Alias -Name INV-SendProcurementPortalValidation -Value Send-INVProcurementPortalValidation
 Set-Alias -Name INV-TagResource -Value Add-INVResourceTag
 Set-Alias -Name INV-UntagResource -Value Remove-INVResourceTag
 Set-Alias -Name INV-UpdateInvoiceUnit -Value Update-INVInvoiceUnit
 Set-Alias -Name INV-UpdateProcurementPortalPreferenceStatus -Value Update-INVProcurementPortalPreferenceStatus
+Set-Alias -Name Verify-INVProcurementPortalValidation -Value Confirm-INVProcurementPortalValidation
+Set-Alias -Name INV-VerifyProcurementPortalValidation -Value Confirm-INVProcurementPortalValidation
 Set-Alias -Name Describe-IOTJJobExecution -Value Get-IOTJJobExecution
 Set-Alias -Name IOTJ-DescribeJobExecution -Value Get-IOTJJobExecution
 Set-Alias -Name Get-IOTJPendingJobExecutions -Value Get-IOTJPendingJobExecution
@@ -28151,6 +28156,8 @@ Set-Alias -Name Create-RSHsmConfiguration -Value New-RSHsmConfiguration
 Set-Alias -Name RS-CreateHsmConfiguration -Value New-RSHsmConfiguration
 Set-Alias -Name Create-RSIntegration -Value New-RSIntegration
 Set-Alias -Name RS-CreateIntegration -Value New-RSIntegration
+Set-Alias -Name Create-RSQev2IdcApplication -Value New-RSQev2IdcApplication
+Set-Alias -Name RS-CreateQev2IdcApplication -Value New-RSQev2IdcApplication
 Set-Alias -Name Create-RSRedshiftIdcApplication -Value New-RSRedshiftIdcApplication
 Set-Alias -Name RS-CreateRedshiftIdcApplication -Value New-RSRedshiftIdcApplication
 Set-Alias -Name Create-RSScheduledAction -Value New-RSScheduledAction
@@ -28192,6 +28199,8 @@ Set-Alias -Name Delete-RSIntegration -Value Remove-RSIntegration
 Set-Alias -Name RS-DeleteIntegration -Value Remove-RSIntegration
 Set-Alias -Name Delete-RSPartner -Value Remove-RSPartner
 Set-Alias -Name RS-DeletePartner -Value Remove-RSPartner
+Set-Alias -Name Delete-RSQev2IdcApplication -Value Remove-RSQev2IdcApplication
+Set-Alias -Name RS-DeleteQev2IdcApplication -Value Remove-RSQev2IdcApplication
 Set-Alias -Name Delete-RSRedshiftIdcApplication -Value Remove-RSRedshiftIdcApplication
 Set-Alias -Name RS-DeleteRedshiftIdcApplication -Value Remove-RSRedshiftIdcApplication
 Set-Alias -Name Delete-RSResourcePolicy -Value Remove-RSResourcePolicy
@@ -28291,6 +28300,9 @@ Set-Alias -Name RS-DescribeOrderableClusterOptions -Value Get-RSOrderableCluster
 Set-Alias -Name Describe-RSPartners -Value Get-RSPartner
 Set-Alias -Name Describe-RSPartner -Value Get-RSPartner
 Set-Alias -Name RS-DescribePartners -Value Get-RSPartner
+Set-Alias -Name Describe-RSQev2IdcApplications -Value Get-RSQev2IdcApplication
+Set-Alias -Name Describe-RSQev2IdcApplication -Value Get-RSQev2IdcApplication
+Set-Alias -Name RS-DescribeQev2IdcApplications -Value Get-RSQev2IdcApplication
 Set-Alias -Name Describe-RSRedshiftIdcApplications -Value Get-RSRedshiftIdcApplication
 Set-Alias -Name Describe-RSRedshiftIdcApplication -Value Get-RSRedshiftIdcApplication
 Set-Alias -Name RS-DescribeRedshiftIdcApplications -Value Get-RSRedshiftIdcApplication
@@ -28375,6 +28387,8 @@ Set-Alias -Name Modify-RSIntegration -Value Edit-RSIntegration
 Set-Alias -Name RS-ModifyIntegration -Value Edit-RSIntegration
 Set-Alias -Name Modify-RSLakehouseConfiguration -Value Edit-RSLakehouseConfiguration
 Set-Alias -Name RS-ModifyLakehouseConfiguration -Value Edit-RSLakehouseConfiguration
+Set-Alias -Name Modify-RSQev2IdcApplication -Value Edit-RSQev2IdcApplication
+Set-Alias -Name RS-ModifyQev2IdcApplication -Value Edit-RSQev2IdcApplication
 Set-Alias -Name Modify-RSRedshiftIdcApplication -Value Edit-RSRedshiftIdcApplication
 Set-Alias -Name RS-ModifyRedshiftIdcApplication -Value Edit-RSRedshiftIdcApplication
 Set-Alias -Name Modify-RSScheduledAction -Value Edit-RSScheduledAction

@@ -15970,8 +15970,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
                "Search-CSDDocument")
 }
 
@@ -29398,12 +29398,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "ConvertTo-DDBItem",
-               "Add-DDBIndexSchema",
                "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "New-DDBTableSchema")
+               "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
+               "New-DDBTable",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -35020,6 +35020,7 @@ $EMRC_SelectMap = @{
                "New-EMRCVirtualCluster",
                "Remove-EMRCJobTemplate",
                "Remove-EMRCManagedEndpoint",
+               "Remove-EMRCSecurityConfiguration",
                "Remove-EMRCVirtualCluster",
                "Get-EMRCJobRun",
                "Get-EMRCJobTemplate",
@@ -44031,7 +44032,7 @@ $INV_Completers = {
             ($_ -eq "Update-INVProcurementPortalPreferenceStatus/PurchaseOrderRetrievalPreferenceStatus")
         }
         {
-            $v = "ACTIVE","PENDING_VERIFICATION","SUSPENDED","TEST_FAILED","TEST_INITIALIZATION_FAILED","TEST_INITIALIZED"
+            $v = "ACTIVE","PENDING_VERIFICATION","SUSPENDED","TEST_FAILED","TEST_INITIALIZATION_FAILED","TEST_INITIALIZED","VALIDATED"
             break
         }
 
@@ -44148,10 +44149,12 @@ $INV_SelectMap = @{
                "Get-INVProcurementPortalPreferenceList",
                "Get-INVResourceTag",
                "Write-INVProcurementPortalPreference",
+               "Send-INVProcurementPortalValidation",
                "Add-INVResourceTag",
                "Remove-INVResourceTag",
                "Update-INVInvoiceUnit",
-               "Update-INVProcurementPortalPreferenceStatus")
+               "Update-INVProcurementPortalPreferenceStatus",
+               "Confirm-INVProcurementPortalValidation")
 }
 
 _awsArgumentCompleterRegistration $INV_SelectCompleters $INV_SelectMap
@@ -72255,6 +72258,7 @@ $RS_SelectMap = @{
                "New-RSHsmClientCertificate",
                "New-RSHsmConfiguration",
                "New-RSIntegration",
+               "New-RSQev2IdcApplication",
                "New-RSRedshiftIdcApplication",
                "New-RSScheduledAction",
                "New-RSSnapshotCopyGrant",
@@ -72275,6 +72279,7 @@ $RS_SelectMap = @{
                "Remove-RSHsmConfiguration",
                "Remove-RSIntegration",
                "Remove-RSPartner",
+               "Remove-RSQev2IdcApplication",
                "Remove-RSRedshiftIdcApplication",
                "Remove-RSResourcePolicy",
                "Remove-RSScheduledAction",
@@ -72312,6 +72317,7 @@ $RS_SelectMap = @{
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
                "Get-RSPartner",
+               "Get-RSQev2IdcApplication",
                "Get-RSRedshiftIdcApplication",
                "Get-RSReservedNodeExchangeStatus",
                "Get-RSReservedNodeOffering",
@@ -72352,6 +72358,7 @@ $RS_SelectMap = @{
                "Edit-RSEventSubscription",
                "Edit-RSIntegration",
                "Edit-RSLakehouseConfiguration",
+               "Edit-RSQev2IdcApplication",
                "Edit-RSRedshiftIdcApplication",
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
@@ -76102,16 +76109,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Bucket",
-               "Copy-S3Object",
-               "Remove-S3MultipartUpload",
+               "Remove-S3Object",
+               "Get-S3MultipartUpload",
                "New-S3Bucket",
                "Write-S3Object",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload",
                "Read-S3Object",
-               "Get-S3PreSignedURL")
+               "Remove-S3MultipartUpload",
+               "Copy-S3Object",
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85830,8 +85837,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

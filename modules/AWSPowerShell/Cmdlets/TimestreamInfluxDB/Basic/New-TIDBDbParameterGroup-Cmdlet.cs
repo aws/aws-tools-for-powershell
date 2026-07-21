@@ -1159,6 +1159,48 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String InfluxDBv3Enterprise_ParquetMemCacheSize_Percent { get; set; }
         #endregion
         
+        #region Parameter Parameters_InfluxDBv3Core_PluginRepositorySecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository
+        /// access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Parameters_InfluxDBv3Core_PluginRepositorySecretArn { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository
+        /// access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_InfluxDBv3Core_PluginRepositoryUrl
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the URL of the repository that InfluxDB downloads plugins from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Parameters_InfluxDBv3Core_PluginRepositoryUrl { get; set; }
+        #endregion
+        
+        #region Parameter Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the URL of the repository that InfluxDB downloads plugins from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl { get; set; }
+        #endregion
+        
         #region Parameter InfluxDBv2_PprofDisabled
         /// <summary>
         /// <para>
@@ -2150,6 +2192,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.InfluxDBv3Core_ParquetMemCacheQueryPathDuration_Value = this.InfluxDBv3Core_ParquetMemCacheQueryPathDuration_Value;
             context.InfluxDBv3Core_ParquetMemCacheSize_Absolute = this.InfluxDBv3Core_ParquetMemCacheSize_Absolute;
             context.InfluxDBv3Core_ParquetMemCacheSize_Percent = this.InfluxDBv3Core_ParquetMemCacheSize_Percent;
+            context.Parameters_InfluxDBv3Core_PluginRepositorySecretArn = this.Parameters_InfluxDBv3Core_PluginRepositorySecretArn;
+            context.Parameters_InfluxDBv3Core_PluginRepositoryUrl = this.Parameters_InfluxDBv3Core_PluginRepositoryUrl;
             context.InfluxDBv3Core_PreemptiveCacheAge_DurationType = this.InfluxDBv3Core_PreemptiveCacheAge_DurationType;
             context.InfluxDBv3Core_PreemptiveCacheAge_Value = this.InfluxDBv3Core_PreemptiveCacheAge_Value;
             context.InfluxDBv3Core_QueryFileLimit = this.InfluxDBv3Core_QueryFileLimit;
@@ -2218,6 +2262,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_Value = this.InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_Value;
             context.InfluxDBv3Enterprise_ParquetMemCacheSize_Absolute = this.InfluxDBv3Enterprise_ParquetMemCacheSize_Absolute;
             context.InfluxDBv3Enterprise_ParquetMemCacheSize_Percent = this.InfluxDBv3Enterprise_ParquetMemCacheSize_Percent;
+            context.Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn = this.Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn;
+            context.Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl = this.Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl;
             context.InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType = this.InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType;
             context.InfluxDBv3Enterprise_PreemptiveCacheAge_Value = this.InfluxDBv3Enterprise_PreemptiveCacheAge_Value;
             context.InfluxDBv3Enterprise_QueryFileLimit = this.InfluxDBv3Enterprise_QueryFileLimit;
@@ -2988,6 +3034,26 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (requestParameters_parameters_InfluxDBv3Core_influxDBv3Core_ParquetMemCachePrunePercentage != null)
             {
                 requestParameters_parameters_InfluxDBv3Core.ParquetMemCachePrunePercentage = requestParameters_parameters_InfluxDBv3Core_influxDBv3Core_ParquetMemCachePrunePercentage.Value;
+                requestParameters_parameters_InfluxDBv3CoreIsNull = false;
+            }
+            System.String requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositorySecretArn = null;
+            if (cmdletContext.Parameters_InfluxDBv3Core_PluginRepositorySecretArn != null)
+            {
+                requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositorySecretArn = cmdletContext.Parameters_InfluxDBv3Core_PluginRepositorySecretArn;
+            }
+            if (requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositorySecretArn != null)
+            {
+                requestParameters_parameters_InfluxDBv3Core.PluginRepositorySecretArn = requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositorySecretArn;
+                requestParameters_parameters_InfluxDBv3CoreIsNull = false;
+            }
+            System.String requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositoryUrl = null;
+            if (cmdletContext.Parameters_InfluxDBv3Core_PluginRepositoryUrl != null)
+            {
+                requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositoryUrl = cmdletContext.Parameters_InfluxDBv3Core_PluginRepositoryUrl;
+            }
+            if (requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositoryUrl != null)
+            {
+                requestParameters_parameters_InfluxDBv3Core.PluginRepositoryUrl = requestParameters_parameters_InfluxDBv3Core_parameters_InfluxDBv3Core_PluginRepositoryUrl;
                 requestParameters_parameters_InfluxDBv3CoreIsNull = false;
             }
             System.Int32? requestParameters_parameters_InfluxDBv3Core_influxDBv3Core_QueryFileLimit = null;
@@ -3813,6 +3879,26 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (requestParameters_parameters_InfluxDBv3Enterprise_influxDBv3Enterprise_ParquetMemCachePrunePercentage != null)
             {
                 requestParameters_parameters_InfluxDBv3Enterprise.ParquetMemCachePrunePercentage = requestParameters_parameters_InfluxDBv3Enterprise_influxDBv3Enterprise_ParquetMemCachePrunePercentage.Value;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
+            System.String requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn = cmdletContext.Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.PluginRepositorySecretArn = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn;
+                requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
+            }
+            System.String requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositoryUrl = null;
+            if (cmdletContext.Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositoryUrl = cmdletContext.Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl;
+            }
+            if (requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositoryUrl != null)
+            {
+                requestParameters_parameters_InfluxDBv3Enterprise.PluginRepositoryUrl = requestParameters_parameters_InfluxDBv3Enterprise_parameters_InfluxDBv3Enterprise_PluginRepositoryUrl;
                 requestParameters_parameters_InfluxDBv3EnterpriseIsNull = false;
             }
             System.Int32? requestParameters_parameters_InfluxDBv3Enterprise_influxDBv3Enterprise_QueryFileLimit = null;
@@ -4738,6 +4824,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int64? InfluxDBv3Core_ParquetMemCacheQueryPathDuration_Value { get; set; }
             public System.Int64? InfluxDBv3Core_ParquetMemCacheSize_Absolute { get; set; }
             public System.String InfluxDBv3Core_ParquetMemCacheSize_Percent { get; set; }
+            public System.String Parameters_InfluxDBv3Core_PluginRepositorySecretArn { get; set; }
+            public System.String Parameters_InfluxDBv3Core_PluginRepositoryUrl { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Core_PreemptiveCacheAge_DurationType { get; set; }
             public System.Int64? InfluxDBv3Core_PreemptiveCacheAge_Value { get; set; }
             public System.Int32? InfluxDBv3Core_QueryFileLimit { get; set; }
@@ -4806,6 +4894,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.Int64? InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_Value { get; set; }
             public System.Int64? InfluxDBv3Enterprise_ParquetMemCacheSize_Absolute { get; set; }
             public System.String InfluxDBv3Enterprise_ParquetMemCacheSize_Percent { get; set; }
+            public System.String Parameters_InfluxDBv3Enterprise_PluginRepositorySecretArn { get; set; }
+            public System.String Parameters_InfluxDBv3Enterprise_PluginRepositoryUrl { get; set; }
             public Amazon.TimestreamInfluxDB.DurationType InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType { get; set; }
             public System.Int64? InfluxDBv3Enterprise_PreemptiveCacheAge_Value { get; set; }
             public System.Int32? InfluxDBv3Enterprise_QueryFileLimit { get; set; }

@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// available later in S3. </para><para><c>EVENTUAL_NO_LOOKUP</c> (shown as <i>Quick ID generation</i> in the console): Generates
         /// new match IDs without checking existing matches, with updates processed asynchronously.
         /// Provides fastest response time but should only be used for records known to be unique.
-        /// </para>
+        /// </para><note><para>Advanced matching workflows don't support the <c>processingType</c> field.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
