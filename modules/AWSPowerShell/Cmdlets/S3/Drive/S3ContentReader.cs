@@ -23,14 +23,9 @@ using System.Management.Automation.Provider;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Streams an S3 object's bytes to PowerShell, block by block, over a TransferUtility
-    /// download stream. PowerShell calls Read(readCount) repeatedly until it gets an empty
-    /// list (EOF), then Close(). Only one block is held in memory at a time, so any object
-    /// size works without a temp file.
-    ///
-    /// Read() contract (verified against FileSystemContentStream): in byte mode return a
-    /// list of boxed System.Byte; in text mode return a list of strings (lines). An empty
-    /// list signals end of content.
+    /// Streams an S3 object to Get-Content over a TransferUtility download stream, one block in memory
+    /// at a time. Read() returns a list per call (byte[] blocks in byte mode, strings in text mode) and
+    /// an empty list at EOF, matching FileSystemContentStream's contract.
     /// </summary>
     internal sealed class S3ContentReader : IContentReader
     {
@@ -42,9 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private StreamReader _textReader;
         private bool _rawDone;   // -Raw returns everything in one Read, then EOF
 
-        // A bare readable Stream (from OpenStreamAsync, possibly a parallel multipart download
-        // behind a forward-only facade) plus the owned download CancellationTokenSource to
-        // release when the reader closes. onDispose runs on Close/Dispose (may be null).
+        // stream: the forward-only download stream. downloadCts: owned, released on Close.
         internal S3ContentReader(Stream stream, System.Threading.CancellationTokenSource downloadCts,
             bool asByteStream, bool raw, System.Text.Encoding encoding, Action onDispose = null)
         {
@@ -55,19 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _raw = raw;
             if (!_asByteStream)
             {
-                // The caller resolves -Encoding (defaulting to UTF-8 no-BOM) via ResolveEncoding, so
-                // encoding is non-null in practice; the ?? is a defensive guard, not the default path.
-                var enc = encoding ?? new System.Text.UTF8Encoding(false);
-                // leaveOpen:true so the StreamReader does NOT dispose _stream - Dispose() owns the
-                // stream's lifetime in one place (no double-dispose, and byte/text modes symmetric).
-                // netstandard2.0 has no 3-arg overload, so pass the default 1 KiB buffer + leaveOpen.
+                var enc = encoding ?? new System.Text.UTF8Encoding(false);   // defensive; caller resolves it
+                // leaveOpen so Dispose() owns _stream's lifetime alone. netstandard2.0 lacks the 3-arg
+                // overload, hence the explicit buffer size.
                 _textReader = new StreamReader(_stream, enc, detectEncodingFromByteOrderMarks: true,
                     bufferSize: 1024, leaveOpen: true);
             }
         }
 
         // 80 KiB transfer chunk - large enough to amortize per-call overhead, small enough
-        // to keep memory bounded. (Byte-per-call reads were ~32 KB/s; this is the fix.)
+        // to keep memory bounded.
         private const int ChunkSize = 80 * 1024;
         private readonly byte[] _chunk = new byte[ChunkSize];
 
@@ -77,9 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (_asByteStream)
             {
-                // Return ONE byte[] block per call (a full buffer fill), not one byte. The
-                // content writer flattens byte[] elements, and Get-Content -AsByteStream
-                // unrolls them downstream. Empty list => EOF.
+                // One byte[] block per call, not one byte; Get-Content -AsByteStream unrolls it downstream.
                 int n = ReadFull(_stream, _chunk, ChunkSize);
                 if (n > 0)
                 {
@@ -112,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return blocks;                       // empty list => end of content
         }
 
-        // Fill buf with up to count bytes, looping because a single Stream.Read on an HTTP
-        // body may return fewer bytes than asked even when not at EOF.
+        // Fill buf with up to count bytes, looping because one Stream.Read on an HTTP body may return
+        // fewer bytes than asked without being at EOF.
         private static int ReadFull(Stream s, byte[] buf, int count)
         {
             int total = 0;

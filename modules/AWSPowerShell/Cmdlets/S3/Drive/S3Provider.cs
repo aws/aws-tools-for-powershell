@@ -32,43 +32,16 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon S3 surfaced as a navigable PowerShell drive (ships in AWS.Tools.S3).
-    ///
-    /// A NavigationCmdletProvider (+ IContentCmdletProvider) mapping S3's bucket/prefix/object
-    /// structure onto a file-system model: buckets and prefixes are folders, objects are files.
-    /// It calls the AWS SDK (AmazonS3Client) directly for all S3 operations; it does not invoke
-    /// the S3 cmdlets. Credential/region resolution is shared with AWS.Tools.Common.
-    ///
-    /// Operations implemented:
-    ///   * root Get-ChildItem             -> ListBuckets
-    ///   * bucket/prefix listing          -> ListObjectsV2 (delimiter "/"), streamed + paginated
-    ///   * ItemExists / IsItemContainer   -> path resolution + tab-completion
-    ///   * Get-Content (download)         -> GetContentReader, TransferUtility.OpenStream
-    ///   * Set-Content (upload)           -> GetContentWriter, TransferUtility.Upload (bridged)
-    ///   * Remove-Item                    -> DeleteObject / recursive batched DeleteObjects
-    ///   * multi-region routing, listing cache
-    ///
-    /// Credential/region resolution reuses AWS.Tools.Common's session defaults
-    /// ($StoredAWSCredentials / $StoredAWSRegion) by invoking its cmdlets through SessionState
-    /// (no compile-time dependency); explicit drive parameters take precedence, the SDK default
-    /// chain is the final fallback. See ResolveRegion / ResolveCredentials.
-    ///
-    /// Out of scope: Copy-Item (S3->S3 copy is not supported; CopyItem is not overridden, so it
-    /// errors as unsupported).
+    /// Amazon S3 as a navigable PowerShell drive (ships in AWS.Tools.S3). Buckets and prefixes are
+    /// folders, objects are files. Calls the AWS SDK directly; does not invoke the S3 cmdlets.
+    /// Copy-Item is unsupported (CopyItem is not overridden, so it errors).
     /// </summary>
     [CmdletProvider("AWS.S3", ProviderCapabilities.None)]
     public sealed class S3Provider : NavigationCmdletProvider, IContentCmdletProvider
     {
-        // The per-drive state (clients, caches). Normally this.PSDriveInfo IS our S3DriveInfo.
-        // BUT for a PROVIDER-QUALIFIED path (e.g. a listed item's PSPath
-        // "AWS.Tools.S3\AWS.S3::bucket\key" piped into Get-Content / Remove-Item), the
-        // engine resolves against the provider's HIDDEN drive - a plain PSDriveInfo (or null),
-        // NOT our S3DriveInfo - so a direct cast would NRE and the op fails as "does not exist"
-        // before our real logic runs. In that mode we recover the actual mounted drive from
-        // ProviderInfo.Drives (the user's S3DriveInfo(s) live there regardless of PSDriveInfo).
-        // With one mounted S3 drive (the overwhelmingly common case) this is unambiguous; with
-        // several we take the first, since a provider-qualified path carries no drive identity to
-        // disambiguate (the credentials/region it resolves under are then that drive's).
+        // Per-drive state (clients, caches). Usually this.PSDriveInfo is our S3DriveInfo, but a
+        // provider-qualified path (e.g. a piped PSPath "AWS.Tools.S3\AWS.S3::bucket\key") resolves
+        // against the provider's hidden drive, so we fall back to the first drive in ProviderInfo.Drives.
         private S3DriveInfo Drive
         {
             get
@@ -85,12 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // The mount-region client. Used at the drive root, where ListBuckets is account-global.
         private IAmazonS3 Client => Drive.Client;
 
-        /// <summary>
-        /// The client for the region a given bucket lives in. On first touch of a bucket we
-        /// resolve its region (GetBucketLocation), cache the bucket->region mapping, and reuse
-        /// one client per region. A bucket in the mount region just returns the mount client.
-        /// This is what lets one drive span all regions transparently.
-        /// </summary>
+        // The client for the region a bucket lives in, so one drive spans all regions. Region is
+        // resolved on first touch and cached.
         private IAmazonS3 ClientForBucket(string bucket)
         {
             var region = Drive.GetCachedBucketRegion(bucket);
@@ -102,18 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return Drive.ClientForRegion(region);
         }
 
-        // Resolve a bucket's region using an explicit resolver client (pinned to some region;
-        // GetBucketLocation works cross-region, so any live client answers correctly).
-        //
-        // Takes the client as a parameter rather than reading the Client property because this
-        // is also called at mount time from NewDrive/ValidateRoot, where this.PSDriveInfo (and
-        // therefore Drive/Client) is not yet populated by the engine - so we pass the local
-        // mount client instead.
-        //
-        // NOTE (corrects the design's HeadBucket plan): HeadBucket via a region-pinned client
-        // throws MovedPermanently for an out-of-region bucket instead of returning BucketRegion
-        // cleanly (verified). GetBucketLocation is the operation built to answer "what region?"
-        // and works cross-region. Quirk: us-east-1 buckets return a null/empty location.
+        // Resolver client is a parameter (not the Client property) because this also runs at mount,
+        // before this.Drive exists. GetBucketLocation, not HeadBucket: a region-pinned HeadBucket
+        // throws MovedPermanently cross-region. us-east-1 buckets return a null/empty location.
         private string ResolveBucketRegion(IAmazonS3 resolver, string bucket)
         {
             var resp = RunSync(ct => resolver.GetBucketLocationAsync(
@@ -124,36 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return loc;
         }
 
-        // 8 MiB single-vs-multipart threshold, reused as TransferUtility's MinSizeBeforePartUpload
-        // and as the default PartSize for non-seekable PSDrive uploads. The SDK's non-seekable
-        // path falls back to S3's 5 MiB minimum when PartSize is unset, which can exceed S3's
-        // 10,000-part limit for uploads past ~49 GiB (5 MiB x 10,000). Set-Content -PartSize can override this per upload.
+        // Default multipart part size for non-seekable uploads. Without it the SDK falls back to S3's
+        // 5 MiB minimum, which hits the 10,000-part limit past ~49 GiB. Set-Content -PartSize overrides it.
         private const long MultipartThreshold = 8 * 1024 * 1024;
 
-        /// <summary>
-        /// A TransferUtility bound to the bucket's region client. Built per call (cheap - it is a
-        /// thin wrapper over the already-cached client); reusing the client preserves multi-region
-        /// routing and the drive's resolved credentials. MinSizeBeforePartUpload reuses our 8 MiB
-        /// single-vs-multipart threshold.
-        /// </summary>
         private Amazon.S3.Transfer.TransferUtility TransferUtilityForBucket(string bucket) =>
             new Amazon.S3.Transfer.TransferUtility(ClientForBucket(bucket),
                 new Amazon.S3.Transfer.TransferUtilityConfig { MinSizeBeforePartUpload = MultipartThreshold });
 
         // ---- Drive lifecycle -------------------------------------------------
 
-        /// <summary>
-        /// Contributes the credential/region parameters to New-PSDrive when -PSProvider is
-        /// AWS.S3, so `New-PSDrive -PSProvider AWS.S3 -ProfileName p -Region r` works (and so
-        /// does Mount-S3PSDrive, which forwards these).
-        /// </summary>
+        // Contributes the credential/region parameters to New-PSDrive when -PSProvider is AWS.S3
+        // (Mount-S3PSDrive forwards these).
         protected override object NewDriveDynamicParameters() => new S3DriveParameters();
 
-        /// <summary>
-        /// Called by New-PSDrive. Resolves region/credentials (explicit drive parameters first,
-        /// then the AWS.Tools.Common session defaults $StoredAWSRegion / $StoredAWSCredentials,
-        /// then the SDK default chain) and builds the AmazonS3Client for the drive.
-        /// </summary>
+        // Called by New-PSDrive. Resolves region/credentials and builds the drive's AmazonS3Client.
         protected override PSDriveInfo NewDrive(PSDriveInfo drive)
         {
             if (drive == null)
@@ -175,18 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     ? new AmazonS3Client(creds, region)
                     : new AmazonS3Client(region);
 
-                // Hand creds + mount region to the drive so it can build per-region clients
-                // on demand for cross-region buckets (see ClientForBucket). dp?.StorageClass is the
-                // drive-level default applied to uploads (null when -StorageClass was omitted).
-                // Build it into a LOCAL first: this.PSDriveInfo (and therefore Drive/Client) is
-                // still null here - the engine assigns it only AFTER NewDrive returns - so
-                // fail-fast root validation must run against this local instance and the local
-                // mount client, never the instance properties.
+                // Use this local instance and mount client for ValidateRoot below: this.PSDriveInfo
+                // (and Drive/Client) stays null until the engine assigns it after NewDrive returns.
                 var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass);
 
-                // Fail fast if the drive root ("", "bucket", or "bucket/prefix") isn't reachable,
-                // so a typo'd bucket/prefix errors at mount instead of at first listing. Returning
-                // null after WriteError makes New-PSDrive fail cleanly with no drive left behind.
+                // Fail fast on an unreachable root, so a typo errors at mount instead of first listing.
                 if (!ValidateRoot(s3drive, client, drive.Root))
                 {
                     WriteError(new ErrorRecord(
@@ -205,23 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        /// <summary>
-        /// Mount-time reachability check for the drive root, so a bad bucket/prefix fails at mount
-        /// rather than at first listing. Runs against the LOCAL drive + mount client (this.Drive is
-        /// null inside NewDrive). Returns true = mount; false = reject.
-        ///
-        ///   * Empty root (account root): one ListBuckets to validate credentials. AccessDenied
-        ///     PASSES (valid creds, just no s3:ListAllMyBuckets); any other error (expired/invalid
-        ///     creds) FAILS.
-        ///   * Bucket-only root ("bucket"): the bucket must exist. An empty bucket still passes.
-        ///   * Bucket+prefix root ("bucket/prefix"): the prefix must EXIST - i.e. a delimited
-        ///     listing returns >=1 object or subfolder (a zero-byte directory-marker object counts,
-        ///     since its own key is returned under the prefix). A typo'd or truly-empty prefix
-        ///     fails. This mirrors the FileSystem provider refusing a nonexistent -Root.
-        ///
-        /// AccessDenied (403) never fails a mount (matches ItemExists/IsItemContainer): the resource
-        /// exists, we just can't inspect it; the real error surfaces on the actual operation.
-        /// </summary>
+        // Mount-time reachability check (true = mount, false = reject). Runs against the local drive +
+        // mount client since this.Drive is null inside NewDrive. AccessDenied always passes: the
+        // resource exists but we can't inspect it, so the real error surfaces on the actual operation.
         private bool ValidateRoot(S3DriveInfo drive, IAmazonS3 mountClient, string root)
         {
             ParsePath(root, out var bucket, out var keyPrefix);
@@ -238,14 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     return true;   // valid creds, just lacking s3:ListAllMyBuckets
                 }
-                // Any other exception (ExpiredToken/InvalidAccessKeyId/SignatureDoesNotMatch, or a
-                // non-S3 credential-resolution failure) is NOT caught here: it propagates to
-                // NewDrive's catch, which rejects the mount as NewDriveFailed (OpenError) carrying
-                // the real error message.
+                // Any other exception (expired/invalid creds) propagates to NewDrive's catch.
             }
 
-            // Bucket (and maybe prefix) root: resolve the bucket's region, then probe it with a
-            // region-correct client. GetBucketLocation works cross-region via the mount client.
+            // Bucket root: resolve its region so the probe below uses a region-correct client.
             string regionName;
             try
             {
@@ -257,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex))
             {
-                // Can't read the bucket's location, but the creds are valid - fall back to the
-                // mount region and let the actual operation surface any real AccessDenied later.
-                regionName = drive.MountRegionName;
+                regionName = drive.MountRegionName;   // can't read location; fall back to mount region
             }
 
             drive.CacheBucketRegion(bucket, regionName);
@@ -269,13 +187,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (string.IsNullOrEmpty(keyPrefix))
                 {
-                    // Bucket-only: existence probe (an empty bucket is a valid mount).
+                    // Bucket-only: an empty bucket is still a valid mount.
                     RunSync(ct => client.ListObjectsV2Async(
                         new ListObjectsV2Request { BucketName = bucket, MaxKeys = 1 }, ct));
                     return true;
                 }
 
-                // Prefix root: the prefix must exist (>=1 child, marker object counts).
+                // Prefix root: reject a nonexistent prefix (a directory-marker object counts as a child).
                 var listPrefix = EnsureTrailingSlash(keyPrefix);
                 var resp = RunSync(ct => client.ListObjectsV2Async(new ListObjectsV2Request
                 {
@@ -288,8 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
-            // Other S3 errors (throttling, 5xx not absorbed by SDK retries) propagate to NewDrive's
-            // catch and surface as NewDriveFailed with the real message.
+            // Other S3 errors propagate to NewDrive's catch.
         }
 
         protected override PSDriveInfo RemoveDrive(PSDriveInfo drive)
@@ -298,11 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return drive;
         }
 
-        // Region, in precedence order:
-        //   explicit -Region -> the PowerShell session default $StoredAWSRegion (via
-        //   AWS.Tools.Common's Get-DefaultAWSRegion) -> us-east-1.
-        // Reusing Common's session default (rather than resolving SDK-direct) is what makes an
-        // S3 drive pick up Set-DefaultAWSRegion exactly like the S3 cmdlets do.
+        // Region precedence: explicit -Region -> session default $StoredAWSRegion (via Common) -> us-east-1.
         private RegionEndpoint ResolveRegion(S3DriveParameters dp)
         {
             if (dp != null && !string.IsNullOrEmpty(dp.Region))
@@ -314,10 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 : ValidRegionOrThrow(sessionRegion);
         }
 
-        // RegionEndpoint.GetBySystemName does NOT throw on an unknown name - it fabricates a
-        // synthetic endpoint (DisplayName "Unknown") that only fails later with an obscure
-        // DNS/signing error. Reject a bad region up front with a clear, actionable message; the
-        // caller (NewDrive) turns this into a clean mount failure.
+        // GetBySystemName does NOT throw on an unknown name - it returns a synthetic "Unknown" endpoint
+        // that only fails later with an obscure DNS/signing error. Reject it up front instead.
         private static RegionEndpoint ValidRegionOrThrow(string systemName)
         {
             var region = RegionEndpoint.GetBySystemName(systemName);
@@ -327,14 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return region;
         }
 
-        // Credentials, in precedence order:
-        //   explicit access/secret keys -> named profile (-ProfileName) -> -AWSCredential object
-        //   -> the PowerShell session default $StoredAWSCredentials (via Get-AWSCredential)
-        //   -> null (let the SDK default chain run: env vars, ECS, EC2 instance profile).
-        // The session-default step reuses AWS.Tools.Common so a drive authenticates like the S3
-        // cmdlets (picks up Set-AWSCredential). $StoredAWSCredentials holds an AWSPSCredentials
-        // whose underlying AWSCredentials accessor is internal to Common, so we cannot read it
-        // cross-assembly directly - Get-AWSCredential (no args) writes the unwrapped credentials.
+        // Credential precedence: explicit keys -> -ProfileName -> -AWSCredential -> session default
+        // $StoredAWSCredentials (via Get-AWSCredential) -> null (SDK default chain).
         private AWSCredentials ResolveCredentials(S3DriveParameters dp)
         {
             if (dp != null)
@@ -364,12 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             throw new ArgumentException($"AWS profile '{profileName}' was not found.");
         }
 
-        // ---- AWS.Tools.Common session defaults (no compile-time dependency) ----
-        // We depend on AWS.Tools.Common at runtime (RequiredModules in the manifest), so its
-        // cmdlets are loaded in the runspace. Rather than reference Common's assembly at build
-        // time (whose credential session-default accessor is internal anyway), we invoke its
-        // public cmdlets through the provider's SessionState. Best-effort: any failure (Common
-        // not loaded, no default set) falls through to the next resolution step.
+        // ---- AWS.Tools.Common session defaults ----
+        // Invoked through SessionState rather than a compile-time reference to Common. Best-effort:
+        // any failure (Common not loaded, no default set) falls through to the next resolution step.
 
         // $StoredAWSCredentials, unwrapped to raw AWSCredentials by Get-AWSCredential. Null if unset.
         private AWSCredentials SessionDefaultCredentials()
@@ -385,9 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return null;
         }
 
-        // $StoredAWSRegion system name (e.g. "us-west-2") via Get-DefaultAWSRegion. Null if unset.
-        // Get-DefaultAWSRegion writes an Amazon.PowerShell.Common.AWSRegion whose .Region is the
-        // system name; read it reflectively to avoid a compile-time dependency on Common.
+        // $StoredAWSRegion system name via Get-DefaultAWSRegion. Null if unset. The cmdlet writes an
+        // AWSRegion whose .Region holds the system name, read reflectively to avoid a Common dependency.
         private string SessionDefaultRegionName()
         {
             try
@@ -407,12 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // ---- Listing ---------------------------------------------------------
 
-        /// <summary>
-        /// Backs Get-ChildItem. Root -> ListBuckets. Inside a bucket/prefix -> a delimited
-        /// ListObjectsV2 listing of the immediate children (subfolders + objects).
-        ///
-        /// With -Recurse, lists EVERY object beneath the prefix in one delimiter-less sweep.
-        /// </summary>
+        // Backs Get-ChildItem. Root -> ListBuckets; a bucket/prefix -> immediate children, or with
+        // -Recurse every object beneath the prefix.
         protected override void GetChildItems(string path, bool recurse)
         {
             if (IsDriveRoot(path))
@@ -426,14 +323,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             ParsePath(path, out var bucket1, out var key);
             try
             {
-                // Stream: emit each item as its ListObjectsV2 page arrives (bounded memory,
-                // output appears immediately, Ctrl+C interruptible) rather than buffering the
-                // whole listing first.
                 if (recurse)
-                    // Flat: every key beneath the prefix.
                     StreamAllUnder(bucket1, key, c => WriteItemObject(c.Item, c.Path, c.IsContainer));
                 else
-                    // One level: immediate children via a delimited listing.
                     StreamChildren(bucket1, key, c => WriteItemObject(c.Item, c.Path, c.IsContainer));
             }
             catch (AmazonS3Exception ex)
@@ -464,18 +356,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // ---- Get-Item --------------------------------------------------------
 
-        /// <summary>
-        /// Backs Get-Item: emit the single S3ItemInfo for the exact path (no children), the
-        /// complement of Get-ChildItem. Root -> the buckets; a bucket/prefix -> a Folder; an object
-        /// -> a File with size + last-modified from GetObjectMetadata. A name that is both a prefix
-        /// and an object resolves to the Folder (same folder-wins rule as listing). Writes a clean
-        /// PathNotFound error when nothing matches, rather than throwing.
-        /// </summary>
+        // Backs Get-Item: the single item for the exact path. A name that is both prefix and object
+        // resolves to the Folder (folder-wins, as in listing).
         protected override void GetItem(string path)
         {
             if (IsDriveRoot(path))
             {
-                // The root "item" is the set of buckets (mirrors Get-Item on a filesystem root).
                 foreach (var bucket in ListBuckets())
                     WriteItemObject(S3ItemInfo.Bucket(bucket.BucketName, bucket.CreationDate),
                         MakeItemPath(bucket.BucketName), isContainer: true);
@@ -487,9 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (string.IsNullOrEmpty(key))
                 {
-                    // A bucket. ListBuckets is account-global; find this one to carry its creation
-                    // date, but fall back to a plain existence probe if it isn't in the listing
-                    // (e.g. ListAllMyBuckets denied but the bucket itself is reachable).
+                    // Find the bucket in ListBuckets to carry its creation date, else fall back to an
+                    // existence probe (e.g. ListAllMyBuckets denied but the bucket is reachable).
                     var b = FindBucket(bucket1);
                     if (b != null)
                         WriteItemObject(S3ItemInfo.Bucket(b.BucketName, b.CreationDate),
@@ -502,9 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     return;
                 }
 
-                // Folder wins over a colliding object (same rule as the listing path). If listing
-                // the prefix is denied, still fall back to an exact object HEAD so buckets that deny
-                // ListBucket can read/delete known object keys.
+                // Folder wins over a colliding object. If listing is denied, the object HEAD below
+                // still lets buckets that deny ListBucket read/delete known keys.
                 var prefixAccessDenied = (AmazonS3Exception)null;
                 if (TryPrefixHasChildren(bucket1, key, out prefixAccessDenied))
                 {
@@ -516,7 +400,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     return;
                 }
 
-                // Otherwise an object: HEAD it for size + last-modified.
                 var meta = TryGetObjectMetadata(bucket1, key);
                 if (meta != null)
                 {
@@ -577,33 +460,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (string.IsNullOrEmpty(key)) return BucketExists(bucket);
 
-                // Fastest path: this exact key was just emitted by an in-progress (or recent)
-                // listing -> answer from the per-child positive cache with NO network call. This
-                // is what kills the per-item probe storm DURING a large listing (the parent's
-                // COMPLETE entry doesn't exist until the listing ends, so we can't rely on it).
+                // Per-child cache: no network call if this key was just emitted by a listing. Handles
+                // the per-item probes fired during a large listing, before its complete entry exists.
                 var child = Drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.exists;
 
-                // Next: if the PARENT prefix is completely cached (it is, right after a
-                // Get-ChildItem / completion listed a small prefix), answer from that listing.
+                // Parent prefix's complete cached listing, if present.
                 var resolved = ResolveFromParentCache(bucket, key);
                 if (resolved.HasValue)
                 {
                     if (resolved.Value.exists) return true;
 
-                    // A raw SDK fixture/external writer can create this exact key while a parent
-                    // listing is still inside its short TTL. If a newer exact probe already proved
-                    // the path exists, do not let the stale parent-listing absence hide it.
+                    // An external writer may have created this key while the parent listing is still in
+                    // its TTL; a newer exact probe must override the stale absence.
                     var exactExists = ExactProbeExists(bucket, key);
                     if (exactExists.HasValue)
                         return exactExists.Value;
                     return false;
                 }
 
-                // A name that is both an object and a prefix is treated as a folder, so check the
-                // prefix first. If ListBucket is denied, fall back to a direct object HEAD; if that
-                // does not find an object, preserve the old "inaccessible paths probably exist"
-                // behavior so the real operation can surface AccessDenied.
+                // Folder-wins, so check the prefix first. On denied listing, a returned prefixAccessDenied
+                // means "probably exists" so the real op can surface AccessDenied.
                 var prefixAccessDenied = (AmazonS3Exception)null;
                 if (TryPrefixHasChildren(bucket, key, out prefixAccessDenied))
                     return true;
@@ -612,11 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return prefixAccessDenied != null;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
-            // Access-denied: the resource almost certainly EXISTS, we just can't inspect it.
-            // Return true so path resolution succeeds and the ACTUAL operation then fails with
-            // the real AccessDenied - otherwise the engine masks our thrown error as a
-            // misleading "Cannot find path ... does not exist" (verified: the engine converts
-            // any throw from ItemExists into PathNotFound).
+            // Access-denied returns true (not throw): the engine turns any throw from ItemExists into a
+            // misleading "Cannot find path", so we let the real op surface the AccessDenied instead.
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
         }
 
@@ -628,18 +502,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (string.IsNullOrEmpty(key)) return BucketExists(bucket); // a bucket is a container
 
-                // Fastest path: per-child positive cache from an in-progress/recent listing.
+                // Cache layers as in ItemExists: per-child, then the parent's complete listing.
                 var child = Drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.isContainer;
 
-                // Next: the parent's complete cached listing (no network call).
                 var resolved = ResolveFromParentCache(bucket, key);
                 if (resolved.HasValue)
                 {
                     if (resolved.Value.exists) return resolved.Value.isContainer;
 
-                    // See ItemExists: a newer exact prefix probe should override a stale parent
-                    // listing that says the child is absent.
+                    // A newer exact prefix probe overrides a stale parent-listing absence (see ItemExists).
                     var exactExists = ExactProbeExists(bucket, key);
                     if (exactExists == true)
                         return Drive.ListingCache.TryGetExistsProbe(bucket, EnsureTrailingSlash(key), asPrefix: true) == true;
@@ -655,14 +527,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return false;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
-            // Access-denied: assume container so navigation proceeds; the real operation then
-            // surfaces the genuine AccessDenied (see ItemExists for why).
+            // Access-denied: assume container so navigation proceeds (see ItemExists for why).
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
         }
 
-        // Try to answer exists/isContainer for bucket/key from the COMPLETE cached listing of
-        // its parent prefix. Returns null if the parent isn't completely cached (-> caller
-        // does a network check). Splits "a/b/c.txt" into parent "a/b/" + child "c.txt".
+        // Resolve exists/isContainer from the parent prefix's complete cached listing, or null if it
+        // isn't cached. Splits "a/b/c.txt" into parent "a/b/" + child "c.txt".
         private (bool exists, bool isContainer)? ResolveFromParentCache(string bucket, string key)
         {
             var k = key.TrimEnd('/');
@@ -685,10 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         protected override bool IsValidPath(string path) => true; // accept anything (S3 keys are near-arbitrary)
 
-        // The engine calls HasChildItems during Remove-Item (to decide container/recurse
-        // semantics); its base default THROWS "not supported", so we must override it or
-        // Remove-Item fails before reaching RemoveItem. Root and buckets always count as
-        // having children; a prefix has children if a delimited listing returns anything.
+        // Must be overridden: the base default throws "not supported", which would break Remove-Item.
         protected override bool HasChildItems(string path)
         {
             if (IsDriveRoot(path)) return true;
@@ -697,8 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (string.IsNullOrEmpty(key)) return true; // a bucket is a container
 
-                // Per-child cache: a recorded container was a CommonPrefix (=> has children); a
-                // recorded object has none. Avoids a probe when acting on a just-listed item.
+                // A recorded container was a CommonPrefix (has children); a recorded object has none.
                 var child = Drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.isContainer;
 
@@ -710,30 +576,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return false;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
-            // Access-denied: assume it has children so path resolution proceeds and the real
-            // operation surfaces the genuine AccessDenied (mirrors ItemExists/IsItemContainer).
+            // Access-denied: assume children (see ItemExists for why).
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
         }
-
-        // ---- Copy (S3 -> S3) — OUT OF SCOPE --------------------------------------
-        //
-        // S3->S3 copy is not supported through the drive. We intentionally do NOT override
-        // CopyItem, so Copy-Item on an S3 drive falls through to the base provider's clean
-        // "operation not supported" error (same as Move-Item / Rename-Item).
 
         // ---- Remove ----------------------------------------------------------
 
         private const int DeleteBatchSize = 1000;   // S3 DeleteObjects caps at 1000 keys/call
 
-        /// <summary>
-        /// Backs Remove-Item. A single object is deleted with DeleteObject. With -Recurse on
-        /// a prefix, every object beneath it is deleted with batched DeleteObjects (<=1000
-        /// per call). Deletion is gated by ShouldProcess only - it does NOT prompt by default,
-        /// matching the built-in FileSystem provider (and `aws s3 rm`): -WhatIf / -Confirm and
-        /// $ConfirmPreference are the native ways to ask for confirmation. The one case that still
-        /// auto-prompts - deleting a non-empty prefix WITHOUT -Recurse - is the PowerShell ENGINE's
-        /// own container-recurse prompt, not ours; that is the same safety net FileSystem relies on.
-        /// </summary>
+        // Backs Remove-Item (object -> DeleteObject; -Recurse prefix -> batched DeleteObjects). Gated
+        // by ShouldProcess, so -WhatIf/-Confirm work but there is no prompt by default, like FileSystem.
         protected override void RemoveItem(string path, bool recurse)
         {
             if (!TryParseObjectPath(path,
@@ -743,9 +595,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             try
             {
-                // Treat as a prefix (folder) when it has children; otherwise a single object. If
-                // ListBucket is denied, keep going down the exact-object path so a known key can be
-                // removed without bucket listing permission.
+                // Prefix (folder) when it has children, else a single object. On denied listing the
+                // exact-object path still lets a known key be removed without list permission.
                 if (TryPrefixHasChildren(bucket, key, out _))
                 {
                     if (!recurse)
@@ -760,18 +611,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
                 else
                 {
-                    // Single object. ShouldProcess gates -WhatIf/-Confirm and honors
-                    // $ConfirmPreference, exactly like the FileSystem provider's Remove-Item: NO
-                    // prompt by default. (A provider cannot set ConfirmImpact - that belongs to the
-                    // Remove-Item cmdlet - so ShouldProcess alone does not prompt unless the user
-                    // opts in with -Confirm.) This matches what PowerShell and `aws s3 rm` users
-                    // already expect; -Confirm / -WhatIf remain the native way to ask for confirmation.
                     if (!ShouldProcess(path, "Remove S3 object"))
                         return;
 
                     RunSync(ct => ClientForBucket(bucket).DeleteObjectAsync(
                         new DeleteObjectRequest { BucketName = bucket, Key = key }, ct));
-                    Drive.ListingCache.InvalidateForKey(bucket, key);   // show the removal immediately
+                    Drive.ListingCache.InvalidateForKey(bucket, key);
                 }
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex))
@@ -784,16 +629,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // List every key under the prefix (no delimiter = fully recursive) and delete in
-        // batches of up to 1000.
         private void RemovePrefixRecursive(string bucket, string key, string displayPath)
         {
-            // ShouldProcess only - honors -WhatIf/-Confirm/$ConfirmPreference but does NOT prompt by
-            // default, matching FileSystem. When the user reached here by answering the engine's
-            // container-recurse prompt (deleting a non-empty prefix without -Recurse), that engine
-            // prompt was the confirmation; adding our own here is what produced the redundant double
-            // prompt, so it is deliberately gone. An explicit `-Recurse` deletes silently (as `rm -r`
-            // / FileSystem do); use -WhatIf or -Confirm to preview or gate it.
+            // No extra prompt: -Recurse deletes silently, and the engine's container-recurse prompt
+            // (non-empty prefix without -Recurse) was already the confirmation.
             if (!ShouldProcess(displayPath, "Recursively remove S3 prefix and all objects under it"))
                 return;
 
@@ -827,12 +666,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
                 while (!string.IsNullOrEmpty(token));
 
-                // Also delete the object at the exact key (no trailing slash), if any. When a name
-                // is both a folder ("key/...") and an object ("key"), the folder shadows the object
-                // in listings; the delimiter-less sweep above only covers "key/", so without this
-                // the shadowed object survives and the name reappears as a plain object after the
-                // "folder" is deleted. DeleteObjects is idempotent, so this is a no-op when no such
-                // object exists.
+                // Also delete the object at the exact key: when a name is both folder ("key/...") and
+                // object ("key"), the sweep above only covers "key/", leaving the shadowed object behind.
                 var exactKey = key.TrimEnd('/');
                 if (exactKey.Length > 0)
                     batch.Add(new KeyVersion { Key = exactKey });
@@ -842,9 +677,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             finally
             {
-                // Evict the prefix (and ancestors) so removed keys stop appearing - in a finally so
-                // a mid-sweep failure still refreshes the view for whatever was already deleted,
-                // rather than leaving a stale listing until the TTL expires.
+                // In a finally so a mid-sweep failure still refreshes the view for what was deleted.
                 Drive.ListingCache.InvalidateForKey(bucket, key);
             }
         }
@@ -861,10 +694,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (DeleteObjectsException ex)
             {
-                // A partial failure: some keys deleted, some failed. Report each failed key with
-                // its S3 error rather than aborting the whole recursive delete, so the remaining
-                // batches still run and the user sees exactly what could not be removed. (The
-                // caller invalidates the listing cache in a finally, covering the deleted keys.)
+                // Partial failure: report each failed key with its S3 error rather than aborting, so
+                // the remaining batches still run and the user sees exactly what could not be removed.
                 foreach (var e in ex.Response?.DeleteErrors ?? new List<DeleteError>())
                     WriteError(new ErrorRecord(
                         new AmazonS3Exception($"Failed to delete '{e.Key}': {e.Code} {e.Message}"),
@@ -875,13 +706,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // ---- Content: download / upload (IContentCmdletProvider) -------------
 
-        /// <summary>
-        /// Backs Get-Content on an S3 object path (DOWNLOAD). Opens the object via
-        /// TransferUtility.OpenStream (parallel multipart download + ranged retries) and hands
-        /// back a reader over that forward-only stream; the reader pulls blocks lazily as
-        /// PowerShell calls Read(), so any size streams back with bounded memory (one block at
-        /// a time). No size threshold - TransferUtility manages part sizing for the download.
-        /// </summary>
+        // Backs Get-Content (download). Opens the object via TransferUtility.OpenStream (parallel
+        // multipart + ranged retries) and returns a reader that pulls blocks lazily, so any size
+        // streams back with bounded memory.
         public IContentReader GetContentReader(string path)
         {
             if (!TryParseObjectPath(path,
@@ -889,15 +716,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
 
-            // -AsByteStream / -Raw / -Encoding are provider-contributed dynamic parameters
-            // (verified: NOT static on Get-Content). Normally DynamicParameters is OUR
-            // S3ContentReaderDynamicParameters. BUT when a listed item's PSPath is bound via the
-            // PIPELINE (Get-ChildItem | Get-Content -AsByteStream), the engine parses the content
-            // dynamic-params against the DEFAULT (FileSystem) provider and hands us a
-            // FileSystemContentReaderDynamicParameters instead - a direct cast to our type then
-            // returns null and -AsByteStream/-Raw/-Encoding are silently lost (bytes come back as
-            // text). So read the three properties by NAME off whatever object we're given, ours or
-            // FileSystem's. (FileSystem uses the same property names AsByteStream/Raw/Encoding.)
+            // -AsByteStream / -Raw / -Encoding are dynamic parameters. On a pipeline bind
+            // (Get-ChildItem | Get-Content) the engine hands us FileSystem's dynamic-params object, not
+            // ours, so ReadContentReaderParams reads them by name off either type rather than casting.
             bool asByteStream, raw;
             System.Text.Encoding encoding;
             try
@@ -910,23 +731,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
-            // Download via TransferUtility.OpenStream instead of a single GetObject - gains parallel
-            // multipart download + ranged retries. OpenStream returns a forward-only Stream, which is
-            // exactly what S3ContentReader consumes.
-            //
-            // The CTS must outlive this method: a multipart OpenStream fetches parts on background
-            // tasks AS THE READER READS, so the token has to stay live for the whole read, not just
-            // the OpenStreamAsync call. The reader owns it and disposes it on Close; StopProcessing
-            // cancels it via the registered content-CTS set.
+            // The CTS must outlive this method: multipart OpenStream fetches parts on background tasks
+            // as the reader reads, so the token stays live for the whole read. The reader owns it and
+            // disposes it on Close; StopProcessing cancels it via the content-CTS set.
             var readerCts = new CancellationTokenSource();
             RegisterContentCts(readerCts);
             Drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
             var handedOff = false;   // true once the reader owns readerCts (success path)
             try
             {
-                // The TransferUtility is only needed to OPEN the stream; dispose it eagerly (using).
-                // Verified: disposing the TU does NOT dispose our shared client, and the opened
-                // multipart stream reads back byte-exact even after the TU is gone.
+                // TU is only needed to open the stream (dispose eagerly); disposing it leaves our
+                // shared client and the opened multipart stream intact.
                 Stream stream;
                 using (var tu = TransferUtilityForBucket(bucket))
                 {
@@ -955,10 +770,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             finally
             {
-                // Any non-success exit (incl. a non-AmazonS3Exception like a Ctrl+C
-                // OperationCanceledException or an SDK error during region resolve / OpenStream)
-                // must unregister and release readerCts and end the content operation. On success
-                // the reader owns it (and does both via onDispose), so we leave it alone.
+                // On any non-success exit, release readerCts and end the content op. On success the
+                // reader owns it (via onDispose), so leave it alone.
                 if (!handedOff)
                 {
                     UnregisterContentCts(readerCts);
@@ -971,14 +784,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public object GetContentReaderDynamicParameters(string path) =>
             new S3ContentReaderDynamicParameters();
 
-        // Read AsByteStream / Raw / Encoding off the content-reader dynamic-params object, whatever
-        // its concrete type, and resolve the final Encoding. On a literal/-LiteralPath bind this is our
-        // S3ContentReaderDynamicParameters (Encoding is a friendly string); on a PIPELINE bind
-        // (Get-ChildItem | Get-Content) the engine may hand us the FileSystem provider's
-        // FileSystemContentReaderDynamicParameters instead, whose Encoding is a rich
-        // System.Text.Encoding OBJECT. Both expose AsByteStream/Raw/Encoding by the same names, so we
-        // duck-type - honoring -AsByteStream/-Raw/-Encoding on BOTH bind paths. Throws ArgumentException
-        // (via ResolveEncoding) only for an unknown STRING encoding name.
+        // Read AsByteStream / Raw / Encoding off our dynamic-params type or, on a pipeline bind,
+        // FileSystem's (same property names, but its Encoding is a System.Text.Encoding, not a string).
         private static void ReadContentReaderParams(object dp, out bool asByteStream, out bool raw, out System.Text.Encoding encoding)
         {
             asByteStream = false; raw = false; encoding = ResolveEncoding(null);   // default UTF-8 no-BOM
@@ -992,23 +799,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return;
             }
 
-            // Foreign params object (e.g. FileSystem's): duck-type by property name.
+            // Foreign params object (e.g. FileSystem's): read by property name.
             var t = dp.GetType();
             asByteStream = ReadSwitchLike(dp, t, "AsByteStream");
             raw = ReadSwitchLike(dp, t, "Raw");
             var enc = t.GetProperty("Encoding")?.GetValue(dp);
             if (enc is System.Text.Encoding realEnc)
-                encoding = realEnc;                          // FileSystem hands a ready Encoding object - use it as-is
+                encoding = realEnc;                          // FileSystem hands a ready Encoding object
             else if (enc is string encName && encName.Length > 0)
-                encoding = ResolveEncoding(encName);         // a friendly name (our shape) - map it
-            // else: leave the UTF-8 default (enc null, or some other type we don't recognize)
+                encoding = ResolveEncoding(encName);         // our shape: a friendly name
+            // else: leave the UTF-8 default
         }
 
-        // Read AsByteStream / Encoding / NoNewline off the content-writer dynamic-params object.
-        // On explicit S3 paths this is our S3ContentWriterDynamicParameters. On a PIPELINE bind
-        // (Get-Item | Set-Content), PowerShell may hand us another provider's dynamic params object;
-        // FileSystem uses the same common property names, so duck-type those. S3-only writer params
-        // (PartSize, StorageClass) intentionally remain available only from our native type.
+        // As ReadContentReaderParams, for the writer. S3-only params (PartSize, StorageClass) stay
+        // available only from our native type.
         private static void ReadContentWriterParams(object dp, out bool asByteStream, out bool noNewline, out System.Text.Encoding encoding)
         {
             asByteStream = false; noNewline = false; encoding = ResolveEncoding(null);   // default UTF-8 no-BOM
@@ -1022,15 +826,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return;
             }
 
-            // Foreign params object (e.g. FileSystem's): duck-type by property name.
+            // Foreign params object (e.g. FileSystem's): read by property name.
             var t = dp.GetType();
             asByteStream = ReadSwitchLike(dp, t, "AsByteStream");
             noNewline = ReadSwitchLike(dp, t, "NoNewline");
             encoding = ReadEncodingLike(t.GetProperty("Encoding")?.GetValue(dp), encoding);
         }
 
-        // True if property 'name' on dp is a set SwitchParameter (or a bool that is true). Tolerates
-        // both SwitchParameter (has .IsPresent / bool conversion) and plain bool.
+        // True if property 'name' on dp is a set SwitchParameter or a true bool.
         private static bool ReadSwitchLike(object dp, Type t, string name)
         {
             var val = t.GetProperty(name)?.GetValue(dp);
@@ -1060,13 +863,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return ResolveEncoding(encName);
         }
 
-        /// <summary>
-        /// Backs Set-Content on an S3 object path (UPLOAD). Streams bytes to S3 via
-        /// TransferUtility. Because the writer feeds TU a non-seekable bridge stream, every
-        /// upload uses TU's multipart path (size-independent): the destination is replaced only
-        /// at the final CompleteMultipartUpload, and TU aborts its own multipart upload on
-        /// failure/cancellation. Bounded memory (the bridge applies backpressure), no temp file.
-        /// </summary>
+        // Backs Set-Content (upload). The writer feeds TU a non-seekable bridge stream, so every upload
+        // takes TU's multipart path: the object is replaced only at CompleteMultipartUpload, and TU
+        // aborts on failure/cancellation. Bounded memory (the bridge applies backpressure), no temp file.
         public IContentWriter GetContentWriter(string path)
         {
             if (!TryParseObjectPath(path,
@@ -1087,24 +886,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
 
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
-            // Effective storage class: per-upload -StorageClass wins, else the drive default, else
-            // null (S3 uses STANDARD). Null all the way through means we set nothing on the request.
+            // Per-upload -StorageClass wins, else the drive default, else null (nothing set on the request).
             var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
             var partSize = writerParams != null && writerParams.PartSize > 0
                 ? writerParams.PartSize
                 : MultipartThreshold;
             var cache = Drive.ListingCache;
 
-            // Upload via TransferUtility. TU pulls from a stream while PowerShell pushes blocks at
-            // the writer, so S3TransferContentWriter bridges them with a background upload task (see
-            // that class). The writer owns its CTS; we register it in the content-CTS set so Ctrl+C
-            // (StopProcessing) cancels the in-flight upload, and unregister on dispose. onComplete
-            // invalidates the listing cache after a successful Close.
-            //
-            // The CTS/TransferUtility must outlive this method only on the SUCCESS path (the writer
-            // then owns them). If TransferUtilityForBucket (region resolution) or the constructor
-            // throws, the finally releases them and unregisters the CTS - mirrors the reader's
-            // handedOff guard.
+            // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.
+            // On success the writer owns the CTS + TU; otherwise the finally releases them (handedOff guard).
             var writerCts = new CancellationTokenSource();
             RegisterContentCts(writerCts);
             Drive.BeginContentOperation();   // keep the drive's clients alive for the whole upload
@@ -1156,52 +946,34 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return response.Buckets ?? new List<S3Bucket>();
         }
 
-        // Cap on how many entries we'll accumulate to build a COMPLETE cache entry while
-        // streaming. Normal cd/tab-completion prefixes are tiny and benefit from caching; a
-        // pathological prefix (millions of keys) must stay O(1) memory, so past this cap we
-        // drop the accumulator and stream pure. (Listing output itself is never capped.)
+        // Cap on entries accumulated for a COMPLETE cache entry. Past it we drop the accumulator and
+        // stream without caching, so a huge prefix stays O(1) memory. Listing output is never capped.
         private const int ListingCacheMaxItems = 10000;
 
-        /// <summary>
-        /// One level of children under bucket/key via a delimited ListObjectsV2, following
-        /// continuation tokens so large prefixes fully enumerate. CommonPrefixes become
-        /// folders; objects become files. The object whose key equals the listing prefix
-        /// (a directory-marker placeholder for the folder itself) is filtered out.
-        ///
-        /// STREAMS: each child is handed to <paramref name="emit"/> as its page arrives, so
-        /// memory stays bounded and output appears immediately. Interruptible: we stop between
-        /// pages when the engine signals Stopping (Ctrl+C), and the in-flight page request is
-        /// itself cancelled via RunSync's token. A listing is never capped or truncated.
-        /// </summary>
+        // One level of children under bucket/key via a delimited, paginated ListObjectsV2:
+        // CommonPrefixes -> folders, objects -> files, and the prefix's own directory-marker is
+        // filtered out. Streams each child to <paramref name="emit"/> as its page arrives (bounded
+        // memory) and stops between pages on Ctrl+C.
         private void StreamChildren(string bucket, string key, Action<ChildEntry> emit)
         {
             var listPrefix = string.IsNullOrEmpty(key) ? "" : EnsureTrailingSlash(key);
 
-            // Cache: a COMPLETE entry serves the full listing directly (still emitted one by one).
             var cached = Drive.ListingCache.TryGetComplete(bucket, listPrefix);
             if (cached != null)
             {
-                WriteVerbose($"[cache hit] StreamChildren {bucket}/{listPrefix}");
                 foreach (var c in cached) emit(c);
                 return;
             }
 
             var client = ClientForBucket(bucket);
-            // Names that appeared as folders (CommonPrefixes). When a name is BOTH a prefix and an
-            // object, the FOLDER wins and the colliding object is shadowed - so we skip an object
-            // whose name is already a folder (otherwise the name lists twice).
-            //
-            // Best-effort across pages: this shadowing is guaranteed only when the colliding object
-            // and its CommonPrefix land in the same ListObjectsV2 page. A collision needs an object
-            // key that exactly equals a prefix name; if the two happen to straddle a page boundary
-            // (>1000 entries), the object may list once alongside the folder. We accept this rather
-            // than buffer a whole listing (which would break the streaming, bounded-memory design).
+            // Folder names seen this listing, used to shadow a colliding object (folder-wins). Only
+            // reliable when the object and its CommonPrefix share a page; across a page boundary the
+            // object may list once alongside the folder - accepted, to keep the listing streaming.
             var folderNames = new HashSet<string>(StringComparer.Ordinal);
 
-            // Accumulate to upgrade the cache to COMPLETE at the end - but only while small and
-            // only if we finish without interruption (a truncated listing must NOT be cached as
-            // complete, or later existence checks would wrongly conclude "absent"). Null once we
-            // pass the cap => pure streaming, no caching.
+            // Accumulate to upgrade the cache to COMPLETE, but only if we finish uninterrupted and under
+            // the cap - a truncated listing cached as complete would make existence checks read "absent".
+            // Null once over the cap => stream without caching.
             var accum = new List<ChildEntry>();
             var prefixMarkerSeen = false;
             var request = new ListObjectsV2Request
@@ -1216,7 +988,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (Stopping) return;                          // Ctrl+C between pages: stop cleanly, don't cache
                 request.ContinuationToken = token;
-                WriteVerbose($"[S3 CALL] ListObjectsV2 {bucket}/{listPrefix} (page)");
                 var resp = RunSync(ct => client.ListObjectsV2Async(request, ct));
 
                 if (resp.CommonPrefixes != null)
@@ -1233,8 +1004,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                             Item = S3ItemInfo.Folder(name),    // uniform item: Name/Type, no Size
                             Path = MakeChildPath(bucket, cp)
                         };
-                        // Record BEFORE emit: PowerShell may decorate (ItemExists/IsItemContainer)
-                        // synchronously as we emit, so the record must already be present.
+                        // Record before emit: the engine may decorate (ItemExists/IsItemContainer)
+                        // synchronously during emit, so the record must already be present.
                         Drive.ListingCache.RecordChild(bucket, cp, isContainer: true);
                         emit(entry);
                         accum = Accumulate(accum, entry);
@@ -1272,7 +1043,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             while (!string.IsNullOrEmpty(token));
 
-            // Fully enumerated (not interrupted) AND stayed under the cap -> cache COMPLETE.
+            // Fully enumerated and under the cap -> cache COMPLETE.
             if (accum != null)
             {
                 Drive.ListingCache.PutComplete(bucket, listPrefix, accum, prefixMarkerSeen);
@@ -1281,26 +1052,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // Append to the cache accumulator, or drop it (return null) once it exceeds the cap so a
-        // huge listing stays O(1) memory. Null in => stays null (already over cap).
+        // Append to the accumulator, or return null once over the cap (null in => stays null).
         private static List<ChildEntry> Accumulate(List<ChildEntry> accum, ChildEntry entry)
         {
             if (accum == null) return null;
-            if (accum.Count >= ListingCacheMaxItems) return null;   // over cap: stop caching this listing
+            if (accum.Count >= ListingCacheMaxItems) return null;
             accum.Add(entry);
             return accum;
         }
 
-        /// <summary>
-        /// Lists EVERY object beneath a prefix (recursive), via a delimiter-less paginated
-        /// ListObjectsV2 - no CommonPrefixes, every key returned flat. Backs Get-ChildItem
-        /// -Recurse. Directory-marker objects (key ends in "/") are skipped.
-        ///
-        /// STREAMS (see StreamChildren): emits each key as its page arrives, interruptible
-        /// between pages. This is the listing most likely to be enormous, so it does NOT cache
-        /// (a flat recursive sweep isn't a "prefix listing" the cache is keyed for) and stays
-        /// strictly O(1) in memory regardless of object count.
-        /// </summary>
+        // Backs Get-ChildItem -Recurse: every object beneath a prefix, via a delimiter-less paginated
+        // ListObjectsV2 (flat, no CommonPrefixes). Streams like StreamChildren but does not cache, so
+        // it stays O(1) memory however large the listing.
         private void StreamAllUnder(string bucket, string key, Action<ChildEntry> emit)
         {
             var client = ClientForBucket(bucket);
@@ -1325,8 +1088,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         if (obj.Key.EndsWith("/")) continue;   // directory marker, not a real file
                         var name = obj.Key.Substring(listPrefix.Length);
                         if (name.Length == 0) continue;
-                        // Record before emit so per-item decoration resolves without a probe -
-                        // this is the path that made large recursive listings O(items) in S3 calls.
+                        // Record before emit so per-item decoration resolves without a probe.
                         Drive.ListingCache.RecordChild(bucket, obj.Key, isContainer: false);
                         emit(new ChildEntry
                         {
@@ -1373,25 +1135,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var listPrefix = EnsureTrailingSlash(key);
 
-            // Cache 1: the short-TTL listing cache (partial or complete entry) - authoritative for a
-            // recent Get-ChildItem / drive-originated write within its 1s window.
+            // Short-TTL listing cache: authoritative for a recent Get-ChildItem / drive-originated write.
             var cached = Drive.ListingCache.TryHasChildren(bucket, listPrefix);
             if (cached.HasValue)
-            {
-                WriteVerbose($"[cache hit] PrefixHasChildren {bucket}/{listPrefix}");
                 return cached.Value;
-            }
 
-            // Cache 2: the longer-TTL existence-probe cache. Prefix existence is stable, so a
-            // positive result is held long enough to survive a whole command - this is what
-            // de-thrashes a DEEP path, where the engine re-walks the full ancestor chain many times
-            // and a single walk (15 misses x ~78ms) already outlives the 1s listing TTL.
+            // Longer-TTL existence-probe cache: prefix existence is stable, so a positive result
+            // survives a whole command and de-thrashes the engine's repeated deep-ancestor walks.
             var probed = Drive.ListingCache.TryGetExistsProbe(bucket, listPrefix, asPrefix: true);
             if (probed.HasValue)
-            {
-                WriteVerbose($"[cache hit] PrefixHasChildren(probe) {bucket}/{listPrefix}");
                 return probed.Value;
-            }
 
             var req = new ListObjectsV2Request
             {
@@ -1400,12 +1153,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Delimiter = "/",
                 MaxKeys = 1
             };
-            WriteVerbose($"[S3 CALL] ListObjectsV2 {bucket}/{listPrefix} (probe MaxKeys=1)");
             var resp = RunSync(ct => ClientForBucket(bucket).ListObjectsV2Async(req, ct));
             var has = (resp.S3Objects?.Count ?? 0) > 0 || (resp.CommonPrefixes?.Count ?? 0) > 0;
 
-            // Populate BOTH caches: the short-TTL partial entry (for Get-ChildItem/HasChildren
-            // consumers) and the longer-TTL existence probe (for the deep-walk de-thrash).
+            // Populate both caches.
             Drive.ListingCache.PutPartial(bucket, listPrefix, has);
             Drive.ListingCache.PutExistsProbe(bucket, listPrefix, asPrefix: true, exists: has);
             return has;
@@ -1413,21 +1164,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private bool ObjectExists(string bucket, string key)
         {
-            // Cache: a fresh HEAD outcome for this exact key answers directly (no network). This is
-            // the fix for the per-command probe storm - the engine resolves ItemExists dozens of
-            // times for ONE Test-Path/Get-Content, and ObjectExists was previously the only
-            // existence probe with no cache, re-HEADing (~78ms) on every one. Records both
-            // true and false; invalidated on any write/delete at the key.
+            // Cache the HEAD outcome (true or false): the engine resolves ItemExists many times per
+            // command, so this avoids re-probing the same key. Invalidated on any write/delete at the key.
             var cached = Drive.ListingCache.TryGetExistsProbe(bucket, key, asPrefix: false);
             if (cached.HasValue)
-            {
-                WriteVerbose($"[cache hit] ObjectExists {bucket}/{key}");
                 return cached.Value;
-            }
 
             try
             {
-                WriteVerbose($"[S3 CALL] GetObjectMetadata {bucket}/{key} (HEAD probe)");
                 RunSync(ct => ClientForBucket(bucket).GetObjectMetadataAsync(
                     new GetObjectMetadataRequest { BucketName = bucket, Key = key }, ct));
                 Drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: true);
@@ -1438,9 +1182,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: false);
                 return false;
             }
-            // AccessDenied is NOT cached and NOT caught here: it propagates to the caller
-            // (ItemExists/IsItemContainer), which treats it as "exists" so the real op surfaces
-            // the genuine error - unchanged behavior.
+            // AccessDenied is neither cached nor caught: it propagates to the caller, which treats it
+            // as "exists" so the real op surfaces the genuine error.
         }
 
         private static bool IsNotFound(AmazonS3Exception ex) =>
@@ -1456,12 +1199,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private volatile CancellationTokenSource _currentCts;
 
-        // Separate from _currentCts because content reader/writer CTSes outlive a single SDK call
-        // (they span the whole streamed read/upload), whereas RunSync nulls _currentCts in its
-        // finally. A SET, not a single field: more than one content operation can be live at once
-        // (e.g. Get-Content x | Set-Content y on the same drive), and StopProcessing/Ctrl+C must
-        // cancel ALL of them, not just the most recently opened. Each op registers on open and
-        // unregisters on dispose/close.
+        // Content reader/writer CTSes span a whole streamed read/upload, outliving the single SDK call
+        // that _currentCts tracks. A set, because several can be live at once (e.g. Get-Content |
+        // Set-Content) and StopProcessing must cancel all of them.
         private readonly System.Collections.Concurrent.ConcurrentDictionary<CancellationTokenSource, byte> _contentCtses =
             new System.Collections.Concurrent.ConcurrentDictionary<CancellationTokenSource, byte>();
 
@@ -1476,8 +1216,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 S3Cancellation.SafeCancel(cts);
         }
 
-        // Call an async SDK method and block, wiring a cancellation token to Ctrl+C
-        // (StopProcessing) - the same pattern the existing S3 cmdlets use.
+        // Block on an async SDK call, wiring its cancellation token to Ctrl+C (StopProcessing).
         private T RunSync<T>(Func<CancellationToken, Task<T>> op)
         {
             using (var cts = new CancellationTokenSource())
@@ -1496,14 +1235,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return path.Trim('\\', '/').Length == 0;
         }
 
-        // Split a provider path into bucket + S3 key. PowerShell uses "\"; S3 uses "/".
-        // "my-bucket\2026\q2" -> bucket="my-bucket", key="2026/q2".
-        //
-        // PowerShell sometimes hands us a DRIVE-QUALIFIED path (e.g. "S3:\bucket\key", or
-        // "AWS.Tools.S3\AWS.S3::S3:\bucket\key") - notably when decorating listed items
-        // during completion. We must strip any "<provider>::" and "<drive>:" qualifier first,
-        // or the bucket parses as "S3:" and every existence check misses the cache and probes
-        // a garbage bucket. (This was the per-child probe storm behind the tab-completion lag.)
+        // Split a provider path into bucket + S3 key ("my-bucket\2026\q2" -> "my-bucket", "2026/q2").
+        // Strips any "<provider>::" and "<drive>:" qualifier first: the engine sometimes hands us a
+        // qualified path (e.g. "AWS.Tools.S3\AWS.S3::S3:\bucket\key"), which would otherwise parse the
+        // bucket as "S3:" and probe a garbage bucket.
         private void ParsePath(string path, out string bucket, out string key)
         {
             bucket = "";
@@ -1538,10 +1273,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             else { bucket = norm.Substring(0, idx); key = norm.Substring(idx + 1); }
         }
 
-        // PowerShell usually prepends PSDriveInfo.Root before calling provider methods, but for a
-        // new item under a rooted drive (for example Set-Content PSPfx:\new.txt where PSPfx.Root is
-        // "bucket/prefix") it can hand us the root-relative child path. Normalize that to the real
-        // S3 bucket/key so writes and deletes stay scoped under the mounted root.
+        // For a rooted drive (Root = "bucket/prefix"), the engine sometimes hands a root-relative child
+        // path instead of prepending the root. Rebase it onto the real bucket/key so a write/delete
+        // stays scoped under the mounted root.
         private string ApplyDriveRoot(string normalizedPath, string driveQualifier)
         {
             if (string.IsNullOrEmpty(normalizedPath)) return normalizedPath;
@@ -1573,9 +1307,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
             }
 
-            // The engine can feed a new rooted-drive item path back with the root repeated
-            // ("bucket/prefix/bucket/prefix/new.txt"). Collapse those repeats so every rooted
-            // operation maps to exactly one bucket/prefix base.
+            // The engine can feed the root back repeated ("bucket/prefix/bucket/prefix/new.txt");
+            // collapse the repeats to a single base.
             while (string.Equals(relative, normalizedRoot, StringComparison.Ordinal) ||
                    relative.StartsWith(rootWithSlash, StringComparison.Ordinal))
             {
@@ -1614,9 +1347,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 || q.EndsWith("\\" + providerName, StringComparison.OrdinalIgnoreCase);
         }
 
-        // Parse a path that must point at an OBJECT (non-empty bucket AND key). On success returns
-        // true with bucket/key set; on failure WriteErrors with the given message/id and returns
-        // false. Consolidates the identical guard used by RemoveItem/GetContentReader/GetContentWriter.
+        // Parse a path that must point at an object (non-empty bucket AND key); on failure WriteErrors
+        // with the given message/id and returns false. Shared by RemoveItem/GetContent{Reader,Writer}.
         private bool TryParseObjectPath(string path, string message, string errorId,
             out string bucket, out string key)
         {
@@ -1633,8 +1365,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private static string EnsureTrailingSlash(string key) =>
             key.EndsWith("/") ? key : key + "/";
 
-        // Map the friendly -Encoding names (matching the built-in cmdlet's set) to encodings.
-        // Returns UTF-8 (no BOM) when unspecified.
+        // Map the friendly -Encoding names (matching the built-in cmdlet) to encodings; UTF-8 no-BOM
+        // when unspecified.
         private static System.Text.Encoding ResolveEncoding(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -1658,31 +1390,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // Path-segment separator to EMIT in the paths we hand back to the engine (cd targets,
-        // child paths, tab-completion). PowerShell's provider path separator is OS-native: '\' on
-        // Windows, '/' on Linux/macOS. ParsePath already accepts BOTH on input (it normalizes via
-        // Replace('\\','/')), so only path-BUILDING needs to be OS-aware. Emitting '/' on
-        // non-Windows is verified on Linux PowerShell 7.4 (paths build and round-trip correctly).
+        // Separator to EMIT in paths handed back to the engine: OS-native ('\' on Windows, '/' else).
+        // ParsePath accepts both on input, so only path-building is OS-aware.
         private static readonly char Sep =
             System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(
                 System.Runtime.InteropServices.OSPlatform.Windows) ? '\\' : '/';
 
-        // The path we hand to WriteItemObject is the provider-INTERNAL, drive-INDEPENDENT path
-        // (bucket + key), NOT drive-qualified ("S3:\..."). The engine composes each item's
-        // fully-qualified PSPath itself as "Module\Provider::<thisPath>". When that PSPath is fed
-        // back (Get-ChildItem | Get-Content, | Remove-Item), the engine strips "Module\Provider::"
-        // and re-resolves the remainder against the provider's HIDDEN drive. If we embedded the
-        // drive name here ("S3:\bucket\key"), that remainder would carry a dangling "S3:" the engine
-        // can't re-resolve and the pipe fails ("Cannot find path 'S3:\...'"). Emitting the clean
-        // "bucket\key" makes it resolve; ParsePath already normalizes it and Drive (above) recovers
-        // the mounted S3DriveInfo when the hidden drive is in play. This mirrors the built-in
-        // providers: FileSystem emits "C:\foo\bar", Registry "HKEY_LOCAL_MACHINE\SOFTWARE\...",
-        // never "<drive>:\...".
+        // Emit the provider-internal, drive-INDEPENDENT path (bucket + key), not "S3:\...". The engine
+        // wraps it as "Module\Provider::<path>" and, when that is piped back, re-resolves the remainder
+        // against the hidden drive; a "S3:" qualifier here would leave a dangling "S3:" it can't resolve.
+        // Built-in providers do the same (FileSystem emits "C:\foo", not a drive-qualified path).
         private string MakeItemPath(string childName) => childName;
 
-        // bucket="b", fullKey="2026/q2/sub/" or "2026/q2/x.csv" -> "b\2026\q2\sub" / "b\...\x.csv"
-        // (forward slashes on Linux/macOS). Separator is OS-native; see Sep above. Drive-independent
-        // (no "S3:" qualifier) - see MakeItemPath for why.
+        // "b", "2026/q2/x.csv" -> "b\2026\q2\x.csv" (OS-native separator; drive-independent, see MakeItemPath).
         private string MakeChildPath(string bucket, string fullKey)
         {
             var rel = fullKey.TrimEnd('/').Replace('/', Sep);

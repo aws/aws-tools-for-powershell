@@ -46,12 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(Mandatory = true, Position = 0)]
         public string Name { get; set; }
 
-        /// <summary>Mount the drive scoped to a bucket ("my-bucket") or a bucket+prefix
-        /// ("my-bucket/data/2026") instead of the account root. `Get-ChildItem <drive>:\` then lists
-        /// the contents under that root and navigation is confined beneath it. Omitted/empty mounts
-        /// at the account root (lists buckets), the original behavior. The root must exist (a bad
-        /// bucket or nonexistent prefix fails the mount). Named, not positional, so it can't be
-        /// confused with -Name.</summary>
+        /// <summary>Scope the drive to a bucket ("my-bucket") or bucket+prefix ("my-bucket/data/2026")
+        /// instead of the account root; navigation is then confined beneath it. Omitted mounts at the
+        /// account root. The root must exist, or the mount fails.</summary>
         [Parameter] public string Root { get; set; }
 
         /// <summary>Named AWS credential profile to authenticate with.</summary>
@@ -78,19 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         protected override void ProcessRecord()
         {
-            // Normalize the root to a clean "bucket/prefix" (or "") form BEFORE forwarding, so
-            // New-PSDrive stores a tidy root: backslashes -> forward slashes, and split-on-'/'
-            // discarding empty segments (trims leading/trailing slashes AND collapses interior
-            // "//"). Collapsing doubles is load-bearing, not cosmetic - the engine prepends the
-            // stored root verbatim and the provider's ParsePath only trims the ends, so an
-            // un-collapsed "bkt//data" would inject an empty segment into the S3 key.
+            // Normalize the root to "bucket/prefix" (backslashes -> slashes, empty segments dropped).
+            // Collapsing interior "//" is load-bearing: the engine prepends the stored root verbatim and
+            // ParsePath only trims the ends, so "bkt//data" would inject an empty segment into the key.
             var normalizedRoot = string.IsNullOrWhiteSpace(Root)
                 ? ""
                 : string.Join("/", Root.Replace('\\', '/')
                                         .Split(new[] { '/' }, System.StringSplitOptions.RemoveEmptyEntries));
 
-            // Forward to New-PSDrive -PSProvider AWS.S3; the provider's NewDriveDynamicParameters
-            // surfaces ProfileName/Region/keys/AWSCredential, so we just pass them through.
+            // Forward to New-PSDrive -PSProvider AWS.S3; the provider's dynamic parameters surface the
+            // credential/region params, so we just pass them through.
             using (var ps = System.Management.Automation.PowerShell.Create(RunspaceMode.CurrentRunspace))
             {
                 ps.AddCommand("New-PSDrive")
@@ -105,8 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (!string.IsNullOrEmpty(SecretKey))    ps.AddParameter("SecretKey", SecretKey);
                 if (!string.IsNullOrEmpty(SessionToken)) ps.AddParameter("SessionToken", SessionToken);
                 if (AWSCredential != null)               ps.AddParameter("AWSCredential", AWSCredential);
-                // Only forward -StorageClass if the caller set it (SwitchParameter-like: default(S3StorageClass)
-                // is null for this reference type, so a plain null check is the "was it specified" test).
                 if (StorageClass != null)                ps.AddParameter("StorageClass", StorageClass);
 
                 var results = ps.Invoke();

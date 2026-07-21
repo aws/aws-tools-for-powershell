@@ -28,25 +28,13 @@ using Amazon.S3.Transfer;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// UPLOAD writer built on the SDK's <see cref="TransferUtility"/>.
+    /// Upload writer over the SDK's <see cref="TransferUtility"/>. PowerShell pushes blocks at
+    /// Write()/Close(); TU pulls from an input Stream. A <see cref="PushPullStream"/> bridges the two,
+    /// with the upload running on a background task that reads the bridge while the pipeline feeds it.
     ///
-    /// The hard problem is direction: PowerShell PUSHES blocks at Write()/Close(); TransferUtility
-    /// PULLS from an input Stream. We bridge them with <see cref="PushPullStream"/> and run the
-    /// upload on a BACKGROUND task that reads the bridge while the pipeline thread feeds it:
-    ///
-    ///   GetContentWriter --> create the bridge; no S3 upload exists yet
-    ///   Write(blocks)     --> flatten into an 80 KiB buffer, lazily start UploadAsync, Produce
-    ///   Close()           --> flush, start an empty upload if needed, then EOF/await
-    ///
-    /// Because the bridge is non-seekable / unknown-length, TransferUtility takes its
-    /// UploadUnseekableStreamAsync path (reads to EOF, multipart) - so we inherit its upload
-    /// management and its abort-on-failure. We set PartSize explicitly (provider default or
-    /// Set-Content -PartSize) because that SDK path otherwise falls back to S3's 5 MiB minimum
-    /// part size. We no longer Initiate/UploadPart/Complete by hand.
-    ///
-    /// Threading rule: NEVER touch the cmdlet write methods from the background task. Faults are
-    /// surfaced by rethrowing on the pipeline thread (Write/Close). Cancellation (Ctrl+C) cancels
-    /// the shared CTS, which faults TransferUtility's Read -> it aborts its own multipart upload.
+    /// The bridge is non-seekable, so TU takes its unseekable multipart path (reads to EOF, aborts on
+    /// failure). Faults are surfaced only on the pipeline thread (Write/Close), never from the
+    /// background task; Ctrl+C cancels the shared CTS, which faults TU's Read into aborting the upload.
     /// </summary>
     internal sealed class S3TransferContentWriter : IContentWriter
     {
@@ -54,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly System.Text.Encoding _encoding;   // text-mode encoding (ignored in byte mode)
         private readonly CancellationTokenSource _cts;
         private readonly Action _onComplete;     // cache invalidation, on success only
-        private readonly Action<Exception> _onFault;  // surfaces fault via the provider's WriteError (PowerShell swallows Close() throws)
+        private readonly Action<Exception> _onFault;  // surfaces a fault via the provider's WriteError
         private readonly Action _onDispose;       // unregisters the provider's content-op tracking
-        private readonly TransferUtility _transferUtility;   // owned; disposed on teardown (does NOT dispose our shared client)
+        private readonly TransferUtility _transferUtility;   // owned; disposed on teardown
         private readonly string _bucket;
         private readonly string _key;
         private readonly S3StorageClass _storageClass;
@@ -65,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly PushPullStream _bridge;
         private readonly MemoryStream _pending = new MemoryStream();
         private Task _uploadTask;
-        // The real upload failure, captured the instant the fault continuation fires - BEFORE
-        // _uploadTask.IsFaulted is necessarily observable. Without this, a fault that cancels the
-        // bridge can surface as a bare OperationCanceledException, masking the real S3 error.
+        // The real upload failure, captured by the fault continuation before _uploadTask.IsFaulted is
+        // observable - otherwise a bridge cancel could surface as a bare OperationCanceledException.
         private volatile Exception _uploadFault;
         private bool _wrotePreamble;
         private bool _failedBeforeClose;
@@ -108,21 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 AutoCloseStream = false,            // we own the bridge's lifetime
                 AutoResetStreamPosition = false,    // non-seekable; reset would throw
             };
-            // Apply the resolved storage class only when set; leaving it null lets S3 default to
-            // STANDARD (same as an upload with no storage class specified).
-            if (_storageClass != null)
+            if (_storageClass != null)   // leave unset to let S3 default to STANDARD
                 request.StorageClass = _storageClass;
             if (_partSize > 0)
                 request.PartSize = _partSize;
 
-            // Start the upload lazily, after content has successfully flattened. That keeps
-            // unsupported operations (Add-Content calls Seek) and invalid byte-stream input from
-            // replacing an existing S3 object with an empty one before the provider can fail.
+            // Started lazily, only after content flattens, so an unsupported op (Add-Content's Seek) or
+            // invalid byte input can't replace an existing object with an empty one first.
             _uploadTask = _transferUtility.UploadAsync(request, _cts.Token);
             _uploadTask.ContinueWith(t =>
             {
-                // Record the real fault FIRST (so Write/Close can surface it even before the task
-                // state is observable as Faulted), THEN cancel so a blocked Produce unblocks.
+                // Record the fault before cancelling, so Write/Close can surface it even before the
+                // task is observably Faulted; the cancel then unblocks a waiting Produce.
                 if (t.Exception != null) _uploadFault = t.Exception.GetBaseException();
                 S3Cancellation.SafeCancel(_cts);
             }, TaskContinuationOptions.NotOnRanToCompletion);
@@ -143,8 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (OperationCanceledException)
             {
-                // The bridge was cancelled - almost always because the upload faulted. Surface
-                // the real upload exception rather than the cancellation.
+                // The bridge was cancelled, almost always by an upload fault - surface that instead.
                 ThrowIfUploadFaulted();
                 _failedBeforeClose = true;
                 S3Cancellation.SafeCancel(_cts);
@@ -173,13 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (Exception ex)
             {
-                // PowerShell's engine silently swallows exceptions thrown from IContentWriter.Close()
-                // (verified empirically: small uploads fault at Close, and -ErrorAction Stop has no
-                // effect). Surface the fault via the provider's WriteError callback so it reaches the
-                // pipeline. Re-throw as well (for callers that DO handle Close exceptions, e.g. a
-                // future engine fix or direct .NET callers). The dual surface (WriteError + throw) is
-                // safe: if the throw IS swallowed, WriteError has already reported it; if it's NOT
-                // swallowed, WriteError was a harmless additional report and the throw propagates.
+                // The engine swallows exceptions thrown from Close(), so a fault here would never reach
+                // the pipeline. Report it via WriteError AND rethrow: whichever the caller observes, the
+                // other is harmless.
                 _onFault?.Invoke(ex);
                 throw;
             }
@@ -189,8 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // Match the reader's chunk size: large enough to avoid one S3 bridge push per byte when
-        // local Get-Content -AsByteStream emits byte records, small enough to keep memory bounded.
+        // Buffer before pushing to the bridge, so byte-record input doesn't push one byte at a time.
         private const int BufferedUploadChunkSize = 80 * 1024;
 
         private void FlushPending()
@@ -203,10 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _pending.Position = 0;
         }
 
-        // Flatten the IList element shapes the engine produces into bytes: byte / byte[] / nested
-        // object[] in byte mode; ToString()+"\n" (in the configured encoding) in text mode. Line
-        // endings are always LF so an object is byte-identical regardless of the writing OS;
-        // -AsByteStream is the path for exact byte control.
+        // Flatten one engine-produced element to bytes: byte / byte[] / nested object[] in byte mode;
+        // ToString() + "\n" (LF always) in the configured encoding in text mode.
         private void AppendItem(Stream sink, object item)
         {
             if (item == null) return;
@@ -235,14 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // If the background upload already failed, rethrow its real cause on the pipeline thread.
-        // Prefer _uploadFault (captured by the continuation the instant the fault fires) over the
-        // task's IsFaulted/Exception, which may lag in the cancel-vs-fault race window - that lag
-        // is exactly what would otherwise let a bare OperationCanceledException mask the real S3 error.
+        // If the background upload failed, rethrow its real cause on the pipeline thread. Prefer
+        // _uploadFault over the task's Exception, which can lag in the cancel-vs-fault race.
         private void ThrowIfUploadFaulted()
         {
-            // Rethrow via ExceptionDispatchInfo so the original SDK call stack is preserved rather
-            // than reset to this line (a plain `throw fault;` would discard it).
+            // ExceptionDispatchInfo preserves the original SDK call stack (a plain `throw` would reset it).
             var fault = _uploadFault;
             if (fault != null) ExceptionDispatchInfo.Capture(fault).Throw();
             if (_uploadTask != null && _uploadTask.IsFaulted)
@@ -263,8 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (_disposed) return;
             _disposed = true;
 
-            // If we're tearing down WITHOUT a clean Close (error/Ctrl+C), make sure the upload
-            // task stops: cancel, which faults TU's Read and triggers ITS abort-of-multipart.
+            // Teardown without a clean Close (error/Ctrl+C): cancel so TU's Read faults and aborts its
+            // multipart upload, then wait for it to settle before disposing below.
             if (_uploadTask != null && !_uploadTask.IsCompleted)
             {
                 S3Cancellation.SafeCancel(_cts);
@@ -274,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _bridge?.Dispose();
             _pending?.Dispose();
             _cts?.Dispose();
-            // Dispose the TransferUtility AFTER the upload task has settled (above). Verified the TU
-            // does NOT dispose the IAmazonS3 client we passed in (it only disposes clients it created
-            // itself - _shouldDispose flag), so the drive's shared per-region client is safe.
+            // Safe: TU only disposes clients it created itself, not our shared per-region client.
             _transferUtility?.Dispose();
             _onDispose?.Invoke();
         }

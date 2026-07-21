@@ -24,13 +24,8 @@ using Amazon.S3;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Per-drive state, created by <see cref="S3Provider.NewDrive"/> and living for the
-    /// drive's lifetime. Holds the SDK connection state (clients, region maps) - never
-    /// copies of S3 content.
-    ///
-    /// Multi-region: a single drive spans all regions. We keep the resolved credentials and
-    /// the mount region, then build/cache one client per region on demand and remember each
-    /// bucket's region. Both caches are released at Dismount.
+    /// Per-drive state for the drive's lifetime: resolved credentials, the mount region, and (for
+    /// multi-region support) one cached client per region plus each bucket's region. Released at Dismount.
     /// </summary>
     internal sealed class S3DriveInfo : PSDriveInfo
     {
@@ -48,10 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>Short-TTL listing cache (dedups within-cd/tab prefix probes).</summary>
         internal S3ListingCache ListingCache { get; }
 
-        /// <summary>
-        /// Default storage class for uploads on this drive, from -StorageClass at mount. Null when
-        /// unset (S3 then uses STANDARD). A per-upload -StorageClass on Set-Content overrides it.
-        /// </summary>
+        // Drive-level upload default from -StorageClass at mount; null when unset. Per-upload -StorageClass overrides it.
         internal S3StorageClass DefaultStorageClass { get; }
 
         internal S3DriveInfo(PSDriveInfo driveInfo, AWSCredentials credentials, RegionEndpoint mountRegion, IAmazonS3 mountClient, S3StorageClass defaultStorageClass = null)
@@ -67,11 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>The mount-region client. Used at the drive root (ListBuckets is global).</summary>
         internal IAmazonS3 Client => _clientsByRegion[_mountRegion.SystemName];
 
-        /// <summary>The mount region's system name (e.g. "us-east-1"). Used as the fallback when a
-        /// bucket's own region can't be resolved (e.g. GetBucketLocation is access-denied).</summary>
+        // Fallback region when a bucket's own region can't be resolved (GetBucketLocation denied).
         internal string MountRegionName => _mountRegion.SystemName;
 
-        /// <summary>Get (building once and caching) the client for a given region name.</summary>
+        // The client for a region, built once and cached.
         internal IAmazonS3 ClientForRegion(string regionSystemName)
         {
             return _clientsByRegion.GetOrAdd(regionSystemName, name =>
@@ -90,24 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal void CacheBucketRegion(string bucket, string regionSystemName) =>
             _bucketRegions[bucket] = regionSystemName;
 
-        // Outstanding content operations (Get-/Set-Content) that borrow a cached client for the
-        // whole streamed read/upload, which can outlive the RemoveDrive call that disposes the
-        // drive. We ref-count them so Dismount does not dispose a client mid-transfer (which would
-        // fail the transfer with ObjectDisposedException): teardown is deferred until the last
-        // content op finishes. _disposeRequested records that RemoveDrive has been called while
-        // ops were still live. _gate serializes the decrement-vs-dispose check.
+        // A streamed Get-/Set-Content borrows a cached client and can outlive RemoveDrive. Ref-count
+        // active ops so Dismount defers client teardown until the last one finishes, rather than
+        // disposing a client mid-transfer. _gate serializes the decrement-vs-dispose check.
         private int _activeContentOps;
         private bool _disposeRequested;
         private readonly object _gate = new object();
 
-        /// <summary>Register the start of a content operation that borrows a cached client.</summary>
         internal void BeginContentOperation()
         {
             lock (_gate) { _activeContentOps++; }
         }
 
-        /// <summary>Mark a content operation finished; perform deferred teardown if Dismount was
-        /// requested while this was the last one running.</summary>
+        // Finish a content op; run deferred teardown if this was the last one after a Dismount request.
         internal void EndContentOperation()
         {
             bool dispose;
@@ -119,9 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (dispose) DisposeClientsNow();
         }
 
-        /// <summary>Dispose the cached clients when the drive is removed - but if content
-        /// operations are still in flight, defer teardown until the last one completes so an
-        /// in-progress transfer is never cut off by a disposed client.</summary>
+        // Dispose the cached clients at Dismount, or defer if content ops are still in flight.
         internal void DisposeAllClients()
         {
             lock (_gate)

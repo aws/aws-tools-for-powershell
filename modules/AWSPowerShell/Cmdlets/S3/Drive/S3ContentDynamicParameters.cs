@@ -22,8 +22,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Dynamic parameters contributed to Get-Content when the target is an S3 path.
-    /// Verified necessity: -AsByteStream / -Raw / -Encoding are NOT static Get-Content
-    /// parameters - the provider must supply them, exactly as FileSystemProvider does.
+    /// -AsByteStream / -Raw / -Encoding are not static Get-Content parameters, so the
+    /// provider supplies them, as FileSystemProvider does.
     /// </summary>
     public sealed class S3ContentReaderDynamicParameters
     {
@@ -36,10 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Raw { get; set; }
 
         /// <summary>
-        /// Text encoding name for decoding the object's bytes (ignored with -AsByteStream).
-        /// Typed as string (not System.Text.Encoding) so the friendly names work -
-        /// `-Encoding UTF8` etc. The built-in cmdlet uses a PowerShell-internal transform
-        /// attribute we deliberately don't depend on; we map the common names ourselves.
+        /// Text encoding for decoding the object (ignored with -AsByteStream). A friendly name
+        /// (e.g. UTF8), typed as string and mapped ourselves rather than via the built-in cmdlet's
+        /// PowerShell-internal transform.
         /// </summary>
         [Parameter]
         public string Encoding { get; set; }
@@ -56,10 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter AsByteStream { get; set; }
 
         /// <summary>
-        /// Text encoding used to write text-mode content (ignored with -AsByteStream). Accepts the
-        /// same friendly names as Get-Content's -Encoding (e.g. UTF8, Unicode, ASCII); defaults to
-        /// UTF-8 (no BOM) when unspecified. Line endings are always LF, so an object written on any
-        /// OS is byte-identical - use -AsByteStream when you need exact control over the bytes.
+        /// Text encoding for writing (ignored with -AsByteStream); same friendly names as Get-Content's
+        /// -Encoding, defaulting to UTF-8 no-BOM. Line endings are always LF; use -AsByteStream for
+        /// exact byte control.
         /// </summary>
         [Parameter]
         public string Encoding { get; set; }
@@ -72,16 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter NoNewline { get; set; }
 
         /// <summary>
-        /// Storage class for THIS upload; overrides the drive's default (-StorageClass at mount).
-        /// Null when unspecified -> fall back to the drive default, then S3's STANDARD.
+        /// Storage class for this upload; overrides the drive default. Null -> drive default, then STANDARD.
         /// </summary>
         [Parameter]
         public S3StorageClass StorageClass { get; set; }
 
         /// <summary>
-        /// Multipart upload part size for this upload. Overrides the provider default while still
-        /// leaving multipart upload management to TransferUtility. Must be between S3's 5 MiB
-        /// minimum and 5 GiB maximum part sizes.
+        /// Multipart part size for this upload, overriding the provider default. Between S3's 5 MiB and 5 GiB.
         /// </summary>
         [Parameter]
         [ValidateRange(MinMultipartUploadPartSize, MaxMultipartUploadPartSize)]
