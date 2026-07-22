@@ -1344,6 +1344,90 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    Context "Multi-drive provider cmdlet resolution" {
+        BeforeAll {
+            $stamp = [DateTime]::Now.ToFileTime()
+            $script:MDPrefix1 = "mdrive-one-$stamp"
+            $script:MDPrefix2 = "mdrive-two-$stamp"
+            S3PutText "$($script:MDPrefix1)/seed.txt" "seed one"
+            S3PutText "$($script:MDPrefix2)/seed.txt" "seed two"
+            Mount-S3PSDrive -Name PSTestMD1 -Root "$($script:Bucket)/$($script:MDPrefix1)" -ProfileName $script:Profile -Region $script:Region
+            Mount-S3PSDrive -Name PSTestMD2 -Root "$($script:Bucket)/$($script:MDPrefix2)" -ProfileName $script:Profile -Region $script:Region
+        }
+        AfterAll {
+            Set-Location $HOME -ErrorAction SilentlyContinue
+            foreach ($d in 'PSTestMD1','PSTestMD2') {
+                if (Test-Path "$($d):\") { try { Dismount-S3PSDrive -Name $d -ErrorAction SilentlyContinue } catch { } }
+            }
+        }
+
+        It "keeps drive-qualified provider cmdlets scoped to their mounted root" {
+            Set-Location 'PSTestMD1:\'
+            try {
+                Set-Content '.\shared.txt' -Value 'from md1' -NoNewline
+                Set-Content 'PSTestMD2:\shared.txt' -Value 'from md2' -NoNewline
+
+                Test-Path '.\shared.txt' | Should -BeTrue
+                Test-Path 'PSTestMD2:\shared.txt' | Should -BeTrue
+                (Get-Item '.\shared.txt').Type | Should -Be 'Object'
+                (Get-Item 'PSTestMD2:\shared.txt').Type | Should -Be 'Object'
+                (Get-ChildItem '.\' -Name) | Should -Contain 'shared.txt'
+                (Get-ChildItem 'PSTestMD2:\' -Name) | Should -Contain 'shared.txt'
+                (Get-Content '.\shared.txt' -Raw).TrimEnd("`r","`n") | Should -Be 'from md1'
+                (Get-Content 'PSTestMD2:\shared.txt' -Raw).TrimEnd("`r","`n") | Should -Be 'from md2'
+
+                (S3GetText $script:Bucket "$($script:MDPrefix1)/shared.txt").TrimEnd("`r","`n") | Should -Be 'from md1'
+                (S3GetText $script:Bucket "$($script:MDPrefix2)/shared.txt").TrimEnd("`r","`n") | Should -Be 'from md2'
+
+                Get-Content '.\shared.txt' -Raw | Set-Content 'PSTestMD2:\copied-from-md1.txt' -NoNewline
+                (Get-Content 'PSTestMD2:\copied-from-md1.txt' -Raw).TrimEnd("`r","`n") | Should -Be 'from md1'
+                (S3GetText $script:Bucket "$($script:MDPrefix2)/copied-from-md1.txt").TrimEnd("`r","`n") | Should -Be 'from md1'
+                S3ObjectExists $script:Bucket "$($script:MDPrefix1)/copied-from-md1.txt" | Should -BeFalse
+
+                Set-Content '.\tree\a.txt' -Value 'md1 tree' -NoNewline
+                Set-Content 'PSTestMD2:\tree\a.txt' -Value 'md2 tree' -NoNewline
+                Remove-Item '.\tree' -Recurse -Force
+                Test-Path '.\tree\a.txt' | Should -BeFalse
+                Test-Path 'PSTestMD2:\tree\a.txt' | Should -BeTrue
+                S3ObjectExists $script:Bucket "$($script:MDPrefix1)/tree/a.txt" | Should -BeFalse
+                (S3GetText $script:Bucket "$($script:MDPrefix2)/tree/a.txt").TrimEnd("`r","`n") | Should -Be 'md2 tree'
+
+                Remove-Item 'PSTestMD2:\tree' -Recurse -Force
+                S3ObjectExists $script:Bucket "$($script:MDPrefix2)/tree/a.txt" | Should -BeFalse
+
+                Remove-Item '.\shared.txt' -Force
+                Test-Path '.\shared.txt' | Should -BeFalse
+                Test-Path 'PSTestMD2:\shared.txt' | Should -BeTrue
+                S3ObjectExists $script:Bucket "$($script:MDPrefix1)/shared.txt" | Should -BeFalse
+                S3ObjectExists $script:Bucket "$($script:MDPrefix2)/shared.txt" | Should -BeTrue
+
+                Remove-Item 'PSTestMD2:\copied-from-md1.txt' -Force
+                S3ObjectExists $script:Bucket "$($script:MDPrefix2)/copied-from-md1.txt" | Should -BeFalse
+
+                Remove-Item 'PSTestMD2:\shared.txt' -Force
+                Test-Path 'PSTestMD2:\shared.txt' | Should -BeFalse
+                S3ObjectExists $script:Bucket "$($script:MDPrefix2)/shared.txt" | Should -BeFalse
+            }
+            finally {
+                Set-Location $HOME -ErrorAction SilentlyContinue
+            }
+        }
+
+        It "rejects provider-qualified paths that do not identify which mounted drive to use" {
+            Set-Content 'PSTestMD1:\ambiguous.txt' -Value 'keep me' -NoNewline
+            $item = Get-ChildItem 'PSTestMD1:\' | Where-Object Name -eq 'ambiguous.txt' | Select-Object -First 1
+            $item | Should -Not -BeNullOrEmpty
+            $item.PSPath | Should -Match 'AWS\.S3::'
+
+            { Get-Item -LiteralPath $item.PSPath -ErrorAction Stop } | Should -Throw
+            { Get-Content -LiteralPath $item.PSPath -Raw -ErrorAction Stop } | Should -Throw
+            { Set-Content -LiteralPath $item.PSPath -Value 'wrong drive' -NoNewline -ErrorAction Stop } | Should -Throw
+            { Remove-Item -LiteralPath $item.PSPath -Force -ErrorAction Stop } | Should -Throw
+
+            (S3GetText $script:Bucket "$($script:MDPrefix1)/ambiguous.txt").TrimEnd("`r","`n") | Should -Be 'keep me'
+        }
+    }
+
     # Multi-region: one mounted drive (us-east-1) reaching a bucket in ANOTHER region (us-west-2).
     # This is the marquee "a single drive spans all regions" claim. The provider resolves the
     # bucket's region on first touch (GetBucketLocation) and routes through a per-region client.

@@ -36,20 +36,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// folders, objects are files. Calls the AWS SDK directly; does not invoke the S3 cmdlets.
     /// Copy-Item is unsupported (CopyItem is not overridden, so it errors).
     /// </summary>
-    [CmdletProvider("AWS.S3", ProviderCapabilities.None)]
+    [CmdletProvider("AWS.S3", ProviderCapabilities.ShouldProcess)]
     public sealed partial class S3Provider : NavigationCmdletProvider, IContentCmdletProvider
     {
         // Per-drive state (clients, caches). Usually this.PSDriveInfo is our S3DriveInfo, but a
         // provider-qualified path (e.g. a piped PSPath "AWS.Tools.S3\AWS.S3::bucket\key") resolves
-        // against the provider's hidden drive, so we fall back to the first drive in ProviderInfo.Drives.
+        // against the provider's hidden drive, so we fall back to the mounted S3 drive - but only when
+        // exactly one is mounted. With several, guessing one could target the wrong account (a piped
+        // Remove-Item hitting the wrong bucket), so we refuse and make the caller qualify the drive.
         private S3DriveInfo Drive
         {
             get
             {
                 if (PSDriveInfo is S3DriveInfo di) return di;
+
+                S3DriveInfo only = null;
+                int count = 0;
                 if (ProviderInfo?.Drives != null)
                     foreach (var d in ProviderInfo.Drives)
-                        if (d is S3DriveInfo s3d) return s3d;
+                        if (d is S3DriveInfo s3d) { only = s3d; count++; }
+
+                if (count == 1) return only;
+                if (count > 1)
+                    throw new InvalidOperationException(
+                        "The S3 path is ambiguous: more than one AWS.S3 drive is mounted. Qualify it with a " +
+                        "drive (e.g. \"S3:\\bucket\\key\") instead of a provider-qualified path.");
+
                 throw new InvalidOperationException(
                     "No AWS.S3 drive is mounted. Mount one with Mount-S3PSDrive before using an S3 path.");
             }
@@ -59,13 +71,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private IAmazonS3 Client => Drive.Client;
 
         // The client for the region a bucket lives in, so one drive spans all regions. Region is
-        // resolved on first touch and cached.
+        // resolved on first touch and cached. When GetBucketLocation is denied we fall back to the
+        // mount region (as ValidateRoot does) so browsing works without s3:GetBucketLocation; the real
+        // operation still surfaces any genuine access error.
         private IAmazonS3 ClientForBucket(string bucket)
         {
             var region = Drive.GetCachedBucketRegion(bucket);
             if (region == null)
             {
-                region = ResolveBucketRegion(Client, bucket);
+                try
+                {
+                    region = ResolveBucketRegion(Client, bucket);
+                }
+                catch (AmazonS3Exception ex) when (IsAccessDenied(ex))
+                {
+                    region = Drive.MountRegionName;
+                }
                 Drive.CacheBucketRegion(bucket, region);
             }
             return Drive.ClientForRegion(region);
