@@ -35,10 +35,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         // ---- S3 calls --------------------------------------------------------
 
+        // ListBuckets is paginated: an account past the first page would otherwise silently list only
+        // some buckets. Follow ContinuationToken to the end, stopping cleanly on Ctrl+C.
         private List<S3Bucket> ListBuckets()
         {
-            var response = RunSync(ct => Client.ListBucketsAsync(new ListBucketsRequest(), ct));
-            return response.Buckets ?? new List<S3Bucket>();
+            var buckets = new List<S3Bucket>();
+            var request = new ListBucketsRequest();
+            string token = null;
+            do
+            {
+                if (Stopping) break;
+                request.ContinuationToken = token;
+                var response = RunSync(ct => Client.ListBucketsAsync(request, ct));
+                if (response.Buckets != null)
+                    buckets.AddRange(response.Buckets);
+                token = response.ContinuationToken;
+            }
+            while (!string.IsNullOrEmpty(token));
+            return buckets;
         }
 
         // Cap on entries accumulated for a COMPLETE cache entry. Past it we drop the accumulator and
