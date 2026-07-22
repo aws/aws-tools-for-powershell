@@ -605,11 +605,21 @@ namespace AWSPowerShellGenerator.Generators
         //private static HashSet<string> XMLNodesToIgnore = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "b", "i", "c" };
         private static HashSet<string> XMLNodesToCopyAsIs = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "p", "emphasis", "important", "code", "member", "title", "caution"
+            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "p", "emphasis", "important", "code", "member", "title", "caution",
+            // inline formatting elements that occasionally appear in service docs; treated like their
+            // existing siblings above (kept verbatim so the tag survives into both web and console help)
+            "em", "span", "u", "sub", "sup", "small"
         };
         private static HashSet<string> XMLNodesToNewline = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
             "para", "note", "ul", "remarks", "ol"
+        };
+        // heading elements (h1-h6) sometimes appear in service docs. For web help we keep the tag so the
+        // heading renders; for console/MAML help there is no heading concept, so we break onto a new line
+        // to keep the heading text visually separated from the surrounding prose.
+        private static HashSet<string> XMLHeadingNodes = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "h1", "h2", "h3", "h4", "h5", "h6"
         };
         private static HashSet<string> XMLNodesToRemove = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -847,6 +857,13 @@ Scenario-4  Create            Create       The new create is added to the pendin
                 if (!forWebUse)
                     sb.AppendLine();
             }
+            else if (XMLHeadingNodes.Contains(name))
+            {
+                if (forWebUse)
+                    sb.AppendFormat("<{0}>", name);
+                else
+                    sb.AppendLine();
+            }
             else
             {
                 return false;
@@ -862,6 +879,13 @@ Scenario-4  Create            Create       The new create is added to the pendin
             if (XMLNodesToNewline.Contains(name))
             {
                 if (!forWebUse)
+                    sb.AppendLine();
+            }
+            else if (XMLHeadingNodes.Contains(name))
+            {
+                if (forWebUse)
+                    sb.AppendFormat("</{0}>", name);
+                else
                     sb.AppendLine();
             }
             else
