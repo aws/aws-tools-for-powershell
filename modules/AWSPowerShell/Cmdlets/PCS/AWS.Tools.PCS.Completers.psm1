@@ -114,6 +114,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.ScriptCachingPolicy
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/NodeLifecycleActions_ScriptCachingPolicy") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/NodeLifecycleActions_ScriptCachingPolicy")
+        }
+        {
+            $v = "CACHE_ONCE","REFRESH_ON_REBOOT"
+            break
+        }
+
         # Amazon.PCS.Size
         "New-PCSCluster/Size"
         {
@@ -152,6 +162,7 @@ $PCS_Completers = {
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
     "Networking_NetworkType"=@("New-PCSCluster")
+    "NodeLifecycleActions_ScriptCachingPolicy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")

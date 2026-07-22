@@ -148,6 +148,21 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public System.String TargetRegion { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
+        /// than one time. If this token matches a previous request, the service ignores the request
+        /// and returns the result of the original successful request. If you don't provide a
+        /// client token, the service automatically generates one. For more information about
+        /// idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -201,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
                 WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.Comment = this.Comment;
             context.LatestVersion = this.LatestVersion;
             context.Mode = this.Mode;
@@ -238,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Comment != null)
             {
@@ -319,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ARCRegionswitch.ExecutionAction Action { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String Comment { get; set; }
             public System.String LatestVersion { get; set; }
             public Amazon.ARCRegionswitch.ExecutionMode Mode { get; set; }

@@ -79,6 +79,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetQualificationsAssociationDetails" OutputProperty="*" Verb="Get" Noun="QualificationsAssociationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQualificationsAssociationTask" OutputProperty="*" Verb="Get" Noun="QualificationsAssociationTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQualificationsDisassociationTask" OutputProperty="*" Verb="Get" Noun="QualificationsDisassociationTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVerification" OutputProperty="*" Verb="Get" Noun="Verification" PipelineParameter="VerificationType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -116,6 +128,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProfileUpdateTask" OutputProperty="*" Verb="Start" Noun="ProfileUpdateTask" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartQualificationsAssociationTask" OutputProperty="*" Verb="Start" Noun="QualificationsAssociationTask" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartQualificationsDisassociationTask" OutputProperty="*" Verb="Start" Noun="QualificationsDisassociationTask" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

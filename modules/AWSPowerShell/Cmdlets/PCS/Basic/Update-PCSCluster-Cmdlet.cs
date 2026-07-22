@@ -30,10 +30,10 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Updates a cluster configuration. You can upgrade the Slurm version, modify scheduler
+    /// Updates a cluster configuration. You can update the scheduler version, modify scheduler
     /// settings, and update accounting configuration for an existing cluster. For more information
-    /// about upgrading the Slurm version, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading
-    /// the Slurm version on a cluster</a> in the <i>PCS User Guide</i>. 
+    /// about updating the scheduler version, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating
+    /// the scheduler version on a cluster</a> in the <i>PCS User Guide</i>. 
     /// 
     ///  <note><para>
     /// You can only update clusters that are in <c>ACTIVE</c>, <c>UPDATE_FAILED</c>, or <c>SUSPENDED</c>
@@ -170,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter Scheduler_Version
         /// <summary>
         /// <para>
-        /// <para>The Slurm version to upgrade the cluster to. You can only upgrade to a newer version.
-        /// For more information about supported versions and upgrade paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading
-        /// the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.05 | 24.11 | 25.05 | 25.11</c></para>
+        /// <para>The scheduler version to update the cluster to. You can only update to a newer version.
+        /// For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating
+        /// the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.05 | 24.11 | 25.05 | 25.11</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

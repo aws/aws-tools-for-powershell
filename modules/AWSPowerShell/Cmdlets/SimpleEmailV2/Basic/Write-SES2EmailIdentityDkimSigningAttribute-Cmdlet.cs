@@ -112,7 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// parent identity in US East (Ohio) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_US_WEST_1</c> – Configure DKIM for the identity by replicating from a
         /// parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).
         /// </para></li><li><para><c>AWS_SES_US_WEST_2</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED). </para></li></ul>
+        /// parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_US_GOV_EAST_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_US_GOV_WEST_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -25253,6 +25253,10 @@ Set-Alias -Name PCAA-GetConnectionPreferences -Value Get-PCAAConnectionPreferenc
 Set-Alias -Name PCAA-GetPartner -Value Get-PCAAPartner
 Set-Alias -Name PCAA-GetProfileUpdateTask -Value Get-PCAAProfileUpdateTask
 Set-Alias -Name PCAA-GetProfileVisibility -Value Get-PCAAProfileVisibility
+Set-Alias -Name Get-PCAAQualificationsAssociationDetails -Value Get-PCAAQualificationsAssociationDetail
+Set-Alias -Name PCAA-GetQualificationsAssociationDetails -Value Get-PCAAQualificationsAssociationDetail
+Set-Alias -Name PCAA-GetQualificationsAssociationTask -Value Get-PCAAQualificationsAssociationTask
+Set-Alias -Name PCAA-GetQualificationsDisassociationTask -Value Get-PCAAQualificationsDisassociationTask
 Set-Alias -Name PCAA-GetVerification -Value Get-PCAAVerification
 Set-Alias -Name List-PCAAConnectionInvitations -Value Get-PCAAConnectionInvitationList
 Set-Alias -Name List-PCAAConnectionInvitationList -Value Get-PCAAConnectionInvitationList
@@ -25272,6 +25276,8 @@ Set-Alias -Name Reject-PCAAConnectionInvitation -Value Deny-PCAAConnectionInvita
 Set-Alias -Name PCAA-RejectConnectionInvitation -Value Deny-PCAAConnectionInvitation
 Set-Alias -Name PCAA-SendEmailVerificationCode -Value Send-PCAAEmailVerificationCode
 Set-Alias -Name PCAA-StartProfileUpdateTask -Value Start-PCAAProfileUpdateTask
+Set-Alias -Name PCAA-StartQualificationsAssociationTask -Value Start-PCAAQualificationsAssociationTask
+Set-Alias -Name PCAA-StartQualificationsDisassociationTask -Value Start-PCAAQualificationsDisassociationTask
 Set-Alias -Name PCAA-StartVerification -Value Start-PCAAVerification
 Set-Alias -Name PCAA-TagResource -Value Add-PCAAResourceTag
 Set-Alias -Name PCAA-UntagResource -Value Remove-PCAAResourceTag

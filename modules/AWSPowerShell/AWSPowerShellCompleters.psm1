@@ -15970,9 +15970,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29398,12 +29398,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "Add-DDBIndexSchema",
-               "New-DDBTableSchema",
+               "ConvertTo-DDBItem",
                "New-DDBTable",
-               "ConvertTo-DDBItem")
+               "New-DDBTableSchema",
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -39579,8 +39579,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -61391,7 +61391,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
+            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
             break
         }
 
@@ -63925,6 +63925,9 @@ $PCAA_SelectMap = @{
                "Get-PCAAPartner",
                "Get-PCAAProfileUpdateTask",
                "Get-PCAAProfileVisibility",
+               "Get-PCAAQualificationsAssociationDetail",
+               "Get-PCAAQualificationsAssociationTask",
+               "Get-PCAAQualificationsDisassociationTask",
                "Get-PCAAVerification",
                "Get-PCAAConnectionInvitationList",
                "Get-PCAAConnectionList",
@@ -63935,6 +63938,8 @@ $PCAA_SelectMap = @{
                "Deny-PCAAConnectionInvitation",
                "Send-PCAAEmailVerificationCode",
                "Start-PCAAProfileUpdateTask",
+               "Start-PCAAQualificationsAssociationTask",
+               "Start-PCAAQualificationsDisassociationTask",
                "Start-PCAAVerification",
                "Add-PCAAResourceTag",
                "Remove-PCAAResourceTag",
@@ -65927,6 +65932,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.ScriptCachingPolicy
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/NodeLifecycleActions_ScriptCachingPolicy") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/NodeLifecycleActions_ScriptCachingPolicy")
+        }
+        {
+            $v = "CACHE_ONCE","REFRESH_ON_REBOOT"
+            break
+        }
+
         # Amazon.PCS.Size
         "New-PCSCluster/Size"
         {
@@ -65965,6 +65980,7 @@ $PCS_Completers = {
 $PCS_map = @{
     "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
     "Networking_NetworkType"=@("New-PCSCluster")
+    "NodeLifecycleActions_ScriptCachingPolicy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")
@@ -76109,16 +76125,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "Get-S3MultipartUpload",
                "New-S3Bucket",
-               "Write-S3Object",
-               "Read-S3Object",
-               "Remove-S3MultipartUpload",
                "Copy-S3Object",
-               "Remove-S3Bucket",
                "Get-S3PreSignedURL",
-               "Test-S3Bucket")
+               "Remove-S3Object",
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Read-S3Object",
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Remove-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -82513,7 +82529,7 @@ $SES2_Completers = {
             ($_ -eq "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributesOrigin")
         }
         {
-            $v = "AWS_SES","AWS_SES_AF_SOUTH_1","AWS_SES_AP_NORTHEAST_1","AWS_SES_AP_NORTHEAST_2","AWS_SES_AP_NORTHEAST_3","AWS_SES_AP_SOUTHEAST_1","AWS_SES_AP_SOUTHEAST_2","AWS_SES_AP_SOUTHEAST_3","AWS_SES_AP_SOUTHEAST_5","AWS_SES_AP_SOUTH_1","AWS_SES_AP_SOUTH_2","AWS_SES_CA_CENTRAL_1","AWS_SES_CA_WEST_1","AWS_SES_EU_CENTRAL_1","AWS_SES_EU_CENTRAL_2","AWS_SES_EU_NORTH_1","AWS_SES_EU_SOUTH_1","AWS_SES_EU_WEST_1","AWS_SES_EU_WEST_2","AWS_SES_EU_WEST_3","AWS_SES_IL_CENTRAL_1","AWS_SES_ME_CENTRAL_1","AWS_SES_ME_SOUTH_1","AWS_SES_SA_EAST_1","AWS_SES_US_EAST_1","AWS_SES_US_EAST_2","AWS_SES_US_WEST_1","AWS_SES_US_WEST_2","EXTERNAL"
+            $v = "AWS_SES","AWS_SES_AF_SOUTH_1","AWS_SES_AP_NORTHEAST_1","AWS_SES_AP_NORTHEAST_2","AWS_SES_AP_NORTHEAST_3","AWS_SES_AP_SOUTHEAST_1","AWS_SES_AP_SOUTHEAST_2","AWS_SES_AP_SOUTHEAST_3","AWS_SES_AP_SOUTHEAST_5","AWS_SES_AP_SOUTH_1","AWS_SES_AP_SOUTH_2","AWS_SES_CA_CENTRAL_1","AWS_SES_CA_WEST_1","AWS_SES_EU_CENTRAL_1","AWS_SES_EU_CENTRAL_2","AWS_SES_EU_NORTH_1","AWS_SES_EU_SOUTH_1","AWS_SES_EU_WEST_1","AWS_SES_EU_WEST_2","AWS_SES_EU_WEST_3","AWS_SES_IL_CENTRAL_1","AWS_SES_ME_CENTRAL_1","AWS_SES_ME_SOUTH_1","AWS_SES_SA_EAST_1","AWS_SES_US_EAST_1","AWS_SES_US_EAST_2","AWS_SES_US_GOV_EAST_1","AWS_SES_US_GOV_WEST_1","AWS_SES_US_WEST_1","AWS_SES_US_WEST_2","EXTERNAL"
             break
         }
 
@@ -85837,8 +85853,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

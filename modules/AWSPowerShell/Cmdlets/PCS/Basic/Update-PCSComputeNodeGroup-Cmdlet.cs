@@ -153,6 +153,39 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }
         #endregion
         
+        #region Parameter NodeLifecycleActions_Stages_NodeBootstrapped
+        /// <summary>
+        /// <para>
+        /// <para>The scripts to run after PCS finishes setting up the compute node and before the Slurm
+        /// daemon (<c>slurmd</c>) starts. Use this stage for tasks that must complete before
+        /// the node accepts jobs, such as mounting shared storage, configuring networking, or
+        /// installing software packages.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.PCS.Model.NodeLifecycleScript[] NodeLifecycleActions_Stages_NodeBootstrapped { get; set; }
+        #endregion
+        
+        #region Parameter NodeLifecycleActions_Stages_NodeReady
+        /// <summary>
+        /// <para>
+        /// <para>The scripts to run after the Slurm daemon (<c>slurmd</c>) starts and the compute node
+        /// registers with the Slurm controller. Use this stage for tasks that require Slurm to
+        /// be running, such as running Slurm commands.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.PCS.Model.NodeLifecycleScript[] NodeLifecycleActions_Stages_NodeReady { get; set; }
+        #endregion
+        
         #region Parameter PurchaseOption
         /// <summary>
         /// <para>
@@ -185,6 +218,18 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SlurmConfiguration_ScaleDownIdleTimeInSeconds")]
         public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter NodeLifecycleActions_ScriptCachingPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The caching policy for node lifecycle scripts. The default value is <c>CACHE_ONCE</c>.
+        /// Valid values:</para><ul><li><para><c>CACHE_ONCE</c> – Downloads each script once and reuses it on subsequent boots.</para></li><li><para><c>REFRESH_ON_REBOOT</c> – Downloads each script on every boot.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PCS.ScriptCachingPolicy")]
+        public Amazon.PCS.ScriptCachingPolicy NodeLifecycleActions_ScriptCachingPolicy { get; set; }
         #endregion
         
         #region Parameter SlurmConfiguration_SlurmCustomSetting
@@ -308,6 +353,15 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             context.CustomLaunchTemplate_Id = this.CustomLaunchTemplate_Id;
             context.CustomLaunchTemplate_Version = this.CustomLaunchTemplate_Version;
             context.IamInstanceProfileArn = this.IamInstanceProfileArn;
+            context.NodeLifecycleActions_ScriptCachingPolicy = this.NodeLifecycleActions_ScriptCachingPolicy;
+            if (this.NodeLifecycleActions_Stages_NodeBootstrapped != null)
+            {
+                context.NodeLifecycleActions_Stages_NodeBootstrapped = new List<Amazon.PCS.Model.NodeLifecycleScript>(this.NodeLifecycleActions_Stages_NodeBootstrapped);
+            }
+            if (this.NodeLifecycleActions_Stages_NodeReady != null)
+            {
+                context.NodeLifecycleActions_Stages_NodeReady = new List<Amazon.PCS.Model.NodeLifecycleScript>(this.NodeLifecycleActions_Stages_NodeReady);
+            }
             context.PurchaseOption = this.PurchaseOption;
             context.ScalingConfiguration_MaxInstanceCount = this.ScalingConfiguration_MaxInstanceCount;
             context.ScalingConfiguration_MinInstanceCount = this.ScalingConfiguration_MinInstanceCount;
@@ -385,6 +439,60 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.IamInstanceProfileArn != null)
             {
                 request.IamInstanceProfileArn = cmdletContext.IamInstanceProfileArn;
+            }
+            
+             // populate NodeLifecycleActions
+            var requestNodeLifecycleActionsIsNull = true;
+            request.NodeLifecycleActions = new Amazon.PCS.Model.UpdateNodeLifecycleActionsRequest();
+            Amazon.PCS.ScriptCachingPolicy requestNodeLifecycleActions_nodeLifecycleActions_ScriptCachingPolicy = null;
+            if (cmdletContext.NodeLifecycleActions_ScriptCachingPolicy != null)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_ScriptCachingPolicy = cmdletContext.NodeLifecycleActions_ScriptCachingPolicy;
+            }
+            if (requestNodeLifecycleActions_nodeLifecycleActions_ScriptCachingPolicy != null)
+            {
+                request.NodeLifecycleActions.ScriptCachingPolicy = requestNodeLifecycleActions_nodeLifecycleActions_ScriptCachingPolicy;
+                requestNodeLifecycleActionsIsNull = false;
+            }
+            Amazon.PCS.Model.NodeLifecycleStages requestNodeLifecycleActions_nodeLifecycleActions_Stages = null;
+            
+             // populate Stages
+            var requestNodeLifecycleActions_nodeLifecycleActions_StagesIsNull = true;
+            requestNodeLifecycleActions_nodeLifecycleActions_Stages = new Amazon.PCS.Model.NodeLifecycleStages();
+            List<Amazon.PCS.Model.NodeLifecycleScript> requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeBootstrapped = null;
+            if (cmdletContext.NodeLifecycleActions_Stages_NodeBootstrapped != null)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeBootstrapped = cmdletContext.NodeLifecycleActions_Stages_NodeBootstrapped;
+            }
+            if (requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeBootstrapped != null)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_Stages.NodeBootstrapped = requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeBootstrapped;
+                requestNodeLifecycleActions_nodeLifecycleActions_StagesIsNull = false;
+            }
+            List<Amazon.PCS.Model.NodeLifecycleScript> requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeReady = null;
+            if (cmdletContext.NodeLifecycleActions_Stages_NodeReady != null)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeReady = cmdletContext.NodeLifecycleActions_Stages_NodeReady;
+            }
+            if (requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeReady != null)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_Stages.NodeReady = requestNodeLifecycleActions_nodeLifecycleActions_Stages_nodeLifecycleActions_Stages_NodeReady;
+                requestNodeLifecycleActions_nodeLifecycleActions_StagesIsNull = false;
+            }
+             // determine if requestNodeLifecycleActions_nodeLifecycleActions_Stages should be set to null
+            if (requestNodeLifecycleActions_nodeLifecycleActions_StagesIsNull)
+            {
+                requestNodeLifecycleActions_nodeLifecycleActions_Stages = null;
+            }
+            if (requestNodeLifecycleActions_nodeLifecycleActions_Stages != null)
+            {
+                request.NodeLifecycleActions.Stages = requestNodeLifecycleActions_nodeLifecycleActions_Stages;
+                requestNodeLifecycleActionsIsNull = false;
+            }
+             // determine if request.NodeLifecycleActions should be set to null
+            if (requestNodeLifecycleActionsIsNull)
+            {
+                request.NodeLifecycleActions = null;
             }
             if (cmdletContext.PurchaseOption != null)
             {
@@ -533,6 +641,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.String CustomLaunchTemplate_Id { get; set; }
             public System.String CustomLaunchTemplate_Version { get; set; }
             public System.String IamInstanceProfileArn { get; set; }
+            public Amazon.PCS.ScriptCachingPolicy NodeLifecycleActions_ScriptCachingPolicy { get; set; }
+            public List<Amazon.PCS.Model.NodeLifecycleScript> NodeLifecycleActions_Stages_NodeBootstrapped { get; set; }
+            public List<Amazon.PCS.Model.NodeLifecycleScript> NodeLifecycleActions_Stages_NodeReady { get; set; }
             public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
             public System.Int32? ScalingConfiguration_MaxInstanceCount { get; set; }
             public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }

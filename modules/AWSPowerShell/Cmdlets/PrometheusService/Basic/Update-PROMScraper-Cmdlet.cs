@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }
         #endregion
         
+        #region Parameter Destination_CloudWatchConfiguration_DatasetArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the CloudWatch dataset. To use the default dataset,
+        /// specify <c>arn:aws:cloudwatch:&lt;region&gt;:&lt;account-id&gt;:dataset/default</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Destination_CloudWatchConfiguration_DatasetArn { get; set; }
+        #endregion
+        
         #region Parameter ScraperId
         /// <summary>
         /// <para>
@@ -184,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             context.Alias = this.Alias;
             context.ClientToken = this.ClientToken;
             context.AmpConfiguration_WorkspaceArn = this.AmpConfiguration_WorkspaceArn;
+            context.Destination_CloudWatchConfiguration_DatasetArn = this.Destination_CloudWatchConfiguration_DatasetArn;
             context.RoleConfiguration_SourceRoleArn = this.RoleConfiguration_SourceRoleArn;
             context.RoleConfiguration_TargetRoleArn = this.RoleConfiguration_TargetRoleArn;
             context.ScrapeConfiguration_ConfigurationBlob = this.ScrapeConfiguration_ConfigurationBlob;
@@ -249,6 +261,31 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestDestination_destination_AmpConfiguration != null)
                 {
                     request.Destination.AmpConfiguration = requestDestination_destination_AmpConfiguration;
+                    requestDestinationIsNull = false;
+                }
+                Amazon.PrometheusService.Model.CloudWatchConfiguration requestDestination_destination_CloudWatchConfiguration = null;
+                
+                 // populate CloudWatchConfiguration
+                var requestDestination_destination_CloudWatchConfigurationIsNull = true;
+                requestDestination_destination_CloudWatchConfiguration = new Amazon.PrometheusService.Model.CloudWatchConfiguration();
+                System.String requestDestination_destination_CloudWatchConfiguration_destination_CloudWatchConfiguration_DatasetArn = null;
+                if (cmdletContext.Destination_CloudWatchConfiguration_DatasetArn != null)
+                {
+                    requestDestination_destination_CloudWatchConfiguration_destination_CloudWatchConfiguration_DatasetArn = cmdletContext.Destination_CloudWatchConfiguration_DatasetArn;
+                }
+                if (requestDestination_destination_CloudWatchConfiguration_destination_CloudWatchConfiguration_DatasetArn != null)
+                {
+                    requestDestination_destination_CloudWatchConfiguration.DatasetArn = requestDestination_destination_CloudWatchConfiguration_destination_CloudWatchConfiguration_DatasetArn;
+                    requestDestination_destination_CloudWatchConfigurationIsNull = false;
+                }
+                 // determine if requestDestination_destination_CloudWatchConfiguration should be set to null
+                if (requestDestination_destination_CloudWatchConfigurationIsNull)
+                {
+                    requestDestination_destination_CloudWatchConfiguration = null;
+                }
+                if (requestDestination_destination_CloudWatchConfiguration != null)
+                {
+                    request.Destination.CloudWatchConfiguration = requestDestination_destination_CloudWatchConfiguration;
                     requestDestinationIsNull = false;
                 }
                  // determine if request.Destination should be set to null
@@ -375,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             public System.String Alias { get; set; }
             public System.String ClientToken { get; set; }
             public System.String AmpConfiguration_WorkspaceArn { get; set; }
+            public System.String Destination_CloudWatchConfiguration_DatasetArn { get; set; }
             public System.String RoleConfiguration_SourceRoleArn { get; set; }
             public System.String RoleConfiguration_TargetRoleArn { get; set; }
             public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }

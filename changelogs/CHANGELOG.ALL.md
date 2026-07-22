@@ -1,4 +1,21 @@
-﻿### 5.0.258 (2026-07-21 19:01Z)
+﻿### 5.0.259 (2026-07-22 19:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.294.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Region switch
+    * Modified cmdlet Start-ARCPlanExecution: added parameter ClientToken.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSComputeNodeGroup: added parameters NodeLifecycleActions_ScriptCachingPolicy, NodeLifecycleActions_Stages_NodeBootstrapped and NodeLifecycleActions_Stages_NodeReady.
+    * Modified cmdlet Update-PCSComputeNodeGroup: added parameters NodeLifecycleActions_ScriptCachingPolicy, NodeLifecycleActions_Stages_NodeBootstrapped and NodeLifecycleActions_Stages_NodeReady.
+  * Amazon Partner Central Account API
+    * Added cmdlet Get-PCAAQualificationsAssociationDetail leveraging the GetQualificationsAssociationDetails service API.
+    * Added cmdlet Get-PCAAQualificationsAssociationTask leveraging the GetQualificationsAssociationTask service API.
+    * Added cmdlet Get-PCAAQualificationsDisassociationTask leveraging the GetQualificationsDisassociationTask service API.
+    * Added cmdlet Start-PCAAQualificationsAssociationTask leveraging the StartQualificationsAssociationTask service API.
+    * Added cmdlet Start-PCAAQualificationsDisassociationTask leveraging the StartQualificationsDisassociationTask service API.
+  * Amazon Prometheus Service
+    * Modified cmdlet New-PROMScraper: added parameter Destination_CloudWatchConfiguration_DatasetArn.
+    * Modified cmdlet Update-PROMScraper: added parameter Destination_CloudWatchConfiguration_DatasetArn.
+
+### 5.0.258 (2026-07-21 19:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.293.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Containers
     * Added cmdlet Remove-EMRCSecurityConfiguration leveraging the DeleteSecurityConfiguration service API.

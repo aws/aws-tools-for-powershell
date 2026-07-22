@@ -357,7 +357,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// starts the query time range at 11:59:00.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int64? ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset { get; set; }
         #endregion
         
@@ -537,6 +543,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset = this.ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset;
+            #if MODULAR
+            if (this.ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset == null && ParameterWasBound(nameof(this.ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScheduledQueryConfiguration_ScheduleConfiguration_StartTimeOffset which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ScheduledQueryConfiguration_ScheduledQueryRoleARN = this.ScheduledQueryConfiguration_ScheduledQueryRoleARN;
             #if MODULAR
             if (this.ScheduledQueryConfiguration_ScheduledQueryRoleARN == null && ParameterWasBound(nameof(this.ScheduledQueryConfiguration_ScheduledQueryRoleARN)))
