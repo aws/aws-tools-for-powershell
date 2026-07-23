@@ -45,6 +45,12 @@ param (
   [Parameter()]
   [bool] $SkipAWSSDKCoreDlls = $true,
 
+  # Comma-separated assembly names (e.g. "SageMakerRuntimeHTTP2") of H2-required service(s) skipped
+  # in this build. Each is added to the generator manifest's <IncludeLibraries> so the cmdlet
+  # generator does not fail for a service that intentionally has no <Service> config. Defaults to empty.
+  [Parameter()]
+  [string] $SkippedH2Services = "",
+
   # Indicates if build was executed as part of E2E test.
   [Parameter()]
   [string] $BypassDotNetSdkBuildQueue = "false"
@@ -173,6 +179,9 @@ try {
   Import-Module -Name AWS.Tools.S3 -RequiredVersion $RequiredAWSPowerShellVersionToUse
 
   $BuildResult = $null
+
+  # Allowlist any H2-required services skipped in this build before the generator runs.
+  Add-SkippedH2ServicesToGeneratorManifest -SkippedH2Services $SkippedH2Services
 
   if ($BuildType -eq 'PREVIEW') {
     # for Preview build, $SdkArtifactsUri will have s3 uri for the preview artifacts from .NET build. e.g https://bucketname.s3.us-west-2.amazonaws.com/{path to dotnet3.zip}
