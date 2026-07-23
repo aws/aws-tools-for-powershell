@@ -124,6 +124,23 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.OutputLockingMode
+        "New-MPV2Channel/OutputLockingMode"
+        {
+            $v = "EPOCH_LOCKED","NON_EPOCH_LOCKED"
+            break
+        }
+
+        # Amazon.MediaPackageV2.OutputTimestampMode
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_OutputTimestampMode") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_OutputTimestampMode")
+        }
+        {
+            $v = "PASSTHROUGH","REBASED_TO_CHANNEL_START"
+            break
+        }
+
         # Amazon.MediaPackageV2.PresetSpeke20Audio
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio") -Or
@@ -190,7 +207,9 @@ $MPV2_map = @{
     "EncryptionMethod_IsmEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
+    "OutputLockingMode"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
     "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }

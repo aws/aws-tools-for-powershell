@@ -248,6 +248,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-DZNotebookExport', 
         'Start-DZNotebookImport', 
         'Start-DZNotebookRun', 
+        'Start-DZNotebookSync', 
         'Stop-DZMetadataGenerationRun', 
         'Stop-DZNotebookRun', 
         'Stop-DZSubscription', 

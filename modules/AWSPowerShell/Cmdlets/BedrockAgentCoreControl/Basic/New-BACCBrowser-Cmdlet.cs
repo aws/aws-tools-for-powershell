@@ -128,6 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter FilesystemConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The file system configurations to mount into the browser. Use these configurations
+        /// to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic
+        /// File System (Amazon EFS) access points. Your sessions can then access your data. If
+        /// you don't specify this field, no file systems are mounted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilesystemConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.ToolsFileSystemConfiguration[] FilesystemConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -329,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.EnterprisePolicy = new List<Amazon.BedrockAgentCoreControl.Model.BrowserEnterprisePolicy>(this.EnterprisePolicy);
             }
             context.ExecutionRoleArn = this.ExecutionRoleArn;
+            if (this.FilesystemConfiguration != null)
+            {
+                context.FilesystemConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.ToolsFileSystemConfiguration>(this.FilesystemConfiguration);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -418,6 +440,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            if (cmdletContext.FilesystemConfiguration != null)
+            {
+                request.FilesystemConfigurations = cmdletContext.FilesystemConfiguration;
             }
             if (cmdletContext.Name != null)
             {
@@ -616,6 +642,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.BrowserEnterprisePolicy> EnterprisePolicy { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ToolsFileSystemConfiguration> FilesystemConfiguration { get; set; }
             public System.String Name { get; set; }
             public Amazon.BedrockAgentCoreControl.BrowserNetworkMode NetworkConfiguration_NetworkMode { get; set; }
             public System.Boolean? NetworkConfiguration_VpcConfig_RequireServiceS3Endpoint { get; set; }

@@ -9320,6 +9320,7 @@ Set-Alias -Name DZ-StartMetadataGenerationRun -Value Start-DZMetadataGenerationR
 Set-Alias -Name DZ-StartNotebookExport -Value Start-DZNotebookExport
 Set-Alias -Name DZ-StartNotebookImport -Value Start-DZNotebookImport
 Set-Alias -Name DZ-StartNotebookRun -Value Start-DZNotebookRun
+Set-Alias -Name DZ-StartNotebookSync -Value Start-DZNotebookSync
 Set-Alias -Name DZ-StopNotebookRun -Value Stop-DZNotebookRun
 Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
 Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
@@ -28450,6 +28451,9 @@ Set-Alias -Name RSD-ListDatabases -Value Get-RSDDatabasisList
 Set-Alias -Name List-RSDSchemas -Value Get-RSDSchemaList
 Set-Alias -Name List-RSDSchemaList -Value Get-RSDSchemaList
 Set-Alias -Name RSD-ListSchemas -Value Get-RSDSchemaList
+Set-Alias -Name List-RSDSessions -Value Get-RSDSessionList
+Set-Alias -Name List-RSDSessionList -Value Get-RSDSessionList
+Set-Alias -Name RSD-ListSessions -Value Get-RSDSessionList
 Set-Alias -Name List-RSDStatements -Value Get-RSDStatementList
 Set-Alias -Name List-RSDStatementList -Value Get-RSDStatementList
 Set-Alias -Name RSD-ListStatements -Value Get-RSDStatementList

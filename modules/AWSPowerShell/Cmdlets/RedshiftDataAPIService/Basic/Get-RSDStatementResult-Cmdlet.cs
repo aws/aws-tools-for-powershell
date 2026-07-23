@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter WaitTimeSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds to wait for the SQL statement to complete execution before returning
+        /// the result. The maximum value is 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WaitTimeSeconds")]
+        public System.Int32? WaitTimeSecond { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -143,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             #endif
             context.NextToken = this.NextToken;
+            context.WaitTimeSecond = this.WaitTimeSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.WaitTimeSecond != null)
+            {
+                request.WaitTimeSeconds = cmdletContext.WaitTimeSecond.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -247,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         {
             public System.String Id { get; set; }
             public System.String NextToken { get; set; }
+            public System.Int32? WaitTimeSecond { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.GetStatementResultResponse, GetRSDStatementResultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

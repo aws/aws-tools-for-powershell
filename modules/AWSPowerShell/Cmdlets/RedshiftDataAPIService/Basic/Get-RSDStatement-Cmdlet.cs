@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter WaitTimeSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds to wait for the SQL statement to complete execution before returning
+        /// the description. The maximum value is 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WaitTimeSeconds")]
+        public System.Int32? WaitTimeSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -112,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WaitTimeSecond = this.WaitTimeSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.WaitTimeSecond != null)
+            {
+                request.WaitTimeSeconds = cmdletContext.WaitTimeSecond.Value;
             }
             
             CmdletOutput output;
@@ -188,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
+            public System.Int32? WaitTimeSecond { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse, GetRSDStatementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.294.0",
+    "ProductVersion"    : "4.0.295.0",
     "CoreVersion"       : "4.0.100.8",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.102.2",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.103.1",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -1700,7 +1700,7 @@
             "InPreview"               : false
         },
         "RedshiftDataAPIService"          : {
-            "Version" : "4.0.101.1",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2204,7 +2204,7 @@
             "InPreview"               : false
         },
         "BackupGateway"                       : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2476,7 +2476,7 @@
             "InPreview"               : false
         },
         "KendraRanking"                       : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2540,7 +2540,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2644,7 +2644,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.101.6",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3028,7 +3028,7 @@
             "InPreview"               : false
         },
         "BCMPricingCalculator"                : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3116,7 +3116,7 @@
             "InPreview"               : false
         },
         "GameLiftStreams"                     : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3156,7 +3156,7 @@
             "InPreview"               : false
         },
         "WorkspacesInstances"                 : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.101.1",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.103.1",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3212,7 +3212,7 @@
             "InPreview"               : false
         },
         "BCMRecommendedActions"               : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"

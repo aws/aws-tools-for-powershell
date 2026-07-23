@@ -868,6 +868,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookSync" OutputProperty="*" Verb="Start" Noun="NotebookSync" ShouldProcessTarget="DomainIdentifier,OwningProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopNotebookRun" OutputProperty="*" Verb="Stop" Noun="NotebookRun" ShouldProcessTarget="DomainIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

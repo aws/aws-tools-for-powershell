@@ -2247,6 +2247,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_UseBoxAgentAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_UseBrowserExtension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Amazon Quick through the browser extension for Chrome, Firefox,
+        /// and Edge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseBrowserExtension { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_UseCanvaAgentAction
         /// <summary>
         /// <para>
@@ -2289,6 +2301,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_UseConfluenceAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UseExcelAddInExtension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Amazon Quick through the Microsoft Excel add-in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseExcelAddInExtension { get; set; }
         #endregion
         
         #region Parameter Capabilities_UseFactSetAction
@@ -2478,6 +2501,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_UseOpenAPIAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_UseOutlookAddInExtension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Amazon Quick through the Microsoft Outlook add-in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseOutlookAddInExtension { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_UsePagerDutyAction
         /// <summary>
         /// <para>
@@ -2487,6 +2521,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_UsePagerDutyAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UsePowerpointAddInExtension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UsePowerpointAddInExtension { get; set; }
         #endregion
         
         #region Parameter Capabilities_UseSalesforceAction
@@ -2630,6 +2675,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_UseTextractAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UseWordAddInExtension
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Amazon Quick through the Microsoft Word add-in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseWordAddInExtension { get; set; }
         #endregion
         
         #region Parameter Capabilities_UseZendeskAction
@@ -2912,10 +2968,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseBambooHRAction = this.Capabilities_UseBambooHRAction;
             context.Capabilities_UseBedrockModel = this.Capabilities_UseBedrockModel;
             context.Capabilities_UseBoxAgentAction = this.Capabilities_UseBoxAgentAction;
+            context.Capabilities_UseBrowserExtension = this.Capabilities_UseBrowserExtension;
             context.Capabilities_UseCanvaAgentAction = this.Capabilities_UseCanvaAgentAction;
             context.Capabilities_UseComprehendAction = this.Capabilities_UseComprehendAction;
             context.Capabilities_UseComprehendMedicalAction = this.Capabilities_UseComprehendMedicalAction;
             context.Capabilities_UseConfluenceAction = this.Capabilities_UseConfluenceAction;
+            context.Capabilities_UseExcelAddInExtension = this.Capabilities_UseExcelAddInExtension;
             context.Capabilities_UseFactSetAction = this.Capabilities_UseFactSetAction;
             context.Capabilities_UseGenericHTTPAction = this.Capabilities_UseGenericHTTPAction;
             context.Capabilities_UseGithubAction = this.Capabilities_UseGithubAction;
@@ -2933,7 +2991,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseNotionAction = this.Capabilities_UseNotionAction;
             context.Capabilities_UseOneDriveAction = this.Capabilities_UseOneDriveAction;
             context.Capabilities_UseOpenAPIAction = this.Capabilities_UseOpenAPIAction;
+            context.Capabilities_UseOutlookAddInExtension = this.Capabilities_UseOutlookAddInExtension;
             context.Capabilities_UsePagerDutyAction = this.Capabilities_UsePagerDutyAction;
+            context.Capabilities_UsePowerpointAddInExtension = this.Capabilities_UsePowerpointAddInExtension;
             context.Capabilities_UseSalesforceAction = this.Capabilities_UseSalesforceAction;
             context.Capabilities_UseSandPGlobalEnergyAction = this.Capabilities_UseSandPGlobalEnergyAction;
             context.Capabilities_UseSandPGMIAction = this.Capabilities_UseSandPGMIAction;
@@ -2947,6 +3007,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseSlackAction = this.Capabilities_UseSlackAction;
             context.Capabilities_UseSmartsheetAction = this.Capabilities_UseSmartsheetAction;
             context.Capabilities_UseTextractAction = this.Capabilities_UseTextractAction;
+            context.Capabilities_UseWordAddInExtension = this.Capabilities_UseWordAddInExtension;
             context.Capabilities_UseZendeskAction = this.Capabilities_UseZendeskAction;
             context.Capabilities_ViewAccountSPICECapacity = this.Capabilities_ViewAccountSPICECapacity;
             context.Capabilities_ZendeskAction = this.Capabilities_ZendeskAction;
@@ -4921,6 +4982,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.UseBoxAgentAction = requestCapabilities_capabilities_UseBoxAgentAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseBrowserExtension = null;
+            if (cmdletContext.Capabilities_UseBrowserExtension != null)
+            {
+                requestCapabilities_capabilities_UseBrowserExtension = cmdletContext.Capabilities_UseBrowserExtension;
+            }
+            if (requestCapabilities_capabilities_UseBrowserExtension != null)
+            {
+                request.Capabilities.UseBrowserExtension = requestCapabilities_capabilities_UseBrowserExtension;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseCanvaAgentAction = null;
             if (cmdletContext.Capabilities_UseCanvaAgentAction != null)
             {
@@ -4959,6 +5030,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UseConfluenceAction != null)
             {
                 request.Capabilities.UseConfluenceAction = requestCapabilities_capabilities_UseConfluenceAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseExcelAddInExtension = null;
+            if (cmdletContext.Capabilities_UseExcelAddInExtension != null)
+            {
+                requestCapabilities_capabilities_UseExcelAddInExtension = cmdletContext.Capabilities_UseExcelAddInExtension;
+            }
+            if (requestCapabilities_capabilities_UseExcelAddInExtension != null)
+            {
+                request.Capabilities.UseExcelAddInExtension = requestCapabilities_capabilities_UseExcelAddInExtension;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseFactSetAction = null;
@@ -5131,6 +5212,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.UseOpenAPIAction = requestCapabilities_capabilities_UseOpenAPIAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseOutlookAddInExtension = null;
+            if (cmdletContext.Capabilities_UseOutlookAddInExtension != null)
+            {
+                requestCapabilities_capabilities_UseOutlookAddInExtension = cmdletContext.Capabilities_UseOutlookAddInExtension;
+            }
+            if (requestCapabilities_capabilities_UseOutlookAddInExtension != null)
+            {
+                request.Capabilities.UseOutlookAddInExtension = requestCapabilities_capabilities_UseOutlookAddInExtension;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UsePagerDutyAction = null;
             if (cmdletContext.Capabilities_UsePagerDutyAction != null)
             {
@@ -5139,6 +5230,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UsePagerDutyAction != null)
             {
                 request.Capabilities.UsePagerDutyAction = requestCapabilities_capabilities_UsePagerDutyAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UsePowerpointAddInExtension = null;
+            if (cmdletContext.Capabilities_UsePowerpointAddInExtension != null)
+            {
+                requestCapabilities_capabilities_UsePowerpointAddInExtension = cmdletContext.Capabilities_UsePowerpointAddInExtension;
+            }
+            if (requestCapabilities_capabilities_UsePowerpointAddInExtension != null)
+            {
+                request.Capabilities.UsePowerpointAddInExtension = requestCapabilities_capabilities_UsePowerpointAddInExtension;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSalesforceAction = null;
@@ -5269,6 +5370,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UseTextractAction != null)
             {
                 request.Capabilities.UseTextractAction = requestCapabilities_capabilities_UseTextractAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseWordAddInExtension = null;
+            if (cmdletContext.Capabilities_UseWordAddInExtension != null)
+            {
+                requestCapabilities_capabilities_UseWordAddInExtension = cmdletContext.Capabilities_UseWordAddInExtension;
+            }
+            if (requestCapabilities_capabilities_UseWordAddInExtension != null)
+            {
+                request.Capabilities.UseWordAddInExtension = requestCapabilities_capabilities_UseWordAddInExtension;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseZendeskAction = null;
@@ -5560,10 +5671,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseBambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseBedrockModel { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseBoxAgentAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseBrowserExtension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseCanvaAgentAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseComprehendAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseComprehendMedicalAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseConfluenceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseExcelAddInExtension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseFactSetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGenericHTTPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGithubAction { get; set; }
@@ -5581,7 +5694,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseNotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseOneDriveAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseOpenAPIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseOutlookAddInExtension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UsePagerDutyAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UsePowerpointAddInExtension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSalesforceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGlobalEnergyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGMIAction { get; set; }
@@ -5595,6 +5710,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseSlackAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSmartsheetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseTextractAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseWordAddInExtension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseZendeskAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ViewAccountSPICECapacity { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ZendeskAction { get; set; }

@@ -110,11 +110,26 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String DbUser { get; set; }
         #endregion
         
+        #region Parameter ExecutionMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines how the SQL statements in the batch are run. If set to <c>TRANSACTION</c>
+        /// (the default), all SQL statements are run as a single transaction and they are committed
+        /// or rolled back together. If set to <c>AUTO_COMMIT</c>, each SQL statement is committed
+        /// individually, and a failure of one statement does not affect the others.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftDataAPIService.ExecutionMode")]
+        public Amazon.RedshiftDataAPIService.ExecutionMode ExecutionMode { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the SQL statements. The parameters are shared across all SQL statements
-        /// in the batch.</para><para />
+        /// <para>The parameters for the SQL statements. The parameters are available to all SQL statements
+        /// in the batch. Each statement can reference any subset of the provided parameters.
+        /// Each provided parameter must be referenced by at least one SQL statement in the batch.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -175,10 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter Sql
         /// <summary>
         /// <para>
-        /// <para>One or more SQL statements to run. The SQL statements are run as a single transaction.
-        /// They run serially in the order of the array. Subsequent SQL statements don't start
-        /// until the previous statement in the array completes. If any SQL statement fails, then
-        /// because they are run as one transaction, all work is rolled back.</para><para />
+        /// <para>One or more SQL statements to run. The SQL statements run serially in the order of
+        /// the array. Subsequent SQL statements don't start until the previous statement in the
+        /// array completes. By default, the SQL statements are run as a single transaction. If
+        /// any SQL statement fails, all work is rolled back. To change this behavior, see the
+        /// <c>ExecutionMode</c> parameter.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -206,6 +222,19 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StatementName { get; set; }
+        #endregion
+        
+        #region Parameter WaitTimeSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds to wait for all SQL statements in the batch to complete execution
+        /// before returning the response. If the SQL statements do not complete within the specified
+        /// time, the response returns the current status. The maximum value is 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WaitTimeSeconds")]
+        public System.Int32? WaitTimeSecond { get; set; }
         #endregion
         
         #region Parameter WithEvent
@@ -292,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
             context.DbUser = this.DbUser;
+            context.ExecutionMode = this.ExecutionMode;
             if (this.Parameter != null)
             {
                 context.Parameter = new List<Amazon.RedshiftDataAPIService.Model.SqlParameter>(this.Parameter);
@@ -311,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             #endif
             context.StatementName = this.StatementName;
+            context.WaitTimeSecond = this.WaitTimeSecond;
             context.WithEvent = this.WithEvent;
             context.WorkgroupName = this.WorkgroupName;
             
@@ -345,6 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             {
                 request.DbUser = cmdletContext.DbUser;
             }
+            if (cmdletContext.ExecutionMode != null)
+            {
+                request.ExecutionMode = cmdletContext.ExecutionMode;
+            }
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
@@ -372,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.StatementName != null)
             {
                 request.StatementName = cmdletContext.StatementName;
+            }
+            if (cmdletContext.WaitTimeSecond != null)
+            {
+                request.WaitTimeSeconds = cmdletContext.WaitTimeSecond.Value;
             }
             if (cmdletContext.WithEvent != null)
             {
@@ -440,6 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
+            public Amazon.RedshiftDataAPIService.ExecutionMode ExecutionMode { get; set; }
             public List<Amazon.RedshiftDataAPIService.Model.SqlParameter> Parameter { get; set; }
             public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
             public System.String SecretArn { get; set; }
@@ -447,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.Int32? SessionKeepAliveSecond { get; set; }
             public List<System.String> Sql { get; set; }
             public System.String StatementName { get; set; }
+            public System.Int32? WaitTimeSecond { get; set; }
             public System.Boolean? WithEvent { get; set; }
             public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse, PushRSDBatchStatementCmdlet, object> Select { get; set; } =

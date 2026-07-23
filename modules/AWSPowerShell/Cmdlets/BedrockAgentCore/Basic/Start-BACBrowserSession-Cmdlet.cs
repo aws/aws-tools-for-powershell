@@ -137,6 +137,24 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public Amazon.BedrockAgentCore.Model.BrowserExtension[] Extension { get; set; }
         #endregion
         
+        #region Parameter FilesystemConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The file system configurations to mount into the browser session. Use these configurations
+        /// to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic
+        /// File System (Amazon EFS) access points. Your session can then read and write your
+        /// data. If you don't specify this field, no additional file systems are mounted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilesystemConfigurations")]
+        public Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration[] FilesystemConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ViewPort_Height
         /// <summary>
         /// <para>
@@ -310,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 context.Extension = new List<Amazon.BedrockAgentCore.Model.BrowserExtension>(this.Extension);
             }
+            if (this.FilesystemConfiguration != null)
+            {
+                context.FilesystemConfiguration = new List<Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration>(this.FilesystemConfiguration);
+            }
             context.Name = this.Name;
             context.ProfileConfiguration_ProfileIdentifier = this.ProfileConfiguration_ProfileIdentifier;
             if (this.ProxyConfiguration_Bypass_DomainPattern != null)
@@ -360,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.Extension != null)
             {
                 request.Extensions = cmdletContext.Extension;
+            }
+            if (cmdletContext.FilesystemConfiguration != null)
+            {
+                request.FilesystemConfigurations = cmdletContext.FilesystemConfiguration;
             }
             if (cmdletContext.Name != null)
             {
@@ -529,6 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ClientToken { get; set; }
             public List<Amazon.BedrockAgentCore.Model.BrowserEnterprisePolicy> EnterprisePolicy { get; set; }
             public List<Amazon.BedrockAgentCore.Model.BrowserExtension> Extension { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration> FilesystemConfiguration { get; set; }
             public System.String Name { get; set; }
             public System.String ProfileConfiguration_ProfileIdentifier { get; set; }
             public List<System.String> ProxyConfiguration_Bypass_DomainPattern { get; set; }

@@ -80,6 +80,13 @@ $RSD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftDataAPIService.ExecutionMode
+        "Push-RSDBatchStatement/ExecutionMode"
+        {
+            $v = "AUTO_COMMIT","TRANSACTION"
+            break
+        }
+
         # Amazon.RedshiftDataAPIService.ResultFormatString
         {
             ($_ -eq "Push-RSDBatchStatement/ResultFormat") -Or
@@ -87,6 +94,13 @@ $RSD_Completers = {
         }
         {
             $v = "CSV","JSON"
+            break
+        }
+
+        # Amazon.RedshiftDataAPIService.SessionStatusString
+        "Get-RSDSessionList/Status"
+        {
+            $v = "AVAILABLE","BUSY","CLOSED"
             break
         }
 
@@ -106,8 +120,9 @@ $RSD_Completers = {
 }
 
 $RSD_map = @{
+    "ExecutionMode"=@("Push-RSDBatchStatement")
     "ResultFormat"=@("Push-RSDBatchStatement","Send-RSDStatement")
-    "Status"=@("Get-RSDStatementList")
+    "Status"=@("Get-RSDSessionList","Get-RSDStatementList")
 }
 
 _awsArgumentCompleterRegistration $RSD_Completers $RSD_map
@@ -169,6 +184,7 @@ $RSD_SelectMap = @{
                "Get-RSDStatementResultV2",
                "Get-RSDDatabasisList",
                "Get-RSDSchemaList",
+               "Get-RSDSessionList",
                "Get-RSDStatementList",
                "Get-RSDTableList")
 }

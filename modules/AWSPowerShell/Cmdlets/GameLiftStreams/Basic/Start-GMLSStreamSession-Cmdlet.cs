@@ -212,6 +212,17 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisplayConfiguration_Resolution_Height
+        /// <summary>
+        /// <para>
+        /// <para>The height of the stream session's virtual monitor, in pixels. The value must be an
+        /// even number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DisplayConfiguration_Resolution_Height { get; set; }
+        #endregion
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>
@@ -340,6 +351,17 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         public System.String UserId { get; set; }
         #endregion
         
+        #region Parameter DisplayConfiguration_Resolution_Width
+        /// <summary>
+        /// <para>
+        /// <para>The width of the stream session's virtual monitor, in pixels. The value must be an
+        /// even number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DisplayConfiguration_Resolution_Width { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -420,6 +442,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             context.ClientToken = this.ClientToken;
             context.ConnectionTimeoutSecond = this.ConnectionTimeoutSecond;
             context.Description = this.Description;
+            context.DisplayConfiguration_Resolution_Height = this.DisplayConfiguration_Resolution_Height;
+            context.DisplayConfiguration_Resolution_Width = this.DisplayConfiguration_Resolution_Width;
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -488,6 +512,50 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DisplayConfiguration
+            var requestDisplayConfigurationIsNull = true;
+            request.DisplayConfiguration = new Amazon.GameLiftStreams.Model.DisplayConfiguration();
+            Amazon.GameLiftStreams.Model.Resolution requestDisplayConfiguration_displayConfiguration_Resolution = null;
+            
+             // populate Resolution
+            var requestDisplayConfiguration_displayConfiguration_ResolutionIsNull = true;
+            requestDisplayConfiguration_displayConfiguration_Resolution = new Amazon.GameLiftStreams.Model.Resolution();
+            System.Int32? requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Height = null;
+            if (cmdletContext.DisplayConfiguration_Resolution_Height != null)
+            {
+                requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Height = cmdletContext.DisplayConfiguration_Resolution_Height.Value;
+            }
+            if (requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Height != null)
+            {
+                requestDisplayConfiguration_displayConfiguration_Resolution.Height = requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Height.Value;
+                requestDisplayConfiguration_displayConfiguration_ResolutionIsNull = false;
+            }
+            System.Int32? requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Width = null;
+            if (cmdletContext.DisplayConfiguration_Resolution_Width != null)
+            {
+                requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Width = cmdletContext.DisplayConfiguration_Resolution_Width.Value;
+            }
+            if (requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Width != null)
+            {
+                requestDisplayConfiguration_displayConfiguration_Resolution.Width = requestDisplayConfiguration_displayConfiguration_Resolution_displayConfiguration_Resolution_Width.Value;
+                requestDisplayConfiguration_displayConfiguration_ResolutionIsNull = false;
+            }
+             // determine if requestDisplayConfiguration_displayConfiguration_Resolution should be set to null
+            if (requestDisplayConfiguration_displayConfiguration_ResolutionIsNull)
+            {
+                requestDisplayConfiguration_displayConfiguration_Resolution = null;
+            }
+            if (requestDisplayConfiguration_displayConfiguration_Resolution != null)
+            {
+                request.DisplayConfiguration.Resolution = requestDisplayConfiguration_displayConfiguration_Resolution;
+                requestDisplayConfigurationIsNull = false;
+            }
+             // determine if request.DisplayConfiguration should be set to null
+            if (requestDisplayConfigurationIsNull)
+            {
+                request.DisplayConfiguration = null;
             }
             if (cmdletContext.Identifier != null)
             {
@@ -597,6 +665,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             public System.String ClientToken { get; set; }
             public System.Int32? ConnectionTimeoutSecond { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? DisplayConfiguration_Resolution_Height { get; set; }
+            public System.Int32? DisplayConfiguration_Resolution_Width { get; set; }
             public System.String Identifier { get; set; }
             public List<System.String> Location { get; set; }
             public System.Boolean? PerformanceStatsConfiguration_SharedWithClient { get; set; }

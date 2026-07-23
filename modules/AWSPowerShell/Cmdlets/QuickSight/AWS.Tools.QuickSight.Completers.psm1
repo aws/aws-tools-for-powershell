@@ -562,6 +562,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBedrockModel") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseBrowserExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseBrowserExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseComprehendAction") -Or
@@ -570,6 +572,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseComprehendMedicalAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseConfluenceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseConfluenceAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseFactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseFactSetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGenericHTTPAction") -Or
@@ -604,8 +608,12 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSalesforceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSalesforceAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSandPGlobalEnergyAction") -Or
@@ -632,6 +640,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSmartsheetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseTextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseZendeskAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseZendeskAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
@@ -1543,10 +1553,12 @@ $QS_map = @{
     "Capabilities_UseBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBedrockModel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseBrowserExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseExcelAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseFactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1564,7 +1576,9 @@ $QS_map = @{
     "Capabilities_UseNotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseOutlookAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UsePagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UsePowerpointAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSandPGlobalEnergyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSandPGMIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1578,6 +1592,7 @@ $QS_map = @{
     "Capabilities_UseSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseWordAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")

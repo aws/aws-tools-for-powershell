@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-RSDDatabasisList', 
         'Get-RSDSchemaList', 
+        'Get-RSDSessionList', 
         'Get-RSDStatement', 
         'Get-RSDStatementList', 
         'Get-RSDStatementResult', 

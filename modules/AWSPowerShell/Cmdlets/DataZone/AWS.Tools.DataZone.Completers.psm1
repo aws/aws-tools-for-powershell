@@ -388,7 +388,7 @@ $DZ_Completers = {
             ($_ -eq "Update-DZNotebook/Status")
         }
         {
-            $v = "ACTIVE","ARCHIVED"
+            $v = "ACTIVE","ARCHIVED","SYNC_FAILED","SYNC_IN_PROGRESS"
             break
         }
 
@@ -947,6 +947,7 @@ $DZ_SelectMap = @{
                "Start-DZNotebookExport",
                "Start-DZNotebookImport",
                "Start-DZNotebookRun",
+               "Start-DZNotebookSync",
                "Stop-DZNotebookRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",

@@ -89,6 +89,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String CodeInterpreterIdentifier { get; set; }
         #endregion
         
+        #region Parameter FilesystemConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The file system configurations to mount into the code interpreter session. Use these
+        /// configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or
+        /// Amazon Elastic File System (Amazon EFS) access points. Your session can then read
+        /// and write your data. If you don't specify this field, no additional file systems are
+        /// mounted.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilesystemConfigurations")]
+        public Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration[] FilesystemConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -204,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter CodeInterpreterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.FilesystemConfiguration != null)
+            {
+                context.FilesystemConfiguration = new List<Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration>(this.FilesystemConfiguration);
+            }
             context.Name = this.Name;
             context.SessionTimeoutSecond = this.SessionTimeoutSecond;
             context.TraceId = this.TraceId;
@@ -235,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.CodeInterpreterIdentifier != null)
             {
                 request.CodeInterpreterIdentifier = cmdletContext.CodeInterpreterIdentifier;
+            }
+            if (cmdletContext.FilesystemConfiguration != null)
+            {
+                request.FilesystemConfigurations = cmdletContext.FilesystemConfiguration;
             }
             if (cmdletContext.Name != null)
             {
@@ -310,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.Certificate> Certificate { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CodeInterpreterIdentifier { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.ToolsFileSystemConfiguration> FilesystemConfiguration { get; set; }
             public System.String Name { get; set; }
             public System.Int32? SessionTimeoutSecond { get; set; }
             public System.String TraceId { get; set; }

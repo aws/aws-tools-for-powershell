@@ -200,6 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String StatementName { get; set; }
         #endregion
         
+        #region Parameter WaitTimeSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds to wait for the SQL statement to complete execution before returning
+        /// the response. If the SQL statement does not complete within the specified time, the
+        /// response returns the current status. The maximum value is 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WaitTimeSeconds")]
+        public System.Int32? WaitTimeSecond { get; set; }
+        #endregion
+        
         #region Parameter WithEvent
         /// <summary>
         /// <para>
@@ -300,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             #endif
             context.StatementName = this.StatementName;
+            context.WaitTimeSecond = this.WaitTimeSecond;
             context.WithEvent = this.WithEvent;
             context.WorkgroupName = this.WorkgroupName;
             
@@ -361,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.StatementName != null)
             {
                 request.StatementName = cmdletContext.StatementName;
+            }
+            if (cmdletContext.WaitTimeSecond != null)
+            {
+                request.WaitTimeSeconds = cmdletContext.WaitTimeSecond.Value;
             }
             if (cmdletContext.WithEvent != null)
             {
@@ -436,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.Int32? SessionKeepAliveSecond { get; set; }
             public System.String Sql { get; set; }
             public System.String StatementName { get; set; }
+            public System.Int32? WaitTimeSecond { get; set; }
             public System.Boolean? WithEvent { get; set; }
             public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.ExecuteStatementResponse, SendRSDStatementCmdlet, object> Select { get; set; } =

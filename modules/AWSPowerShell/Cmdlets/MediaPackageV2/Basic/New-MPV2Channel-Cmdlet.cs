@@ -123,6 +123,23 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
         #endregion
         
+        #region Parameter OutputLockingMode
+        /// <summary>
+        /// <para>
+        /// <para>The output locking mode for the channel. This setting is only valid when <c>InputType</c>
+        /// is <c>CMAF</c>. This value is immutable after channel creation. If you don't specify
+        /// a value, the default is <c>EPOCH_LOCKED</c>.</para><para>The allowed values are:</para><ul><li><para><c>EPOCH_LOCKED</c> - The channel uses epoch-locked behavior with deterministic sequence
+        /// numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region
+        /// synchronization and failover.</para></li><li><para><c>NON_EPOCH_LOCKED</c> - The channel uses non-epoch-locked behavior with duration-based
+        /// segment combining and monotonically increasing sequence numbers starting from 0. This
+        /// mode does not support cross-region synchronization or failover.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.OutputLockingMode")]
+        public Amazon.MediaPackageV2.OutputLockingMode OutputLockingMode { get; set; }
+        #endregion
+        
         #region Parameter InputSwitchConfiguration_PreferredInput
         /// <summary>
         /// <para>
@@ -238,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.InputSwitchConfiguration_PreferredInput = this.InputSwitchConfiguration_PreferredInput;
             context.InputType = this.InputType;
             context.OutputHeaderConfiguration_PublishMQCS = this.OutputHeaderConfiguration_PublishMQCS;
+            context.OutputLockingMode = this.OutputLockingMode;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -330,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.OutputHeaderConfiguration = null;
             }
+            if (cmdletContext.OutputLockingMode != null)
+            {
+                request.OutputLockingMode = cmdletContext.OutputLockingMode;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -397,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.Int32? InputSwitchConfiguration_PreferredInput { get; set; }
             public Amazon.MediaPackageV2.InputType InputType { get; set; }
             public System.Boolean? OutputHeaderConfiguration_PublishMQCS { get; set; }
+            public Amazon.MediaPackageV2.OutputLockingMode OutputLockingMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.CreateChannelResponse, NewMPV2ChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -1,4 +1,31 @@
-﻿### 5.0.259 (2026-07-22 19:04Z)
+﻿### 5.0.260 (2026-07-23 19:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.295.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCBrowser: added parameter FilesystemConfiguration.
+    * Modified cmdlet New-BACCCodeInterpreter: added parameter FilesystemConfiguration.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACBrowserSession: added parameter FilesystemConfiguration.
+    * Modified cmdlet Start-BACCodeInterpreterSession: added parameter FilesystemConfiguration.
+  * Amazon DataZone
+    * Added cmdlet Start-DZNotebookSync leveraging the StartNotebookSync service API.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2Channel: added parameter OutputLockingMode.
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter Segment_OutputTimestampMode.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter Segment_OutputTimestampMode.
+  * Amazon GameLiftStreams
+    * Modified cmdlet Start-GMLSStreamSession: added parameters DisplayConfiguration_Resolution_Height and DisplayConfiguration_Resolution_Width.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_UseBrowserExtension, Capabilities_UseExcelAddInExtension, Capabilities_UseOutlookAddInExtension, Capabilities_UsePowerpointAddInExtension and Capabilities_UseWordAddInExtension.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_UseBrowserExtension, Capabilities_UseExcelAddInExtension, Capabilities_UseOutlookAddInExtension, Capabilities_UsePowerpointAddInExtension and Capabilities_UseWordAddInExtension.
+  * Amazon Redshift Data API Service
+    * Added cmdlet Get-RSDSessionList leveraging the ListSessions service API.
+    * Modified cmdlet Get-RSDStatement: added parameter WaitTimeSecond.
+    * Modified cmdlet Get-RSDStatementResult: added parameter WaitTimeSecond.
+    * Modified cmdlet Get-RSDStatementResultV2: added parameter WaitTimeSecond.
+    * Modified cmdlet Push-RSDBatchStatement: added parameters ExecutionMode and WaitTimeSecond.
+    * Modified cmdlet Send-RSDStatement: added parameter WaitTimeSecond.
+
+### 5.0.259 (2026-07-22 19:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.294.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Region switch
     * Modified cmdlet Start-ARCPlanExecution: added parameter ClientToken.

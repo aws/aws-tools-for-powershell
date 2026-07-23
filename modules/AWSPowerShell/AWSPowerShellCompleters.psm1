@@ -14826,8 +14826,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15509,8 +15509,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -15970,8 +15970,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
+    "Select"=@("Search-CSDDocument",
+               "Write-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -24815,7 +24815,7 @@ $DZ_Completers = {
             ($_ -eq "Update-DZNotebook/Status")
         }
         {
-            $v = "ACTIVE","ARCHIVED"
+            $v = "ACTIVE","ARCHIVED","SYNC_FAILED","SYNC_IN_PROGRESS"
             break
         }
 
@@ -25374,6 +25374,7 @@ $DZ_SelectMap = @{
                "Start-DZNotebookExport",
                "Start-DZNotebookImport",
                "Start-DZNotebookRun",
+               "Start-DZNotebookSync",
                "Stop-DZNotebookRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
@@ -29398,12 +29399,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "ConvertTo-DDBItem",
-               "New-DDBTable",
                "New-DDBTableSchema",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -39579,8 +39580,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -56078,6 +56079,23 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.OutputLockingMode
+        "New-MPV2Channel/OutputLockingMode"
+        {
+            $v = "EPOCH_LOCKED","NON_EPOCH_LOCKED"
+            break
+        }
+
+        # Amazon.MediaPackageV2.OutputTimestampMode
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_OutputTimestampMode") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_OutputTimestampMode")
+        }
+        {
+            $v = "PASSTHROUGH","REBASED_TO_CHANNEL_START"
+            break
+        }
+
         # Amazon.MediaPackageV2.PresetSpeke20Audio
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio") -Or
@@ -56144,7 +56162,9 @@ $MPV2_map = @{
     "EncryptionMethod_IsmEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
+    "OutputLockingMode"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
     "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
@@ -69612,6 +69632,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBedrockModel") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseBrowserExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseBrowserExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseComprehendAction") -Or
@@ -69620,6 +69642,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseComprehendMedicalAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseConfluenceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseConfluenceAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseFactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseFactSetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGenericHTTPAction") -Or
@@ -69654,8 +69678,12 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSalesforceAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSalesforceAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSandPGlobalEnergyAction") -Or
@@ -69682,6 +69710,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSmartsheetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseTextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseZendeskAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseZendeskAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
@@ -70593,10 +70623,12 @@ $QS_map = @{
     "Capabilities_UseBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBedrockModel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseBrowserExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseExcelAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseFactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -70614,7 +70646,9 @@ $QS_map = @{
     "Capabilities_UseNotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseOutlookAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UsePagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UsePowerpointAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSandPGlobalEnergyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSandPGMIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -70628,6 +70662,7 @@ $QS_map = @{
     "Capabilities_UseSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseWordAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -72407,6 +72442,13 @@ $RSD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftDataAPIService.ExecutionMode
+        "Push-RSDBatchStatement/ExecutionMode"
+        {
+            $v = "AUTO_COMMIT","TRANSACTION"
+            break
+        }
+
         # Amazon.RedshiftDataAPIService.ResultFormatString
         {
             ($_ -eq "Push-RSDBatchStatement/ResultFormat") -Or
@@ -72414,6 +72456,13 @@ $RSD_Completers = {
         }
         {
             $v = "CSV","JSON"
+            break
+        }
+
+        # Amazon.RedshiftDataAPIService.SessionStatusString
+        "Get-RSDSessionList/Status"
+        {
+            $v = "AVAILABLE","BUSY","CLOSED"
             break
         }
 
@@ -72433,8 +72482,9 @@ $RSD_Completers = {
 }
 
 $RSD_map = @{
+    "ExecutionMode"=@("Push-RSDBatchStatement")
     "ResultFormat"=@("Push-RSDBatchStatement","Send-RSDStatement")
-    "Status"=@("Get-RSDStatementList")
+    "Status"=@("Get-RSDSessionList","Get-RSDStatementList")
 }
 
 _awsArgumentCompleterRegistration $RSD_Completers $RSD_map
@@ -72496,6 +72546,7 @@ $RSD_SelectMap = @{
                "Get-RSDStatementResultV2",
                "Get-RSDDatabasisList",
                "Get-RSDSchemaList",
+               "Get-RSDSessionList",
                "Get-RSDStatementList",
                "Get-RSDTableList")
 }
@@ -76125,16 +76176,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "New-S3Bucket",
+               "Remove-S3MultipartUpload",
                "Copy-S3Object",
-               "Get-S3PreSignedURL",
                "Remove-S3Object",
-               "Write-S3Object",
-               "Remove-S3Bucket",
                "Read-S3Object",
-               "Test-S3Bucket",
+               "New-S3Bucket",
+               "Write-S3Object",
                "Get-S3MultipartUpload",
-               "Remove-S3MultipartUpload")
+               "Test-S3Bucket",
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85853,8 +85904,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

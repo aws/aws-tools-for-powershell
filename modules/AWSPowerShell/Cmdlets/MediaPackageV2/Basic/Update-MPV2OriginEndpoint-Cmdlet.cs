@@ -343,6 +343,22 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String OriginEndpointName { get; set; }
         #endregion
         
+        #region Parameter Segment_OutputTimestampMode
+        /// <summary>
+        /// <para>
+        /// <para>The output timestamp mode for the origin endpoint's segments. This setting is only
+        /// configurable on channels with <c>OutputLockingMode</c> set to <c>NON_EPOCH_LOCKED</c>.
+        /// This value is immutable after endpoint creation. If you don't specify a value, the
+        /// default is <c>PASSTHROUGH</c>.</para><para>The allowed values are:</para><ul><li><para><c>PASSTHROUGH</c> - Output PTS (Presentation Timestamp) values pass through unchanged
+        /// from the input.</para></li><li><para><c>REBASED_TO_CHANNEL_START</c> - Output PTS is rebased relative to the channel start
+        /// time.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.OutputTimestampMode")]
+        public Amazon.MediaPackageV2.OutputTimestampMode Segment_OutputTimestampMode { get; set; }
+        #endregion
+        
         #region Parameter EncryptionContractConfiguration_PresetSpeke20Audio
         /// <summary>
         /// <para>
@@ -665,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.SpekeKeyProvider_RoleArn = this.SpekeKeyProvider_RoleArn;
             context.SpekeKeyProvider_Url = this.SpekeKeyProvider_Url;
             context.Segment_IncludeIframeOnlyStream = this.Segment_IncludeIframeOnlyStream;
+            context.Segment_OutputTimestampMode = this.Segment_OutputTimestampMode;
             if (this.Segment_Scte_CustomAdType != null)
             {
                 context.Segment_Scte_CustomAdType = new List<System.String>(this.Segment_Scte_CustomAdType);
@@ -767,6 +784,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_IncludeIframeOnlyStream != null)
             {
                 request.Segment.IncludeIframeOnlyStreams = requestSegment_segment_IncludeIframeOnlyStream.Value;
+                requestSegmentIsNull = false;
+            }
+            Amazon.MediaPackageV2.OutputTimestampMode requestSegment_segment_OutputTimestampMode = null;
+            if (cmdletContext.Segment_OutputTimestampMode != null)
+            {
+                requestSegment_segment_OutputTimestampMode = cmdletContext.Segment_OutputTimestampMode;
+            }
+            if (requestSegment_segment_OutputTimestampMode != null)
+            {
+                request.Segment.OutputTimestampMode = requestSegment_segment_OutputTimestampMode;
                 requestSegmentIsNull = false;
             }
             System.Int32? requestSegment_segment_SegmentDurationSecond = null;
@@ -1137,6 +1164,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String SpekeKeyProvider_RoleArn { get; set; }
             public System.String SpekeKeyProvider_Url { get; set; }
             public System.Boolean? Segment_IncludeIframeOnlyStream { get; set; }
+            public Amazon.MediaPackageV2.OutputTimestampMode Segment_OutputTimestampMode { get; set; }
             public List<System.String> Segment_Scte_CustomAdType { get; set; }
             public List<System.String> Scte_ScteFilter { get; set; }
             public Amazon.MediaPackageV2.ScteInSegments Scte_ScteInSegment { get; set; }
