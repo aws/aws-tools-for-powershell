@@ -1,4 +1,11 @@
-﻿### 5.0.260 (2026-07-23 19:01Z)
+﻿### 5.0.261 (2026-07-24 19:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.296.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Artifact
+    * Added cmdlet Write-ARTComplianceInquiryFeedback leveraging the PutComplianceInquiryFeedback service API.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPAdminUserAuthFactor leveraging the AdminGetUserAuthFactors service API.
+
+### 5.0.260 (2026-07-23 19:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.295.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCBrowser: added parameter FilesystemConfiguration.

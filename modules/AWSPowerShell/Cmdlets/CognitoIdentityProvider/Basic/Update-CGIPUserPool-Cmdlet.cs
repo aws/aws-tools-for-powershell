@@ -110,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The sign-in methods that a user pool supports as the first factor. You can permit
         /// users to start authentication with a standard username and password, or with other
-        /// one-time password and hardware factors.</para><para />
+        /// one-time password and hardware factors.</para><note><para><c>SOFTWARE_TOKEN</c> is not currently supported as a first auth factor. Do not include
+        /// this value in <c>AllowedFirstAuthFactors</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.295.0",
+    "ProductVersion"    : "4.0.296.0",
     "CoreVersion"       : "4.0.100.8",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.101.4",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -532,7 +532,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -1364,7 +1364,7 @@
             "InPreview"               : false
         },
         "ApplicationInsights"             : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2796,7 +2796,7 @@
             "InPreview"               : false
         },
         "NeptuneGraph"                        : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -2820,7 +2820,7 @@
             "InPreview"               : false
         },
         "Artifact"                            : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3172,7 +3172,7 @@
             "InPreview"               : false
         },
         "Odb"                                 : {
-            "Version" : "4.0.101.1",
+            "Version" : "4.0.101.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "RTBFabric"                           : {
-            "Version" : "4.0.100.6",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.8"

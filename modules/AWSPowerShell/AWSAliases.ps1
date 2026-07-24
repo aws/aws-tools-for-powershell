@@ -1795,6 +1795,8 @@ Set-Alias -Name ART-ListTagsForResource -Value Get-ARTResourceTag
 Set-Alias -Name Put-ARTAccountSettings -Value Write-ARTAccountSetting
 Set-Alias -Name Put-ARTAccountSetting -Value Write-ARTAccountSetting
 Set-Alias -Name ART-PutAccountSettings -Value Write-ARTAccountSetting
+Set-Alias -Name Put-ARTComplianceInquiryFeedback -Value Write-ARTComplianceInquiryFeedback
+Set-Alias -Name ART-PutComplianceInquiryFeedback -Value Write-ARTComplianceInquiryFeedback
 Set-Alias -Name ART-TagResource -Value Add-ARTResourceTag
 Set-Alias -Name ART-UntagResource -Value Remove-ARTResourceTag
 Set-Alias -Name Get-ATHNamedQuery -Value Get-ATHNamedQueryBatch
@@ -6654,6 +6656,8 @@ Set-Alias -Name Get-CGIPDevice -Value Get-CGIPDeviceAdmin
 Set-Alias -Name CGIP-AdminGetDevice -Value Get-CGIPDeviceAdmin
 Set-Alias -Name Get-CGIPUser -Value Get-CGIPUserAdmin
 Set-Alias -Name CGIP-AdminGetUser -Value Get-CGIPUserAdmin
+Set-Alias -Name Get-CGIPUserAuthFactors -Value Get-CGIPAdminUserAuthFactor
+Set-Alias -Name CGIP-AdminGetUserAuthFactors -Value Get-CGIPAdminUserAuthFactor
 Set-Alias -Name Initiate-CGIPAuth -Value Start-CGIPAuthAdmin
 Set-Alias -Name Initiate-CGIPAuthAdmin -Value Start-CGIPAuthAdmin
 Set-Alias -Name CGIP-AdminInitiateAuth -Value Start-CGIPAuthAdmin

@@ -121,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The sign-in methods that a user pool supports as the first factor. You can permit
         /// users to start authentication with a standard username and password, or with other
-        /// one-time password and hardware factors.</para><para />
+        /// one-time password and hardware factors.</para><note><para><c>SOFTWARE_TOKEN</c> is not currently supported as a first auth factor. Do not include
+        /// this value in <c>AllowedFirstAuthFactors</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -678,7 +679,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// must make a client-side determination of whether a user wants to register an MFA device.
         /// For user pools with adaptive authentication with threat protection, choose <c>OPTIONAL</c>.</para><para>When <c>MfaConfiguration</c> is <c>OPTIONAL</c>, managed login doesn't automatically
         /// prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses
-        /// and in managed login for users who have chosen and configured a preferred MFA factor.</para>
+        /// and in managed login for users who have chosen and configured a preferred MFA factor.</para><para>The <c>CreateUserPool</c> operation supports only SMS MFA configuration. If you set
+        /// <c>MfaConfiguration</c> to either of these values, include an <c>SmsConfiguration</c>
+        /// in the same request:</para><ul><li><para><c>ON</c> – Requires MFA for all users</para></li><li><para><c>OPTIONAL</c> – Makes MFA optional for each user</para></li></ul><para>If you omit <c>SmsConfiguration</c>, the operation returns an <c>InvalidParameterException</c>.
+        /// To configure TOTP or email MFA, use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a>
+        /// operation. You can also use <c>SetUserPoolMfaConfig</c> to add MFA factors later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

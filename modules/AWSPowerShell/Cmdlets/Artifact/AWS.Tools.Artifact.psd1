@@ -102,7 +102,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ARTTermForReport', 
         'New-ARTComplianceInquiry', 
         'Remove-ARTResourceTag', 
-        'Write-ARTAccountSetting')
+        'Write-ARTAccountSetting', 
+        'Write-ARTComplianceInquiryFeedback')
 
     # Variables to export from this module
     VariablesToExport = '*'

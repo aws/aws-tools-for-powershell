@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The version of managed login branding that you want to apply to your domain. A value
         /// of <c>1</c> indicates hosted UI (classic) and a version of <c>2</c> indicates managed
         /// login.</para><para>Managed login requires that your user pool be configured for any <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature
-        /// plan</a> other than <c>Lite</c>.</para>
+        /// plan</a> other than <c>Lite</c>.</para><para>A <c>ManagedLoginVersion</c> value of <c>2</c> does not activate managed login pages
+        /// for your app client. When you create an app client programmatically, your app client
+        /// has no branding style. To use managed login, create a branding style using the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.html">CreateManagedLoginBranding</a>
+        /// operation. When you use the console, Amazon Cognito assigns a default branding style
+        /// automatically. When you use the API or an SDK, you must create a branding style yourself.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

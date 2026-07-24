@@ -80,6 +80,13 @@ $ART_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Artifact.FeedbackRating
+        "Write-ARTComplianceInquiryFeedback/Rating"
+        {
+            $v = "THUMBS_DOWN","THUMBS_UP"
+            break
+        }
+
         # Amazon.Artifact.InquirySupportMode
         "New-ARTComplianceInquiry/SupportMode"
         {
@@ -104,6 +111,7 @@ $ART_Completers = {
 
 $ART_map = @{
     "NotificationSubscriptionStatus"=@("Write-ARTAccountSetting")
+    "Rating"=@("Write-ARTComplianceInquiryFeedback")
     "SupportMode"=@("New-ARTComplianceInquiry")
 }
 
@@ -171,6 +179,7 @@ $ART_SelectMap = @{
                "Get-ARTReportVersionList",
                "Get-ARTResourceTag",
                "Write-ARTAccountSetting",
+               "Write-ARTComplianceInquiryFeedback",
                "Add-ARTResourceTag",
                "Remove-ARTResourceTag")
 }

@@ -495,6 +495,7 @@ $CGIP_SelectMap = @{
                "Stop-CGIPDeviceTrackingAdmin",
                "Get-CGIPDeviceAdmin",
                "Get-CGIPUserAdmin",
+               "Get-CGIPAdminUserAuthFactor",
                "Start-CGIPAuthAdmin",
                "Connect-CGIPProviderForUserAdmin",
                "Get-CGIPDeviceListAdmin",

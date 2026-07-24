@@ -76,6 +76,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AdminGetUserAuthFactors" OutputProperty="*" Verb="Get" Noun="AdminUserAuthFactor" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AdminInitiateAuth" OutputProperty="*" Verb="Start" Noun="AuthAdmin" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
