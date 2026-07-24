@@ -24,9 +24,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Mounts an S3 drive so buckets, prefixes, and objects can be explored with the standard
     /// navigation commands (Set-Location, Get-ChildItem, Get-Content, Set-Content, Remove-Item).
-    /// Credentials and region resolve the same way as the S3 cmdlets: explicit keys, then
-    /// -ProfileName, then -AWSCredential, then the session defaults ($StoredAWSCredentials /
-    /// $StoredAWSRegion), then the SDK default chain. A single drive spans all regions.
+    /// Credentials resolve the same way as the S3 cmdlets: explicit keys, then -ProfileName, then
+    /// -AWSCredential, then the session default $StoredAWSCredentials, then the SDK default chain.
+    /// Region follows the same order too: -Region, then $StoredAWSRegion, then the profile region,
+    /// then the AWS_REGION environment variable, then EC2 instance metadata, then us-east-1. A single
+    /// drive spans all regions.
     ///
     /// Thin wrapper over `New-PSDrive -PSProvider AWS.S3`, which also works directly.
     /// </summary>
@@ -53,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         /// <summary>Named AWS credential profile to authenticate with.</summary>
         [Parameter] public string ProfileName { get; set; }
-        /// <summary>AWS region for the mount. Falls back to $StoredAWSRegion, then us-east-1.</summary>
+        /// <summary>AWS region for the mount. Falls back to $StoredAWSRegion, the profile region, the
+        /// AWS_REGION environment variable, EC2 instance metadata, then us-east-1.</summary>
         [Parameter] public string Region { get; set; }
         /// <summary>Explicit AWS access key (use with -SecretKey).</summary>
         [Parameter] public string AccessKey { get; set; }

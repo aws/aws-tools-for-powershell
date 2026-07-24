@@ -16,16 +16,7 @@
  */
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Management.Automation;
-using System.Management.Automation.Provider;
 using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -249,9 +240,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
             || string.Equals(ex.ErrorCode, "NoSuchBucket", StringComparison.OrdinalIgnoreCase)
             || string.Equals(ex.ErrorCode, "NoSuchKey", StringComparison.OrdinalIgnoreCase);
 
+        // The credentials themselves are bad (not merely under-permissioned): the key doesn't exist,
+        // the signature is wrong, or the session token is bad/expired. These come back as 403s too, so
+        // they must be split from IsAccessDenied - otherwise a mount validated against invalid credentials
+        // would be treated as "exists but inaccessible" and succeed. Callers let these propagate so the
+        // mount (or operation) fails with the real error.
+        private static bool IsInvalidCredentials(AmazonS3Exception ex) =>
+            string.Equals(ex.ErrorCode, "InvalidAccessKeyId", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "SignatureDoesNotMatch", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "InvalidToken", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "ExpiredToken", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "TokenRefreshRequired", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "InvalidSecurity", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(ex.ErrorCode, "AccountProblem", StringComparison.OrdinalIgnoreCase);
+
+        // True authorization failure: the caller is valid but lacks permission on the resource. Excludes
+        // bad-credential 403s (see IsInvalidCredentials) so those aren't masked as "exists but no access".
         private static bool IsAccessDenied(AmazonS3Exception ex) =>
-            ex.StatusCode == HttpStatusCode.Forbidden
-            || string.Equals(ex.ErrorCode, "AccessDenied", StringComparison.OrdinalIgnoreCase);
+            !IsInvalidCredentials(ex)
+            && (ex.StatusCode == HttpStatusCode.Forbidden
+                || string.Equals(ex.ErrorCode, "AccessDenied", StringComparison.OrdinalIgnoreCase));
 
     }
 }

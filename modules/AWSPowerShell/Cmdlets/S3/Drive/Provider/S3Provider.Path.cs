@@ -16,18 +16,7 @@
  */
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using System.Management.Automation;
-using System.Management.Automation.Provider;
-using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {

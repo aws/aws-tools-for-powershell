@@ -1255,6 +1255,32 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Should -Throw
             Test-Path 'PSTestBadR:\' | Should -BeFalse
         }
+        # ResolveCredentials: AccessKey/SecretKey are a pair. A partial set (one key, or a SessionToken
+        # without both) is a typo, not a request to fall back to the profile - silently doing so could
+        # mount against the wrong account. Assert each partial shape throws and creates no drive.
+        It "fails cleanly (no drive created) when only one of AccessKey/SecretKey is given" {
+            { Mount-S3PSDrive -Name PSTestOnlyAK -AccessKey AKIAEXAMPLE -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestOnlyAK:\' | Should -BeFalse
+
+            { Mount-S3PSDrive -Name PSTestOnlySK -SecretKey somesecret -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestOnlySK:\' | Should -BeFalse
+
+            { Mount-S3PSDrive -Name PSTestOnlyST -SessionToken sometoken -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestOnlyST:\' | Should -BeFalse
+        }
+        # Invalid (not merely under-permissioned) credentials come back from S3 as a 403 too. They must
+        # NOT be treated as "exists but inaccessible" - the mount validates against them and would
+        # otherwise succeed. A well-formed-but-fake access key yields InvalidAccessKeyId; assert the
+        # mount fails and no drive is left behind.
+        It "fails cleanly (no drive created) when the credentials are invalid" {
+            { Mount-S3PSDrive -Name PSTestBadKey -AccessKey AKIAIOSFODNN7EXAMPLE `
+                    -SecretKey wJalrXUtnFEMIK7MDENGbPxRfiCYEXAMPLEKEY -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestBadKey:\' | Should -BeFalse
+        }
     }
 
     # HIGH-value gap closer: the LOCKED design decision that a mount with NO explicit

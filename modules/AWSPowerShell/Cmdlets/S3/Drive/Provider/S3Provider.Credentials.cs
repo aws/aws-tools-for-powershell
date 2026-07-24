@@ -16,33 +16,36 @@
  */
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Management.Automation;
-using System.Management.Automation.Provider;
-using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 using Amazon;
+using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     public sealed partial class S3Provider
     {
-        // Region precedence: explicit -Region -> session default $StoredAWSRegion (via Common) -> us-east-1.
+        // Resolves region with the same precedence as the S3 cmdlets (IAWSRegionArgumentsMethods.TryGetRegion):
+        // -Region -> $StoredAWSRegion -> named-profile region -> [default]/legacy profile -> AWS_REGION env
+        // var -> EC2 instance metadata -> us-east-1 (the S3 cmdlets' _DefaultRegion).
         private RegionEndpoint ResolveRegion(S3DriveParameters dp)
         {
-            if (dp != null && !string.IsNullOrEmpty(dp.Region))
+            if (!string.IsNullOrEmpty(dp?.Region))
                 return ValidRegionOrThrow(dp.Region);
 
             var sessionRegion = SessionDefaultRegionName();   // $StoredAWSRegion, via Common
-            return string.IsNullOrEmpty(sessionRegion)
-                ? RegionEndpoint.USEast1
-                : ValidRegionOrThrow(sessionRegion);
+            if (!string.IsNullOrEmpty(sessionRegion))
+                return ValidRegionOrThrow(sessionRegion);
+
+            // The named profile's own region. StandaloneRegionArguments below can't carry a profile name,
+            // so it only covers the [default]/legacy profile; look up the named one first.
+            if (!string.IsNullOrEmpty(dp?.ProfileName)
+                && SettingsStore.TryGetProfile(dp.ProfileName, null, out var profile)
+                && profile.Region != null)
+                return profile.Region;
+
+            // [default]/legacy profile region, then AWS_REGION, then EC2 instance metadata.
+            var region = new StandaloneRegionArguments().GetRegion(useSDKFallback: true, SessionState);
+            return region ?? RegionEndpoint.USEast1;
         }
 
         // GetBySystemName does NOT throw on an unknown name - it returns a synthetic "Unknown" endpoint
@@ -62,7 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             if (dp != null)
             {
-                if (!string.IsNullOrEmpty(dp.AccessKey) && !string.IsNullOrEmpty(dp.SecretKey))
+                // AccessKey and SecretKey are a pair, and SessionToken is meaningless on its own. A
+                // partial set is a mistake (e.g. a typo'd parameter name), so fail rather than silently
+                // dropping to profile/session credentials and mounting against the wrong account. Matches
+                // Set-AWSCredential, which rejects an access key without a secret key (and vice versa).
+                var hasAccessKey = !string.IsNullOrEmpty(dp.AccessKey);
+                var hasSecretKey = !string.IsNullOrEmpty(dp.SecretKey);
+                if (hasAccessKey != hasSecretKey)
+                    throw new ArgumentException(
+                        "-AccessKey and -SecretKey must be supplied together.");
+                if (!string.IsNullOrEmpty(dp.SessionToken) && !hasAccessKey)
+                    throw new ArgumentException(
+                        "-SessionToken requires -AccessKey and -SecretKey.");
+
+                if (hasAccessKey)
                 {
                     return string.IsNullOrEmpty(dp.SessionToken)
                         ? (AWSCredentials)new BasicAWSCredentials(dp.AccessKey, dp.SecretKey)
@@ -88,8 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         // ---- AWS.Tools.Common session defaults ----
-        // Invoked through SessionState rather than a compile-time reference to Common. Best-effort:
-        // any failure (Common not loaded, no default set) falls through to the next resolution step.
+        // Read through the Common cmdlets rather than the raw session variables: $StoredAWSCredentials
+        // is an AWSPSCredentials whose inner AWSCredentials is internal to Common, so Get-AWSCredential
+        // does the unwrap for us. Best-effort: any failure (Common not loaded, no default set) falls
+        // through to the next resolution step.
 
         // $StoredAWSCredentials, unwrapped to raw AWSCredentials by Get-AWSCredential. Null if unset.
         private AWSCredentials SessionDefaultCredentials()
@@ -106,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         // $StoredAWSRegion system name via Get-DefaultAWSRegion. Null if unset. The cmdlet writes an
-        // AWSRegion whose .Region holds the system name, read reflectively to avoid a Common dependency.
+        // AWSRegion whose .Region property holds the system name.
         private string SessionDefaultRegionName()
         {
             try
