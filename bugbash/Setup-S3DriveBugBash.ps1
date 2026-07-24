@@ -67,11 +67,10 @@ $commonArgs = @{}
 if ($ProfileName) { $commonArgs['ProfileName'] = $ProfileName }
 
 # Deterministic bucket names so -Cleanup targets the same buckets a prior setup made. The suffix is a
-# stable hash of prefix + account identity (not a timestamp), so re-running setup/cleanup lines up.
+# stable hash of prefix + user identity (not a timestamp), so re-running setup/cleanup lines up.
 # Bucket names must be lowercase, 3-63 chars, no underscores.
-$identity =
-    try { (Get-STSCallerIdentity @commonArgs -Region $Region).Account } catch { $env:USERNAME }
-if ([string]::IsNullOrWhiteSpace($identity)) { $identity = 'anon' }
+# $env:USERNAME is Windows-only; $env:USER covers Linux/macOS.
+$identity = if ($env:USERNAME) { $env:USERNAME } elseif ($env:USER) { $env:USER } else { 'anon' }
 $suffix = ([System.BitConverter]::ToString(
     [System.Security.Cryptography.MD5]::Create().ComputeHash(
         [System.Text.Encoding]::UTF8.GetBytes("$BucketPrefix|$identity"))
