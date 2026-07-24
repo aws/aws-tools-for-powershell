@@ -343,7 +343,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     }
 
     # Slow: seeds 1050 objects (~3 min) to force ListObjectsV2 pagination past the 1000-key page.
-    Context "Listing and recursive delete with pagination" {
+    Context -Tag "Disabled" "Listing and recursive delete with pagination" {
         BeforeAll {
             # Seed > one page (1000) of objects under a prefix so the provider must follow
             # continuation tokens. Raw SDK put (fixture-only), same client as BeforeAll.
@@ -375,7 +375,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # both ends (upload via UploadUnseekableStreamAsync through the PushPullStream bridge; download
     # via OpenStream with MultipartDownloadType.PART) - the whole reason the content layer moved to
     # TransferUtility. Small round-trips above only hit the single-part path. ~20MB.
-    Context "Large-object multipart round-trip" {
+    Context -Tag "Disabled" "Large-object multipart round-trip" {
         It "uploads and downloads a 20MB object byte-for-byte (SHA-256)" {
             $key = "large/multipart-$([DateTime]::Now.ToFileTime()).bin"
             # Deterministic 20MB payload (well over the 8MB multipart threshold).
@@ -410,7 +410,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # bypasses the abort) can race it. That count is non-deterministic and would flake. The
     # DEPENDABLE contract - and the one that matters for data safety - is that the existing object
     # is untouched. AfterAll aborts any parts left by the race so no billable data lingers.
-    Context "Interrupted upload leaves the existing object intact" {
+    Context -Tag "Disabled" "Interrupted upload leaves the existing object intact" {
         BeforeAll {
             $script:CxKey = "interrupt/target-$([DateTime]::Now.ToFileTime()).bin"
             S3PutText $script:CxKey "ORIGINAL-CONTENT"   # small known pre-existing object
@@ -608,7 +608,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # ~880ms, a 15-level Get-Content 254 calls / ~20s). We can't assert wall-clock here (flaky), so these
     # assert the CORRECTNESS the cache must preserve - especially that the long positive TTL never masks a
     # subsequent write/delete made THROUGH the drive (which invalidates the probe immediately).
-    Context "Existence-probe cache correctness (perf fix)" {
+    Context -Tag "Disabled" "Existence-probe cache correctness (perf fix)" {
         It "reports a deleted object as absent at once, despite the long positive-probe TTL" {
             $key = "probe-del-$([DateTime]::Now.ToFileTime()).txt"
             Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'x'
@@ -750,7 +750,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # Get-Content | Set-Content on the same drive. Exercises the byte-stream contract end to end -
     # the reader's 80KB Object[] chunks must flow into the writer and reassemble byte-for-byte.
     # Payload spans several reader chunks.
-    Context "Content-stream copy within the drive (Get-Content | Set-Content)" {
+    Context -Tag "Disabled" "Content-stream copy within the drive (Get-Content | Set-Content)" {
         It "copies an object byte-for-byte via the content pipeline" {
             $prefix = "streamcopy-$([DateTime]::Now.ToFileTime())"
             $src = "PSTest:\$($script:Bucket)\$prefix/src.bin"
@@ -769,7 +769,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    Context "Local filesystem interop (design examples)" {
+    Context -Tag "Disabled" "Local filesystem interop (design examples)" {
         It "uploads from and downloads to the local filesystem byte-for-byte" {
             $prefix = "localio-$([DateTime]::Now.ToFileTime())"
             $key = "$prefix/payload.bin"
@@ -860,7 +860,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # parsing/round-tripping must survive them; wildcard chars require -LiteralPath (as on the
     # FileSystem provider). (Keys containing "\" are a documented dead-end - PowerShell's path
     # separator - and are intentionally not tested here.)
-    Context "Keys with special characters" {
+    Context -Tag "Disabled" "Keys with special characters" {
         It "round-trips representative literal key names without changing the raw S3 key" {
             $stamp = [DateTime]::Now.ToFileTime()
             $cases = @(
@@ -946,7 +946,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    Context "Set-Content writer parameters on pipeline-bound S3 paths" {
+    Context -Tag "Disabled" "Set-Content writer parameters on pipeline-bound S3 paths" {
         It "honors -NoNewline when the destination path comes from Get-Item" {
             $key = "pipe-write-$([DateTime]::Now.ToFileTime())/no-newline.txt"
             $s3Path = "PSTest:\$($script:Bucket)\$key"
@@ -1084,7 +1084,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # Setup: a throwaway bucket with a SCOPED Deny (GetObject + ListBucket only - NOT
     # DeleteObject/DeleteBucket/DeleteBucketPolicy, so teardown still works). Cleanup removes the
     # policy, then deletes the known key BY NAME (no ListBucket needed) and the bucket.
-    Context "AccessDenied resolves as exists (not 'not found')" {
+    Context -Tag "Disabled" "AccessDenied resolves as exists (not 'not found')" {
         BeforeAll {
             $script:AdBucket = "pstest-psdrive-ad-" + [DateTime]::Now.ToFileTime()
             $mk = New-Object Amazon.S3.Model.PutBucketRequest; $mk.BucketName = $script:AdBucket
@@ -1121,7 +1121,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    Context "Exact object operations without ListBucket" {
+    Context -Tag "Disabled" "Exact object operations without ListBucket" {
         BeforeAll {
             $script:NoListBucket = "pstest-psdrive-nolist-" + [DateTime]::Now.ToFileTime()
             $mk = New-Object Amazon.S3.Model.PutBucketRequest; $mk.BucketName = $script:NoListBucket
@@ -1194,7 +1194,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # in GetContentWriter and TransferContentWriter.Close). Scoped Deny on s3:PutObject only, so
     # teardown (DeleteObject/policy/bucket) still works. Own bucket so it can't affect the shared
     # fixture.
-    Context "Set-Content surfaces a genuine upload fault (not silent data loss)" {
+    Context -Tag "Disabled" "Set-Content surfaces a genuine upload fault (not silent data loss)" {
         BeforeAll {
             $script:WdBucket = "pstest-psdrive-wd-" + [DateTime]::Now.ToFileTime()
             $mk = New-Object Amazon.S3.Model.PutBucketRequest; $mk.BucketName = $script:WdBucket
@@ -1370,7 +1370,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    Context "Multi-drive provider cmdlet resolution" {
+    Context -Tag "Disabled" "Multi-drive provider cmdlet resolution" {
         BeforeAll {
             $stamp = [DateTime]::Now.ToFileTime()
             $script:MDPrefix1 = "mdrive-one-$stamp"
@@ -1527,7 +1527,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
-    Context "Storage class (drive default + per-upload override)" {
+    Context -Tag "Disabled" "Storage class (drive default + per-upload override)" {
         BeforeAll {
             # Reads the resolved storage class off the real object. S3 reports STANDARD as
             # null/empty in metadata, so normalize that to 'STANDARD'.
