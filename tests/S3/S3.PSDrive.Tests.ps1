@@ -373,8 +373,8 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
 
     # Slow: moves a >8MB object, so it exercises the TransferUtility MULTIPART paths on
     # both ends (upload via UploadUnseekableStreamAsync through the PushPullStream bridge; download
-    # via OpenStream with MultipartDownloadType.PART) - the whole reason the content layer moved to
-    # TransferUtility. Small round-trips above only hit the single-part path. ~20MB.
+    # via OpenStreamWithResponseAsync with ranged multipart streaming). Small round-trips above only
+    # need the SDK's first ranged download response. ~20MB.
     Context -Tag "Disabled" "Large-object multipart round-trip" {
         It "uploads and downloads a 20MB object byte-for-byte (SHA-256)" {
             $key = "large/multipart-$([DateTime]::Now.ToFileTime()).bin"

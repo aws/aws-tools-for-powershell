@@ -21,6 +21,7 @@ using System.Management.Automation;
 using System.Management.Automation.Provider;
 using System.Threading;
 using Amazon.S3;
+using Amazon.S3.Transfer;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -28,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         // ---- Content: download / upload (IContentCmdletProvider) -------------
 
-        // Backs Get-Content (download). Opens the object via TransferUtility.OpenStream (parallel
-        // multipart + ranged retries) and returns a reader that pulls blocks lazily, so any size
-        // streams back with bounded memory.
+        // Backs Get-Content (download). The SDK's multipart stream discovers object size and fetches
+        // ranged parts in parallel when there is more than one range to read.
         public IContentReader GetContentReader(string path)
         {
             if (!TryParseObjectPath(path,
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
-            // The CTS must outlive this method: multipart OpenStream fetches parts on background tasks
+            // The CTS must outlive this method: multipart downloads fetch parts on background tasks
             // as the reader reads, so the token stays live for the whole read. The reader owns it and
             // disposes it on Close; StopProcessing cancels it via the content-CTS set.
             var readerCts = new CancellationTokenSource();
@@ -63,19 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var handedOff = false;   // true once the reader owns readerCts (success path)
             try
             {
-                // TU is only needed to open the stream (dispose eagerly); disposing it leaves our
-                // shared client and the opened multipart stream intact.
-                Stream stream;
-                using (var tu = TransferUtilityForBucket(drive, bucket))
-                {
-                    var req = new Amazon.S3.Transfer.TransferUtilityOpenStreamRequest
-                    {
-                        BucketName = bucket,
-                        Key = key,
-                        MultipartDownloadType = Amazon.S3.Transfer.MultipartDownloadType.PART,
-                    };
-                    stream = tu.OpenStreamAsync(req, readerCts.Token).GetAwaiter().GetResult();
-                }
+                var stream = OpenContentStream(drive, bucket, key, readerCts.Token);
                 var reader = new S3ContentReader(stream, readerCts, asByteStream, raw, encoding,
                     onDispose: () => { UnregisterContentCts(readerCts); drive.EndContentOperation(); });
                 handedOff = true;   // reader now owns readerCts; the finally must NOT dispose it
@@ -103,6 +91,37 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
             }
         }
+
+        private Stream OpenContentStream(S3DriveInfo drive, string bucket, string key, CancellationToken cancellationToken)
+        {
+            using (var tu = TransferUtilityForBucket(drive, bucket))
+            {
+                try
+                {
+                    var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
+                    {
+                        BucketName = bucket,
+                        Key = key,
+                        MultipartDownloadType = MultipartDownloadType.RANGE
+                    }, cancellationToken).GetAwaiter().GetResult();
+                    return response.ResponseStream;
+                }
+                catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
+                {
+                    // Empty objects can reject the SDK's initial ranged GET. Fall back to the
+                    // ordinary stream path; there is nothing to parallelize for an empty object.
+                    return tu.OpenStreamAsync(new TransferUtilityOpenStreamRequest
+                    {
+                        BucketName = bucket,
+                        Key = key
+                    }, cancellationToken).GetAwaiter().GetResult();
+                }
+            }
+        }
+
+        private static bool IsInvalidRange(AmazonS3Exception ex) =>
+            string.Equals(ex.ErrorCode, "InvalidRange", StringComparison.OrdinalIgnoreCase)
+            || (int)ex.StatusCode == 416;
 
         public object GetContentReaderDynamicParameters(string path) =>
             new S3ContentReaderDynamicParameters();
