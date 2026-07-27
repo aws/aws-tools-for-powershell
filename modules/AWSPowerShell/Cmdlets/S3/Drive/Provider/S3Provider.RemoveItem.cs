@@ -37,12 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "Remove-Item on the S3 drive requires an object or prefix path (bucket\\key).",
                     "InvalidRemovePath", out var bucket, out var key))
                 return;
+            var drive = DriveForPath(path);
 
             try
             {
                 // Prefix (folder) when it has children, else a single object. On denied listing the
                 // exact-object path still lets a known key be removed without list permission.
-                if (TryPrefixHasChildren(bucket, key, out _))
+                if (TryPrefixHasChildren(drive, bucket, key, out _))
                 {
                     if (!recurse)
                     {
@@ -52,16 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
                             "PrefixRequiresRecurse", ErrorCategory.InvalidOperation, path));
                         return;
                     }
-                    RemovePrefixRecursive(bucket, key, path);
+                    RemovePrefixRecursive(drive, bucket, key, path);
                 }
                 else
                 {
                     if (!ShouldProcess(path, "Remove S3 object"))
                         return;
 
-                    RunSync(ct => ClientForBucket(bucket).DeleteObjectAsync(
+                    RunSync(ct => ClientForBucket(drive, bucket).DeleteObjectAsync(
                         new DeleteObjectRequest { BucketName = bucket, Key = key }, ct));
-                    Drive.ListingCache.InvalidateForKey(bucket, key);
+                    drive.ListingCache.InvalidateForKey(bucket, key);
                 }
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex))
@@ -74,14 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        private void RemovePrefixRecursive(string bucket, string key, string displayPath)
+        private void RemovePrefixRecursive(S3DriveInfo drive, string bucket, string key, string displayPath)
         {
             // No extra prompt: -Recurse deletes silently, and the engine's container-recurse prompt
             // (non-empty prefix without -Recurse) was already the confirmation.
             if (!ShouldProcess(displayPath, "Recursively remove S3 prefix and all objects under it"))
                 return;
 
-            var client = ClientForBucket(bucket);
+            var client = ClientForBucket(drive, bucket);
             var prefix = EnsureTrailingSlash(key);
             var request = new ListObjectsV2Request { BucketName = bucket, Prefix = prefix };  // no delimiter
 
@@ -101,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                             batch.Add(new KeyVersion { Key = obj.Key });
                             if (batch.Count == DeleteBatchSize)
                             {
-                                DeleteBatch(bucket, batch);
+                                DeleteBatch(drive, bucket, batch);
                                 batch.Clear();
                             }
                         }
@@ -118,20 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     batch.Add(new KeyVersion { Key = exactKey });
 
                 if (batch.Count > 0)
-                    DeleteBatch(bucket, batch);
+                    DeleteBatch(drive, bucket, batch);
             }
             finally
             {
                 // In a finally so a mid-sweep failure still refreshes the view for what was deleted.
-                Drive.ListingCache.InvalidateForKey(bucket, key);
+                drive.ListingCache.InvalidateForKey(bucket, key);
             }
         }
 
-        private void DeleteBatch(string bucket, List<KeyVersion> keys)
+        private void DeleteBatch(S3DriveInfo drive, string bucket, List<KeyVersion> keys)
         {
             try
             {
-                RunSync(ct => ClientForBucket(bucket).DeleteObjectsAsync(new DeleteObjectsRequest
+                RunSync(ct => ClientForBucket(drive, bucket).DeleteObjectsAsync(new DeleteObjectsRequest
                 {
                     BucketName = bucket,
                     Objects = keys

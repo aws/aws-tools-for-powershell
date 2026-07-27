@@ -43,17 +43,42 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>Short-TTL listing cache (dedups within-cd/tab prefix probes).</summary>
         internal S3ListingCache ListingCache { get; }
 
+        // Non-secret credential identity used only to decide whether an otherwise drive-independent
+        // provider path can safely fall back across several mounted drives.
+        internal string CredentialIdentity { get; }
+
         // Drive-level upload default from -StorageClass at mount; null when unset. Per-upload -StorageClass overrides it.
         internal S3StorageClass DefaultStorageClass { get; }
 
-        internal S3DriveInfo(PSDriveInfo driveInfo, AWSCredentials credentials, RegionEndpoint mountRegion, IAmazonS3 mountClient, S3StorageClass defaultStorageClass = null)
+        internal S3DriveInfo(PSDriveInfo driveInfo, AWSCredentials credentials, RegionEndpoint mountRegion, IAmazonS3 mountClient,
+            S3StorageClass defaultStorageClass = null, string credentialIdentity = null)
             : base(driveInfo)
         {
             _credentials = credentials;
             _mountRegion = mountRegion;
             _clientsByRegion[mountRegion.SystemName] = mountClient;
+            CredentialIdentity = string.IsNullOrEmpty(credentialIdentity)
+                ? BuildCredentialIdentity(credentials)
+                : credentialIdentity;
             DefaultStorageClass = defaultStorageClass;
             ListingCache = new S3ListingCache(System.TimeSpan.FromSeconds(1));   // 1s TTL
+        }
+
+        internal static string BuildCredentialIdentity(AWSCredentials credentials)
+        {
+            if (credentials == null)
+                return "SDKDefaultCredentials";
+
+            try
+            {
+                var immutable = credentials.GetCredentials();
+                if (!string.IsNullOrEmpty(immutable?.AccessKey))
+                    return "AccessKey:" + immutable.AccessKey;
+            }
+            catch { }
+
+            return "CredentialsObject:" + credentials.GetType().FullName + ":" +
+                System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(credentials);
         }
 
         /// <summary>The mount-region client. Used at the drive root (ListBuckets is global).</summary>

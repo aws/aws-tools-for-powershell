@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "Get-Content requires a path to an S3 object (bucket\\key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
+            var drive = DriveForPath(path);
 
             // -AsByteStream / -Raw / -Encoding are dynamic parameters. On a pipeline bind
             // (Get-ChildItem | Get-Content) the engine hands us FileSystem's dynamic-params object, not
@@ -58,14 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // disposes it on Close; StopProcessing cancels it via the content-CTS set.
             var readerCts = new CancellationTokenSource();
             RegisterContentCts(readerCts);
-            Drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
+            drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
             var handedOff = false;   // true once the reader owns readerCts (success path)
             try
             {
                 // TU is only needed to open the stream (dispose eagerly); disposing it leaves our
                 // shared client and the opened multipart stream intact.
                 Stream stream;
-                using (var tu = TransferUtilityForBucket(bucket))
+                using (var tu = TransferUtilityForBucket(drive, bucket))
                 {
                     var req = new Amazon.S3.Transfer.TransferUtilityOpenStreamRequest
                     {
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     stream = tu.OpenStreamAsync(req, readerCts.Token).GetAwaiter().GetResult();
                 }
                 var reader = new S3ContentReader(stream, readerCts, asByteStream, raw, encoding,
-                    onDispose: () => { UnregisterContentCts(readerCts); Drive.EndContentOperation(); });
+                    onDispose: () => { UnregisterContentCts(readerCts); drive.EndContentOperation(); });
                 handedOff = true;   // reader now owns readerCts; the finally must NOT dispose it
                 return reader;
             }
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     UnregisterContentCts(readerCts);
                     readerCts.Dispose();
-                    Drive.EndContentOperation();
+                    drive.EndContentOperation();
                 }
             }
         }
@@ -194,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "Set-Content requires a path to an S3 object (bucket\\key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
+            var drive = DriveForPath(path);
 
             bool asByteStream, noNewline;
             System.Text.Encoding encoding;
@@ -209,27 +211,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
             // Per-upload -StorageClass wins, else the drive default, else null (nothing set on the request).
-            var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
+            var storageClass = writerParams?.StorageClass ?? drive.DefaultStorageClass;
             var partSize = writerParams != null && writerParams.PartSize > 0
                 ? writerParams.PartSize
                 : MultipartThreshold;
-            var cache = Drive.ListingCache;
+            var cache = drive.ListingCache;
 
             // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.
             // On success the writer owns the CTS + TU; otherwise the finally releases them (handedOff guard).
             var writerCts = new CancellationTokenSource();
             RegisterContentCts(writerCts);
-            Drive.BeginContentOperation();   // keep the drive's clients alive for the whole upload
+            drive.BeginContentOperation();   // keep the drive's clients alive for the whole upload
             Amazon.S3.Transfer.TransferUtility tu = null;
             var handedOff = false;
             try
             {
-                tu = TransferUtilityForBucket(bucket);
+                tu = TransferUtilityForBucket(drive, bucket);
                 var writer = new S3TransferContentWriter(tu, bucket, key, asByteStream, writerCts,
                     onComplete: () => cache.InvalidateForKey(bucket, key),
                     onFault: ex => WriteError(new ErrorRecord(ex, "UploadFailed",
                         ErrorCategory.WriteError, $"{bucket}\\{key}")),
-                    onDispose: () => { UnregisterContentCts(writerCts); Drive.EndContentOperation(); },
+                    onDispose: () => { UnregisterContentCts(writerCts); drive.EndContentOperation(); },
                     partSize: partSize,
                     storageClass: storageClass,
                     encoding: encoding,
@@ -244,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     UnregisterContentCts(writerCts);
                     tu?.Dispose();
                     writerCts.Dispose();
-                    Drive.EndContentOperation();
+                    drive.EndContentOperation();
                 }
             }
         }

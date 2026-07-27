@@ -812,6 +812,12 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # the content/remove op runs. Regression guard for that bug (it was invisible because earlier
     # tests only used literal-path strings, never piped Get-ChildItem output).
     Context "Pipe a listed item into another provider cmdlet (PSPath round-trip)" {
+        AfterEach {
+            foreach ($d in 'PSTestPipe2','PSTestPipeRoot') {
+                if (Test-Path "$($d):\") { try { Dismount-S3PSDrive -Name $d -ErrorAction SilentlyContinue } catch { } }
+            }
+        }
+
         # Helper: list a prefix's immediate children, retrying past the 1s listing-cache TTL (the
         # fixtures are seeded via the raw SDK behind the provider, so a pre-seed empty listing can be
         # briefly cached - see the marker/collision tests). Returns the child items once they appear.
@@ -837,6 +843,24 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             )
             [BitConverter]::ToString($got) | Should -Be ([BitConverter]::ToString($bytes))
         }
+        It "Get-ChildItem | Get-Content resolves listed PSPath when a second plain S3 drive is mounted" {
+            $prefix = "pipe-read-mdrive-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p1.txt" -Value 'one' -NoNewline
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p2.txt" -Value 'two' -NoNewline
+            Mount-S3PSDrive -Name PSTestPipe2 -ProfileName $script:Profile -Region $script:Region
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            (ListWhenReady $prefixPath 2).Count | Should -Be 2
+            $got = @(
+                Get-ChildItem $prefixPath |
+                    Sort-Object Name |
+                    ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw }
+            )
+
+            $got.Count | Should -Be 2
+            $got | Should -Contain 'one'
+            $got | Should -Contain 'two'
+        }
         It "Get-ChildItem | Remove-Item deletes the piped objects" {
             $prefix = "pipe-del-$([DateTime]::Now.ToFileTime())"
             S3PutText "$prefix/a.txt" "A"
@@ -849,6 +873,22 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             # NOTE: SDK v4 ListObjectsV2 returns S3Objects=NULL (not empty) when nothing matches, and
             # @($null).Count is 1 in PowerShell - so coalesce null->@() before counting, or an empty
             # result reads as a phantom survivor.
+            $lr = New-Object Amazon.S3.Model.ListObjectsV2Request
+            $lr.BucketName = $script:Bucket; $lr.Prefix = "$prefix/"
+            $resp = $script:S3.ListObjectsV2Async($lr).GetAwaiter().GetResult()
+            @($resp.S3Objects | Where-Object { $_ }).Count | Should -Be 0
+        }
+        It "Get-ChildItem | Remove-Item resolves listed PSPath when a second rooted S3 drive is mounted" {
+            $prefix = "pipe-del-mdrive-$([DateTime]::Now.ToFileTime())"
+            S3PutText "$prefix/a.txt" "A"
+            S3PutText "$prefix/b.txt" "B"
+            Mount-S3PSDrive -Name PSTestPipeRoot -Root $script:Bucket -ProfileName $script:Profile -Region $script:Region
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            $items = ListWhenReady $prefixPath 2
+            $items.Count | Should -Be 2
+            $items | Remove-Item -Force
+
             $lr = New-Object Amazon.S3.Model.ListObjectsV2Request
             $lr.BucketName = $script:Bucket; $lr.Prefix = "$prefix/"
             $resp = $script:S3.ListObjectsV2Async($lr).GetAwaiter().GetResult()
@@ -1439,18 +1479,23 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             }
         }
 
-        It "rejects provider-qualified paths that do not identify which mounted drive to use" {
-            Set-Content 'PSTestMD1:\ambiguous.txt' -Value 'keep me' -NoNewline
-            $item = Get-ChildItem 'PSTestMD1:\' | Where-Object Name -eq 'ambiguous.txt' | Select-Object -First 1
+        It "resolves provider-qualified paths by matching the mounted root" {
+            Set-Content 'PSTestMD1:\roundtrip.txt' -Value 'from md1' -NoNewline
+            Set-Content 'PSTestMD2:\roundtrip.txt' -Value 'from md2' -NoNewline
+            $item = Get-ChildItem 'PSTestMD1:\' | Where-Object Name -eq 'roundtrip.txt' | Select-Object -First 1
             $item | Should -Not -BeNullOrEmpty
             $item.PSPath | Should -Match 'AWS\.S3::'
 
-            { Get-Item -LiteralPath $item.PSPath -ErrorAction Stop } | Should -Throw
-            { Get-Content -LiteralPath $item.PSPath -Raw -ErrorAction Stop } | Should -Throw
-            { Set-Content -LiteralPath $item.PSPath -Value 'wrong drive' -NoNewline -ErrorAction Stop } | Should -Throw
-            { Remove-Item -LiteralPath $item.PSPath -Force -ErrorAction Stop } | Should -Throw
+            (Get-Item -LiteralPath $item.PSPath -ErrorAction Stop).Type | Should -Be 'Object'
+            (Get-Content -LiteralPath $item.PSPath -Raw -ErrorAction Stop).TrimEnd("`r","`n") | Should -Be 'from md1'
+            Set-Content -LiteralPath $item.PSPath -Value 'changed md1' -NoNewline -ErrorAction Stop
+            (S3GetText $script:Bucket "$($script:MDPrefix1)/roundtrip.txt").TrimEnd("`r","`n") | Should -Be 'changed md1'
+            (S3GetText $script:Bucket "$($script:MDPrefix2)/roundtrip.txt").TrimEnd("`r","`n") | Should -Be 'from md2'
 
-            (S3GetText $script:Bucket "$($script:MDPrefix1)/ambiguous.txt").TrimEnd("`r","`n") | Should -Be 'keep me'
+            Remove-Item -LiteralPath $item.PSPath -Force -ErrorAction Stop
+            S3ObjectExists $script:Bucket "$($script:MDPrefix1)/roundtrip.txt" | Should -BeFalse
+            S3ObjectExists $script:Bucket "$($script:MDPrefix2)/roundtrip.txt" | Should -BeTrue
+            Remove-Item 'PSTestMD2:\roundtrip.txt' -Force
         }
     }
 

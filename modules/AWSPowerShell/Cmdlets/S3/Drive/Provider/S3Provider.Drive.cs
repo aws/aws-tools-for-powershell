@@ -54,8 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     : new AmazonS3Client(region);
 
                 // Use this local instance and mount client for ValidateRoot below: this.PSDriveInfo
-                // (and Drive/Client) stays null until the engine assigns it after NewDrive returns.
-                var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass);
+                // is not assigned until the engine wires the returned drive back to the provider.
+                var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass,
+                    CredentialIdentityForDrive(dp, creds));
 
                 // Fail fast on an unreachable root, so a typo errors at mount instead of first listing.
                 if (!ValidateRoot(s3drive, client, drive.Root))
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         // Mount-time reachability check (true = mount, false = reject). Runs against the local drive +
-        // mount client since this.Drive is null inside NewDrive. AccessDenied always passes: the
+        // mount client because NewDrive has not assigned this.PSDriveInfo yet. AccessDenied always passes: the
         // resource exists but we can't inspect it, so the real error surfaces on the actual operation.
         private bool ValidateRoot(S3DriveInfo drive, IAmazonS3 mountClient, string root)
         {
