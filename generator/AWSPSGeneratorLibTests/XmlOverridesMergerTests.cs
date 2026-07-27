@@ -16,7 +16,7 @@ namespace AWSPSGeneratorLibTests
         public void InvalidXMLReturnsError()
         {
             string errorMessage;
-            XmlOverridesMerger.ReadOverrides(Path.GetFullPath(".\\XMLTests\\InvalidXML"), out errorMessage);
+            XmlOverridesMerger.ReadOverrides(Path.GetFullPath("XmlTests/InvalidXML"), out errorMessage);
 
             Assert.IsNotNull(errorMessage);
             Assert.IsTrue(errorMessage.Contains("Error deserializing the provided override file"));
@@ -29,7 +29,7 @@ namespace AWSPSGeneratorLibTests
         public void InvalidSchemaReturnsError()
         {
             string errorMessage;
-            XmlOverridesMerger.ReadOverrides(Path.GetFullPath(".\\XMLTests\\InvalidSchema"), out errorMessage);
+            XmlOverridesMerger.ReadOverrides(Path.GetFullPath("XmlTests/InvalidSchema"), out errorMessage);
 
             Assert.IsNotNull(errorMessage);
             Assert.IsTrue(errorMessage.Contains("The required attribute 'PipelineParameter' is missing"));
@@ -42,7 +42,7 @@ namespace AWSPSGeneratorLibTests
         public void ValidOverridesNoError()
         {
             string errorMessage;
-            XmlOverridesMerger.ReadOverrides(Path.GetFullPath(".\\XMLTests\\invalid"), out errorMessage);
+            XmlOverridesMerger.ReadOverrides(Path.GetFullPath("XmlTests/Valid"), out errorMessage);
 
             Assert.IsNull(errorMessage);
         }
