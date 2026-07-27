@@ -4,10 +4,12 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -19,12 +21,12 @@ namespace PSReleaseNotesGenerator
         private const string NewAssemblyPathOptionName = "new-assembly";
         private const string VersionFilePathOptionName = "version-file";
         private const string ModuleNameOptionName = "module-name";
-        private const string ModuleVersionOptionName = "module-version";
         private const string DownloadFolderOptionName = "download-folder";
         private const string AssemblyFileNameOptionName = "assembly-file-name";
         private const string OutputFilePathOptionName = "out-file";
         private const string BreakingChangesOutputFilePathOptionName = "breaking-changes-out-file";
         private const string OverridesFilePathOptionName = "overrides-file";
+        private const string RepositoryPathOptionName = "repository-path";
         private const string TargetServiceAssemblyNamesOptionName = "target-service-assembly-names";
         private const string PreviewLabelOptionName = "preview-label";
         private const string NewVersionOptionName = "new-version";
@@ -50,9 +52,6 @@ namespace PSReleaseNotesGenerator
         [Option("-mn|--" + ModuleNameOptionName + " <NAME>", Description = "Id of the PS Gallery module to download.")]
         public string ModuleName { get; set; } = "AWSPowerShell";
 
-        [Option("-mv|--" + ModuleVersionOptionName + " <Z.Y.X.W>", Description = "Version of the PS Gallery module to download.")]
-        public string ModuleVersion { get; set; }
-
         [Option("-df|--" + DownloadFolderOptionName + " <FOLDER_PATH>", Description = "Folder where the module specified by " + ModuleNameOptionName + " will be extracted.")]
         public string DownloadFolder { get; set; }
 
@@ -68,6 +67,9 @@ namespace PSReleaseNotesGenerator
         [Option("-or|--" + OverridesFilePathOptionName + " <FILE_PATH>", Description = "Optional path to the overrides file.")]
         public string OverridesFilePath { get; set; }
 
+        [Option("-rp|--" + RepositoryPathOptionName + " <DIRECTORY_PATH>", Description = "Path to the repository root. Used to locate the changelog (changelogs/CHANGELOG.ALL.md) whose top header is the previously published version.")]
+        public string RepositoryPath { get; set; }
+
         [Option("-tsa|--" + TargetServiceAssemblyNamesOptionName + " <ASSEMBLY_NAMES>", Description = "Optional comma-separated list of service AssemblyNames (e.g. \"PrometheusService\") that this build targets. These services are flagged InOverrides=\"true\" in the breaking changes lookup file even when they are absent from the overrides file (e.g. a parameter change on an existing operation with an empty buildconfig). AssemblyName is used (not C2jFilename) because it is the reliable 1:1 identifier shared by .NET and PowerShell.")]
         public string TargetServiceAssemblyNames { get; set; }
 
@@ -76,7 +78,7 @@ namespace PSReleaseNotesGenerator
 
         [Option("-nv|--" + NewVersionOptionName + " <Z.Y.X.W>", Description = "Version of the new PS Module.")]
         public string NewVersion { get; set; }
-                
+
         public static int Main(string[] args)
         {
             try
@@ -112,12 +114,16 @@ namespace PSReleaseNotesGenerator
                 if (string.IsNullOrWhiteSpace(NewVersion) || NewVersion == "0.0.0.0")
                     throw new Exception($"NewVersion cannot be empty or default value 0.0.0.0");
 
-                int majorVersion = (new Version(NewVersion)).Major;
-                string maxVersion = $"{majorVersion}.99.999";
-                Console.WriteLine($"NewVersion: {NewVersion}, MaxVersion: {maxVersion}");
+                // Download the exact previous version (changelog top header) from the immutable versioned path.
+                var changeLogFile = GetChangeLogPath(RepositoryPath);
+                var baselineVersion = GetPreviousPublishedVersion(changeLogFile);
+                if (baselineVersion == null)
+                    throw new Exception($"Could not determine the previous published version from the changelog at '{changeLogFile}'. Provide --{RepositoryPathOptionName} pointing at the repository root.");
+
+                Console.WriteLine($"NewVersion: {NewVersion}, comparing against previously published version {baselineVersion}");
                 try
                 {
-                    OldAssemblyPath = DownloadModule(ModuleName, string.IsNullOrWhiteSpace(ModuleVersion) ? null : ModuleVersion, maxVersion, AssemblyFileName, DownloadFolder);
+                    OldAssemblyPath = DownloadModuleVersion(ModuleName, baselineVersion, AssemblyFileName, DownloadFolder);
                 }
                 catch (Exception e)
                 {
@@ -495,50 +501,97 @@ namespace PSReleaseNotesGenerator
             }
         }
 
-        private string DownloadModule(string moduleName, string moduleVersion, string maxVersion, string assemblyFileName, string downloadFolder)
+        private const string ChangeLogDirectory = "changelogs";
+        private const string ChangeLogAllName = "CHANGELOG.ALL.md";
+
+        // Returns the aggregated changelog path under the repository root, or null when none is supplied.
+        private static string GetChangeLogPath(string repositoryPath)
         {
-            var downloadFullPath = Path.GetFullPath(DownloadFolder);
+            if (string.IsNullOrWhiteSpace(repositoryPath))
+            {
+                return null;
+            }
+            return Path.Combine(repositoryPath, ChangeLogDirectory, ChangeLogAllName);
+        }
+
+        // Returns the version from the changelog's top "### <version>" header, or null if not found.
+        private static string GetPreviousPublishedVersion(string changeLogFile)
+        {
+            if (string.IsNullOrWhiteSpace(changeLogFile) || !File.Exists(changeLogFile))
+            {
+                return null;
+            }
+
+            foreach (var line in File.ReadLines(changeLogFile))
+            {
+                var match = System.Text.RegularExpressions.Regex.Match(line, @"^###\s+(\d+\.\d+\.\d+(\.\d+)?)\b");
+                if (match.Success)
+                {
+                    return match.Groups[1].Value;
+                }
+            }
+            return null;
+        }
+
+        // Downloads and extracts a specific published module version from the immutable CloudFront versioned path.
+        private string DownloadModuleVersion(string moduleName, string version, string assemblyFileName, string downloadFolder)
+        {
+            var moduleUri = $"https://sdk-for-net.amazonwebservices.com/ps/releases/{moduleName}.{version}.zip";
+            return DownloadAndExtract(moduleUri, moduleName, assemblyFileName, downloadFolder);
+        }
+
+        private string DownloadAndExtract(string moduleUri, string moduleName, string assemblyFileName, string downloadFolder)
+        {
+            var downloadFullPath = Path.GetFullPath(downloadFolder);
+            var extractPath = Path.Combine(downloadFullPath, moduleName);
 
             Directory.CreateDirectory(downloadFullPath);
 
             try
             {
-                Directory.Delete(Path.Combine(downloadFullPath, moduleName), true);
+                Directory.Delete(extractPath, true);
             }
             catch (DirectoryNotFoundException) { }
 
-            using (Process process = new Process())
+            Console.WriteLine($"Downloading previous module from {moduleUri}");
+
+            var tempFile = Path.GetTempFileName();
+            try
             {
-                string moduleVersionParameter = $" -MaximumVersion '{maxVersion}'";
-                if (moduleVersion != null)
-                {
-                    moduleVersionParameter = $" -RequiredVersion '{moduleVersion}'";
-                }
-
-                var downloadModuleArguments =
-                    $"-NonInteractive -NoProfile -Command $ErrorActionPreference='Stop'; Save-Module -Name '{moduleName}'{moduleVersionParameter} -Path '{downloadFolder}'";
-
-                Console.WriteLine($"Download PowerShell Module from PSGallary with arguments: {downloadModuleArguments}");
-
-                process.StartInfo = new ProcessStartInfo
-                {
-                    FileName = "pwsh",
-                    Arguments = downloadModuleArguments,
-                    UseShellExecute = false,
-                    RedirectStandardError = true
-                };
-                process.Start();
-
-                string error = process.StandardError.ReadToEnd();
-                process.WaitForExit();
-
-                if (process.ExitCode != 0)
-                {
-                    throw new Exception($"Powershell invocation failed. Standard error: {error}");
-                }
+                DownloadFileWithRetry(moduleUri, tempFile);
+                ZipFile.ExtractToDirectory(tempFile, extractPath);
+            }
+            finally
+            {
+                File.Delete(tempFile);
             }
 
-            return Directory.GetFiles(Path.Combine(downloadFullPath, moduleName), assemblyFileName, SearchOption.AllDirectories).FirstOrDefault();
+            return Directory.GetFiles(extractPath, assemblyFileName, SearchOption.AllDirectories).FirstOrDefault();
+        }
+
+        private static void DownloadFileWithRetry(string uri, string destinationPath)
+        {
+            const int maxAttempts = 5;
+            using (var client = new HttpClient())
+            {
+                for (int attempt = 1; ; attempt++)
+                {
+                    try
+                    {
+                        using (var responseStream = client.GetStreamAsync(uri).GetAwaiter().GetResult())
+                        using (var fileStream = File.Create(destinationPath))
+                        {
+                            responseStream.CopyTo(fileStream);
+                        }
+                        return;
+                    }
+                    catch (Exception e) when (attempt < maxAttempts)
+                    {
+                        Console.WriteLine($"Download attempt {attempt} of {maxAttempts} failed: {e.Message}. Retrying.");
+                        Thread.Sleep(TimeSpan.FromSeconds(Math.Pow(2, attempt)));
+                    }
+                }
+            }
         }
     }
 }
