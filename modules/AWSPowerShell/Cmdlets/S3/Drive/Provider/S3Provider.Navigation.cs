@@ -84,9 +84,51 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var drive = DriveForPath(path);
             if (IsDriveRoot(path))
             {
-                foreach (var bucket in ListBuckets(drive))
-                    WriteItemObject(S3ItemInfo.Bucket(bucket.BucketName, bucket.CreationDate),
-                        MakeItemPath(bucket.BucketName), isContainer: true);
+                // Get-Item on the drive ROOT returns the SINGLE root item, not the whole listing (that's
+                // Get-ChildItem). Resolve the drive's own root: account-root -> a synthesized container
+                // named after the drive; bucket-root -> the Bucket; prefix-root -> the Folder. (Rooted
+                // drives normally don't reach this branch - the engine substitutes their root - but
+                // resolving drive.Root handles it defensively and drops the old ListBuckets fan-out.)
+                var root = NormalizeRoot(drive.Root);   // "bucket/prefix" or "" for the account root
+                if (root.Length == 0)
+                {
+                    // Echo the engine's own root path back (an empty item path makes the engine reject
+                    // the result with "value of argument 'path' is not valid"). One synthesized
+                    // container named after the drive - the account root has no backing S3 resource.
+                    WriteItemObject(S3ItemInfo.Folder(drive.Name), path, isContainer: true);
+                    return;
+                }
+
+                var slash = root.IndexOf('/');
+                var rootBucket = slash < 0 ? root : root.Substring(0, slash);
+                var rootKey = slash < 0 ? "" : root.Substring(slash + 1);
+                try
+                {
+                    if (string.IsNullOrEmpty(rootKey))
+                    {
+                        var rb = FindBucket(drive, rootBucket);
+                        if (rb != null)
+                            WriteItemObject(S3ItemInfo.Bucket(rb.BucketName, rb.CreationDate),
+                                MakeItemPath(rootBucket), isContainer: true);
+                        else if (BucketExists(drive, rootBucket))
+                            WriteItemObject(S3ItemInfo.Bucket(rootBucket, null),
+                                MakeItemPath(rootBucket), isContainer: true);
+                        else
+                            WriteItemNotFound(path);
+                    }
+                    else
+                    {
+                        var name = rootKey.TrimEnd('/');
+                        var lastSlash = name.LastIndexOf('/');
+                        if (lastSlash >= 0) name = name.Substring(lastSlash + 1);
+                        WriteItemObject(S3ItemInfo.Folder(name),
+                            MakeChildPath(rootBucket, EnsureTrailingSlash(rootKey)), isContainer: true);
+                    }
+                }
+                catch (AmazonS3Exception ex)
+                {
+                    WriteError(new ErrorRecord(ex, "GetItemFailed", ErrorCategory.ReadError, path));
+                }
                 return;
             }
 

@@ -306,8 +306,16 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $i.Name | Should -Be $script:Bucket
             $i.Type | Should -Be 'Bucket'
         }
-        It "lists the buckets at the drive root" {
-            (Get-Item 'PSTest:\' | ForEach-Object Name) | Should -Contain $script:Bucket
+        # Get-Item on the drive ROOT returns the SINGLE root item, NOT the whole bucket listing (that's
+        # Get-ChildItem's job). Before the fix this branch enumerated ListBuckets and emitted one item
+        # per bucket, so Get-Item and Get-ChildItem were identical at the root. The account-root item is
+        # a synthesized container named after the drive (no backing S3 resource); buckets/prefixes are
+        # unaffected (covered above).
+        It "returns a single container item at the drive root (not the bucket listing)" {
+            $root = @(Get-Item 'PSTest:\')
+            $root.Count            | Should -Be 1        # one root item, not one-per-bucket
+            $root[0].Type          | Should -Be 'Folder'
+            $root[0].PSIsContainer | Should -BeTrue
         }
         It "errors (not hangs) on a missing object" {
             { Get-Item "PSTest:\$($script:Bucket)\nope-$([guid]::NewGuid()).txt" -ErrorAction Stop } |
