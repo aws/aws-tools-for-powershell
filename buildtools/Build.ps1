@@ -59,6 +59,32 @@ param (
 # Dot-source utility functions
 . "$PSScriptRoot\Util.ps1"
 
+function Expand-ZipArchive {
+  # ExtractToDirectory is much faster than Expand-Archive on archives with many files. Paths are made
+  # absolute because .NET resolves relative paths against the process cwd, not the PowerShell location.
+  # The destination is wiped (not merged) since ExtractToDirectory throws when it exists.
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$ZipPath,
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$DestinationPath
+  )
+
+  $resolvedZipPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($ZipPath)
+  $resolvedDestinationPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($DestinationPath)
+
+  if (-not (Test-Path -LiteralPath $resolvedZipPath -PathType Leaf)) {
+    throw "Expand-ZipArchive: zip file not found at '$resolvedZipPath'."
+  }
+  if (Test-Path -LiteralPath $resolvedDestinationPath) {
+    Remove-Item -LiteralPath $resolvedDestinationPath -Recurse -Force
+  }
+  [System.IO.Compression.ZipFile]::ExtractToDirectory($resolvedZipPath, $resolvedDestinationPath)
+}
+
 function DownloadSdkArtifacts {
   [CmdletBinding()]
   param (
@@ -94,7 +120,7 @@ function DownloadSdkArtifacts {
       Read-S3Object -BucketName $s3Uri.Bucket -Key $s3Uri.Key -File ./Include/sdk.zip
     }
     Write-Host "Extracting sdk.zip"
-    Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
+    Expand-ZipArchive -ZipPath ./Include/sdk.zip -DestinationPath ./Include/sdktmp
     if ($SkipAWSSDKCoreDlls) {
       Write-Host "Removing AWSSDK.Core DLLs from extracted SDK artifacts"
       Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
