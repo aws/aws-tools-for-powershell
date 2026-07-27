@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// folders, objects are files. Calls the AWS SDK directly; does not invoke the S3 cmdlets.
     /// Copy-Item is unsupported (CopyItem is not overridden, so it errors).
     /// </summary>
-    [CmdletProvider("AWS.S3", ProviderCapabilities.ShouldProcess)]
+    [CmdletProvider("AWS.S3", ProviderCapabilities.ShouldProcess | ProviderCapabilities.Filter)]
     public sealed partial class S3Provider : NavigationCmdletProvider, IContentCmdletProvider
     {
         // Per-drive state (clients, caches). Usually this.PSDriveInfo is our S3DriveInfo, but a

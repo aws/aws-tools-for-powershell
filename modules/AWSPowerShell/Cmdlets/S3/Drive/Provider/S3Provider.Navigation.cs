@@ -34,19 +34,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var drive = DriveForPath(path);
             if (IsDriveRoot(path))
             {
+                // -Filter matches on the leaf (bucket) name, mirroring FileSystem.
                 foreach (var bucket in ListBuckets(drive))
-                    WriteItemObject(S3ItemInfo.Bucket(bucket.BucketName, bucket.CreationDate),
-                        MakeItemPath(bucket.BucketName), isContainer: true);
+                    if (MatchesFilter(bucket.BucketName))
+                        WriteItemObject(S3ItemInfo.Bucket(bucket.BucketName, bucket.CreationDate),
+                            MakeItemPath(bucket.BucketName), isContainer: true);
                 return;
             }
 
             ParsePath(path, out var bucket1, out var key);
             try
             {
+                // Filter at the emit lambda (not inside StreamChildren) so the ListingCache still records
+                // ALL children - filtering must not corrupt the cache used by later existence probes.
                 if (recurse)
-                    StreamAllUnder(drive, bucket1, key, c => WriteItemObject(c.Item, c.Path, c.IsContainer));
+                    StreamAllUnder(drive, bucket1, key, c => { if (MatchesFilter(LeafName(c.Name))) WriteItemObject(c.Item, c.Path, c.IsContainer); });
                 else
-                    StreamChildren(drive, bucket1, key, c => WriteItemObject(c.Item, c.Path, c.IsContainer));
+                    StreamChildren(drive, bucket1, key, c => { if (MatchesFilter(LeafName(c.Name))) WriteItemObject(c.Item, c.Path, c.IsContainer); });
             }
             catch (AmazonS3Exception ex)
             {
@@ -60,14 +64,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (IsDriveRoot(path))
             {
                 foreach (var bucket in ListBuckets(drive))
-                    WriteItemObject(bucket.BucketName, MakeItemPath(bucket.BucketName), isContainer: true);
+                    if (MatchesFilter(bucket.BucketName))
+                        WriteItemObject(bucket.BucketName, MakeItemPath(bucket.BucketName), isContainer: true);
                 return;
             }
 
             ParsePath(path, out var bucket1, out var key);
             try
             {
-                StreamChildren(drive, bucket1, key, c => WriteItemObject(c.Name, c.Path, c.IsContainer));
+                StreamChildren(drive, bucket1, key, c => { if (MatchesFilter(LeafName(c.Name))) WriteItemObject(c.Name, c.Path, c.IsContainer); });
             }
             catch (AmazonS3Exception ex)
             {

@@ -1194,6 +1194,37 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    # -Filter is a client-side wildcard on the LEAF name (provider declares ProviderCapabilities.Filter
+    # and applies it at the emit sites in GetChildItems/GetChildNames), matching the FileSystem
+    # provider. Before the fix the provider declared only ShouldProcess, so ANY -Filter (and the
+    # positional `-Name <value>` form, whose value binds to -Filter since -Name is a switch) threw
+    # "The provider does not support the use of filters." Uses a dedicated prefix so counts are exact.
+    Context "Get-ChildItem -Filter (leaf-name wildcard)" {
+        BeforeAll {
+            $script:FltPrefix = "flt-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/apple.txt"   -Value 'a'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/apricot.txt" -Value 'a'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/banana.txt"  -Value 'b'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/sub/deep.txt" -Value 'd'
+        }
+        AfterAll {
+            Remove-Item "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Recurse -Force -ErrorAction SilentlyContinue
+        }
+        It "filters immediate children by wildcard (no 'does not support filters' error)" {
+            $names = @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter 'ap*' -ErrorAction Stop).Name
+            $names | Should -Contain 'apple.txt'
+            $names | Should -Contain 'apricot.txt'
+            $names | Should -Not -Contain 'banana.txt'
+        }
+        It "applies the filter to leaf names under -Recurse" {
+            $matched = @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter '*.txt' -Recurse -ErrorAction Stop |
+                Where-Object Type -eq 'Object')
+            $matched.Count | Should -BeGreaterThan 0
+            @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter 'zzz*' -Recurse -ErrorAction Stop |
+                Where-Object Type -eq 'Object').Count | Should -Be 0
+        }
+    }
+
     # AccessDenied resolves as "exists" (deliberate design): ItemExists/IsItemContainer return true
     # on AccessDenied so path resolution SUCCEEDS and the real operation then surfaces the genuine
     # AccessDenied - instead of the engine masking a thrown error as a misleading "path not found".
