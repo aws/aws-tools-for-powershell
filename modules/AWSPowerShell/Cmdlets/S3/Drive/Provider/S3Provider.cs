@@ -180,13 +180,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return loc;
         }
 
-        // Default multipart part size for non-seekable uploads. Without it the SDK falls back to S3's
-        // 5 MiB minimum, which hits the 10,000-part limit past ~49 GiB. Set-Content -PartSize overrides it.
-        private const long MultipartThreshold = 8 * 1024 * 1024;
+        // Default part size for Set-Content's non-seekable stream uploads. TU cannot choose from
+        // the final object length, so this keeps streams under S3's 10,000-part limit until ~156 GiB.
+        // Set-Content -PartSize overrides it.
+        private const long DefaultMultipartUploadPartSize = 16L * 1024 * 1024;
 
         private Amazon.S3.Transfer.TransferUtility TransferUtilityForBucket(S3DriveInfo drive, string bucket) =>
             new Amazon.S3.Transfer.TransferUtility(ClientForBucket(drive, bucket),
-                new Amazon.S3.Transfer.TransferUtilityConfig { MinSizeBeforePartUpload = MultipartThreshold });
+                new Amazon.S3.Transfer.TransferUtilityConfig { MinSizeBeforePartUpload = DefaultMultipartUploadPartSize });
 
     }
 }

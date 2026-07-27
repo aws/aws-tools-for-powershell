@@ -61,11 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
             RegisterContentCts(readerCts);
             drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
             var handedOff = false;   // true once the reader owns readerCts (success path)
+            Amazon.S3.Transfer.TransferUtility tu = null;
             try
             {
-                var stream = OpenContentStream(drive, bucket, key, readerCts.Token);
+                tu = TransferUtilityForBucket(drive, bucket);
+                var stream = OpenContentStream(tu, bucket, key, readerCts.Token);
+                var readerTu = tu;
                 var reader = new S3ContentReader(stream, readerCts, asByteStream, raw, encoding,
-                    onDispose: () => { UnregisterContentCts(readerCts); drive.EndContentOperation(); });
+                    onDispose: () =>
+                    {
+                        try { readerTu.Dispose(); }
+                        finally { UnregisterContentCts(readerCts); drive.EndContentOperation(); }
+                    });
                 handedOff = true;   // reader now owns readerCts; the finally must NOT dispose it
                 return reader;
             }
@@ -87,35 +94,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     UnregisterContentCts(readerCts);
                     readerCts.Dispose();
+                    tu?.Dispose();
                     drive.EndContentOperation();
                 }
             }
         }
 
-        private Stream OpenContentStream(S3DriveInfo drive, string bucket, string key, CancellationToken cancellationToken)
+        private Stream OpenContentStream(TransferUtility tu, string bucket, string key, CancellationToken cancellationToken)
         {
-            using (var tu = TransferUtilityForBucket(drive, bucket))
+            try
             {
-                try
+                var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
                 {
-                    var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
-                    {
-                        BucketName = bucket,
-                        Key = key,
-                        MultipartDownloadType = MultipartDownloadType.RANGE
-                    }, cancellationToken).GetAwaiter().GetResult();
-                    return response.ResponseStream;
-                }
-                catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
+                    BucketName = bucket,
+                    Key = key,
+                    MultipartDownloadType = MultipartDownloadType.RANGE
+                }, cancellationToken).GetAwaiter().GetResult();
+                return response.ResponseStream;
+            }
+            catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
+            {
+                // Empty objects can reject the SDK's initial ranged GET. Fall back to the
+                // ordinary stream path; there is nothing to parallelize for an empty object.
+                return tu.OpenStreamAsync(new TransferUtilityOpenStreamRequest
                 {
-                    // Empty objects can reject the SDK's initial ranged GET. Fall back to the
-                    // ordinary stream path; there is nothing to parallelize for an empty object.
-                    return tu.OpenStreamAsync(new TransferUtilityOpenStreamRequest
-                    {
-                        BucketName = bucket,
-                        Key = key
-                    }, cancellationToken).GetAwaiter().GetResult();
-                }
+                    BucketName = bucket,
+                    Key = key
+                }, cancellationToken).GetAwaiter().GetResult();
             }
         }
 
@@ -233,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var storageClass = writerParams?.StorageClass ?? drive.DefaultStorageClass;
             var partSize = writerParams != null && writerParams.PartSize > 0
                 ? writerParams.PartSize
-                : MultipartThreshold;
+                : DefaultMultipartUploadPartSize;
             var cache = drive.ListingCache;
 
             // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.

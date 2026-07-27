@@ -68,6 +68,14 @@ BeforeAll {
         }
     }
 
+    function script:S3GetPartsCount([string]$bucket, [string]$key, $client = $null) {
+        if (-not $client) { $client = $script:S3 }
+        $req = New-Object Amazon.S3.Model.GetObjectMetadataRequest
+        $req.BucketName = $bucket; $req.Key = $key; $req.PartNumber = 1
+        $resp = $client.GetObjectMetadataAsync($req).GetAwaiter().GetResult()
+        return $resp.PartsCount
+    }
+
     function script:S3GetText([string]$bucket, [string]$key, $client = $null) {
         if (-not $client) { $client = $script:S3 }
         $req = New-Object Amazon.S3.Model.GetObjectRequest
@@ -342,6 +350,28 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    Context "Get-Content multipart download" {
+        It "reads a large byte-stream object through the multipart download stream" {
+            $key = "download-multipart-$([DateTime]::Now.ToFileTime()).bin"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            $size = 17 * 1024 * 1024
+            $payload = New-Object byte[] $size
+            (New-Object System.Random 20260727).NextBytes($payload)
+            Set-Content $path -AsByteStream -Value $payload
+
+            $got = [byte[]]((Get-Content $path -AsByteStream -Raw) | ForEach-Object { $_ })
+
+            $got.Length | Should -Be $size
+            $sha = [System.Security.Cryptography.SHA256]::Create()
+            try {
+                [BitConverter]::ToString($sha.ComputeHash($got)) |
+                    Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+            } finally {
+                $sha.Dispose()
+            }
+        }
+    }
+
     # Slow: seeds 1050 objects (~3 min) to force ListObjectsV2 pagination past the 1000-key page.
     Context -Tag "Disabled" "Listing and recursive delete with pagination" {
         BeforeAll {
@@ -371,14 +401,14 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # verify byte-for-byte via SHA-256 (and every upload is multipart anyway, so there was no unique
     # single-part path to guard).
 
-    # Slow: moves a >8MB object, so it exercises the TransferUtility MULTIPART paths on
+    # Slow: moves a >16MB object, so it exercises the TransferUtility MULTIPART paths on
     # both ends (upload via UploadUnseekableStreamAsync through the PushPullStream bridge; download
     # via OpenStreamWithResponseAsync with ranged multipart streaming). Small round-trips above only
     # need the SDK's first ranged download response. ~20MB.
     Context -Tag "Disabled" "Large-object multipart round-trip" {
         It "uploads and downloads a 20MB object byte-for-byte (SHA-256)" {
             $key = "large/multipart-$([DateTime]::Now.ToFileTime()).bin"
-            # Deterministic 20MB payload (well over the 8MB multipart threshold).
+            # Deterministic 20MB payload (over the default multipart part size).
             $size = 20 * 1024 * 1024
             $src = New-Object byte[] $size
             (New-Object System.Random 20260701).NextBytes($src)
@@ -973,11 +1003,15 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             [System.Text.Encoding]::UTF8.GetString((S3GetBytes $script:Bucket $key)) |
                 Should -Be 'alphabeta'
         }
-        It "accepts a per-upload -PartSize override" {
-            $key = "shape-$([DateTime]::Now.ToFileTime())/part-size.txt"
-            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'custom part size' -PartSize 8MB
-            (S3GetText $script:Bucket $key).TrimEnd("`r","`n") |
-                Should -Be 'custom part size'
+        It "uses the default upload part size and honors -PartSize overrides" {
+            $prefix = "shape-$([DateTime]::Now.ToFileTime())"
+            $payload = New-Object byte[] (17 * 1024 * 1024)
+
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/default.bin" -AsByteStream -Value $payload
+            S3GetPartsCount $script:Bucket "$prefix/default.bin" | Should -Be 2
+
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 5MB
+            S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 4
         }
         It "creates a zero-byte object from an explicit empty byte array" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"

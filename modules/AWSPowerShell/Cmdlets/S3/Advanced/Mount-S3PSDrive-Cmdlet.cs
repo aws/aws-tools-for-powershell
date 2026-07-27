@@ -24,6 +24,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Mounts an S3 drive so buckets, prefixes, and objects can be explored with the standard
     /// navigation commands (Set-Location, Get-ChildItem, Get-Content, Set-Content, Remove-Item).
+    /// The drive is intended for navigation and ad hoc content work; for large local file
+    /// transfers, use Read-S3Object and Write-S3Object.
     /// Credentials resolve the same way as the S3 cmdlets: explicit keys, then -ProfileName, then
     /// -AWSCredential, then the session default $StoredAWSCredentials, then the SDK default chain.
     /// Region follows the same order too: -Region, then $StoredAWSRegion, then the profile region,
