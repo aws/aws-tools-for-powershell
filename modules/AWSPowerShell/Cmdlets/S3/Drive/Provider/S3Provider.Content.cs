@@ -39,6 +39,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             var drive = DriveForPath(path);
 
+            // Folder-wins: reading a prefix is not a content op. Refuse with a directory-specific error
+            // instead of letting the exact-key GET fail with the raw SDK "specified key does not exist"
+            // (matches the FileSystem provider, which refuses Get-Content on a directory).
+            try
+            {
+                if (PathIsExistingFolder(drive, bucket, key))
+                {
+                    WriteError(new ErrorRecord(
+                        new InvalidOperationException(
+                            $"Cannot get the content of '{path}' because it is a folder. Use Get-ChildItem to list its children."),
+                        "PathIsContainer", ErrorCategory.InvalidOperation, path));
+                    return null;
+                }
+            }
+            catch (AmazonS3Exception ex)   // a non-denied list failure during the probe
+            {
+                WriteError(new ErrorRecord(ex, "GetContentFailed", ErrorCategory.ReadError, path));
+                return null;
+            }
+
             // -AsByteStream / -Raw / -Encoding are dynamic parameters. On a pipeline bind
             // (Get-ChildItem | Get-Content) the engine hands us FileSystem's dynamic-params object, not
             // ours, so ReadContentReaderParams reads them by name off either type rather than casting.
@@ -220,6 +240,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
             var drive = DriveForPath(path);
+
+            // Folder-wins: writing to an existing prefix would silently create a shadow object literally
+            // named after the folder (invisible, unremovable by name). Refuse it, matching the FileSystem
+            // provider, which won't Set-Content over a directory.
+            try
+            {
+                if (PathIsExistingFolder(drive, bucket, key))
+                {
+                    WriteError(new ErrorRecord(
+                        new InvalidOperationException(
+                            $"Cannot set the content of '{path}' because it is a folder. Specify a key that names an object, not a prefix."),
+                        "PathIsContainer", ErrorCategory.InvalidOperation, path));
+                    return null;
+                }
+            }
+            catch (AmazonS3Exception ex)
+            {
+                WriteError(new ErrorRecord(ex, "SetContentFailed", ErrorCategory.WriteError, path));
+                return null;
+            }
 
             bool asByteStream, noNewline;
             System.Text.Encoding encoding;

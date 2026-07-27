@@ -1088,6 +1088,27 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    # A content op targeting an existing PREFIX (folder) must be refused (folder-wins), matching the
+    # FileSystem provider. Before the fix, Set-Content on a prefix silently PUT a shadow object named
+    # after the folder (invisible, unremovable by name), and Get-Content on a prefix surfaced the raw
+    # SDK "specified key does not exist". Both now error with PathIsContainer and create nothing. Uses
+    # the seeded reports/ tree (reports/index.txt), so 'reports' is unambiguously a folder.
+    Context "Content ops reject a prefix (folder) path" {
+        It "Set-Content on a prefix errors with PathIsContainer and creates no shadow object" {
+            $ev = $null
+            Set-Content "PSTest:\$($script:Bucket)\reports" -Value 'shadow' -ErrorVariable ev -ErrorAction SilentlyContinue
+            $ev.Count                    | Should -BeGreaterThan 0
+            $ev[0].FullyQualifiedErrorId | Should -BeLike 'PathIsContainer*'
+            S3ObjectExists $script:Bucket 'reports' | Should -BeFalse   # raw HEAD: no shadow key created
+        }
+        It "Get-Content on a prefix errors with PathIsContainer, not the raw NoSuchKey message" {
+            $ev = $null
+            Get-Content "PSTest:\$($script:Bucket)\reports" -ErrorVariable ev -ErrorAction SilentlyContinue
+            $ev.Count                    | Should -BeGreaterThan 0
+            $ev[0].FullyQualifiedErrorId | Should -BeLike 'PathIsContainer*'
+        }
+    }
+
     # Set-Content -Encoding. The Get-Content utf8 round-trip exercises the READ decode; nothing
     # exercised the WRITE encode path or its validation. These lock: (1) a non-default -Encoding
     # controls the on-the-wire bytes, and (2) an unknown -Encoding is rejected before the writer opens.
