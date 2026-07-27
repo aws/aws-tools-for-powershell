@@ -97,6 +97,56 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable GlueTable_AdditionalOption { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter DataQualityGlueTable_CatalogId
         /// <summary>
         /// <para>
@@ -175,6 +225,56 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter DataQualityGlueTable_DatabaseName
         /// <summary>
         /// <para>
@@ -197,6 +297,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueTable_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_RowLevelResults_MaxRowsToWrite
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of rows to write in the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AdditionalRunOptions_RowLevelResults_MaxRowsToWrite { get; set; }
+        #endregion
+        
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
@@ -206,6 +316,30 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NumberOfWorkers")]
         public System.Int32? NumberOfWorker { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationMode
+        /// <summary>
+        /// <para>
+        /// <para>The observation mode for the evaluation run. Specifies how anomaly detection bounds
+        /// are calculated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ObservationMode")]
+        public Amazon.Glue.ObservationMode AdditionalRunOptions_ObservationMode { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationScope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of the observation for the evaluation run. Specifies whether anomaly detection
+        /// is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ObservationConfiguration")]
+        public Amazon.Glue.ObservationConfiguration AdditionalRunOptions_ObservationScope { get; set; }
         #endregion
         
         #region Parameter DataQualityGlueTable_PreProcessingQuery
@@ -228,6 +362,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdditionalRunOptions_ResultsS3Prefix { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_RowLevelResults_ResultType
+        /// <summary>
+        /// <para>
+        /// <para>The result type to include in the row-level results output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ResultTypeEnum")]
+        public Amazon.Glue.ResultTypeEnum AdditionalRunOptions_RowLevelResults_ResultType { get; set; }
         #endregion
         
         #region Parameter Role
@@ -269,6 +414,106 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] RulesetName { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location for storing the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location for storing the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location for storing the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location for storing the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location for storing the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName { get; set; }
+        #endregion
+        
         #region Parameter DataQualityGlueTable_TableName
         /// <summary>
         /// <para>
@@ -301,6 +546,46 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Timeout { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to write data quality rule results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to write distribution results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to write observation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to write profiling results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -371,7 +656,35 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.AdditionalRunOptions_CloudWatchMetricsEnabled = this.AdditionalRunOptions_CloudWatchMetricsEnabled;
             context.AdditionalRunOptions_CompositeRuleEvaluationMethod = this.AdditionalRunOptions_CompositeRuleEvaluationMethod;
             context.AdditionalRunOptions_CustomLogGroupPrefix = this.AdditionalRunOptions_CustomLogGroupPrefix;
+            context.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId = this.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId;
+            context.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName = this.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName;
+            context.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location = this.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location;
+            context.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName = this.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName;
+            context.AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled = this.AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled;
+            context.AdditionalRunOptions_ObservationMode = this.AdditionalRunOptions_ObservationMode;
+            context.AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId = this.AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId;
+            context.AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName = this.AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName;
+            context.AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location = this.AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location;
+            context.AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName = this.AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName;
+            context.AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled = this.AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled;
+            context.AdditionalRunOptions_ObservationScope = this.AdditionalRunOptions_ObservationScope;
+            context.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId = this.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId;
+            context.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName = this.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName;
+            context.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location = this.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location;
+            context.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName = this.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName;
+            context.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId = this.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId;
+            context.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName = this.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName;
+            context.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location = this.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location;
+            context.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName = this.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName;
+            context.AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled = this.AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled;
+            context.AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled = this.AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled;
             context.AdditionalRunOptions_ResultsS3Prefix = this.AdditionalRunOptions_ResultsS3Prefix;
+            context.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId = this.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId;
+            context.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName = this.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName;
+            context.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location = this.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location;
+            context.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName = this.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName;
+            context.AdditionalRunOptions_RowLevelResults_MaxRowsToWrite = this.AdditionalRunOptions_RowLevelResults_MaxRowsToWrite;
+            context.AdditionalRunOptions_RowLevelResults_ResultType = this.AdditionalRunOptions_RowLevelResults_ResultType;
             context.ClientToken = this.ClientToken;
             if (this.DataQualityGlueTable_AdditionalOption != null)
             {
@@ -471,6 +784,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 request.AdditionalRunOptions.CustomLogGroupPrefix = requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix;
                 requestAdditionalRunOptionsIsNull = false;
             }
+            Amazon.Glue.ObservationMode requestAdditionalRunOptions_additionalRunOptions_ObservationMode = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationMode != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationMode = cmdletContext.AdditionalRunOptions_ObservationMode;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationMode != null)
+            {
+                request.AdditionalRunOptions.ObservationMode = requestAdditionalRunOptions_additionalRunOptions_ObservationMode;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.ObservationConfiguration requestAdditionalRunOptions_additionalRunOptions_ObservationScope = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationScope != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationScope = cmdletContext.AdditionalRunOptions_ObservationScope;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationScope != null)
+            {
+                request.AdditionalRunOptions.ObservationScope = requestAdditionalRunOptions_additionalRunOptions_ObservationScope;
+                requestAdditionalRunOptionsIsNull = false;
+            }
             System.String requestAdditionalRunOptions_additionalRunOptions_ResultsS3Prefix = null;
             if (cmdletContext.AdditionalRunOptions_ResultsS3Prefix != null)
             {
@@ -479,6 +812,416 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestAdditionalRunOptions_additionalRunOptions_ResultsS3Prefix != null)
             {
                 request.AdditionalRunOptions.ResultsS3Prefix = requestAdditionalRunOptions_additionalRunOptions_ResultsS3Prefix;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.Model.DataQualityRuleResultsOptions requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults = null;
+            
+             // populate DataQualityRuleResults
+            var requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResultsIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults = new Amazon.Glue.Model.DataQualityRuleResultsOptions();
+            System.Boolean? requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled = null;
+            if (cmdletContext.AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled = cmdletContext.AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled.Value;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults.WriteDataQualityRuleResultsEnabled = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled.Value;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResultsIsNull = false;
+            }
+            Amazon.Glue.Model.CatalogTableConfigOptions requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig = null;
+            
+             // populate CatalogTableConfig
+            var requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig = new Amazon.Glue.Model.CatalogTableConfigOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId = null;
+            if (cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId = cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig.CatalogId = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName = null;
+            if (cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName = cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig.DatabaseName = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location = null;
+            if (cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location = cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig.S3Location = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName = null;
+            if (cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName = cmdletContext.AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig.TableName = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfigIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults.CatalogTableConfig = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults_additionalRunOptions_DataQualityRuleResults_CatalogTableConfig;
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResultsIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResultsIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults != null)
+            {
+                request.AdditionalRunOptions.DataQualityRuleResults = requestAdditionalRunOptions_additionalRunOptions_DataQualityRuleResults;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.Model.ObservationResultsOptions requestAdditionalRunOptions_additionalRunOptions_ObservationResults = null;
+            
+             // populate ObservationResults
+            var requestAdditionalRunOptions_additionalRunOptions_ObservationResultsIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ObservationResults = new Amazon.Glue.Model.ObservationResultsOptions();
+            System.Boolean? requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_WriteObservationResultsEnabled = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_WriteObservationResultsEnabled = cmdletContext.AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled.Value;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_WriteObservationResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults.WriteObservationResultsEnabled = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_WriteObservationResultsEnabled.Value;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResultsIsNull = false;
+            }
+            Amazon.Glue.Model.CatalogTableConfigOptions requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig = null;
+            
+             // populate CatalogTableConfig
+            var requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig = new Amazon.Glue.Model.CatalogTableConfigOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId = cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig.CatalogId = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName = cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig.DatabaseName = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_S3Location = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_S3Location = cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig.S3Location = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_S3Location;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_TableName = null;
+            if (cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_TableName = cmdletContext.AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig.TableName = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig_additionalRunOptions_ObservationResults_CatalogTableConfig_TableName;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfigIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults.CatalogTableConfig = requestAdditionalRunOptions_additionalRunOptions_ObservationResults_additionalRunOptions_ObservationResults_CatalogTableConfig;
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResultsIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ObservationResults should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResultsIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ObservationResults = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ObservationResults != null)
+            {
+                request.AdditionalRunOptions.ObservationResults = requestAdditionalRunOptions_additionalRunOptions_ObservationResults;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.Model.ProfilingResultsOptions requestAdditionalRunOptions_additionalRunOptions_ProfilingResults = null;
+            
+             // populate ProfilingResults
+            var requestAdditionalRunOptions_additionalRunOptions_ProfilingResultsIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ProfilingResults = new Amazon.Glue.Model.ProfilingResultsOptions();
+            System.Boolean? requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled = cmdletContext.AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled.Value;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults.WriteProfilingResultsEnabled = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled.Value;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResultsIsNull = false;
+            }
+            Amazon.Glue.Model.DistributionResultsOptions requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults = null;
+            
+             // populate DistributionResults
+            var requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResultsIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults = new Amazon.Glue.Model.DistributionResultsOptions();
+            System.Boolean? requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled = cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled.Value;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults.WriteDistributionResultsEnabled = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled.Value;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResultsIsNull = false;
+            }
+            Amazon.Glue.Model.CatalogTableConfigOptions requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig = null;
+            
+             // populate CatalogTableConfig
+            var requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig = new Amazon.Glue.Model.CatalogTableConfigOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId = cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig.CatalogId = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName = cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig.DatabaseName = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location = cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig.S3Location = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName = cmdletContext.AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig.TableName = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfigIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults.CatalogTableConfig = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults_additionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResultsIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResultsIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults.DistributionResults = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_DistributionResults;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResultsIsNull = false;
+            }
+            Amazon.Glue.Model.CatalogTableConfigOptions requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig = null;
+            
+             // populate CatalogTableConfig
+            var requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig = new Amazon.Glue.Model.CatalogTableConfigOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId = cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig.CatalogId = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName = cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig.DatabaseName = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location = cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig.S3Location = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_TableName = null;
+            if (cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_TableName = cmdletContext.AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig.TableName = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig_additionalRunOptions_ProfilingResults_CatalogTableConfig_TableName;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfigIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults.CatalogTableConfig = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults_additionalRunOptions_ProfilingResults_CatalogTableConfig;
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResultsIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_ProfilingResults should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResultsIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_ProfilingResults = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_ProfilingResults != null)
+            {
+                request.AdditionalRunOptions.ProfilingResults = requestAdditionalRunOptions_additionalRunOptions_ProfilingResults;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.Model.RowLevelResultsOptions requestAdditionalRunOptions_additionalRunOptions_RowLevelResults = null;
+            
+             // populate RowLevelResults
+            var requestAdditionalRunOptions_additionalRunOptions_RowLevelResultsIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_RowLevelResults = new Amazon.Glue.Model.RowLevelResultsOptions();
+            System.Int32? requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_MaxRowsToWrite = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_MaxRowsToWrite != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_MaxRowsToWrite = cmdletContext.AdditionalRunOptions_RowLevelResults_MaxRowsToWrite.Value;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_MaxRowsToWrite != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults.MaxRowsToWrite = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_MaxRowsToWrite.Value;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResultsIsNull = false;
+            }
+            Amazon.Glue.ResultTypeEnum requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_ResultType = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_ResultType != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_ResultType = cmdletContext.AdditionalRunOptions_RowLevelResults_ResultType;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_ResultType != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults.ResultType = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_ResultType;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResultsIsNull = false;
+            }
+            Amazon.Glue.Model.CatalogTableConfigOptions requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig = null;
+            
+             // populate CatalogTableConfig
+            var requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull = true;
+            requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig = new Amazon.Glue.Model.CatalogTableConfigOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId = cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig.CatalogId = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName = cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig.DatabaseName = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location = cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig.S3Location = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull = false;
+            }
+            System.String requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_TableName = null;
+            if (cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_TableName = cmdletContext.AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_TableName != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig.TableName = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig_additionalRunOptions_RowLevelResults_CatalogTableConfig_TableName;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfigIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults.CatalogTableConfig = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults_additionalRunOptions_RowLevelResults_CatalogTableConfig;
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResultsIsNull = false;
+            }
+             // determine if requestAdditionalRunOptions_additionalRunOptions_RowLevelResults should be set to null
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResultsIsNull)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_RowLevelResults = null;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_RowLevelResults != null)
+            {
+                request.AdditionalRunOptions.RowLevelResults = requestAdditionalRunOptions_additionalRunOptions_RowLevelResults;
                 requestAdditionalRunOptionsIsNull = false;
             }
              // determine if request.AdditionalRunOptions should be set to null
@@ -714,7 +1457,35 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? AdditionalRunOptions_CloudWatchMetricsEnabled { get; set; }
             public Amazon.Glue.DQCompositeRuleEvaluationMethod AdditionalRunOptions_CompositeRuleEvaluationMethod { get; set; }
             public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
+            public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId { get; set; }
+            public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName { get; set; }
+            public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location { get; set; }
+            public System.String AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName { get; set; }
+            public System.Boolean? AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled { get; set; }
+            public Amazon.Glue.ObservationMode AdditionalRunOptions_ObservationMode { get; set; }
+            public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId { get; set; }
+            public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName { get; set; }
+            public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location { get; set; }
+            public System.String AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName { get; set; }
+            public System.Boolean? AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled { get; set; }
+            public Amazon.Glue.ObservationConfiguration AdditionalRunOptions_ObservationScope { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location { get; set; }
+            public System.String AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName { get; set; }
+            public System.Boolean? AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled { get; set; }
+            public System.Boolean? AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled { get; set; }
             public System.String AdditionalRunOptions_ResultsS3Prefix { get; set; }
+            public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId { get; set; }
+            public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName { get; set; }
+            public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location { get; set; }
+            public System.String AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName { get; set; }
+            public System.Int32? AdditionalRunOptions_RowLevelResults_MaxRowsToWrite { get; set; }
+            public Amazon.Glue.ResultTypeEnum AdditionalRunOptions_RowLevelResults_ResultType { get; set; }
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> DataQualityGlueTable_AdditionalOption { get; set; }
             public System.String DataQualityGlueTable_CatalogId { get; set; }

@@ -81,6 +81,7 @@ Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
 Set-Alias -Name ACCT-GetGovCloudAccountInformation -Value Get-ACCTGovCloudAccountInformation
 Set-Alias -Name ACCT-GetPrimaryEmail -Value Get-ACCTPrimaryEmail
+Set-Alias -Name ACCT-GetPrimaryEmailUpdateStatus -Value Get-ACCTPrimaryEmailUpdateStatus
 Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
 Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList
 Set-Alias -Name List-ACCTRegionList -Value Get-ACCTRegionList
@@ -14015,6 +14016,7 @@ Set-Alias -Name EMRC-ListVirtualClusters -Value Get-EMRCVirtualClusterList
 Set-Alias -Name EMRC-StartJobRun -Value Start-EMRCJobRun
 Set-Alias -Name EMRC-TagResource -Value Add-EMRCResourceTag
 Set-Alias -Name EMRC-UntagResource -Value Remove-EMRCResourceTag
+Set-Alias -Name EMRC-UpdateVirtualCluster -Value Update-EMRCVirtualCluster
 Set-Alias -Name Cancel-EMRServerlessJobRun -Value Stop-EMRServerlessJobRun
 Set-Alias -Name EMRServerless-CancelJobRun -Value Stop-EMRServerlessJobRun
 Set-Alias -Name Create-EMRServerlessApplication -Value New-EMRServerlessApplication
@@ -15699,6 +15701,8 @@ Set-Alias -Name Get-GLUECustomEntityTypes -Value Get-GLUEGetCustomEntityType
 Set-Alias -Name GLUE-BatchGetCustomEntityTypes -Value Get-GLUEGetCustomEntityType
 Set-Alias -Name Get-GLUEDataQualityResult -Value Get-GLUEDataQualityResultBatch
 Set-Alias -Name GLUE-BatchGetDataQualityResult -Value Get-GLUEDataQualityResultBatch
+Set-Alias -Name Get-GLUEDataQualityRulesetEvaluationRun -Value Get-GLUEDataQualityRulesetEvaluationRunBatch
+Set-Alias -Name GLUE-BatchGetDataQualityRulesetEvaluationRun -Value Get-GLUEDataQualityRulesetEvaluationRunBatch
 Set-Alias -Name Get-GLUEDevEndpoints -Value Get-GLUEDevEndpointBatch
 Set-Alias -Name GLUE-BatchGetDevEndpoints -Value Get-GLUEDevEndpointBatch
 Set-Alias -Name Get-GLUEIterableForms -Value Get-GLUEIterableFormBatch

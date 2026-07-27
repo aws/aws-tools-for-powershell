@@ -110,7 +110,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMRCSecurityConfiguration', 
         'Remove-EMRCVirtualCluster', 
         'Start-EMRCJobRun', 
-        'Stop-EMRCJobRun')
+        'Stop-EMRCJobRun', 
+        'Update-EMRCVirtualCluster')
 
     # Variables to export from this module
     VariablesToExport = '*'

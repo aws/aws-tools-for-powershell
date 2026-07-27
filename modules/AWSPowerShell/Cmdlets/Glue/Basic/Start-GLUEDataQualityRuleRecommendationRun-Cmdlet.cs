@@ -141,6 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String CreatedRulesetName { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_CustomLogGroupPrefix
+        /// <summary>
+        /// <para>
+        /// <para>A custom prefix for the CloudWatch log group names. When specified, recommendation
+        /// run logs are written to <c>&lt;CustomLogGroupPrefix&gt;/error</c> and <c>&lt;CustomLogGroupPrefix&gt;/output</c>
+        /// instead of the default <c>/aws-glue/data-quality/error</c> and <c>/aws-glue/data-quality/output</c>
+        /// log groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
+        #endregion
+        
         #region Parameter DataQualityGlueTable_DatabaseName
         /// <summary>
         /// <para>
@@ -304,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse, StartGLUEDataQualityRuleRecommendationRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AdditionalRunOptions_CustomLogGroupPrefix = this.AdditionalRunOptions_CustomLogGroupPrefix;
             context.ClientToken = this.ClientToken;
             context.CreatedRulesetName = this.CreatedRulesetName;
             context.DataQualitySecurityConfiguration = this.DataQualitySecurityConfiguration;
@@ -357,6 +371,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.StartDataQualityRuleRecommendationRunRequest();
             
+            
+             // populate AdditionalRunOptions
+            var requestAdditionalRunOptionsIsNull = true;
+            request.AdditionalRunOptions = new Amazon.Glue.Model.DataQualityRuleRecommendationRunAdditionalRunOptions();
+            System.String requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix = null;
+            if (cmdletContext.AdditionalRunOptions_CustomLogGroupPrefix != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix = cmdletContext.AdditionalRunOptions_CustomLogGroupPrefix;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix != null)
+            {
+                request.AdditionalRunOptions.CustomLogGroupPrefix = requestAdditionalRunOptions_additionalRunOptions_CustomLogGroupPrefix;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+             // determine if request.AdditionalRunOptions should be set to null
+            if (requestAdditionalRunOptionsIsNull)
+            {
+                request.AdditionalRunOptions = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -585,6 +618,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdditionalRunOptions_CustomLogGroupPrefix { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CreatedRulesetName { get; set; }
             public System.String DataQualitySecurityConfiguration { get; set; }

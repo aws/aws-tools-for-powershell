@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource name (ARN) of the encryption key for logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the encryption key for logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

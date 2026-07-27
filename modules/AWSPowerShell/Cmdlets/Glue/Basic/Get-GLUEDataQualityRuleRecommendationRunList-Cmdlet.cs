@@ -199,6 +199,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueTable_TableName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pair tags to filter recommendation runs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -293,6 +308,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.Filter_StartedBefore = this.Filter_StartedBefore;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -499,6 +522,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -593,6 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.DateTime? Filter_StartedBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Glue.Model.ListDataQualityRuleRecommendationRunsResponse, GetGLUEDataQualityRuleRecommendationRunListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Runs;
         }

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EmrIdentityCenterApplicationARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the EMR Identity Center application.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon EMR Identity Center application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_EnableIdentityCenter
         /// <summary>
         /// <para>
-        /// <para>Determines whether Identity Center is enabled for the security configuration.</para>
+        /// <para>Specifies whether Identity Center is enabled for the security configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterApplicationAssignmentRequired
         /// <summary>
         /// <para>
-        /// <para>Determines whether user assignment is required for the Identity Center application.</para>
+        /// <para>Specifies whether user assignment is required for the Identity Center application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Identity Center instance.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity Center instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SecurityConfigurationData_AuthenticationConfiguration_IamConfiguration_SystemRole
         /// <summary>
         /// <para>
-        /// <para>The ARN of the system role used by the security configuration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the system role used by the security configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -334,6 +334,20 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ObservationConfiguration
+        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationScope"
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
+        # Amazon.Glue.ObservationMode
+        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_ObservationMode"
+        {
+            $v = "FIXED","SCHEDULED"
+            break
+        }
+
         # Amazon.Glue.OverwriteChildResourcePermissionsWithDefaultEnum
         {
             ($_ -eq "New-GLUECatalog/CatalogInput_OverwriteChildResourcePermissionsWithDefault") -Or
@@ -419,6 +433,13 @@ $GLUE_Completers = {
         }
         {
             $v = "ALL","FEDERATED","FOREIGN"
+            break
+        }
+
+        # Amazon.Glue.ResultTypeEnum
+        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_RowLevelResults_ResultType"
+        {
+            $v = "ALL","FAILED_ONLY","PASSED_ONLY"
             break
         }
 
@@ -604,6 +625,9 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AdditionalRunOptions_ObservationMode"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AdditionalRunOptions_ObservationScope"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AdditionalRunOptions_RowLevelResults_ResultType"=@("Start-GLUEDataQualityRulesetEvaluationRun")
     "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -766,6 +790,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerBatch",
                "Get-GLUEGetCustomEntityType",
                "Get-GLUEDataQualityResultBatch",
+               "Get-GLUEDataQualityRulesetEvaluationRunBatch",
                "Get-GLUEDevEndpointBatch",
                "Get-GLUEIterableFormBatch",
                "Get-GLUEJobBatch",

@@ -62,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDataQualityRulesetEvaluationRun" OutputProperty="*" Verb="Get" Noun="DataQualityRulesetEvaluationRunBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDevEndpoints" OutputProperty="*" Verb="Get" Noun="DevEndpointBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

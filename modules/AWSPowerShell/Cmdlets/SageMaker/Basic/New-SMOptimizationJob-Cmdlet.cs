@@ -334,6 +334,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the training plan to use for this optimization job.</para><para>When you use reserved capacity from a training plan, the optimization job runs on
+        /// that reserved capacity instead of on-demand capacity. If you omit this field, the
+        /// job uses on-demand capacity. Currently, you can specify at most one training plan.</para><para>For more information about how to reserve GPU capacity for your optimization jobs
+        /// using Amazon SageMaker Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">Reserve
+        /// capacity with training plans</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingPlanArns")]
+        public System.String[] TrainingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'OptimizationJobArn'.
@@ -438,6 +457,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
+            if (this.TrainingPlanArn != null)
+            {
+                context.TrainingPlanArn = new List<System.String>(this.TrainingPlanArn);
             }
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -668,6 +691,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TrainingPlanArn != null)
+            {
+                request.TrainingPlanArns = cmdletContext.TrainingPlanArn;
+            }
             
              // populate VpcConfig
             var requestVpcConfigIsNull = true;
@@ -768,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public List<System.String> TrainingPlanArn { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateOptimizationJobResponse, NewSMOptimizationJobCmdlet, object> Select { get; set; } =

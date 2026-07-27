@@ -137,6 +137,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GLUEDataQualityRuleRecommendationRunList', 
         'Get-GLUEDataQualityRuleset', 
         'Get-GLUEDataQualityRulesetEvaluationRun', 
+        'Get-GLUEDataQualityRulesetEvaluationRunBatch', 
         'Get-GLUEDataQualityRulesetEvaluationRunList', 
         'Get-GLUEDataQualityRulesetList', 
         'Get-GLUEDataQualityStatisticAnnotationList', 

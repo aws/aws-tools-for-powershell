@@ -86,7 +86,7 @@ $BCMDE_Completers = {
             ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_Compression")
         }
         {
-            $v = "GZIP","PARQUET"
+            $v = "GZIP","PARQUET","ZIP"
             break
         }
 

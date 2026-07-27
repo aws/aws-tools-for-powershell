@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
 {
     /// <summary>
     /// Lists information about the specified virtual cluster. Virtual cluster is a managed
-    /// entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters.
-    /// They do not consume any additional resource in your system. A single virtual cluster
-    /// maps to a single Kubernetes namespace. Given this relationship, you can model virtual
-    /// clusters the same way you model Kubernetes namespaces to meet your requirements.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// entity on Amazon EMR on EKS. You can create, update, describe, list and delete virtual
+    /// clusters. They do not consume any additional resource in your system. A single virtual
+    /// cluster maps to a single Kubernetes namespace. Given this relationship, you can model
+    /// virtual clusters the same way you model Kubernetes namespaces to meet your requirements.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "EMRCVirtualClusterList")]
     [OutputType("Amazon.EMRContainers.Model.VirtualCluster")]

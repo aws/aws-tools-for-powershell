@@ -1,4 +1,25 @@
-﻿### 5.0.261 (2026-07-24 19:04Z)
+﻿### 5.0.262 (2026-07-27 19:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.297.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account
+    * Added cmdlet Get-ACCTPrimaryEmailUpdateStatus leveraging the GetPrimaryEmailUpdateStatus service API.
+  * Amazon EMR Containers
+    * Added cmdlet Update-EMRCVirtualCluster leveraging the UpdateVirtualCluster service API.
+    * Modified cmdlet New-EMRCVirtualCluster: added parameters SchedulerConfiguration_MaxConcurrentJobRun and SchedulerConfiguration_MaxInQueueJobRun.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataQualityRulesetEvaluationRunBatch leveraging the BatchGetDataQualityRulesetEvaluationRun service API.
+    * Modified cmdlet Get-GLUEDataQualityRuleRecommendationRunList: added parameter Tag.
+    * Modified cmdlet Start-GLUEDataQualityRuleRecommendationRun: added parameter AdditionalRunOptions_CustomLogGroupPrefix.
+    * Modified cmdlet Start-GLUEDataQualityRulesetEvaluationRun: added parameters AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_CatalogId, AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_DatabaseName, AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_S3Location, AdditionalRunOptions_DataQualityRuleResults_CatalogTableConfig_TableName, AdditionalRunOptions_DataQualityRuleResults_WriteDataQualityRuleResultsEnabled, AdditionalRunOptions_ObservationMode, AdditionalRunOptions_ObservationResults_CatalogTableConfig_CatalogId, AdditionalRunOptions_ObservationResults_CatalogTableConfig_DatabaseName, AdditionalRunOptions_ObservationResults_CatalogTableConfig_S3Location, AdditionalRunOptions_ObservationResults_CatalogTableConfig_TableName, AdditionalRunOptions_ObservationResults_WriteObservationResultsEnabled, AdditionalRunOptions_ObservationScope, AdditionalRunOptions_ProfilingResults_CatalogTableConfig_CatalogId, AdditionalRunOptions_ProfilingResults_CatalogTableConfig_DatabaseName, AdditionalRunOptions_ProfilingResults_CatalogTableConfig_S3Location, AdditionalRunOptions_ProfilingResults_CatalogTableConfig_TableName, AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_CatalogId, AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_DatabaseName, AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_S3Location, AdditionalRunOptions_ProfilingResults_DistributionResults_CatalogTableConfig_TableName, AdditionalRunOptions_ProfilingResults_DistributionResults_WriteDistributionResultsEnabled, AdditionalRunOptions_ProfilingResults_WriteProfilingResultsEnabled, AdditionalRunOptions_RowLevelResults_CatalogTableConfig_CatalogId, AdditionalRunOptions_RowLevelResults_CatalogTableConfig_DatabaseName, AdditionalRunOptions_RowLevelResults_CatalogTableConfig_S3Location, AdditionalRunOptions_RowLevelResults_CatalogTableConfig_TableName, AdditionalRunOptions_RowLevelResults_MaxRowsToWrite and AdditionalRunOptions_RowLevelResults_ResultType.
+  * Amazon Partner Central Account API
+    * Modified cmdlet Start-PCAAProfileUpdateTask: added parameters TaskDetails_Headquarters_CountryCode and TaskDetails_Headquarters_SubdivisionCode.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSCustomPermission: added parameter Governance_DefaultCategoryEffect.
+    * Modified cmdlet Update-QSCustomPermission: added parameter Governance_DefaultCategoryEffect.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAIRecommendationJob: added parameters AdapterSource_ModelPackageArn and AdapterSource_S3Uris.
+    * Modified cmdlet New-SMOptimizationJob: added parameter TrainingPlanArn.
+
+### 5.0.261 (2026-07-24 19:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.296.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Artifact
     * Added cmdlet Write-ARTComplianceInquiryFeedback leveraging the PutComplianceInquiryFeedback service API.

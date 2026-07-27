@@ -162,6 +162,7 @@ $ACCT_SelectMap = @{
                "Get-ACCTContactInformation",
                "Get-ACCTGovCloudAccountInformation",
                "Get-ACCTPrimaryEmail",
+               "Get-ACCTPrimaryEmailUpdateStatus",
                "Get-ACCTRegionOptStatus",
                "Get-ACCTRegionList",
                "Write-ACCTAccountName",

@@ -207,7 +207,8 @@ $EMRC_SelectMap = @{
                "Get-EMRCVirtualClusterList",
                "Start-EMRCJobRun",
                "Add-EMRCResourceTag",
-               "Remove-EMRCResourceTag")
+               "Remove-EMRCResourceTag",
+               "Update-EMRCVirtualCluster")
 }
 
 _awsArgumentCompleterRegistration $EMRC_SelectCompleters $EMRC_SelectMap

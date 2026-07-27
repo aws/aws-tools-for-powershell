@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
         public System.String Catalog { get; set; }
         #endregion
         
+        #region Parameter TaskDetails_Headquarters_CountryCode
+        /// <summary>
+        /// <para>
+        /// <para>The ISO 3166-1 alpha-2 country code of the partner's headquarters. For example, <c>US</c>,
+        /// <c>BR</c>, or <c>DE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskDetails_Headquarters_CountryCode { get; set; }
+        #endregion
+        
         #region Parameter TaskDetails_Description
         /// <summary>
         /// <para>
@@ -183,6 +194,18 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
         public Amazon.PartnerCentralAccount.PrimarySolutionType TaskDetails_PrimarySolutionType { get; set; }
         #endregion
         
+        #region Parameter TaskDetails_Headquarters_SubdivisionCode
+        /// <summary>
+        /// <para>
+        /// <para>The subdivision portion of the ISO 3166-2 code for the partner's headquarters (for
+        /// example, <c>SP</c> from <c>BR-SP</c>, <c>NSW</c> from <c>AU-NSW</c>, or <c>13</c>
+        /// from <c>JP-13</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskDetails_Headquarters_SubdivisionCode { get; set; }
+        #endregion
+        
         #region Parameter TaskDetails_TranslationSourceLocale
         /// <summary>
         /// <para>
@@ -303,6 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
                 WriteWarning("You are passing $null as a value for parameter TaskDetails_DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TaskDetails_Headquarters_CountryCode = this.TaskDetails_Headquarters_CountryCode;
+            context.TaskDetails_Headquarters_SubdivisionCode = this.TaskDetails_Headquarters_SubdivisionCode;
             if (this.TaskDetails_IndustrySegment != null)
             {
                 context.TaskDetails_IndustrySegment = new List<System.String>(this.TaskDetails_IndustrySegment);
@@ -457,6 +482,41 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
                 request.TaskDetails.WebsiteUrl = requestTaskDetails_taskDetails_WebsiteUrl;
                 requestTaskDetailsIsNull = false;
             }
+            Amazon.PartnerCentralAccount.Model.Headquarters requestTaskDetails_taskDetails_Headquarters = null;
+            
+             // populate Headquarters
+            var requestTaskDetails_taskDetails_HeadquartersIsNull = true;
+            requestTaskDetails_taskDetails_Headquarters = new Amazon.PartnerCentralAccount.Model.Headquarters();
+            System.String requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_CountryCode = null;
+            if (cmdletContext.TaskDetails_Headquarters_CountryCode != null)
+            {
+                requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_CountryCode = cmdletContext.TaskDetails_Headquarters_CountryCode;
+            }
+            if (requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_CountryCode != null)
+            {
+                requestTaskDetails_taskDetails_Headquarters.CountryCode = requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_CountryCode;
+                requestTaskDetails_taskDetails_HeadquartersIsNull = false;
+            }
+            System.String requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_SubdivisionCode = null;
+            if (cmdletContext.TaskDetails_Headquarters_SubdivisionCode != null)
+            {
+                requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_SubdivisionCode = cmdletContext.TaskDetails_Headquarters_SubdivisionCode;
+            }
+            if (requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_SubdivisionCode != null)
+            {
+                requestTaskDetails_taskDetails_Headquarters.SubdivisionCode = requestTaskDetails_taskDetails_Headquarters_taskDetails_Headquarters_SubdivisionCode;
+                requestTaskDetails_taskDetails_HeadquartersIsNull = false;
+            }
+             // determine if requestTaskDetails_taskDetails_Headquarters should be set to null
+            if (requestTaskDetails_taskDetails_HeadquartersIsNull)
+            {
+                requestTaskDetails_taskDetails_Headquarters = null;
+            }
+            if (requestTaskDetails_taskDetails_Headquarters != null)
+            {
+                request.TaskDetails.Headquarters = requestTaskDetails_taskDetails_Headquarters;
+                requestTaskDetailsIsNull = false;
+            }
              // determine if request.TaskDetails should be set to null
             if (requestTaskDetailsIsNull)
             {
@@ -522,6 +582,8 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
             public System.String Identifier { get; set; }
             public System.String TaskDetails_Description { get; set; }
             public System.String TaskDetails_DisplayName { get; set; }
+            public System.String TaskDetails_Headquarters_CountryCode { get; set; }
+            public System.String TaskDetails_Headquarters_SubdivisionCode { get; set; }
             public List<System.String> TaskDetails_IndustrySegment { get; set; }
             public List<Amazon.PartnerCentralAccount.Model.LocalizedContent> TaskDetails_LocalizedContent { get; set; }
             public System.String TaskDetails_LogoUrl { get; set; }

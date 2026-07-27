@@ -23,68 +23,58 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EMRContainers;
-using Amazon.EMRContainers.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EMRC
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS.
-    /// You can create, update, describe, list and delete virtual clusters. They do not consume
-    /// any additional resource in your system. A single virtual cluster maps to a single
-    /// Kubernetes namespace. Given this relationship, you can model virtual clusters the
-    /// same way you model Kubernetes namespaces to meet your requirements.
+    /// Retrieves the details of multiple evaluation runs in a single request.
     /// </summary>
-    [Cmdlet("Remove", "EMRCVirtualCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon EMR Containers DeleteVirtualCluster API operation.", Operation = new[] {"DeleteVirtualCluster"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DeleteVirtualClusterResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EMRContainers.Model.DeleteVirtualClusterResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EMRContainers.Model.DeleteVirtualClusterResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GLUEDataQualityRulesetEvaluationRunBatch")]
+    [OutputType("Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse")]
+    [AWSCmdlet("Calls the AWS Glue BatchGetDataQualityRulesetEvaluationRun API operation.", Operation = new[] {"BatchGetDataQualityRulesetEvaluationRun"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse))]
+    [AWSCmdletOutput("Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse",
+        "This cmdlet returns an Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse object containing multiple properties."
     )]
-    public partial class RemoveEMRCVirtualClusterCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
+    public partial class GetGLUEDataQualityRulesetEvaluationRunBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Id
+        #region Parameter RunId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual cluster that will be deleted.</para>
+        /// <para>A list of unique run identifiers for the evaluation runs to retrieve.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        [Alias("RunIds")]
+        public System.String[] RunId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRContainers.Model.DeleteVirtualClusterResponse).
-        /// Specifying the name of a property of type Amazon.EMRContainers.Model.DeleteVirtualClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Id";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -96,12 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EMRCVirtualCluster (DeleteVirtualCluster)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -109,14 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EMRContainers.Model.DeleteVirtualClusterResponse, RemoveEMRCVirtualClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse, GetGLUEDataQualityRulesetEvaluationRunBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.RunId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.RunId = new List<System.String>(this.RunId);
+            }
+            #if MODULAR
+            if (this.RunId == null && ParameterWasBound(nameof(this.RunId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -133,11 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EMRContainers.Model.DeleteVirtualClusterRequest();
+            var request = new Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.RunId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.RunIds = cmdletContext.RunId;
             }
             
             CmdletOutput output;
@@ -172,12 +159,12 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         
         #region AWS Service Operation Call
         
-        private Amazon.EMRContainers.Model.DeleteVirtualClusterResponse CallAWSServiceOperation(IAmazonEMRContainers client, Amazon.EMRContainers.Model.DeleteVirtualClusterRequest request)
+        private Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EMR Containers", "DeleteVirtualCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "BatchGetDataQualityRulesetEvaluationRun");
             try
             {
-                return client.DeleteVirtualClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchGetDataQualityRulesetEvaluationRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -194,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.Func<Amazon.EMRContainers.Model.DeleteVirtualClusterResponse, RemoveEMRCVirtualClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Id;
+            public List<System.String> RunId { get; set; }
+            public System.Func<Amazon.Glue.Model.BatchGetDataQualityRulesetEvaluationRunResponse, GetGLUEDataQualityRulesetEvaluationRunBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

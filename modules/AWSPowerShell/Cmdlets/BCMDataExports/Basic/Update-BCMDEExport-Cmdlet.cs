@@ -233,7 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
         #region Parameter Export_DestinationConfigurations_S3Destination_S3BucketOwner
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID that owns the S3 bucket used as the destination for the data export.</para>
+        /// <para>The Amazon Web Services account ID that owns the S3 bucket used as the destination
+        /// for the data export.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

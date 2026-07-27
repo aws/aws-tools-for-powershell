@@ -189,6 +189,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ComputeSpec_CapacityReservationConfig_MlReservationArn { get; set; }
         #endregion
         
+        #region Parameter AdapterSource_ModelPackageArn
+        /// <summary>
+        /// <para>
+        /// <para>A list of LoRA adapters identified by their model package ARNs. Use this when your
+        /// adapters were produced by a SageMaker AI fine-tuning workflow that registers model
+        /// packages.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdapterSource_ModelPackageArns")]
+        public Amazon.SageMaker.Model.AIAdapterModelPackageEntry[] AdapterSource_ModelPackageArn { get; set; }
+        #endregion
+        
         #region Parameter OutputConfig_ModelPackageGroupIdentifier
         /// <summary>
         /// <para>
@@ -247,6 +264,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelSource_S3_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter AdapterSource_S3Uris
+        /// <summary>
+        /// <para>
+        /// <para>A list of LoRA adapters identified by their Amazon S3 URIs. Use this when your adapters
+        /// are stored as raw artifacts in Amazon S3.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SageMaker.Model.AIAdapterS3Entry[] AdapterSource_S3Uris { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -310,6 +342,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateAIRecommendationJobResponse, NewSMAIRecommendationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.AdapterSource_ModelPackageArn != null)
+            {
+                context.AdapterSource_ModelPackageArn = new List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry>(this.AdapterSource_ModelPackageArn);
+            }
+            if (this.AdapterSource_S3Uris != null)
+            {
+                context.AdapterSource_S3Uris = new List<Amazon.SageMaker.Model.AIAdapterS3Entry>(this.AdapterSource_S3Uris);
             }
             context.AIRecommendationJobName = this.AIRecommendationJobName;
             #if MODULAR
@@ -379,6 +419,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateAIRecommendationJobRequest();
             
+            
+             // populate AdapterSource
+            var requestAdapterSourceIsNull = true;
+            request.AdapterSource = new Amazon.SageMaker.Model.AIAdapterSource();
+            List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry> requestAdapterSource_adapterSource_ModelPackageArn = null;
+            if (cmdletContext.AdapterSource_ModelPackageArn != null)
+            {
+                requestAdapterSource_adapterSource_ModelPackageArn = cmdletContext.AdapterSource_ModelPackageArn;
+            }
+            if (requestAdapterSource_adapterSource_ModelPackageArn != null)
+            {
+                request.AdapterSource.ModelPackageArns = requestAdapterSource_adapterSource_ModelPackageArn;
+                requestAdapterSourceIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.AIAdapterS3Entry> requestAdapterSource_adapterSource_S3Uris = null;
+            if (cmdletContext.AdapterSource_S3Uris != null)
+            {
+                requestAdapterSource_adapterSource_S3Uris = cmdletContext.AdapterSource_S3Uris;
+            }
+            if (requestAdapterSource_adapterSource_S3Uris != null)
+            {
+                request.AdapterSource.S3Uris = requestAdapterSource_adapterSource_S3Uris;
+                requestAdapterSourceIsNull = false;
+            }
+             // determine if request.AdapterSource should be set to null
+            if (requestAdapterSourceIsNull)
+            {
+                request.AdapterSource = null;
+            }
             if (cmdletContext.AIRecommendationJobName != null)
             {
                 request.AIRecommendationJobName = cmdletContext.AIRecommendationJobName;
@@ -654,6 +723,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.AIAdapterModelPackageEntry> AdapterSource_ModelPackageArn { get; set; }
+            public List<Amazon.SageMaker.Model.AIAdapterS3Entry> AdapterSource_S3Uris { get; set; }
             public System.String AIRecommendationJobName { get; set; }
             public System.String AIWorkloadConfigIdentifier { get; set; }
             public Amazon.SageMaker.AICapacityReservationPreference ComputeSpec_CapacityReservationConfig_CapacityReservationPreference { get; set; }

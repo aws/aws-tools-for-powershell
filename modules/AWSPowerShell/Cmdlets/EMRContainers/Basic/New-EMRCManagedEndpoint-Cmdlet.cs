@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter ConfigurationOverrides_MonitoringConfiguration_S3MonitoringConfiguration_EncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource name (ARN) of the encryption key for logs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the encryption key for logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter SessionIdleTimeoutInMinute
         /// <summary>
         /// <para>
-        /// <para>The idle timeout in minutes for the managed endpoint session.</para>
+        /// <para>The number of idle minutes before the managed endpoint session times out.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

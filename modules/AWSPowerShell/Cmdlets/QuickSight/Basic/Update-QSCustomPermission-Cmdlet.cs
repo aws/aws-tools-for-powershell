@@ -917,6 +917,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
         #endregion
         
+        #region Parameter Governance_DefaultCategoryEffect
+        /// <summary>
+        /// <para>
+        /// <para>A map of <c>DefaultCategoryEffects</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Governance_DefaultCategoryEffects")]
+        public System.Collections.Hashtable Governance_DefaultCategoryEffect { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_EditVisualWithQ
         /// <summary>
         /// <para>
@@ -3018,6 +3033,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter CustomPermissionsName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Governance_DefaultCategoryEffect != null)
+            {
+                context.Governance_DefaultCategoryEffect = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Governance_DefaultCategoryEffect.Keys)
+                {
+                    context.Governance_DefaultCategoryEffect.Add((String)hashKey, (System.String)(this.Governance_DefaultCategoryEffect[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -5422,6 +5445,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.CustomPermissionsName = cmdletContext.CustomPermissionsName;
             }
             
+             // populate Governance
+            var requestGovernanceIsNull = true;
+            request.Governance = new Amazon.QuickSight.Model.Governance();
+            Dictionary<System.String, System.String> requestGovernance_governance_DefaultCategoryEffect = null;
+            if (cmdletContext.Governance_DefaultCategoryEffect != null)
+            {
+                requestGovernance_governance_DefaultCategoryEffect = cmdletContext.Governance_DefaultCategoryEffect;
+            }
+            if (requestGovernance_governance_DefaultCategoryEffect != null)
+            {
+                request.Governance.DefaultCategoryEffects = requestGovernance_governance_DefaultCategoryEffect;
+                requestGovernanceIsNull = false;
+            }
+             // determine if request.Governance should be set to null
+            if (requestGovernanceIsNull)
+            {
+                request.Governance = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -5715,6 +5757,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ViewAccountSPICECapacity { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ZendeskAction { get; set; }
             public System.String CustomPermissionsName { get; set; }
+            public Dictionary<System.String, System.String> Governance_DefaultCategoryEffect { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateCustomPermissionsResponse, UpdateQSCustomPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
 {
     /// <summary>
     /// Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS.
-    /// You can create, describe, list and delete virtual clusters. They do not consume any
-    /// additional resource in your system. A single virtual cluster maps to a single Kubernetes
-    /// namespace. Given this relationship, you can model virtual clusters the same way you
-    /// model Kubernetes namespaces to meet your requirements.
+    /// You can create, update, describe, list and delete virtual clusters. They do not consume
+    /// any additional resource in your system. A single virtual cluster maps to a single
+    /// Kubernetes namespace. Given this relationship, you can model virtual clusters the
+    /// same way you model Kubernetes namespaces to meet your requirements.
     /// </summary>
     [Cmdlet("New", "EMRCVirtualCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EMRContainers.Model.CreateVirtualClusterResponse")]
@@ -63,6 +63,33 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ContainerProvider_Id { get; set; }
+        #endregion
+        
+        #region Parameter SchedulerConfiguration_MaxConcurrentJobRun
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of job runs that can be in the <c>RUNNING</c> state at any time
+        /// for the virtual cluster. As running slots free up, queued job runs start automatically.
+        /// If you omit this field, the service applies no concurrency limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SchedulerConfiguration_MaxConcurrentJobRuns")]
+        public System.Int32? SchedulerConfiguration_MaxConcurrentJobRun { get; set; }
+        #endregion
+        
+        #region Parameter SchedulerConfiguration_MaxInQueueJobRun
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of job runs that can be in the <c>PENDING</c> or <c>SUBMITTED</c>
+        /// state at any time for the virtual cluster. When the queue is full, the service rejects
+        /// <c>StartJobRun</c> requests with a <c>ValidationException</c>. If you omit this field,
+        /// the service applies no queue-depth limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SchedulerConfiguration_MaxInQueueJobRuns")]
+        public System.Int32? SchedulerConfiguration_MaxInQueueJobRun { get; set; }
         #endregion
         
         #region Parameter Name
@@ -237,6 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SchedulerConfiguration_MaxConcurrentJobRun = this.SchedulerConfiguration_MaxConcurrentJobRun;
+            context.SchedulerConfiguration_MaxInQueueJobRun = this.SchedulerConfiguration_MaxInQueueJobRun;
             context.SecurityConfigurationId = this.SecurityConfigurationId;
             context.SessionEnabled = this.SessionEnabled;
             if (this.Tag != null)
@@ -350,6 +379,35 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate SchedulerConfiguration
+            var requestSchedulerConfigurationIsNull = true;
+            request.SchedulerConfiguration = new Amazon.EMRContainers.Model.SchedulerConfiguration();
+            System.Int32? requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentJobRun = null;
+            if (cmdletContext.SchedulerConfiguration_MaxConcurrentJobRun != null)
+            {
+                requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentJobRun = cmdletContext.SchedulerConfiguration_MaxConcurrentJobRun.Value;
+            }
+            if (requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentJobRun != null)
+            {
+                request.SchedulerConfiguration.MaxConcurrentJobRuns = requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentJobRun.Value;
+                requestSchedulerConfigurationIsNull = false;
+            }
+            System.Int32? requestSchedulerConfiguration_schedulerConfiguration_MaxInQueueJobRun = null;
+            if (cmdletContext.SchedulerConfiguration_MaxInQueueJobRun != null)
+            {
+                requestSchedulerConfiguration_schedulerConfiguration_MaxInQueueJobRun = cmdletContext.SchedulerConfiguration_MaxInQueueJobRun.Value;
+            }
+            if (requestSchedulerConfiguration_schedulerConfiguration_MaxInQueueJobRun != null)
+            {
+                request.SchedulerConfiguration.MaxInQueueJobRuns = requestSchedulerConfiguration_schedulerConfiguration_MaxInQueueJobRun.Value;
+                requestSchedulerConfigurationIsNull = false;
+            }
+             // determine if request.SchedulerConfiguration should be set to null
+            if (requestSchedulerConfigurationIsNull)
+            {
+                request.SchedulerConfiguration = null;
+            }
             if (cmdletContext.SecurityConfigurationId != null)
             {
                 request.SecurityConfigurationId = cmdletContext.SecurityConfigurationId;
@@ -423,6 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public System.String EksInfo_NodeLabel { get; set; }
             public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? SchedulerConfiguration_MaxConcurrentJobRun { get; set; }
+            public System.Int32? SchedulerConfiguration_MaxInQueueJobRun { get; set; }
             public System.String SecurityConfigurationId { get; set; }
             public System.Boolean? SessionEnabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

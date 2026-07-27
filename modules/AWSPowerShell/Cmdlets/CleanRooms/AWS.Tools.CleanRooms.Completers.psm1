@@ -356,7 +356,7 @@ $CRS_Completers = {
             ($_ -eq "Start-CRSProtectedQuery/Worker_Type")
         }
         {
-            $v = "CR.1X","CR.4X"
+            $v = "CR.1X","CR.4X","CR.8X"
             break
         }
 

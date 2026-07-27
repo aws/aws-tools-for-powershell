@@ -650,7 +650,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ZendeskAction")
         }
         {
-            $v = "DENY"
+            $v = "ALLOW","DENY"
             break
         }
 
