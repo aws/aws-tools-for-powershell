@@ -7,14 +7,14 @@
 
     IMPORTANT: this script seeds fixtures with the trusted S3 cmdlets (New-S3Bucket / Write-S3Object),
     NOT with the S3 drive under test. That keeps fixture setup independent of the feature being
-    bug-bashed — a bug in the drive can't corrupt the starting state.
+    bug-bashed -- a bug in the drive can't corrupt the starting state.
 
     It creates two buckets:
       * a PRIMARY bucket in -Region, seeded with a small known tree, and
       * a CROSS-REGION bucket in -CrossRegion, seeded with one object
         (for the "a single drive spans all Regions" scenarios).
 
-    Bucket names are globally unique, so the script generates them and PRINTS them at the end — use
+    Bucket names are globally unique, so the script generates them and PRINTS them at the end -- use
     those names in the bug-bash scenarios. Re-run with -Cleanup (and the SAME -BucketPrefix) to delete
     everything the setup created.
 
@@ -90,7 +90,7 @@ if ($Cleanup) {
                 Remove-S3Bucket -BucketName $b.Name -DeleteBucketContent -Force @commonArgs -Region $b.Region | Out-Null
                 Write-Host "  removed $($b.Name) ($($b.Region))"
             } else {
-                Write-Host "  $($b.Name) ($($b.Region)) not found — skipping"
+                Write-Host "  $($b.Name) ($($b.Region)) not found - skipping"
             }
         } catch {
             Write-Warning "  failed to remove $($b.Name): $($_.Exception.Message)"
@@ -104,7 +104,7 @@ if ($Cleanup) {
 
 function New-BucketIfMissing([string] $Name, [string] $Rgn) {
     if (Test-S3Bucket -BucketName $Name @commonArgs -Region $Rgn) {
-        Write-Host "  bucket $Name already exists ($Rgn) — reusing"
+        Write-Host "  bucket $Name already exists ($Rgn) - reusing"
     } else {
         New-S3Bucket -BucketName $Name @commonArgs -Region $Rgn | Out-Null
         Write-Host "  created bucket $Name ($Rgn)"
