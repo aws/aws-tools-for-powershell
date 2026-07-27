@@ -1355,6 +1355,61 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Should -Throw
             Test-Path 'PSTestBadKey:\' | Should -BeFalse
         }
+        # Mounting an SSO profile whose token is expired/absent must surface the SAME guided message the
+        # S3 cmdlets give ("...run Invoke-AWSSSOLogin") rather than the raw SDK "No valid SSO Token could
+        # be found." / a generic NewDriveFailed. The provider calls the public
+        # SettingsStore.ThrowIfSsoLoginRequired up front (mirrors ServiceCmdlet.ValidateSSOToken).
+        # Reproduces without a real SSO account via a throwaway AWS_CONFIG_FILE with an uncached SSO
+        # profile - IsSsoLoginRequiredAsync returns true when the token cache is empty.
+        #
+        # Runs in a CHILD pwsh with AWS_CONFIG_FILE preset: the SDK caches the config-file location
+        # process-wide at first resolution, and this suite already resolved credentials (the shared
+        # PSTest mount in BeforeAll), so an in-process AWS_CONFIG_FILE swap would be ignored. The child
+        # imports the same monolithic module this suite uses (the SSO SDK assemblies ship with it).
+        It "surfaces the guided Invoke-AWSSSOLogin error for an expired/absent SSO token" {
+            $cfgDir = Join-Path ([System.IO.Path]::GetTempPath()) ("psdrive-sso-" + [DateTime]::Now.ToFileTime())
+            New-Item -ItemType Directory -Path $cfgDir -Force | Out-Null
+            $cfgFile = Join-Path $cfgDir 'config'
+            @(
+                '[profile probe-sso]'
+                'sso_session = probe-session'
+                'sso_account_id = 123456789012'
+                'sso_role_name = ReadOnly'
+                'region = us-east-1'
+                ''
+                '[sso-session probe-session]'
+                'sso_region = us-east-1'
+                'sso_start_url = https://example-does-not-resolve.awsapps.com/start'
+                'sso_registration_scopes = sso:account:access'
+            ) | Set-Content -Path $cfgFile -Encoding ascii
+
+            $modulePath = (Resolve-Path (Join-Path $PSScriptRoot '..\Deployment\AWSPowershell.NetCore\AWSPowerShell.NetCore.psd1')).Path
+            # Child: import the module, mount the uncached SSO profile, print a one-line verdict.
+            $childScript = @'
+param([string]$ModulePath)
+$ErrorActionPreference = "Stop"
+Import-Module $ModulePath -WarningAction SilentlyContinue
+$ev = $null
+Mount-S3PSDrive -Name PSTestSso -ProfileName probe-sso -Region us-east-1 -ErrorVariable ev -ErrorAction SilentlyContinue
+if (Get-PSDrive -Name PSTestSso -ErrorAction SilentlyContinue) { "MOUNT_SUCCEEDED" }
+elseif ($ev -and $ev.Count -gt 0) { "MOUNT_ERROR: " + $ev[0].Exception.Message }
+else { "NO_ERROR_NO_DRIVE" }
+'@
+            $childFile = Join-Path $cfgDir 'child.ps1'
+            Set-Content -Path $childFile -Value $childScript -Encoding ascii
+
+            $oldCfg = $env:AWS_CONFIG_FILE
+            $env:AWS_CONFIG_FILE = $cfgFile
+            try {
+                $out = & (Get-Process -Id $PID).Path -NoProfile -File $childFile -ModulePath $modulePath 2>&1 | Out-String
+                $out | Should -Match 'Invoke-AWSSSOLogin'
+                $out | Should -Not -Match 'MOUNT_SUCCEEDED'
+            }
+            finally {
+                $env:AWS_CONFIG_FILE = $oldCfg
+                Remove-Item -Recurse -Force $cfgDir -ErrorAction SilentlyContinue
+            }
+        }
     }
 
     # HIGH-value gap closer: the LOCKED design decision that a mount with NO explicit

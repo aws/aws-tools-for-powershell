@@ -36,7 +36,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // provider-qualified path (e.g. a piped PSPath "AWS.Tools.S3\AWS.S3::bucket\key") resolves
         // against the provider's hidden drive. Resolve those paths by mounted root, or by a shared
         // credential identity when there is no mounted-root clue.
+        // Resolve which mounted drive a path belongs to, then give it a chance to re-resolve rotated
+        // credentials from disk (a no-op unless it's a -ProfileName drive whose file changed). Every
+        // operation funnels through here, so this is the single place to keep credentials fresh.
         private S3DriveInfo DriveForPath(string path)
+        {
+            var drive = ResolveDrive(path);
+            drive?.RefreshCredentialsIfProfileChanged();
+            return drive;
+        }
+
+        private S3DriveInfo ResolveDrive(string path)
         {
             if (PSDriveInfo is S3DriveInfo di) return di;
 
