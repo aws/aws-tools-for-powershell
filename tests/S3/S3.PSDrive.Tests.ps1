@@ -751,6 +751,19 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             ($objects | Where-Object { $_.Name -like '*c.txt' }) | Should -Not -BeNullOrEmpty
             ($objects | Where-Object { $_.Name -like '*emptydir*' }) | Should -BeNullOrEmpty
         }
+        # BARE drive-qualified path under -Recurse on an ACCOUNT-ROOT mount. The PSTest drive is mounted
+        # with no -Root (account root); before the fix its Root was empty and the engine rejected
+        # `Get-ChildItem PSTest: -Recurse` ("...value of argument 'path' is not valid") BEFORE reaching
+        # the provider, while `PSTest:\ -Recurse` worked. NewDrive now normalizes an empty Root to "/",
+        # so both forms behave identically. Assert the bare form no longer throws and matches the slash
+        # form, and that the account-root drive reports a non-empty Root.
+        It "lists a bare drive-qualified -Recurse on an account-root mount (empty Root normalized)" {
+            { Get-ChildItem PSTest: -Recurse -ErrorAction Stop | Select-Object -First 1 } | Should -Not -Throw
+            $bare  = @(Get-ChildItem PSTest:)
+            $slash = @(Get-ChildItem 'PSTest:\')
+            $bare.Count | Should -Be $slash.Count
+            (Get-PSDrive -Name PSTest).Root | Should -Not -BeNullOrEmpty
+        }
     }
 
     # A 0-byte object whose key does NOT end in "/" is a real empty FILE - distinct from a
