@@ -359,7 +359,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     }
 
     Context "Get-Content multipart download" {
-        It "reads a large byte-stream object through the multipart download stream" {
+        It "reads a large byte-stream object with default and custom download -PartSize" {
             $key = "download-multipart-$([DateTime]::Now.ToFileTime()).bin"
             $path = "PSTest:\$($script:Bucket)\$key"
             $size = 17 * 1024 * 1024
@@ -374,9 +374,25 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             try {
                 [BitConverter]::ToString($sha.ComputeHash($got)) |
                     Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+
+                $gotCustomPartSize = [byte[]]((Get-Content $path -AsByteStream -Raw -PartSize 5MB) | ForEach-Object { $_ })
+                $gotCustomPartSize.Length | Should -Be $size
+                [BitConverter]::ToString($sha.ComputeHash($gotCustomPartSize)) |
+                    Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
             } finally {
                 $sha.Dispose()
             }
+        }
+
+        It "rejects invalid download -PartSize values" {
+            $key = "download-bad-partsize-$([DateTime]::Now.ToFileTime()).txt"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            Set-Content $path -Value "content"
+
+            { Get-Content $path -Raw -PartSize 10 -ErrorAction Stop } |
+                Should -Throw
+            { Get-Content $path -Raw -PartSize -1 -ErrorAction Stop } |
+                Should -Throw
         }
     }
 
