@@ -34385,6 +34385,9 @@ Set-Alias -Name TA-ListRecommendationResources -Value Get-TARecommendationResour
 Set-Alias -Name List-TARecommendations -Value Get-TARecommendationList
 Set-Alias -Name List-TARecommendationList -Value Get-TARecommendationList
 Set-Alias -Name TA-ListRecommendations -Value Get-TARecommendationList
+Set-Alias -Name List-TARecommendationsForResource -Value Get-TARecommendationsForResourceList
+Set-Alias -Name List-TARecommendationsForResourceList -Value Get-TARecommendationsForResourceList
+Set-Alias -Name TA-ListRecommendationsForResource -Value Get-TARecommendationsForResourceList
 Set-Alias -Name TA-UpdateOrganizationRecommendationLifecycle -Value Update-TAOrganizationRecommendationLifecycle
 Set-Alias -Name TA-UpdateRecommendationLifecycle -Value Update-TARecommendationLifecycle
 Set-Alias -Name Get-UXCAccountCustomizations -Value Get-UXCAccountCustomization

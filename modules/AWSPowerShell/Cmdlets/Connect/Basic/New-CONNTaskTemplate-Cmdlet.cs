@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the flow that runs by default when a task is created by referencing
-        /// this template.</para>
+        /// this template.</para><para>Although this parameter is marked as optional, the request must contain either a <c>ContactFlowId</c>
+        /// or a field of type <c>QUICK_CONNECT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Field
         /// <summary>
         /// <para>
-        /// <para>Fields that are part of the template.</para><para />
+        /// <para>Fields that are part of the template.</para><para>The request must contain exactly one field of type <c>NAME</c>. This field must also
+        /// be listed in the <c>RequiredFields</c> array within the <c>Constraints</c> parameter.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

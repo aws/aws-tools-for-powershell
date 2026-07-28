@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ManualAssignmentQueueConfig
         /// <summary>
         /// <para>
-        /// <para>The manual assignment queues to associate with this routing profile.</para><para>Note: Use this config for chat, email, and task contacts. It does not support voice
-        /// contacts.</para><para />
+        /// <para>The manual assignment queues to associate with this routing profile.</para><note><para>For voice contacts, manual assignment supports only agent-first callback contacts.
+        /// Chat, email, and task contacts are fully supported.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -8757,7 +8757,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod")
         }
         {
-            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST"
+            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST","PRIVATE_KEY_JWT"
             break
         }
 
@@ -9101,6 +9101,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SigningAlgorithm
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm")
+        }
+        {
+            $v = "ES256","PS256","RS256"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SynchronizationType
         {
             ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
@@ -9151,6 +9161,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
@@ -15981,8 +15992,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29410,12 +29421,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "New-DDBTableSchema",
                "New-DDBTable",
                "ConvertTo-DDBItem",
-               "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
+               "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
-               "Add-DDBIndexSchema")
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -76213,16 +76224,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "New-S3Bucket",
+               "Copy-S3Object",
+               "Remove-S3Object",
                "Test-S3Bucket",
                "Read-S3Object",
-               "Remove-S3Bucket",
-               "Write-S3Object",
-               "Copy-S3Object",
-               "New-S3Bucket",
                "Get-S3PreSignedURL",
-               "Remove-S3Object",
-               "Get-S3MultipartUpload",
-               "Remove-S3MultipartUpload")
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Get-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -88700,7 +88711,8 @@ $TA_Completers = {
             ($_ -eq "Get-TACheckList/Language") -Or
             ($_ -eq "Get-TARecommendation/Language") -Or
             ($_ -eq "Get-TARecommendationList/Language") -Or
-            ($_ -eq "Get-TARecommendationResourceList/Language")
+            ($_ -eq "Get-TARecommendationResourceList/Language") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Language")
         }
         {
             $v = "de","en","es","fr","id","it","ja","ko","pt_BR","zh","zh_TW"
@@ -88711,7 +88723,8 @@ $TA_Completers = {
         {
             ($_ -eq "Get-TACheckList/Pillar") -Or
             ($_ -eq "Get-TAOrganizationRecommendationList/Pillar") -Or
-            ($_ -eq "Get-TARecommendationList/Pillar")
+            ($_ -eq "Get-TARecommendationList/Pillar") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Pillar")
         }
         {
             $v = "cost_optimizing","fault_tolerance","operational_excellence","performance","security","service_limits"
@@ -88752,7 +88765,8 @@ $TA_Completers = {
         # Amazon.TrustedAdvisor.ResourceStatus
         {
             ($_ -eq "Get-TAOrganizationRecommendationResourceList/Status") -Or
-            ($_ -eq "Get-TARecommendationResourceList/Status")
+            ($_ -eq "Get-TARecommendationResourceList/Status") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Status")
         }
         {
             $v = "error","ok","warning"
@@ -88789,11 +88803,11 @@ $TA_Completers = {
 
 $TA_map = @{
     "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
-    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList")
+    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList","Get-TARecommendationsForResourceList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
-    "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
+    "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList","Get-TARecommendationsForResourceList")
     "Source"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
-    "Status"=@("Get-TAOrganizationRecommendationList","Get-TAOrganizationRecommendationResourceList","Get-TARecommendationList","Get-TARecommendationResourceList")
+    "Status"=@("Get-TAOrganizationRecommendationList","Get-TAOrganizationRecommendationResourceList","Get-TARecommendationList","Get-TARecommendationResourceList","Get-TARecommendationsForResourceList")
     "Type"=@("Get-TAOrganizationRecommendationList","Get-TARecommendationList")
     "UpdateReasonCode"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
 }
@@ -88857,6 +88871,7 @@ $TA_SelectMap = @{
                "Get-TAOrganizationRecommendationList",
                "Get-TARecommendationResourceList",
                "Get-TARecommendationList",
+               "Get-TARecommendationsForResourceList",
                "Update-TAOrganizationRecommendationLifecycle",
                "Update-TARecommendationLifecycle")
 }

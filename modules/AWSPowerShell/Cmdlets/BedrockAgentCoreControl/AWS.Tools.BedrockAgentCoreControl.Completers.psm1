@@ -123,7 +123,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod")
         }
         {
-            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST"
+            $v = "AWS_IAM_ID_TOKEN_JWT","CLIENT_SECRET_BASIC","CLIENT_SECRET_POST","PRIVATE_KEY_JWT"
             break
         }
 
@@ -467,6 +467,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.SigningAlgorithm
+        {
+            ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm") -Or
+            ($_ -eq "Update-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm")
+        }
+        {
+            $v = "ES256","PS256","RS256"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SynchronizationType
         {
             ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
@@ -517,6 +527,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_GrantType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OnBehalfOfTokenExchangeConfig_TokenExchangeGrantTypeConfig_ActorTokenContent"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_GithubOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_GoogleOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_IncludedOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")

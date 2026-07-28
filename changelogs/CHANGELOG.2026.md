@@ -1,4 +1,12 @@
-﻿### 5.0.262 (2026-07-27 19:15Z)
+﻿### 5.0.263 (2026-07-28 19:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.298.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameters Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalHeaderClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalPayloadClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_PrivateKeySource_KmsKeySource_KmsKeyArn and Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameters Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalHeaderClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalPayloadClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_PrivateKeySource_KmsKeySource_KmsKeyArn and Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm.
+  * Amazon Trusted Advisor
+    * Added cmdlet Get-TARecommendationsForResourceList leveraging the ListRecommendationsForResource service API.
+
+### 5.0.262 (2026-07-27 19:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.297.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Get-ACCTPrimaryEmailUpdateStatus leveraging the GetPrimaryEmailUpdateStatus service API.

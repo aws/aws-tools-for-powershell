@@ -95,7 +95,8 @@ $TA_Completers = {
             ($_ -eq "Get-TACheckList/Language") -Or
             ($_ -eq "Get-TARecommendation/Language") -Or
             ($_ -eq "Get-TARecommendationList/Language") -Or
-            ($_ -eq "Get-TARecommendationResourceList/Language")
+            ($_ -eq "Get-TARecommendationResourceList/Language") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Language")
         }
         {
             $v = "de","en","es","fr","id","it","ja","ko","pt_BR","zh","zh_TW"
@@ -106,7 +107,8 @@ $TA_Completers = {
         {
             ($_ -eq "Get-TACheckList/Pillar") -Or
             ($_ -eq "Get-TAOrganizationRecommendationList/Pillar") -Or
-            ($_ -eq "Get-TARecommendationList/Pillar")
+            ($_ -eq "Get-TARecommendationList/Pillar") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Pillar")
         }
         {
             $v = "cost_optimizing","fault_tolerance","operational_excellence","performance","security","service_limits"
@@ -147,7 +149,8 @@ $TA_Completers = {
         # Amazon.TrustedAdvisor.ResourceStatus
         {
             ($_ -eq "Get-TAOrganizationRecommendationResourceList/Status") -Or
-            ($_ -eq "Get-TARecommendationResourceList/Status")
+            ($_ -eq "Get-TARecommendationResourceList/Status") -Or
+            ($_ -eq "Get-TARecommendationsForResourceList/Status")
         }
         {
             $v = "error","ok","warning"
@@ -184,11 +187,11 @@ $TA_Completers = {
 
 $TA_map = @{
     "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
-    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList")
+    "Language"=@("Get-TACheckList","Get-TARecommendation","Get-TARecommendationList","Get-TARecommendationResourceList","Get-TARecommendationsForResourceList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
-    "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
+    "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList","Get-TARecommendationsForResourceList")
     "Source"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
-    "Status"=@("Get-TAOrganizationRecommendationList","Get-TAOrganizationRecommendationResourceList","Get-TARecommendationList","Get-TARecommendationResourceList")
+    "Status"=@("Get-TAOrganizationRecommendationList","Get-TAOrganizationRecommendationResourceList","Get-TARecommendationList","Get-TARecommendationResourceList","Get-TARecommendationsForResourceList")
     "Type"=@("Get-TAOrganizationRecommendationList","Get-TARecommendationList")
     "UpdateReasonCode"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
 }
@@ -252,6 +255,7 @@ $TA_SelectMap = @{
                "Get-TAOrganizationRecommendationList",
                "Get-TARecommendationResourceList",
                "Get-TARecommendationList",
+               "Get-TARecommendationsForResourceList",
                "Update-TAOrganizationRecommendationLifecycle",
                "Update-TARecommendationLifecycle")
 }

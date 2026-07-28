@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendationsForResource" OutputProperty="RecommendationForResourceSummaries" Verb="Get" Noun="RecommendationsForResourceList" PipelineParameter="AwsResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateOrganizationRecommendationLifecycle" Verb="Update" Noun="OrganizationRecommendationLifecycle" ShouldProcessTarget="OrganizationRecommendationIdentifier" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

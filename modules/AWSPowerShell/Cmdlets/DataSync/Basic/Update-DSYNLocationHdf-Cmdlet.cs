@@ -185,7 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>The NameNode that manages the HDFS namespace. The NameNode performs operations such
         /// as opening, closing, and renaming files and directories. The NameNode contains the
-        /// information to map blocks of data to the DataNodes. You can use only one NameNode.</para><para />
+        /// information to map blocks of data to the DataNodes.</para><para>The number of NameNodes you can specify depends on the task mode:</para><ul><li><para>Enhanced mode – You can specify multiple NameNodes for HDFS High Availability (HA)
+        /// configurations.</para></li><li><para>Basic mode – You can specify only one NameNode.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
