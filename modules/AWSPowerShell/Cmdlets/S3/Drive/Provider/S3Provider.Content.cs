@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public IContentReader GetContentReader(string path)
         {
             if (!TryParseObjectPath(path,
-                    "Get-Content requires a path to an S3 object (bucket\\key).",
+                    $"Get-Content requires a path to an S3 object (bucket{Sep}key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
             var drive = DriveForPath(path);
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public IContentWriter GetContentWriter(string path)
         {
             if (!TryParseObjectPath(path,
-                    "Set-Content requires a path to an S3 object (bucket\\key).",
+                    $"Set-Content requires a path to an S3 object (bucket{Sep}key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
             var drive = DriveForPath(path);

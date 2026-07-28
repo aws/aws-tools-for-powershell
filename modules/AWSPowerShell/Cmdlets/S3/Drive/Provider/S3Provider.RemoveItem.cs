@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         protected override void RemoveItem(string path, bool recurse)
         {
             if (!TryParseObjectPath(path,
-                    "Remove-Item on the S3 drive requires an object or prefix path (bucket\\key).",
+                    $"Remove-Item on the S3 drive requires an object or prefix path (bucket{Sep}key).",
                     "InvalidRemovePath", out var bucket, out var key))
                 return;
             var drive = DriveForPath(path);

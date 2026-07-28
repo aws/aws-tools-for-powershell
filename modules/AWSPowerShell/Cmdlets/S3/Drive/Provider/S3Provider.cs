@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             throw new InvalidOperationException(
                 "The S3 path is ambiguous: more than one AWS.S3 drive with different credentials is mounted. " +
-                "Qualify it with a drive (e.g. \"S3:\\bucket\\key\") instead of a provider-qualified path.");
+                $"Qualify it with a drive (e.g. \"S3:{Sep}bucket{Sep}key\") instead of a provider-qualified path.");
         }
 
         private List<S3DriveInfo> MountedS3Drives()
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     throw new InvalidOperationException(
                         "The S3 path is ambiguous: it matches more than one AWS.S3 drive with different credentials. " +
-                        "Qualify it with a drive (e.g. \"S3:\\bucket\\key\") instead of a provider-qualified path.");
+                        $"Qualify it with a drive (e.g. \"S3:{Sep}bucket{Sep}key\") instead of a provider-qualified path.");
                 }
             }
 
