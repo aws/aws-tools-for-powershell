@@ -1,4 +1,4 @@
-using AWSPowerShellGenerator.Generators;
+﻿using AWSPowerShellGenerator.Generators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AWSPSGeneratorLibTests

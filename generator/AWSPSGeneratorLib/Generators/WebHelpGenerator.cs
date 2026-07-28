@@ -619,8 +619,8 @@ namespace AWSPowerShellGenerator.Generators
         // change and no hand-edited HTML.
         private void WriteInstallerWebHelp(string webFilesRoot)
         {
-            const string versionToken = "%INSTALLER_VERSION%";
-            const string docsRootToken = "%INSTALLER_DOCS_ROOT%";
+            const string versionToken = "{INSTALLER_VERSION}";
+            const string docsRootToken = "{INSTALLER_DOCS_ROOT}";
 
             var installerVersion = ReadInstallerModuleVersion();
             var majorVersion = GetInstallerMajorVersion(installerVersion);
