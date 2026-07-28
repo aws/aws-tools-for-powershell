@@ -1453,6 +1453,22 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Should -Throw
             Test-Path 'PSTestBadKey:\' | Should -BeFalse
         }
+        # -StorageClass is typed S3StorageClass (a ConstantClass that constructs from ANY string), so an
+        # invalid value would otherwise mount silently and fail only later at the first upload. The
+        # cmdlet validates it up front against the SDK's known values (InvalidStorageClass) and a valid
+        # value still mounts.
+        It "fails cleanly (no drive created) when -StorageClass is not a known class" {
+            { Mount-S3PSDrive -Name PSTestBadSC -StorageClass NOT_A_CLASS `
+                    -ProfileName $script:Profile -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestBadSC:\' | Should -BeFalse
+        }
+        It "accepts a valid -StorageClass" {
+            Mount-S3PSDrive -Name PSTestGoodSC -StorageClass STANDARD_IA `
+                -ProfileName $script:Profile -Region $script:Region
+            Test-Path 'PSTestGoodSC:\' | Should -BeTrue
+            Dismount-S3PSDrive -Name PSTestGoodSC
+        }
         # Mounting an SSO profile whose token is expired/absent must surface the SAME guided message the
         # S3 cmdlets give ("...run Invoke-AWSSSOLogin") rather than the raw SDK "No valid SSO Token could
         # be found." / a generic NewDriveFailed. The provider calls the public
