@@ -97,10 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var root = NormalizeRoot(drive.Root);   // "bucket/prefix" or "" for the account root
                 if (root.Length == 0)
                 {
-                    // Echo the engine's own root path back (an empty item path makes the engine reject
-                    // the result with "value of argument 'path' is not valid"). One synthesized
-                    // container named after the drive - the account root has no backing S3 resource.
-                    WriteItemObject(S3ItemInfo.Folder(drive.Name), path, isContainer: true);
+                    // One synthesized container for the account root (no backing S3 resource). The engine
+                    // rejects an EMPTY item path ("value of argument 'path' is not valid"), and an
+                    // account-root mount hands GetItem an empty path (Root is empty), so echoing `path`
+                    // back is not enough. Emit the drive-qualified root ("<drive>:") - a valid, non-empty
+                    // path the engine accepts and round-trips, mirroring FileSystem's "C:\" root item.
+                    var rootPath = string.IsNullOrEmpty(path) ? drive.Name + ":" + Sep : path;
+                    WriteItemObject(S3ItemInfo.Folder(drive.Name), rootPath, isContainer: true);
                     return;
                 }
 

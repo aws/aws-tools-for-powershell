@@ -42,15 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
-            // An account-root mount arrives with an empty Root, and the PowerShell engine rejects a bare
-            // rootless drive-qualified path under -Recurse ("...value of argument 'path' is not valid")
-            // BEFORE dispatching to the provider - so `Get-ChildItem S3: -Recurse` fails while `S3:/` works.
-            // Give the drive a "/" root: it parses back to the account root everywhere in the provider
-            // (IsDriveRoot/ApplyDriveRoot/NormalizeRoot all trim separators), so listing/navigation/
-            // validation are unchanged - only the engine's bare-recurse path resolution is satisfied.
-            // Done here (not in Mount-S3PSDrive) so raw `New-PSDrive -PSProvider AWS.S3` is covered too.
-            if (string.IsNullOrEmpty(drive.Root))
-                drive = new PSDriveInfo(drive.Name, drive.Provider, "/", drive.Description, drive.Credential);
+            // NOTE: an account-root mount intentionally keeps an EMPTY Root. A previous attempt gave it a
+            // "/" root to satisfy the engine's bare `Get-ChildItem S3: -Recurse` path check, but "/" makes
+            // the engine treat the drive's paths as filesystem-absolute and route new-object writes
+            // (Set-Content to a not-yet-existing key) to the C: FileSystem provider instead of AWS.S3 -
+            // silently failing every create. The bare `S3: -Recurse` form is a minor limitation
+            // (`S3:\ -Recurse` works); a broken write path is not an acceptable trade, so Root stays empty.
 
             var dp = DynamicParameters as S3DriveParameters;
 

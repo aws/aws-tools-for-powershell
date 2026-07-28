@@ -784,18 +784,22 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             ($objects | Where-Object { $_.Name -like '*c.txt' }) | Should -Not -BeNullOrEmpty
             ($objects | Where-Object { $_.Name -like '*emptydir*' }) | Should -BeNullOrEmpty
         }
-        # BARE drive-qualified path under -Recurse on an ACCOUNT-ROOT mount. The PSTest drive is mounted
-        # with no -Root (account root); before the fix its Root was empty and the engine rejected
-        # `Get-ChildItem PSTest: -Recurse` ("...value of argument 'path' is not valid") BEFORE reaching
-        # the provider, while `PSTest:\ -Recurse` worked. NewDrive now normalizes an empty Root to "/",
-        # so both forms behave identically. Assert the bare form no longer throws and matches the slash
-        # form, and that the account-root drive reports a non-empty Root.
-        It "lists a bare drive-qualified -Recurse on an account-root mount (empty Root normalized)" {
-            { Get-ChildItem PSTest: -Recurse -ErrorAction Stop | Select-Object -First 1 } | Should -Not -Throw
-            $bare  = @(Get-ChildItem PSTest:)
-            $slash = @(Get-ChildItem 'PSTest:\')
-            $bare.Count | Should -Be $slash.Count
-            (Get-PSDrive -Name PSTest).Root | Should -Not -BeNullOrEmpty
+        # An account-root mount (no -Root) MUST keep an empty Root. A "/" root would make the PowerShell
+        # engine treat the drive's paths as filesystem-absolute and route a Set-Content to a not-yet-
+        # existing key to the C: FileSystem provider ("Could not find a part of the path 'C:\...'"),
+        # silently failing every new-object write. Guard both facts so that regression can't return:
+        # the account-root Root stays empty, and writing a brand-new object through the account-root
+        # drive lands in S3. `PSTest:\ -Recurse` is the supported recursive-list form; the bare
+        # `PSTest: -Recurse` form is a known engine limitation and intentionally not asserted here.
+        It "keeps an empty Root and writes new objects on an account-root mount" {
+            (Get-PSDrive -Name PSTest).Root | Should -BeNullOrEmpty   # NOT "/": "/" breaks new-object writes
+
+            $key = "acctroot-write-$([DateTime]::Now.ToFileTime()).txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'acct-root' -ErrorAction Stop
+            S3ObjectExists $script:Bucket $key | Should -BeTrue   # raw HEAD: the write reached S3, not C:\
+
+            @(Get-ChildItem 'PSTest:\' -Recurse -ErrorAction Stop | Select-Object -First 1).Count |
+                Should -BeGreaterThan 0   # supported recursive-list form still works
         }
     }
 
@@ -1497,7 +1501,13 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 'sso_registration_scopes = sso:account:access'
             ) | Set-Content -Path $cfgFile -Encoding ascii
 
-            $modulePath = (Resolve-Path (Join-Path $PSScriptRoot '..\Deployment\AWSPowershell.NetCore\AWSPowerShell.NetCore.psd1')).Path
+            # Resolve the module the SAME way the child must import it: reuse the module this suite
+            # already loaded (Mount-S3PSDrive's source), so the path is correct regardless of where the
+            # tests run from (repo `tests/` vs CI's copied `Deployment/Tests/`). A hardcoded relative
+            # path broke here before - it pointed at the wrong depth and left $modulePath empty, so the
+            # child failed with "Missing an argument for parameter 'ModulePath'".
+            $modulePath = (Get-Command Mount-S3PSDrive -ErrorAction Stop).Module.Path
+            if (-not $modulePath) { throw "Could not resolve the AWS module path for the SSO child process." }
             # Child: import the module, mount the uncached SSO profile, print a one-line verdict.
             $childScript = @'
 param([string]$ModulePath)
