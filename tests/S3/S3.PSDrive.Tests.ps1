@@ -1063,6 +1063,12 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 5MB
             S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 4
         }
+        It "rejects a negative -PartSize without creating an object" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/bad-part-size.bin"
+            { Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]](1,2,3)) -PartSize -1 -ErrorAction Stop } |
+                Should -Throw
+            S3ObjectExists $script:Bucket $key | Should -BeFalse
+        }
         It "creates a zero-byte object from an explicit empty byte array" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
             Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]]@())

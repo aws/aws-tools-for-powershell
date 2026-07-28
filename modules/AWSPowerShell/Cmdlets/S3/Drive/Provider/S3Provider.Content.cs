@@ -124,6 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
+                // RANGE splits reads by byte ranges rather than the object's original upload part
+                // boundaries, so large objects can stream in parallel regardless of how they were uploaded.
                 var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
                 {
                     BucketName = bucket,
@@ -276,9 +278,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
             // Per-upload -StorageClass wins, else the drive default, else null (nothing set on the request).
             var storageClass = writerParams?.StorageClass ?? drive.DefaultStorageClass;
-            var partSize = writerParams != null && writerParams.PartSize > 0
-                ? writerParams.PartSize
-                : DefaultMultipartUploadPartSize;
+            var partSize = DefaultMultipartUploadPartSize;
+            if (writerParams != null && writerParams.PartSize != 0)
+            {
+                if (!IsValidMultipartUploadPartSize(writerParams.PartSize))
+                {
+                    WriteError(new ErrorRecord(
+                        new ArgumentOutOfRangeException("PartSize", writerParams.PartSize,
+                            $"PartSize must be between {S3ContentWriterDynamicParameters.MinMultipartUploadPartSize} and {S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize} bytes."),
+                        "InvalidPartSize", ErrorCategory.InvalidArgument, path));
+                    return null;
+                }
+                partSize = writerParams.PartSize;
+            }
             var cache = drive.ListingCache;
 
             // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.
@@ -317,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         public object GetContentWriterDynamicParameters(string path) =>
             new S3ContentWriterDynamicParameters();
+
+        private static bool IsValidMultipartUploadPartSize(long partSize) =>
+            partSize >= S3ContentWriterDynamicParameters.MinMultipartUploadPartSize
+            && partSize <= S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize;
 
         public void ClearContent(string path)
         {

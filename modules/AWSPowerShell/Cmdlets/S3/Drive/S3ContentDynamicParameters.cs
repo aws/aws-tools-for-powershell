@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>Dynamic parameters contributed to Set-Content on an S3 path.</summary>
     public sealed class S3ContentWriterDynamicParameters
     {
-        private const long MinMultipartUploadPartSize = 5L * 1024 * 1024;
-        private const long MaxMultipartUploadPartSize = 5L * 1024 * 1024 * 1024;
+        internal const long MinMultipartUploadPartSize = 5L * 1024 * 1024;
+        internal const long MaxMultipartUploadPartSize = 5L * 1024 * 1024 * 1024;
 
         /// <summary>Write the pipeline's raw bytes instead of encoding text.</summary>
         [Parameter]
