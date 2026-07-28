@@ -602,6 +602,31 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
 
             (S3GetText $script:Bucket $key).TrimEnd("`r","`n") | Should -Be 'original'
         }
+        # All six unsupported operations now fail the SAME way: a PSNotSupportedException carrying the
+        # "<Cmdlet> is not supported by the S3 drive. ..." shape. Before the fix New-Item/Copy/Move/
+        # Rename fell through to the engine's generic "provider does not support this operation" and
+        # Add-Content threw a bare System.NotSupportedException - three inconsistent styles. Lock the
+        # consistency (message shape + exception type) so a regression can't reintroduce the drift.
+        It "reports a consistent S3-specific PSNotSupportedException for all unsupported operations" {
+            $b = $script:Bucket
+            $key = "unsupported-consist-$([DateTime]::Now.ToFileTime()).txt"
+            S3PutText $key 'original'
+            $ops = @(
+                { New-Item    "PSTest:\$b\uns-consist-$([DateTime]::Now.ToFileTime())" -ItemType Directory -ErrorAction Stop },
+                { Copy-Item   "PSTest:\$b\$key" "PSTest:\$b\uns-copy.txt"   -ErrorAction Stop },
+                { Move-Item   "PSTest:\$b\$key" "PSTest:\$b\uns-moved.txt"  -ErrorAction Stop },
+                { Rename-Item "PSTest:\$b\$key" 'uns-renamed.txt'           -ErrorAction Stop },
+                { Add-Content "PSTest:\$b\$key" -Value 'x'                  -ErrorAction Stop },
+                { Clear-Content "PSTest:\$b\$key"                           -ErrorAction Stop }
+            )
+            foreach ($op in $ops) {
+                $e = $null
+                try { & $op } catch { $e = $_ }
+                $e                       | Should -Not -BeNullOrEmpty
+                $e.Exception             | Should -BeOfType [System.Management.Automation.PSNotSupportedException]
+                $e.Exception.Message     | Should -Match 'is not supported by the S3 drive'
+            }
+        }
     }
 
     # ---- Edge-case coverage (added to close roadmap gaps) --------------------------------------

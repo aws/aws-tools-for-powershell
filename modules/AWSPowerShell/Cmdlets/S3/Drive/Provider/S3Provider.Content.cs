@@ -320,8 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         public void ClearContent(string path)
         {
-            throw new PSNotSupportedException(
-                "Clear-Content is not supported by the S3 drive.");
+            throw Unsupported("Clear-Content",
+                "Use Set-Content to replace the object's contents, or Remove-Item to delete it.");
         }
 
         public object ClearContentDynamicParameters(string path) => null;
