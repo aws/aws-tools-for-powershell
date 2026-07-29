@@ -241,6 +241,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.FilterMode
+        {
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode")
+        }
+        {
+            $v = "FILTER_STRING","QUERY_PARAMS"
+            break
+        }
+
         # Amazon.Glue.FunctionType
         "Get-GLUEUserDefinedFunctionList/FunctionType"
         {
@@ -704,11 +714,13 @@ $GLUE_map = @{
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "ResourceType"=@("Get-GLUEDashboardUrl")
+    "RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")

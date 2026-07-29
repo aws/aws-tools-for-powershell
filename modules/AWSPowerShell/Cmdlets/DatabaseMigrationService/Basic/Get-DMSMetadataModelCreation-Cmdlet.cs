@@ -30,7 +30,16 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns a paginated list of metadata model creation requests for a migration project.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of metadata model creation requests for a migration project,
+    /// initiated by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelCreation.html">StartMetadataModelCreation</a>.
+    /// 
+    ///  
+    /// <para>
+    /// To cancel a queued or in-progress request, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html">CancelMetadataModelCreation</a>.
+    /// </para><para><b>Required permissions:</b><c>dms:DescribeMetadataModelCreations</c>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSMetadataModelCreation")]
     [OutputType("Amazon.DatabaseMigrationService.Model.SchemaConversionRequest")]
@@ -48,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the metadata model creation requests described in the form of key-value
-        /// pairs. The supported filters are request-id and status.</para><para />
+        /// <para>The filters to apply to the metadata model creation requests.</para><para>The following filter names are supported:</para><ul><li><para><c>request-id</c> – The request identifier.</para></li><li><para><c>status</c> – The request status. Valid values: <c>RECEIVED</c>, <c>IN_PROGRESS</c>,
+        /// <c>SUCCESS</c>, <c>FAILED</c>, <c>CANCELING</c>, <c>CANCELED</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -82,8 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the unique pagination token that makes it possible to display the next page
-        /// of metadata model creation requests. If Marker is returned by a previous response,
-        /// there are more metadata model creation requests available.</para>
+        /// of results. If this parameter is specified, the response includes only records beyond
+        /// the marker, up to the value specified by <c>MaxRecords</c>.</para><para>If <c>Marker</c> is returned by a previous response, there are more results available.
+        /// The value of <c>Marker</c> is a unique pagination token for each page. To retrieve
+        /// the next page, make the call again using the returned token and keeping all other
+        /// arguments unchanged.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of metadata model creation requests to include in the response.
-        /// If more requests exist than the specified MaxRecords value, a pagination token is
-        /// provided in the response so that you can retrieve the remaining results.</para>
+        /// <para>The maximum number of records to include in the response. If more records exist than
+        /// the specified <c>MaxRecords</c> value, DMS includes a pagination token in the response
+        /// so that you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

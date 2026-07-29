@@ -30,8 +30,16 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
+    /// <important><para>
+    /// The IoT SiteWise Monitor feature will no longer be open to new customers starting
+    /// November 7, 2025. If you would like to use the IoT SiteWise Monitor feature, sign
+    /// up prior to that date. Existing customers can continue to use the service as normal.
+    /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html">IoT
+    /// SiteWise Monitor availability change</a>.
+    /// </para></important><para>
     /// Updates an existing access policy that specifies an identity's access to an IoT SiteWise
     /// Monitor portal or project resource.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTSWAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

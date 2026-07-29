@@ -30,7 +30,14 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns a paginated list of metadata model exports.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of metadata model export requests for a migration project,
+    /// initiated by <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportToTarget.html">StartMetadataModelExportToTarget</a>.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:ListMetadataModelExports</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSMetadataModelExportsToTarget")]
     [OutputType("Amazon.DatabaseMigrationService.Model.SchemaConversionRequest")]
@@ -48,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the metadata model exports described in the form of key-value pairs.</para><para />
+        /// <para>The filters to apply to the metadata model export requests.</para><para>The following filter names are supported:</para><ul><li><para><c>request-id</c> – The request identifier.</para></li><li><para><c>status</c> – The request status. Valid values: <c>RECEIVED</c>, <c>IN_PROGRESS</c>,
+        /// <c>SUCCESS</c>, <c>FAILED</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

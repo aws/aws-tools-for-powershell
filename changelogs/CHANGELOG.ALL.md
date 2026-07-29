@@ -1,4 +1,79 @@
-﻿### 5.0.263 (2026-07-28 19:14Z)
+﻿### 5.0.264 (2026-07-29 19:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.299.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2TransitGatewayPolicyTableEntry leveraging the ModifyTransitGatewayPolicyTableEntry service API.
+    * Added cmdlet New-EC2TransitGatewayPolicyTableEntry leveraging the CreateTransitGatewayPolicyTableEntry service API.
+    * Added cmdlet Remove-EC2TransitGatewayPolicyTableEntry leveraging the DeleteTransitGatewayPolicyTableEntry service API.
+    * Modified cmdlet Get-EC2TransitGatewayPolicyTableEntry: added parameter NoAutoIteration.
+  * Amazon GameLiftStreams
+    * Added cmdlet Get-GMLSApplicationShaderCacheList leveraging the ListApplicationShaderCaches service API.
+    * Added cmdlet Get-GMLSStreamUrl leveraging the GetStreamUrl service API.
+    * Added cmdlet Get-GMLSStreamUrlList leveraging the ListStreamUrls service API.
+    * Added cmdlet New-GMLSStreamUrl leveraging the CreateStreamUrl service API.
+    * Added cmdlet Revoke-GMLSStreamUrl leveraging the RevokeStreamUrl service API.
+  * Amazon Glue
+    * Modified cmdlet Register-GLUEConnectionType: added parameters ConnectionProperties_Url_Format, ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format, ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format, ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping, RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue, RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping and RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote.
+  * Amazon IoT SiteWise
+    * Added cmdlet Add-IOTSWDataSegmentsToDatasetBatch leveraging the BatchAssociateDataSegmentsToDataset service API.
+    * Added cmdlet Get-IOTSWApplication leveraging the DescribeApplication service API.
+    * Added cmdlet Get-IOTSWApplicationList leveraging the ListApplications service API.
+    * Added cmdlet Get-IOTSWCaptureData leveraging the GetCaptureData service API.
+    * Added cmdlet Get-IOTSWDatasetDataSegmentList leveraging the ListDatasetDataSegments service API.
+    * Added cmdlet Get-IOTSWDatasetDataSegmentRelationshipList leveraging the ListDatasetDataSegmentRelationships service API.
+    * Added cmdlet Get-IOTSWDatasetExportJob leveraging the DescribeDatasetExportJob service API.
+    * Added cmdlet Get-IOTSWDatasetExportJobList leveraging the ListDatasetExportJobs service API.
+    * Added cmdlet Get-IOTSWEnrichmentJob leveraging the DescribeEnrichmentJob service API.
+    * Added cmdlet Get-IOTSWEnrichmentJobList leveraging the ListEnrichmentJobs service API.
+    * Added cmdlet Get-IOTSWPipeline leveraging the DescribePipeline service API.
+    * Added cmdlet Get-IOTSWPipelineExecution leveraging the DescribePipelineExecution service API.
+    * Added cmdlet Get-IOTSWPipelineExecutionList leveraging the ListPipelineExecutions service API.
+    * Added cmdlet Get-IOTSWPipelineList leveraging the ListPipelines service API.
+    * Added cmdlet Get-IOTSWQueryExecution leveraging the DescribeQuery service API.
+    * Added cmdlet Get-IOTSWQueryExecutionList leveraging the ListQueries service API.
+    * Added cmdlet Get-IOTSWQueryExecutionResult leveraging the GetQueryResults service API.
+    * Added cmdlet Get-IOTSWSearch leveraging the DescribeSearch service API.
+    * Added cmdlet Get-IOTSWSearchList leveraging the ListSearches service API.
+    * Added cmdlet Get-IOTSWSearchResult leveraging the GetSearchResults service API.
+    * Added cmdlet Get-IOTSWTask leveraging the DescribeTask service API.
+    * Added cmdlet Get-IOTSWTaskList leveraging the ListTasks service API.
+    * Added cmdlet Get-IOTSWWorkspace leveraging the DescribeWorkspace service API.
+    * Added cmdlet Get-IOTSWWorkspaceList leveraging the ListWorkspaces service API.
+    * Added cmdlet New-IOTSWApplication leveraging the CreateApplication service API.
+    * Added cmdlet New-IOTSWDatasetExportJob leveraging the CreateDatasetExportJob service API.
+    * Added cmdlet New-IOTSWEnrichmentJob leveraging the CreateEnrichmentJob service API.
+    * Added cmdlet New-IOTSWPipeline leveraging the CreatePipeline service API.
+    * Added cmdlet New-IOTSWTask leveraging the CreateTask service API.
+    * Added cmdlet New-IOTSWWorkspace leveraging the CreateWorkspace service API.
+    * Added cmdlet Remove-IOTSWApplication leveraging the DeleteApplication service API.
+    * Added cmdlet Remove-IOTSWDataSegmentsFromDatasetBatch leveraging the BatchDisassociateDataSegmentsFromDataset service API.
+    * Added cmdlet Remove-IOTSWDatasetDataSegmentBatch leveraging the BatchDeleteDatasetDataSegments service API.
+    * Added cmdlet Remove-IOTSWPipeline leveraging the DeletePipeline service API.
+    * Added cmdlet Remove-IOTSWTask leveraging the DeleteTask service API.
+    * Added cmdlet Remove-IOTSWWorkspace leveraging the DeleteWorkspace service API.
+    * Added cmdlet Start-IOTSWPipelineExecution leveraging the StartPipelineExecution service API.
+    * Added cmdlet Start-IOTSWQueryExecution leveraging the StartQuery service API.
+    * Added cmdlet Start-IOTSWSearch leveraging the StartSearch service API.
+    * Added cmdlet Stop-IOTSWEnrichmentJob leveraging the CancelEnrichmentJob service API.
+    * Added cmdlet Stop-IOTSWPipelineExecution leveraging the CancelPipelineExecution service API.
+    * Added cmdlet Stop-IOTSWQueryExecution leveraging the CancelQuery service API.
+    * Added cmdlet Update-IOTSWPipeline leveraging the UpdatePipeline service API.
+    * Added cmdlet Update-IOTSWTask leveraging the UpdateTask service API.
+    * Added cmdlet Update-IOTSWWorkspace leveraging the UpdateWorkspace service API.
+    * Modified cmdlet Get-IOTSWBulkImportJob: added parameter WorkspaceName.
+    * Modified cmdlet Get-IOTSWBulkImportJobList: added parameter WorkspaceName.
+    * Modified cmdlet Get-IOTSWDataset: added parameters DatasetVersion and WorkspaceName.
+    * Modified cmdlet Get-IOTSWDatasetList: added parameters DatasetType and WorkspaceName.
+    * Modified cmdlet Get-IOTSWLoggingOption: added parameter WorkspaceName.
+    * Modified cmdlet Get-IOTSWTimeSeries: added parameter WorkspaceName.
+    * Modified cmdlet Get-IOTSWTimeSeriesList: added parameter WorkspaceName.
+    * Modified cmdlet New-IOTSWBulkImportJob: added parameters DatasetId, JobConfiguration_FileFormat_Annotation, JobConfiguration_FileFormat_Mp4 and WorkspaceName.
+    * Modified cmdlet New-IOTSWDataset: added parameters DatasetConfig_Session_SessionEndTimestamp_OffsetInNano, DatasetConfig_Session_SessionEndTimestamp_TimeInSecond, DatasetConfig_Session_SessionStartTimestamp_OffsetInNano, DatasetConfig_Session_SessionStartTimestamp_TimeInSecond, DatasetType, Metadata and WorkspaceName.
+    * Modified cmdlet Remove-IOTSWDataset: added parameter WorkspaceName.
+    * Modified cmdlet Remove-IOTSWTimeSeries: added parameter WorkspaceName.
+    * Modified cmdlet Update-IOTSWDataset: added parameters DatasetConfig_Session_SessionEndTimestamp_OffsetInNano, DatasetConfig_Session_SessionEndTimestamp_TimeInSecond, DatasetConfig_Session_SessionStartTimestamp_OffsetInNano, DatasetConfig_Session_SessionStartTimestamp_TimeInSecond, Metadata and WorkspaceName.
+    * Modified cmdlet Write-IOTSWLoggingOption: added parameter WorkspaceName.
+
+### 5.0.263 (2026-07-28 19:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.298.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCOauth2CredentialProvider: added parameters Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalHeaderClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_AdditionalPayloadClaim, Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_PrivateKeySource_KmsKeySource_KmsKeyArn and Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_PrivateKeyJwtConfig_SigningAlgorithm.

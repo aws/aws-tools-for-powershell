@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Deletes the specified instance profile.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:DeleteInstanceProfile</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><note><para>
     /// All migration projects associated with the instance profile must be deleted or modified
     /// before you can delete the instance profile.
     /// </para></note>

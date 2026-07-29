@@ -30,10 +30,28 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Creates a database migration assessment report by assessing the migration complexity
-    /// for your source database. A database migration assessment report summarizes all of
-    /// the schema conversion tasks. It also details the action items for database objects
-    /// that can't be converted to the database engine of your target database instance.
+    /// Queues an assessment of the selected source metadata models (database objects such
+    /// as tables, views, and procedures) to evaluate conversion complexity to the target
+    /// database format. If other requests created by <c>Start*</c> operations are already
+    /// in the migration project's queue, the assessment begins after they complete.
+    /// 
+    ///  
+    /// <para>
+    /// The assessment request loads metadata models that are not yet in the metadata tree,
+    /// but does not reload metadata models that are already present. If your source database
+    /// has changed since the metadata was loaded, refresh the affected metadata models with
+    /// <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a>
+    /// before calling this operation.
+    /// </para><para>
+    /// To check the status of the assessment request, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelAssessments.html">DescribeMetadataModelAssessments</a>
+    /// using the returned <c>RequestIdentifier</c> as a filter.
+    /// </para><para>
+    /// To export the conversion assessment report after the request completes successfully,
+    /// call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">ExportMetadataModelAssessment</a>.
+    /// </para><para><b>Required permissions:</b><c>dms:StartMetadataModelAssessment</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "DMSMetadataModelAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -68,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SelectionRule
         /// <summary>
         /// <para>
-        /// <para>A value that specifies the database objects to assess.</para>
+        /// <para>A JSON string that identifies the metadata models to assess. For the selection rule
+        /// format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection
+        /// rules in DMS Schema Conversion</a>.</para><para>Usage:</para><ul><li><para>Accepts only source selection rules, where <c>server-name</c> in the object locator
+        /// matches the source data provider.</para></li><li><para>Supports <c>explicit</c>, <c>include</c>, and <c>exclude</c> rule actions.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

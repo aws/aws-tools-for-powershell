@@ -686,6 +686,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayPolicyTableEntry" OutputProperty="TransitGatewayPolicyTableEntry" Verb="New" Noun="TransitGatewayPolicyTableEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="New" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1061,6 +1065,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayPolicyTable" OutputProperty="TransitGatewayPolicyTable" Verb="Remove" Noun="TransitGatewayPolicyTable" ShouldProcessTarget="TransitGatewayPolicyTableId" PipelineParameter="TransitGatewayPolicyTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayPolicyTableEntry" OutputProperty="TransitGatewayPolicyTableEntry" Verb="Remove" Noun="TransitGatewayPolicyTableEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2858,6 +2866,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayMeteringPolicy" OutputProperty="TransitGatewayMeteringPolicy" Verb="Edit" Noun="TransitGatewayMeteringPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayPolicyTableEntry" OutputProperty="TransitGatewayPolicyTableEntry" Verb="Edit" Noun="TransitGatewayPolicyTableEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

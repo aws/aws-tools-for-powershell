@@ -91,9 +91,19 @@ $GMLS_Completers = {
         }
 
         # Amazon.GameLiftStreams.Protocol
-        "Start-GMLSStreamSession/Protocol"
+        {
+            ($_ -eq "New-GMLSStreamUrl/Protocol") -Or
+            ($_ -eq "Start-GMLSStreamSession/Protocol")
+        }
         {
             $v = "WebRTC"
+            break
+        }
+
+        # Amazon.GameLiftStreams.RevocationMode
+        "Revoke-GMLSStreamUrl/RevocationMode"
+        {
+            $v = "REVOKE_AND_TERMINATE_SESSIONS","REVOKE_URL"
             break
         }
 
@@ -121,6 +131,13 @@ $GMLS_Completers = {
             break
         }
 
+        # Amazon.GameLiftStreams.StreamUrlStatus
+        "Get-GMLSStreamUrlList/Status"
+        {
+            $v = "ACTIVE","EXPIRED","LIMIT_REACHED","REVOKED"
+            break
+        }
+
 
     }
 
@@ -131,9 +148,10 @@ $GMLS_Completers = {
 
 $GMLS_map = @{
     "ExportFilesStatus"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
-    "Protocol"=@("Start-GMLSStreamSession")
+    "Protocol"=@("New-GMLSStreamUrl","Start-GMLSStreamSession")
+    "RevocationMode"=@("Revoke-GMLSStreamUrl")
     "RuntimeEnvironment_Type"=@("New-GMLSApplication")
-    "Status"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
+    "Status"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount","Get-GMLSStreamUrlList")
     "StreamClass"=@("New-GMLSStreamGroup")
 }
 
@@ -193,6 +211,7 @@ $GMLS_SelectMap = @{
                "New-GMLSStreamGroup",
                "New-GMLSStreamSessionAdminShell",
                "New-GMLSStreamSessionConnection",
+               "New-GMLSStreamUrl",
                "Remove-GMLSApplication",
                "Remove-GMLSStreamGroup",
                "Disconnect-GMLSApplication",
@@ -200,12 +219,16 @@ $GMLS_SelectMap = @{
                "Get-GMLSApplication",
                "Get-GMLSStreamGroup",
                "Get-GMLSStreamSession",
+               "Get-GMLSStreamUrl",
                "Get-GMLSApplicationList",
+               "Get-GMLSApplicationShaderCacheList",
                "Get-GMLSStreamGroupList",
                "Get-GMLSStreamSessionList",
                "Get-GMLSStreamSessionListByAccount",
+               "Get-GMLSStreamUrlList",
                "Get-GMLSResourceTag",
                "Remove-GMLSStreamGroupLocation",
+               "Revoke-GMLSStreamUrl",
                "Start-GMLSStreamSession",
                "Add-GMLSResourceTag",
                "Stop-GMLSStreamSession",

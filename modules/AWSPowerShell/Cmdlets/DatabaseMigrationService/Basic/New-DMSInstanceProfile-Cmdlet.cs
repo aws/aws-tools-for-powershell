@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates the instance profile using the specified parameters.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:CreateInstanceProfile</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DMSInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.InstanceProfile")]

@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Gets a list of child metadata models for the specified metadata model in the database
-    /// hierarchy.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// hierarchy.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:DescribeMetadataModelChildren</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DMSMetadataModelChild")]
     [OutputType("Amazon.DatabaseMigrationService.Model.MetadataModelReference")]
@@ -84,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SelectionRule
         /// <summary>
         /// <para>
-        /// <para>The JSON string that specifies which metadata model's children to retrieve. Only one
-        /// selection rule with "rule-action": "explicit" can be provided. For more information,
-        /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection
-        /// Rules</a> in the DMS User Guide.</para>
+        /// <para>A JSON string that identifies the metadata model whose children to retrieve. For the
+        /// selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection
+        /// rules in DMS Schema Conversion</a>.</para><para>Usage:</para><ul><li><para>Accepts source or target selection rules depending on the <c>Origin</c> parameter.
+        /// The <c>server-name</c> in the object locator must match the corresponding data provider.</para></li><li><para>Supports only <c>explicit</c> rule actions.</para></li><li><para>Exactly one rule is allowed.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

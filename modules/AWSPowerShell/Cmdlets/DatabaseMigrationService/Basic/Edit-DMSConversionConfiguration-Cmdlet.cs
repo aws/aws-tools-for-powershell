@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Modifies the specified schema conversion configuration using the provided parameters.
+    /// 
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:UpdateConversionConfiguration</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "DMSConversionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ConversionConfiguration
         /// <summary>
         /// <para>
-        /// <para>The new conversion configuration.</para>
+        /// <para>A JSON string that contains the schema conversion settings to update. For the format
+        /// and available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-settings.html">Specifying
+        /// schema conversion settings for migration projects</a>.</para><para>Usage:</para><ul><li><para>Include only the sections and keys to change. The operation merges supplied values
+        /// with the existing configuration.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

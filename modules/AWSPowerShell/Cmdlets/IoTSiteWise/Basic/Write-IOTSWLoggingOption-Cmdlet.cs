@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public Amazon.IoTSiteWise.LoggingLevel LoggingOptions_Level { get; set; }
         #endregion
         
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -114,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter LoggingOptions_Level which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestLoggingOptionsIsNull)
             {
                 request.LoggingOptions = null;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             CmdletOutput output;
@@ -205,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.IoTSiteWise.LoggingLevel LoggingOptions_Level { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.PutLoggingOptionsResponse, WriteIOTSWLoggingOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

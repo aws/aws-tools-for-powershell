@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Deletes the specified migration project.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:DeleteMigrationProject</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><note><para>
     /// The migration project must be closed before you can delete it.
     /// </para></note>
     /// </summary>

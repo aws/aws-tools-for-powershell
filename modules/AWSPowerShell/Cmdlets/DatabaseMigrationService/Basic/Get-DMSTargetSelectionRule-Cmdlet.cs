@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Converts source selection rules into their target counterparts for schema conversion
     /// operations.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:GetTargetSelectionRules</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "DMSTargetSelectionRule")]
     [OutputType("System.String")]
@@ -66,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SelectionRule
         /// <summary>
         /// <para>
-        /// <para>The JSON string representing the source selection rules for conversion. Selection
-        /// rules must contain only supported metadata model types. For more information, see
-        /// Selection Rules in the DMS User Guide.</para>
+        /// <para>A JSON string that contains the source selection rules to convert into their target
+        /// counterparts. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection
+        /// rules in DMS Schema Conversion</a>.</para><para>Usage:</para><ul><li><para>Accepts only source selection rules, where <c>server-name</c> in the object locator
+        /// matches the source data provider.</para></li><li><para>Supports only <c>explicit</c> rule actions.</para></li><li><para>Does not support <c>category-name</c> in the object locator.</para></li><li><para>Up to 10 rules are allowed.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

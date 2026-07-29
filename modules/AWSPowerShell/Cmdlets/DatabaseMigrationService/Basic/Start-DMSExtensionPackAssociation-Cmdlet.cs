@@ -30,9 +30,25 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Applies the extension pack to your target database. An extension pack is an add-on
-    /// module that emulates functions present in a source database that are required when
-    /// converting objects to the target database.
+    /// Queues the installation of the extension pack on your target database. If other requests
+    /// created by <c>Start*</c> operations are already in the migration project's queue,
+    /// the installation begins after they complete.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires a non-virtual target data provider.
+    /// </para><para>
+    /// If the extension pack already exists, the operation reinstalls it. To ensure compatibility,
+    /// reconvert your database objects if the version has changed since your last conversion.
+    /// For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/extension-pack.html">Using
+    /// extension packs in DMS Schema Conversion</a>.
+    /// </para><para>
+    /// To check the status of the request, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html">DescribeExtensionPackAssociations</a>
+    /// using the returned <c>RequestIdentifier</c> as a filter.
+    /// </para><para><b>Required permissions:</b><c>dms:AssociateExtensionPack</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "DMSExtensionPackAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

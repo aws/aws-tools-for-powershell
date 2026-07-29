@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns configuration parameters for a schema conversion project.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:DescribeConversionConfiguration</c>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "DMSConversionConfiguration")]
     [OutputType("Amazon.DatabaseMigrationService.Model.DescribeConversionConfigurationResponse")]

@@ -28,7 +28,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateDataSegmentsToDataset" OutputProperty="*" Verb="Add" Noun="DataSegmentsToDatasetBatch" ShouldProcessTarget="DatasetId,WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchAssociateProjectAssets" OutputProperty="Errors" Verb="Connect" Noun="AssociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteDatasetDataSegments" OutputProperty="*" Verb="Remove" Noun="DatasetDataSegmentBatch" ShouldProcessTarget="DatasetId,WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateDataSegmentsFromDataset" OutputProperty="*" Verb="Remove" Noun="DataSegmentsFromDatasetBatch" ShouldProcessTarget="DatasetId,WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,6 +64,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelEnrichmentJob" OutputProperty="*" Verb="Stop" Noun="EnrichmentJob" ShouldProcessTarget="JobId,WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelPipelineExecution" OutputProperty="State" Verb="Stop" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelQuery" OutputProperty="*" Verb="Stop" Noun="QueryExecution" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyPermission" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AccessPolicyIdentity_Group_Id" NewName="Group_Id" />
@@ -61,6 +85,10 @@
                 <Param Name="AccessPolicyResource_Portal_Id" NewName="Portal_Id" />
                 <Param Name="AccessPolicyResource_Project_Id" NewName="Project_Id" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name,WorkspaceName,IdcInstanceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" AnonymousShouldProcessTarget="true" PipelineParameter="AssetModelId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -100,6 +128,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatasetExportJob" OutputProperty="*" Verb="New" Noun="DatasetExportJob" ShouldProcessTarget="WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnrichmentJob" OutputProperty="*" Verb="New" Noun="EnrichmentJob" ShouldProcessTarget="WorkspaceName" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="GatewayPlatform_Greengrass_GroupArn" NewName="Greengrass_GroupArn" />
@@ -107,6 +143,10 @@
                 <Param Name="GatewayPlatform_GreengrassV2_CoreDeviceThingName" NewName="GreengrassV2_CoreDeviceThingName" />
                 <Param Name="GatewayPlatform_SiemensIE_IotCoreThingName" NewName="SiemensIE_IotCoreThingName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="*" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -117,7 +157,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTask" OutputProperty="*" Verb="New" Noun="Task" ShouldProcessTarget="TaskName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="WorkspaceName" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,6 +205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipeline" OutputProperty="Status" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePortal" OutputProperty="PortalStatus" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -161,7 +217,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTask" OutputProperty="Status" Verb="Remove" Noun="Task" ShouldProcessTarget="TaskName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTimeSeries" Verb="Remove" Noun="TimeSeries" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="WorkspaceStatus" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceName" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -170,6 +234,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAction" OutputProperty="*" Verb="Get" Noun="Action" PipelineParameter="ActionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -217,7 +285,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDatasetExportJob" OutputProperty="*" Verb="Get" Noun="DatasetExportJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnrichmentJob" OutputProperty="*" Verb="Get" Noun="EnrichmentJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -237,6 +313,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipeline" OutputProperty="*" Verb="Get" Noun="Pipeline" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipelineExecution" OutputProperty="*" Verb="Get" Noun="PipelineExecution" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribePortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -245,11 +329,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuery" OutputProperty="*" Verb="Get" Noun="QueryExecution" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSearch" OutputProperty="*" Verb="Get" Noun="Search" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeStorageConfiguration" OutputProperty="*" Verb="Get" Noun="StorageConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTimeSeries" OutputProperty="*" Verb="Get" Noun="TimeSeries" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspace" OutputProperty="*" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -281,7 +381,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCaptureData" OutputProperty="*" Verb="Get" Noun="CaptureData" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInterpolatedAssetPropertyValues" OutputProperty="InterpolatedAssetPropertyValues" Verb="Get" Noun="InterpolatedAssetPropertyValue" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryExecutionResult" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSearchResults" OutputProperty="SearchResults" Verb="Get" Noun="SearchResult" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -294,6 +406,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListActions" OutputProperty="ActionSummaries" Verb="Get" Noun="ActionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -356,7 +472,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetDataSegmentRelationships" OutputProperty="DataSegmentRelationshipSummaries" Verb="Get" Noun="DatasetDataSegmentRelationshipList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetDataSegments" OutputProperty="DataSegments" Verb="Get" Noun="DatasetDataSegmentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetExportJobs" OutputProperty="Jobs" Verb="Get" Noun="DatasetExportJobList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetSummaries" Verb="Get" Noun="DatasetList" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnrichmentJobs" OutputProperty="Jobs" Verb="Get" Noun="EnrichmentJobList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -372,6 +504,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="PipelineSummaries" Verb="Get" Noun="PipelineList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPortals" OutputProperty="PortalSummaries" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -384,11 +524,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListQueries" OutputProperty="Queries" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSearches" OutputProperty="SearchSummaries" Verb="Get" Noun="SearchList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="TaskList" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTimeSeries" OutputProperty="TimeSeriesSummaries" Verb="Get" Noun="TimeSeriesList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="WorkspaceSummaries" Verb="Get" Noun="WorkspaceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -409,6 +565,18 @@
                 <Param Name="MultiLayerStorage_CustomerManagedS3Storage_RoleArn" NewName="CustomerManagedS3Storage_RoleArn" />
                 <Param Name="MultiLayerStorage_CustomerManagedS3Storage_S3ResourceArn" NewName="CustomerManagedS3Storage_S3ResourceArn" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPipelineExecution" OutputProperty="PipelineExecutionId" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="PipelineName,WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartQuery" OutputProperty="*" Verb="Start" Noun="QueryExecution" ShouldProcessTarget="WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSearch" OutputProperty="*" Verb="Start" Noun="Search" ShouldProcessTarget="WorkspaceName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -472,6 +640,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="*" Verb="Update" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePortal" OutputProperty="PortalStatus" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="PortalLogoImage_File_Data" NewName="File_Data" />
@@ -480,6 +652,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTask" OutputProperty="*" Verb="Update" Noun="Task" ShouldProcessTarget="TaskName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspace" OutputProperty="WorkspaceStatus" Verb="Update" Noun="Workspace" ShouldProcessTarget="WorkspaceName" PipelineParameter="WorkspaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

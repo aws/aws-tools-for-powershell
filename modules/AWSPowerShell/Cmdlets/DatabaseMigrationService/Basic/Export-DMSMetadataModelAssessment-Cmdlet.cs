@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS
-    /// can save your assessment report as a comma-separated value (CSV) or a PDF file.
+    /// can save your assessment report as a comma-separated value (CSV) or a PDF file. 
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:ExportMetadataModelAssessment</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Export", "DMSMetadataModelAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse")]
@@ -90,7 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SelectionRule
         /// <summary>
         /// <para>
-        /// <para>A value that specifies the database objects to assess.</para>
+        /// <para>A JSON string that identifies the metadata models to export a conversion assessment
+        /// report for. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection
+        /// rules in DMS Schema Conversion</a>.</para><para>Usage:</para><ul><li><para>Accepts only source selection rules, where <c>server-name</c> in the object locator
+        /// matches the source data provider.</para></li><li><para>Supports only <c>explicit</c> rule actions.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

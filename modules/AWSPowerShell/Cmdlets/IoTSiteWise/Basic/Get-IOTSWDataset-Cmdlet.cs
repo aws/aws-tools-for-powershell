@@ -61,6 +61,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String DatasetId { get; set; }
         #endregion
         
+        #region Parameter DatasetVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetVersion { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace that contains the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -98,6 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter DatasetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DatasetVersion = this.DatasetVersion;
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.DatasetId != null)
             {
                 request.DatasetId = cmdletContext.DatasetId;
+            }
+            if (cmdletContext.DatasetVersion != null)
+            {
+                request.DatasetVersion = cmdletContext.DatasetVersion;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             CmdletOutput output;
@@ -174,6 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DatasetId { get; set; }
+            public System.String DatasetVersion { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DescribeDatasetResponse, GetIOTSWDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

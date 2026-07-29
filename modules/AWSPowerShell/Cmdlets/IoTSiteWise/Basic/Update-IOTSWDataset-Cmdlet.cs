@@ -99,6 +99,42 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String Kendra_KnowledgeBaseArn { get; set; }
         #endregion
         
+        #region Parameter Metadata
+        /// <summary>
+        /// <para>
+        /// <para>The updated metadata for the dataset.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
+        
+        #region Parameter DatasetConfig_Session_SessionEndTimestamp_OffsetInNano
+        /// <summary>
+        /// <para>
+        /// <para>The nanosecond offset from <c>timeInSeconds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatasetConfig_Session_SessionEndTimestamp_OffsetInNanos")]
+        public System.Int32? DatasetConfig_Session_SessionEndTimestamp_OffsetInNano { get; set; }
+        #endregion
+        
+        #region Parameter DatasetConfig_Session_SessionStartTimestamp_OffsetInNano
+        /// <summary>
+        /// <para>
+        /// <para>The nanosecond offset from <c>timeInSeconds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatasetConfig_Session_SessionStartTimestamp_OffsetInNanos")]
+        public System.Int32? DatasetConfig_Session_SessionStartTimestamp_OffsetInNano { get; set; }
+        #endregion
+        
         #region Parameter Kendra_RoleArn
         /// <summary>
         /// <para>
@@ -142,6 +178,40 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.IoTSiteWise.DatasetSourceType")]
         public Amazon.IoTSiteWise.DatasetSourceType DatasetSource_SourceType { get; set; }
+        #endregion
+        
+        #region Parameter DatasetConfig_Session_SessionEndTimestamp_TimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp date, in seconds, in the Unix epoch format. Fractional nanosecond data
+        /// is provided by <c>offsetInNanos</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatasetConfig_Session_SessionEndTimestamp_TimeInSeconds")]
+        public System.Int64? DatasetConfig_Session_SessionEndTimestamp_TimeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter DatasetConfig_Session_SessionStartTimestamp_TimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp date, in seconds, in the Unix epoch format. Fractional nanosecond data
+        /// is provided by <c>offsetInNanos</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatasetConfig_Session_SessionStartTimestamp_TimeInSeconds")]
+        public System.Int64? DatasetConfig_Session_SessionStartTimestamp_TimeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace that contains the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -202,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.DatasetConfig_Session_SessionEndTimestamp_OffsetInNano = this.DatasetConfig_Session_SessionEndTimestamp_OffsetInNano;
+            context.DatasetConfig_Session_SessionEndTimestamp_TimeInSecond = this.DatasetConfig_Session_SessionEndTimestamp_TimeInSecond;
+            context.DatasetConfig_Session_SessionStartTimestamp_OffsetInNano = this.DatasetConfig_Session_SessionStartTimestamp_OffsetInNano;
+            context.DatasetConfig_Session_SessionStartTimestamp_TimeInSecond = this.DatasetConfig_Session_SessionStartTimestamp_TimeInSecond;
             context.DatasetDescription = this.DatasetDescription;
             context.DatasetId = this.DatasetId;
             #if MODULAR
@@ -233,6 +307,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter DatasetSource_SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Metadata != null)
+            {
+                context.Metadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata.Keys)
+                {
+                    context.Metadata.Add((String)hashKey, (System.String)(this.Metadata[hashKey]));
+                }
+            }
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -252,6 +335,100 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate DatasetConfig
+            var requestDatasetConfigIsNull = true;
+            request.DatasetConfig = new Amazon.IoTSiteWise.Model.DatasetConfig();
+            Amazon.IoTSiteWise.Model.SessionConfig requestDatasetConfig_datasetConfig_Session = null;
+            
+             // populate Session
+            var requestDatasetConfig_datasetConfig_SessionIsNull = true;
+            requestDatasetConfig_datasetConfig_Session = new Amazon.IoTSiteWise.Model.SessionConfig();
+            Amazon.IoTSiteWise.Model.TimeInNanos requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp = null;
+            
+             // populate SessionEndTimestamp
+            var requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestampIsNull = true;
+            requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp = new Amazon.IoTSiteWise.Model.TimeInNanos();
+            System.Int32? requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_OffsetInNano = null;
+            if (cmdletContext.DatasetConfig_Session_SessionEndTimestamp_OffsetInNano != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_OffsetInNano = cmdletContext.DatasetConfig_Session_SessionEndTimestamp_OffsetInNano.Value;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_OffsetInNano != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp.OffsetInNanos = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_OffsetInNano.Value;
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestampIsNull = false;
+            }
+            System.Int64? requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_TimeInSecond = null;
+            if (cmdletContext.DatasetConfig_Session_SessionEndTimestamp_TimeInSecond != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_TimeInSecond = cmdletContext.DatasetConfig_Session_SessionEndTimestamp_TimeInSecond.Value;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_TimeInSecond != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp.TimeInSeconds = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp_datasetConfig_Session_SessionEndTimestamp_TimeInSecond.Value;
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestampIsNull = false;
+            }
+             // determine if requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp should be set to null
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestampIsNull)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp = null;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp != null)
+            {
+                requestDatasetConfig_datasetConfig_Session.SessionEndTimestamp = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionEndTimestamp;
+                requestDatasetConfig_datasetConfig_SessionIsNull = false;
+            }
+            Amazon.IoTSiteWise.Model.TimeInNanos requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp = null;
+            
+             // populate SessionStartTimestamp
+            var requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestampIsNull = true;
+            requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp = new Amazon.IoTSiteWise.Model.TimeInNanos();
+            System.Int32? requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_OffsetInNano = null;
+            if (cmdletContext.DatasetConfig_Session_SessionStartTimestamp_OffsetInNano != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_OffsetInNano = cmdletContext.DatasetConfig_Session_SessionStartTimestamp_OffsetInNano.Value;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_OffsetInNano != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp.OffsetInNanos = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_OffsetInNano.Value;
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestampIsNull = false;
+            }
+            System.Int64? requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_TimeInSecond = null;
+            if (cmdletContext.DatasetConfig_Session_SessionStartTimestamp_TimeInSecond != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_TimeInSecond = cmdletContext.DatasetConfig_Session_SessionStartTimestamp_TimeInSecond.Value;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_TimeInSecond != null)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp.TimeInSeconds = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp_datasetConfig_Session_SessionStartTimestamp_TimeInSecond.Value;
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestampIsNull = false;
+            }
+             // determine if requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp should be set to null
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestampIsNull)
+            {
+                requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp = null;
+            }
+            if (requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp != null)
+            {
+                requestDatasetConfig_datasetConfig_Session.SessionStartTimestamp = requestDatasetConfig_datasetConfig_Session_datasetConfig_Session_SessionStartTimestamp;
+                requestDatasetConfig_datasetConfig_SessionIsNull = false;
+            }
+             // determine if requestDatasetConfig_datasetConfig_Session should be set to null
+            if (requestDatasetConfig_datasetConfig_SessionIsNull)
+            {
+                requestDatasetConfig_datasetConfig_Session = null;
+            }
+            if (requestDatasetConfig_datasetConfig_Session != null)
+            {
+                request.DatasetConfig.Session = requestDatasetConfig_datasetConfig_Session;
+                requestDatasetConfigIsNull = false;
+            }
+             // determine if request.DatasetConfig should be set to null
+            if (requestDatasetConfigIsNull)
+            {
+                request.DatasetConfig = null;
             }
             if (cmdletContext.DatasetDescription != null)
             {
@@ -344,6 +521,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 request.DatasetSource = null;
             }
+            if (cmdletContext.Metadata != null)
+            {
+                request.Metadata = cmdletContext.Metadata;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
+            }
             
             CmdletOutput output;
             
@@ -400,6 +585,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Int32? DatasetConfig_Session_SessionEndTimestamp_OffsetInNano { get; set; }
+            public System.Int64? DatasetConfig_Session_SessionEndTimestamp_TimeInSecond { get; set; }
+            public System.Int32? DatasetConfig_Session_SessionStartTimestamp_OffsetInNano { get; set; }
+            public System.Int64? DatasetConfig_Session_SessionStartTimestamp_TimeInSecond { get; set; }
             public System.String DatasetDescription { get; set; }
             public System.String DatasetId { get; set; }
             public System.String DatasetName { get; set; }
@@ -407,6 +596,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String Kendra_RoleArn { get; set; }
             public Amazon.IoTSiteWise.DatasetSourceFormat DatasetSource_SourceFormat { get; set; }
             public Amazon.IoTSiteWise.DatasetSourceType DatasetSource_SourceType { get; set; }
+            public Dictionary<System.String, System.String> Metadata { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.UpdateDatasetResponse, UpdateIOTSWDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

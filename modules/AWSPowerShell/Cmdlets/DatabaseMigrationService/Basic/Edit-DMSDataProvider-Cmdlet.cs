@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Modifies the specified data provider using the provided settings.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:UpdateDataProvider</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><note><para>
     /// You must remove the data provider from all migration projects before you can modify
     /// it.
     /// </para></note>
@@ -379,11 +383,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The type of database engine for the data provider. Valid values include <c>"aurora"</c>,
-        /// <c>"aurora-postgresql"</c>, <c>"mysql"</c>, <c>"oracle"</c>, <c>"postgres"</c>, <c>"sqlserver"</c>,
-        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, <c>db2</c>, <c>db2-zos</c>, <c>docdb</c>,
-        /// and <c>sybase</c>. A value of <c>"aurora"</c> represents Amazon Aurora MySQL-Compatible
-        /// Edition.</para>
+        /// <para>The type of database engine for the data provider.</para><para>Valid values: <c>aurora</c>, <c>aurora-postgresql</c>, <c>db2</c>, <c>db2-zos</c>,
+        /// <c>docdb</c>, <c>mariadb</c>, <c>mongodb</c>, <c>mysql</c>, <c>oracle</c>, <c>postgres</c>,
+        /// <c>redshift</c>, <c>sqlserver</c>, and <c>sybase</c>. A value of <c>aurora</c> represents
+        /// Amazon Aurora MySQL-Compatible Edition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

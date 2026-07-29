@@ -30,7 +30,11 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes a dataset. This cannot be undone.
+    /// Deletes a dataset. This can't be undone. Deleting a session dataset also deletes the
+    /// underlying time series data in the session. You can't delete a session dataset while
+    /// a curated dataset references its data segments. First delete the curated dataset or
+    /// disassociate the data segments. Deleting a curated dataset doesn't delete the underlying
+    /// data in the source session datasets.
     /// </summary>
     [Cmdlet("Remove", "IOTSWDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTSiteWise.Model.DatasetStatus")]
@@ -60,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatasetId { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace that contains the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -127,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter DatasetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.DatasetId != null)
             {
                 request.DatasetId = cmdletContext.DatasetId;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             CmdletOutput output;
@@ -208,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public System.String ClientToken { get; set; }
             public System.String DatasetId { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DeleteDatasetResponse, RemoveIOTSWDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetStatus;
         }

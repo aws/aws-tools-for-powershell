@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// <summary>
     /// Deletes a time series (data stream). If you delete a time series that's associated
     /// with an asset property, the asset property still exists, but the time series will
-    /// no longer be associated with this asset property.
+    /// no longer be associated with this asset property. You can't delete a time series until
+    /// all of its data segments have been deleted from session datasets.
     /// 
     ///  
     /// <para>
@@ -98,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String PropertyId { get; set; }
         #endregion
         
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -158,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             context.AssetId = this.AssetId;
             context.ClientToken = this.ClientToken;
             context.PropertyId = this.PropertyId;
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.PropertyId != null)
             {
                 request.PropertyId = cmdletContext.PropertyId;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             CmdletOutput output;
@@ -249,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String AssetId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String PropertyId { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DeleteTimeSeriesResponse, RemoveIOTSWTimeSeriesCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

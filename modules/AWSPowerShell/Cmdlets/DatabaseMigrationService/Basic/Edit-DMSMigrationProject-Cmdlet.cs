@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Modifies the specified migration project using the provided parameters.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:UpdateMigrationProject</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><note><para>
     /// The migration project must be closed before you can modify it.
     /// </para></note>
     /// </summary>
@@ -154,10 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TransformationRule
         /// <summary>
         /// <para>
-        /// <para>The settings in JSON format for migration rules. Migration rules make it possible
-        /// for you to change the object names according to the rules that you specify. For example,
-        /// you can change an object name to lowercase or uppercase, add or remove a prefix or
-        /// suffix, or rename objects.</para>
+        /// <para>A JSON string that specifies the transformation rules for the migration project. Transformation
+        /// rules let you customize how DMS Schema Conversion converts your source database objects,
+        /// including renaming, adding prefixes or suffixes, and changing data types. For the
+        /// transformation rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-transformation-rules.html">Transformation
+        /// rules in DMS Schema Conversion</a>.</para><note><para>Homogeneous data migrations do not support transformation rules.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

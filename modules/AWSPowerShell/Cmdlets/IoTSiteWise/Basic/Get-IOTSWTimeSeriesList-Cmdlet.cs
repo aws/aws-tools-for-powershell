@@ -79,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public Amazon.IoTSiteWise.ListTimeSeriesType TimeSeriesType { get; set; }
         #endregion
         
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.TimeSeriesType = this.TimeSeriesType;
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.TimeSeriesType != null)
             {
                 request.TimeSeriesType = cmdletContext.TimeSeriesType;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             // Initialize loop variant and commence piping
@@ -267,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.IoTSiteWise.ListTimeSeriesType TimeSeriesType { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListTimeSeriesResponse, GetIOTSWTimeSeriesListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TimeSeriesSummaries;
         }

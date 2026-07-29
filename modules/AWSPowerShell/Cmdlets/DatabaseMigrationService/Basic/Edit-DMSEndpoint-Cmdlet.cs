@@ -1449,8 +1449,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DocDbSettings_ExtractDocId
         /// <summary>
         /// <para>
-        /// <para> Specifies the document ID. Use this setting when <c>NestingLevel</c> is set to <c>"none"</c>.
-        /// </para><para>Default value is <c>"false"</c>. </para>
+        /// <para>Specifies whether the document ID is added to the target table. Use this setting when
+        /// <c>NestingLevel</c> is set to <c>"none"</c>. </para><para>Set <c>ExtractDocId</c> to <c>true</c> when using <a href="https://www.mongodb.com/docs/manual/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction">multi-document
+        /// transactions</a> with CDC. </para><para>Default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1460,8 +1461,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_ExtractDocId
         /// <summary>
         /// <para>
-        /// <para> Specifies the document ID. Use this setting when <c>NestingLevel</c> is set to <c>"none"</c>.
-        /// </para><para>Default value is <c>"false"</c>. </para>
+        /// <para>Specifies whether the document ID is added to the target table. Use this setting when
+        /// <c>NestingLevel</c> is set to <c>"none"</c>. </para><para>Set <c>ExtractDocId</c> to <c>"true"</c> when using <a href="https://www.mongodb.com/docs/manual/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction">multi-document
+        /// transactions</a> with CDC. </para><para>Default value is <c>"false"</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3059,9 +3061,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>For an Oracle source endpoint, the transparent data encryption (TDE) password required
-        /// by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is
-        /// also the <c><i>TDE_Password</i></c> part of the comma-separated value you set to
-        /// the <c>Password</c> request parameter when you create the endpoint. The <c>SecurityDbEncryptian</c>
+        /// by DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is also
+        /// the <c><i>TDE_Password</i></c> part of the comma-separated value you set to the
+        /// <c>Password</c> request parameter when you create the endpoint. The <c>SecurityDbEncryption</c>
         /// setting is related to this <c>SecurityDbEncryptionName</c> setting. For more information,
         /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
         /// Supported encryption methods for using Oracle as a source for DMS </a> in the <i>Database

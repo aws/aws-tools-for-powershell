@@ -30,7 +30,44 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Converts your source database objects to a format compatible with the target database.
+    /// Queues a conversion of the selected source metadata models (database objects such
+    /// as tables, views, and procedures) to the target database format. If other requests
+    /// created by <c>Start*</c> operations are already in the migration project's queue,
+    /// the conversion begins after they complete.
+    /// 
+    ///  
+    /// <para>
+    /// The conversion request loads metadata models that are not yet in the metadata tree,
+    /// but does not reload metadata models that are already present. If your source database
+    /// has changed since the metadata was loaded, refresh the affected metadata models with
+    /// <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a>
+    /// before calling this operation.
+    /// </para><note><para>
+    /// If converted objects already exist in the target metadata tree, the conversion overwrites
+    /// them, including any manual edits.
+    /// </para></note><para>
+    /// To check the status of the conversion request, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelConversions.html">DescribeMetadataModelConversions</a>
+    /// using the returned <c>RequestIdentifier</c> as a filter.
+    /// </para><para>
+    /// To cancel a queued or in-progress request, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelConversion.html">CancelMetadataModelConversion</a>
+    /// with the returned <c>RequestIdentifier</c>.
+    /// </para><para>
+    /// After the conversion completes successfully:
+    /// </para><ul><li><para>
+    /// To export a post-conversion assessment report, call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">ExportMetadataModelAssessment</a>.
+    /// </para></li><li><para>
+    /// To retrieve converted code, use any of the following options:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModel.html">DescribeMetadataModel</a>
+    /// and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelChildren.html">DescribeMetadataModelChildren</a>
+    /// – navigate the target metadata tree and retrieve converted definitions.
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html">StartMetadataModelExportAsScript</a>
+    /// – export as data definition language (DDL) scripts to your Amazon S3 bucket.
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportToTarget.html">StartMetadataModelExportToTarget</a>
+    /// – apply directly to your target database.
+    /// </para></li></ul></li></ul><para><b>Required permissions:</b><c>dms:StartMetadataModelConversion</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "DMSMetadataModelConversion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,7 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SelectionRule
         /// <summary>
         /// <para>
-        /// <para>A value that specifies the database objects to convert.</para>
+        /// <para>A JSON string that identifies the metadata models to convert. For the selection rule
+        /// format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection
+        /// rules in DMS Schema Conversion</a>.</para><para>Usage:</para><ul><li><para>Accepts only source selection rules, where <c>server-name</c> in the object locator
+        /// matches the source data provider.</para></li><li><para>Supports <c>explicit</c>, <c>include</c>, and <c>exclude</c> rule actions.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

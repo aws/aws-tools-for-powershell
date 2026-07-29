@@ -14847,8 +14847,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15991,9 +15991,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29422,11 +29422,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "New-DDBTableSchema",
-               "New-DDBTable",
-               "ConvertTo-DDBItem",
                "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem")
+               "ConvertTo-DDBItem",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31516,6 +31516,7 @@ $EC2_SelectMap = @{
                "New-EC2TransitGatewayMulticastDomain",
                "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayPolicyTable",
+               "New-EC2TransitGatewayPolicyTableEntry",
                "New-EC2TransitGatewayPrefixListReference",
                "New-EC2TransitGatewayRoute",
                "New-EC2TransitGatewayRouteTable",
@@ -31609,6 +31610,7 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGatewayMulticastDomain",
                "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayPolicyTable",
+               "Remove-EC2TransitGatewayPolicyTableEntry",
                "Remove-EC2TransitGatewayPrefixListReference",
                "Remove-EC2TransitGatewayRoute",
                "Remove-EC2TransitGatewayRouteTable",
@@ -32030,6 +32032,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
                "Edit-EC2TransitGatewayMeteringPolicy",
+               "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
                "Edit-EC2VerifiedAccessEndpoint",
@@ -32137,8 +32140,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -38749,9 +38752,19 @@ $GMLS_Completers = {
         }
 
         # Amazon.GameLiftStreams.Protocol
-        "Start-GMLSStreamSession/Protocol"
+        {
+            ($_ -eq "New-GMLSStreamUrl/Protocol") -Or
+            ($_ -eq "Start-GMLSStreamSession/Protocol")
+        }
         {
             $v = "WebRTC"
+            break
+        }
+
+        # Amazon.GameLiftStreams.RevocationMode
+        "Revoke-GMLSStreamUrl/RevocationMode"
+        {
+            $v = "REVOKE_AND_TERMINATE_SESSIONS","REVOKE_URL"
             break
         }
 
@@ -38779,6 +38792,13 @@ $GMLS_Completers = {
             break
         }
 
+        # Amazon.GameLiftStreams.StreamUrlStatus
+        "Get-GMLSStreamUrlList/Status"
+        {
+            $v = "ACTIVE","EXPIRED","LIMIT_REACHED","REVOKED"
+            break
+        }
+
 
     }
 
@@ -38789,9 +38809,10 @@ $GMLS_Completers = {
 
 $GMLS_map = @{
     "ExportFilesStatus"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
-    "Protocol"=@("Start-GMLSStreamSession")
+    "Protocol"=@("New-GMLSStreamUrl","Start-GMLSStreamSession")
+    "RevocationMode"=@("Revoke-GMLSStreamUrl")
     "RuntimeEnvironment_Type"=@("New-GMLSApplication")
-    "Status"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
+    "Status"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount","Get-GMLSStreamUrlList")
     "StreamClass"=@("New-GMLSStreamGroup")
 }
 
@@ -38851,6 +38872,7 @@ $GMLS_SelectMap = @{
                "New-GMLSStreamGroup",
                "New-GMLSStreamSessionAdminShell",
                "New-GMLSStreamSessionConnection",
+               "New-GMLSStreamUrl",
                "Remove-GMLSApplication",
                "Remove-GMLSStreamGroup",
                "Disconnect-GMLSApplication",
@@ -38858,12 +38880,16 @@ $GMLS_SelectMap = @{
                "Get-GMLSApplication",
                "Get-GMLSStreamGroup",
                "Get-GMLSStreamSession",
+               "Get-GMLSStreamUrl",
                "Get-GMLSApplicationList",
+               "Get-GMLSApplicationShaderCacheList",
                "Get-GMLSStreamGroupList",
                "Get-GMLSStreamSessionList",
                "Get-GMLSStreamSessionListByAccount",
+               "Get-GMLSStreamUrlList",
                "Get-GMLSResourceTag",
                "Remove-GMLSStreamGroupLocation",
+               "Revoke-GMLSStreamUrl",
                "Start-GMLSStreamSession",
                "Add-GMLSResourceTag",
                "Stop-GMLSStreamSession",
@@ -39951,6 +39977,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.FilterMode
+        {
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode") -Or
+            ($_ -eq "Register-GLUEConnectionType/RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode")
+        }
+        {
+            $v = "FILTER_STRING","QUERY_PARAMS"
+            break
+        }
+
         # Amazon.Glue.FunctionType
         "Get-GLUEUserDefinedFunctionList/FunctionType"
         {
@@ -40414,11 +40450,13 @@ $GLUE_map = @{
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "ResourceType"=@("Get-GLUEDashboardUrl")
+    "RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_RequestMethod"=@("Register-GLUEConnectionType")
+    "RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_NextPage_PropertyLocation"=@("Register-GLUEConnectionType")
     "RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
@@ -46017,13 +46055,20 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.DatasetExportJobFilter
+        "Get-IOTSWDatasetExportJobList/Filter"
+        {
+            $v = "ALL","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","RUNNING","SUBMITTED"
+            break
+        }
+
         # Amazon.IoTSiteWise.DatasetSourceFormat
         {
             ($_ -eq "New-IOTSWDataset/DatasetSource_SourceFormat") -Or
             ($_ -eq "Update-IOTSWDataset/DatasetSource_SourceFormat")
         }
         {
-            $v = "KNOWLEDGE_BASE"
+            $v = "KNOWLEDGE_BASE","TIMESERIES"
             break
         }
 
@@ -46034,7 +46079,17 @@ $IOTSW_Completers = {
             ($_ -eq "Get-IOTSWDatasetList/SourceType")
         }
         {
-            $v = "KENDRA"
+            $v = "KENDRA","SITEWISE"
+            break
+        }
+
+        # Amazon.IoTSiteWise.DatasetTypeEnum
+        {
+            ($_ -eq "Get-IOTSWDatasetList/DatasetType") -Or
+            ($_ -eq "New-IOTSWDataset/DatasetType")
+        }
+        {
+            $v = "CURATED","EXTERNAL","SESSION"
             break
         }
 
@@ -46046,9 +46101,20 @@ $IOTSW_Completers = {
         }
 
         # Amazon.IoTSiteWise.EncryptionType
-        "Write-IOTSWDefaultEncryptionConfiguration/EncryptionType"
+        {
+            ($_ -eq "New-IOTSWWorkspace/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "Update-IOTSWWorkspace/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "Write-IOTSWDefaultEncryptionConfiguration/EncryptionType")
+        }
         {
             $v = "KMS_BASED_ENCRYPTION","SITEWISE_DEFAULT_ENCRYPTION"
+            break
+        }
+
+        # Amazon.IoTSiteWise.EnrichmentJobStatus
+        "Get-IOTSWEnrichmentJobList/Status"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","PENDING","RUNNING","TIMED_OUT"
             break
         }
 
@@ -46066,6 +46132,13 @@ $IOTSW_Completers = {
         }
         {
             $v = "PNG"
+            break
+        }
+
+        # Amazon.IoTSiteWise.JobType
+        "Get-IOTSWEnrichmentJobList/JobType"
+        {
+            $v = "EVENT_DETECTION"
             break
         }
 
@@ -46121,6 +46194,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.PipelineExecutionState
+        "Get-IOTSWPipelineExecutionList/State"
+        {
+            $v = "CANCELLED","CANCELLING","FAILED","NOT_STARTED","RUNNING","SUCCEEDED"
+            break
+        }
+
         # Amazon.IoTSiteWise.PortalType
         {
             ($_ -eq "New-IOTSWPortal/PortalType") -Or
@@ -46128,6 +46208,26 @@ $IOTSW_Completers = {
         }
         {
             $v = "SITEWISE_PORTAL_V1","SITEWISE_PORTAL_V2"
+            break
+        }
+
+        # Amazon.IoTSiteWise.ProcessingType
+        {
+            ($_ -eq "New-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_ProcessingType") -Or
+            ($_ -eq "Update-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_ProcessingType")
+        }
+        {
+            $v = "GENERIC_COMPUTE_PROCESSING","HARDWARE_ACCELERATED_PROCESSING"
+            break
+        }
+
+        # Amazon.IoTSiteWise.ProcessingUnit
+        {
+            ($_ -eq "New-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit") -Or
+            ($_ -eq "Update-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit")
+        }
+        {
+            $v = "UNITS_12","UNITS_16","UNITS_2","UNITS_24","UNITS_32","UNITS_36","UNITS_4","UNITS_48","UNITS_60","UNITS_64","UNITS_72","UNITS_8","UNITS_84","UNITS_96"
             break
         }
 
@@ -46160,6 +46260,13 @@ $IOTSW_Completers = {
         "Get-IOTSWAccessPolicyList/ResourceType"
         {
             $v = "PORTAL","PROJECT"
+            break
+        }
+
+        # Amazon.IoTSiteWise.SearchType
+        "Start-IOTSWSearch/SearchType"
+        {
+            $v = "DEEP","QUICK"
             break
         }
 
@@ -46225,12 +46332,15 @@ $IOTSW_map = @{
     "ComputationModelType"=@("Get-IOTSWComputationModelList")
     "DatasetSource_SourceFormat"=@("New-IOTSWDataset","Update-IOTSWDataset")
     "DatasetSource_SourceType"=@("New-IOTSWDataset","Update-IOTSWDataset")
+    "DatasetType"=@("Get-IOTSWDatasetList","New-IOTSWDataset")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
+    "EncryptionConfiguration_EncryptionType"=@("New-IOTSWWorkspace","Update-IOTSWWorkspace")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "File_Type"=@("Update-IOTSWPortal")
-    "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
+    "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList","Get-IOTSWDatasetExportJobList")
     "GreengrassV2_CoreDeviceOperatingSystem"=@("New-IOTSWGateway")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
+    "JobType"=@("Get-IOTSWEnrichmentJobList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")
     "PortalAuthMode"=@("New-IOTSWPortal")
@@ -46240,9 +46350,14 @@ $IOTSW_map = @{
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResolveToResourceType"=@("Get-IOTSWActionList","Get-IOTSWComputationModelExecutionSummary","Get-IOTSWExecutionList")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
+    "SearchType"=@("Start-IOTSWSearch")
     "SourceType"=@("Get-IOTSWDatasetList")
+    "State"=@("Get-IOTSWPipelineExecutionList")
+    "Status"=@("Get-IOTSWEnrichmentJobList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TargetResourceType"=@("Get-IOTSWActionList","Get-IOTSWExecutionList")
+    "TaskConfiguration_ContainerTaskConfiguration_ProcessingType"=@("New-IOTSWTask","Update-IOTSWTask")
+    "TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit"=@("New-IOTSWTask","Update-IOTSWTask")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
     "TimeSeriesType"=@("Get-IOTSWTimeSeriesList")
     "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
@@ -46302,13 +46417,20 @@ $IOTSW_SelectCompleters = {
 $IOTSW_SelectMap = @{
     "Select"=@("Connect-IOTSWAsset",
                "Add-IOTSWTimeSeriesToAssetProperty",
+               "Add-IOTSWDataSegmentsToDatasetBatch",
                "Connect-IOTSWAssociateProjectAsset",
+               "Remove-IOTSWDatasetDataSegmentBatch",
+               "Remove-IOTSWDataSegmentsFromDatasetBatch",
                "Disconnect-IOTSWDisassociateProjectAsset",
                "Get-IOTSWBatchAssetPropertyAggregate",
                "Get-IOTSWBatchAssetPropertyValue",
                "Get-IOTSWBatchAssetPropertyValueHistory",
                "Import-IOTSWPutAssetPropertyValue",
+               "Stop-IOTSWEnrichmentJob",
+               "Stop-IOTSWPipelineExecution",
+               "Stop-IOTSWQueryExecution",
                "New-IOTSWAccessPolicy",
+               "New-IOTSWApplication",
                "New-IOTSWAsset",
                "New-IOTSWAssetModel",
                "New-IOTSWAssetModelCompositeModel",
@@ -46316,10 +46438,16 @@ $IOTSW_SelectMap = @{
                "New-IOTSWComputationModel",
                "New-IOTSWDashboard",
                "New-IOTSWDataset",
+               "New-IOTSWDatasetExportJob",
+               "New-IOTSWEnrichmentJob",
                "New-IOTSWGateway",
+               "New-IOTSWPipeline",
                "New-IOTSWPortal",
                "New-IOTSWProject",
+               "New-IOTSWTask",
+               "New-IOTSWWorkspace",
                "Remove-IOTSWAccessPolicy",
+               "Remove-IOTSWApplication",
                "Remove-IOTSWAsset",
                "Remove-IOTSWAssetModel",
                "Remove-IOTSWAssetModelCompositeModel",
@@ -46328,11 +46456,15 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWDashboard",
                "Remove-IOTSWDataset",
                "Remove-IOTSWGateway",
+               "Remove-IOTSWPipeline",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
+               "Remove-IOTSWTask",
                "Remove-IOTSWTimeSeries",
+               "Remove-IOTSWWorkspace",
                "Get-IOTSWAccessPolicy",
                "Get-IOTSWAction",
+               "Get-IOTSWApplication",
                "Get-IOTSWAsset",
                "Get-IOTSWAssetCompositeModel",
                "Get-IOTSWAssetModel",
@@ -46344,15 +46476,23 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWComputationModelExecutionSummary",
                "Get-IOTSWDashboard",
                "Get-IOTSWDataset",
+               "Get-IOTSWDatasetExportJob",
                "Get-IOTSWDefaultEncryptionConfiguration",
+               "Get-IOTSWEnrichmentJob",
                "Get-IOTSWExecution",
                "Get-IOTSWGateway",
                "Get-IOTSWGatewayCapabilityConfiguration",
                "Get-IOTSWLoggingOption",
+               "Get-IOTSWPipeline",
+               "Get-IOTSWPipelineExecution",
                "Get-IOTSWPortal",
                "Get-IOTSWProject",
+               "Get-IOTSWQueryExecution",
+               "Get-IOTSWSearch",
                "Get-IOTSWStorageConfiguration",
+               "Get-IOTSWTask",
                "Get-IOTSWTimeSeries",
+               "Get-IOTSWWorkspace",
                "Disconnect-IOTSWAsset",
                "Remove-IOTSWTimeSeriesFromAssetProperty",
                "Start-IOTSWAction",
@@ -46360,10 +46500,14 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyAggregate",
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
+               "Get-IOTSWCaptureData",
                "Get-IOTSWInterpolatedAssetPropertyValue",
+               "Get-IOTSWQueryExecutionResult",
+               "Get-IOTSWSearchResult",
                "Invoke-IOTSWAssistant",
                "Get-IOTSWAccessPolicyList",
                "Get-IOTSWActionList",
+               "Get-IOTSWApplicationList",
                "Get-IOTSWAssetModelCompositeModelList",
                "Get-IOTSWAssetModelPropertyList",
                "Get-IOTSWAssetModelList",
@@ -46377,19 +46521,32 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWComputationModelResolveToResourceList",
                "Get-IOTSWComputationModelList",
                "Get-IOTSWDashboardList",
+               "Get-IOTSWDatasetDataSegmentRelationshipList",
+               "Get-IOTSWDatasetDataSegmentList",
+               "Get-IOTSWDatasetExportJobList",
                "Get-IOTSWDatasetList",
+               "Get-IOTSWEnrichmentJobList",
                "Get-IOTSWExecutionList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWInterfaceRelationshipList",
+               "Get-IOTSWPipelineExecutionList",
+               "Get-IOTSWPipelineList",
                "Get-IOTSWPortalList",
                "Get-IOTSWProjectAssetList",
                "Get-IOTSWProjectList",
+               "Get-IOTSWQueryExecutionList",
+               "Get-IOTSWSearchList",
                "Get-IOTSWResourceTag",
+               "Get-IOTSWTaskList",
                "Get-IOTSWTimeSeriesList",
+               "Get-IOTSWWorkspaceList",
                "Write-IOTSWAssetModelInterfaceRelationship",
                "Write-IOTSWDefaultEncryptionConfiguration",
                "Write-IOTSWLoggingOption",
                "Write-IOTSWStorageConfiguration",
+               "Start-IOTSWPipelineExecution",
+               "Start-IOTSWQueryExecution",
+               "Start-IOTSWSearch",
                "Add-IOTSWResourceTag",
                "Remove-IOTSWResourceTag",
                "Update-IOTSWAccessPolicy",
@@ -46402,8 +46559,11 @@ $IOTSW_SelectMap = @{
                "Update-IOTSWDataset",
                "Update-IOTSWGateway",
                "Update-IOTSWGatewayCapabilityConfiguration",
+               "Update-IOTSWPipeline",
                "Update-IOTSWPortal",
-               "Update-IOTSWProject")
+               "Update-IOTSWProject",
+               "Update-IOTSWTask",
+               "Update-IOTSWWorkspace")
 }
 
 _awsArgumentCompleterRegistration $IOTSW_SelectCompleters $IOTSW_SelectMap
@@ -76224,16 +76384,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "New-S3Bucket",
-               "Copy-S3Object",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Read-S3Object",
                "Get-S3PreSignedURL",
-               "Write-S3Object",
                "Remove-S3Bucket",
+               "Write-S3Object",
+               "Get-S3MultipartUpload",
+               "Test-S3Bucket",
                "Remove-S3MultipartUpload",
-               "Get-S3MultipartUpload")
+               "Remove-S3Object",
+               "Read-S3Object",
+               "New-S3Bucket",
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -92683,44 +92843,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -92760,3 +92882,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

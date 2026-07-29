@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// and managed rule group. You can associate a web ACL with one or more Amazon Web Services
     /// resources to protect. The resource types include Amazon CloudFront distribution, Amazon
     /// API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito
-    /// user pool, App Runner service, Amplify application, and Amazon Web Services Verified
-    /// Access instance. 
+    /// user pool, App Runner service, Amplify application, Amazon Web Services Verified Access
+    /// instance, and Amazon Bedrock AgentCore Gateway. 
     /// </para><para><b>Temporary inconsistencies during updates</b></para><para>
     /// When you create or change a web ACL or other WAF resources, the changes take a small
     /// amount of time to propagate to all areas where the resources are stored. The propagation

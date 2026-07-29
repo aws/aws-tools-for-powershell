@@ -511,6 +511,32 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.ContentType ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_ContentType { get; set; }
         #endregion
         
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat
+        /// <summary>
+        /// <para>
+        /// <para>The global date and time format for filter expressions. Accepts Java <c>DateTimeFormatter</c>
+        /// patterns (for example, <c>EEE, d MMM yyyy HH:mm:ss Z</c>), <c>EPOCH_SECONDS</c> for
+        /// Unix epoch seconds, or <c>EPOCH_MILLIS</c> for Unix epoch milliseconds. If not specified,
+        /// values are passed as-is in ISO-8601 format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat
+        /// <summary>
+        /// <para>
+        /// <para>The global date and time format for filter expressions. Accepts Java <c>DateTimeFormatter</c>
+        /// patterns (for example, <c>EEE, d MMM yyyy HH:mm:ss Z</c>), <c>EPOCH_SECONDS</c> for
+        /// Unix epoch seconds, or <c>EPOCH_MILLIS</c> for Unix epoch milliseconds. If not specified,
+        /// values are passed as-is in ISO-8601 format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat { get; set; }
+        #endregion
+        
         #region Parameter ConnectionProperties_Url_DefaultValue
         /// <summary>
         /// <para>
@@ -810,6 +836,236 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String RestConfiguration_ValidationEndpointConfiguration_ResponseConfiguration_ErrorPath { get; set; }
         #endregion
         
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for applying filters to requests. Use <c>QUERY_PARAMS</c> to pass filters
+        /// as individual query parameters, or <c>FILTER_STRING</c> to construct a single filter
+        /// expression string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.FilterMode")]
+        public Amazon.Glue.FilterMode RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for applying filters to requests. Use <c>QUERY_PARAMS</c> to pass filters
+        /// as individual query parameters, or <c>FILTER_STRING</c> to construct a single filter
+        /// expression string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.FilterMode")]
+        public Amazon.Glue.FilterMode RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionProperties_Url_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectionProperties_Url_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format
+        /// <summary>
+        /// <para>
+        /// <para>A format template for the property value that defines how the value should be formatted
+        /// before sending it in API requests. Use <c>{value}</c> as a placeholder for the actual
+        /// property value (for example, <c>SSWS {value}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format { get; set; }
+        #endregion
+        
         #region Parameter RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Value_HeaderKey
         /// <summary>
         /// <para>
@@ -888,6 +1144,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_OffsetConfiguration_OffsetParameter_Value_HeaderKey { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey
+        /// <summary>
+        /// <para>
+        /// <para>The parameter name used for the upper bound value in a BETWEEN filter operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey
+        /// <summary>
+        /// <para>
+        /// <para>The parameter name used for the upper bound value in a BETWEEN filter operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey { get; set; }
         #endregion
         
         #region Parameter IntegrationType
@@ -1174,6 +1450,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_KeyOverride { get; set; }
         #endregion
         
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey
+        /// <summary>
+        /// <para>
+        /// <para>The parameter name used for the lower bound value in a BETWEEN filter operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey
+        /// <summary>
+        /// <para>
+        /// <para>The parameter name used for the lower bound value in a BETWEEN filter operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey { get; set; }
+        #endregion
+        
         #region Parameter ConnectionProperties_Url_Name
         /// <summary>
         /// <para>
@@ -1354,6 +1650,42 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Glue.ConnectorOAuth2GrantType")]
         public Amazon.Glue.ConnectorOAuth2GrantType ConnectorAuthenticationConfiguration_OAuth2Properties_OAuth2GrantType { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping
+        /// <summary>
+        /// <para>
+        /// <para>A map of logical filter operators to their API-specific string representations. Supported
+        /// operator keys are: <c>EQUAL_TO</c>, <c>NOT_EQUAL_TO</c>, <c>LESS_THAN</c>, <c>GREATER_THAN</c>,
+        /// <c>LESS_THAN_OR_EQUAL_TO</c>, <c>GREATER_THAN_OR_EQUAL_TO</c>, <c>CONTAINS</c>, <c>BETWEEN</c>,
+        /// <c>AND</c>, and <c>OR</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMappings")]
+        public System.Collections.Hashtable RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping
+        /// <summary>
+        /// <para>
+        /// <para>A map of logical filter operators to their API-specific string representations. Supported
+        /// operator keys are: <c>EQUAL_TO</c>, <c>NOT_EQUAL_TO</c>, <c>LESS_THAN</c>, <c>GREATER_THAN</c>,
+        /// <c>LESS_THAN_OR_EQUAL_TO</c>, <c>GREATER_THAN_OR_EQUAL_TO</c>, <c>CONTAINS</c>, <c>BETWEEN</c>,
+        /// <c>AND</c>, and <c>OR</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMappings")]
+        public System.Collections.Hashtable RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping { get; set; }
         #endregion
         
         #region Parameter ConnectionProperties_Url_PropertyLocation
@@ -1843,6 +2175,74 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.PropertyType ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyType { get; set; }
         #endregion
         
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName
+        /// <summary>
+        /// <para>
+        /// <para>The query parameter name used to send the constructed filter expression string in
+        /// API requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName
+        /// <summary>
+        /// <para>
+        /// <para>The query parameter name used to send the constructed filter expression string in
+        /// API requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter
+        /// <summary>
+        /// <para>
+        /// <para>The character used to quote values when <c>QuoteStringValues</c> is true. Defaults
+        /// to double quotes if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter
+        /// <summary>
+        /// <para>
+        /// <para>The character used to quote values when <c>QuoteStringValues</c> is true. Defaults
+        /// to double quotes if not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether string and date values should be wrapped with a quote character
+        /// in the filter expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValues")]
+        public System.Boolean? RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether string and date values should be wrapped with a quote character
+        /// in the filter expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValues")]
+        public System.Boolean? RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue { get; set; }
+        #endregion
+        
         #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod
         /// <summary>
         /// <para>
@@ -2144,6 +2544,30 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String RestConfiguration_ValidationEndpointConfiguration_ResponseConfiguration_ResultPath { get; set; }
         #endregion
         
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether surrounding double quotes should be stripped from filter values
+        /// before processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuotes")]
+        public System.Boolean? RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether surrounding double quotes should be stripped from filter values
+        /// before processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuotes")]
+        public System.Boolean? RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -2157,6 +2581,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template
+        /// <summary>
+        /// <para>
+        /// <para>A template string for constructing the BETWEEN filter expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template { get; set; }
+        #endregion
+        
+        #region Parameter RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template
+        /// <summary>
+        /// <para>
+        /// <para>A template string for constructing the BETWEEN filter expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template { get; set; }
         #endregion
         
         #region Parameter ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrlParameter
@@ -2259,6 +2703,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectionProperties_Url_AllowedValue = new List<System.String>(this.ConnectionProperties_Url_AllowedValue);
             }
             context.ConnectionProperties_Url_DefaultValue = this.ConnectionProperties_Url_DefaultValue;
+            context.ConnectionProperties_Url_Format = this.ConnectionProperties_Url_Format;
             context.ConnectionProperties_Url_KeyOverride = this.ConnectionProperties_Url_KeyOverride;
             context.ConnectionProperties_Url_Name = this.ConnectionProperties_Url_Name;
             context.ConnectionProperties_Url_PropertyLocation = this.ConnectionProperties_Url_PropertyLocation;
@@ -2286,6 +2731,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_DefaultValue = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_KeyOverride = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_KeyOverride;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Name = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Name;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyLocation = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyLocation;
@@ -2296,6 +2742,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_DefaultValue = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_KeyOverride = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_KeyOverride;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Name = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Name;
             context.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyLocation = this.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyLocation;
@@ -2310,6 +2757,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyLocation;
@@ -2320,6 +2768,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyLocation;
@@ -2330,6 +2779,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyLocation;
@@ -2340,6 +2790,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyLocation;
@@ -2351,6 +2802,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyLocation;
@@ -2361,6 +2813,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyLocation;
@@ -2372,6 +2825,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyLocation;
@@ -2382,6 +2836,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyLocation;
@@ -2396,6 +2851,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyLocation;
@@ -2406,6 +2862,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyLocation;
@@ -2418,6 +2875,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyLocation;
@@ -2428,6 +2886,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyLocation;
@@ -2443,6 +2902,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyLocation;
@@ -2454,6 +2914,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_AllowedValue = new List<System.String>(this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_AllowedValue);
             }
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_DefaultValue = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_DefaultValue;
+            context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_KeyOverride = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_KeyOverride;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Name = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Name;
             context.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyLocation = this.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyLocation;
@@ -2480,6 +2941,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     context.RestConfiguration_EntityConfiguration.Add((String)hashKey, (Amazon.Glue.Model.EntityConfiguration)(this.RestConfiguration_EntityConfiguration[hashKey]));
                 }
             }
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue;
+            if (this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping.Keys)
+                {
+                    context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping.Add((String)hashKey, (System.String)(this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping[hashKey]));
+                }
+            }
+            context.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote = this.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote;
             context.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue = this.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue;
             context.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key = this.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key;
             context.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation = this.RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation;
@@ -2508,6 +2986,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.RestConfiguration_GlobalSourceConfiguration_RequestPath = this.RestConfiguration_GlobalSourceConfiguration_RequestPath;
             context.RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ErrorPath = this.RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ErrorPath;
             context.RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ResultPath = this.RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ResultPath;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue;
+            if (this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping.Keys)
+                {
+                    context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping.Add((String)hashKey, (System.String)(this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping[hashKey]));
+                }
+            }
+            context.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote = this.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote;
             context.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue = this.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue;
             context.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key = this.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key;
             context.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation = this.RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation;
@@ -2597,6 +3092,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_DefaultValue != null)
             {
                 requestConnectionProperties_connectionProperties_Url.DefaultValue = requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_DefaultValue;
+                requestConnectionProperties_connectionProperties_UrlIsNull = false;
+            }
+            System.String requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_Format = null;
+            if (cmdletContext.ConnectionProperties_Url_Format != null)
+            {
+                requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_Format = cmdletContext.ConnectionProperties_Url_Format;
+            }
+            if (requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_Format != null)
+            {
+                requestConnectionProperties_connectionProperties_Url.Format = requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_Format;
                 requestConnectionProperties_connectionProperties_UrlIsNull = false;
             }
             System.String requestConnectionProperties_connectionProperties_Url_connectionProperties_Url_KeyOverride = null;
@@ -2737,6 +3242,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_PasswordIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format = cmdletContext.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_PasswordIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_KeyOverride != null)
             {
@@ -2820,6 +3335,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_UsernameIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format = cmdletContext.ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_UsernameIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_BasicAuthenticationProperties_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_connectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_KeyOverride = null;
@@ -2967,6 +3492,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtTokenIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtTokenIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_KeyOverride != null)
             {
@@ -3050,6 +3585,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrlIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrlIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_KeyOverride = null;
@@ -3182,6 +3727,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientIdIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientIdIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_KeyOverride != null)
             {
@@ -3265,6 +3820,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecretIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecretIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_KeyOverride = null;
@@ -3352,6 +3917,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ScopeIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ScopeIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_KeyOverride != null)
             {
@@ -3435,6 +4010,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrlIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrlIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_KeyOverride = null;
@@ -3567,6 +4152,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_KeyOverride != null)
             {
@@ -3650,6 +4245,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrlIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrlIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_KeyOverride = null;
@@ -3737,6 +4342,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientIdIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientIdIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_KeyOverride != null)
             {
@@ -3820,6 +4435,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecretIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecretIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_KeyOverride = null;
@@ -3907,6 +4532,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_PromptIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_PromptIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_KeyOverride != null)
             {
@@ -3990,6 +4625,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUriIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUriIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_KeyOverride = null;
@@ -4077,6 +4722,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_DefaultValue;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ScopeIsNull = false;
             }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ScopeIsNull = false;
+            }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_KeyOverride = null;
             if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_KeyOverride != null)
             {
@@ -4160,6 +4815,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_DefaultValue != null)
             {
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl.DefaultValue = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_DefaultValue;
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrlIsNull = false;
+            }
+            System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format = null;
+            if (cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format = cmdletContext.ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format;
+            }
+            if (requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format != null)
+            {
+                requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl.Format = requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format;
                 requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrlIsNull = false;
             }
             System.String requestConnectorAuthenticationConfiguration_connectorAuthenticationConfiguration_OAuth2Properties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_connectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_KeyOverride = null;
@@ -4704,6 +5369,151 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestRestConfiguration_restConfiguration_GlobalSourceConfiguration.ResponseConfiguration = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_ResponseConfiguration;
                 requestRestConfiguration_restConfiguration_GlobalSourceConfigurationIsNull = false;
             }
+            Amazon.Glue.Model.FilterConfiguration requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration = null;
+            
+             // populate FilterConfiguration
+            var requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration = new Amazon.Glue.Model.FilterConfiguration();
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.DateTimeFormat = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.FilterMode requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.FilterMode = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.OperatorMappings = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+            System.Boolean? requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote.Value;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.StripQuotes = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote.Value;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.BetweenConfiguration requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration = null;
+            
+             // populate BetweenConfiguration
+            var requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration = new Amazon.Glue.Model.BetweenConfiguration();
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration.HighBoundKey = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration.LowBoundKey = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration.Template = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.BetweenConfiguration = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.FilterStringConfiguration requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration = null;
+            
+             // populate FilterStringConfiguration
+            var requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration = new Amazon.Glue.Model.FilterStringConfiguration();
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration.QueryParameterName = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration.QuoteCharacter = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+            System.Boolean? requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = null;
+            if (cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = cmdletContext.RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue.Value;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration.QuoteStringValues = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue.Value;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration.FilterStringConfiguration = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_GlobalSourceConfiguration.FilterConfiguration = requestRestConfiguration_restConfiguration_GlobalSourceConfiguration_restConfiguration_GlobalSourceConfiguration_FilterConfiguration;
+                requestRestConfiguration_restConfiguration_GlobalSourceConfigurationIsNull = false;
+            }
              // determine if requestRestConfiguration_restConfiguration_GlobalSourceConfiguration should be set to null
             if (requestRestConfiguration_restConfiguration_GlobalSourceConfigurationIsNull)
             {
@@ -5149,6 +5959,151 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration.ResponseConfiguration = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_ResponseConfiguration;
                 requestRestConfiguration_restConfiguration_ValidationEndpointConfigurationIsNull = false;
             }
+            Amazon.Glue.Model.FilterConfiguration requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration = null;
+            
+             // populate FilterConfiguration
+            var requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration = new Amazon.Glue.Model.FilterConfiguration();
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.DateTimeFormat = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.FilterMode requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.FilterMode = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.OperatorMappings = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+            System.Boolean? requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote.Value;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.StripQuotes = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote.Value;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.BetweenConfiguration requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration = null;
+            
+             // populate BetweenConfiguration
+            var requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration = new Amazon.Glue.Model.BetweenConfiguration();
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration.HighBoundKey = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration.LowBoundKey = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration.Template = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.BetweenConfiguration = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.FilterStringConfiguration requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration = null;
+            
+             // populate FilterStringConfiguration
+            var requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = true;
+            requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration = new Amazon.Glue.Model.FilterStringConfiguration();
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration.QueryParameterName = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+            System.String requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration.QuoteCharacter = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+            System.Boolean? requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = null;
+            if (cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue = cmdletContext.RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue.Value;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration.QuoteStringValues = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue.Value;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration.FilterStringConfiguration = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull = false;
+            }
+             // determine if requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration should be set to null
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfigurationIsNull)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration = null;
+            }
+            if (requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration != null)
+            {
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration.FilterConfiguration = requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration_restConfiguration_ValidationEndpointConfiguration_FilterConfiguration;
+                requestRestConfiguration_restConfiguration_ValidationEndpointConfigurationIsNull = false;
+            }
              // determine if requestRestConfiguration_restConfiguration_ValidationEndpointConfiguration should be set to null
             if (requestRestConfiguration_restConfiguration_ValidationEndpointConfigurationIsNull)
             {
@@ -5226,6 +6181,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<Amazon.Glue.Model.ConnectorProperty> ConnectionProperties_AdditionalRequestParameter { get; set; }
             public List<System.String> ConnectionProperties_Url_AllowedValue { get; set; }
             public System.String ConnectionProperties_Url_DefaultValue { get; set; }
+            public System.String ConnectionProperties_Url_Format { get; set; }
             public System.String ConnectionProperties_Url_KeyOverride { get; set; }
             public System.String ConnectionProperties_Url_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectionProperties_Url_PropertyLocation { get; set; }
@@ -5235,6 +6191,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<System.String> ConnectorAuthenticationConfiguration_AuthenticationType { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_PropertyLocation { get; set; }
@@ -5242,6 +6199,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Password_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_BasicAuthenticationProperties_Username_PropertyLocation { get; set; }
@@ -5250,6 +6208,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<Amazon.Glue.Model.ConnectorProperty> ConnectorAuthenticationConfiguration_CustomAuthenticationProperties_AuthenticationParameter { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_PropertyLocation { get; set; }
@@ -5257,6 +6216,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCode_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_PropertyLocation { get; set; }
@@ -5264,6 +6224,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_AuthorizationCodeUrl_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_PropertyLocation { get; set; }
@@ -5271,6 +6232,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientId_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ClientSecret_PropertyLocation { get; set; }
@@ -5279,6 +6241,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.ContentType ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_ContentType { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_PropertyLocation { get; set; }
@@ -5286,6 +6249,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Prompt_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri_PropertyLocation { get; set; }
@@ -5294,6 +6258,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.HTTPMethod ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RequestMethod { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_PropertyLocation { get; set; }
@@ -5301,6 +6266,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_Scope_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrl_PropertyLocation { get; set; }
@@ -5309,6 +6275,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<Amazon.Glue.Model.ConnectorProperty> ConnectorAuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_TokenUrlParameter { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_PropertyLocation { get; set; }
@@ -5316,6 +6283,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientId_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_ClientSecret_PropertyLocation { get; set; }
@@ -5325,6 +6293,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.HTTPMethod ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_RequestMethod { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_PropertyLocation { get; set; }
@@ -5332,6 +6301,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Boolean? ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_Scope_Required { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_ClientCredentialsProperties_TokenUrl_PropertyLocation { get; set; }
@@ -5341,6 +6311,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.ContentType ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_ContentType { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_JwtToken_PropertyLocation { get; set; }
@@ -5349,6 +6320,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.HTTPMethod ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_RequestMethod { get; set; }
             public List<System.String> ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_AllowedValue { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_DefaultValue { get; set; }
+            public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Format { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_KeyOverride { get; set; }
             public System.String ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_Name { get; set; }
             public Amazon.Glue.PropertyLocation ConnectorAuthenticationConfiguration_OAuth2Properties_JWTBearerProperties_TokenUrl_PropertyLocation { get; set; }
@@ -5359,6 +6331,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Description { get; set; }
             public Amazon.Glue.IntegrationType IntegrationType { get; set; }
             public Dictionary<System.String, Amazon.Glue.Model.EntityConfiguration> RestConfiguration_EntityConfiguration { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_BetweenConfiguration_Template { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_DateTimeFormat { get; set; }
+            public Amazon.Glue.FilterMode RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName { get; set; }
+            public System.String RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter { get; set; }
+            public System.Boolean? RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue { get; set; }
+            public Dictionary<System.String, System.String> RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_OperatorMapping { get; set; }
+            public System.Boolean? RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_StripQuote { get; set; }
             public System.String RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue { get; set; }
             public System.String RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key { get; set; }
             public Amazon.Glue.PropertyLocation RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation { get; set; }
@@ -5384,6 +6366,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String RestConfiguration_GlobalSourceConfiguration_RequestPath { get; set; }
             public System.String RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ErrorPath { get; set; }
             public System.String RestConfiguration_GlobalSourceConfiguration_ResponseConfiguration_ResultPath { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_HighBoundKey { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_LowBoundKey { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_BetweenConfiguration_Template { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_DateTimeFormat { get; set; }
+            public Amazon.Glue.FilterMode RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterMode { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QueryParameterName { get; set; }
+            public System.String RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteCharacter { get; set; }
+            public System.Boolean? RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_FilterStringConfiguration_QuoteStringValue { get; set; }
+            public Dictionary<System.String, System.String> RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_OperatorMapping { get; set; }
+            public System.Boolean? RestConfiguration_ValidationEndpointConfiguration_FilterConfiguration_StripQuote { get; set; }
             public System.String RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_DefaultValue { get; set; }
             public System.String RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_Key { get; set; }
             public Amazon.Glue.PropertyLocation RestConfiguration_ValidationEndpointConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation { get; set; }

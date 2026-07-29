@@ -1923,6 +1923,7 @@ $EC2_SelectMap = @{
                "New-EC2TransitGatewayMulticastDomain",
                "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayPolicyTable",
+               "New-EC2TransitGatewayPolicyTableEntry",
                "New-EC2TransitGatewayPrefixListReference",
                "New-EC2TransitGatewayRoute",
                "New-EC2TransitGatewayRouteTable",
@@ -2016,6 +2017,7 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGatewayMulticastDomain",
                "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayPolicyTable",
+               "Remove-EC2TransitGatewayPolicyTableEntry",
                "Remove-EC2TransitGatewayPrefixListReference",
                "Remove-EC2TransitGatewayRoute",
                "Remove-EC2TransitGatewayRouteTable",
@@ -2437,6 +2439,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
                "Edit-EC2TransitGatewayMeteringPolicy",
+               "Edit-EC2TransitGatewayPolicyTableEntry",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
                "Edit-EC2VerifiedAccessEndpoint",
@@ -2544,8 +2547,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

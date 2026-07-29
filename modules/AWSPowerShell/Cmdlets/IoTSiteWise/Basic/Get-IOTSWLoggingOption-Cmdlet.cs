@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'LoggingOptions'.
@@ -75,6 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.DescribeLoggingOptionsResponse, GetIOTSWLoggingOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -91,6 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.DescribeLoggingOptionsRequest();
             
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
+            }
             
             CmdletOutput output;
             
@@ -146,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DescribeLoggingOptionsResponse, GetIOTSWLoggingOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LoggingOptions;
         }

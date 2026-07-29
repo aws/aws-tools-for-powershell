@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DatasetType
+        /// <summary>
+        /// <para>
+        /// <para>The type of dataset to filter by: a session dataset, a curated dataset, or a connection
+        /// to an external datasource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.DatasetTypeEnum")]
+        public Amazon.IoTSiteWise.DatasetTypeEnum DatasetType { get; set; }
+        #endregion
+        
         #region Parameter SourceType
         /// <summary>
         /// <para>
@@ -60,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.IoTSiteWise.DatasetSourceType")]
         public Amazon.IoTSiteWise.DatasetSourceType SourceType { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workspace to filter datasets by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -127,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListDatasetsResponse, GetIOTSWDatasetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DatasetType = this.DatasetType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SourceType = this.SourceType;
@@ -136,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request and set iteration invariants
             var request = new Amazon.IoTSiteWise.Model.ListDatasetsRequest();
             
+            if (cmdletContext.DatasetType != null)
+            {
+                request.DatasetType = cmdletContext.DatasetType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -161,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.SourceType != null)
             {
                 request.SourceType = cmdletContext.SourceType;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             // Initialize loop variant and commence piping
@@ -241,9 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTSiteWise.DatasetTypeEnum DatasetType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.IoTSiteWise.DatasetSourceType SourceType { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListDatasetsResponse, GetIOTSWDatasetListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetSummaries;
         }

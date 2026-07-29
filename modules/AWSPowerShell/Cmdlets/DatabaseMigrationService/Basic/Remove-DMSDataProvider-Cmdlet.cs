@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Deletes the specified data provider.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:DeleteDataProvider</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para><note><para>
     /// All migration projects associated with the data provider must be deleted or modified
     /// before you can delete the data provider.
     /// </para></note>

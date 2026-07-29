@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Cancels a single metadata model creation operation that was started with <c>StartMetadataModelCreation</c>.
+    /// 
+    ///  
+    /// <para><b>Required permissions:</b><c>dms:CancelMetadataModelCreation</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions,
+    /// resources, and condition keys for Database Migration Service</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "DMSMetadataModelCreation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.SchemaConversionRequest")]
