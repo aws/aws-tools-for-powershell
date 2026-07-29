@@ -21,14 +21,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Unmounts an S3 drive previously created with Mount-S3PSDrive. Thin wrapper over
-    /// Remove-PSDrive. Step off the drive first (e.g. `Set-Location C:\`) — PowerShell won't
-    /// remove a drive that is the current location.
+    /// Remove-PSDrive. Step off the drive first (for example, `Set-Location $HOME`) because
+    /// PowerShell cannot remove a drive that is the current location. Use Get-PSDrive to list
+    /// mounted drives.
     /// </summary>
     /// <example>
-    ///   <code>Set-Location C:\; Dismount-S3PSDrive -Name S3</code>
+    ///   <code>Set-Location $HOME; Dismount-S3PSDrive -Name S3</code>
     ///   <para>Steps off the S3: drive and removes it.</para>
     /// </example>
     [Cmdlet(VerbsData.Dismount, "S3PSDrive")]
+    [Amazon.PowerShell.Common.AWSCmdlet("Removes an S3 PowerShell drive created by Mount-S3PSDrive. Step off the drive first if it is your current location.")]
+    [Amazon.PowerShell.Common.AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public sealed class DismountS3PSDriveCmdlet : PSCmdlet
     {
         /// <summary>Name of the drive to unmount (the -Name given to Mount-S3PSDrive).</summary>

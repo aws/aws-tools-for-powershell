@@ -214,6 +214,27 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    Context "Generated cmdlet help" {
+        It "<Name> has a real synopsis and at least one example" -TestCases @(
+            @{ Name = 'Mount-S3PSDrive' }
+            @{ Name = 'Dismount-S3PSDrive' }
+        ) {
+            param($Name)
+
+            $command = Get-Command $Name -ErrorAction Stop
+            $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
+            $moduleRoot = (Resolve-Path (Join-Path $repoRoot 'Deployment/AWSPowerShell.NetCore')).Path
+            $command.Module.Path.StartsWith(
+                $moduleRoot,
+                [System.StringComparison]::OrdinalIgnoreCase) | Should -BeTrue
+
+            $help = Get-Help $Name -Full
+            $help.Synopsis | Should -Not -BeNullOrEmpty
+            $help.Synopsis.Trim() | Should -Not -Be $Name
+            @($help.Examples.Example).Count | Should -BeGreaterThan 0
+        }
+    }
+
     Context "Navigation and listing" {
         It "lists the test bucket at the drive root" {
             (Get-ChildItem PSTest:\ -Name) | Should -Contain $script:Bucket
