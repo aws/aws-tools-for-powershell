@@ -15,7 +15,7 @@ namespace ReleaseNotesGeneratorTests
             var breakingChanges = new BreakingChanges();
             var xml = breakingChanges.CreateLookupXML(new HashSet<string>());
             Assert.IsNotNull(xml);
-            Assert.AreEqual(emptyXML, xml);
+            AssertXmlEqual(emptyXML, xml);
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace ReleaseNotesGeneratorTests
             breakingChanges.Add("ES", "[Breaking Change] the reason for the breaking change.", BreakingChangeType.CmdletRemoved);
             var xml = breakingChanges.CreateLookupXML(new HashSet<string>());
             Assert.IsNotNull(xml);
-            Assert.AreEqual(expectedXML, xml);
+            AssertXmlEqual(expectedXML, xml);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace ReleaseNotesGeneratorTests
             breakingChanges.Add("ES", "[Breaking Change] the 2nd reason for the breaking change.", BreakingChangeType.ParameterTypeChanged);
             var xml = breakingChanges.CreateLookupXML(new HashSet<string>() { "ES" });
             Assert.IsNotNull(xml);
-            Assert.AreEqual(expectedXML, xml);
+            AssertXmlEqual(expectedXML, xml);
         }
 
         /// <summary>
@@ -103,12 +103,25 @@ namespace ReleaseNotesGeneratorTests
 
                 var xml = breakingChanges.CreateLookupXML(serviceKeys);
                 Assert.IsNotNull(xml);
-                Assert.AreEqual(expectedXML, xml);
+                AssertXmlEqual(expectedXML, xml);
             }
             finally
             {
                 Directory.Delete(tempDir, true);
             }
+        }
+
+        // XML treats CR, LF, and CRLF line endings as equivalent, and the serializer emits the
+        // platform newline (LF on Linux, CRLF on Windows). Normalize both sides so the assertion
+        // does not depend on the OS the build runs on.
+        private static void AssertXmlEqual(string expected, string actual)
+        {
+            Assert.AreEqual(NormalizeLineEndings(expected), NormalizeLineEndings(actual));
+        }
+
+        private static string NormalizeLineEndings(string value)
+        {
+            return value.Replace("\r\n", "\n").Replace("\r", "\n");
         }
     }
 }
