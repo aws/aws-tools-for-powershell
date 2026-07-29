@@ -1932,18 +1932,22 @@ else { "NO_ERROR_NO_DRIVE" }
         # Dismounting the drive you're STANDING ON must ERROR and must NOT silently drop the drive
         # (the safety contract). The "removes the drive" test below steps off first, so nothing else
         # exercises the still-on-the-drive path. Own drive so the shared PSTest teardown is unaffected.
-        #
-        # NOTE on the error id: the cmdlet TRIES to remap Remove-PSDrive's "in use" failure into an
-        # actionable 'DismountDriveInUse' hint (see Dismount-S3PSDrive in Mount-S3PSDrive-Cmdlet.cs).
-        # In isolation that remap fires (category ResourceBusy); inside the full suite the raw
-        # Remove-PSDrive error (InvalidOperation) sometimes passes through instead - the remap's
-        # category/message match is environment-sensitive. That inconsistency is a minor hint-id nit,
-        # not a safety issue; asserting the exact id here would be flaky, so we assert the reliable
-        # contract: it errors, and the drive is NOT lost.
-        It "errors and keeps the drive when you dismount the one you are standing on" {
+        It "returns one actionable error and keeps the drive when dismounting the current drive" {
             Mount-S3PSDrive -Name PSTestInUse -ProfileName $script:Profile -Region $script:Region
             Set-Location 'PSTestInUse:\'
-            { Dismount-S3PSDrive -Name PSTestInUse -ErrorAction Stop } | Should -Throw
+
+            $dismountErrors = @()
+            Dismount-S3PSDrive -Name PSTestInUse -ErrorAction SilentlyContinue -ErrorVariable +dismountErrors
+
+            @($dismountErrors).Count | Should -Be 1
+            $dismountErrors[0].FullyQualifiedErrorId |
+                Should -Be 'DismountDriveInUse,Amazon.PowerShell.Cmdlets.S3.DismountS3PSDriveCmdlet'
+            $dismountErrors[0].CategoryInfo.Category | Should -Be 'ResourceBusy'
+            $dismountErrors[0].Exception.Message | Should -Be (
+                "Cannot dismount drive 'PSTestInUse' because it is in use. " +
+                "Change to a location outside the drive (for example, Set-Location `$HOME), " +
+                "then retry Dismount-S3PSDrive -Name PSTestInUse.")
+
             Set-Location $HOME                                    # step off first
             Test-Path 'PSTestInUse:\' | Should -BeTrue            # drive survived the failed dismount
             Dismount-S3PSDrive -Name PSTestInUse -ErrorAction SilentlyContinue   # now remove it for real
