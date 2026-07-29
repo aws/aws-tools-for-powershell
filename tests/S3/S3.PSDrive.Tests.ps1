@@ -930,7 +930,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # tests only used literal-path strings, never piped Get-ChildItem output).
     Context "Pipe a listed item into another provider cmdlet (PSPath round-trip)" {
         AfterEach {
-            foreach ($d in 'PSTestPipe2','PSTestPipeRoot') {
+            foreach ($d in 'PSTestPipe2','PSTestPipeRoot','PSTestPipeSession') {
                 if (Test-Path "$($d):\") { try { Dismount-S3PSDrive -Name $d -ErrorAction SilentlyContinue } catch { } }
             }
         }
@@ -972,6 +972,26 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Get-ChildItem $prefixPath |
                     Sort-Object Name |
                     ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw }
+            )
+
+            $got.Count | Should -Be 2
+            $got | Should -Contain 'one'
+            $got | Should -Contain 'two'
+        }
+        It "resolves listed PSPath across explicit and session-default mounts of the same profile" {
+            $prefix = "pipe-read-session-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p1.txt" -Value 'one' -NoNewline
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p2.txt" -Value 'two' -NoNewline
+            Set-AWSCredential -ProfileName $script:Profile
+            Set-DefaultAWSRegion -Region $script:Region
+            Mount-S3PSDrive -Name PSTestPipeSession
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            (ListWhenReady $prefixPath 2).Count | Should -Be 2
+            $got = @(
+                Get-ChildItem $prefixPath |
+                    Sort-Object Name |
+                    ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw -ErrorAction Stop }
             )
 
             $got.Count | Should -Be 2
