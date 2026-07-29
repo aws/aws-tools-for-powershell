@@ -17,6 +17,9 @@
           <TableColumnHeader>
             <Label>Encoding</Label>
           </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>PartSize</Label>
+          </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
           <TableRowEntry>
@@ -29,6 +32,9 @@
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>Encoding</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>PartSize</PropertyName>
               </TableColumnItem>
             </TableColumnItems>
           </TableRowEntry>

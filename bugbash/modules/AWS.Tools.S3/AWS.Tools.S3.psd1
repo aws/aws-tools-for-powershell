@@ -89,7 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-S3PublicAccessBlock', 
         'Copy-S3Object', 
-        'Dismount-S3PSDrive', 
+        'Dismount-S3PSDrive',
         'Get-S3ACL', 
         'Get-S3Bucket', 
         'Get-S3BucketAbac', 
@@ -136,7 +136,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3PreSignedURL', 
         'Get-S3PublicAccessBlock', 
         'Get-S3Version', 
-        'Mount-S3PSDrive', 
+        'Mount-S3PSDrive',
         'New-S3Bucket', 
         'New-S3BucketMetadataConfiguration', 
         'New-S3BucketMetadataTableConfiguration', 
