@@ -311,6 +311,8 @@ namespace Amazon.PowerShell.Installer
         {
             var buffer = local.Buffer;
             var zip = local.Archive;
+            // Canonical target root; every resolved destination below must start with this.
+            var fullDestDir = Path.GetFullPath(targetPath + Path.DirectorySeparatorChar);
             // CreateDirectory is idempotent and cheap; cache the last directory we created so
             // that all entries under the same dir don't re-issue the syscall per file.
             string? lastDir = null;
@@ -343,7 +345,11 @@ namespace Amazon.PowerShell.Installer
 
                 // Convert to the host's separator for filesystem paths.
                 var rel = IsWindows ? fullName.Replace('/', '\\') : fullName;
-                var destPath = Path.Combine(targetPath, rel);
+                var destPath = Path.GetFullPath(Path.Combine(targetPath, rel));
+                // Reject any entry that resolves outside the target root.
+                if (!destPath.StartsWith(fullDestDir, StringComparison.Ordinal))
+                    throw new InvalidDataException(
+                        $"Zip entry '{entry.FullName}' resolves outside the target directory.");
                 var destDir = Path.GetDirectoryName(destPath);
                 if (!string.IsNullOrEmpty(destDir) && destDir != lastDir)
                 {

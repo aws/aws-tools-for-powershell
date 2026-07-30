@@ -436,6 +436,39 @@ namespace Amazon.PowerShell.Installer.Tests
             }
         }
 
+        [Fact]
+        public void ExtractAndInstall_TraversalEntry_ThrowsAndWritesNothingOutsideTarget()
+        {
+            // A "..\.." entry must not let the extractor write above the target directory.
+            var zip = Fixtures.BuildZipWithRawEntries(Path.Combine(_tempRoot, "AWS.Tools.zip"),
+                "AWS.Tools.Common/../../evil.psd1");
+            var target = Path.Combine(_tempRoot, "modules");
+
+            var ex = Record.Exception(() => ModuleInstaller.ExtractAndInstall(zip, target, null, null));
+
+            Assert.IsType<InvalidDataException>(Unwrap(ex));
+            // The entry resolves to <_tempRoot>/evil.psd1 - assert it was never created.
+            Assert.False(File.Exists(Path.Combine(_tempRoot, "evil.psd1")));
+        }
+
+        [Theory]
+        [InlineData("AWS.Tools.Common/..\\..\\evil.psd1")]   // backslash traversal (PS 5.1 zips)
+        [InlineData("/etc/cron.d/evil")]                     // rooted (unix)
+        [InlineData("C:\\Windows\\System32\\evil.dll")]      // drive-letter rooted (Windows)
+        public void ExtractAndInstall_UnsafeEntry_Throws(string entryName)
+        {
+            var zip = Fixtures.BuildZipWithRawEntries(Path.Combine(_tempRoot, "AWS.Tools.zip"), entryName);
+            var target = Path.Combine(_tempRoot, "modules");
+
+            var ex = Record.Exception(() => ModuleInstaller.ExtractAndInstall(zip, target, null, null));
+
+            Assert.IsType<InvalidDataException>(Unwrap(ex));
+        }
+
+        // Parallel.ForEach wraps body exceptions in AggregateException.
+        private static Exception? Unwrap(Exception? ex) =>
+            ex is AggregateException agg ? agg.Flatten().InnerException : ex;
+
         // ----- DeleteDirectoriesParallel -----
 
         [Fact]

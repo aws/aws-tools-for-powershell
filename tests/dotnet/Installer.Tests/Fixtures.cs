@@ -123,6 +123,24 @@ namespace Amazon.PowerShell.Installer.Tests
             return zipPath;
         }
 
+        /// <summary>
+        /// Builds a zip containing the given raw entry names verbatim, each with placeholder
+        /// content. Used to feed malicious traversal paths to the extractor.
+        /// </summary>
+        public static string BuildZipWithRawEntries(string zipPath, params string[] entryNames)
+        {
+            if (File.Exists(zipPath)) File.Delete(zipPath);
+            using var fs = new FileStream(zipPath, FileMode.Create, FileAccess.Write);
+            using var zip = new ZipArchive(fs, ZipArchiveMode.Create);
+            foreach (var name in entryNames)
+            {
+                var entry = zip.CreateEntry(name, CompressionLevel.NoCompression);
+                using var w = new StreamWriter(entry.Open());
+                w.Write("payload");
+            }
+            return zipPath;
+        }
+
         public static string NewTempDir(string prefix)
         {
             var p = Path.Combine(Path.GetTempPath(), $"{prefix}-{Guid.NewGuid():N}");
