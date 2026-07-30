@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pricing-plan-manager</C2jFilename>
+    <AssemblyName>PricingPlanManager</AssemblyName>
+    <ServiceNounPrefix>PPM</ServiceNounPrefix>
+    <ServiceName>PricingPlanManager</ServiceName>
+    <ServiceId>Pricing Plan Manager</ServiceId>
+    <ServiceClientInterface>IAmazonPricingPlanManager</ServiceClientInterface>
+    <ServiceClient>AmazonPricingPlanManagerClient</ServiceClient>
+    <ServiceModuleGuid>b31acf23-28a8-4974-91c2-125a9210f9b4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ApprovePaidSubscription" OutputProperty="Subscription" Verb="Approve" Noun="PaidSubscription" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResourcesToSubscription" OutputProperty="Subscription" Verb="Add" Noun="ResourcesToSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSubscription" OutputProperty="Subscription" Verb="Stop" Noun="Subscription" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSubscriptionChange" OutputProperty="Subscription" Verb="Stop" Noun="SubscriptionChange" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscription" OutputProperty="Subscription" Verb="New" Noun="Subscription" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResourcesFromSubscription" OutputProperty="Subscription" Verb="Remove" Noun="ResourcesFromSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscription" OutputProperty="Subscription" Verb="Get" Noun="Subscription" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptions" OutputProperty="SubscriptionSummaries" Verb="Get" Noun="SubscriptionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscription" OutputProperty="Subscription" Verb="Update" Noun="Subscription" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

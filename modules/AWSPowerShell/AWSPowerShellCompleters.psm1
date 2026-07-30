@@ -14847,8 +14847,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15991,9 +15991,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+    "Select"=@("Search-CSDDocument",
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29421,12 +29421,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
+               "New-DDBTable",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
-               "New-DDBTable")
+               "Add-DDBKeySchema",
+               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -47864,6 +47864,13 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.IcebergCompressionType
+        "New-MSKChannel/IcebergDestinationConfiguration_CompressionType"
+        {
+            $v = "SNAPPY","ZSTD"
+            break
+        }
+
         # Amazon.Kafka.NetworkType
         "Update-MSKConnectivity/ConnectivityInfo_NetworkType"
         {
@@ -47879,6 +47886,20 @@ $MSK_Completers = {
         }
         {
             $v = "ACTIVE","PAUSED"
+            break
+        }
+
+        # Amazon.Kafka.S3CompressionType
+        "New-MSKChannel/S3DestinationConfiguration_Storage_CompressionType"
+        {
+            $v = "GZIP","NONE","ZSTD"
+            break
+        }
+
+        # Amazon.Kafka.S3StorageClass
+        "New-MSKChannel/S3DestinationConfiguration_Storage_StorageClass"
+        {
+            $v = "GLACIER_IR","INTELLIGENT_TIERING","STANDARD"
             break
         }
 
@@ -47905,9 +47926,12 @@ $MSK_map = @{
     "ConnectivityInfo_NetworkType"=@("Update-MSKConnectivity")
     "EncryptionInTransit_ClientBroker"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
+    "IcebergDestinationConfiguration_CompressionType"=@("New-MSKChannel")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
     "Provisioned_StorageMode"=@("New-MSKClusterV2")
     "Rebalancing_Status"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKRebalancing")
+    "S3DestinationConfiguration_Storage_CompressionType"=@("New-MSKChannel")
+    "S3DestinationConfiguration_Storage_StorageClass"=@("New-MSKChannel")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
 }
 
@@ -47963,18 +47987,21 @@ $MSK_SelectCompleters = {
 $MSK_SelectMap = @{
     "Select"=@("Register-MSKAssociateScramSecret",
                "Unregister-MSKDisassociateScramSecret",
+               "New-MSKChannel",
                "New-MSKCluster",
                "New-MSKClusterV2",
                "New-MSKConfiguration",
                "New-MSKReplicator",
                "New-MSKTopic",
                "New-MSKVpcConnection",
+               "Remove-MSKChannel",
                "Remove-MSKCluster",
                "Remove-MSKClusterPolicy",
                "Remove-MSKConfiguration",
                "Remove-MSKReplicator",
                "Remove-MSKTopic",
                "Remove-MSKVpcConnection",
+               "Get-MSKChannelDetail",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
                "Get-MSKClusterOperationV2",
@@ -47988,6 +48015,7 @@ $MSK_SelectMap = @{
                "Get-MSKBootstrapBroker",
                "Get-MSKClusterPolicy",
                "Get-MSKCompatibleKafkaVersion",
+               "Get-MSKChannelList",
                "Get-MSKClientVpcConnectionList",
                "Get-MSKClusterOperationList",
                "Get-MSKClusterOperationsV2List",
@@ -48010,6 +48038,7 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
                "Update-MSKBrokerType",
+               "Update-MSKChannel",
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",
@@ -50544,7 +50573,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java11.al2023","java17","java17.al2023","java21","java25","java8","java8.al2","java8.al2023","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
+            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java11.al2023","java17","java17.al2023","java21","java25","java8","java8.al2","java8.al2023","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs26.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.15","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4","ruby4.0"
             break
         }
 
@@ -67972,6 +68001,95 @@ $POL_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $POL_SelectCompleters $POL_SelectMap
+# Argument completions for service PricingPlanManager
+
+
+$PPM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PricingPlanManager.ApprovalMode
+        "New-PPMSubscription/ApprovalMode"
+        {
+            $v = "IMMEDIATE","MANUAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PPM_map = @{
+    "ApprovalMode"=@("New-PPMSubscription")
+}
+
+_awsArgumentCompleterRegistration $PPM_Completers $PPM_map
+
+$PPM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PPM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PPM_SelectMap = @{
+    "Select"=@("Approve-PPMPaidSubscription",
+               "Add-PPMResourcesToSubscription",
+               "Stop-PPMSubscription",
+               "Stop-PPMSubscriptionChange",
+               "New-PPMSubscription",
+               "Remove-PPMResourcesFromSubscription",
+               "Get-PPMSubscription",
+               "Get-PPMSubscriptionList",
+               "Update-PPMSubscription")
+}
+
+_awsArgumentCompleterRegistration $PPM_SelectCompleters $PPM_SelectMap
 # Argument completions for service AWS Price List Service
 
 
@@ -76384,16 +76502,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
-               "Remove-S3Bucket",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
+               "Copy-S3Object",
                "Test-S3Bucket",
                "Remove-S3MultipartUpload",
+               "Get-S3MultipartUpload",
+               "Remove-S3Bucket",
                "Remove-S3Object",
-               "Read-S3Object",
+               "Write-S3Object",
                "New-S3Bucket",
-               "Copy-S3Object")
+               "Get-S3PreSignedURL",
+               "Read-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -77927,7 +78045,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 
@@ -92843,6 +92961,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -92882,41 +93038,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

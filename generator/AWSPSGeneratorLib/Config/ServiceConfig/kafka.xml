@@ -28,6 +28,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="ChannelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ClientAuthentication_Sasl_Iam_Enabled" NewName="Iam_Enabled" />
@@ -92,6 +96,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" OutputProperty="*" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -113,6 +121,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcConnection" OutputProperty="*" Verb="Remove" Noun="VpcConnection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannel" OutputProperty="*" Verb="Get" Noun="ChannelDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,6 +177,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCompatibleKafkaVersions" OutputProperty="CompatibleKafkaVersions" Verb="Get" Noun="CompatibleKafkaVersion" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,6 +269,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBrokerType" OutputProperty="*" Verb="Update" Noun="BrokerType" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

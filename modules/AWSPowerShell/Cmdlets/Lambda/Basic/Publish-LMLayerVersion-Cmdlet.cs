@@ -145,7 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Content_S3ObjectStorageMode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies how the layer archive is stored. Valid values:</para><ul><li><para><c>COPY</c> (default) – Uploads a copy of your layer archive to Lambda.</para></li><li><para><c>REFERENCE</c> – Lambda references the layer archive from the specified Amazon
+        /// S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

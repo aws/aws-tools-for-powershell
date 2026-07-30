@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// If the output is long, you can use <c>MaxItems</c> and <c>Marker</c> parameters to
     /// paginate the results.
     /// </para><note><para>
-    /// The IAM policy simulator evaluates statements in the identity-based policy and the
+    /// The IAM policy simulator evaluates statements in identity-based policies, service
+    /// control policies (SCPs) including their condition keys and resource scoping, and the
     /// inputs that you provide during simulation. The policy simulator results can differ
     /// from your live Amazon Web Services environment. We recommend that you check your policies
     /// against your live Amazon Web Services environment after testing using the policy simulator
@@ -102,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CallerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM user that you want to use as the simulated caller of the API operations.
-        /// <c>CallerArn</c> is required if you include a <c>ResourcePolicy</c> so that the policy's
-        /// <c>Principal</c> element has a value to use in evaluating the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
-        /// role, federated user, or a service principal.</para>
+        /// <para>The ARN of the IAM user, group, or role that you want to use as the simulated caller
+        /// of the API operations. <c>CallerArn</c> is required if you include a <c>ResourcePolicy</c>
+        /// so that the policy's <c>Principal</c> element has a value to use in evaluating the
+        /// policy.</para><para>You cannot specify the ARN of an assumed role, federated user, or a service principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,6 +128,25 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContextEntries")]
         public Amazon.IdentityManagement.Model.ContextEntry[] ContextEntry { get; set; }
+        #endregion
+        
+        #region Parameter OrderedOrganizationPolicyInputList
+        /// <summary>
+        /// <para>
+        /// <para>An ordered list of service control policies (SCPs) to include in the simulation. Each
+        /// element represents one level of an Organizations hierarchy, from the organization
+        /// root to the account.</para><para>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations
+        /// enforces SCPs. The first element must represent the organization root, and the last
+        /// element must represent the account. Any elements between them represent organizational
+        /// units (OUs) in descending order.</para><para>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IdentityManagement.Model.OrderedOrganizationPolicyType[] OrderedOrganizationPolicyInputList { get; set; }
         #endregion
         
         #region Parameter PermissionsBoundaryPolicyInputList
@@ -381,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            if (this.OrderedOrganizationPolicyInputList != null)
+            {
+                context.OrderedOrganizationPolicyInputList = new List<Amazon.IdentityManagement.Model.OrderedOrganizationPolicyType>(this.OrderedOrganizationPolicyInputList);
+            }
             if (this.PermissionsBoundaryPolicyInputList != null)
             {
                 context.PermissionsBoundaryPolicyInputList = new List<System.String>(this.PermissionsBoundaryPolicyInputList);
@@ -436,6 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.MaxItem != null)
             {
                 request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+            }
+            if (cmdletContext.OrderedOrganizationPolicyInputList != null)
+            {
+                request.OrderedOrganizationPolicyInputList = cmdletContext.OrderedOrganizationPolicyInputList;
             }
             if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
             {
@@ -527,6 +555,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ContextEntry != null)
             {
                 request.ContextEntries = cmdletContext.ContextEntry;
+            }
+            if (cmdletContext.OrderedOrganizationPolicyInputList != null)
+            {
+                request.OrderedOrganizationPolicyInputList = cmdletContext.OrderedOrganizationPolicyInputList;
             }
             if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
             {
@@ -670,6 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public List<Amazon.IdentityManagement.Model.ContextEntry> ContextEntry { get; set; }
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }
+            public List<Amazon.IdentityManagement.Model.OrderedOrganizationPolicyType> OrderedOrganizationPolicyInputList { get; set; }
             public List<System.String> PermissionsBoundaryPolicyInputList { get; set; }
             public List<System.String> PolicyInputList { get; set; }
             public List<System.String> ResourceArn { get; set; }

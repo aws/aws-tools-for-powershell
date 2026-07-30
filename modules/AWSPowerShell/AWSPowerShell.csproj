@@ -1004,6 +1004,9 @@
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Pricing.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PricingPlanManager">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PricingPlanManager.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
@@ -2281,6 +2284,9 @@
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Pricing.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PricingPlanManager">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PricingPlanManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PrometheusService.dll</HintPath>

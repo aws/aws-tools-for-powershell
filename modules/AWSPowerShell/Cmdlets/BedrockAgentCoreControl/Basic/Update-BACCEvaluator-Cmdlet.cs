@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort
+        /// <summary>
+        /// <para>
+        /// <para> The level of reasoning effort the model applies when generating a response. For supported
+        /// values, see the model provider's documentation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort { get; set; }
+        #endregion
+        
         #region Parameter EvaluatorId
         /// <summary>
         /// <para>
@@ -163,6 +174,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.EvaluatorLevel Level { get; set; }
         #endregion
         
+        #region Parameter EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of tokens to generate in the model response, including visible
+        /// output and reasoning tokens. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputTokens")]
+        public System.Int32? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken { get; set; }
+        #endregion
+        
         #region Parameter InferenceConfig_MaxToken
         /// <summary>
         /// <para>
@@ -185,6 +208,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_ModelId")]
         public System.String BedrockEvaluatorModelConfig_ModelId { get; set; }
+        #endregion
+        
+        #region Parameter EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId
+        /// <summary>
+        /// <para>
+        /// <para> The identifier of the model to use for evaluation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId { get; set; }
         #endregion
         
         #region Parameter RatingScale_Numerical
@@ -231,6 +264,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Single? InferenceConfig_Temperature { get; set; }
         #endregion
         
+        #region Parameter EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature
+        /// <summary>
+        /// <para>
+        /// <para> The temperature value that controls randomness in the model's responses. Lower values
+        /// produce more deterministic outputs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature { get; set; }
+        #endregion
+        
         #region Parameter InferenceConfig_TopP
         /// <summary>
         /// <para>
@@ -241,6 +285,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EvaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP")]
         public System.Single? InferenceConfig_TopP { get; set; }
+        #endregion
+        
+        #region Parameter EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP
+        /// <summary>
+        /// <para>
+        /// <para> The top-p sampling parameter that controls the diversity of the model's responses
+        /// by limiting the cumulative probability of token choices. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -317,6 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.InferenceConfig_Temperature = this.InferenceConfig_Temperature;
             context.InferenceConfig_TopP = this.InferenceConfig_TopP;
             context.BedrockEvaluatorModelConfig_ModelId = this.BedrockEvaluatorModelConfig_ModelId;
+            context.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken = this.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken;
+            context.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId = this.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId;
+            context.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort = this.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort;
+            context.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature = this.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature;
+            context.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP = this.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP;
             if (this.RatingScale_Categorical != null)
             {
                 context.RatingScale_Categorical = new List<Amazon.BedrockAgentCoreControl.Model.CategoricalScaleDefinition>(this.RatingScale_Categorical);
@@ -522,6 +582,86 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig.BedrockEvaluatorModelConfig = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_BedrockEvaluatorModelConfig;
                 requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfigIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.OpenResponsesEvaluatorModelConfig requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig = null;
+            
+             // populate ResponsesEvaluatorModelConfig
+            var requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = true;
+            requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig = new Amazon.BedrockAgentCoreControl.Model.OpenResponsesEvaluatorModelConfig();
+            System.Int32? requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken = cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken.Value;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig.MaxOutputTokens = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken.Value;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = false;
+            }
+            System.String requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId = cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig.ModelId = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = false;
+            }
+            System.Single? requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature = cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature.Value;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig.Temperature = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature.Value;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = false;
+            }
+            System.Single? requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP = cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP.Value;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig.TopP = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP.Value;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.ReasoningConfiguration requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning = null;
+            
+             // populate Reasoning
+            var requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ReasoningIsNull = true;
+            requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning = new Amazon.BedrockAgentCoreControl.Model.ReasoningConfiguration();
+            System.String requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort = null;
+            if (cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort = cmdletContext.EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning.Effort = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ReasoningIsNull = false;
+            }
+             // determine if requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning should be set to null
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ReasoningIsNull)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning = null;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig.Reasoning = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull = false;
+            }
+             // determine if requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig should be set to null
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfigIsNull)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig = null;
+            }
+            if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig != null)
+            {
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig.ResponsesEvaluatorModelConfig = requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig_evaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig;
+                requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfigIsNull = false;
+            }
              // determine if requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfig should be set to null
             if (requestEvaluatorConfig_evaluatorConfig_LlmAsAJudge_evaluatorConfig_LlmAsAJudge_ModelConfigIsNull)
             {
@@ -660,6 +800,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Single? InferenceConfig_Temperature { get; set; }
             public System.Single? InferenceConfig_TopP { get; set; }
             public System.String BedrockEvaluatorModelConfig_ModelId { get; set; }
+            public System.Int32? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken { get; set; }
+            public System.String EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId { get; set; }
+            public System.String EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort { get; set; }
+            public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature { get; set; }
+            public System.Single? EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CategoricalScaleDefinition> RatingScale_Categorical { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.NumericalScaleDefinition> RatingScale_Numerical { get; set; }
             public System.String EvaluatorId { get; set; }

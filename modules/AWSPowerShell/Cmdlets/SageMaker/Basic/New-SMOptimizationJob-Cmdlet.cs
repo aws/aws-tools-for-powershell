@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the training plan to use for this optimization job.</para><para>When you use reserved capacity from a training plan, the optimization job runs on
         /// that reserved capacity instead of on-demand capacity. If you omit this field, the
-        /// job uses on-demand capacity. Currently, you can specify at most one training plan.</para><para>For more information about how to reserve GPU capacity for your optimization jobs
+        /// job uses on-demand capacity. You can specify at most one training plan.</para><para>For more information about how to reserve GPU capacity for your optimization jobs
         /// using Amazon SageMaker Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">Reserve
         /// capacity with training plans</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

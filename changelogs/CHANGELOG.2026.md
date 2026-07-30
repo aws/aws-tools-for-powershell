@@ -1,4 +1,20 @@
-﻿### 5.0.264 (2026-07-29 19:03Z)
+﻿### 5.0.265 (2026-07-30 19:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.300.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP.
+    * Modified cmdlet Update-BACCEvaluator: added parameters EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP.
+  * Amazon Identity and Access Management
+    * Modified cmdlet Test-IAMCustomPolicy: added parameter OrderedOrganizationPolicyInputList.
+    * Modified cmdlet Test-IAMPrincipalPolicy: added parameter PolicyExclusionList.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Get-MSKChannelDetail leveraging the DescribeChannel service API.
+    * Added cmdlet Get-MSKChannelList leveraging the ListChannels service API.
+    * Added cmdlet New-MSKChannel leveraging the CreateChannel service API.
+    * Added cmdlet Remove-MSKChannel leveraging the DeleteChannel service API.
+    * Added cmdlet Update-MSKChannel leveraging the UpdateChannel service API.
+  * Amazon PricingPlanManager. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PPM and can be listed using the command 'Get-AWSCmdletName -Service PPM'.
+
+### 5.0.264 (2026-07-29 19:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.299.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Added cmdlet Edit-EC2TransitGatewayPolicyTableEntry leveraging the ModifyTransitGatewayPolicyTableEntry service API.

@@ -102,6 +102,13 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.IcebergCompressionType
+        "New-MSKChannel/IcebergDestinationConfiguration_CompressionType"
+        {
+            $v = "SNAPPY","ZSTD"
+            break
+        }
+
         # Amazon.Kafka.NetworkType
         "Update-MSKConnectivity/ConnectivityInfo_NetworkType"
         {
@@ -117,6 +124,20 @@ $MSK_Completers = {
         }
         {
             $v = "ACTIVE","PAUSED"
+            break
+        }
+
+        # Amazon.Kafka.S3CompressionType
+        "New-MSKChannel/S3DestinationConfiguration_Storage_CompressionType"
+        {
+            $v = "GZIP","NONE","ZSTD"
+            break
+        }
+
+        # Amazon.Kafka.S3StorageClass
+        "New-MSKChannel/S3DestinationConfiguration_Storage_StorageClass"
+        {
+            $v = "GLACIER_IR","INTELLIGENT_TIERING","STANDARD"
             break
         }
 
@@ -143,9 +164,12 @@ $MSK_map = @{
     "ConnectivityInfo_NetworkType"=@("Update-MSKConnectivity")
     "EncryptionInTransit_ClientBroker"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
+    "IcebergDestinationConfiguration_CompressionType"=@("New-MSKChannel")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
     "Provisioned_StorageMode"=@("New-MSKClusterV2")
     "Rebalancing_Status"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKRebalancing")
+    "S3DestinationConfiguration_Storage_CompressionType"=@("New-MSKChannel")
+    "S3DestinationConfiguration_Storage_StorageClass"=@("New-MSKChannel")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
 }
 
@@ -201,18 +225,21 @@ $MSK_SelectCompleters = {
 $MSK_SelectMap = @{
     "Select"=@("Register-MSKAssociateScramSecret",
                "Unregister-MSKDisassociateScramSecret",
+               "New-MSKChannel",
                "New-MSKCluster",
                "New-MSKClusterV2",
                "New-MSKConfiguration",
                "New-MSKReplicator",
                "New-MSKTopic",
                "New-MSKVpcConnection",
+               "Remove-MSKChannel",
                "Remove-MSKCluster",
                "Remove-MSKClusterPolicy",
                "Remove-MSKConfiguration",
                "Remove-MSKReplicator",
                "Remove-MSKTopic",
                "Remove-MSKVpcConnection",
+               "Get-MSKChannelDetail",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
                "Get-MSKClusterOperationV2",
@@ -226,6 +253,7 @@ $MSK_SelectMap = @{
                "Get-MSKBootstrapBroker",
                "Get-MSKClusterPolicy",
                "Get-MSKCompatibleKafkaVersion",
+               "Get-MSKChannelList",
                "Get-MSKClientVpcConnectionList",
                "Get-MSKClusterOperationList",
                "Get-MSKClusterOperationsV2List",
@@ -248,6 +276,7 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
                "Update-MSKBrokerType",
+               "Update-MSKChannel",
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
                "Update-MSKConfiguration",

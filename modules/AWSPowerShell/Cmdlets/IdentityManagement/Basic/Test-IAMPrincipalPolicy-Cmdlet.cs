@@ -48,6 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// The simulation does not perform the API operations; it only checks the authorization
     /// to determine if the simulated policies allow or deny the operations.
+    /// </para><para>
+    /// For cross-account simulations, <c>EvalDecisionDetails</c> returns the decision for
+    /// each policy type (identity-based policy, resource-based policy, and permissions boundary).
+    /// This helps you identify which policy type is responsible for an allow or deny decision
+    /// when policies span multiple accounts.
     /// </para><para><b>Note:</b> This operation discloses information about the permissions granted to
     /// other users. If you do not want users to see other user's permissions, then consider
     /// allowing them to use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a>
@@ -61,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// If the output is long, you can use the <c>MaxItems</c> and <c>Marker</c> parameters
     /// to paginate the results.
     /// </para><note><para>
-    /// The IAM policy simulator evaluates statements in the identity-based policy and the
+    /// The IAM policy simulator evaluates statements in identity-based policies, service
+    /// control policies (SCPs) including their condition keys and resource scoping, and the
     /// inputs that you provide during simulation. The policy simulator results can differ
     /// from your live Amazon Web Services environment. We recommend that you check your policies
     /// against your live Amazon Web Services environment after testing using the policy simulator
@@ -110,16 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CallerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM user that you want to specify as the simulated caller of the API
-        /// operations. If you do not specify a <c>CallerArn</c>, it defaults to the ARN of the
-        /// user that you specify in <c>PolicySourceArn</c>, if you specified a user. If you include
-        /// both a <c>PolicySourceArn</c> (for example, <c>arn:aws:iam::123456789012:user/David</c>)
+        /// <para>The ARN of the IAM user, group, or role that you want to specify as the simulated
+        /// caller of the API operations. If you do not specify a <c>CallerArn</c>, it defaults
+        /// to the ARN of the user, group, or role that you specify in <c>PolicySourceArn</c>.
+        /// If you include both a <c>PolicySourceArn</c> (for example, <c>arn:aws:iam::123456789012:user/David</c>)
         /// and a <c>CallerArn</c> (for example, <c>arn:aws:iam::123456789012:user/Bob</c>), the
         /// result is that you simulate calling the API operations as Bob, as if Bob had David's
-        /// policies.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
-        /// role, federated user, or a service principal.</para><para><c>CallerArn</c> is required if you include a <c>ResourcePolicy</c> and the <c>PolicySourceArn</c>
-        /// is not the ARN for an IAM user. This is required so that the resource-based policy's
-        /// <c>Principal</c> element has a value to use in evaluating the policy.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// policies.</para><para>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN
+        /// of an assumed role, federated user, or a service principal.</para><para><c>CallerArn</c> is required if you include a <c>ResourcePolicy</c> and the <c>PolicySourceArn</c>
+        /// is not the ARN for an IAM user, group, or role. This is required so that the resource-based
+        /// policy's <c>Principal</c> element has a value to use in evaluating the policy.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -172,6 +178,28 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] PermissionsBoundaryPolicyInputList { get; set; }
+        #endregion
+        
+        #region Parameter PolicyExclusionList
+        /// <summary>
+        /// <para>
+        /// <para>A list of policies to exclude from the simulation. Use this parameter to test what
+        /// the simulation result would be if a policy were removed, without changing which policies
+        /// are actually attached to the principal identified by <c>PolicySourceArn</c>.</para><para>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a>
+        /// that identifies one or more policies to exclude by policy type, by Amazon Resource
+        /// Name (ARN), or by the name of an inline policy and the entity it is attached to.</para><para>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed
+        /// positions, cause the request to fail with an <c>InvalidInput</c> error. Syntactically
+        /// valid identifiers that don't match any attached policy are ignored. Resource control
+        /// policies (RCPs) are not supported in this release; identifiers that target RCPs are
+        /// also ignored.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IdentityManagement.Model.PolicyIdentifier[] PolicyExclusionList { get; set; }
         #endregion
         
         #region Parameter PolicyInputList
@@ -408,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.PermissionsBoundaryPolicyInputList = new List<System.String>(this.PermissionsBoundaryPolicyInputList);
             }
+            if (this.PolicyExclusionList != null)
+            {
+                context.PolicyExclusionList = new List<Amazon.IdentityManagement.Model.PolicyIdentifier>(this.PolicyExclusionList);
+            }
             if (this.PolicyInputList != null)
             {
                 context.PolicyInputList = new List<System.String>(this.PolicyInputList);
@@ -464,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
             {
                 request.PermissionsBoundaryPolicyInputList = cmdletContext.PermissionsBoundaryPolicyInputList;
+            }
+            if (cmdletContext.PolicyExclusionList != null)
+            {
+                request.PolicyExclusionList = cmdletContext.PolicyExclusionList;
             }
             if (cmdletContext.PolicyInputList != null)
             {
@@ -559,6 +595,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
             {
                 request.PermissionsBoundaryPolicyInputList = cmdletContext.PermissionsBoundaryPolicyInputList;
+            }
+            if (cmdletContext.PolicyExclusionList != null)
+            {
+                request.PolicyExclusionList = cmdletContext.PolicyExclusionList;
             }
             if (cmdletContext.PolicyInputList != null)
             {
@@ -703,6 +743,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }
             public List<System.String> PermissionsBoundaryPolicyInputList { get; set; }
+            public List<Amazon.IdentityManagement.Model.PolicyIdentifier> PolicyExclusionList { get; set; }
             public List<System.String> PolicyInputList { get; set; }
             public System.String PolicySourceArn { get; set; }
             public List<System.String> ResourceArn { get; set; }
