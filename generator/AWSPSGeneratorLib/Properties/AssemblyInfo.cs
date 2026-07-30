@@ -19,6 +19,9 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
+// Expose internal members to the unit test assembly.
+[assembly: InternalsVisibleTo("AWSPSGeneratorLibTests")]
+
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("1f8b12b6-2b75-4925-9869-e111232f8f4f")]
 

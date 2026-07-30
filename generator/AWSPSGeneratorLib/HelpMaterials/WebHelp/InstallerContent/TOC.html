@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-GB">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="guide-name" content="Cmdlet Reference" />
+    <meta name="service-name" content="AWS Tools for PowerShell" />
+    <link rel="stylesheet" type="text/css" href="./resources/tocstyle.css" media="screen">
+    <title>AWS.Tools.Installer Reference - Table of Contents | AWS Tools for PowerShell</title>
+</head>
+
+<body>
+    <a href="https://docs.aws.amazon.com/" title="AWS Documentation Home" target="_top">
+        <img id="awslogo" src="./resources/blank.gif" title="AWS Documentation Home" alt="AWS Documentation Home" />
+    </a>
+    <div id="toc"><ul class="awstoc"><li class="nav" id="Installer_cmdlets" onclick="updateContentPane('./items/Installer_cmdlets.html')"><a class="nav" href="./items/Installer_cmdlets.html" onclick="updateContentPane('./items/Installer_cmdlets.html')" target="contentpane">Installation</a><ul><li id="Install-AWSToolsModule" class="nav leaf"><a class="nav" href="./items/Install-AWSToolsModule.html" onclick="updateContentPane('./items/Install-AWSToolsModule.html')" target="contentpane">Install-AWSToolsModule</a></li><li id="Uninstall-AWSToolsModule" class="nav leaf"><a class="nav" href="./items/Uninstall-AWSToolsModule.html" onclick="updateContentPane('./items/Uninstall-AWSToolsModule.html')" target="contentpane">Uninstall-AWSToolsModule</a></li><li id="Update-AWSToolsModule" class="nav leaf"><a class="nav" href="./items/Update-AWSToolsModule.html" onclick="updateContentPane('./items/Update-AWSToolsModule.html')" target="contentpane">Update-AWSToolsModule</a></li></ul></li></ul></div>
+
+    <script type="text/javascript" src="./resources/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="./resources/parseuri.js"></script>
+    <script type="text/javascript" src="./resources/tocscript.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            AWSTOCObj.init("div#toc");
+
+            var params = parseUri($(window.parent.location).attr('href')).queryKey;
+            if (params && params.page) {
+                AWSTOCObj.setContentPane("./items/" + params.page);
+            } else {
+                AWSTOCObj.setContentPane("./items/Installer_cmdlets.html");
+            }
+
+            if (params && params.tocid) {
+                var li = $("li#" + params.tocid);
+                var tocItem = li.children("a.nav");
+
+                var parentNav = $(li).parents("li.nav");
+                while (parentNav.length != 0) {
+                    AWSTOCObj.expandTOCGroup(parentNav);
+                    parentNav = $(parentNav).parents("li.nav");
+                }
+
+                AWSTOCObj.setActiveTopic(tocItem);
+                AWSTOCObj.toggleTOCGroup(li);
+            }
+
+            $("li.nav").click(function (event) {
+                event.stopPropagation();
+                AWSTOCObj.clearActiveTopic();
+
+                var tocLink = $(this).children("a.nav");
+                if ($(this).hasClass("leaf")) {
+                    AWSTOCObj.setActiveTopic(tocLink);
+                } else {
+                    var prevExpanded = $(this).siblings("li.expanded");
+                    if (prevExpanded.length > 0) {
+                        AWSTOCObj.collapseTOCGroup(prevExpanded);
+                    }
+                    AWSTOCObj.toggleTOCGroup($(this));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
