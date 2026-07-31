@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>The default actions to take on a packet that doesn't match any stateful rules. The
         /// stateful default action is optional, and is only valid when using the strict rule
-        /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html">Strict
+        /// order.</para><para>Valid values of the stateful default action:</para><ul><li><para>aws:drop_strict</para></li><li><para>aws:drop_established</para></li><li><para>aws:alert_strict</para></li><li><para>aws:alert_established</para></li><li><para>aws:drop_established_app_layer</para></li><li><para>aws:alert_established_app_layer</para></li><li><para>aws:drop_established_app_layer_to_server</para></li><li><para>aws:alert_established_app_layer_to_server</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html">Strict
         /// evaluation order</a> in the <i>Network Firewall Developer Guide</i>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

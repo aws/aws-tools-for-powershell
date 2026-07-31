@@ -30,7 +30,7 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Returns the properties of a container association.
+    /// Retrieves the configuration and status of a container association.
     /// </summary>
     [Cmdlet("Get", "NWFWContainerAssociationDetail")]
     [OutputType("Amazon.NetworkFirewall.Model.DescribeContainerAssociationResponse")]
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the container association. You must specify the
-        /// ARN or the name, and you can specify both.</para>
+        /// <para>The Amazon Resource Name (ARN) of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationName
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the container association. You must specify the ARN or the
-        /// name, and you can specify both.</para>
+        /// <para>The descriptive name of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

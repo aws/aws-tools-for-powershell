@@ -775,6 +775,20 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] Visibility_ValueList { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_OfferFilters_CreatedBySource_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>CreatedBySource</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_OfferFilters_CreatedBySource_ValueList { get; set; }
+        #endregion
+        
         #region Parameter EntityTypeFilters_OfferFilters_EntityId_ValueList
         /// <summary>
         /// <para>
@@ -860,6 +874,34 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EntityTypeFilters_OfferFilters_State_ValueList")]
         public System.String[] State_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>TargetAgreementId</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>TargetAgreementIntent</c> of an offer with list input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList { get; set; }
         #endregion
         
         #region Parameter Targeting_ValueList
@@ -1492,6 +1534,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             context.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue = this.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue;
             context.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue = this.EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue;
             context.BuyerAccounts_WildCardValue = this.BuyerAccounts_WildCardValue;
+            if (this.EntityTypeFilters_OfferFilters_CreatedBySource_ValueList != null)
+            {
+                context.EntityTypeFilters_OfferFilters_CreatedBySource_ValueList = new List<System.String>(this.EntityTypeFilters_OfferFilters_CreatedBySource_ValueList);
+            }
             if (this.EntityTypeFilters_OfferFilters_EntityId_ValueList != null)
             {
                 context.EntityTypeFilters_OfferFilters_EntityId_ValueList = new List<System.String>(this.EntityTypeFilters_OfferFilters_EntityId_ValueList);
@@ -1520,6 +1566,14 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (this.State_ValueList != null)
             {
                 context.State_ValueList = new List<System.String>(this.State_ValueList);
+            }
+            if (this.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList != null)
+            {
+                context.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList = new List<System.String>(this.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList);
+            }
+            if (this.EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList != null)
+            {
+                context.EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList = new List<System.String>(this.EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList);
             }
             if (this.Targeting_ValueList != null)
             {
@@ -2754,6 +2808,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 requestEntityTypeFilters_entityTypeFilters_OfferFilters.BuyerAccounts = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_BuyerAccounts;
                 requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.OfferCreatedBySourceFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource = null;
+            
+             // populate CreatedBySource
+            var requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySourceIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource = new Amazon.MarketplaceCatalog.Model.OfferCreatedBySourceFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource_entityTypeFilters_OfferFilters_CreatedBySource_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_OfferFilters_CreatedBySource_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource_entityTypeFilters_OfferFilters_CreatedBySource_ValueList = cmdletContext.EntityTypeFilters_OfferFilters_CreatedBySource_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource_entityTypeFilters_OfferFilters_CreatedBySource_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource.ValueList = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource_entityTypeFilters_OfferFilters_CreatedBySource_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySourceIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySourceIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters.CreatedBySource = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_CreatedBySource;
+                requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.OfferEntityIdFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_EntityId = null;
             
              // populate EntityId
@@ -2977,6 +3056,56 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_State != null)
             {
                 requestEntityTypeFilters_entityTypeFilters_OfferFilters.State = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_State;
+                requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.OfferTargetAgreementIdFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId = null;
+            
+             // populate TargetAgreementId
+            var requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId = new Amazon.MarketplaceCatalog.Model.OfferTargetAgreementIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId_entityTypeFilters_OfferFilters_TargetAgreementId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId_entityTypeFilters_OfferFilters_TargetAgreementId_ValueList = cmdletContext.EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId_entityTypeFilters_OfferFilters_TargetAgreementId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId.ValueList = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId_entityTypeFilters_OfferFilters_TargetAgreementId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters.TargetAgreementId = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementId;
+                requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.OfferTargetAgreementIntentFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent = null;
+            
+             // populate TargetAgreementIntent
+            var requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntentIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent = new Amazon.MarketplaceCatalog.Model.OfferTargetAgreementIntentFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent_entityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent_entityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList = cmdletContext.EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent_entityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent.ValueList = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent_entityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntentIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntentIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters.TargetAgreementIntent = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_TargetAgreementIntent;
                 requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
             }
             Amazon.MarketplaceCatalog.Model.OfferTargetingFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_Targeting = null;
@@ -4022,6 +4151,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_AfterValue { get; set; }
             public System.String EntityTypeFilters_OfferFilters_AvailabilityEndDate_DateRange_BeforeValue { get; set; }
             public System.String BuyerAccounts_WildCardValue { get; set; }
+            public List<System.String> EntityTypeFilters_OfferFilters_CreatedBySource_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_OfferFilters_EntityId_ValueList { get; set; }
             public System.String EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
             public System.String EntityTypeFilters_OfferFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
@@ -4033,6 +4163,8 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue { get; set; }
             public List<System.String> ResaleAuthorizationId_ValueList { get; set; }
             public List<System.String> State_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList { get; set; }
             public List<System.String> Targeting_ValueList { get; set; }
             public List<System.String> AssociatedOfferIds_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_OfferSetFilters_EntityId_ValueList { get; set; }

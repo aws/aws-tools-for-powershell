@@ -30,8 +30,9 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Updates the properties of an existing container association. Use this to modify the
-    /// container monitoring configurations or description.
+    /// Updates the monitoring configurations and description of a container association.
+    /// You can't change the container type after creation. Provide an update token to enable
+    /// optimistic concurrency control.
     /// </summary>
     [Cmdlet("Update", "NWFWContainerAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkFirewall.Model.UpdateContainerAssociationResponse")]
@@ -48,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the container association. You must specify the
-        /// ARN or the name, and you can specify both.</para>
+        /// <para>The Amazon Resource Name (ARN) of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationName
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the container association. You must specify the ARN or the
-        /// name, and you can specify both.</para>
+        /// <para>The descriptive name of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerMonitoringConfiguration
         /// <summary>
         /// <para>
-        /// <para>The updated list of container monitoring configurations that define which clusters
-        /// and container attributes to monitor.</para><para />
+        /// <para>The updated monitoring configurations for the container association. Each configuration
+        /// specifies an Amazon ECS or Amazon EKS cluster to monitor and optional attribute filters.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -93,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the container association.</para>
+        /// <para>A description of the container association. When omitted, the existing description
+        /// remains unchanged. To clear the description, pass an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key:value pairs associated with the resource.</para><para />
+        /// <para>The key:value pairs to associate with the resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of container orchestration platform. This must match the type specified when
-        /// the container association was created.</para>
+        /// <para>The container type. This value must match the existing type and can't be changed.
+        /// Valid values:</para><ul><li><para><c>ECS</c> - Amazon Elastic Container Service</para></li><li><para><c>EKS</c> - Amazon Elastic Kubernetes Service</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,13 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>
         /// <para>A token used for optimistic locking. Network Firewall returns a token to your requests
         /// that access the container association. The token marks the state of the container
-        /// association resource at the time of the request. To make an update to the container
-        /// association, provide the token in your request. Network Firewall uses the token to
-        /// ensure that the container association hasn't changed since you last retrieved it.
-        /// If it has changed, the operation fails with an <c>InvalidTokenException</c>. If this
-        /// happens, retrieve the container association again to get a current copy of it with
-        /// a new token. Reapply your changes as needed, then try the operation again using the
-        /// new token.</para>
+        /// association resource at the time of the request.</para><para>To make changes to the container association, you provide the token in your request.
+        /// Network Firewall uses the token to ensure that the container association hasn't changed
+        /// since you last retrieved it. If it has changed, the operation fails with an <c>InvalidTokenException</c>.
+        /// If this happens, retrieve the container association again to get a current copy of
+        /// it with a current token. Reapply your changes as needed, then try the operation again
+        /// using the new token.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

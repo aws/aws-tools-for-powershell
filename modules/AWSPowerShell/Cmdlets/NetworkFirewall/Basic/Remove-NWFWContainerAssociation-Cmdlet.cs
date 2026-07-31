@@ -30,9 +30,10 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Deletes the specified container association. When you delete a container association,
-    /// Network Firewall stops monitoring the associated container clusters and removes the
-    /// resolved IP addresses from firewall rules.
+    /// Deletes a container association. The resource transitions to a <c>DELETING</c> state.
+    /// Deletion is asynchronous - Network Firewall returns immediately while cleanup proceeds
+    /// in the background. You can't delete a container association while a rule group references
+    /// it.
     /// </summary>
     [Cmdlet("Remove", "NWFWContainerAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.NetworkFirewall.Model.DeleteContainerAssociationResponse")]
@@ -49,8 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the container association. You must specify the
-        /// ARN or the name, and you can specify both.</para>
+        /// <para>The Amazon Resource Name (ARN) of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerAssociationName
         /// <summary>
         /// <para>
-        /// <para>The descriptive name of the container association. You must specify the ARN or the
-        /// name, and you can specify both.</para>
+        /// <para>The descriptive name of the container association.</para><para>You must specify the ARN or the name, and you can specify both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

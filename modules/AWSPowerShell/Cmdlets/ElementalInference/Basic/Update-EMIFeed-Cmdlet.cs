@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role that Elemental Inference assumes to access resources in your
+        /// account on your behalf. You can specify the existing role (to leave it unchanged)
+        /// or a new role. You specify one access role for each feed. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -166,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
                 context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.UpdateFeedResponse, UpdateEMIFeedCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccessRoleArn = this.AccessRoleArn;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -206,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             // create request
             var request = new Amazon.ElementalInference.Model.UpdateFeedRequest();
             
+            if (cmdletContext.AccessRoleArn != null)
+            {
+                request.AccessRoleArn = cmdletContext.AccessRoleArn;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -273,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessRoleArn { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElementalInference.Model.UpdateOutput> Output { get; set; }

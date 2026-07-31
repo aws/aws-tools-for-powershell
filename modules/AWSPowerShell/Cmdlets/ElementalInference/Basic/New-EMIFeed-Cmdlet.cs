@@ -54,6 +54,19 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role that Elemental Inference assumes to access resources in your
+        /// account on your behalf. For example, the smart crop feature uses this role to read
+        /// graphics-compositing templates from your Amazon S3 bucket. You specify one access
+        /// role for each feed. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -157,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
                 context.Select = CreateSelectDelegate<Amazon.ElementalInference.Model.CreateFeedResponse, NewEMIFeedCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccessRoleArn = this.AccessRoleArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -198,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.EMI
             // create request
             var request = new Amazon.ElementalInference.Model.CreateFeedRequest();
             
+            if (cmdletContext.AccessRoleArn != null)
+            {
+                request.AccessRoleArn = cmdletContext.AccessRoleArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -265,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessRoleArn { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElementalInference.Model.CreateOutput> Output { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

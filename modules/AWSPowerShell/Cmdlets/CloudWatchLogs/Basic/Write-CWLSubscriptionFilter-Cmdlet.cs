@@ -137,8 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>A list of system fields to include in the log events sent to the subscription destination.
-        /// Valid values are <c>@aws.account</c> and <c>@aws.region</c>. These fields provide
-        /// source information for centralized log data in the forwarded payload.</para><para />
+        /// Valid values are <c>@aws.account</c>, <c>@aws.region</c>, and <c>@source.log</c>.
+        /// These fields provide source information for centralized log data in the forwarded
+        /// payload.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

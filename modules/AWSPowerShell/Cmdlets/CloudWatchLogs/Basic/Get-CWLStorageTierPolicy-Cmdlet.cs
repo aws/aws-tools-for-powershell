@@ -30,7 +30,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns the storage tier policy for your account.
+    /// Returns the storage tier policy for the account.
     /// </summary>
     [Cmdlet("Get", "CWLStorageTierPolicy")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetStorageTierPolicyResponse")]

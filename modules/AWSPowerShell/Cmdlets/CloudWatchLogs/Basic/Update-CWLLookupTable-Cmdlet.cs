@@ -30,13 +30,14 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Updates an existing lookup table by replacing all of its CSV content. After the update
-    /// completes, queries that use this table will use the new data.
+    /// Updates an existing lookup table by replacing all of its content with new CSV data
+    /// or CloudWatch Logs query results. After the update completes, queries that use this
+    /// table use the new data.
     /// 
     ///  
     /// <para>
-    /// This is a full replacement operation. All existing content is replaced with the new
-    /// CSV data.
+    /// This is a full replacement operation. All existing content is replaced. You must specify
+    /// either <c>tableBody</c> or <c>queryId</c>, but not both.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CWLLookupTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,21 +91,25 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String LookupTableArn { get; set; }
         #endregion
         
+        #region Parameter QueryId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a completed CloudWatch Logs query whose results replace the lookup table
+        /// content.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryId { get; set; }
+        #endregion
+        
         #region Parameter TableBody
         /// <summary>
         /// <para>
         /// <para>The new CSV content to replace the existing data. The first row must be a header row
-        /// with column names. The content must use UTF-8 encoding and not exceed 10 MB.</para>
+        /// with column names. The content must use UTF-8 encoding and not exceed 10 MB.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TableBody { get; set; }
         #endregion
         
@@ -163,13 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter LookupTableArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryId = this.QueryId;
             context.TableBody = this.TableBody;
-            #if MODULAR
-            if (this.TableBody == null && ParameterWasBound(nameof(this.TableBody)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LookupTableArn != null)
             {
                 request.LookupTableArn = cmdletContext.LookupTableArn;
+            }
+            if (cmdletContext.QueryId != null)
+            {
+                request.QueryId = cmdletContext.QueryId;
             }
             if (cmdletContext.TableBody != null)
             {
@@ -260,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String LookupTableArn { get; set; }
+            public System.String QueryId { get; set; }
             public System.String TableBody { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.UpdateLookupTableResponse, UpdateCWLLookupTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

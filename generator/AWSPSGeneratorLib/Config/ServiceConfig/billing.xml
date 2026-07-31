@@ -61,11 +61,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEnterpriseSupportChargeSummary" OutputProperty="*" Verb="Get" Noun="EnterpriseSupportChargeSummary" PipelineParameter="BillingMonth" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnterpriseSupportContractDetails" OutputProperty="*" Verb="Get" Noun="EnterpriseSupportContractDetail" PipelineParameter="BillingMonth" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBillingViews" OutputProperty="BillingViews" Verb="Get" Noun="BillingViewList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnterpriseSupportLinkedAccountCharges" OutputProperty="LinkedAccount" Verb="Get" Noun="EnterpriseSupportLinkedAccountChargeList" PipelineParameter="BillingMonth" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

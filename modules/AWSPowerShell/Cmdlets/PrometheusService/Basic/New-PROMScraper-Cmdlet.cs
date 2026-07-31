@@ -115,6 +115,23 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public System.String Destination_CloudWatchConfiguration_DatasetArn { get; set; }
         #endregion
         
+        #region Parameter Exporter
+        /// <summary>
+        /// <para>
+        /// <para>The exporter configurations for the scraper. You can configure at most one Amazon
+        /// OpenSearch Service domain. If you don't specify a value, the scraper is created without
+        /// an exporter configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Exporters")]
+        public Amazon.PrometheusService.Model.ExporterConfiguration[] Exporter { get; set; }
+        #endregion
+        
         #region Parameter EksConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
@@ -290,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             context.ClientToken = this.ClientToken;
             context.AmpConfiguration_WorkspaceArn = this.AmpConfiguration_WorkspaceArn;
             context.Destination_CloudWatchConfiguration_DatasetArn = this.Destination_CloudWatchConfiguration_DatasetArn;
+            if (this.Exporter != null)
+            {
+                context.Exporter = new List<Amazon.PrometheusService.Model.ExporterConfiguration>(this.Exporter);
+            }
             context.RoleConfiguration_SourceRoleArn = this.RoleConfiguration_SourceRoleArn;
             context.RoleConfiguration_TargetRoleArn = this.RoleConfiguration_TargetRoleArn;
             context.ScrapeConfiguration_ConfigurationBlob = this.ScrapeConfiguration_ConfigurationBlob;
@@ -404,6 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestDestinationIsNull)
                 {
                     request.Destination = null;
+                }
+                if (cmdletContext.Exporter != null)
+                {
+                    request.Exporters = cmdletContext.Exporter;
                 }
                 
                  // populate RoleConfiguration
@@ -614,6 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             public System.String ClientToken { get; set; }
             public System.String AmpConfiguration_WorkspaceArn { get; set; }
             public System.String Destination_CloudWatchConfiguration_DatasetArn { get; set; }
+            public List<Amazon.PrometheusService.Model.ExporterConfiguration> Exporter { get; set; }
             public System.String RoleConfiguration_SourceRoleArn { get; set; }
             public System.String RoleConfiguration_TargetRoleArn { get; set; }
             public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }

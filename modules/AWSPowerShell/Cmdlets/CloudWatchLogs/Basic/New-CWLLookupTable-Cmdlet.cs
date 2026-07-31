@@ -30,14 +30,16 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a lookup table by uploading CSV data. You can use lookup tables to enrich
-    /// log data in CloudWatch Logs Insights queries with reference data such as user details,
-    /// application names, or error descriptions.
+    /// Creates a lookup table by uploading CSV data or from CloudWatch Logs query results.
+    /// You can use lookup tables to enrich log data in CloudWatch Logs queries with reference
+    /// data such as user details, application names, or error descriptions.
     /// 
     ///  
     /// <para>
-    /// The table name must be unique within your account and Region. The CSV content must
-    /// include a header row with column names, use UTF-8 encoding, and not exceed 10 MB.
+    /// The table name must be unique within your account and Region. You must specify either
+    /// <c>tableBody</c> or <c>queryId</c>, but not both. If you use <c>tableBody</c>, the
+    /// CSV content must include a header row with column names, use UTF-8 encoding, and not
+    /// exceed 10 MB.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWLLookupTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -92,21 +94,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String LookupTableName { get; set; }
         #endregion
         
+        #region Parameter QueryId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a completed CloudWatch Logs query whose results populate the lookup table.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryId { get; set; }
+        #endregion
+        
         #region Parameter TableBody
         /// <summary>
         /// <para>
         /// <para>The CSV content of the lookup table. The first row must be a header row with column
-        /// names. The content must use UTF-8 encoding and not exceed 10 MB.</para>
+        /// names. The content must use UTF-8 encoding and not exceed 10 MB.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TableBody { get; set; }
         #endregion
         
@@ -182,13 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter LookupTableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryId = this.QueryId;
             context.TableBody = this.TableBody;
-            #if MODULAR
-            if (this.TableBody == null && ParameterWasBound(nameof(this.TableBody)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -224,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LookupTableName != null)
             {
                 request.LookupTableName = cmdletContext.LookupTableName;
+            }
+            if (cmdletContext.QueryId != null)
+            {
+                request.QueryId = cmdletContext.QueryId;
             }
             if (cmdletContext.TableBody != null)
             {
@@ -291,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String LookupTableName { get; set; }
+            public System.String QueryId { get; set; }
             public System.String TableBody { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.CreateLookupTableResponse, NewCWLLookupTableCmdlet, object> Select { get; set; } =

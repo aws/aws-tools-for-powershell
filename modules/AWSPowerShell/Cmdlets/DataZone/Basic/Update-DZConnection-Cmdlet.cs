@@ -97,6 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Storage_ClusterName { get; set; }
         #endregion
         
+        #region Parameter Props_GitProperties_CodeConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the CodeConnections connection used to connect to the Git repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_GitProperties_CodeConnectionArn { get; set; }
+        #endregion
+        
         #region Parameter SparkEmrProperties_ComputeArn
         /// <summary>
         /// <para>
@@ -162,6 +172,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_RedshiftProperties_DatabaseName")]
         public System.String RedshiftProperties_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter Props_GitProperties_DefaultBranch
+        /// <summary>
+        /// <para>
+        /// <para>The default branch of the Git repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_GitProperties_DefaultBranch { get; set; }
         #endregion
         
         #region Parameter Description
@@ -714,6 +734,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.AmazonQProperties_IsEnabled = this.AmazonQProperties_IsEnabled;
             context.AmazonQProperties_ProfileArn = this.AmazonQProperties_ProfileArn;
             context.AthenaProperties_WorkgroupName = this.AthenaProperties_WorkgroupName;
+            context.Props_GitProperties_CodeConnectionArn = this.Props_GitProperties_CodeConnectionArn;
+            context.Props_GitProperties_DefaultBranch = this.Props_GitProperties_DefaultBranch;
             context.BasicAuthenticationCredentials_Password = this.BasicAuthenticationCredentials_Password;
             context.BasicAuthenticationCredentials_UserName = this.BasicAuthenticationCredentials_UserName;
             context.AuthenticationConfiguration_SecretArn = this.AuthenticationConfiguration_SecretArn;
@@ -1065,6 +1087,41 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_MlflowProperties != null)
             {
                 request.Props.MlflowProperties = requestProps_props_MlflowProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.GitPropertiesPatch requestProps_props_GitProperties = null;
+            
+             // populate GitProperties
+            var requestProps_props_GitPropertiesIsNull = true;
+            requestProps_props_GitProperties = new Amazon.DataZone.Model.GitPropertiesPatch();
+            System.String requestProps_props_GitProperties_props_GitProperties_CodeConnectionArn = null;
+            if (cmdletContext.Props_GitProperties_CodeConnectionArn != null)
+            {
+                requestProps_props_GitProperties_props_GitProperties_CodeConnectionArn = cmdletContext.Props_GitProperties_CodeConnectionArn;
+            }
+            if (requestProps_props_GitProperties_props_GitProperties_CodeConnectionArn != null)
+            {
+                requestProps_props_GitProperties.CodeConnectionArn = requestProps_props_GitProperties_props_GitProperties_CodeConnectionArn;
+                requestProps_props_GitPropertiesIsNull = false;
+            }
+            System.String requestProps_props_GitProperties_props_GitProperties_DefaultBranch = null;
+            if (cmdletContext.Props_GitProperties_DefaultBranch != null)
+            {
+                requestProps_props_GitProperties_props_GitProperties_DefaultBranch = cmdletContext.Props_GitProperties_DefaultBranch;
+            }
+            if (requestProps_props_GitProperties_props_GitProperties_DefaultBranch != null)
+            {
+                requestProps_props_GitProperties.DefaultBranch = requestProps_props_GitProperties_props_GitProperties_DefaultBranch;
+                requestProps_props_GitPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_GitProperties should be set to null
+            if (requestProps_props_GitPropertiesIsNull)
+            {
+                requestProps_props_GitProperties = null;
+            }
+            if (requestProps_props_GitProperties != null)
+            {
+                request.Props.GitProperties = requestProps_props_GitProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.AmazonQPropertiesPatch requestProps_props_AmazonQProperties = null;
@@ -1724,6 +1781,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Boolean? AmazonQProperties_IsEnabled { get; set; }
             public System.String AmazonQProperties_ProfileArn { get; set; }
             public System.String AthenaProperties_WorkgroupName { get; set; }
+            public System.String Props_GitProperties_CodeConnectionArn { get; set; }
+            public System.String Props_GitProperties_DefaultBranch { get; set; }
             public System.String BasicAuthenticationCredentials_Password { get; set; }
             public System.String BasicAuthenticationCredentials_UserName { get; set; }
             public System.String AuthenticationConfiguration_SecretArn { get; set; }

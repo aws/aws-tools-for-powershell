@@ -1,4 +1,69 @@
-﻿### 5.0.266 (2026-07-31 03:50Z)
+﻿### 5.0.267 (2026-07-31 19:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.302.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Modified cmdlet New-CCS2Campaign: added parameter ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_PacingStrategy.
+    * Modified cmdlet Update-CCS2CampaignChannelSubtypeConfig: added parameter ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_PacingStrategy.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameter OutputConfig_Effort.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter OutputConfig_Effort.
+  * Amazon Billing
+    * Added cmdlet Get-AWSBEnterpriseSupportChargeSummary leveraging the GetEnterpriseSupportChargeSummary service API.
+    * Added cmdlet Get-AWSBEnterpriseSupportContractDetail leveraging the GetEnterpriseSupportContractDetails service API.
+    * Added cmdlet Get-AWSBEnterpriseSupportLinkedAccountChargeList leveraging the ListEnterpriseSupportLinkedAccountCharges service API.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet New-CWLLookupTable: added parameter QueryId.
+    * Modified cmdlet New-CWLScheduledQuery: added parameters DestinationConfiguration_LookupTableConfiguration_Description, DestinationConfiguration_LookupTableConfiguration_KmsKeyId, DestinationConfiguration_LookupTableConfiguration_RoleArn, DestinationConfiguration_LookupTableConfiguration_TableName and DestinationConfiguration_LookupTableConfiguration_Tag.
+    * Modified cmdlet Update-CWLLookupTable: added parameter QueryId.
+    * Modified cmdlet Update-CWLScheduledQuery: added parameters DestinationConfiguration_LookupTableConfiguration_Description, DestinationConfiguration_LookupTableConfiguration_KmsKeyId, DestinationConfiguration_LookupTableConfiguration_RoleArn, DestinationConfiguration_LookupTableConfiguration_TableName and DestinationConfiguration_LookupTableConfiguration_Tag.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters Props_GitProperties_CodeConnectionArn, Props_GitProperties_DefaultBranch and Props_GitProperties_RepositoryId.
+    * Modified cmdlet Update-DZConnection: added parameters Props_GitProperties_CodeConnectionArn and Props_GitProperties_DefaultBranch.
+  * Amazon Elemental Inference
+    * Modified cmdlet New-EMIFeed: added parameter AccessRoleArn.
+    * Modified cmdlet Update-EMIFeed: added parameter AccessRoleArn.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters EntityTypeFilters_OfferFilters_CreatedBySource_ValueList, EntityTypeFilters_OfferFilters_TargetAgreementId_ValueList and EntityTypeFilters_OfferFilters_TargetAgreementIntent_ValueList.
+  * Amazon Prometheus Service
+    * Modified cmdlet New-PROMScraper: added parameter Exporter.
+    * Modified cmdlet Update-PROMScraper: added parameter Exporter.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSTopicPermissionsV2Detail leveraging the DescribeTopicPermissionsV2 service API.
+    * Added cmdlet Get-QSTopicsV2List leveraging the ListTopicsV2 service API.
+    * Added cmdlet Get-QSTopicV2Detail leveraging the DescribeTopicV2 service API.
+    * Added cmdlet New-QSTopicV2 leveraging the CreateTopicV2 service API.
+    * Added cmdlet Remove-QSTopicV2 leveraging the DeleteTopicV2 service API.
+    * Added cmdlet Search-QSTopicsV2 leveraging the SearchTopicsV2 service API.
+    * Added cmdlet Update-QSTopicPermissionsV2 leveraging the UpdateTopicPermissionsV2 service API.
+    * Added cmdlet Update-QSTopicV2 leveraging the UpdateTopicV2 service API.
+    * Modified cmdlet New-QSAnalysis: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicIdentifierDeclaration and SourceEntity_SourceTemplate_TopicReference.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_BedrockManagedKnowledgeBase, Capabilities_BoxKnowledgeBase, Capabilities_ConfluenceKnowledgeBase, Capabilities_CreateAndUpdateBedrockManagedKnowledgeBase, Capabilities_CreateAndUpdateBoxKnowledgeBase, Capabilities_CreateAndUpdateConfluenceKnowledgeBase, Capabilities_CreateAndUpdateGoogleDriveKnowledgeBase, Capabilities_CreateAndUpdateIDCKnowledgeBase, Capabilities_CreateAndUpdateKnowledgeBases, Capabilities_CreateAndUpdateOneDriveKnowledgeBase, Capabilities_CreateAndUpdateQBusinessKnowledgeBase, Capabilities_CreateAndUpdateS3KnowledgeBase, Capabilities_CreateAndUpdateSharePointKnowledgeBase, Capabilities_CreateAndUpdateWebCrawlerKnowledgeBase, Capabilities_GoogleDriveKnowledgeBase, Capabilities_IDCKnowledgeBase, Capabilities_OneDriveKnowledgeBase, Capabilities_QBusinessKnowledgeBase, Capabilities_S3KnowledgeBase, Capabilities_ShareBedrockManagedKnowledgeBase, Capabilities_ShareBoxKnowledgeBase, Capabilities_ShareConfluenceKnowledgeBase, Capabilities_ShareGoogleDriveKnowledgeBase, Capabilities_ShareIDCKnowledgeBase, Capabilities_ShareKnowledgeBases, Capabilities_ShareOneDriveKnowledgeBase, Capabilities_SharePointKnowledgeBase, Capabilities_ShareQBusinessKnowledgeBase, Capabilities_ShareS3KnowledgeBase, Capabilities_ShareSharePointKnowledgeBase, Capabilities_ShareWebCrawlerKnowledgeBase, Capabilities_UseBedrockManagedKnowledgeBase, Capabilities_UseBoxKnowledgeBase, Capabilities_UseConfluenceKnowledgeBase, Capabilities_UseGoogleDriveKnowledgeBase, Capabilities_UseIDCKnowledgeBase, Capabilities_UseOneDriveKnowledgeBase, Capabilities_UseQBusinessKnowledgeBase, Capabilities_UseS3KnowledgeBase, Capabilities_UseSharePointKnowledgeBase, Capabilities_UseWebCrawlerKnowledgeBase and Capabilities_WebCrawlerKnowledgeBase.
+    * Modified cmdlet New-QSDashboard: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicIdentifierDeclaration and SourceEntity_SourceTemplate_TopicReference.
+    * Modified cmdlet New-QSTemplate: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicConfiguration and SourceEntity_SourceAnalysis_TopicReference.
+    * Modified cmdlet Update-QSAnalysis: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicIdentifierDeclaration and SourceEntity_SourceTemplate_TopicReference.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_BedrockManagedKnowledgeBase, Capabilities_BoxKnowledgeBase, Capabilities_ConfluenceKnowledgeBase, Capabilities_CreateAndUpdateBedrockManagedKnowledgeBase, Capabilities_CreateAndUpdateBoxKnowledgeBase, Capabilities_CreateAndUpdateConfluenceKnowledgeBase, Capabilities_CreateAndUpdateGoogleDriveKnowledgeBase, Capabilities_CreateAndUpdateIDCKnowledgeBase, Capabilities_CreateAndUpdateKnowledgeBases, Capabilities_CreateAndUpdateOneDriveKnowledgeBase, Capabilities_CreateAndUpdateQBusinessKnowledgeBase, Capabilities_CreateAndUpdateS3KnowledgeBase, Capabilities_CreateAndUpdateSharePointKnowledgeBase, Capabilities_CreateAndUpdateWebCrawlerKnowledgeBase, Capabilities_GoogleDriveKnowledgeBase, Capabilities_IDCKnowledgeBase, Capabilities_OneDriveKnowledgeBase, Capabilities_QBusinessKnowledgeBase, Capabilities_S3KnowledgeBase, Capabilities_ShareBedrockManagedKnowledgeBase, Capabilities_ShareBoxKnowledgeBase, Capabilities_ShareConfluenceKnowledgeBase, Capabilities_ShareGoogleDriveKnowledgeBase, Capabilities_ShareIDCKnowledgeBase, Capabilities_ShareKnowledgeBases, Capabilities_ShareOneDriveKnowledgeBase, Capabilities_SharePointKnowledgeBase, Capabilities_ShareQBusinessKnowledgeBase, Capabilities_ShareS3KnowledgeBase, Capabilities_ShareSharePointKnowledgeBase, Capabilities_ShareWebCrawlerKnowledgeBase, Capabilities_UseBedrockManagedKnowledgeBase, Capabilities_UseBoxKnowledgeBase, Capabilities_UseConfluenceKnowledgeBase, Capabilities_UseGoogleDriveKnowledgeBase, Capabilities_UseIDCKnowledgeBase, Capabilities_UseOneDriveKnowledgeBase, Capabilities_UseQBusinessKnowledgeBase, Capabilities_UseS3KnowledgeBase, Capabilities_UseSharePointKnowledgeBase, Capabilities_UseWebCrawlerKnowledgeBase and Capabilities_WebCrawlerKnowledgeBase.
+    * Modified cmdlet Update-QSDashboard: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicIdentifierDeclaration and SourceEntity_SourceTemplate_TopicReference.
+    * Modified cmdlet Update-QSTemplate: added parameters Definition_Options_VisualMessages_NoDataMessage_Description, Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility, Definition_Options_VisualMessages_NoDataMessage_Enabled, Definition_Options_VisualMessages_NoDataMessage_LinkText, Definition_Options_VisualMessages_NoDataMessage_LinkUrl, Definition_Options_VisualMessages_NoDataMessage_LinkVisibility, Definition_Options_VisualMessages_NoDataMessage_Title, Definition_Options_VisualMessages_NoDataMessage_TitleVisibility, Definition_TopicConfiguration and SourceEntity_SourceAnalysis_TopicReference.
+  * Amazon Resilience Hub V2
+    * Added cmdlet Get-RH2ResolvedTestRunTargetResourceList leveraging the ListResolvedTestRunTargetResources service API.
+    * Added cmdlet Get-RH2Test leveraging the GetTest service API.
+    * Added cmdlet Get-RH2TestList leveraging the ListTests service API.
+    * Added cmdlet Get-RH2TestRun leveraging the GetTestRun service API.
+    * Added cmdlet Get-RH2TestRunEventList leveraging the ListTestRunEvents service API.
+    * Added cmdlet Get-RH2TestRunList leveraging the ListTestRuns service API.
+    * Added cmdlet Get-RH2TestRunSourceList leveraging the ListTestRunSources service API.
+    * Added cmdlet Get-RH2TestSourceList leveraging the ListTestSources service API.
+    * Added cmdlet Get-RH2TestTemplate leveraging the GetTestTemplate service API.
+    * Added cmdlet Get-RH2TestTemplateList leveraging the ListTestTemplates service API.
+    * Added cmdlet New-RH2Test leveraging the CreateTest service API.
+    * Added cmdlet Remove-RH2Test leveraging the DeleteTest service API.
+    * Added cmdlet Remove-RH2TestSource leveraging the DeleteTestSources service API.
+    * Added cmdlet Start-RH2TestRun leveraging the StartTestRun service API.
+    * Added cmdlet Stop-RH2TestRun leveraging the StopTestRun service API.
+    * Added cmdlet Update-RH2Test leveraging the UpdateTest service API.
+    * Added cmdlet Write-RH2TestSource leveraging the PutTestSources service API.
+    * Modified cmdlet Get-RH2ReportList: added parameter TestRunId.
+
+### 5.0.266 (2026-07-31 03:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.301.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.265 (2026-07-30 19:04Z)

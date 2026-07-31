@@ -489,6 +489,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopicV2" OutputProperty="*" Verb="New" Noun="TopicV2" ShouldProcessTarget="AwsAccountId,TopicId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVPCConnection" OutputProperty="*" Verb="New" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -626,6 +630,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTopicRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopicV2" OutputProperty="*" Verb="Remove" Noun="TopicV2" ShouldProcessTarget="AwsAccountId,TopicId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -885,11 +893,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicPermissionsV2" OutputProperty="*" Verb="Get" Noun="TopicPermissionsV2Detail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTopicRefresh" OutputProperty="RefreshDetails" Verb="Get" Noun="TopicRefresh" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTopicRefreshSchedule" OutputProperty="*" Verb="Get" Noun="TopicRefreshSchedule" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicV2" OutputProperty="*" Verb="Get" Noun="TopicV2Detail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1148,6 +1164,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicsV2" OutputProperty="TopicSummaryList" Verb="Get" Noun="TopicsV2List" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1230,6 +1250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchTopics" OutputProperty="TopicSummaryList" Verb="Search" Noun="Topic" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTopicsV2" OutputProperty="TopicSummaryList" Verb="Search" Noun="TopicsV2" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1825,7 +1849,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopicPermissionsV2" OutputProperty="*" Verb="Update" Noun="TopicPermissionsV2" ShouldProcessTarget="AwsAccountId,TopicId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTopicRefreshSchedule" OutputProperty="*" Verb="Update" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopicV2" OutputProperty="*" Verb="Update" Noun="TopicV2" ShouldProcessTarget="AwsAccountId,TopicId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_LookupTableConfiguration_Description
+        /// <summary>
+        /// <para>
+        /// <para>A description of the lookup table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_LookupTableConfiguration_Description { get; set; }
+        #endregion
+        
         #region Parameter S3Configuration_DestinationIdentifier
         /// <summary>
         /// <para>
@@ -110,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Identifier { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_LookupTableConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key to use to encrypt the lookup table data. If you don't specify
+        /// a key, the data is encrypted with an Amazon Web Services-owned key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_LookupTableConfiguration_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter DestinationConfiguration_S3Configuration_KmsKeyId
@@ -182,6 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String QueryString { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_LookupTableConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that grants permissions to create or update the lookup table
+        /// with query results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_LookupTableConfiguration_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter S3Configuration_RoleArn
         /// <summary>
         /// <para>
@@ -252,6 +284,33 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public Amazon.CloudWatchLogs.ScheduledQueryState State { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_LookupTableConfiguration_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the lookup table to create or update with query results. The name can
+        /// contain only alphanumeric characters and underscores.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_LookupTableConfiguration_TableName { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_LookupTableConfiguration_Tag
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs to associate with the lookup table for resource management and cost
+        /// allocation. The service applies tags only during initial table creation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfiguration_LookupTableConfiguration_Tags")]
+        public System.Collections.Hashtable DestinationConfiguration_LookupTableConfiguration_Tag { get; set; }
+        #endregion
+        
         #region Parameter Timezone
         /// <summary>
         /// <para>
@@ -314,6 +373,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.DestinationConfiguration_LookupTableConfiguration_Description = this.DestinationConfiguration_LookupTableConfiguration_Description;
+            context.DestinationConfiguration_LookupTableConfiguration_KmsKeyId = this.DestinationConfiguration_LookupTableConfiguration_KmsKeyId;
+            context.DestinationConfiguration_LookupTableConfiguration_RoleArn = this.DestinationConfiguration_LookupTableConfiguration_RoleArn;
+            context.DestinationConfiguration_LookupTableConfiguration_TableName = this.DestinationConfiguration_LookupTableConfiguration_TableName;
+            if (this.DestinationConfiguration_LookupTableConfiguration_Tag != null)
+            {
+                context.DestinationConfiguration_LookupTableConfiguration_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DestinationConfiguration_LookupTableConfiguration_Tag.Keys)
+                {
+                    context.DestinationConfiguration_LookupTableConfiguration_Tag.Add((String)hashKey, (System.String)(this.DestinationConfiguration_LookupTableConfiguration_Tag[hashKey]));
+                }
+            }
             context.S3Configuration_DestinationIdentifier = this.S3Configuration_DestinationIdentifier;
             context.DestinationConfiguration_S3Configuration_KmsKeyId = this.DestinationConfiguration_S3Configuration_KmsKeyId;
             context.DestinationConfiguration_S3Configuration_OwnerAccountId = this.DestinationConfiguration_S3Configuration_OwnerAccountId;
@@ -442,6 +513,71 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 request.DestinationConfiguration.S3Configuration = requestDestinationConfiguration_destinationConfiguration_S3Configuration;
                 requestDestinationConfigurationIsNull = false;
             }
+            Amazon.CloudWatchLogs.Model.LookupTableConfiguration requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration = null;
+            
+             // populate LookupTableConfiguration
+            var requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = true;
+            requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration = new Amazon.CloudWatchLogs.Model.LookupTableConfiguration();
+            System.String requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Description = null;
+            if (cmdletContext.DestinationConfiguration_LookupTableConfiguration_Description != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Description = cmdletContext.DestinationConfiguration_LookupTableConfiguration_Description;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Description != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration.Description = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Description;
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_KmsKeyId = null;
+            if (cmdletContext.DestinationConfiguration_LookupTableConfiguration_KmsKeyId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_KmsKeyId = cmdletContext.DestinationConfiguration_LookupTableConfiguration_KmsKeyId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_KmsKeyId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration.KmsKeyId = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_KmsKeyId;
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_RoleArn = null;
+            if (cmdletContext.DestinationConfiguration_LookupTableConfiguration_RoleArn != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_RoleArn = cmdletContext.DestinationConfiguration_LookupTableConfiguration_RoleArn;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_RoleArn != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration.RoleArn = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_RoleArn;
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_TableName = null;
+            if (cmdletContext.DestinationConfiguration_LookupTableConfiguration_TableName != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_TableName = cmdletContext.DestinationConfiguration_LookupTableConfiguration_TableName;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_TableName != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration.TableName = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_TableName;
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Tag = null;
+            if (cmdletContext.DestinationConfiguration_LookupTableConfiguration_Tag != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Tag = cmdletContext.DestinationConfiguration_LookupTableConfiguration_Tag;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Tag != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration.Tags = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration_destinationConfiguration_LookupTableConfiguration_Tag;
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull = false;
+            }
+             // determine if requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration should be set to null
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfigurationIsNull)
+            {
+                requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration = null;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration != null)
+            {
+                request.DestinationConfiguration.LookupTableConfiguration = requestDestinationConfiguration_destinationConfiguration_LookupTableConfiguration;
+                requestDestinationConfigurationIsNull = false;
+            }
              // determine if request.DestinationConfiguration should be set to null
             if (requestDestinationConfigurationIsNull)
             {
@@ -551,6 +687,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String DestinationConfiguration_LookupTableConfiguration_Description { get; set; }
+            public System.String DestinationConfiguration_LookupTableConfiguration_KmsKeyId { get; set; }
+            public System.String DestinationConfiguration_LookupTableConfiguration_RoleArn { get; set; }
+            public System.String DestinationConfiguration_LookupTableConfiguration_TableName { get; set; }
+            public Dictionary<System.String, System.String> DestinationConfiguration_LookupTableConfiguration_Tag { get; set; }
             public System.String S3Configuration_DestinationIdentifier { get; set; }
             public System.String DestinationConfiguration_S3Configuration_KmsKeyId { get; set; }
             public System.String DestinationConfiguration_S3Configuration_OwnerAccountId { get; set; }

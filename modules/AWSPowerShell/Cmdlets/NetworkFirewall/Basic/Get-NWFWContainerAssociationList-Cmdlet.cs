@@ -30,8 +30,8 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Retrieves the metadata for the container associations that you have defined. You can
-    /// optionally page through results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the container associations in your account and Region. Use the <c>NextToken</c>
+    /// parameter in subsequent requests to retrieve additional results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "NWFWContainerAssociationList")]
     [OutputType("Amazon.NetworkFirewall.Model.ContainerAssociationSummary")]

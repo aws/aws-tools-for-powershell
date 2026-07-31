@@ -184,7 +184,7 @@ $RH2_Completers = {
             ($_ -eq "New-RH2Report/ReportType")
         }
         {
-            $v = "FAILURE_MODE"
+            $v = "FAILURE_MODE","TESTING"
             break
         }
 
@@ -202,6 +202,20 @@ $RH2_Completers = {
         "Get-RH2FailureModeAssessmentList/SortOrder"
         {
             $v = "ASC","DESC"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.TestRunSourceType
+        "Get-RH2TestRunSourceList/Type"
+        {
+            $v = "OBSERVABILITY","SUCCESS_CRITERIA"
+            break
+        }
+
+        # Amazon.Resiliencehubv2.TestSourceType
+        "Get-RH2TestSourceList/Type"
+        {
+            $v = "OBSERVABILITY","SUCCESS_CRITERIA"
             break
         }
 
@@ -229,7 +243,7 @@ $RH2_map = @{
     "SortOrder"=@("Get-RH2FailureModeAssessmentList")
     "Source"=@("Get-RH2AssertionList")
     "Status"=@("Get-RH2FailureModeFindingList","Update-RH2FailureModeFinding")
-    "Type"=@("Get-RH2InputSourceList")
+    "Type"=@("Get-RH2InputSourceList","Get-RH2TestRunSourceList","Get-RH2TestSourceList")
 }
 
 _awsArgumentCompleterRegistration $RH2_Completers $RH2_map
@@ -290,6 +304,7 @@ $RH2_SelectMap = @{
                "New-RH2ServiceFunction",
                "New-RH2ServiceFunctionResource",
                "New-RH2System",
+               "New-RH2Test",
                "New-RH2UserJourney",
                "Remove-RH2Assertion",
                "Remove-RH2InputSource",
@@ -298,11 +313,16 @@ $RH2_SelectMap = @{
                "Remove-RH2ServiceFunction",
                "Remove-RH2ServiceFunctionResource",
                "Remove-RH2System",
+               "Remove-RH2Test",
+               "Remove-RH2TestSource",
                "Remove-RH2UserJourney",
                "Get-RH2FailureModeFinding",
                "Get-RH2Policy",
                "Get-RH2Service",
                "Get-RH2System",
+               "Get-RH2Test",
+               "Get-RH2TestRun",
+               "Get-RH2TestTemplate",
                "Get-RH2UserJourney",
                "Import-RH2App",
                "Import-RH2Policy",
@@ -313,6 +333,7 @@ $RH2_SelectMap = @{
                "Get-RH2InputSourceList",
                "Get-RH2PolicyList",
                "Get-RH2ReportList",
+               "Get-RH2ResolvedTestRunTargetResourceList",
                "Get-RH2ResourceList",
                "Get-RH2ServiceEventList",
                "Get-RH2ServiceFunctionList",
@@ -321,8 +342,17 @@ $RH2_SelectMap = @{
                "Get-RH2SystemEventList",
                "Get-RH2SystemList",
                "Get-RH2ResourceTag",
+               "Get-RH2TestRunEventList",
+               "Get-RH2TestRunList",
+               "Get-RH2TestRunSourceList",
+               "Get-RH2TestList",
+               "Get-RH2TestSourceList",
+               "Get-RH2TestTemplateList",
                "Get-RH2UserJourneyList",
+               "Write-RH2TestSource",
                "Start-RH2FailureModeAssessment",
+               "Start-RH2TestRun",
+               "Stop-RH2TestRun",
                "Add-RH2ResourceTag",
                "Remove-RH2ResourceTag",
                "Update-RH2Assertion",
@@ -332,6 +362,7 @@ $RH2_SelectMap = @{
                "Update-RH2Service",
                "Update-RH2ServiceFunction",
                "Update-RH2System",
+               "Update-RH2Test",
                "Update-RH2UserJourney")
 }
 

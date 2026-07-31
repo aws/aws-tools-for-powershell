@@ -30,9 +30,9 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Sets the storage tier policy for your account. When you set the storage tier to <c>INTELLIGENT_TIERING</c>,
-    /// CloudWatch Logs automatically moves your log data between storage tiers based on access
-    /// patterns to optimize costs.
+    /// Sets the storage tier policy for the account. When you set the storage tier to <c>INTELLIGENT_TIERING</c>,
+    /// the service automatically moves log data to the most cost-effective storage tier based
+    /// on access frequency.
     /// </summary>
     [Cmdlet("Write", "CWLStorageTierPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.PutStorageTierPolicyResponse")]
@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StorageTier
         /// <summary>
         /// <para>
-        /// <para>The storage tier to set for the account. Valid values are <c>STANDARD</c> and <c>INTELLIGENT_TIERING</c>.</para>
+        /// <para>The storage tier to set for the account. Use <c>INTELLIGENT_TIERING</c> to automatically
+        /// optimize storage costs by moving log data to the appropriate tier based on access
+        /// frequency.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

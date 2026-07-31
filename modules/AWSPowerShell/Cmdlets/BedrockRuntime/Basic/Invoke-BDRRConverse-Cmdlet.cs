@@ -155,6 +155,19 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String OutputConfig_TextFormat_Structure_JsonSchema_Description { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_Effort
+        /// <summary>
+        /// <para>
+        /// <para>The effort level for the model to use when generating a response. Higher effort levels
+        /// allow the model to spend more time reasoning before responding. Supported values are
+        /// <c>low</c>, <c>medium</c>, <c>high</c>, <c>xhigh</c>, and <c>max</c>.</para><note><para>When extended thinking is disabled, the effort level is capped at <c>high</c>. Use
+        /// effort <c>high</c> or below, or enable thinking to use higher effort levels.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_Effort { get; set; }
+        #endregion
+        
         #region Parameter GuardrailConfig_GuardrailIdentifier
         /// <summary>
         /// <para>
@@ -486,6 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConfig_Effort = this.OutputConfig_Effort;
             context.OutputConfig_TextFormat_Structure_JsonSchema_Description = this.OutputConfig_TextFormat_Structure_JsonSchema_Description;
             context.OutputConfig_TextFormat_Structure_JsonSchema_Name = this.OutputConfig_TextFormat_Structure_JsonSchema_Name;
             context.OutputConfig_TextFormat_Structure_JsonSchema_Schema = this.OutputConfig_TextFormat_Structure_JsonSchema_Schema;
@@ -643,6 +657,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
              // populate OutputConfig
             var requestOutputConfigIsNull = true;
             request.OutputConfig = new Amazon.BedrockRuntime.Model.OutputConfig();
+            System.String requestOutputConfig_outputConfig_Effort = null;
+            if (cmdletContext.OutputConfig_Effort != null)
+            {
+                requestOutputConfig_outputConfig_Effort = cmdletContext.OutputConfig_Effort;
+            }
+            if (requestOutputConfig_outputConfig_Effort != null)
+            {
+                request.OutputConfig.Effort = requestOutputConfig_outputConfig_Effort;
+                requestOutputConfigIsNull = false;
+            }
             Amazon.BedrockRuntime.Model.OutputFormat requestOutputConfig_outputConfig_TextFormat = null;
             
              // populate TextFormat
@@ -928,6 +952,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.Single? InferenceConfig_TopP { get; set; }
             public List<Amazon.BedrockRuntime.Model.Message> Message { get; set; }
             public System.String ModelId { get; set; }
+            public System.String OutputConfig_Effort { get; set; }
             public System.String OutputConfig_TextFormat_Structure_JsonSchema_Description { get; set; }
             public System.String OutputConfig_TextFormat_Structure_JsonSchema_Name { get; set; }
             public System.String OutputConfig_TextFormat_Structure_JsonSchema_Schema { get; set; }

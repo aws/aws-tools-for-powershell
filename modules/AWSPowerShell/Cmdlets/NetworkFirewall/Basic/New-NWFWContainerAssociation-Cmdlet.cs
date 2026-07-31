@@ -30,18 +30,9 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Creates a container association for Network Firewall. A container association links
-    /// container clusters (ECS or EKS) to Network Firewall, enabling dynamic IP resolution
-    /// for firewall rules based on container attributes.
-    /// 
-    ///  
-    /// <para>
-    /// To manage a container association's tags, use the standard Amazon Web Services resource
-    /// tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.
-    /// </para><para>
-    /// To retrieve information about container associations, use <a>ListContainerAssociations</a>
-    /// and <a>DescribeContainerAssociation</a>.
-    /// </para>
+    /// Creates a Network Firewall container association. The association monitors container
+    /// lifecycle events in your Amazon ECS or Amazon EKS clusters and resolves running container
+    /// addresses for use in firewall rules.
     /// </summary>
     [Cmdlet("New", "NWFWContainerAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkFirewall.Model.CreateContainerAssociationResponse")]
@@ -76,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter ContainerMonitoringConfiguration
         /// <summary>
         /// <para>
-        /// <para>The list of container monitoring configurations that define which clusters and container
-        /// attributes to monitor.</para><para />
+        /// <para>The monitoring configurations for the container association. Each configuration specifies
+        /// an Amazon ECS or Amazon EKS cluster to monitor and optional attribute filters to narrow
+        /// which containers are tracked.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -124,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of container orchestration platform for the clusters in this association.
-        /// Valid values are <c>ECS</c> and <c>EKS</c>. You can't change the type after creation.</para>
+        /// <para>The type of containers to monitor. You can't change the container type after creation.
+        /// Valid values:</para><ul><li><para><c>ECS</c> - Amazon Elastic Container Service</para></li><li><para><c>EKS</c> - Amazon Elastic Kubernetes Service</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

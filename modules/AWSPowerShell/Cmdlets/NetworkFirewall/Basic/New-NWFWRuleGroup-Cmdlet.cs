@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>An array of individual stateful rules inspection criteria to be used together in a
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
-        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html">Rules
+        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.8/rules/intro.html">Rules
         /// Format</a>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

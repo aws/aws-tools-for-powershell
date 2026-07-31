@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         public System.String ServiceArn { get; set; }
         #endregion
         
+        #region Parameter TestRunId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TestRunId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             context.NextToken = this.NextToken;
             context.ReportType = this.ReportType;
             context.ServiceArn = this.ServiceArn;
+            context.TestRunId = this.TestRunId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             if (cmdletContext.ServiceArn != null)
             {
                 request.ServiceArn = cmdletContext.ServiceArn;
+            }
+            if (cmdletContext.TestRunId != null)
+            {
+                request.TestRunId = cmdletContext.TestRunId;
             }
             
             // Initialize loop variant and commence piping
@@ -263,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             public System.String NextToken { get; set; }
             public Amazon.Resiliencehubv2.ReportType ReportType { get; set; }
             public System.String ServiceArn { get; set; }
+            public System.String TestRunId { get; set; }
             public System.Func<Amazon.Resiliencehubv2.Model.ListReportsResponse, GetRH2ReportListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReportGenerationResults;
         }

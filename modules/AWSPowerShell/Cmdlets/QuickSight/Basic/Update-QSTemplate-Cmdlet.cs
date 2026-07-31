@@ -157,6 +157,39 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DataSetReference[] SourceAnalysis_DataSetReference { get; set; }
         #endregion
         
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_Description
+        /// <summary>
+        /// <para>
+        /// <para>The description text of the message that is displayed on the visual.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_Options_VisualMessages_NoDataMessage_Description { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the description of the message is displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.Visibility")]
+        public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the custom message is displayed on the visual. When set to <c>true</c>,
+        /// the custom message appears in place of the default message. When set to <c>false</c>
+        /// or omitted, the default message is displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Definition_Options_VisualMessages_NoDataMessage_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Options_ExcludedDataSetArn
         /// <summary>
         /// <para>
@@ -197,6 +230,38 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left")]
         public System.String PaperMargin_Left { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_LinkText
+        /// <summary>
+        /// <para>
+        /// <para>The display text of the hyperlink that is shown in the message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_Options_VisualMessages_NoDataMessage_LinkText { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_LinkUrl
+        /// <summary>
+        /// <para>
+        /// <para>The destination URL of the hyperlink that is shown in the message. Only valid <c>http</c>,
+        /// <c>https</c>, and <c>mailto</c> URLs are supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_Options_VisualMessages_NoDataMessage_LinkUrl { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_LinkVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the hyperlink in the message is displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.Visibility")]
+        public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_LinkVisibility { get; set; }
         #endregion
         
         #region Parameter ValidationStrategy_Mode
@@ -405,6 +470,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Options_Timezone { get; set; }
         #endregion
         
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title text of the message that is displayed on the visual.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_Options_VisualMessages_NoDataMessage_Title { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Options_VisualMessages_NoDataMessage_TitleVisibility
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the title of the message is displayed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.Visibility")]
+        public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_TitleVisibility { get; set; }
+        #endregion
+        
         #region Parameter Definition_TooltipSheet
         /// <summary>
         /// <para>
@@ -429,6 +515,38 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top")]
         public System.String PaperMargin_Top { get; set; }
+        #endregion
+        
+        #region Parameter Definition_TopicConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>An array of topic configurations. These configurations define the required columns
+        /// for each topic used within a template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_TopicConfigurations")]
+        public Amazon.QuickSight.Model.TopicConfiguration[] Definition_TopicConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter SourceEntity_SourceAnalysis_TopicReference
+        /// <summary>
+        /// <para>
+        /// <para>A structure containing information about the topic references used as placeholders
+        /// in the template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceEntity_SourceAnalysis_TopicReferences")]
+        public Amazon.QuickSight.Model.TopicReference[] SourceEntity_SourceAnalysis_TopicReference { get; set; }
         #endregion
         
         #region Parameter HighlightOperation_Trigger
@@ -555,6 +673,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.Options_QBusinessInsightsStatus = this.Options_QBusinessInsightsStatus;
             context.Options_Timezone = this.Options_Timezone;
+            context.Definition_Options_VisualMessages_NoDataMessage_Description = this.Definition_Options_VisualMessages_NoDataMessage_Description;
+            context.Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility = this.Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility;
+            context.Definition_Options_VisualMessages_NoDataMessage_Enabled = this.Definition_Options_VisualMessages_NoDataMessage_Enabled;
+            context.Definition_Options_VisualMessages_NoDataMessage_LinkText = this.Definition_Options_VisualMessages_NoDataMessage_LinkText;
+            context.Definition_Options_VisualMessages_NoDataMessage_LinkUrl = this.Definition_Options_VisualMessages_NoDataMessage_LinkUrl;
+            context.Definition_Options_VisualMessages_NoDataMessage_LinkVisibility = this.Definition_Options_VisualMessages_NoDataMessage_LinkVisibility;
+            context.Definition_Options_VisualMessages_NoDataMessage_Title = this.Definition_Options_VisualMessages_NoDataMessage_Title;
+            context.Definition_Options_VisualMessages_NoDataMessage_TitleVisibility = this.Definition_Options_VisualMessages_NoDataMessage_TitleVisibility;
             context.Options_WeekStart = this.Options_WeekStart;
             if (this.Definition_ParameterDeclaration != null)
             {
@@ -573,11 +699,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_TooltipSheet = new List<Amazon.QuickSight.Model.TooltipSheetDefinition>(this.Definition_TooltipSheet);
             }
+            if (this.Definition_TopicConfiguration != null)
+            {
+                context.Definition_TopicConfiguration = new List<Amazon.QuickSight.Model.TopicConfiguration>(this.Definition_TopicConfiguration);
+            }
             context.Name = this.Name;
             context.SourceAnalysis_Arn = this.SourceAnalysis_Arn;
             if (this.SourceAnalysis_DataSetReference != null)
             {
                 context.SourceAnalysis_DataSetReference = new List<Amazon.QuickSight.Model.DataSetReference>(this.SourceAnalysis_DataSetReference);
+            }
+            if (this.SourceEntity_SourceAnalysis_TopicReference != null)
+            {
+                context.SourceEntity_SourceAnalysis_TopicReference = new List<Amazon.QuickSight.Model.TopicReference>(this.SourceEntity_SourceAnalysis_TopicReference);
             }
             context.SourceTemplate_Arn = this.SourceTemplate_Arn;
             context.TemplateId = this.TemplateId;
@@ -691,6 +825,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDefinition_definition_TooltipSheet != null)
             {
                 request.Definition.TooltipSheets = requestDefinition_definition_TooltipSheet;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.TopicConfiguration> requestDefinition_definition_TopicConfiguration = null;
+            if (cmdletContext.Definition_TopicConfiguration != null)
+            {
+                requestDefinition_definition_TopicConfiguration = cmdletContext.Definition_TopicConfiguration;
+            }
+            if (requestDefinition_definition_TopicConfiguration != null)
+            {
+                request.Definition.TopicConfigurations = requestDefinition_definition_TopicConfiguration;
                 requestDefinitionIsNull = false;
             }
             Amazon.QuickSight.Model.AnalysisDefaults requestDefinition_definition_AnalysisDefaults = null;
@@ -1113,6 +1257,116 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 requestDefinition_definition_Options.CustomActionDefaults = requestDefinition_definition_Options_definition_Options_CustomActionDefaults;
                 requestDefinition_definition_OptionsIsNull = false;
             }
+            Amazon.QuickSight.Model.VisualMessages requestDefinition_definition_Options_definition_Options_VisualMessages = null;
+            
+             // populate VisualMessages
+            var requestDefinition_definition_Options_definition_Options_VisualMessagesIsNull = true;
+            requestDefinition_definition_Options_definition_Options_VisualMessages = new Amazon.QuickSight.Model.VisualMessages();
+            Amazon.QuickSight.Model.VisualMessageConfiguration requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage = null;
+            
+             // populate NoDataMessage
+            var requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = true;
+            requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage = new Amazon.QuickSight.Model.VisualMessageConfiguration();
+            System.String requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Description = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Description != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Description = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Description;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Description != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.Description = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Description;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            Amazon.QuickSight.Visibility requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.DescriptionVisibility = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            System.Boolean? requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Enabled = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Enabled != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Enabled = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Enabled.Value;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Enabled != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.Enabled = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Enabled.Value;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            System.String requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkText = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkText != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkText = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkText;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkText != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.LinkText = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkText;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            System.String requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkUrl = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkUrl != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkUrl = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkUrl;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkUrl != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.LinkUrl = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkUrl;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            Amazon.QuickSight.Visibility requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkVisibility = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkVisibility = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_LinkVisibility;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.LinkVisibility = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_LinkVisibility;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            System.String requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Title = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Title != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Title = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_Title;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Title != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.Title = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_Title;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+            Amazon.QuickSight.Visibility requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_TitleVisibility = null;
+            if (cmdletContext.Definition_Options_VisualMessages_NoDataMessage_TitleVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_TitleVisibility = cmdletContext.Definition_Options_VisualMessages_NoDataMessage_TitleVisibility;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_TitleVisibility != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage.TitleVisibility = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage_definition_Options_VisualMessages_NoDataMessage_TitleVisibility;
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull = false;
+            }
+             // determine if requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage should be set to null
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessageIsNull)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage = null;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage != null)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages.NoDataMessage = requestDefinition_definition_Options_definition_Options_VisualMessages_definition_Options_VisualMessages_NoDataMessage;
+                requestDefinition_definition_Options_definition_Options_VisualMessagesIsNull = false;
+            }
+             // determine if requestDefinition_definition_Options_definition_Options_VisualMessages should be set to null
+            if (requestDefinition_definition_Options_definition_Options_VisualMessagesIsNull)
+            {
+                requestDefinition_definition_Options_definition_Options_VisualMessages = null;
+            }
+            if (requestDefinition_definition_Options_definition_Options_VisualMessages != null)
+            {
+                requestDefinition_definition_Options.VisualMessages = requestDefinition_definition_Options_definition_Options_VisualMessages;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
              // determine if requestDefinition_definition_Options should be set to null
             if (requestDefinition_definition_OptionsIsNull)
             {
@@ -1184,6 +1438,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestSourceEntity_sourceEntity_SourceAnalysis_sourceAnalysis_DataSetReference != null)
             {
                 requestSourceEntity_sourceEntity_SourceAnalysis.DataSetReferences = requestSourceEntity_sourceEntity_SourceAnalysis_sourceAnalysis_DataSetReference;
+                requestSourceEntity_sourceEntity_SourceAnalysisIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.TopicReference> requestSourceEntity_sourceEntity_SourceAnalysis_sourceEntity_SourceAnalysis_TopicReference = null;
+            if (cmdletContext.SourceEntity_SourceAnalysis_TopicReference != null)
+            {
+                requestSourceEntity_sourceEntity_SourceAnalysis_sourceEntity_SourceAnalysis_TopicReference = cmdletContext.SourceEntity_SourceAnalysis_TopicReference;
+            }
+            if (requestSourceEntity_sourceEntity_SourceAnalysis_sourceEntity_SourceAnalysis_TopicReference != null)
+            {
+                requestSourceEntity_sourceEntity_SourceAnalysis.TopicReferences = requestSourceEntity_sourceEntity_SourceAnalysis_sourceEntity_SourceAnalysis_TopicReference;
                 requestSourceEntity_sourceEntity_SourceAnalysisIsNull = false;
             }
              // determine if requestSourceEntity_sourceEntity_SourceAnalysis should be set to null
@@ -1302,15 +1566,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<System.String> Options_ExcludedDataSetArn { get; set; }
             public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
             public System.String Options_Timezone { get; set; }
+            public System.String Definition_Options_VisualMessages_NoDataMessage_Description { get; set; }
+            public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_DescriptionVisibility { get; set; }
+            public System.Boolean? Definition_Options_VisualMessages_NoDataMessage_Enabled { get; set; }
+            public System.String Definition_Options_VisualMessages_NoDataMessage_LinkText { get; set; }
+            public System.String Definition_Options_VisualMessages_NoDataMessage_LinkUrl { get; set; }
+            public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_LinkVisibility { get; set; }
+            public System.String Definition_Options_VisualMessages_NoDataMessage_Title { get; set; }
+            public Amazon.QuickSight.Visibility Definition_Options_VisualMessages_NoDataMessage_TitleVisibility { get; set; }
             public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public Amazon.QuickSight.QueryExecutionMode QueryExecutionOptions_QueryExecutionMode { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public List<Amazon.QuickSight.Model.StaticFile> Definition_StaticFile { get; set; }
             public List<Amazon.QuickSight.Model.TooltipSheetDefinition> Definition_TooltipSheet { get; set; }
+            public List<Amazon.QuickSight.Model.TopicConfiguration> Definition_TopicConfiguration { get; set; }
             public System.String Name { get; set; }
             public System.String SourceAnalysis_Arn { get; set; }
             public List<Amazon.QuickSight.Model.DataSetReference> SourceAnalysis_DataSetReference { get; set; }
+            public List<Amazon.QuickSight.Model.TopicReference> SourceEntity_SourceAnalysis_TopicReference { get; set; }
             public System.String SourceTemplate_Arn { get; set; }
             public System.String TemplateId { get; set; }
             public Amazon.QuickSight.ValidationStrategyMode ValidationStrategy_Mode { get; set; }

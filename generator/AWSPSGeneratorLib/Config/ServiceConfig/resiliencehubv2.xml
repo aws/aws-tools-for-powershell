@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTest" OutputProperty="Test" Verb="New" Noun="Test" ShouldProcessTarget="TestTemplateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUserJourney" OutputProperty="UserJourney" Verb="New" Noun="UserJourney" ShouldProcessTarget="Name,SystemArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +87,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTest" OutputProperty="TestId" Verb="Remove" Noun="Test" ShouldProcessTarget="TestId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTestSources" Verb="Remove" Noun="TestSource" ShouldProcessTarget="TestId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUserJourney" OutputProperty="UserJourneyId" Verb="Remove" Noun="UserJourney" ShouldProcessTarget="UserJourneyId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +112,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSystem" OutputProperty="System" Verb="Get" Noun="System" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTest" OutputProperty="Test" Verb="Get" Noun="Test" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestRun" OutputProperty="TestRun" Verb="Get" Noun="TestRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestTemplate" OutputProperty="TestTemplate" Verb="Get" Noun="TestTemplate" PipelineParameter="TestTemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResolvedTestRunTargetResources" OutputProperty="ResolvedTargetResources" Verb="Get" Noun="ResolvedTestRunTargetResourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -175,11 +203,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTestRunEvents" OutputProperty="Events" Verb="Get" Noun="TestRunEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestRuns" OutputProperty="TestRuns" Verb="Get" Noun="TestRunList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestRunSources" OutputProperty="TestRunSources" Verb="Get" Noun="TestRunSourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTests" OutputProperty="Tests" Verb="Get" Noun="TestList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestSources" OutputProperty="TestSources" Verb="Get" Noun="TestSourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestTemplates" OutputProperty="TestTemplates" Verb="Get" Noun="TestTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUserJourneys" OutputProperty="UserJourneySummaries" Verb="Get" Noun="UserJourneyList" PipelineParameter="SystemArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutTestSources" Verb="Write" Noun="TestSource" ShouldProcessTarget="TestId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartFailureModeAssessment" OutputProperty="*" Verb="Start" Noun="FailureModeAssessment" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTestRun" OutputProperty="*" Verb="Start" Noun="TestRun" ShouldProcessTarget="TestId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTestRun" OutputProperty="*" Verb="Stop" Noun="TestRun" ShouldProcessTarget="TestRunId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSystem" OutputProperty="System" Verb="Update" Noun="System" ShouldProcessTarget="SystemArn" PipelineParameter="SystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTest" OutputProperty="Test" Verb="Update" Noun="Test" ShouldProcessTarget="TestId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
