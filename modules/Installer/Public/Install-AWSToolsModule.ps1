@@ -226,12 +226,6 @@
     installation completes. Currently unable to add support for -ProgressAction.
 
 .Example
-    Install-AWSToolsModule -CleanUpLegacyModuleScope CurrentUser -Confirm:$false
-
-    This example installs AWS Tools modules and cleans up legacy AWSPowerShell modules from the 
-    current user scope.
-
-.Example
     $common = Install-Module AWS.Tools.Common -PassThru
     Get-AWSService | ForEach-Object {Install-Module -Name $_.ModuleName -RequiredVersion $common.Version}
 
