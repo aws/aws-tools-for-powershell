@@ -14847,8 +14847,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15991,8 +15991,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
                "Write-CSDDocument")
 }
 
@@ -29421,12 +29421,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
+               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
-               "Add-DDBKeySchema",
                "New-DDBTableSchema",
-               "ConvertFrom-DDBItem")
+               "ConvertFrom-DDBItem",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -76502,16 +76502,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Test-S3Bucket",
                "Remove-S3MultipartUpload",
                "Get-S3MultipartUpload",
+               "Read-S3Object",
+               "Write-S3Object",
+               "Test-S3Bucket",
+               "Get-S3PreSignedURL",
                "Remove-S3Bucket",
                "Remove-S3Object",
-               "Write-S3Object",
                "New-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Read-S3Object")
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -86230,8 +86230,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

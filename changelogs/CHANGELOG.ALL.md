@@ -1,4 +1,7 @@
-﻿### 5.0.265 (2026-07-30 19:04Z)
+﻿### 5.0.266 (2026-07-31 03:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.301.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.265 (2026-07-30 19:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.300.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_LlmAsAJudge_ModelConfig_ResponsesEvaluatorModelConfig_TopP.
