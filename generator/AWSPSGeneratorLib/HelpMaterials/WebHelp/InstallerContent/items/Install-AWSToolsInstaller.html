@@ -8,11 +8,11 @@
     <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
     <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
     <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
-    <meta name="description" content="Uninstalls AWS.Tools modules with comprehensive filtering options.">
-    <title>AWS.Tools.Installer: Uninstall-AWSToolsModule Cmdlet | AWS Tools for PowerShell</title>
+    <meta name="description" content="Installs AWS.Tools.Installer module from CloudFront distribution.">
+    <title>AWS.Tools.Installer: Install-AWSToolsInstaller Cmdlet | AWS Tools for PowerShell</title>
     <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
-    <meta name="aws-tocid" content="Uninstall-AWSToolsModule"/>
-    <link rel="canonical" href="https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsModule.html"/>
+    <meta name="aws-tocid" content="Install-AWSToolsInstaller"/>
+    <link rel="canonical" href="https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Install-AWSToolsInstaller.html"/>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <!-- END-SECTION -->
     <div id="pageHeader">
         <div id="titles">
-            <h1>Uninstall-AWSToolsModule Cmdlet</h1>
+            <h1>Install-AWSToolsInstaller Cmdlet</h1>
             <h2>
                 <div>Available in <a
                         href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="sectionbody">
-                <div class="synopsis">Uninstalls AWS.Tools modules with comprehensive filtering options.</div>
+                <div class="synopsis">Installs AWS.Tools.Installer module from CloudFront distribution.</div>
             </div>
         </div>
         <div>
@@ -84,7 +84,7 @@
             </div>
             <div class="sectionbody">
                 <div class="syntax">
-                    <pre><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">[-Name] &lt;String[]&gt;</div><div class="wrappedParam">-Version &lt;String&gt;</div><div class="wrappedParam">-CleanUpLegacyScope &lt;String&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Prerelease &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">[-Name] &lt;String[]&gt;</div><div class="wrappedParam">-ExceptVersion &lt;String&gt;</div><div class="wrappedParam">-CleanUpLegacyScope &lt;String&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Prerelease &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">[-Name] &lt;String[]&gt;</div><div class="wrappedParam">-ExceptModules &lt;Hashtable[]&gt;</div><div class="wrappedParam">-CleanUpLegacyScope &lt;String&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                    <pre><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsInstaller</div><div class="paramlist"><div class="wrappedParam">[-Version] &lt;String&gt;</div><div class="wrappedParam">-Cleanup &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-SkipIntegrityCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Timeout &lt;Int32&gt;</div><div class="wrappedParam">-Prerelease &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsInstaller</div><div class="paramlist"><div class="wrappedParam">-SourceZipPath &lt;String&gt;</div><div class="wrappedParam">-SourceHashPath &lt;String&gt;</div><div class="wrappedParam">-SkipIntegrityCheck &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Cleanup &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Timeout &lt;Int32&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
                 </div>
             </div>
         </div>
@@ -95,10 +95,10 @@
                 </div>
             </div>
             <div class="sectionbody">
-                <div class="description">This cmdlet removes AWS.Tools modules by deleting their directories from the file
-                    system. This approach is significantly faster than using Uninstall-Module. The function supports
-                    filtering by module name and version. AWS.Tools.Installer is excluded and must be managed using
-                    Uninstall-AWSToolsInstaller.</div>
+                <div class="description">This cmdlet installs the AWS.Tools.Installer module from the AWS CloudFront-hosted
+                    AWS.Tools.Installer.zip file. By default, it installs the latest version and preserves all other
+                    versions. Installation is skipped if the target version is already installed unless Force is
+                    specified.</div>
             </div>
         </div>
         <div>
@@ -110,21 +110,17 @@
             <div class="sectionbody">
                 <div class="parameters">
                     <div class="parameter">
-                        <div class="parameterName">-Name &lt;<a
+                        <div class="parameterName">-Version &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
-                                target="_blank" rel="noopener noreferrer">String[]</a>&gt;</div>
-                        <div class="parameterDescription">Specifies names of the AWS.Tools modules to uninstall. All
-                            AWS.Tools modules are uninstalled by default. The names can be listed either with or without
-                            the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common").<br /><br />
-                            When this parameter is specified, you will be prompted to confirm the uninstallation of each
-                            individual module, allowing for more granular control over which modules are removed.<br /><br />
-                            Note: AWS.Tools.Installer cannot be specified here. Use Uninstall-AWSToolsInstaller to manage
-                            the installer module.</div>
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the version to install. Supports exact versions (e.g.,
+                            2.0.0) or major version wildcards (e.g., 1.*, 2.*). Minor version wildcards (e.g., 2.0.*,
+                            2.1.*) are not supported. Latest version is installed by default when not specified.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
                                     <td class="col1">Aliases</td>
-                                    <td class="col2">ModuleName</td>
+                                    <td class="col2">RequiredVersion</td>
                                 </tr>
                                 <tr>
                                     <td class="col1">Required?</td>
@@ -132,7 +128,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
+                                    <td class="col2">1</td>
                                 </tr>
                                 <tr>
                                     <td class="col1">Accept pipeline input?</td>
@@ -142,86 +138,9 @@
                         </div>
                     </div>
                     <div class="parameter">
-                        <div class="parameterName">-Version &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
-                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Specifies exact version number of the module to uninstall.
-                            Wildcard versions are not supported.</div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-ExceptVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
-                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Specifies that you want to uninstall all of the other available
-                            versions of AWS Tools except this one.<br /><br />
-                            This parameter is deprecated in favor of ExceptModules. It will be removed in a future major
-                            version.</div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-ExceptModules &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable"
-                                target="_blank" rel="noopener noreferrer">Hashtable[]</a>&gt;</div>
-                        <div class="parameterDescription">Specifies an array of hashtables containing module names and
-                            versions to exclude from uninstallation. Each hashtable must contain 'Name' and 'Version'
-                            keys. This parameter provides more granular control over which specific module versions to
-                            preserve during cleanup operations.<br /><br />
-                            Example: <code>@{ Name = 'AWS.Tools.Common'; Version = '5.0.8' }</code></div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-CleanUpLegacyScope &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
-                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Runs a separate cleanup of all instances of AWSPowerShell and
-                            AWSPowerShell.NetCore found in the specified scope. The acceptable values for this parameter
-                            are AllUsers and CurrentUser.</div>
+                        <div class="parameterName">-Cleanup &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Removes previous versions of the installer after successful
+                            installation. By default, previous versions are preserved.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -243,11 +162,80 @@
                         <div class="parameterName">-Scope &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
                                 target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Specifies the installation scope to target for uninstallation.
-                            The acceptable values for this parameter are AllUsers and CurrentUser. The AllUsers scope
-                            targets modules in a location that is accessible to all users of the computer. The CurrentUser
-                            targets modules in a location that is accessible only to the current user of the computer.
-                            Default value is 'CurrentUser'. Ignored if Path parameter is specified.</div>
+                        <div class="parameterDescription">Specifies the installation scope of the module as well as scope
+                            for module cleanup. The acceptable values for this parameter are AllUsers and CurrentUser.
+                            The AllUsers scope installs modules in a location that is accessible to all users of the
+                            computer. The CurrentUser installs modules in a location that is accessible only to the
+                            current user of the computer. Default value is 'CurrentUser'.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SourceZipPath &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Path to a local AWS.Tools.Installer.zip file for offline/air-gapped
+                            installation. Must be a file path, not a directory. Requires either -SourceHashPath for SHA512
+                            validation or -SkipIntegrityCheck to bypass validation.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">True</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SourceHashPath &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Path to the SHA512 hash file for validating the integrity of the
+                            zip file specified with -SourceZipPath. When using -SourceZipPath, you must either provide this
+                            parameter for validation or use -SkipIntegrityCheck to bypass validation.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SkipIntegrityCheck &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Switch that bypasses SHA512 validation when specified. By default,
+                            SHA512 validation is performed to ensure the integrity of downloaded files.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -269,82 +257,8 @@
                         <div class="parameterName">-Path &lt;<a
                                 href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
                                 target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
-                        <div class="parameterDescription">Specifies a custom path where AWS Tools modules are installed.
-                            When specified, modules will be uninstalled from this location instead of the standard
-                            scope-based paths. This is useful for testing scenarios or custom installation locations.</div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-Prerelease &lt;SwitchParameter&gt;</div>
-                        <div class="parameterDescription">Indicates that the version specified in the Version or
-                            ExceptVersion parameter includes a prerelease tag (e.g., 5.0.0-preview001).</div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Aliases</td>
-                                    <td class="col2">AllowPrerelease</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-MinimumVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
-                        <div class="parameterDescription"><em>Deprecated.</em> Specifies the minimum version of the modules
-                            to uninstall. This parameter is deprecated and should no longer be used as it will be removed
-                            in the next major version.</div>
-                        <div class="parameterAttributes">
-                            <table>
-                                <tr>
-                                    <td class="col1">Required?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Position?</td>
-                                    <td class="col2">Named</td>
-                                </tr>
-                                <tr>
-                                    <td class="col1">Accept pipeline input?</td>
-                                    <td class="col2">False</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="parameter">
-                        <div class="parameterName">-MaximumVersion &lt;<a
-                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
-                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
-                        <div class="parameterDescription"><em>Deprecated.</em> Specifies the maximum version of the modules
-                            to uninstall. This parameter is deprecated and should no longer be used as it will be removed
-                            in the next major version.</div>
+                        <div class="parameterDescription">Specifies a custom installation path. If not specified, uses the
+                            standard PowerShell module path for the specified scope.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
@@ -364,11 +278,60 @@
                     </div>
                     <div class="parameter">
                         <div class="parameterName">-Force &lt;SwitchParameter&gt;</div>
-                        <div class="parameterDescription"><em>Deprecated.</em> This parameter is deprecated and should no
-                            longer be used as it will be removed in the next major version. Use -Confirm:$false to run
-                            without asking for user confirmation.</div>
+                        <div class="parameterDescription">Forces installation even if the same version is already installed.
+                            Without this parameter, installation is skipped if the target version already exists.</div>
                         <div class="parameterAttributes">
                             <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Timeout &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.int32"
+                                target="_blank" rel="noopener noreferrer">Int32</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the timeout in seconds for downloading the
+                            AWS.Tools.Installer.zip file. Default is 300 seconds (5 minutes). Increase this value for
+                            slower internet connections.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Prerelease &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Allows installation of prerelease versions. When specified, the
+                            Version parameter can include a prerelease tag (e.g., 2.0.0-preview001). This switch must be
+                            specified when installing prerelease versions; otherwise, an error will be thrown.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Aliases</td>
+                                    <td class="col2">AllowPrerelease</td>
+                                </tr>
                                 <tr>
                                     <td class="col1">Required?</td>
                                     <td class="col2">False</td>
@@ -393,8 +356,9 @@
                     </div>
                 </div>
                 <div class="sectionbody">
-                    <div class="description">This cmdlet uses Remove-ModuleItem to delete module directories for improved
-                        performance and consistent error handling.</div>
+                    <div class="description">This cmdlet sources the installer module from the AWS CloudFront-hosted
+                        AWS.Tools.Installer.zip file for improved speed and reliability. This is separate from the main
+                        AWS.Tools.zip file to enable independent versioning and self-update capabilities.</div>
                 </div>
             </div>
             <div>
@@ -405,18 +369,15 @@
                 </div>
                 <div class="sectionbody">
                     <div class="examples">
-                        <h4>Example 1</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -ExceptVersion 4.0.0.0 -Confirm:$false</div><div class="description">This example uninstalls all versions of all AWS.Tools modules except for version 4.0.0.0.</div></pre>
-                        <h4>Example 2</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -ExceptModules @(
-    @{ Name = 'AWS.Tools.Common'; Version = '5.0.8' }
-    @{ Name = 'AWS.Tools.S3'; Version = '5.0.8' }
-) -Confirm:$false</div><div class="description">This example provides granular control over cleanup, preserving specific versions of AWS.Tools.Common and AWS.Tools.S3 while uninstalling all other modules.</div></pre>
-                        <h4>Example 3</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -Version 4.1.754 -Confirm:$false</div><div class="description">This example uninstalls only version 4.1.754 of all AWS.Tools modules.</div></pre>
-                        <h4>Example 4</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -Name EC2,S3 -Confirm:$false</div><div class="description">This example uninstalls all versions of only the EC2 and S3 modules, with individual confirmation prompts for each module.</div></pre>
-                        <h4>Example 5</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -CleanUpLegacyScope CurrentUser -Confirm:$false</div><div class="description">This example uninstalls all AWS.Tools modules and also removes legacy AWSPowerShell modules from the current user's scope.</div></pre>
-                        <h4>Example 6</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -Scope AllUsers -Confirm:$false</div><div class="description">This example uninstalls AWS.Tools modules from the system-wide installation location.</div></pre>
-                        <h4>Example 7</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -Path "C:\CustomModules" -Confirm:$false</div><div class="description">This example uninstalls AWS.Tools modules from a custom installation path.</div></pre>
-                        <h4>Example 8</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -WhatIf</div><div class="description">This example performs a what-if analysis to preview what modules would be removed without making changes.</div></pre>
-                        <h4>Example 9</h4><pre class="example"><div class="code">Uninstall-AWSToolsModule -Scope AllUsers</div><div class="description">This example removes AWS.Tools modules from the system-wide location with explicit confirmation prompts.</div></pre>
+                        <h4>Example 1</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Version "2.*"</div><div class="description">This example installs the latest AWS.Tools.Installer module with major version 2 from CloudFront. Using major version wildcards reduces the risk of breaking changes while still receiving bug fixes and new features within the major version.</div></pre>
+                        <h4>Example 2</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Version "2.0.0"</div><div class="description">This example installs version 2.0.0 of the AWS.Tools.Installer module. Specifying exact versions ensures predictable behavior and is recommended for production workloads.</div></pre>
+                        <h4>Example 3</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -WarningAction SilentlyContinue</div><div class="description">This example installs the latest available version of the AWS.Tools.Installer module from CloudFront and preserves all other installed versions. The WarningAction parameter suppresses the production workload warning when you intentionally want the latest version.</div></pre>
+                        <h4>Example 4</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Scope AllUsers</div><div class="description">This example installs the AWS.Tools.Installer module to the system-wide location accessible to all users.</div></pre>
+                        <h4>Example 5</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -SourceZipPath "C:\Downloads\AWS.Tools.Installer.zip"</div><div class="description">This example installs the AWS.Tools.Installer module from a local zip file for offline scenarios.</div></pre>
+                        <h4>Example 6</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Path "C:\DevModules"</div><div class="description">This example installs the AWS.Tools.Installer module to a custom directory for testing or development.</div></pre>
+                        <h4>Example 7</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Force</div><div class="description">This example forces reinstallation of the AWS.Tools.Installer module even if the same version is already installed.</div></pre>
+                        <h4>Example 8</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -WhatIf</div><div class="description">This example performs a what-if analysis to preview what would be installed without making changes.</div></pre>
+                        <h4>Example 9</h4><pre class="example"><div class="code">Install-AWSToolsInstaller -Cleanup -Confirm:$false</div><div class="description">This example installs the latest AWS.Tools.Installer module and removes all other versions.</div></pre>
                     </div>
                 </div>
             </div>
@@ -428,10 +389,10 @@
                 </div>
                 <div class="sectionbody">
                     <div class="related">
-                        <div class="relatedLink"><a href="./Install-AWSToolsModule.html"
-                                target="_parent">Install-AWSToolsModule</a></div>
                         <div class="relatedLink"><a href="./Uninstall-AWSToolsInstaller.html"
                                 target="_parent">Uninstall-AWSToolsInstaller</a></div>
+                        <div class="relatedLink"><a href="./Install-AWSToolsModule.html"
+                                target="_parent">Install-AWSToolsModule</a></div>
                         <div class="relatedLink"><a href="http://docs.aws.amazon.com/powershell/latest/userguide/"
                                 target="_parent">AWS Tools for PowerShell User Guide</a></div>
                     </div>
@@ -451,16 +412,16 @@
             </div>
             <div id="pageFooter">
                 <span class="newline linkto"><a href="javascript:void(0)"
-                        onclick="AWSHelpObj.displayLink('Uninstall-AWSToolsModule.html', 'Uninstall-AWSToolsModule')">Link
+                        onclick="AWSHelpObj.displayLink('Install-AWSToolsInstaller.html', 'Install-AWSToolsInstaller')">Link
                         to this page</a></span>
                 <span class="divider">&nbsp;</span>
                 <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
                         <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
-                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackyes.html?topic_id=Uninstall-AWSToolsModule"
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackyes.html?topic_id=Install-AWSToolsInstaller"
                             target="_parent">Yes</a>&nbsp;&nbsp;<a
-                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackno.html?topic_id=Uninstall-AWSToolsModule"
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackno.html?topic_id=Install-AWSToolsInstaller"
                             target="_parent">No</a>&nbsp;&nbsp;&nbsp;<a
-                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsModule.html"
+                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Install-AWSToolsInstaller.html"
                             target="_parent">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
                 <!-- END-FEEDBACK-SECTION -->
                 <div id="awsdocs-legal-zone-copyright"></div>
