@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <RootNamespace>Amazon.PowerShell.Installer</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\solutions\</SolutionDir>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591,1574,1570,1587</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../AWSPowerShell/aws-powershell.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Nullable>enable</Nullable>
+    <LangVersion>9.0</LangVersion>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>AWS.Tools.Installer</AssemblyName>
+    <DocumentationFile>$(OutputPath)\AWS.Tools.Installer.XML</DocumentationFile>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <Product>AWS Tools for PowerShell</Product>
+    <AssemblyTitle>AWS Tools for PowerShell Installer</AssemblyTitle>
+    <Copyright>Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
+    <Company>Amazon.com, Inc</Company>
+    <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../AWSPowerShell/aws-powershell.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
+  </ItemGroup>
+</Project>
