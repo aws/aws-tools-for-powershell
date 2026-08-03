@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.302.0",
+    "ProductVersion"    : "4.0.303.0",
     "CoreVersion"       : "4.0.100.9",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -138,7 +138,7 @@
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "4.0.101.6",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1492,7 +1492,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "4.0.101.0",
+            "Version" : "4.0.101.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1756,7 +1756,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "4.0.103.0",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2716,7 +2716,7 @@
             "InPreview"               : false
         },
         "EKSAuth"                             : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2836,7 +2836,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "4.0.101.2",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3036,7 +3036,7 @@
             "InPreview"               : false
         },
         "ObservabilityAdmin"                  : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"

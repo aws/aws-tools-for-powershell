@@ -65,6 +65,21 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String S3Configuration_BucketName { get; set; }
         #endregion
         
+        #region Parameter DbBackupConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A list of backup configurations to update for the DB instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DbBackupConfigurations")]
+        public Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration[] DbBackupConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DbInstanceType
         /// <summary>
         /// <para>
@@ -219,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AllocatedStorage = this.AllocatedStorage;
+            if (this.DbBackupConfiguration != null)
+            {
+                context.DbBackupConfiguration = new List<Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration>(this.DbBackupConfiguration);
+            }
             context.DbInstanceType = this.DbInstanceType;
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
             context.DbStorageType = this.DbStorageType;
@@ -254,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (cmdletContext.AllocatedStorage != null)
             {
                 request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
+            }
+            if (cmdletContext.DbBackupConfiguration != null)
+            {
+                request.DbBackupConfigurations = cmdletContext.DbBackupConfiguration;
             }
             if (cmdletContext.DbInstanceType != null)
             {
@@ -408,6 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? AllocatedStorage { get; set; }
+            public List<Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration> DbBackupConfiguration { get; set; }
             public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
             public System.String DbParameterGroupIdentifier { get; set; }
             public Amazon.TimestreamInfluxDB.DbStorageType DbStorageType { get; set; }

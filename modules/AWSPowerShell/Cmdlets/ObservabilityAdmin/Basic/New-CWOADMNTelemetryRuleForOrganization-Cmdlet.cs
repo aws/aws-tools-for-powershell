@@ -169,6 +169,17 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.Model.Filter[] LoggingFilter_Filter { get; set; }
         #endregion
         
+        #region Parameter Rule_DestinationConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key
+        /// used to encrypt the log groups created during telemetry rule remediation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Rule_DestinationConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter VPCFlowLogParameters_LogFormat
         /// <summary>
         /// <para>
@@ -195,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter LogDeliveryParameters_LogType
         /// <summary>
         /// <para>
-        /// <para>The type of log that the source is sending.</para><para />
+        /// <para>The types of logs to collect from the resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -265,8 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter Rule_ResourceType
         /// <summary>
         /// <para>
-        /// <para> The type of Amazon Web Services resource to configure telemetry for (e.g., "AWS::EC2::VPC",
-        /// "AWS::EKS::Cluster", "AWS::WAFv2::WebACL"). </para>
+        /// <para> The type of Amazon Web Services resource to configure telemetry for (for example,
+        /// <c>AWS::EC2::VPC</c>, <c>AWS::EKS::Cluster</c>, <c>AWS::ElasticLoadBalancingV2::LoadBalancer</c>,
+        /// or <c>AWS::Bedrock::KnowledgeBase</c>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.DestinationConfiguration_DestinationType = this.DestinationConfiguration_DestinationType;
             context.ELBLoadBalancerLoggingParameters_FieldDelimiter = this.ELBLoadBalancerLoggingParameters_FieldDelimiter;
             context.ELBLoadBalancerLoggingParameters_OutputFormat = this.ELBLoadBalancerLoggingParameters_OutputFormat;
+            context.Rule_DestinationConfiguration_KmsKeyArn = this.Rule_DestinationConfiguration_KmsKeyArn;
             if (this.LogDeliveryParameters_LogType != null)
             {
                 context.LogDeliveryParameters_LogType = new List<System.String>(this.LogDeliveryParameters_LogType);
@@ -617,6 +630,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_DestinationConfiguration_destinationConfiguration_DestinationType != null)
             {
                 requestRule_rule_DestinationConfiguration.DestinationType = requestRule_rule_DestinationConfiguration_destinationConfiguration_DestinationType;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
+            System.String requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_KmsKeyArn = null;
+            if (cmdletContext.Rule_DestinationConfiguration_KmsKeyArn != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_KmsKeyArn = cmdletContext.Rule_DestinationConfiguration_KmsKeyArn;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_KmsKeyArn != null)
+            {
+                requestRule_rule_DestinationConfiguration.KmsKeyArn = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_KmsKeyArn;
                 requestRule_rule_DestinationConfigurationIsNull = false;
             }
             System.Int32? requestRule_rule_DestinationConfiguration_destinationConfiguration_RetentionInDay = null;
@@ -939,6 +962,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
             public System.String ELBLoadBalancerLoggingParameters_FieldDelimiter { get; set; }
             public Amazon.ObservabilityAdmin.OutputFormat ELBLoadBalancerLoggingParameters_OutputFormat { get; set; }
+            public System.String Rule_DestinationConfiguration_KmsKeyArn { get; set; }
             public List<System.String> LogDeliveryParameters_LogType { get; set; }
             public Amazon.ObservabilityAdmin.MskEnhancedMonitoringLevel Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring { get; set; }
             public System.Int32? DestinationConfiguration_RetentionInDay { get; set; }

@@ -93,8 +93,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Set-AWSProxy', 
-        'Clear-AWSProxy', 
+        'Get-AWSPublicIpAddressRange', 
+        'Remove-AWSCredentialProfile', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -102,31 +102,31 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Get-AWSSensitiveDataConfiguration', 
         'Set-AWSAutoIterationMode', 
         'Get-AWSAutoIterationMode', 
-        'Invoke-AWSLogin', 
-        'Invoke-AWSLogout', 
-        'Get-AWSPublicIpAddressRange', 
-        'Get-AWSService', 
-        'Get-AWSCmdletName', 
         'Invoke-AWSSSOLogin', 
         'Initialize-AWSSSOConfiguration', 
         'Set-AWSSSOSessionConfiguration', 
         'Invoke-AWSSSOLogout', 
+        'Get-AWSService', 
+        'Get-AWSCmdletName', 
+        'Set-DefaultAWSRegion', 
+        'Clear-DefaultAWSRegion', 
+        'Get-DefaultAWSRegion', 
+        'Get-AWSRegion', 
         'Add-AWSLoggingListener', 
         'Remove-AWSLoggingListener', 
         'Set-AWSResponseLogging', 
         'Enable-AWSMetricsLogging', 
         'Disable-AWSMetricsLogging', 
+        'Set-AWSProxy', 
+        'Clear-AWSProxy', 
         'New-AWSCredential', 
         'Set-AWSCredential', 
         'Clear-AWSCredential', 
         'Get-AWSCredential', 
         'Set-AWSSamlEndpoint', 
         'Set-AWSSamlRoleProfile', 
-        'Remove-AWSCredentialProfile', 
-        'Set-DefaultAWSRegion', 
-        'Clear-DefaultAWSRegion', 
-        'Get-DefaultAWSRegion', 
-        'Get-AWSRegion')
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'

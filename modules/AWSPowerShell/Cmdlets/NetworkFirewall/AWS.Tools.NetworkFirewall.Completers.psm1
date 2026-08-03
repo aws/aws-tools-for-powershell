@@ -387,6 +387,7 @@ $NWFW_SelectMap = @{
                "Update-NWFWProxyRule",
                "Update-NWFWProxyRuleGroupPriority",
                "Update-NWFWProxyRulePriority",
+               "Update-NWFWProxySetting",
                "Update-NWFWRuleGroup",
                "Update-NWFWSubnetChangeProtection",
                "Update-NWFWTLSInspectionConfiguration")

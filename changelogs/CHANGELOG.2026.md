@@ -1,4 +1,33 @@
-﻿### 5.0.267 (2026-07-31 19:10Z)
+﻿### 5.0.268 (2026-08-03 19:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.303.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope.
+    * Modified cmdlet New-CWOADMNTelemetryRule: added parameter Rule_DestinationConfiguration_KmsKeyArn.
+    * Modified cmdlet New-CWOADMNTelemetryRuleForOrganization: added parameter Rule_DestinationConfiguration_KmsKeyArn.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope.
+    * Modified cmdlet Update-CWOADMNTelemetryRule: added parameter Rule_DestinationConfiguration_KmsKeyArn.
+    * Modified cmdlet Update-CWOADMNTelemetryRuleForOrganization: added parameter Rule_DestinationConfiguration_KmsKeyArn.
+  * Amazon Direct Connect
+    * Added cmdlet Get-DCVirtualInterfaceRouteList leveraging the ListVirtualInterfaceRoutes service API.
+  * Amazon EKS Auth
+    * Modified cmdlet Use-EKSAURoleForPodIdentity: added parameters EksNodeName, InstanceId and Zone.
+  * Amazon Network Firewall
+    * Added cmdlet Update-NWFWProxySetting leveraging the UpdateProxySettings service API.
+    * Modified cmdlet New-NWFWFirewall: added parameters NatGatewayMapping, NoSourcePreservation, ProxySettings_ListenerProperty, VpcEndpoint_SubnetMapping and VpcEndpoint_VpcId.
+  * Amazon Timestream InfluxDB
+    * Added cmdlet Get-TIDBDbBackup leveraging the GetDbBackup service API.
+    * Added cmdlet Get-TIDBDbBackupList leveraging the ListDbBackups service API.
+    * Added cmdlet New-TIDBDbBackup leveraging the CreateDbBackup service API.
+    * Added cmdlet Remove-TIDBDbBackup leveraging the DeleteDbBackup service API.
+    * Added cmdlet Restore-TIDBFromDbBackup leveraging the RestoreFromDbBackup service API.
+    * Modified cmdlet New-TIDBDbCluster: added parameters DbBackupConfiguration and KmsKeyId.
+    * Modified cmdlet New-TIDBDbInstance: added parameters DbBackupConfiguration and KmsKeyId.
+    * Modified cmdlet Remove-TIDBDbCluster: added parameter RetainAutomatedBackup.
+    * Modified cmdlet Remove-TIDBDbInstance: added parameter RetainAutomatedBackup.
+    * Modified cmdlet Update-TIDBDbCluster: added parameter DbBackupConfiguration.
+    * Modified cmdlet Update-TIDBDbInstance: added parameter DbBackupConfiguration.
+
+### 5.0.267 (2026-07-31 19:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.302.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2
     * Modified cmdlet New-CCS2Campaign: added parameter ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_PacingStrategy.

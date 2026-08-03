@@ -112,6 +112,16 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.EncryptionScope
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope")
+        }
+        {
+            $v = "ENCRYPTED_SOURCE_ONLY","NEW_DESTINATION_LOG_GROUPS"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.EncryptionStrategy
         {
             ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionStrategy") -Or
@@ -223,6 +233,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")

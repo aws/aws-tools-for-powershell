@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter RetainAutomatedBackup
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to retain automated backups after the DB instance is deleted. If
+        /// set to true, automated backups are not deleted and can be restored later.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetainAutomatedBackups")]
+        public System.Boolean? RetainAutomatedBackup { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -114,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RetainAutomatedBackup = this.RetainAutomatedBackup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.RetainAutomatedBackup != null)
+            {
+                request.RetainAutomatedBackups = cmdletContext.RetainAutomatedBackup.Value;
             }
             
             CmdletOutput output;
@@ -190,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
+            public System.Boolean? RetainAutomatedBackup { get; set; }
             public System.Func<Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse, RemoveTIDBDbInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

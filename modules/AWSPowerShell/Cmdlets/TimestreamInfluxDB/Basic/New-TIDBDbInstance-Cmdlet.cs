@@ -83,6 +83,21 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String S3Configuration_BucketName { get; set; }
         #endregion
         
+        #region Parameter DbBackupConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A list of backup configurations to enable automated backups for the DB instance.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DbBackupConfigurations")]
+        public Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration[] DbBackupConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DbInstanceType
         /// <summary>
         /// <para>
@@ -145,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogDeliveryConfiguration_S3Configuration_Enabled")]
         public System.Boolean? S3Configuration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to use for encryption of the DB instance.
+        /// Can be a key ID, key ARN, alias name, or alias ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter Name
@@ -381,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             }
             #endif
             context.Bucket = this.Bucket;
+            if (this.DbBackupConfiguration != null)
+            {
+                context.DbBackupConfiguration = new List<Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration>(this.DbBackupConfiguration);
+            }
             context.DbInstanceType = this.DbInstanceType;
             #if MODULAR
             if (this.DbInstanceType == null && ParameterWasBound(nameof(this.DbInstanceType)))
@@ -391,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
             context.DbStorageType = this.DbStorageType;
             context.DeploymentType = this.DeploymentType;
+            context.KmsKeyId = this.KmsKeyId;
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
             context.S3Configuration_Enabled = this.S3Configuration_Enabled;
             context.MaintenanceSchedule_PreferredMaintenanceWindow = this.MaintenanceSchedule_PreferredMaintenanceWindow;
@@ -466,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             {
                 request.Bucket = cmdletContext.Bucket;
             }
+            if (cmdletContext.DbBackupConfiguration != null)
+            {
+                request.DbBackupConfigurations = cmdletContext.DbBackupConfiguration;
+            }
             if (cmdletContext.DbInstanceType != null)
             {
                 request.DbInstanceType = cmdletContext.DbInstanceType;
@@ -481,6 +516,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (cmdletContext.DeploymentType != null)
             {
                 request.DeploymentType = cmdletContext.DeploymentType;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             
              // populate LogDeliveryConfiguration
@@ -652,10 +691,12 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         {
             public System.Int32? AllocatedStorage { get; set; }
             public System.String Bucket { get; set; }
+            public List<Amazon.TimestreamInfluxDB.Model.DbBackupConfiguration> DbBackupConfiguration { get; set; }
             public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
             public System.String DbParameterGroupIdentifier { get; set; }
             public Amazon.TimestreamInfluxDB.DbStorageType DbStorageType { get; set; }
             public Amazon.TimestreamInfluxDB.DeploymentType DeploymentType { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }
             public System.String MaintenanceSchedule_PreferredMaintenanceWindow { get; set; }

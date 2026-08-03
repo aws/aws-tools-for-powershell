@@ -167,6 +167,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-NWFWProxyRule', 
         'Update-NWFWProxyRuleGroupPriority', 
         'Update-NWFWProxyRulePriority', 
+        'Update-NWFWProxySetting', 
         'Update-NWFWRuleGroup', 
         'Update-NWFWSubnetChangeProtection', 
         'Update-NWFWTLSInspectionConfiguration', 

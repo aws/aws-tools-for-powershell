@@ -14850,8 +14850,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15533,8 +15533,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -15994,8 +15994,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -26923,6 +26923,7 @@ $DC_Completers = {
     {
         # Amazon.DirectConnect.AddressFamily
         {
+            ($_ -eq "Get-DCVirtualInterfaceRouteList/Filters_AddressFamily") -Or
             ($_ -eq "New-DCBGPPeer/NewBGPPeer_AddressFamily") -Or
             ($_ -eq "New-DCPrivateVirtualInterface/NewPrivateVirtualInterface_AddressFamily") -Or
             ($_ -eq "Enable-DCPrivateVirtualInterface/NewPrivateVirtualInterfaceAllocation_AddressFamily") -Or
@@ -26947,6 +26948,13 @@ $DC_Completers = {
             break
         }
 
+        # Amazon.DirectConnect.RouteDirection
+        "Get-DCVirtualInterfaceRouteList/Filters_RouteDirection"
+        {
+            $v = "accepted","advertised"
+            break
+        }
+
 
     }
 
@@ -26956,6 +26964,8 @@ $DC_Completers = {
 }
 
 $DC_map = @{
+    "Filters_AddressFamily"=@("Get-DCVirtualInterfaceRouteList")
+    "Filters_RouteDirection"=@("Get-DCVirtualInterfaceRouteList")
     "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa","Get-DCLoa")
     "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
     "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
@@ -27069,6 +27079,7 @@ $DC_SelectMap = @{
                "Get-DCVirtualInterface",
                "Unregister-DCConnectionFromLag",
                "Remove-DCMacSecKey",
+               "Get-DCVirtualInterfaceRouteList",
                "Get-DCVirtualInterfaceTestHistoryList",
                "Start-DCBgpFailoverTest",
                "Stop-DCBgpFailoverTest",
@@ -29424,12 +29435,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem",
                "New-DDBTable",
-               "New-DDBTableSchema")
+               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -60679,6 +60690,7 @@ $NWFW_SelectMap = @{
                "Update-NWFWProxyRule",
                "Update-NWFWProxyRuleGroupPriority",
                "Update-NWFWProxyRulePriority",
+               "Update-NWFWProxySetting",
                "Update-NWFWRuleGroup",
                "Update-NWFWSubnetChangeProtection",
                "Update-NWFWTLSInspectionConfiguration")
@@ -61597,6 +61609,16 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.EncryptionScope
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope")
+        }
+        {
+            $v = "ENCRYPTED_SOURCE_ONLY","NEW_DESTINATION_LOG_GROUPS"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.EncryptionStrategy
         {
             ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionStrategy") -Or
@@ -61708,6 +61730,7 @@ $CWOADMN_map = @{
     "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
@@ -76707,16 +76730,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
                "Test-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "New-S3Bucket",
                "Remove-S3Object",
-               "Get-S3MultipartUpload",
-               "Remove-S3Bucket",
                "Copy-S3Object",
                "Read-S3Object",
-               "Remove-S3MultipartUpload",
+               "Get-S3MultipartUpload",
                "Write-S3Object",
-               "New-S3Bucket")
+               "Get-S3PreSignedURL",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87719,10 +87742,25 @@ $TIDB_Completers = {
         # Amazon.TimestreamInfluxDB.NetworkType
         {
             ($_ -eq "New-TIDBDbCluster/NetworkType") -Or
-            ($_ -eq "New-TIDBDbInstance/NetworkType")
+            ($_ -eq "New-TIDBDbInstance/NetworkType") -Or
+            ($_ -eq "Restore-TIDBFromDbBackup/NetworkType")
         }
         {
             $v = "DUAL","IPV4"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.ResourceDeploymentType
+        "Restore-TIDBFromDbBackup/DeploymentType"
+        {
+            $v = "MULTI_NODE_READ_REPLICAS","SINGLE_AZ","WITH_MULTIAZ_STANDBY"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.RestoreMode
+        "Restore-TIDBFromDbBackup/RestoreMode"
+        {
+            $v = "NEW_RESOURCE","REPLACE_EXISTING"
             break
         }
 
@@ -87748,7 +87786,7 @@ $TIDB_map = @{
     "CompactionGen2Duration_DurationType"=@("New-TIDBDbParameterGroup")
     "DbInstanceType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbCluster","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup","Update-TIDBDbInstance")
     "FailoverMode"=@("New-TIDBDbCluster","Update-TIDBDbCluster")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
@@ -87782,8 +87820,9 @@ $TIDB_map = @{
     "InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
-    "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance")
+    "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup")
     "ReplicationInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "RestoreMode"=@("Restore-TIDBFromDbBackup")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
@@ -87840,14 +87879,18 @@ $TIDB_SelectCompleters = {
 }
 
 $TIDB_SelectMap = @{
-    "Select"=@("New-TIDBDbCluster",
+    "Select"=@("New-TIDBDbBackup",
+               "New-TIDBDbCluster",
                "New-TIDBDbInstance",
                "New-TIDBDbParameterGroup",
+               "Remove-TIDBDbBackup",
                "Remove-TIDBDbCluster",
                "Remove-TIDBDbInstance",
+               "Get-TIDBDbBackup",
                "Get-TIDBDbCluster",
                "Get-TIDBDbInstance",
                "Get-TIDBDbParameterGroup",
+               "Get-TIDBDbBackupList",
                "Get-TIDBDbClusterList",
                "Get-TIDBDbInstanceList",
                "Get-TIDBDbInstancesForClusterList",
@@ -87855,6 +87898,7 @@ $TIDB_SelectMap = @{
                "Get-TIDBResourceTag",
                "Restart-TIDBDbCluster",
                "Restart-TIDBDbInstance",
+               "Restore-TIDBFromDbBackup",
                "Add-TIDBResourceTag",
                "Remove-TIDBResourceTag",
                "Update-TIDBDbCluster",

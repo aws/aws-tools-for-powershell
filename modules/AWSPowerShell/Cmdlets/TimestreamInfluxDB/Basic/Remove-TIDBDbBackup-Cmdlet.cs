@@ -30,25 +30,24 @@ using Amazon.TimestreamInfluxDB.Model;
 namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Deletes a Timestream for InfluxDB cluster.
+    /// Deletes a Timestream for InfluxDB backup.
     /// </summary>
-    [Cmdlet("Remove", "TIDBDbCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.TimestreamInfluxDB.ClusterStatus")]
-    [AWSCmdlet("Calls the Amazon Timestream InfluxDB DeleteDbCluster API operation.", Operation = new[] {"DeleteDbCluster"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse))]
-    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.ClusterStatus or Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse",
-        "This cmdlet returns an Amazon.TimestreamInfluxDB.ClusterStatus object.",
-        "The service call response (type Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "TIDBDbBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB DeleteDbBackup API operation.", Operation = new[] {"DeleteDbBackup"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse",
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse object containing multiple properties."
     )]
-    public partial class RemoveTIDBDbClusterCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
+    public partial class RemoveTIDBDbBackupCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DbClusterId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Service-generated unique identifier of the DB cluster.</para>
+        /// <para>The identifier of the backup to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,30 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DbClusterId { get; set; }
-        #endregion
-        
-        #region Parameter RetainAutomatedBackup
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to retain automated backups after the DB cluster is deleted. If
-        /// set to true, automated backups are not deleted and can be restored later.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RetainAutomatedBackups")]
-        public System.Boolean? RetainAutomatedBackup { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DbClusterStatus'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse).
-        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DbClusterStatus";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -104,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DbClusterId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TIDBDbCluster (DeleteDbCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TIDBDbBackup (DeleteDbBackup)"))
             {
                 return;
             }
@@ -117,17 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse, RemoveTIDBDbClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse, RemoveTIDBDbBackupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DbClusterId = this.DbClusterId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.DbClusterId == null && ParameterWasBound(nameof(this.DbClusterId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter DbClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RetainAutomatedBackup = this.RetainAutomatedBackup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,15 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.TimestreamInfluxDB.Model.DeleteDbClusterRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.DeleteDbBackupRequest();
             
-            if (cmdletContext.DbClusterId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.DbClusterId = cmdletContext.DbClusterId;
-            }
-            if (cmdletContext.RetainAutomatedBackup != null)
-            {
-                request.RetainAutomatedBackups = cmdletContext.RetainAutomatedBackup.Value;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -185,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.DeleteDbClusterRequest request)
+        private Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.DeleteDbBackupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "DeleteDbCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "DeleteDbBackup");
             try
             {
-                return client.DeleteDbClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteDbBackupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -207,10 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DbClusterId { get; set; }
-            public System.Boolean? RetainAutomatedBackup { get; set; }
-            public System.Func<Amazon.TimestreamInfluxDB.Model.DeleteDbClusterResponse, RemoveTIDBDbClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DbClusterStatus;
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.DeleteDbBackupResponse, RemoveTIDBDbBackupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

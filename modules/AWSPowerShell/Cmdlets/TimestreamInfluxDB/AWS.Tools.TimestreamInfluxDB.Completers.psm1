@@ -203,10 +203,25 @@ $TIDB_Completers = {
         # Amazon.TimestreamInfluxDB.NetworkType
         {
             ($_ -eq "New-TIDBDbCluster/NetworkType") -Or
-            ($_ -eq "New-TIDBDbInstance/NetworkType")
+            ($_ -eq "New-TIDBDbInstance/NetworkType") -Or
+            ($_ -eq "Restore-TIDBFromDbBackup/NetworkType")
         }
         {
             $v = "DUAL","IPV4"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.ResourceDeploymentType
+        "Restore-TIDBFromDbBackup/DeploymentType"
+        {
+            $v = "MULTI_NODE_READ_REPLICAS","SINGLE_AZ","WITH_MULTIAZ_STANDBY"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.RestoreMode
+        "Restore-TIDBFromDbBackup/RestoreMode"
+        {
+            $v = "NEW_RESOURCE","REPLACE_EXISTING"
             break
         }
 
@@ -232,7 +247,7 @@ $TIDB_map = @{
     "CompactionGen2Duration_DurationType"=@("New-TIDBDbParameterGroup")
     "DbInstanceType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbCluster","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup","Update-TIDBDbInstance")
     "FailoverMode"=@("New-TIDBDbCluster","Update-TIDBDbCluster")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
@@ -266,8 +281,9 @@ $TIDB_map = @{
     "InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv3Enterprise_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
-    "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance")
+    "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Restore-TIDBFromDbBackup")
     "ReplicationInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "RestoreMode"=@("Restore-TIDBFromDbBackup")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
@@ -324,14 +340,18 @@ $TIDB_SelectCompleters = {
 }
 
 $TIDB_SelectMap = @{
-    "Select"=@("New-TIDBDbCluster",
+    "Select"=@("New-TIDBDbBackup",
+               "New-TIDBDbCluster",
                "New-TIDBDbInstance",
                "New-TIDBDbParameterGroup",
+               "Remove-TIDBDbBackup",
                "Remove-TIDBDbCluster",
                "Remove-TIDBDbInstance",
+               "Get-TIDBDbBackup",
                "Get-TIDBDbCluster",
                "Get-TIDBDbInstance",
                "Get-TIDBDbParameterGroup",
+               "Get-TIDBDbBackupList",
                "Get-TIDBDbClusterList",
                "Get-TIDBDbInstanceList",
                "Get-TIDBDbInstancesForClusterList",
@@ -339,6 +359,7 @@ $TIDB_SelectMap = @{
                "Get-TIDBResourceTag",
                "Restart-TIDBDbCluster",
                "Restart-TIDBDbInstance",
+               "Restore-TIDBFromDbBackup",
                "Add-TIDBResourceTag",
                "Remove-TIDBResourceTag",
                "Update-TIDBDbCluster",

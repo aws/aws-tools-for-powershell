@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DCRouterConfiguration', 
         'Get-DCVirtualGateway', 
         'Get-DCVirtualInterface', 
+        'Get-DCVirtualInterfaceRouteList', 
         'Get-DCVirtualInterfaceTestHistoryList', 
         'New-DCBGPPeer', 
         'New-DCConnection', 

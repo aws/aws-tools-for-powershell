@@ -365,6 +365,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxySettings" OutputProperty="*" Verb="Update" Noun="ProxySetting" ShouldProcessTarget="FirewallName,FirewallArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="*" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RuleGroup_ReferenceSets_IPSetReferences" NewName="ReferenceSets_IPSetReference" />

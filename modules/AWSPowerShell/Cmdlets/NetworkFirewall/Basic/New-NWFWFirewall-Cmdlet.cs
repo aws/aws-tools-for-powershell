@@ -201,6 +201,52 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String EncryptionConfiguration_KeyId { get; set; }
         #endregion
         
+        #region Parameter ProxySettings_ListenerProperty
+        /// <summary>
+        /// <para>
+        /// <para>Listener properties for HTTP and HTTPS traffic. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProxySettings_ListenerProperties")]
+        public Amazon.NetworkFirewall.Model.ListenerProperty[] ProxySettings_ListenerProperty { get; set; }
+        #endregion
+        
+        #region Parameter NatGatewayMapping
+        /// <summary>
+        /// <para>
+        /// <para>The NAT gateways that the firewall uses to proxy traffic when <c>NoSourcePreservation</c>
+        /// is <c>TRUE</c>. Network Firewall attaches the firewall to each NAT gateway that you
+        /// specify, so that egress traffic is proxied through the NAT gateway. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NatGatewayMappings")]
+        public Amazon.NetworkFirewall.Model.NatGatewayMapping[] NatGatewayMapping { get; set; }
+        #endregion
+        
+        #region Parameter NoSourcePreservation
+        /// <summary>
+        /// <para>
+        /// <para>Optional. Indicates whether the firewall operates in proxy mode, in which the source
+        /// IP address of the traffic is not preserved. When set to <c>TRUE</c>, the firewall
+        /// proxies traffic through a NAT gateway and the traffic reaching the destination uses
+        /// the NAT gateway's IP address as the source. </para><para>When you set this to <c>TRUE</c>, you must specify <c>NatGatewayMappings</c> and <c>VpcEndpoint</c>
+        /// instead of a top-level <c>VpcId</c> and <c>SubnetMappings</c>. </para><para>You can't change this setting after you create the firewall. </para><para>Default value: <c>FALSE</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NoSourcePreservation { get; set; }
+        #endregion
+        
         #region Parameter SubnetChangeProtection
         /// <summary>
         /// <para>
@@ -229,6 +275,22 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SubnetMappings")]
         public Amazon.NetworkFirewall.Model.SubnetMapping[] SubnetMapping { get; set; }
+        #endregion
+        
+        #region Parameter VpcEndpoint_SubnetMapping
+        /// <summary>
+        /// <para>
+        /// <para>The subnets in which Network Firewall creates the firewall endpoint for a proxy mode
+        /// firewall. Each subnet must belong to a different Availability Zone in the VPC. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcEndpoint_SubnetMappings")]
+        public Amazon.NetworkFirewall.Model.SubnetMapping[] VpcEndpoint_SubnetMapping { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -272,6 +334,17 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.NetworkFirewall.EncryptionType")]
         public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter VpcEndpoint_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the VPC where Network Firewall creates the proxy mode firewall
+        /// endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpoint_VpcId { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -359,6 +432,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             #endif
             context.FirewallPolicyChangeProtection = this.FirewallPolicyChangeProtection;
+            if (this.NatGatewayMapping != null)
+            {
+                context.NatGatewayMapping = new List<Amazon.NetworkFirewall.Model.NatGatewayMapping>(this.NatGatewayMapping);
+            }
+            context.NoSourcePreservation = this.NoSourcePreservation;
+            if (this.ProxySettings_ListenerProperty != null)
+            {
+                context.ProxySettings_ListenerProperty = new List<Amazon.NetworkFirewall.Model.ListenerProperty>(this.ProxySettings_ListenerProperty);
+            }
             context.SubnetChangeProtection = this.SubnetChangeProtection;
             if (this.SubnetMapping != null)
             {
@@ -369,6 +451,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
             }
             context.TransitGatewayId = this.TransitGatewayId;
+            if (this.VpcEndpoint_SubnetMapping != null)
+            {
+                context.VpcEndpoint_SubnetMapping = new List<Amazon.NetworkFirewall.Model.SubnetMapping>(this.VpcEndpoint_SubnetMapping);
+            }
+            context.VpcEndpoint_VpcId = this.VpcEndpoint_VpcId;
             context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
@@ -447,6 +534,33 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 request.FirewallPolicyChangeProtection = cmdletContext.FirewallPolicyChangeProtection.Value;
             }
+            if (cmdletContext.NatGatewayMapping != null)
+            {
+                request.NatGatewayMappings = cmdletContext.NatGatewayMapping;
+            }
+            if (cmdletContext.NoSourcePreservation != null)
+            {
+                request.NoSourcePreservation = cmdletContext.NoSourcePreservation.Value;
+            }
+            
+             // populate ProxySettings
+            var requestProxySettingsIsNull = true;
+            request.ProxySettings = new Amazon.NetworkFirewall.Model.ProxySettings();
+            List<Amazon.NetworkFirewall.Model.ListenerProperty> requestProxySettings_proxySettings_ListenerProperty = null;
+            if (cmdletContext.ProxySettings_ListenerProperty != null)
+            {
+                requestProxySettings_proxySettings_ListenerProperty = cmdletContext.ProxySettings_ListenerProperty;
+            }
+            if (requestProxySettings_proxySettings_ListenerProperty != null)
+            {
+                request.ProxySettings.ListenerProperties = requestProxySettings_proxySettings_ListenerProperty;
+                requestProxySettingsIsNull = false;
+            }
+             // determine if request.ProxySettings should be set to null
+            if (requestProxySettingsIsNull)
+            {
+                request.ProxySettings = null;
+            }
             if (cmdletContext.SubnetChangeProtection != null)
             {
                 request.SubnetChangeProtection = cmdletContext.SubnetChangeProtection.Value;
@@ -462,6 +576,35 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.TransitGatewayId != null)
             {
                 request.TransitGatewayId = cmdletContext.TransitGatewayId;
+            }
+            
+             // populate VpcEndpoint
+            var requestVpcEndpointIsNull = true;
+            request.VpcEndpoint = new Amazon.NetworkFirewall.Model.VpcEndpoint();
+            List<Amazon.NetworkFirewall.Model.SubnetMapping> requestVpcEndpoint_vpcEndpoint_SubnetMapping = null;
+            if (cmdletContext.VpcEndpoint_SubnetMapping != null)
+            {
+                requestVpcEndpoint_vpcEndpoint_SubnetMapping = cmdletContext.VpcEndpoint_SubnetMapping;
+            }
+            if (requestVpcEndpoint_vpcEndpoint_SubnetMapping != null)
+            {
+                request.VpcEndpoint.SubnetMappings = requestVpcEndpoint_vpcEndpoint_SubnetMapping;
+                requestVpcEndpointIsNull = false;
+            }
+            System.String requestVpcEndpoint_vpcEndpoint_VpcId = null;
+            if (cmdletContext.VpcEndpoint_VpcId != null)
+            {
+                requestVpcEndpoint_vpcEndpoint_VpcId = cmdletContext.VpcEndpoint_VpcId;
+            }
+            if (requestVpcEndpoint_vpcEndpoint_VpcId != null)
+            {
+                request.VpcEndpoint.VpcId = requestVpcEndpoint_vpcEndpoint_VpcId;
+                requestVpcEndpointIsNull = false;
+            }
+             // determine if request.VpcEndpoint should be set to null
+            if (requestVpcEndpointIsNull)
+            {
+                request.VpcEndpoint = null;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -532,10 +675,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FirewallName { get; set; }
             public System.String FirewallPolicyArn { get; set; }
             public System.Boolean? FirewallPolicyChangeProtection { get; set; }
+            public List<Amazon.NetworkFirewall.Model.NatGatewayMapping> NatGatewayMapping { get; set; }
+            public System.Boolean? NoSourcePreservation { get; set; }
+            public List<Amazon.NetworkFirewall.Model.ListenerProperty> ProxySettings_ListenerProperty { get; set; }
             public System.Boolean? SubnetChangeProtection { get; set; }
             public List<Amazon.NetworkFirewall.Model.SubnetMapping> SubnetMapping { get; set; }
             public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
             public System.String TransitGatewayId { get; set; }
+            public List<Amazon.NetworkFirewall.Model.SubnetMapping> VpcEndpoint_SubnetMapping { get; set; }
+            public System.String VpcEndpoint_VpcId { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.CreateFirewallResponse, NewNWFWFirewallCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

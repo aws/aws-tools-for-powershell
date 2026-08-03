@@ -82,6 +82,7 @@ $DC_Completers = {
     {
         # Amazon.DirectConnect.AddressFamily
         {
+            ($_ -eq "Get-DCVirtualInterfaceRouteList/Filters_AddressFamily") -Or
             ($_ -eq "New-DCBGPPeer/NewBGPPeer_AddressFamily") -Or
             ($_ -eq "New-DCPrivateVirtualInterface/NewPrivateVirtualInterface_AddressFamily") -Or
             ($_ -eq "Enable-DCPrivateVirtualInterface/NewPrivateVirtualInterfaceAllocation_AddressFamily") -Or
@@ -106,6 +107,13 @@ $DC_Completers = {
             break
         }
 
+        # Amazon.DirectConnect.RouteDirection
+        "Get-DCVirtualInterfaceRouteList/Filters_RouteDirection"
+        {
+            $v = "accepted","advertised"
+            break
+        }
+
 
     }
 
@@ -115,6 +123,8 @@ $DC_Completers = {
 }
 
 $DC_map = @{
+    "Filters_AddressFamily"=@("Get-DCVirtualInterfaceRouteList")
+    "Filters_RouteDirection"=@("Get-DCVirtualInterfaceRouteList")
     "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa","Get-DCLoa")
     "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
     "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
@@ -228,6 +238,7 @@ $DC_SelectMap = @{
                "Get-DCVirtualInterface",
                "Unregister-DCConnectionFromLag",
                "Remove-DCMacSecKey",
+               "Get-DCVirtualInterfaceRouteList",
                "Get-DCVirtualInterfaceTestHistoryList",
                "Start-DCBgpFailoverTest",
                "Stop-DCBgpFailoverTest",

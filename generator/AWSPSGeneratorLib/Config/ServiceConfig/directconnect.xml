@@ -173,19 +173,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -209,7 +209,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocations" OutputProperty="Locations" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DCLocations" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLocations" OutputProperty="Locations" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-DCLocations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -234,6 +234,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateMacSecKey" OutputProperty="*" Verb="Remove" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualInterfaceRoutes" OutputProperty="*" Verb="Get" Noun="VirtualInterfaceRouteList" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

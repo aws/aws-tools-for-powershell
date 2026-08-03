@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateDbBackup" OutputProperty="*" Verb="New" Noun="DbBackup" ShouldProcessTarget="DbResourceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDbCluster" OutputProperty="*" Verb="New" Noun="DbCluster" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="LogDeliveryConfiguration_S3Configuration_BucketName" NewName="S3Configuration_BucketName" />
@@ -204,11 +208,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDbBackup" OutputProperty="*" Verb="Remove" Noun="DbBackup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDbCluster" OutputProperty="DbClusterStatus" Verb="Remove" Noun="DbCluster" ShouldProcessTarget="DbClusterId" PipelineParameter="DbClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDbInstance" OutputProperty="*" Verb="Remove" Noun="DbInstance" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDbBackup" OutputProperty="*" Verb="Get" Noun="DbBackup" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -221,6 +233,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDbParameterGroup" OutputProperty="*" Verb="Get" Noun="DbParameterGroup" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDbBackups" OutputProperty="Items" Verb="Get" Noun="DbBackupList" PipelineParameter="DbResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -251,6 +267,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootDbInstance" OutputProperty="*" Verb="Restart" Noun="DbInstance" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreFromDbBackup" OutputProperty="*" Verb="Restore" Noun="FromDbBackup" ShouldProcessTarget="DbBackupId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

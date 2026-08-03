@@ -1287,9 +1287,8 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         #region Parameter InfluxDBv2_QueryMaxMemoryByte
         /// <summary>
         /// <para>
-        /// <para>Maximum number of queries allowed in execution queue. When queue limit is reached,
-        /// new queries are rejected. Setting to 0 allows an unlimited number of queries in the
-        /// queue.</para><para>Default: 0</para>
+        /// <para>Maximum total bytes of memory allowed for all running queries. When this limit is
+        /// reached, new queries are rejected. Setting to 0 allows unlimited memory usage.</para><para>Default: 0</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

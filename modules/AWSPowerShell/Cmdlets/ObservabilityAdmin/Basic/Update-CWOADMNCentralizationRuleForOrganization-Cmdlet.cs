@@ -104,6 +104,23 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.EncryptionConflictResolutionStrategy LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy { get; set; }
         #endregion
         
+        #region Parameter Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope
+        /// <summary>
+        /// <para>
+        /// <para>Determines which newly created destination log groups are encrypted with the configured
+        /// <c>KmsKeyArn</c> when <c>EncryptionStrategy</c> is <c>CUSTOMER_MANAGED</c>.</para><para>If you set this to <c>ENCRYPTED_SOURCE_ONLY</c> (the default), only destination log
+        /// groups whose source log group is encrypted with a customer managed KMS key use the
+        /// configured <c>KmsKeyArn</c>. Destination log groups derived from Amazon Web Services
+        /// owned encrypted source log groups remain Amazon Web Services owned encrypted.</para><para>If you set this to <c>NEW_DESTINATION_LOG_GROUPS</c>, every new destination log group
+        /// created by this rule uses the configured <c>KmsKeyArn</c>, regardless of the source
+        /// log group's encryption posture.</para><para>This field is not valid when <c>EncryptionStrategy</c> is <c>AWS_OWNED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.EncryptionScope")]
+        public Amazon.ObservabilityAdmin.EncryptionScope Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope { get; set; }
+        #endregion
+        
         #region Parameter LogsEncryptionConfiguration_EncryptionStrategy
         /// <summary>
         /// <para>
@@ -322,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.BackupConfiguration_Region = this.BackupConfiguration_Region;
             context.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern = this.Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern;
             context.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy = this.LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy;
+            context.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope = this.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope;
             context.LogsEncryptionConfiguration_EncryptionStrategy = this.LogsEncryptionConfiguration_EncryptionStrategy;
             context.LogsEncryptionConfiguration_KmsKeyArn = this.LogsEncryptionConfiguration_KmsKeyArn;
             context.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region = this.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region;
@@ -517,6 +535,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_logsEncryptionConfiguration_EncryptionConflictResolutionStrategy != null)
             {
                 requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration.EncryptionConflictResolutionStrategy = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_logsEncryptionConfiguration_EncryptionConflictResolutionStrategy;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.EncryptionScope requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope = null;
+            if (cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope = cmdletContext.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration.EncryptionScope = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope;
                 requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfigurationIsNull = false;
             }
             Amazon.ObservabilityAdmin.EncryptionStrategy requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_logsEncryptionConfiguration_EncryptionStrategy = null;
@@ -743,6 +771,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String BackupConfiguration_Region { get; set; }
             public System.String Rule_Destination_DestinationLogsConfiguration_LogGroupNameConfiguration_LogGroupNamePattern { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionConflictResolutionStrategy LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy { get; set; }
+            public Amazon.ObservabilityAdmin.EncryptionScope Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionStrategy LogsEncryptionConfiguration_EncryptionStrategy { get; set; }
             public System.String LogsEncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region { get; set; }

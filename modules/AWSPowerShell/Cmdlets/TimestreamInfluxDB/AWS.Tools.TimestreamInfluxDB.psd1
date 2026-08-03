@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-TIDBResourceTag', 
+        'Get-TIDBDbBackup', 
+        'Get-TIDBDbBackupList', 
         'Get-TIDBDbCluster', 
         'Get-TIDBDbClusterList', 
         'Get-TIDBDbInstance', 
@@ -96,14 +98,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TIDBDbParameterGroup', 
         'Get-TIDBDbParameterGroupList', 
         'Get-TIDBResourceTag', 
+        'New-TIDBDbBackup', 
         'New-TIDBDbCluster', 
         'New-TIDBDbInstance', 
         'New-TIDBDbParameterGroup', 
+        'Remove-TIDBDbBackup', 
         'Remove-TIDBDbCluster', 
         'Remove-TIDBDbInstance', 
         'Remove-TIDBResourceTag', 
         'Restart-TIDBDbCluster', 
         'Restart-TIDBDbInstance', 
+        'Restore-TIDBFromDbBackup', 
         'Update-TIDBDbCluster', 
         'Update-TIDBDbInstance')
 

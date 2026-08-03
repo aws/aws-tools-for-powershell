@@ -69,6 +69,26 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter EksNodeName
+        /// <summary>
+        /// <para>
+        /// <para>The Kubernetes node name of the worker node where the pod is running.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EksNodeName { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 instance ID of the worker node where the pod is running.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
         #region Parameter Token
         /// <summary>
         /// <para>
@@ -84,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter Zone
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone ID of the worker node where the pod is running.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Zone { get; set; }
         #endregion
         
         #region Parameter Select
@@ -123,6 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EksNodeName = this.EksNodeName;
+            context.InstanceId = this.InstanceId;
             context.Token = this.Token;
             #if MODULAR
             if (this.Token == null && ParameterWasBound(nameof(this.Token)))
@@ -130,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
                 WriteWarning("You are passing $null as a value for parameter Token which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Zone = this.Zone;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,9 +183,21 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
+            if (cmdletContext.EksNodeName != null)
+            {
+                request.EksNodeName = cmdletContext.EksNodeName;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
             if (cmdletContext.Token != null)
             {
                 request.Token = cmdletContext.Token;
+            }
+            if (cmdletContext.Zone != null)
+            {
+                request.Zone = cmdletContext.Zone;
             }
             
             CmdletOutput output;
@@ -210,7 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterName { get; set; }
+            public System.String EksNodeName { get; set; }
+            public System.String InstanceId { get; set; }
             public System.String Token { get; set; }
+            public System.String Zone { get; set; }
             public System.Func<Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse, UseEKSAURoleForPodIdentityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
