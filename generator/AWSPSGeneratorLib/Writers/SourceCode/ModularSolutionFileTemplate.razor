@@ -9,6 +9,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.Common", "..\modules\ModularAWSPowerShell\AWS.Tools.Common.csproj", "{67C8317D-6BBF-4CE7-AACC-61F79A428C67}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.Installer", "..\modules\Installer\AWS.Tools.Installer.Lib\AWS.Tools.Installer.csproj", "{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}"
+EndProject
 @{
     var Ids = new List<string>();
     var projects = Services.Where(service => !string.IsNullOrWhiteSpace(service.ServiceModuleGuid));
@@ -30,6 +32,10 @@ Global
 		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E9C5A1-5F9D-4D2A-9C8B-1E3F4A8D9C7E}.Release|Any CPU.Build.0 = Release|Any CPU
 @foreach (var project in projects)
 {
 @:		{@project.ServiceModuleGuid.ToString().ToUpper()}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
