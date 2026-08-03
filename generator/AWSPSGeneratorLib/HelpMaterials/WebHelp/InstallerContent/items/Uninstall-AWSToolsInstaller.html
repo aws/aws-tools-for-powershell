@@ -1,0 +1,335 @@
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="guide-name" content="Cmdlet Reference" />
+    <meta name="service-name" content="AWS Tools for PowerShell" />
+    <link rel="stylesheet" type="text/css" href="../resources/style.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
+    <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
+    <meta name="description" content="Uninstalls AWS.Tools.Installer module with comprehensive filtering options.">
+    <title>AWS.Tools.Installer: Uninstall-AWSToolsInstaller Cmdlet | AWS Tools for PowerShell</title>
+    <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+    <meta name="aws-tocid" content="Uninstall-AWSToolsInstaller"/>
+    <link rel="canonical" href="https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsInstaller.html"/>
+</head>
+
+<body>
+    <div id="product_name">AWS Tools for Windows PowerShell</div>
+    <div id="guide_name">Command Reference</div>
+    <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+    <!-- BEGIN-SECTION -->
+    <div id="regionDisclaimer">
+        <p>AWS services or capabilities described in AWS Documentation may vary by region/location. Click <a
+                href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/services.html">Getting Started with Amazon
+                AWS</a> to see specific differences applicable to the China (Beijing) Region.</p>
+    </div>
+    <!-- END-SECTION -->
+    <div id="pageHeader">
+        <div id="titles">
+            <h1>Uninstall-AWSToolsInstaller Cmdlet</h1>
+            <h2>
+                <div>Available in <a
+                        href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
+                        target="_blank" rel="noopener noreferrer">AWS.Tools.Installer</a></div>
+            </h2>
+        </div>
+    </div>
+    <div id="pageToolbar">
+        <!-- BEGIN-SECTION -->
+        <div id="search">
+            <form action="/search/doc-search.html" target="_blank" onsubmit="return AWSHelpObj.searchFormSubmit(this);"
+                method="get">
+                <div id="sfrm">
+                    <span id="lbl">
+                        <label>Search: </label>
+                    </span>
+                    <select name="searchPath" id="sel">
+                        <option value="all">Entire Site</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option selected="" value="documentation-guide">Documentation - This Guide</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="code">Sample Code &amp; Libraries</option>
+                    </select>
+                    <input type="text" name="searchQuery" id="sq">
+                    <input type="image" alt="Go" src="../resources/search-button.png" id="sb">
+                </div>
+                <input id="this_doc_product" type="hidden" value="AWS Tools for Windows PowerShell"
+                    name="this_doc_product">
+                <input id="this_doc_guide" type="hidden" value="Command Reference" name="this_doc_guide">
+                <input type="hidden" value="en_us" name="doc_locale">
+            </form>
+        </div>
+        <!-- END-SECTION -->
+    </div>
+    <div id="pageContent">
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="synopsis" class="title">Synopsis</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="synopsis">Uninstalls AWS.Tools.Installer module with comprehensive filtering options.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="syntax" class="title">Syntax</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="syntax">
+                    <pre><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsInstaller</div><div class="paramlist"><div class="wrappedParam">-Version &lt;String&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Prerelease &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsInstaller</div><div class="paramlist"><div class="wrappedParam">-ExceptVersion &lt;String&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-Path &lt;String&gt;</div><div class="wrappedParam">-Prerelease &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="description" class="title">Description</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="description">This cmdlet removes AWS.Tools.Installer module by deleting its directories from
+                    the file system. This approach is significantly faster than using Uninstall-Module. The function
+                    supports filtering by version and provides proper error handling.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="parameters" class="title">Parameters</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="parameters">
+                    <div class="parameter">
+                        <div class="parameterName">-Version &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the exact version to uninstall (e.g., 2.0.0). Wildcards
+                            are not supported.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-ExceptVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies that you want to uninstall all of the other available
+                            versions of AWS.Tools.Installer except this one.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Scope &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the installation scope to target for uninstallation.
+                            The acceptable values for this parameter are AllUsers and CurrentUser. The AllUsers scope
+                            targets modules in a location that is accessible to all users of the computer. The CurrentUser
+                            targets modules in a location that is accessible only to the current user of the computer.
+                            Default value is 'CurrentUser'. Ignored if Path parameter is specified.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Path &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies a custom path where AWS.Tools.Installer module is
+                            installed. When specified, the module will be uninstalled from this location instead of the
+                            standard scope-based paths. This is useful for testing scenarios or custom installation
+                            locations.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Prerelease &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Indicates that the version specified in the Version or
+                            ExceptVersion parameter includes a prerelease tag (e.g., 2.0.0-preview001).</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Aliases</td>
+                                    <td class="col2">AllowPrerelease</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="notes" class="title">Notes</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="description">This cmdlet uses Remove-ModuleItem to delete module directories for improved
+                        performance and consistent error handling. This cmdlet is specifically for AWS.Tools.Installer and
+                        is separate from Uninstall-AWSToolsModule which handles AWS Tools service modules.</div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="examples" class="title">Examples</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="examples">
+                        <h4>Example 1</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -ExceptVersion "1.0.3" -Confirm:$false</div><div class="description">This example uninstalls all versions of AWS.Tools.Installer except for version 1.0.3.</div></pre>
+                        <h4>Example 2</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -Version "1.0.2" -Confirm:$false</div><div class="description">This example uninstalls only version 1.0.2 of AWS.Tools.Installer.</div></pre>
+                        <h4>Example 3</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -Scope AllUsers -Confirm:$false</div><div class="description">This example uninstalls AWS.Tools.Installer from the system-wide installation location.</div></pre>
+                        <h4>Example 4</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -Path "C:\CustomModules" -Confirm:$false</div><div class="description">This example uninstalls AWS.Tools.Installer from a custom installation path.</div></pre>
+                        <h4>Example 5</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -WhatIf</div><div class="description">This example performs a what-if analysis to preview what would be removed without making changes.</div></pre>
+                        <h4>Example 6</h4><pre class="example"><div class="code">Uninstall-AWSToolsInstaller -Scope AllUsers</div><div class="description">This example removes AWS.Tools.Installer from the system-wide location with explicit confirmation prompts.</div></pre>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="related links" class="title">Related Links</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="related">
+                        <div class="relatedLink"><a href="./Install-AWSToolsInstaller.html"
+                                target="_parent">Install-AWSToolsInstaller</a></div>
+                        <div class="relatedLink"><a href="./Uninstall-AWSToolsModule.html"
+                                target="_parent">Uninstall-AWSToolsModule</a></div>
+                        <div class="relatedLink"><a href="http://docs.aws.amazon.com/powershell/latest/userguide/"
+                                target="_parent">AWS Tools for PowerShell User Guide</a></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="supported version" class="title">Supported Version</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="versioninfo">
+                        <p><strong>AWS.Tools.Installer: </strong><span id="assemblyVersion">{INSTALLER_VERSION}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="pageFooter">
+                <span class="newline linkto"><a href="javascript:void(0)"
+                        onclick="AWSHelpObj.displayLink('Uninstall-AWSToolsInstaller.html', 'Uninstall-AWSToolsInstaller')">Link
+                        to this page</a></span>
+                <span class="divider">&nbsp;</span>
+                <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
+                        <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackyes.html?topic_id=Uninstall-AWSToolsInstaller"
+                            target="_parent">Yes</a>&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackno.html?topic_id=Uninstall-AWSToolsInstaller"
+                            target="_parent">No</a>&nbsp;&nbsp;&nbsp;<a
+                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsInstaller.html"
+                            target="_parent">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
+                <!-- END-FEEDBACK-SECTION -->
+                <div id="awsdocs-legal-zone-copyright"></div>
+            </div>
+<script type="text/javascript" src="../resources/jquery.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="../resources/parseuri.js"></script>
+<script type="text/javascript" src="../resources/pagescript.js"></script>
+<script type="text/javascript" src="../resources/parentloader.js"></script>
+<!-- BEGIN-SECTION -->
+<script type="text/javascript">
+jQuery(function ($) {
+var host = parseUri($(window.parent.location).attr('href')).host;
+if (AWSHelpObj.showRegionalDisclaimer(host)) {
+$("div#regionDisclaimer").css("display", "block");
+} else {
+$("div#regionDisclaimer").remove();
+}
+AWSHelpObj.setCopyrightText();
+});
+</script>
+<!-- END-SECTION -->
+<script type="text/javascript" src="../resources/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+
+
+</body>
+</html>

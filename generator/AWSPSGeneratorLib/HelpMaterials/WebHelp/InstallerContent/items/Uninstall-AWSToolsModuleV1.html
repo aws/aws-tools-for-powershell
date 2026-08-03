@@ -1,0 +1,323 @@
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="guide-name" content="Cmdlet Reference" />
+    <meta name="service-name" content="AWS Tools for PowerShell" />
+    <link rel="stylesheet" type="text/css" href="../resources/style.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
+    <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
+    <meta name="description" content="Uninstalls all currently installed AWS.Tools modules (Legacy compatibility).">
+    <title>AWS.Tools.Installer: Uninstall-AWSToolsModuleV1 Cmdlet | AWS Tools for PowerShell</title>
+    <script type="text/javascript" src="/assets/js/awsdocs-boot.js"></script>
+    <meta name="aws-tocid" content="Uninstall-AWSToolsModuleV1"/>
+    <link rel="canonical" href="https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsModuleV1.html"/>
+</head>
+
+<body>
+    <div id="product_name">AWS Tools for Windows PowerShell</div>
+    <div id="guide_name">Command Reference</div>
+    <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+    <!-- BEGIN-SECTION -->
+    <div id="regionDisclaimer">
+        <p>AWS services or capabilities described in AWS Documentation may vary by region/location. Click <a
+                href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/services.html">Getting Started with Amazon
+                AWS</a> to see specific differences applicable to the China (Beijing) Region.</p>
+    </div>
+    <!-- END-SECTION -->
+    <div id="pageHeader">
+        <div id="titles">
+            <h1>Uninstall-AWSToolsModuleV1 Cmdlet</h1>
+            <h2>
+                <div>Available in <a
+                        href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
+                        target="_blank" rel="noopener noreferrer">AWS.Tools.Installer</a></div>
+            </h2>
+        </div>
+    </div>
+    <div id="pageToolbar">
+        <!-- BEGIN-SECTION -->
+        <div id="search">
+            <form action="/search/doc-search.html" target="_blank" onsubmit="return AWSHelpObj.searchFormSubmit(this);"
+                method="get">
+                <div id="sfrm">
+                    <span id="lbl">
+                        <label>Search: </label>
+                    </span>
+                    <select name="searchPath" id="sel">
+                        <option value="all">Entire Site</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option selected="" value="documentation-guide">Documentation - This Guide</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="code">Sample Code &amp; Libraries</option>
+                    </select>
+                    <input type="text" name="searchQuery" id="sq">
+                    <input type="image" alt="Go" src="../resources/search-button.png" id="sb">
+                </div>
+                <input id="this_doc_product" type="hidden" value="AWS Tools for Windows PowerShell"
+                    name="this_doc_product">
+                <input id="this_doc_guide" type="hidden" value="Command Reference" name="this_doc_guide">
+                <input type="hidden" value="en_us" name="doc_locale">
+            </form>
+        </div>
+        <!-- END-SECTION -->
+    </div>
+    <div id="pageContent">
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="synopsis" class="title">Synopsis</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="synopsis">Uninstalls all currently installed AWS.Tools modules (Legacy compatibility).<br /><br />
+                    <strong>Deprecated:</strong> Uninstall-AWSToolsModuleV1 is deprecated. Use
+                    <a href="./Uninstall-AWSToolsModule.html">Uninstall-AWSToolsModule</a> instead for improved
+                    functionality. This cmdlet is retained only for backward compatibility with AWS.Tools.Installer 1.0.3
+                    workflows.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="syntax" class="title">Syntax</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="syntax">
+                    <pre><div class="syntaxblock"><div class="cmdlet">Uninstall-AWSToolsModuleV1</div><div class="paramlist"><div class="wrappedParam">-MinimumVersion &lt;Version&gt;</div><div class="wrappedParam">-RequiredVersion &lt;Version&gt;</div><div class="wrappedParam">-MaximumVersion &lt;Version&gt;</div><div class="wrappedParam">-ExceptVersion &lt;Version&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="description" class="title">Description</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="description">This cmdlet uses Uninstall-Module to uninstall all currently installed AWS.Tools
+                    modules.<br /><br />
+                    This is a legacy compatibility cmdlet that replicates the behavior of AWS.Tools.Installer 1.0.3. For
+                    new installations, consider using Uninstall-AWSToolsModule which may have improved functionality.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="parameters" class="title">Parameters</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="parameters">
+                    <div class="parameter">
+                        <div class="parameterName">-MinimumVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the minimum version of the modules to uninstall.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-RequiredVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies exact version number of the module to uninstall.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-MaximumVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the maximum version of the modules to uninstall.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-ExceptVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank" rel="noopener noreferrer">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies that you want to uninstall all of the other available
+                            versions of AWS Tools except this one.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Force &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Forces Uninstall-AWSToolsModuleV1 to run without asking for user
+                            confirmation.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="notes" class="title">Notes</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="description">This cmdlet replicates the exact behavior from AWS.Tools.Installer 1.0.3.</div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="examples" class="title">Examples</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="examples">
+                        <h4>Example 1</h4><pre class="example"><div class="code">Uninstall-AWSToolsModuleV1 -ExceptVersion 4.0.0.0</div><div class="description">This example uninstalls all versions of all AWS.Tools modules except for version 4.0.0.0.</div></pre>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="related links" class="title">Related Links</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="related">
+                        <div class="relatedLink"><a href="./Uninstall-AWSToolsModule.html"
+                                target="_parent">Uninstall-AWSToolsModule</a></div>
+                        <div class="relatedLink"><a href="./Install-AWSToolsModuleV1.html"
+                                target="_parent">Install-AWSToolsModuleV1</a></div>
+                        <div class="relatedLink"><a href="./Update-AWSToolsModuleV1.html"
+                                target="_parent">Update-AWSToolsModuleV1</a></div>
+                        <div class="relatedLink"><a href="http://docs.aws.amazon.com/powershell/latest/userguide/"
+                                target="_parent">AWS Tools for PowerShell User Guide</a></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="supported version" class="title">Supported Version</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="versioninfo">
+                        <p><strong>AWS.Tools.Installer: </strong><span id="assemblyVersion">{INSTALLER_VERSION}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="pageFooter">
+                <span class="newline linkto"><a href="javascript:void(0)"
+                        onclick="AWSHelpObj.displayLink('Uninstall-AWSToolsModuleV1.html', 'Uninstall-AWSToolsModuleV1')">Link
+                        to this page</a></span>
+                <span class="divider">&nbsp;</span>
+                <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
+                        <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackyes.html?topic_id=Uninstall-AWSToolsModuleV1"
+                            target="_parent">Yes</a>&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/feedbackno.html?topic_id=Uninstall-AWSToolsModuleV1"
+                            target="_parent">No</a>&nbsp;&nbsp;&nbsp;<a
+                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/{INSTALLER_DOCS_ROOT}/items/Uninstall-AWSToolsModuleV1.html"
+                            target="_parent">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
+                <!-- END-FEEDBACK-SECTION -->
+                <div id="awsdocs-legal-zone-copyright"></div>
+            </div>
+<script type="text/javascript" src="../resources/jquery.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="../resources/parseuri.js"></script>
+<script type="text/javascript" src="../resources/pagescript.js"></script>
+<script type="text/javascript" src="../resources/parentloader.js"></script>
+<!-- BEGIN-SECTION -->
+<script type="text/javascript">
+jQuery(function ($) {
+var host = parseUri($(window.parent.location).attr('href')).host;
+if (AWSHelpObj.showRegionalDisclaimer(host)) {
+$("div#regionDisclaimer").css("display", "block");
+} else {
+$("div#regionDisclaimer").remove();
+}
+AWSHelpObj.setCopyrightText();
+});
+</script>
+<!-- END-SECTION -->
+<script type="text/javascript" src="../resources/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+
+
+</body>
+</html>
