@@ -98,14 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>Provides a description of the <c>Engagement</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
         #endregion
         
@@ -115,14 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>Specifies the title of the <c>Engagement</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Title { get; set; }
         #endregion
         
@@ -197,19 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 context.Context = new List<Amazon.PartnerCentralSelling.Model.EngagementContextDetails>(this.Context);
             }
             context.Description = this.Description;
-            #if MODULAR
-            if (this.Description == null && ParameterWasBound(nameof(this.Description)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Title = this.Title;
-            #if MODULAR
-            if (this.Title == null && ParameterWasBound(nameof(this.Title)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Title which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

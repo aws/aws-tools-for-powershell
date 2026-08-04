@@ -114,6 +114,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.AggregationStatusEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/Aggregation") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/Aggregation")
+        }
+        {
+            $v = "excluded","included"
+            break
+        }
+
         # Amazon.EC2.AllocationStrategy
         "Request-EC2SpotFleet/SpotFleetRequestConfig_AllocationStrategy"
         {
@@ -836,6 +846,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpScopeEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/IpScope") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/IpScope")
+        }
+        {
+            $v = "private"
+            break
+        }
+
         # Amazon.EC2.Ipv6SupportValue
         {
             ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_Ipv6Support") -Or
@@ -843,6 +863,16 @@ $EC2_Completers = {
         }
         {
             $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.IpVersionEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/IpVersion") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/IpVersion")
+        }
+        {
+            $v = "ipv4","ipv6"
             break
         }
 
@@ -970,6 +1000,16 @@ $EC2_Completers = {
         "New-EC2NetworkInterface/InterfaceType"
         {
             $v = "branch","efa","efa-only","trunk"
+            break
+        }
+
+        # Amazon.EC2.NetworkProtocolEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/Protocol") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/Protocol")
+        }
+        {
+            $v = "http","https"
             break
         }
 
@@ -1534,6 +1574,7 @@ $EC2_Completers = {
 $EC2_map = @{
     "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
+    "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
     "ApplyCancellationCharge"=@("Remove-EC2CapacityReservation")
     "Architecture"=@("Register-EC2Image")
@@ -1600,6 +1641,8 @@ $EC2_map = @{
     "InternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
+    "IpScope"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
+    "IpVersion"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "Lambda"=@("Edit-EC2AccountVpcEncryptionControl")
@@ -1664,7 +1707,7 @@ $EC2_map = @{
     "PrivateDnsHostnameTypeOnLaunch"=@("Edit-EC2SubnetAttribute")
     "PrivateDnsNameOptions_HostnameType"=@("New-EC2Instance")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
-    "Protocol"=@("New-EC2NetworkInsightsPath")
+    "Protocol"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck","New-EC2NetworkInsightsPath")
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
@@ -1795,6 +1838,7 @@ $EC2_SelectMap = @{
                "Register-EC2PrivateIpAddress",
                "Register-EC2PrivateNatGatewayAddress",
                "Register-EC2Address",
+               "Register-EC2ApplicationStatusCheck",
                "Register-EC2CapacityReservationBillingOwner",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
@@ -1839,6 +1883,7 @@ $EC2_SelectMap = @{
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
                "Copy-EC2Volume",
+               "New-EC2ApplicationStatusCheck",
                "New-EC2CapacityManagerDataExport",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
@@ -1945,6 +1990,7 @@ $EC2_SelectMap = @{
                "New-EC2VpnConnection",
                "New-EC2VpnConnectionRoute",
                "New-EC2VpnGateway",
+               "Remove-EC2ApplicationStatusCheck",
                "Remove-EC2CapacityManagerDataExport",
                "Remove-EC2CarrierGateway",
                "Remove-EC2ClientVpnEndpoint",
@@ -2053,6 +2099,9 @@ $EC2_SelectMap = @{
                "Get-EC2AddressesAttribute",
                "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
+               "Get-EC2ApplicationStatusDetail",
+               "Get-EC2ApplicationStatusCheckAssociationDetail",
+               "Get-EC2ApplicationStatusCheckDetail",
                "Get-EC2AvailabilityZone",
                "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
@@ -2243,6 +2292,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2VpnGateway",
                "Disable-EC2AddressTransfer",
                "Disable-EC2AllowedImagesSetting",
+               "Disable-EC2ApplicationStatusCheckSuppression",
                "Disable-EC2AwsNetworkPerformanceMetricSubscription",
                "Disable-EC2CapacityManager",
                "Disable-EC2EbsEncryptionByDefault",
@@ -2263,6 +2313,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLink",
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
+               "Unregister-EC2ApplicationStatusCheck",
                "Unregister-EC2CapacityReservationBillingOwner",
                "Unregister-EC2ClientVpnTargetNetwork",
                "Unregister-EC2EnclaveCertificateIamRole",
@@ -2282,6 +2333,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2VpcCidrBlock",
                "Enable-EC2AddressTransfer",
                "Enable-EC2AllowedImagesSetting",
+               "Enable-EC2ApplicationStatusCheckSuppression",
                "Enable-EC2AwsNetworkPerformanceMetricSubscription",
                "Enable-EC2CapacityManager",
                "Enable-EC2EbsEncryptionByDefault",
@@ -2387,6 +2439,7 @@ $EC2_SelectMap = @{
                "Lock-EC2Snapshot",
                "Edit-EC2AccountVpcEncryptionControl",
                "Edit-EC2AddressAttribute",
+               "Edit-EC2ApplicationStatusCheck",
                "Edit-EC2AvailabilityZoneGroup",
                "Edit-EC2CapacityReservation",
                "Edit-EC2CapacityReservationFleet",

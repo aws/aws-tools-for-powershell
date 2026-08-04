@@ -136,6 +136,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DDBTable', 
         'Restore-DDBTableFromBackup', 
         'Restore-DDBTableToPointInTime', 
+        'Search-DDBVector', 
         'Set-DDBBatchItem', 
         'Set-DDBItem', 
         'Update-DDBContinuousBackup', 

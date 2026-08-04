@@ -41,6 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status
     /// checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot
     /// instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para></li><li><para><b>Application status checks</b> - Amazon EC2 reports application-level health status
+    /// for instances, indicating whether applications running on the instance are functioning
+    /// properly.
     /// </para></li><li><para><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or
     /// terminate) for your instances related to hardware issues, software updates, or system
     /// maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled
@@ -103,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>system-status.status</c> - The system status of the instance (<c>ok</c> | <c>impaired</c>
         /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>attached-ebs-status.status</c> - The status of the attached EBS volume for the
         /// instance (<c>ok</c> | <c>impaired</c> | <c>initializing</c> | <c>insufficient-data</c>
-        /// | <c>not-applicable</c>).</para></li></ul><para />
+        /// | <c>not-applicable</c>).</para></li><li><para><c>application-status.status</c> - The application status of the instance (<c>ok</c>
+        /// | <c>impaired</c> | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

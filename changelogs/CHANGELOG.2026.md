@@ -1,4 +1,34 @@
-﻿### 5.0.268 (2026-08-03 19:25Z)
+﻿### 5.0.269 (2026-08-04 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.304.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DynamoDB
+    * Added cmdlet Search-DDBVector leveraging the SearchVectors service API.
+    * Modified cmdlet Import-DDBTable: added parameter TableCreationParameters_VectorIndex.
+    * Modified cmdlet Restore-DDBTableFromBackup: added parameter VectorIndexOverride.
+    * Modified cmdlet Restore-DDBTableToPointInTime: added parameter VectorIndexOverride.
+    * Modified cmdlet Update-DDBTable: added parameter VectorIndexUpdate.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Disable-EC2ApplicationStatusCheckSuppression leveraging the DisableApplicationStatusCheckSuppression service API.
+    * Added cmdlet Edit-EC2ApplicationStatusCheck leveraging the ModifyApplicationStatusCheck service API.
+    * Added cmdlet Enable-EC2ApplicationStatusCheckSuppression leveraging the EnableApplicationStatusCheckSuppression service API.
+    * Added cmdlet Get-EC2ApplicationStatusCheckAssociationDetail leveraging the DescribeApplicationStatusCheckAssociations service API.
+    * Added cmdlet Get-EC2ApplicationStatusCheckDetail leveraging the DescribeApplicationStatusChecks service API.
+    * Added cmdlet Get-EC2ApplicationStatusDetail leveraging the DescribeApplicationStatus service API.
+    * Added cmdlet New-EC2ApplicationStatusCheck leveraging the CreateApplicationStatusCheck service API.
+    * Added cmdlet Register-EC2ApplicationStatusCheck leveraging the AssociateApplicationStatusCheck service API.
+    * Added cmdlet Remove-EC2ApplicationStatusCheck leveraging the DeleteApplicationStatusCheck service API.
+    * Added cmdlet Unregister-EC2ApplicationStatusCheck leveraging the DisassociateApplicationStatusCheck service API.
+  * Amazon Inspector2
+    * Modified cmdlet New-INS2SbomExport: added parameters ResourceFilterCriteria_CloudContainerImageTag, ResourceFilterCriteria_CloudContainerRegistryName, ResourceFilterCriteria_CloudContainerRepositoryName, ResourceFilterCriteria_CloudProvider, ResourceFilterCriteria_CloudProviderAccountId, ResourceFilterCriteria_CloudProviderOrgId, ResourceFilterCriteria_CloudProviderRegion, ResourceFilterCriteria_CloudServerlessFunctionName, ResourceFilterCriteria_CloudServerlessFunctionRuntime, ResourceFilterCriteria_CloudServerlessFunctionTag and ResourceFilterCriteria_CloudVmInstanceTag.
+  * Amazon Partner Central Selling API
+    * [Breaking Change] Modified cmdlet Invoke-PCCreateEngagementInvitation: the type of parameter Customer_MarketSegment changed from Amazon.PartnerCentralSelling.MarketSegment to System.String; the type of parameter LeadInvitation_Customer_CountryCode changed from Amazon.PartnerCentralSelling.CountryCode to System.String; the type of parameter LeadInvitation_Customer_Industry changed from Amazon.PartnerCentralSelling.Industry to System.String.
+    * [Breaking Change] Modified cmdlet New-PCEngagementContext: the type of parameter Address_CountryCode changed from Amazon.PartnerCentralSelling.CountryCode to System.String; the type of parameter Customer_MarketSegment changed from Amazon.PartnerCentralSelling.MarketSegment to System.String; the type of parameter Lead_Customer_Industry changed from Amazon.PartnerCentralSelling.Industry to System.String.
+    * [Breaking Change] Modified cmdlet Update-PCEngagementContext: the type of parameter Address_CountryCode changed from Amazon.PartnerCentralSelling.CountryCode to System.String; the type of parameter Customer_MarketSegment changed from Amazon.PartnerCentralSelling.MarketSegment to System.String; the type of parameter Lead_Customer_Industry changed from Amazon.PartnerCentralSelling.Industry to System.String.
+  * Amazon Single Sign-On Admin
+    * Modified cmdlet Update-SSOADMNInstance: added parameter PermissionSetsEnabled.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSClientProperty: added parameter ClientProperties_ClientExperiencePolicy.
+
+### 5.0.268 (2026-08-03 19:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.303.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Observability Admin Service
     * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameter Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope.

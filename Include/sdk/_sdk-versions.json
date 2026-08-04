@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.303.0",
+    "ProductVersion"    : "4.0.304.0",
     "CoreVersion"       : "4.0.100.9",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.107.0",
+            "Version" : "4.0.108.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -212,7 +212,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "4.0.101.0",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.101.6",
+            "Version" : "4.0.101.7",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -380,7 +380,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -724,7 +724,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "4.0.100.8",
+            "Version" : "4.0.100.9",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.105.4",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1708,7 +1708,7 @@
             "InPreview"               : false
         },
         "SSOAdmin"                        : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2164,7 +2164,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "4.0.104.2",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2996,7 +2996,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3076,7 +3076,7 @@
             "InPreview"               : false
         },
         "DSQL"                                : {
-            "Version" : "4.0.101.4",
+            "Version" : "4.0.101.5",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"

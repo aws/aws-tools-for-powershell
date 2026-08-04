@@ -338,6 +338,24 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String TableName { get; set; }
         #endregion
         
+        #region Parameter VectorIndexUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A list of vector indexes to be added to or removed from the table. You can add or
+        /// remove one vector index for each <c>UpdateTable</c> operation.</para><para>To add a vector index, specify <c>IndexName</c>, <c>VectorAttribute</c>, <c>Dimensions</c>,
+        /// <c>DistanceFunction</c>, and <c>Projection</c>. To remove a vector index, specify
+        /// only the <c>IndexName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VectorIndexUpdates")]
+        public Amazon.DynamoDBv2.Model.VectorIndexUpdate[] VectorIndexUpdate { get; set; }
+        #endregion
+        
         #region Parameter WriteCapacity
         /// <summary>
         /// <para>
@@ -444,6 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VectorIndexUpdate != null)
+            {
+                context.VectorIndexUpdate = new List<Amazon.DynamoDBv2.Model.VectorIndexUpdate>(this.VectorIndexUpdate);
+            }
             context.WarmThroughput_ReadUnitsPerSecond = this.WarmThroughput_ReadUnitsPerSecond;
             context.WarmThroughput_WriteUnitsPerSecond = this.WarmThroughput_WriteUnitsPerSecond;
             
@@ -628,6 +650,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.TableName = cmdletContext.TableName;
             }
+            if (cmdletContext.VectorIndexUpdate != null)
+            {
+                request.VectorIndexUpdates = cmdletContext.VectorIndexUpdate;
+            }
             
              // populate WarmThroughput
             var requestWarmThroughputIsNull = true;
@@ -731,6 +757,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
             public Amazon.DynamoDBv2.TableClass TableClass { get; set; }
             public System.String TableName { get; set; }
+            public List<Amazon.DynamoDBv2.Model.VectorIndexUpdate> VectorIndexUpdate { get; set; }
             public System.Int64? WarmThroughput_ReadUnitsPerSecond { get; set; }
             public System.Int64? WarmThroughput_WriteUnitsPerSecond { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.UpdateTableResponse, UpdateDDBTableCmdlet, object> Select { get; set; } =

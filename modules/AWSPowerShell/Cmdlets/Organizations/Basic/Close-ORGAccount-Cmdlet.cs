@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li></ul></note><para>
     /// After the permanent termination of the account after the 90-day waiting period, Organizations
     /// logs a membership event in CloudTrail. The event is an <c>AccountDepartedOrganization</c>
-    /// event with <c>departedMethod:Cleaned</c> and <c>departedTime</c>. This event is available
-    /// only in the management account's event history.
+    /// event with <c>departureMethod:CLEANED</c> and <c>departureTime</c>. This event is
+    /// available only in the management account's event history.
     /// </para>
     /// </summary>
     [Cmdlet("Close", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

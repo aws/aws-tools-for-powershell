@@ -213,6 +213,7 @@ $DDB_Completers = {
             ($_ -eq "Invoke-DDBQuery/ReturnConsumedCapacity") -Or
             ($_ -eq "Invoke-DDBScan/ReturnConsumedCapacity") -Or
             ($_ -eq "Remove-DDBItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Search-DDBVector/ReturnConsumedCapacity") -Or
             ($_ -eq "Set-DDBBatchItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Set-DDBItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Update-DDBItem/ReturnConsumedCapacity") -Or
@@ -342,7 +343,7 @@ $DDB_map = @{
     "MultiRegionConsistency"=@("Update-DDBTable")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
-    "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
+    "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Search-DDBVector","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetric"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnValue"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ReturnValuesOnConditionCheckFailure"=@("Invoke-DDBDDBExecuteStatement","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
@@ -449,6 +450,7 @@ $DDB_SelectMap = @{
                "Restore-DDBTableFromBackup",
                "Restore-DDBTableToPointInTime",
                "Invoke-DDBScan",
+               "Search-DDBVector",
                "Add-DDBResourceTag",
                "Get-DDBItemTransactionally",
                "Write-DDBItemTransactionally",
@@ -462,11 +464,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
                "Add-DDBIndexSchema",
                "New-DDBTable",
                "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem",
-               "New-DDBTableSchema",
                "Add-DDBKeySchema")
 }
 

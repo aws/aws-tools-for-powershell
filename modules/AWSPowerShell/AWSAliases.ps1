@@ -11039,6 +11039,8 @@ Set-Alias -Name DDB-RestoreTableToPointInTime -Value Restore-DDBTableToPointInTi
 Set-Alias -Name Scan-DDB -Value Invoke-DDBScan
 Set-Alias -Name Scan-DDBScan -Value Invoke-DDBScan
 Set-Alias -Name DDB-Scan -Value Invoke-DDBScan
+Set-Alias -Name Search-DDBVectors -Value Search-DDBVector
+Set-Alias -Name DDB-SearchVectors -Value Search-DDBVector
 Set-Alias -Name DDB-TagResource -Value Add-DDBResourceTag
 Set-Alias -Name Get-DDBItems -Value Get-DDBItemTransactionally
 Set-Alias -Name DDB-TransactGetItems -Value Get-DDBItemTransactionally
@@ -11118,6 +11120,8 @@ Set-Alias -Name Assign-EC2PrivateNatGatewayAddress -Value Register-EC2PrivateNat
 Set-Alias -Name EC2-AssignPrivateNatGatewayAddress -Value Register-EC2PrivateNatGatewayAddress
 Set-Alias -Name Associate-EC2Address -Value Register-EC2Address
 Set-Alias -Name EC2-AssociateAddress -Value Register-EC2Address
+Set-Alias -Name Associate-EC2ApplicationStatusCheck -Value Register-EC2ApplicationStatusCheck
+Set-Alias -Name EC2-AssociateApplicationStatusCheck -Value Register-EC2ApplicationStatusCheck
 Set-Alias -Name Associate-EC2CapacityReservationBillingOwner -Value Register-EC2CapacityReservationBillingOwner
 Set-Alias -Name EC2-AssociateCapacityReservationBillingOwner -Value Register-EC2CapacityReservationBillingOwner
 Set-Alias -Name Associate-EC2ClientVpnTargetNetwork -Value Register-EC2ClientVpnTargetNetwork
@@ -11207,6 +11211,8 @@ Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
 Set-Alias -Name Copy-EC2Volumes -Value Copy-EC2Volume
 Set-Alias -Name EC2-CopyVolumes -Value Copy-EC2Volume
+Set-Alias -Name Create-EC2ApplicationStatusCheck -Value New-EC2ApplicationStatusCheck
+Set-Alias -Name EC2-CreateApplicationStatusCheck -Value New-EC2ApplicationStatusCheck
 Set-Alias -Name Create-EC2CapacityManagerDataExport -Value New-EC2CapacityManagerDataExport
 Set-Alias -Name EC2-CreateCapacityManagerDataExport -Value New-EC2CapacityManagerDataExport
 Set-Alias -Name Create-EC2CapacityReservation -Value Add-EC2CapacityReservation
@@ -11423,6 +11429,8 @@ Set-Alias -Name Create-EC2VpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name EC2-CreateVpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name Create-EC2VpnGateway -Value New-EC2VpnGateway
 Set-Alias -Name EC2-CreateVpnGateway -Value New-EC2VpnGateway
+Set-Alias -Name Delete-EC2ApplicationStatusCheck -Value Remove-EC2ApplicationStatusCheck
+Set-Alias -Name EC2-DeleteApplicationStatusCheck -Value Remove-EC2ApplicationStatusCheck
 Set-Alias -Name Delete-EC2CapacityManagerDataExport -Value Remove-EC2CapacityManagerDataExport
 Set-Alias -Name EC2-DeleteCapacityManagerDataExport -Value Remove-EC2CapacityManagerDataExport
 Set-Alias -Name Delete-EC2CarrierGateway -Value Remove-EC2CarrierGateway
@@ -11655,6 +11663,15 @@ Set-Alias -Name Describe-EC2AddressTransfer -Value Get-EC2AddressTransfer
 Set-Alias -Name EC2-DescribeAddressTransfers -Value Get-EC2AddressTransfer
 Set-Alias -Name Describe-EC2AggregateIdFormat -Value Get-EC2AggregateIdFormat
 Set-Alias -Name EC2-DescribeAggregateIdFormat -Value Get-EC2AggregateIdFormat
+Set-Alias -Name Describe-EC2ApplicationStatus -Value Get-EC2ApplicationStatusDetail
+Set-Alias -Name Describe-EC2ApplicationStatusDetail -Value Get-EC2ApplicationStatusDetail
+Set-Alias -Name EC2-DescribeApplicationStatus -Value Get-EC2ApplicationStatusDetail
+Set-Alias -Name Describe-EC2ApplicationStatusCheckAssociations -Value Get-EC2ApplicationStatusCheckAssociationDetail
+Set-Alias -Name Describe-EC2ApplicationStatusCheckAssociationDetail -Value Get-EC2ApplicationStatusCheckAssociationDetail
+Set-Alias -Name EC2-DescribeApplicationStatusCheckAssociations -Value Get-EC2ApplicationStatusCheckAssociationDetail
+Set-Alias -Name Describe-EC2ApplicationStatusChecks -Value Get-EC2ApplicationStatusCheckDetail
+Set-Alias -Name Describe-EC2ApplicationStatusCheckDetail -Value Get-EC2ApplicationStatusCheckDetail
+Set-Alias -Name EC2-DescribeApplicationStatusChecks -Value Get-EC2ApplicationStatusCheckDetail
 Set-Alias -Name Describe-EC2AvailabilityZones -Value Get-EC2AvailabilityZone
 Set-Alias -Name Describe-EC2AvailabilityZone -Value Get-EC2AvailabilityZone
 Set-Alias -Name EC2-DescribeAvailabilityZones -Value Get-EC2AvailabilityZone
@@ -12189,6 +12206,7 @@ Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DisableAddressTransfer -Value Disable-EC2AddressTransfer
 Set-Alias -Name Disable-EC2AllowedImagesSettings -Value Disable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-DisableAllowedImagesSettings -Value Disable-EC2AllowedImagesSetting
+Set-Alias -Name EC2-DisableApplicationStatusCheckSuppression -Value Disable-EC2ApplicationStatusCheckSuppression
 Set-Alias -Name EC2-DisableAwsNetworkPerformanceMetricSubscription -Value Disable-EC2AwsNetworkPerformanceMetricSubscription
 Set-Alias -Name EC2-DisableCapacityManager -Value Disable-EC2CapacityManager
 Set-Alias -Name EC2-DisableEbsEncryptionByDefault -Value Disable-EC2EbsEncryptionByDefault
@@ -12212,6 +12230,8 @@ Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
 Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Disassociate-EC2Address -Value Unregister-EC2Address
 Set-Alias -Name EC2-DisassociateAddress -Value Unregister-EC2Address
+Set-Alias -Name Disassociate-EC2ApplicationStatusCheck -Value Unregister-EC2ApplicationStatusCheck
+Set-Alias -Name EC2-DisassociateApplicationStatusCheck -Value Unregister-EC2ApplicationStatusCheck
 Set-Alias -Name Disassociate-EC2CapacityReservationBillingOwner -Value Unregister-EC2CapacityReservationBillingOwner
 Set-Alias -Name EC2-DisassociateCapacityReservationBillingOwner -Value Unregister-EC2CapacityReservationBillingOwner
 Set-Alias -Name Disassociate-EC2ClientVpnTargetNetwork -Value Unregister-EC2ClientVpnTargetNetwork
@@ -12249,6 +12269,7 @@ Set-Alias -Name EC2-DisassociateVpcCidrBlock -Value Unregister-EC2VpcCidrBlock
 Set-Alias -Name EC2-EnableAddressTransfer -Value Enable-EC2AddressTransfer
 Set-Alias -Name Enable-EC2AllowedImagesSettings -Value Enable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-EnableAllowedImagesSettings -Value Enable-EC2AllowedImagesSetting
+Set-Alias -Name EC2-EnableApplicationStatusCheckSuppression -Value Enable-EC2ApplicationStatusCheckSuppression
 Set-Alias -Name EC2-EnableAwsNetworkPerformanceMetricSubscription -Value Enable-EC2AwsNetworkPerformanceMetricSubscription
 Set-Alias -Name EC2-EnableCapacityManager -Value Enable-EC2CapacityManager
 Set-Alias -Name EC2-EnableEbsEncryptionByDefault -Value Enable-EC2EbsEncryptionByDefault
@@ -12401,6 +12422,8 @@ Set-Alias -Name Modify-EC2AccountVpcEncryptionControl -Value Edit-EC2AccountVpcE
 Set-Alias -Name EC2-ModifyAccountVpcEncryptionControl -Value Edit-EC2AccountVpcEncryptionControl
 Set-Alias -Name Modify-EC2AddressAttribute -Value Edit-EC2AddressAttribute
 Set-Alias -Name EC2-ModifyAddressAttribute -Value Edit-EC2AddressAttribute
+Set-Alias -Name Modify-EC2ApplicationStatusCheck -Value Edit-EC2ApplicationStatusCheck
+Set-Alias -Name EC2-ModifyApplicationStatusCheck -Value Edit-EC2ApplicationStatusCheck
 Set-Alias -Name Modify-EC2AvailabilityZoneGroup -Value Edit-EC2AvailabilityZoneGroup
 Set-Alias -Name EC2-ModifyAvailabilityZoneGroup -Value Edit-EC2AvailabilityZoneGroup
 Set-Alias -Name Modify-EC2CapacityReservation -Value Edit-EC2CapacityReservation

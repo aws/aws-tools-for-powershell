@@ -220,6 +220,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String TargetTableName { get; set; }
         #endregion
         
+        #region Parameter VectorIndexOverride
+        /// <summary>
+        /// <para>
+        /// <para>The vector indexes for the restored table. If not specified, all vector indexes from
+        /// the backup are restored. The indexes provided must match existing vector indexes from
+        /// the backup. You can choose to exclude some or all of the vector indexes at the time
+        /// of restore.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DynamoDBv2.Model.VectorIndex[] VectorIndexOverride { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedThroughputOverride_WriteCapacityUnit
         /// <summary>
         /// <para>
@@ -309,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TargetTableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VectorIndexOverride != null)
+            {
+                context.VectorIndexOverride = new List<Amazon.DynamoDBv2.Model.VectorIndex>(this.VectorIndexOverride);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -442,6 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.TargetTableName = cmdletContext.TargetTableName;
             }
+            if (cmdletContext.VectorIndexOverride != null)
+            {
+                request.VectorIndexOverride = cmdletContext.VectorIndexOverride;
+            }
             
             CmdletOutput output;
             
@@ -509,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String SSESpecificationOverride_KMSMasterKeyId { get; set; }
             public Amazon.DynamoDBv2.SSEType SSESpecificationOverride_SSEType { get; set; }
             public System.String TargetTableName { get; set; }
+            public List<Amazon.DynamoDBv2.Model.VectorIndex> VectorIndexOverride { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.RestoreTableFromBackupResponse, RestoreDDBTableFromBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableDescription;
         }

@@ -112,7 +112,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The view type that was chosen for the export. Valid values are <c>NEW_AND_OLD_IMAGES</c>
-        /// and <c>NEW_IMAGES</c>. The default value is <c>NEW_AND_OLD_IMAGES</c>.</para>
+        /// and <c>NEW_IMAGES</c>. The default value is <c>NEW_AND_OLD_IMAGES</c>.</para><para><c>NEW_AND_OLD_IMAGES</c> exports both the new and old images of each changed item,
+        /// while <c>NEW_IMAGES</c> exports only the new (latest) image. The view type you choose
+        /// determines the structure of each item in the output for <c>insert</c>, <c>update</c>,
+        /// and <c>delete</c> operations. For details and examples of how each view type shapes
+        /// the export output, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html">DynamoDB
+        /// table export output format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

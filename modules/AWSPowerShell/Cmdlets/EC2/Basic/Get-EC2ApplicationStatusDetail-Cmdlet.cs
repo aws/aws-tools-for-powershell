@@ -30,56 +30,32 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes a tree-based hierarchy that represents the physical host placement of your
-    /// pending or active Capacity Reservations within an Availability Zone or Local Zone.
-    /// You can use this information to determine the relative proximity of your capacity
-    /// within the Amazon Web Services network before it is launched and use this information
-    /// to allocate capacity together to support your tightly coupled workloads.
+    /// Describes the application status for the specified instances. Returns the aggregated
+    /// application health status for each instance. The following rules apply:
     /// 
-    ///  
-    /// <para>
-    /// Capacity Reservation topology is supported for specific instance types only. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">Prerequisites
-    /// for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><note><para>
-    /// The Amazon EC2 API follows an eventual consistency model due to the distributed nature
-    /// of the system supporting it. As a result, when you call the DescribeCapacityReservationTopology
-    /// API command immediately after launching instances, the response might return a <c>null</c>
-    /// value for <c>capacityBlockId</c> because the data might not have fully propagated
-    /// across all subsystems. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual
-    /// consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
-    /// EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  <ul><li><para>
+    /// The instance-level status is derived from all application status checks with the aggregation
+    /// setting set to <c>included</c>.
+    /// </para></li><li><para>
+    /// Use <c>DescribeApplicationStatusChecks</c> to view the configuration of individual
+    /// checks.
+    /// </para></li><li><para>
+    /// Use <c>EnableApplicationStatusCheckSuppression</c> to temporarily suppress health
+    /// check results from affecting the instance-level status.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2CapacityReservationTopology")]
-    [OutputType("Amazon.EC2.Model.CapacityReservationTopology")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityReservationTopology API operation.", Operation = new[] {"DescribeCapacityReservationTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationTopology or Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.CapacityReservationTopology objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2ApplicationStatusDetail")]
+    [OutputType("Amazon.EC2.Model.ApplicationStatusesResponseType")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeApplicationStatus API operation.", Operation = new[] {"DescribeApplicationStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeApplicationStatusResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.ApplicationStatusesResponseType or Amazon.EC2.Model.DescribeApplicationStatusResponse",
+        "This cmdlet returns an Amazon.EC2.Model.ApplicationStatusesResponseType object.",
+        "The service call response (type Amazon.EC2.Model.DescribeApplicationStatusResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2CapacityReservationTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2ApplicationStatusDetailCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter CapacityReservationId
-        /// <summary>
-        /// <para>
-        /// <para>The Capacity Reservation IDs.</para><para>Default: Describes all your Capacity Reservations.</para><para>Constraints: Maximum 10 explicitly specified Capacity Reservation IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CapacityReservationIds")]
-        public System.String[] CapacityReservationId { get; set; }
-        #endregion
         
         #region Parameter DryRun
         /// <summary>
@@ -96,11 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The name of the Availability Zone (for example, <c>us-west-2a</c>)
-        /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the Capacity Reservation
-        /// is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
-        /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
-        /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li></ul><para />
+        /// <para>The filters.</para><ul><li><para><c>availability-zone-id</c> – The ID of the Availability Zone.</para></li><li><para><c>status</c> – The instance-level application status. For valid values and their
+        /// meanings, see <c>ApplicationStatus</c>.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -112,13 +85,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the instances for which to describe application status.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceIds")]
+        public object[] InstanceId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. To get the next page of items,
         /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the Capacity Reservation IDs parameter in the
-        /// same request.</para><para>Default: <c>10</c></para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,13 +130,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityReservations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationStatuses'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeApplicationStatusResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeApplicationStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CapacityReservations";
+        public string Select { get; set; } = "ApplicationStatuses";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -178,18 +165,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse, GetEC2CapacityReservationTopologyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeApplicationStatusResponse, GetEC2ApplicationStatusDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-            }
-            if (this.CapacityReservationId != null)
-            {
-                context.CapacityReservationId = new List<System.String>(this.CapacityReservationId);
             }
             context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            if (this.InstanceId != null)
+            {
+                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
+            }
+            
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -208,12 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeCapacityReservationTopologyRequest();
+            var request = new Amazon.EC2.Model.DescribeApplicationStatusRequest();
             
-            if (cmdletContext.CapacityReservationId != null)
-            {
-                request.CapacityReservationIds = cmdletContext.CapacityReservationId;
-            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -221,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceIds = cmdletContext.InstanceId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -283,12 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityReservationTopologyRequest request)
+        private Amazon.EC2.Model.DescribeApplicationStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeApplicationStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityReservationTopology");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeApplicationStatus");
             try
             {
-                return client.DescribeCapacityReservationTopologyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeApplicationStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -305,13 +293,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> CapacityReservationId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public List<System.String> InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse, GetEC2CapacityReservationTopologyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CapacityReservations;
+            public System.Func<Amazon.EC2.Model.DescribeApplicationStatusResponse, GetEC2ApplicationStatusDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ApplicationStatuses;
         }
         
     }

@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_City
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s city associated with the <c>Opportunity</c>.</para>
+        /// <para>The city of the lead customer's address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,13 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_CountryCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s country associated with the <c>Opportunity</c>.</para>
+        /// <para>The country code of the lead customer's address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_Customer_Address_CountryCode")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
-        public Amazon.PartnerCentralSelling.CountryCode Address_CountryCode { get; set; }
+        public System.String Address_CountryCode { get; set; }
         #endregion
         
         #region Parameter Interaction_CustomerAction
@@ -348,8 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_Customer_Industry")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.Industry")]
-        public Amazon.PartnerCentralSelling.Industry Lead_Customer_Industry { get; set; }
+        public System.String Lead_Customer_Industry { get; set; }
         #endregion
         
         #region Parameter Payload_ProspectingResult_Aws_Customer_Industry
@@ -419,8 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Payload_Lead_Customer_MarketSegment")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.MarketSegment")]
-        public Amazon.PartnerCentralSelling.MarketSegment Customer_MarketSegment { get; set; }
+        public System.String Customer_MarketSegment { get; set; }
         #endregion
         
         #region Parameter Contact_Phone
@@ -437,7 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_PostalCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s postal code associated with the <c>Opportunity</c>.</para>
+        /// <para>The postal code of the lead customer's address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -571,16 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_StateOrRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s state or region associated with the <c>Opportunity</c>.</para><para>Valid values: <c>Alabama | Alaska | American Samoa | Arizona | Arkansas | California
-        /// | Colorado | Connecticut | Delaware | Dist. of Columbia | Federated States of Micronesia
-        /// | Florida | Georgia | Guam | Hawaii | Idaho | Illinois | Indiana | Iowa | Kansas |
-        /// Kentucky | Louisiana | Maine | Marshall Islands | Maryland | Massachusetts | Michigan
-        /// | Minnesota | Mississippi | Missouri | Montana | Nebraska | Nevada | New Hampshire
-        /// | New Jersey | New Mexico | New York | North Carolina | North Dakota | Northern Mariana
-        /// Islands | Ohio | Oklahoma | Oregon | Palau | Pennsylvania | Puerto Rico | Rhode Island
-        /// | South Carolina | South Dakota | Tennessee | Texas | Utah | Vermont | Virginia |
-        /// Virgin Islands | Washington | West Virginia | Wisconsin | Wyoming | APO/AE | AFO/FPO
-        /// | FPO, AP</c></para>
+        /// <para>The state or region of the lead customer's address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1331,7 +1319,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestPayload_payload_Lead_payload_Lead_Customer.CompanyName = requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_CompanyName;
                 requestPayload_payload_Lead_payload_Lead_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.Industry requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_Industry = null;
+            System.String requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_Industry = null;
             if (cmdletContext.Lead_Customer_Industry != null)
             {
                 requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_Industry = cmdletContext.Lead_Customer_Industry;
@@ -1341,7 +1329,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestPayload_payload_Lead_payload_Lead_Customer.Industry = requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_Industry;
                 requestPayload_payload_Lead_payload_Lead_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.MarketSegment requestPayload_payload_Lead_payload_Lead_Customer_customer_MarketSegment = null;
+            System.String requestPayload_payload_Lead_payload_Lead_Customer_customer_MarketSegment = null;
             if (cmdletContext.Customer_MarketSegment != null)
             {
                 requestPayload_payload_Lead_payload_Lead_Customer_customer_MarketSegment = cmdletContext.Customer_MarketSegment;
@@ -1361,11 +1349,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestPayload_payload_Lead_payload_Lead_Customer.WebsiteUrl = requestPayload_payload_Lead_payload_Lead_Customer_lead_Customer_WebsiteUrl;
                 requestPayload_payload_Lead_payload_Lead_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.Model.AddressSummary requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address = null;
+            Amazon.PartnerCentralSelling.Model.LeadAddress requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address = null;
             
              // populate Address
             var requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_AddressIsNull = true;
-            requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address = new Amazon.PartnerCentralSelling.Model.AddressSummary();
+            requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address = new Amazon.PartnerCentralSelling.Model.LeadAddress();
             System.String requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address_address_City = null;
             if (cmdletContext.Address_City != null)
             {
@@ -1376,7 +1364,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address.City = requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address_address_City;
                 requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_AddressIsNull = false;
             }
-            Amazon.PartnerCentralSelling.CountryCode requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address_address_CountryCode = null;
+            System.String requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address_address_CountryCode = null;
             if (cmdletContext.Address_CountryCode != null)
             {
                 requestPayload_payload_Lead_payload_Lead_Customer_payload_Lead_Customer_Address_address_CountryCode = cmdletContext.Address_CountryCode;
@@ -1662,13 +1650,13 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Project_TargetCompletionDate { get; set; }
             public System.String Project_Title { get; set; }
             public System.String Address_City { get; set; }
-            public Amazon.PartnerCentralSelling.CountryCode Address_CountryCode { get; set; }
+            public System.String Address_CountryCode { get; set; }
             public System.String Address_PostalCode { get; set; }
             public System.String Address_StateOrRegion { get; set; }
             public System.String Customer_AwsMaturity { get; set; }
             public System.String Lead_Customer_CompanyName { get; set; }
-            public Amazon.PartnerCentralSelling.Industry Lead_Customer_Industry { get; set; }
-            public Amazon.PartnerCentralSelling.MarketSegment Customer_MarketSegment { get; set; }
+            public System.String Lead_Customer_Industry { get; set; }
+            public System.String Customer_MarketSegment { get; set; }
             public System.String Lead_Customer_WebsiteUrl { get; set; }
             public System.String Payload_Lead_Insights_LeadReadinessScore { get; set; }
             public System.String Interaction_BusinessProblem { get; set; }

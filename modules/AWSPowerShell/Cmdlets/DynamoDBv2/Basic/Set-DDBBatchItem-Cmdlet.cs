@@ -52,12 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// items and submit a new <c>BatchWriteItem</c> request with those unprocessed items
     /// until all items have been processed.
     /// </para><para>
-    /// For tables and indexes with provisioned capacity, if none of the items can be processed
-    /// due to insufficient provisioned throughput on all of the tables in the request, then
-    /// <c>BatchWriteItem</c> returns a <c>ProvisionedThroughputExceededException</c>. For
-    /// all tables and indexes, if none of the items can be processed due to other throttling
-    /// scenarios (such as exceeding partition level limits), then <c>BatchWriteItem</c> returns
-    /// a <c>ThrottlingException</c>.
+    /// If <c>BatchWriteItem</c> cannot process any items due to throttling (for example,
+    /// insufficient provisioned throughput on the tables in the request, or partition-level
+    /// or account-level limits), it returns a <c>ProvisionedThroughputExceededException</c>
+    /// or a <c>ThrottlingException</c>. Both indicate that the request was throttled; check
+    /// the <c>ThrottlingReason</c> field in the returned exception for details.
     /// </para><important><para>
     /// If DynamoDB returns any unprocessed items, you should retry the batch operation on
     /// those items. However, <i>we strongly recommend that you use an exponential backoff

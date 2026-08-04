@@ -311,6 +311,21 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String TableCreationParameters_TableName { get; set; }
         #endregion
         
+        #region Parameter TableCreationParameters_VectorIndex
+        /// <summary>
+        /// <para>
+        /// <para>The vector indexes of the table to be created as part of the import operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableCreationParameters_VectorIndexes")]
+        public Amazon.DynamoDBv2.Model.VectorIndex[] TableCreationParameters_VectorIndex { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedThroughput_WriteCapacityUnit
         /// <summary>
         /// <para>
@@ -448,6 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TableCreationParameters_TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TableCreationParameters_VectorIndex != null)
+            {
+                context.TableCreationParameters_VectorIndex = new List<Amazon.DynamoDBv2.Model.VectorIndex>(this.TableCreationParameters_VectorIndex);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -611,6 +630,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (requestTableCreationParameters_tableCreationParameters_TableName != null)
             {
                 request.TableCreationParameters.TableName = requestTableCreationParameters_tableCreationParameters_TableName;
+                requestTableCreationParametersIsNull = false;
+            }
+            List<Amazon.DynamoDBv2.Model.VectorIndex> requestTableCreationParameters_tableCreationParameters_VectorIndex = null;
+            if (cmdletContext.TableCreationParameters_VectorIndex != null)
+            {
+                requestTableCreationParameters_tableCreationParameters_VectorIndex = cmdletContext.TableCreationParameters_VectorIndex;
+            }
+            if (requestTableCreationParameters_tableCreationParameters_VectorIndex != null)
+            {
+                request.TableCreationParameters.VectorIndexes = requestTableCreationParameters_tableCreationParameters_VectorIndex;
                 requestTableCreationParametersIsNull = false;
             }
             Amazon.DynamoDBv2.Model.OnDemandThroughput requestTableCreationParameters_tableCreationParameters_OnDemandThroughput = null;
@@ -808,6 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.String SSESpecification_KMSMasterKeyId { get; set; }
             public Amazon.DynamoDBv2.SSEType SSESpecification_SSEType { get; set; }
             public System.String TableCreationParameters_TableName { get; set; }
+            public List<Amazon.DynamoDBv2.Model.VectorIndex> TableCreationParameters_VectorIndex { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.ImportTableResponse, ImportDDBTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImportTableDescription;
         }

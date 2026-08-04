@@ -14850,8 +14850,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15994,9 +15994,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
+    "Select"=@("Get-CSDSuggestion",
                "Search-CSDDocument",
-               "Get-CSDSuggestion")
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29186,6 +29186,7 @@ $DDB_Completers = {
             ($_ -eq "Invoke-DDBQuery/ReturnConsumedCapacity") -Or
             ($_ -eq "Invoke-DDBScan/ReturnConsumedCapacity") -Or
             ($_ -eq "Remove-DDBItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Search-DDBVector/ReturnConsumedCapacity") -Or
             ($_ -eq "Set-DDBBatchItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Set-DDBItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Update-DDBItem/ReturnConsumedCapacity") -Or
@@ -29315,7 +29316,7 @@ $DDB_map = @{
     "MultiRegionConsistency"=@("Update-DDBTable")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
-    "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
+    "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Search-DDBVector","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetric"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
     "ReturnValue"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ReturnValuesOnConditionCheckFailure"=@("Invoke-DDBDDBExecuteStatement","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
@@ -29422,6 +29423,7 @@ $DDB_SelectMap = @{
                "Restore-DDBTableFromBackup",
                "Restore-DDBTableToPointInTime",
                "Invoke-DDBScan",
+               "Search-DDBVector",
                "Add-DDBResourceTag",
                "Get-DDBItemTransactionally",
                "Write-DDBItemTransactionally",
@@ -29435,11 +29437,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
                "Add-DDBIndexSchema",
                "New-DDBTable",
                "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem",
-               "New-DDBTableSchema",
                "Add-DDBKeySchema")
 }
 
@@ -29718,6 +29720,16 @@ $EC2_Completers = {
         "Edit-EC2InstancePlacement/Affinity"
         {
             $v = "default","host"
+            break
+        }
+
+        # Amazon.EC2.AggregationStatusEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/Aggregation") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/Aggregation")
+        }
+        {
+            $v = "excluded","included"
             break
         }
 
@@ -30443,6 +30455,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpScopeEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/IpScope") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/IpScope")
+        }
+        {
+            $v = "private"
+            break
+        }
+
         # Amazon.EC2.Ipv6SupportValue
         {
             ($_ -eq "Edit-EC2TransitGatewayVpcAttachment/Options_Ipv6Support") -Or
@@ -30450,6 +30472,16 @@ $EC2_Completers = {
         }
         {
             $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.IpVersionEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/IpVersion") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/IpVersion")
+        }
+        {
+            $v = "ipv4","ipv6"
             break
         }
 
@@ -30577,6 +30609,16 @@ $EC2_Completers = {
         "New-EC2NetworkInterface/InterfaceType"
         {
             $v = "branch","efa","efa-only","trunk"
+            break
+        }
+
+        # Amazon.EC2.NetworkProtocolEnum
+        {
+            ($_ -eq "Edit-EC2ApplicationStatusCheck/Protocol") -Or
+            ($_ -eq "New-EC2ApplicationStatusCheck/Protocol")
+        }
+        {
+            $v = "http","https"
             break
         }
 
@@ -31141,6 +31183,7 @@ $EC2_Completers = {
 $EC2_map = @{
     "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
+    "Aggregation"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
     "ApplyCancellationCharge"=@("Remove-EC2CapacityReservation")
     "Architecture"=@("Register-EC2Image")
@@ -31207,6 +31250,8 @@ $EC2_map = @{
     "InternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
+    "IpScope"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
+    "IpVersion"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "Lambda"=@("Edit-EC2AccountVpcEncryptionControl")
@@ -31271,7 +31316,7 @@ $EC2_map = @{
     "PrivateDnsHostnameTypeOnLaunch"=@("Edit-EC2SubnetAttribute")
     "PrivateDnsNameOptions_HostnameType"=@("New-EC2Instance")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
-    "Protocol"=@("New-EC2NetworkInsightsPath")
+    "Protocol"=@("Edit-EC2ApplicationStatusCheck","New-EC2ApplicationStatusCheck","New-EC2NetworkInsightsPath")
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
@@ -31402,6 +31447,7 @@ $EC2_SelectMap = @{
                "Register-EC2PrivateIpAddress",
                "Register-EC2PrivateNatGatewayAddress",
                "Register-EC2Address",
+               "Register-EC2ApplicationStatusCheck",
                "Register-EC2CapacityReservationBillingOwner",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
@@ -31446,6 +31492,7 @@ $EC2_SelectMap = @{
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
                "Copy-EC2Volume",
+               "New-EC2ApplicationStatusCheck",
                "New-EC2CapacityManagerDataExport",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
@@ -31552,6 +31599,7 @@ $EC2_SelectMap = @{
                "New-EC2VpnConnection",
                "New-EC2VpnConnectionRoute",
                "New-EC2VpnGateway",
+               "Remove-EC2ApplicationStatusCheck",
                "Remove-EC2CapacityManagerDataExport",
                "Remove-EC2CarrierGateway",
                "Remove-EC2ClientVpnEndpoint",
@@ -31660,6 +31708,9 @@ $EC2_SelectMap = @{
                "Get-EC2AddressesAttribute",
                "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
+               "Get-EC2ApplicationStatusDetail",
+               "Get-EC2ApplicationStatusCheckAssociationDetail",
+               "Get-EC2ApplicationStatusCheckDetail",
                "Get-EC2AvailabilityZone",
                "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
@@ -31850,6 +31901,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2VpnGateway",
                "Disable-EC2AddressTransfer",
                "Disable-EC2AllowedImagesSetting",
+               "Disable-EC2ApplicationStatusCheckSuppression",
                "Disable-EC2AwsNetworkPerformanceMetricSubscription",
                "Disable-EC2CapacityManager",
                "Disable-EC2EbsEncryptionByDefault",
@@ -31870,6 +31922,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLink",
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
+               "Unregister-EC2ApplicationStatusCheck",
                "Unregister-EC2CapacityReservationBillingOwner",
                "Unregister-EC2ClientVpnTargetNetwork",
                "Unregister-EC2EnclaveCertificateIamRole",
@@ -31889,6 +31942,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2VpcCidrBlock",
                "Enable-EC2AddressTransfer",
                "Enable-EC2AllowedImagesSetting",
+               "Enable-EC2ApplicationStatusCheckSuppression",
                "Enable-EC2AwsNetworkPerformanceMetricSubscription",
                "Enable-EC2CapacityManager",
                "Enable-EC2EbsEncryptionByDefault",
@@ -31994,6 +32048,7 @@ $EC2_SelectMap = @{
                "Lock-EC2Snapshot",
                "Edit-EC2AccountVpcEncryptionControl",
                "Edit-EC2AddressAttribute",
+               "Edit-EC2ApplicationStatusCheck",
                "Edit-EC2AvailabilityZoneGroup",
                "Edit-EC2CapacityReservation",
                "Edit-EC2CapacityReservationFleet",
@@ -64761,13 +64816,10 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.CountryCode
         {
             ($_ -eq "Invoke-PCCreateOpportunity/Address_CountryCode") -Or
-            ($_ -eq "New-PCEngagementContext/Address_CountryCode") -Or
-            ($_ -eq "Update-PCEngagementContext/Address_CountryCode") -Or
             ($_ -eq "Update-PCOpportunity/Address_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Update-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_CountryCode") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country") -Or
             ($_ -eq "Update-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country")
         }
@@ -64818,9 +64870,6 @@ $PC_Completers = {
             ($_ -eq "Invoke-PCCreateOpportunity/Account_Industry") -Or
             ($_ -eq "Update-PCOpportunity/Account_Industry") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_Industry") -Or
-            ($_ -eq "New-PCEngagementContext/Lead_Customer_Industry") -Or
-            ($_ -eq "Update-PCEngagementContext/Lead_Customer_Industry") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_Industry") -Or
             ($_ -eq "New-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
             ($_ -eq "Update-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
             ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Industry") -Or
@@ -64849,17 +64898,6 @@ $PC_Completers = {
         }
         {
             $v = "Marketing Activity","None"
-            break
-        }
-
-        # Amazon.PartnerCentralSelling.MarketSegment
-        {
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/Customer_MarketSegment") -Or
-            ($_ -eq "New-PCEngagementContext/Customer_MarketSegment") -Or
-            ($_ -eq "Update-PCEngagementContext/Customer_MarketSegment")
-        }
-        {
-            $v = "Enterprise","Large","Medium","Micro","Small"
             break
         }
 
@@ -65039,17 +65077,13 @@ $PC_Completers = {
 
 $PC_map = @{
     "Account_Industry"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","New-PCEngagementContext","Update-PCEngagementContext","Update-PCOpportunity")
+    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "AwsSubmission_InvolvementType"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "AwsSubmission_Visibility"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "Customer_CountryCode"=@("New-PCEngagementContext","Update-PCEngagementContext")
-    "Customer_MarketSegment"=@("Invoke-PCCreateEngagementInvitation","New-PCEngagementContext","Update-PCEngagementContext")
     "Invitation_Payload_OpportunityInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
     "Invitation_Payload_OpportunityInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "InvolvementType"=@("Submit-PCOpportunity")
-    "Lead_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
-    "LeadInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
-    "LeadInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "LifeCycle_ClosedLostReason"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_ReviewStatus"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_Stage"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
@@ -76730,16 +76764,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Get-S3PreSignedURL",
                "Test-S3Bucket",
+               "Read-S3Object",
                "Remove-S3MultipartUpload",
-               "New-S3Bucket",
                "Remove-S3Object",
                "Copy-S3Object",
-               "Read-S3Object",
+               "New-S3Bucket",
+               "Remove-S3Bucket",
                "Get-S3MultipartUpload",
-               "Write-S3Object",
-               "Get-S3PreSignedURL",
-               "Remove-S3Bucket")
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -86458,8 +86492,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93210,44 +93244,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93287,3 +93283,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

@@ -170,7 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// primary key, you only need to provide a value for the partition key. For a composite
         /// primary key, you must provide both values for both the partition key and the sort
         /// key.</para><para>If you specify any attributes that are part of an index key, then the data types for
-        /// those attributes must match those of the schema in the table's attribute definition.</para><para>Empty String and Binary attribute values are allowed. Attribute values of type String
+        /// those attributes must match those of the schema in the table's attribute definition.</para><para>If the table has vector indexes, the following validations apply to write operations.
+        /// A violation of any of these constraints results in a <c>ValidationException</c>:</para><ul><li><para>The vector attribute must be a list of numbers with dimensions matching the index
+        /// configuration.</para></li><li><para>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</para></li><li><para>Partition key and inline filter attributes defined in the search schema must have
+        /// data types matching the index schema definition.</para></li></ul><para>Empty String and Binary attribute values are allowed. Attribute values of type String
         /// and Binary must have a length greater than zero if the attribute is used as a key
         /// attribute for a table or index.</para><para>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary
         /// Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>Each element in the <c>Item</c> map is an <c>AttributeValue</c> object.</para><para />

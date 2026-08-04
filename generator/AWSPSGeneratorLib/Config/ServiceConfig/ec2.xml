@@ -140,6 +140,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateApplicationStatusCheck" OutputProperty="*" Verb="Register" Noun="ApplicationStatusCheck" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateCapacityReservationBillingOwner" OutputProperty="Return" Verb="Register" Noun="CapacityReservationBillingOwner" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -325,6 +329,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CopyVolumes" OutputProperty="Volumes" Verb="Copy" Noun="Volume" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationStatusCheck" OutputProperty="ApplicationStatusCheck" Verb="New" Noun="ApplicationStatusCheck" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -776,6 +784,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationStatusCheck" OutputProperty="ApplicationStatusCheck" Verb="Remove" Noun="ApplicationStatusCheck" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCapacityManagerDataExport" OutputProperty="CapacityManagerDataExportId" Verb="Remove" Noun="CapacityManagerDataExport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1211,6 +1223,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationStatus" OutputProperty="ApplicationStatuses" Verb="Get" Noun="ApplicationStatusDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationStatusCheckAssociations" OutputProperty="*" Verb="Get" Noun="ApplicationStatusCheckAssociationDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationStatusChecks" OutputProperty="ApplicationStatusChecks" Verb="Get" Noun="ApplicationStatusCheckDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2000,6 +2024,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableApplicationStatusCheckSuppression" OutputProperty="*" Verb="Disable" Noun="ApplicationStatusCheckSuppression" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableAwsNetworkPerformanceMetricSubscription" OutputProperty="Output" Verb="Disable" Noun="AwsNetworkPerformanceMetricSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2082,6 +2110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateApplicationStatusCheck" OutputProperty="*" Verb="Unregister" Noun="ApplicationStatusCheck" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateCapacityReservationBillingOwner" OutputProperty="Return" Verb="Unregister" Noun="CapacityReservationBillingOwner" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2155,6 +2187,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Enable" Noun="AllowedImagesSetting" ShouldProcessTarget="AllowedImagesSettingsState" PipelineParameter="AllowedImagesSettingsState" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableApplicationStatusCheckSuppression" OutputProperty="*" Verb="Enable" Noun="ApplicationStatusCheckSuppression" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2648,6 +2684,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyAddressAttribute" OutputProperty="Address" Verb="Edit" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyApplicationStatusCheck" OutputProperty="ApplicationStatusCheck" Verb="Edit" Noun="ApplicationStatusCheck" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

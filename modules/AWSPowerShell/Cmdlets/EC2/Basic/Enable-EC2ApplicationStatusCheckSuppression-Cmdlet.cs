@@ -30,22 +30,27 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a secondary network.
+    /// Suppresses application status checks for the specified instances. While suppressed,
+    /// health checks continue to run but do not affect the instance-level application status.
+    /// The following rules apply:
     /// 
-    ///  
-    /// <para>
-    /// The allowed size for a secondary network CIDR block is between /28 netmask (16 IP
-    /// addresses) and /12 netmask (1,048,576 IP addresses).
-    /// </para>
+    ///  <ul><li><para>
+    /// Maximum 100 instance IDs per request.
+    /// </para></li><li><para>
+    /// Use <c>DisableApplicationStatusCheckSuppression</c> to resume normal health check
+    /// reporting.
+    /// </para></li><li><para>
+    /// If you do not specify <c>DurationSeconds</c>, suppression continues indefinitely until
+    /// you call <c>DisableApplicationStatusCheckSuppression</c>.
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("New", "EC2SecondaryNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.SecondaryNetwork")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSecondaryNetwork API operation.", Operation = new[] {"CreateSecondaryNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSecondaryNetworkResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.SecondaryNetwork or Amazon.EC2.Model.CreateSecondaryNetworkResponse",
-        "This cmdlet returns an Amazon.EC2.Model.SecondaryNetwork object.",
-        "The service call response (type Amazon.EC2.Model.CreateSecondaryNetworkResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Enable", "EC2ApplicationStatusCheckSuppression", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableApplicationStatusCheckSuppression API operation.", Operation = new[] {"EnableApplicationStatusCheckSuppression"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse",
+        "This cmdlet returns an Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse object containing multiple properties."
     )]
-    public partial class NewEC2SecondaryNetworkCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EnableEC2ApplicationStatusCheckSuppressionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// <para>Checks whether you have the required permissions for the operation, without actually
         /// making the request, and provides an error response. If you have the required permissions,
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
@@ -63,38 +68,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter Ipv4CidrBlock
+        #region Parameter DurationSecond
         /// <summary>
         /// <para>
-        /// <para>The IPv4 CIDR block for the secondary network. The CIDR block size must be between
-        /// /12 and /28.</para>
+        /// <para>The duration, in seconds, for which to suppress application status checks. If omitted,
+        /// the application status check is suppressed indefinitely until you call <c>DisableApplicationStatusCheckSuppression</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Ipv4CidrBlock { get; set; }
+        [Alias("DurationSeconds")]
+        public System.Int32? DurationSecond { get; set; }
         #endregion
         
-        #region Parameter NetworkType
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The type of secondary network.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.EC2.SecondaryNetworkType")]
-        public Amazon.EC2.SecondaryNetworkType NetworkType { get; set; }
-        #endregion
-        
-        #region Parameter TagSpecification
-        /// <summary>
-        /// <para>
-        /// <para>The tags to assign to the secondary network.</para><para />
+        /// <para>The IDs of the instances for which to suppress application status checks.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -102,16 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TagSpecifications")]
-        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        [Alias("InstanceIds")]
+        public object[] InstanceId { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure
-        /// Idempotency</a>.</para>
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,13 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SecondaryNetwork'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateSecondaryNetworkResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CreateSecondaryNetworkResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SecondaryNetwork";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -149,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2SecondaryNetwork (CreateSecondaryNetwork)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2ApplicationStatusCheckSuppression (EnableApplicationStatusCheckSuppression)"))
             {
                 return;
             }
@@ -161,23 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateSecondaryNetworkResponse, NewEC2SecondaryNetworkCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse, EnableEC2ApplicationStatusCheckSuppressionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
-            context.Ipv4CidrBlock = this.Ipv4CidrBlock;
-            context.NetworkType = this.NetworkType;
-            #if MODULAR
-            if (this.NetworkType == null && ParameterWasBound(nameof(this.NetworkType)))
+            context.DurationSecond = this.DurationSecond;
+            if (this.InstanceId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter NetworkType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
             }
-            #endif
-            if (this.TagSpecification != null)
-            {
-                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
-            }
+            
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -192,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CreateSecondaryNetworkRequest();
+            var request = new Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -202,17 +185,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.Ipv4CidrBlock != null)
+            if (cmdletContext.DurationSecond != null)
             {
-                request.Ipv4CidrBlock = cmdletContext.Ipv4CidrBlock;
+                request.DurationSeconds = cmdletContext.DurationSecond.Value;
             }
-            if (cmdletContext.NetworkType != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.NetworkType = cmdletContext.NetworkType;
-            }
-            if (cmdletContext.TagSpecification != null)
-            {
-                request.TagSpecifications = cmdletContext.TagSpecification;
+                request.InstanceIds = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -247,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CreateSecondaryNetworkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSecondaryNetworkRequest request)
+        private Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateSecondaryNetwork");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableApplicationStatusCheckSuppression");
             try
             {
-                return client.CreateSecondaryNetworkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.EnableApplicationStatusCheckSuppressionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -271,11 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
-            public System.String Ipv4CidrBlock { get; set; }
-            public Amazon.EC2.SecondaryNetworkType NetworkType { get; set; }
-            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
-            public System.Func<Amazon.EC2.Model.CreateSecondaryNetworkResponse, NewEC2SecondaryNetworkCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SecondaryNetwork;
+            public System.Int32? DurationSecond { get; set; }
+            public List<System.String> InstanceId { get; set; }
+            public System.Func<Amazon.EC2.Model.EnableApplicationStatusCheckSuppressionResponse, EnableEC2ApplicationStatusCheckSuppressionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

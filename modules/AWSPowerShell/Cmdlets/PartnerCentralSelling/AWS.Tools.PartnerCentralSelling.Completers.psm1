@@ -123,13 +123,10 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.CountryCode
         {
             ($_ -eq "Invoke-PCCreateOpportunity/Address_CountryCode") -Or
-            ($_ -eq "New-PCEngagementContext/Address_CountryCode") -Or
-            ($_ -eq "Update-PCEngagementContext/Address_CountryCode") -Or
             ($_ -eq "Update-PCOpportunity/Address_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Update-PCEngagementContext/Customer_CountryCode") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_CountryCode") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_CountryCode") -Or
             ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country") -Or
             ($_ -eq "Update-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Country")
         }
@@ -180,9 +177,6 @@ $PC_Completers = {
             ($_ -eq "Invoke-PCCreateOpportunity/Account_Industry") -Or
             ($_ -eq "Update-PCOpportunity/Account_Industry") -Or
             ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_Industry") -Or
-            ($_ -eq "New-PCEngagementContext/Lead_Customer_Industry") -Or
-            ($_ -eq "Update-PCEngagementContext/Lead_Customer_Industry") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_Industry") -Or
             ($_ -eq "New-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
             ($_ -eq "Update-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
             ($_ -eq "New-PCEngagementContext/Payload_ProspectingResult_Aws_Customer_Industry") -Or
@@ -211,17 +205,6 @@ $PC_Completers = {
         }
         {
             $v = "Marketing Activity","None"
-            break
-        }
-
-        # Amazon.PartnerCentralSelling.MarketSegment
-        {
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/Customer_MarketSegment") -Or
-            ($_ -eq "New-PCEngagementContext/Customer_MarketSegment") -Or
-            ($_ -eq "Update-PCEngagementContext/Customer_MarketSegment")
-        }
-        {
-            $v = "Enterprise","Large","Medium","Micro","Small"
             break
         }
 
@@ -401,17 +384,13 @@ $PC_Completers = {
 
 $PC_map = @{
     "Account_Industry"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","New-PCEngagementContext","Update-PCEngagementContext","Update-PCOpportunity")
+    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "AwsSubmission_InvolvementType"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "AwsSubmission_Visibility"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "Customer_CountryCode"=@("New-PCEngagementContext","Update-PCEngagementContext")
-    "Customer_MarketSegment"=@("Invoke-PCCreateEngagementInvitation","New-PCEngagementContext","Update-PCEngagementContext")
     "Invitation_Payload_OpportunityInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
     "Invitation_Payload_OpportunityInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "InvolvementType"=@("Submit-PCOpportunity")
-    "Lead_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
-    "LeadInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
-    "LeadInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "LifeCycle_ClosedLostReason"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_ReviewStatus"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_Stage"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")

@@ -30,47 +30,26 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels a bundling operation for an instance store-backed Windows instance.
-    /// 
-    ///  <note><para>
-    /// CancelBundleTask is no longer supported because <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BundleInstance.html">BundleInstance</a>,
-    /// the operation it cancels, is no longer supported.
-    /// </para></note>
+    /// Disables suppression of application status checks for the specified instances. After
+    /// suppression is disabled, health check results resume affecting the instance-level
+    /// application status. You can specify a maximum of 100 instance IDs per request.
     /// </summary>
-    [Cmdlet("Stop", "EC2BundleTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.BundleTask")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelBundleTask API operation.", Operation = new[] {"CancelBundleTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelBundleTaskResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.BundleTask or Amazon.EC2.Model.CancelBundleTaskResponse",
-        "This cmdlet returns an Amazon.EC2.Model.BundleTask object.",
-        "The service call response (type Amazon.EC2.Model.CancelBundleTaskResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Disable", "EC2ApplicationStatusCheckSuppression", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableApplicationStatusCheckSuppression API operation.", Operation = new[] {"DisableApplicationStatusCheckSuppression"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse",
+        "This cmdlet returns an Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse object containing multiple properties."
     )]
-    public partial class StopEC2BundleTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class DisableEC2ApplicationStatusCheckSuppressionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter BundleId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the bundle task.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BundleId { get; set; }
-        #endregion
-        
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// <para>Checks whether you have the required permissions for the operation, without actually
         /// making the request, and provides an error response. If you have the required permissions,
         /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
@@ -79,15 +58,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the instances for which to disable application status check suppression.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceIds")]
+        public object[] InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'BundleTask'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CancelBundleTaskResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CancelBundleTaskResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "BundleTask";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -109,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BundleId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2BundleTask (CancelBundleTask)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2ApplicationStatusCheckSuppression (DisableApplicationStatusCheckSuppression)"))
             {
                 return;
             }
@@ -122,17 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CancelBundleTaskResponse, StopEC2BundleTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse, DisableEC2ApplicationStatusCheckSuppressionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BundleId = this.BundleId;
-            #if MODULAR
-            if (this.BundleId == null && ParameterWasBound(nameof(this.BundleId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BundleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
+            if (this.InstanceId != null)
+            {
+                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
+            }
+            
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,15 +152,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelBundleTaskRequest();
+            var request = new Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionRequest();
             
-            if (cmdletContext.BundleId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.BundleId = cmdletContext.BundleId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceIds = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -190,12 +199,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CancelBundleTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelBundleTaskRequest request)
+        private Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CancelBundleTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableApplicationStatusCheckSuppression");
             try
             {
-                return client.CancelBundleTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DisableApplicationStatusCheckSuppressionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -212,10 +221,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BundleId { get; set; }
+            public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
-            public System.Func<Amazon.EC2.Model.CancelBundleTaskResponse, StopEC2BundleTaskCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.BundleTask;
+            public List<System.String> InstanceId { get; set; }
+            public System.Func<Amazon.EC2.Model.DisableApplicationStatusCheckSuppressionResponse, DisableEC2ApplicationStatusCheckSuppressionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

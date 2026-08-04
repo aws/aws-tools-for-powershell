@@ -30,7 +30,15 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the specified WorkSpaces Pools.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <note><para>
+    /// End of support notice: On December 31, 2027, Amazon Web Services will end support
+    /// for Amazon WorkSpaces Pools. After December 31, 2027, you will no longer be able to
+    /// access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For
+    /// more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html">Amazon
+    /// WorkSpaces Pools end of support</a>. 
+    /// </para></note><para>
+    /// Describes the specified WorkSpaces Pools.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspacesPool")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspacesPool")]

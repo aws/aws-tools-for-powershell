@@ -32,6 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     /// <summary>
     /// Update the details for the instance of IAM Identity Center that is owned by the Amazon
     /// Web Services account.
+    /// 
+    ///  
+    /// <para>
+    /// In a single <c>UpdateInstance</c> request, you can perform only one of the following
+    /// operations:
+    /// </para><ul><li><para>
+    /// Update the encryption configuration of the instance by specifying <c>EncryptionConfiguration</c>.
+    /// </para></li><li><para>
+    /// Enable permission sets for the instance by specifying <c>PermissionSetsEnabled</c>.
+    /// </para></li></ul><para>
+    /// A request that specifies both <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c>
+    /// returns a <c>ValidationException</c>. To perform both operations, call <c>UpdateInstance</c>
+    /// separately for each. The two calls can be made in parallel.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SSOADMNInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -98,6 +112,19 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PermissionSetsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables permission sets for this Identity Center instance. The only accepted value
+        /// is <c>true </c>. After permission sets are enabled, they cannot be disabled.</para><note><para>You can't set <c>EncryptionConfiguration</c> and <c>PermissionSetsEnabled</c> in the
+        /// same request. To configure both, make two separate <c>UpdateInstance</c> calls. These
+        /// calls can be made in parallel.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PermissionSetsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -153,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             #endif
             context.Name = this.Name;
+            context.PermissionSetsEnabled = this.PermissionSetsEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PermissionSetsEnabled != null)
+            {
+                request.PermissionSetsEnabled = cmdletContext.PermissionSetsEnabled.Value;
             }
             
             CmdletOutput output;
@@ -265,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String InstanceArn { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? PermissionSetsEnabled { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.UpdateInstanceResponse, UpdateSSOADMNInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

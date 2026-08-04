@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the resources to monitor. For example, if the resource type is <c>VPC</c>,
-        /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 1000 for
+        /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 300 for
         /// the other resource types.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

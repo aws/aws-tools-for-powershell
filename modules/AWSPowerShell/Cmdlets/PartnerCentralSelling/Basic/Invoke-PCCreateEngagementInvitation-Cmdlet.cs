@@ -159,8 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_LeadInvitation_Customer_CountryCode")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.CountryCode")]
-        public Amazon.PartnerCentralSelling.CountryCode LeadInvitation_Customer_CountryCode { get; set; }
+        public System.String LeadInvitation_Customer_CountryCode { get; set; }
         #endregion
         
         #region Parameter Invitation_Payload_OpportunityInvitation_Customer_CountryCode
@@ -221,8 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_LeadInvitation_Customer_Industry")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.Industry")]
-        public Amazon.PartnerCentralSelling.Industry LeadInvitation_Customer_Industry { get; set; }
+        public System.String LeadInvitation_Customer_Industry { get; set; }
         #endregion
         
         #region Parameter Invitation_Payload_OpportunityInvitation_Customer_Industry
@@ -248,8 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Invitation_Payload_LeadInvitation_Customer_MarketSegment")]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.MarketSegment")]
-        public Amazon.PartnerCentralSelling.MarketSegment Customer_MarketSegment { get; set; }
+        public System.String Customer_MarketSegment { get; set; }
         #endregion
         
         #region Parameter Invitation_Message
@@ -705,7 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer.CompanyName = requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_CompanyName;
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.CountryCode requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_CountryCode = null;
+            System.String requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_CountryCode = null;
             if (cmdletContext.LeadInvitation_Customer_CountryCode != null)
             {
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_CountryCode = cmdletContext.LeadInvitation_Customer_CountryCode;
@@ -715,7 +712,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer.CountryCode = requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_CountryCode;
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.Industry requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_Industry = null;
+            System.String requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_Industry = null;
             if (cmdletContext.LeadInvitation_Customer_Industry != null)
             {
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_Industry = cmdletContext.LeadInvitation_Customer_Industry;
@@ -725,7 +722,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer.Industry = requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_leadInvitation_Customer_Industry;
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_CustomerIsNull = false;
             }
-            Amazon.PartnerCentralSelling.MarketSegment requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_customer_MarketSegment = null;
+            System.String requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_customer_MarketSegment = null;
             if (cmdletContext.Customer_MarketSegment != null)
             {
                 requestInvitation_invitation_Payload_invitation_Payload_LeadInvitation_invitation_Payload_LeadInvitation_Customer_customer_MarketSegment = cmdletContext.Customer_MarketSegment;
@@ -986,9 +983,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Invitation_Message { get; set; }
             public System.String Customer_AwsMaturity { get; set; }
             public System.String LeadInvitation_Customer_CompanyName { get; set; }
-            public Amazon.PartnerCentralSelling.CountryCode LeadInvitation_Customer_CountryCode { get; set; }
-            public Amazon.PartnerCentralSelling.Industry LeadInvitation_Customer_Industry { get; set; }
-            public Amazon.PartnerCentralSelling.MarketSegment Customer_MarketSegment { get; set; }
+            public System.String LeadInvitation_Customer_CountryCode { get; set; }
+            public System.String LeadInvitation_Customer_Industry { get; set; }
+            public System.String Customer_MarketSegment { get; set; }
             public System.String LeadInvitation_Customer_WebsiteUrl { get; set; }
             public System.String Interaction_ContactBusinessTitle { get; set; }
             public System.String Interaction_SourceId { get; set; }

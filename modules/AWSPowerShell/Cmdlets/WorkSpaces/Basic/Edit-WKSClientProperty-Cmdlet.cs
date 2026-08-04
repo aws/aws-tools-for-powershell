@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ClientProperties_ClientExperiencePolicy
+        /// <summary>
+        /// <para>
+        /// <para>The client experience policy that determines which client experience the user sees.
+        /// Administrators can set this policy to control the client experience for users in a
+        /// directory. Valid values include <c>FORCE_CLASSIC</c>, <c>FORCE_UI_2026</c>, and <c>USER_CHOICE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientProperties_ClientExperiencePolicy { get; set; }
+        #endregion
+        
         #region Parameter ClientProperties_LogUploadEnabled
         /// <summary>
         /// <para>
@@ -134,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.ModifyClientPropertiesResponse, EditWKSClientPropertyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientProperties_ClientExperiencePolicy = this.ClientProperties_ClientExperiencePolicy;
             context.ClientProperties_LogUploadEnabled = this.ClientProperties_LogUploadEnabled;
             context.ClientProperties_ReconnectEnabled = this.ClientProperties_ReconnectEnabled;
             context.ResourceId = this.ResourceId;
@@ -163,6 +176,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
              // populate ClientProperties
             var requestClientPropertiesIsNull = true;
             request.ClientProperties = new Amazon.WorkSpaces.Model.ClientProperties();
+            System.String requestClientProperties_clientProperties_ClientExperiencePolicy = null;
+            if (cmdletContext.ClientProperties_ClientExperiencePolicy != null)
+            {
+                requestClientProperties_clientProperties_ClientExperiencePolicy = cmdletContext.ClientProperties_ClientExperiencePolicy;
+            }
+            if (requestClientProperties_clientProperties_ClientExperiencePolicy != null)
+            {
+                request.ClientProperties.ClientExperiencePolicy = requestClientProperties_clientProperties_ClientExperiencePolicy;
+                requestClientPropertiesIsNull = false;
+            }
             Amazon.WorkSpaces.LogUploadEnum requestClientProperties_clientProperties_LogUploadEnabled = null;
             if (cmdletContext.ClientProperties_LogUploadEnabled != null)
             {
@@ -247,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientProperties_ClientExperiencePolicy { get; set; }
             public Amazon.WorkSpaces.LogUploadEnum ClientProperties_LogUploadEnabled { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum ClientProperties_ReconnectEnabled { get; set; }
             public System.String ResourceId { get; set; }

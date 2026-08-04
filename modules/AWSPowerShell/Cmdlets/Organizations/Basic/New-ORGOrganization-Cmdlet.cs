@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// no policy types are enabled by default and you can't use organization policies.
     /// </para><para>
     /// The <c>AccountJoinedOrganization</c> event is logged in CloudTrail and is available
-    /// only in the management account's event history. This event includes <c>joinedMethod:Invited</c>
+    /// only in the management account's event history. This event includes <c>joinedMethod:INVITED</c>
     /// and <c>joinedTime</c> fields to provide context on how and when the account joined
     /// the organization.
     /// </para>

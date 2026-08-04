@@ -30,7 +30,15 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
+    /// <note><para>
+    /// End of support notice: On December 31, 2027, Amazon Web Services will end support
+    /// for Amazon WorkSpaces Pools. After December 31, 2027, you will no longer be able to
+    /// access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For
+    /// more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html">Amazon
+    /// WorkSpaces Pools end of support</a>. 
+    /// </para></note><para>
     /// Terminates the specified pool.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "WKSWorkspacesPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

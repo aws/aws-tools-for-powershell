@@ -116,7 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>List of global secondary indexes for the restored table. The indexes provided should
         /// match existing secondary indexes. You can choose to exclude some or all of the indexes
-        /// at the time of restore.</para><para />
+        /// at the time of restore.</para><para>The <c>WarmThroughput</c> setting is not supported on global secondary indexes when
+        /// you use <c>RestoreTableToPointInTime</c>. Although <c>WarmThroughput</c> appears in
+        /// the shared index definition, including it in a <c>GlobalSecondaryIndexOverride</c>
+        /// entry causes the request to fail with a validation error.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -265,6 +268,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.Boolean? UseLatestRestorableTime { get; set; }
         #endregion
         
+        #region Parameter VectorIndexOverride
+        /// <summary>
+        /// <para>
+        /// <para>The vector indexes for the restored table. If not specified, all vector indexes from
+        /// the source table are restored. The indexes provided must match existing vector indexes
+        /// from the source table. You can choose to exclude some or all of the vector indexes
+        /// at the time of restore.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DynamoDBv2.Model.VectorIndex[] VectorIndexOverride { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedThroughputOverride_WriteCapacityUnit
         /// <summary>
         /// <para>
@@ -351,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             #endif
             context.UseLatestRestorableTime = this.UseLatestRestorableTime;
+            if (this.VectorIndexOverride != null)
+            {
+                context.VectorIndexOverride = new List<Amazon.DynamoDBv2.Model.VectorIndex>(this.VectorIndexOverride);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -496,6 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.UseLatestRestorableTime = cmdletContext.UseLatestRestorableTime.Value;
             }
+            if (cmdletContext.VectorIndexOverride != null)
+            {
+                request.VectorIndexOverride = cmdletContext.VectorIndexOverride;
+            }
             
             CmdletOutput output;
             
@@ -566,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.SSEType SSESpecificationOverride_SSEType { get; set; }
             public System.String TargetTableName { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
+            public List<Amazon.DynamoDBv2.Model.VectorIndex> VectorIndexOverride { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeResponse, RestoreDDBTableToPointInTimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableDescription;
         }

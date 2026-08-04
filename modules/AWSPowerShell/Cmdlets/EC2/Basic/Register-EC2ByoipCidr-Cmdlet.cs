@@ -39,7 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Amazon Web Services verifies that you own the address range and are authorized to
     /// advertise it. You must ensure that the address range is registered to you and that
     /// you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the
-    /// address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// address range. For the Amazon Web Services GovCloud (US) Regions, authorize only ASN
+    /// 8987. For the Amazon Web Services European Sovereign Cloud, authorize ASNs 16509 and
+    /// 214101. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
     /// your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
