@@ -68,6 +68,14 @@ BeforeAll {
         }
     }
 
+    function script:S3GetPartsCount([string]$bucket, [string]$key, $client = $null) {
+        if (-not $client) { $client = $script:S3 }
+        $req = New-Object Amazon.S3.Model.GetObjectMetadataRequest
+        $req.BucketName = $bucket; $req.Key = $key; $req.PartNumber = 1
+        $resp = $client.GetObjectMetadataAsync($req).GetAwaiter().GetResult()
+        return $resp.PartsCount
+    }
+
     function script:S3GetText([string]$bucket, [string]$key, $client = $null) {
         if (-not $client) { $client = $script:S3 }
         $req = New-Object Amazon.S3.Model.GetObjectRequest
@@ -298,8 +306,16 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $i.Name | Should -Be $script:Bucket
             $i.Type | Should -Be 'Bucket'
         }
-        It "lists the buckets at the drive root" {
-            (Get-Item 'PSTest:\' | ForEach-Object Name) | Should -Contain $script:Bucket
+        # Get-Item on the drive ROOT returns the SINGLE root item, NOT the whole bucket listing (that's
+        # Get-ChildItem's job). Before the fix this branch enumerated ListBuckets and emitted one item
+        # per bucket, so Get-Item and Get-ChildItem were identical at the root. The account-root item is
+        # a synthesized container named after the drive (no backing S3 resource); buckets/prefixes are
+        # unaffected (covered above).
+        It "returns a single container item at the drive root (not the bucket listing)" {
+            $root = @(Get-Item 'PSTest:\')
+            $root.Count            | Should -Be 1        # one root item, not one-per-bucket
+            $root[0].Type          | Should -Be 'Folder'
+            $root[0].PSIsContainer | Should -BeTrue
         }
         It "errors (not hangs) on a missing object" {
             { Get-Item "PSTest:\$($script:Bucket)\nope-$([guid]::NewGuid()).txt" -ErrorAction Stop } |
@@ -342,6 +358,28 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    Context "Get-Content multipart download" {
+        It "reads a large byte-stream object through the multipart download stream" {
+            $key = "download-multipart-$([DateTime]::Now.ToFileTime()).bin"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            $size = 17 * 1024 * 1024
+            $payload = New-Object byte[] $size
+            (New-Object System.Random 20260727).NextBytes($payload)
+            Set-Content $path -AsByteStream -Value $payload
+
+            $got = [byte[]]((Get-Content $path -AsByteStream -Raw) | ForEach-Object { $_ })
+
+            $got.Length | Should -Be $size
+            $sha = [System.Security.Cryptography.SHA256]::Create()
+            try {
+                [BitConverter]::ToString($sha.ComputeHash($got)) |
+                    Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+            } finally {
+                $sha.Dispose()
+            }
+        }
+    }
+
     # Slow: seeds 1050 objects (~3 min) to force ListObjectsV2 pagination past the 1000-key page.
     Context -Tag "Disabled" "Listing and recursive delete with pagination" {
         BeforeAll {
@@ -371,14 +409,14 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # verify byte-for-byte via SHA-256 (and every upload is multipart anyway, so there was no unique
     # single-part path to guard).
 
-    # Slow: moves a >8MB object, so it exercises the TransferUtility MULTIPART paths on
+    # Slow: moves a >16MB object, so it exercises the TransferUtility MULTIPART paths on
     # both ends (upload via UploadUnseekableStreamAsync through the PushPullStream bridge; download
-    # via OpenStream with MultipartDownloadType.PART) - the whole reason the content layer moved to
-    # TransferUtility. Small round-trips above only hit the single-part path. ~20MB.
+    # via OpenStreamWithResponseAsync with ranged multipart streaming). Small round-trips above only
+    # need the SDK's first ranged download response. ~20MB.
     Context -Tag "Disabled" "Large-object multipart round-trip" {
         It "uploads and downloads a 20MB object byte-for-byte (SHA-256)" {
             $key = "large/multipart-$([DateTime]::Now.ToFileTime()).bin"
-            # Deterministic 20MB payload (well over the 8MB multipart threshold).
+            # Deterministic 20MB payload (over the default multipart part size).
             $size = 20 * 1024 * 1024
             $src = New-Object byte[] $size
             (New-Object System.Random 20260701).NextBytes($src)
@@ -564,6 +602,31 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
 
             (S3GetText $script:Bucket $key).TrimEnd("`r","`n") | Should -Be 'original'
         }
+        # All six unsupported operations now fail the SAME way: a PSNotSupportedException carrying the
+        # "<Cmdlet> is not supported by the S3 drive. ..." shape. Before the fix New-Item/Copy/Move/
+        # Rename fell through to the engine's generic "provider does not support this operation" and
+        # Add-Content threw a bare System.NotSupportedException - three inconsistent styles. Lock the
+        # consistency (message shape + exception type) so a regression can't reintroduce the drift.
+        It "reports a consistent S3-specific PSNotSupportedException for all unsupported operations" {
+            $b = $script:Bucket
+            $key = "unsupported-consist-$([DateTime]::Now.ToFileTime()).txt"
+            S3PutText $key 'original'
+            $ops = @(
+                { New-Item    "PSTest:\$b\uns-consist-$([DateTime]::Now.ToFileTime())" -ItemType Directory -ErrorAction Stop },
+                { Copy-Item   "PSTest:\$b\$key" "PSTest:\$b\uns-copy.txt"   -ErrorAction Stop },
+                { Move-Item   "PSTest:\$b\$key" "PSTest:\$b\uns-moved.txt"  -ErrorAction Stop },
+                { Rename-Item "PSTest:\$b\$key" 'uns-renamed.txt'           -ErrorAction Stop },
+                { Add-Content "PSTest:\$b\$key" -Value 'x'                  -ErrorAction Stop },
+                { Clear-Content "PSTest:\$b\$key"                           -ErrorAction Stop }
+            )
+            foreach ($op in $ops) {
+                $e = $null
+                try { & $op } catch { $e = $_ }
+                $e                       | Should -Not -BeNullOrEmpty
+                $e.Exception             | Should -BeOfType [System.Management.Automation.PSNotSupportedException]
+                $e.Exception.Message     | Should -Match 'is not supported by the S3 drive'
+            }
+        }
     }
 
     # ---- Edge-case coverage (added to close roadmap gaps) --------------------------------------
@@ -721,6 +784,23 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             ($objects | Where-Object { $_.Name -like '*c.txt' }) | Should -Not -BeNullOrEmpty
             ($objects | Where-Object { $_.Name -like '*emptydir*' }) | Should -BeNullOrEmpty
         }
+        # An account-root mount (no -Root) MUST keep an empty Root. A "/" root would make the PowerShell
+        # engine treat the drive's paths as filesystem-absolute and route a Set-Content to a not-yet-
+        # existing key to the C: FileSystem provider ("Could not find a part of the path 'C:\...'"),
+        # silently failing every new-object write. Guard both facts so that regression can't return:
+        # the account-root Root stays empty, and writing a brand-new object through the account-root
+        # drive lands in S3. `PSTest:\ -Recurse` is the supported recursive-list form; the bare
+        # `PSTest: -Recurse` form is a known engine limitation and intentionally not asserted here.
+        It "keeps an empty Root and writes new objects on an account-root mount" {
+            (Get-PSDrive -Name PSTest).Root | Should -BeNullOrEmpty   # NOT "/": "/" breaks new-object writes
+
+            $key = "acctroot-write-$([DateTime]::Now.ToFileTime()).txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'acct-root' -ErrorAction Stop
+            S3ObjectExists $script:Bucket $key | Should -BeTrue   # raw HEAD: the write reached S3, not C:\
+
+            @(Get-ChildItem 'PSTest:\' -Recurse -ErrorAction Stop | Select-Object -First 1).Count |
+                Should -BeGreaterThan 0   # supported recursive-list form still works
+        }
     }
 
     # A 0-byte object whose key does NOT end in "/" is a real empty FILE - distinct from a
@@ -812,6 +892,12 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # the content/remove op runs. Regression guard for that bug (it was invisible because earlier
     # tests only used literal-path strings, never piped Get-ChildItem output).
     Context "Pipe a listed item into another provider cmdlet (PSPath round-trip)" {
+        AfterEach {
+            foreach ($d in 'PSTestPipe2','PSTestPipeRoot') {
+                if (Test-Path "$($d):\") { try { Dismount-S3PSDrive -Name $d -ErrorAction SilentlyContinue } catch { } }
+            }
+        }
+
         # Helper: list a prefix's immediate children, retrying past the 1s listing-cache TTL (the
         # fixtures are seeded via the raw SDK behind the provider, so a pre-seed empty listing can be
         # briefly cached - see the marker/collision tests). Returns the child items once they appear.
@@ -837,6 +923,24 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             )
             [BitConverter]::ToString($got) | Should -Be ([BitConverter]::ToString($bytes))
         }
+        It "Get-ChildItem | Get-Content resolves listed PSPath when a second plain S3 drive is mounted" {
+            $prefix = "pipe-read-mdrive-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p1.txt" -Value 'one' -NoNewline
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p2.txt" -Value 'two' -NoNewline
+            Mount-S3PSDrive -Name PSTestPipe2 -ProfileName $script:Profile -Region $script:Region
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            (ListWhenReady $prefixPath 2).Count | Should -Be 2
+            $got = @(
+                Get-ChildItem $prefixPath |
+                    Sort-Object Name |
+                    ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw }
+            )
+
+            $got.Count | Should -Be 2
+            $got | Should -Contain 'one'
+            $got | Should -Contain 'two'
+        }
         It "Get-ChildItem | Remove-Item deletes the piped objects" {
             $prefix = "pipe-del-$([DateTime]::Now.ToFileTime())"
             S3PutText "$prefix/a.txt" "A"
@@ -849,6 +953,22 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             # NOTE: SDK v4 ListObjectsV2 returns S3Objects=NULL (not empty) when nothing matches, and
             # @($null).Count is 1 in PowerShell - so coalesce null->@() before counting, or an empty
             # result reads as a phantom survivor.
+            $lr = New-Object Amazon.S3.Model.ListObjectsV2Request
+            $lr.BucketName = $script:Bucket; $lr.Prefix = "$prefix/"
+            $resp = $script:S3.ListObjectsV2Async($lr).GetAwaiter().GetResult()
+            @($resp.S3Objects | Where-Object { $_ }).Count | Should -Be 0
+        }
+        It "Get-ChildItem | Remove-Item resolves listed PSPath when a second rooted S3 drive is mounted" {
+            $prefix = "pipe-del-mdrive-$([DateTime]::Now.ToFileTime())"
+            S3PutText "$prefix/a.txt" "A"
+            S3PutText "$prefix/b.txt" "B"
+            Mount-S3PSDrive -Name PSTestPipeRoot -Root $script:Bucket -ProfileName $script:Profile -Region $script:Region
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            $items = ListWhenReady $prefixPath 2
+            $items.Count | Should -Be 2
+            $items | Remove-Item -Force
+
             $lr = New-Object Amazon.S3.Model.ListObjectsV2Request
             $lr.BucketName = $script:Bucket; $lr.Prefix = "$prefix/"
             $resp = $script:S3.ListObjectsV2Async($lr).GetAwaiter().GetResult()
@@ -933,11 +1053,15 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             [System.Text.Encoding]::UTF8.GetString((S3GetBytes $script:Bucket $key)) |
                 Should -Be 'alphabeta'
         }
-        It "accepts a per-upload -PartSize override" {
-            $key = "shape-$([DateTime]::Now.ToFileTime())/part-size.txt"
-            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'custom part size' -PartSize 8MB
-            (S3GetText $script:Bucket $key).TrimEnd("`r","`n") |
-                Should -Be 'custom part size'
+        It "uses the default upload part size and honors -PartSize overrides" {
+            $prefix = "shape-$([DateTime]::Now.ToFileTime())"
+            $payload = New-Object byte[] (17 * 1024 * 1024)
+
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/default.bin" -AsByteStream -Value $payload
+            S3GetPartsCount $script:Bucket "$prefix/default.bin" | Should -Be 2
+
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 5MB
+            S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 4
         }
         It "creates a zero-byte object from an explicit empty byte array" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
@@ -1014,6 +1138,27 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    # A content op targeting an existing PREFIX (folder) must be refused (folder-wins), matching the
+    # FileSystem provider. Before the fix, Set-Content on a prefix silently PUT a shadow object named
+    # after the folder (invisible, unremovable by name), and Get-Content on a prefix surfaced the raw
+    # SDK "specified key does not exist". Both now error with PathIsContainer and create nothing. Uses
+    # the seeded reports/ tree (reports/index.txt), so 'reports' is unambiguously a folder.
+    Context "Content ops reject a prefix (folder) path" {
+        It "Set-Content on a prefix errors with PathIsContainer and creates no shadow object" {
+            $ev = $null
+            Set-Content "PSTest:\$($script:Bucket)\reports" -Value 'shadow' -ErrorVariable ev -ErrorAction SilentlyContinue
+            $ev.Count                    | Should -BeGreaterThan 0
+            $ev[0].FullyQualifiedErrorId | Should -BeLike 'PathIsContainer*'
+            S3ObjectExists $script:Bucket 'reports' | Should -BeFalse   # raw HEAD: no shadow key created
+        }
+        It "Get-Content on a prefix errors with PathIsContainer, not the raw NoSuchKey message" {
+            $ev = $null
+            Get-Content "PSTest:\$($script:Bucket)\reports" -ErrorVariable ev -ErrorAction SilentlyContinue
+            $ev.Count                    | Should -BeGreaterThan 0
+            $ev[0].FullyQualifiedErrorId | Should -BeLike 'PathIsContainer*'
+        }
+    }
+
     # Set-Content -Encoding. The Get-Content utf8 round-trip exercises the READ decode; nothing
     # exercised the WRITE encode path or its validation. These lock: (1) a non-default -Encoding
     # controls the on-the-wire bytes, and (2) an unknown -Encoding is rejected before the writer opens.
@@ -1075,6 +1220,37 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $items = $c.CompletionMatches.ListItemText
             $items | Should -Contain '2026'        # subfolder
             $items | Should -Contain 'index.txt'   # object
+        }
+    }
+
+    # -Filter is a client-side wildcard on the LEAF name (provider declares ProviderCapabilities.Filter
+    # and applies it at the emit sites in GetChildItems/GetChildNames), matching the FileSystem
+    # provider. Before the fix the provider declared only ShouldProcess, so ANY -Filter (and the
+    # positional `-Name <value>` form, whose value binds to -Filter since -Name is a switch) threw
+    # "The provider does not support the use of filters." Uses a dedicated prefix so counts are exact.
+    Context "Get-ChildItem -Filter (leaf-name wildcard)" {
+        BeforeAll {
+            $script:FltPrefix = "flt-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/apple.txt"   -Value 'a'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/apricot.txt" -Value 'a'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/banana.txt"  -Value 'b'
+            Set-Content "PSTest:\$($script:Bucket)\$($script:FltPrefix)/sub/deep.txt" -Value 'd'
+        }
+        AfterAll {
+            Remove-Item "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Recurse -Force -ErrorAction SilentlyContinue
+        }
+        It "filters immediate children by wildcard (no 'does not support filters' error)" {
+            $names = @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter 'ap*' -ErrorAction Stop).Name
+            $names | Should -Contain 'apple.txt'
+            $names | Should -Contain 'apricot.txt'
+            $names | Should -Not -Contain 'banana.txt'
+        }
+        It "applies the filter to leaf names under -Recurse" {
+            $matched = @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter '*.txt' -Recurse -ErrorAction Stop |
+                Where-Object Type -eq 'Object')
+            $matched.Count | Should -BeGreaterThan 0
+            @(Get-ChildItem "PSTest:\$($script:Bucket)\$($script:FltPrefix)" -Filter 'zzz*' -Recurse -ErrorAction Stop |
+                Where-Object Type -eq 'Object').Count | Should -Be 0
         }
     }
 
@@ -1281,6 +1457,83 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Should -Throw
             Test-Path 'PSTestBadKey:\' | Should -BeFalse
         }
+        # -StorageClass is typed S3StorageClass (a ConstantClass that constructs from ANY string), so an
+        # invalid value would otherwise mount silently and fail only later at the first upload. The
+        # cmdlet validates it up front against the SDK's known values (InvalidStorageClass) and a valid
+        # value still mounts.
+        It "fails cleanly (no drive created) when -StorageClass is not a known class" {
+            { Mount-S3PSDrive -Name PSTestBadSC -StorageClass NOT_A_CLASS `
+                    -ProfileName $script:Profile -Region $script:Region -ErrorAction Stop } |
+                Should -Throw
+            Test-Path 'PSTestBadSC:\' | Should -BeFalse
+        }
+        It "accepts a valid -StorageClass" {
+            Mount-S3PSDrive -Name PSTestGoodSC -StorageClass STANDARD_IA `
+                -ProfileName $script:Profile -Region $script:Region
+            Test-Path 'PSTestGoodSC:\' | Should -BeTrue
+            Dismount-S3PSDrive -Name PSTestGoodSC
+        }
+        # Mounting an SSO profile whose token is expired/absent must surface the SAME guided message the
+        # S3 cmdlets give ("...run Invoke-AWSSSOLogin") rather than the raw SDK "No valid SSO Token could
+        # be found." / a generic NewDriveFailed. The provider calls the public
+        # SettingsStore.ThrowIfSsoLoginRequired up front (mirrors ServiceCmdlet.ValidateSSOToken).
+        # Reproduces without a real SSO account via a throwaway AWS_CONFIG_FILE with an uncached SSO
+        # profile - IsSsoLoginRequiredAsync returns true when the token cache is empty.
+        #
+        # Runs in a CHILD pwsh with AWS_CONFIG_FILE preset: the SDK caches the config-file location
+        # process-wide at first resolution, and this suite already resolved credentials (the shared
+        # PSTest mount in BeforeAll), so an in-process AWS_CONFIG_FILE swap would be ignored. The child
+        # imports the same monolithic module this suite uses (the SSO SDK assemblies ship with it).
+        It "surfaces the guided Invoke-AWSSSOLogin error for an expired/absent SSO token" {
+            $cfgDir = Join-Path ([System.IO.Path]::GetTempPath()) ("psdrive-sso-" + [DateTime]::Now.ToFileTime())
+            New-Item -ItemType Directory -Path $cfgDir -Force | Out-Null
+            $cfgFile = Join-Path $cfgDir 'config'
+            @(
+                '[profile probe-sso]'
+                'sso_session = probe-session'
+                'sso_account_id = 123456789012'
+                'sso_role_name = ReadOnly'
+                'region = us-east-1'
+                ''
+                '[sso-session probe-session]'
+                'sso_region = us-east-1'
+                'sso_start_url = https://example-does-not-resolve.awsapps.com/start'
+                'sso_registration_scopes = sso:account:access'
+            ) | Set-Content -Path $cfgFile -Encoding ascii
+
+            # Resolve the module the SAME way the child must import it: reuse the module this suite
+            # already loaded (Mount-S3PSDrive's source), so the path is correct regardless of where the
+            # tests run from (repo `tests/` vs CI's copied `Deployment/Tests/`). A hardcoded relative
+            # path broke here before - it pointed at the wrong depth and left $modulePath empty, so the
+            # child failed with "Missing an argument for parameter 'ModulePath'".
+            $modulePath = (Get-Command Mount-S3PSDrive -ErrorAction Stop).Module.Path
+            if (-not $modulePath) { throw "Could not resolve the AWS module path for the SSO child process." }
+            # Child: import the module, mount the uncached SSO profile, print a one-line verdict.
+            $childScript = @'
+param([string]$ModulePath)
+$ErrorActionPreference = "Stop"
+Import-Module $ModulePath -WarningAction SilentlyContinue
+$ev = $null
+Mount-S3PSDrive -Name PSTestSso -ProfileName probe-sso -Region us-east-1 -ErrorVariable ev -ErrorAction SilentlyContinue
+if (Get-PSDrive -Name PSTestSso -ErrorAction SilentlyContinue) { "MOUNT_SUCCEEDED" }
+elseif ($ev -and $ev.Count -gt 0) { "MOUNT_ERROR: " + $ev[0].Exception.Message }
+else { "NO_ERROR_NO_DRIVE" }
+'@
+            $childFile = Join-Path $cfgDir 'child.ps1'
+            Set-Content -Path $childFile -Value $childScript -Encoding ascii
+
+            $oldCfg = $env:AWS_CONFIG_FILE
+            $env:AWS_CONFIG_FILE = $cfgFile
+            try {
+                $out = & (Get-Process -Id $PID).Path -NoProfile -File $childFile -ModulePath $modulePath 2>&1 | Out-String
+                $out | Should -Match 'Invoke-AWSSSOLogin'
+                $out | Should -Not -Match 'MOUNT_SUCCEEDED'
+            }
+            finally {
+                $env:AWS_CONFIG_FILE = $oldCfg
+                Remove-Item -Recurse -Force $cfgDir -ErrorAction SilentlyContinue
+            }
+        }
     }
 
     # HIGH-value gap closer: the LOCKED design decision that a mount with NO explicit
@@ -1439,18 +1692,23 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             }
         }
 
-        It "rejects provider-qualified paths that do not identify which mounted drive to use" {
-            Set-Content 'PSTestMD1:\ambiguous.txt' -Value 'keep me' -NoNewline
-            $item = Get-ChildItem 'PSTestMD1:\' | Where-Object Name -eq 'ambiguous.txt' | Select-Object -First 1
+        It "resolves provider-qualified paths by matching the mounted root" {
+            Set-Content 'PSTestMD1:\roundtrip.txt' -Value 'from md1' -NoNewline
+            Set-Content 'PSTestMD2:\roundtrip.txt' -Value 'from md2' -NoNewline
+            $item = Get-ChildItem 'PSTestMD1:\' | Where-Object Name -eq 'roundtrip.txt' | Select-Object -First 1
             $item | Should -Not -BeNullOrEmpty
             $item.PSPath | Should -Match 'AWS\.S3::'
 
-            { Get-Item -LiteralPath $item.PSPath -ErrorAction Stop } | Should -Throw
-            { Get-Content -LiteralPath $item.PSPath -Raw -ErrorAction Stop } | Should -Throw
-            { Set-Content -LiteralPath $item.PSPath -Value 'wrong drive' -NoNewline -ErrorAction Stop } | Should -Throw
-            { Remove-Item -LiteralPath $item.PSPath -Force -ErrorAction Stop } | Should -Throw
+            (Get-Item -LiteralPath $item.PSPath -ErrorAction Stop).Type | Should -Be 'Object'
+            (Get-Content -LiteralPath $item.PSPath -Raw -ErrorAction Stop).TrimEnd("`r","`n") | Should -Be 'from md1'
+            Set-Content -LiteralPath $item.PSPath -Value 'changed md1' -NoNewline -ErrorAction Stop
+            (S3GetText $script:Bucket "$($script:MDPrefix1)/roundtrip.txt").TrimEnd("`r","`n") | Should -Be 'changed md1'
+            (S3GetText $script:Bucket "$($script:MDPrefix2)/roundtrip.txt").TrimEnd("`r","`n") | Should -Be 'from md2'
 
-            (S3GetText $script:Bucket "$($script:MDPrefix1)/ambiguous.txt").TrimEnd("`r","`n") | Should -Be 'keep me'
+            Remove-Item -LiteralPath $item.PSPath -Force -ErrorAction Stop
+            S3ObjectExists $script:Bucket "$($script:MDPrefix1)/roundtrip.txt" | Should -BeFalse
+            S3ObjectExists $script:Bucket "$($script:MDPrefix2)/roundtrip.txt" | Should -BeTrue
+            Remove-Item 'PSTestMD2:\roundtrip.txt' -Force
         }
     }
 

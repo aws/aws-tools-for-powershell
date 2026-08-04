@@ -225,10 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         public void Seek(long offset, SeekOrigin origin)
         {
+            // Add-Content routes through the content writer and calls Seek to append; there is no
+            // provider method to override for it. Throw the SAME shape as the provider's other
+            // unsupported ops (PSNotSupportedException, "... is not supported by the S3 drive ..."),
+            // not a bare System.NotSupportedException, so Add-Content reads consistently. _failedBeforeClose
+            // + SafeCancel below ensure the lazy upload never starts, so the existing object is untouched.
             _failedBeforeClose = true;
             S3Cancellation.SafeCancel(_cts);
-            throw new NotSupportedException(
-                "Seeking or appending is not supported on an S3 upload stream. Use Set-Content to replace the object.");
+            throw new System.Management.Automation.PSNotSupportedException(
+                "Add-Content is not supported by the S3 drive. Use Set-Content to replace the object.");
         }
 
         public void Dispose()

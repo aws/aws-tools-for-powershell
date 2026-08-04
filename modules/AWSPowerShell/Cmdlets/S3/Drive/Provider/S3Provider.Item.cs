@@ -30,24 +30,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             if (IsDriveRoot(path)) return true;
             ParsePath(path, out var bucket, out var key);
+            var drive = DriveForPath(path);
             try
             {
-                if (string.IsNullOrEmpty(key)) return BucketExists(bucket);
+                if (string.IsNullOrEmpty(key)) return BucketExists(drive, bucket);
 
                 // Per-child cache: no network call if this key was just emitted by a listing. Handles
                 // the per-item probes fired during a large listing, before its complete entry exists.
-                var child = Drive.ListingCache.TryGetChild(bucket, key);
+                var child = drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.exists;
 
                 // Parent prefix's complete cached listing, if present.
-                var resolved = ResolveFromParentCache(bucket, key);
+                var resolved = ResolveFromParentCache(drive, bucket, key);
                 if (resolved.HasValue)
                 {
                     if (resolved.Value.exists) return true;
 
                     // An external writer may have created this key while the parent listing is still in
                     // its TTL; a newer exact probe must override the stale absence.
-                    var exactExists = ExactProbeExists(bucket, key);
+                    var exactExists = ExactProbeExists(drive, bucket, key);
                     if (exactExists.HasValue)
                         return exactExists.Value;
                     return false;
@@ -56,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 // Folder-wins, so check the prefix first. On denied listing, a returned prefixAccessDenied
                 // means "probably exists" so the real op can surface AccessDenied.
                 var prefixAccessDenied = (AmazonS3Exception)null;
-                if (TryPrefixHasChildren(bucket, key, out prefixAccessDenied))
+                if (TryPrefixHasChildren(drive, bucket, key, out prefixAccessDenied))
                     return true;
-                if (ObjectExists(bucket, key))
+                if (ObjectExists(drive, bucket, key))
                     return true;
                 return prefixAccessDenied != null;
             }
@@ -72,32 +73,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             if (IsDriveRoot(path)) return true;
             ParsePath(path, out var bucket, out var key);
+            var drive = DriveForPath(path);
             try
             {
-                if (string.IsNullOrEmpty(key)) return BucketExists(bucket); // a bucket is a container
+                if (string.IsNullOrEmpty(key)) return BucketExists(drive, bucket); // a bucket is a container
 
                 // Cache layers as in ItemExists: per-child, then the parent's complete listing.
-                var child = Drive.ListingCache.TryGetChild(bucket, key);
+                var child = drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.isContainer;
 
-                var resolved = ResolveFromParentCache(bucket, key);
+                var resolved = ResolveFromParentCache(drive, bucket, key);
                 if (resolved.HasValue)
                 {
                     if (resolved.Value.exists) return resolved.Value.isContainer;
 
                     // A newer exact prefix probe overrides a stale parent-listing absence (see ItemExists).
-                    var exactExists = ExactProbeExists(bucket, key);
+                    var exactExists = ExactProbeExists(drive, bucket, key);
                     if (exactExists == true)
-                        return Drive.ListingCache.TryGetExistsProbe(bucket, EnsureTrailingSlash(key), asPrefix: true) == true;
+                        return drive.ListingCache.TryGetExistsProbe(bucket, EnsureTrailingSlash(key), asPrefix: true) == true;
                     if (exactExists == false)
                         return false;
                 }
 
                 var prefixAccessDenied = (AmazonS3Exception)null;
-                if (TryPrefixHasChildren(bucket, key, out prefixAccessDenied))
+                if (TryPrefixHasChildren(drive, bucket, key, out prefixAccessDenied))
                     return true;
                 if (prefixAccessDenied != null)
-                    return !ObjectExists(bucket, key);
+                    return !ObjectExists(drive, bucket, key);
                 return false;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
@@ -107,21 +109,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // Resolve exists/isContainer from the parent prefix's complete cached listing, or null if it
         // isn't cached. Splits "a/b/c.txt" into parent "a/b/" + child "c.txt".
-        private (bool exists, bool isContainer)? ResolveFromParentCache(string bucket, string key)
+        private (bool exists, bool isContainer)? ResolveFromParentCache(S3DriveInfo drive, string bucket, string key)
         {
             var k = key.TrimEnd('/');
             var slash = k.LastIndexOf('/');
             var parentPrefix = slash < 0 ? "" : k.Substring(0, slash + 1);   // "a/b/" or ""
             var childName = slash < 0 ? k : k.Substring(slash + 1);          // "c.txt"
-            return Drive.ListingCache.TryResolveChild(bucket, parentPrefix, childName);
+            return drive.ListingCache.TryResolveChild(bucket, parentPrefix, childName);
         }
 
-        private bool? ExactProbeExists(string bucket, string key)
+        private bool? ExactProbeExists(S3DriveInfo drive, string bucket, string key)
         {
-            var prefixProbe = Drive.ListingCache.TryGetExistsProbe(bucket, EnsureTrailingSlash(key), asPrefix: true);
+            var prefixProbe = drive.ListingCache.TryGetExistsProbe(bucket, EnsureTrailingSlash(key), asPrefix: true);
             if (prefixProbe == true) return true;
 
-            var objectProbe = Drive.ListingCache.TryGetExistsProbe(bucket, key, asPrefix: false);
+            var objectProbe = drive.ListingCache.TryGetExistsProbe(bucket, key, asPrefix: false);
             if (objectProbe == true) return true;
             if (prefixProbe == false && objectProbe == false) return false;
             return null;
@@ -134,19 +136,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             if (IsDriveRoot(path)) return true;
             ParsePath(path, out var bucket, out var key);
+            var drive = DriveForPath(path);
             try
             {
                 if (string.IsNullOrEmpty(key)) return true; // a bucket is a container
 
                 // A recorded container was a CommonPrefix (has children); a recorded object has none.
-                var child = Drive.ListingCache.TryGetChild(bucket, key);
+                var child = drive.ListingCache.TryGetChild(bucket, key);
                 if (child.HasValue) return child.Value.isContainer;
 
                 var prefixAccessDenied = (AmazonS3Exception)null;
-                if (TryPrefixHasChildren(bucket, key, out prefixAccessDenied))
+                if (TryPrefixHasChildren(drive, bucket, key, out prefixAccessDenied))
                     return true;
                 if (prefixAccessDenied != null)
-                    return !ObjectExists(bucket, key);
+                    return !ObjectExists(drive, bucket, key);
                 return false;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
@@ -154,11 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
         }
 
-        private bool BucketExists(string bucket)
+        private bool BucketExists(S3DriveInfo drive, string bucket)
         {
             try
             {
-                RunSync(ct => ClientForBucket(bucket).ListObjectsV2Async(
+                RunSync(ct => ClientForBucket(drive, bucket).ListObjectsV2Async(
                     new ListObjectsV2Request { BucketName = bucket, MaxKeys = 1 }, ct));
                 return true;
             }
@@ -166,12 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
         }
 
-        private bool TryPrefixHasChildren(string bucket, string key, out AmazonS3Exception accessDenied)
+        private bool TryPrefixHasChildren(S3DriveInfo drive, string bucket, string key, out AmazonS3Exception accessDenied)
         {
             accessDenied = null;
             try
             {
-                return PrefixHasChildren(bucket, key);
+                return PrefixHasChildren(drive, bucket, key);
             }
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex))
             {
@@ -180,18 +183,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        private bool PrefixHasChildren(string bucket, string key)
+        // True if bucket/key names an existing folder (a prefix with children). Folder-wins: a name that
+        // is both a prefix and an object counts as a folder here. On denied listing this returns false so
+        // the caller proceeds and the real op surfaces AccessDenied (matches ItemExists's philosophy).
+        // Used to guard content ops (Get-Content/Set-Content) off a prefix - see GetContentReader/Writer.
+        private bool PathIsExistingFolder(S3DriveInfo drive, string bucket, string key) =>
+            !string.IsNullOrEmpty(key) && TryPrefixHasChildren(drive, bucket, key, out _);
+
+        private bool PrefixHasChildren(S3DriveInfo drive, string bucket, string key)
         {
             var listPrefix = EnsureTrailingSlash(key);
 
             // Short-TTL listing cache: authoritative for a recent Get-ChildItem / drive-originated write.
-            var cached = Drive.ListingCache.TryHasChildren(bucket, listPrefix);
+            var cached = drive.ListingCache.TryHasChildren(bucket, listPrefix);
             if (cached.HasValue)
                 return cached.Value;
 
             // Longer-TTL existence-probe cache: prefix existence is stable, so a positive result
             // survives a whole command and de-thrashes the engine's repeated deep-ancestor walks.
-            var probed = Drive.ListingCache.TryGetExistsProbe(bucket, listPrefix, asPrefix: true);
+            var probed = drive.ListingCache.TryGetExistsProbe(bucket, listPrefix, asPrefix: true);
             if (probed.HasValue)
                 return probed.Value;
 
@@ -202,33 +212,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Delimiter = "/",
                 MaxKeys = 1
             };
-            var resp = RunSync(ct => ClientForBucket(bucket).ListObjectsV2Async(req, ct));
+            var resp = RunSync(ct => ClientForBucket(drive, bucket).ListObjectsV2Async(req, ct));
             var has = (resp.S3Objects?.Count ?? 0) > 0 || (resp.CommonPrefixes?.Count ?? 0) > 0;
 
             // Populate both caches.
-            Drive.ListingCache.PutPartial(bucket, listPrefix, has);
-            Drive.ListingCache.PutExistsProbe(bucket, listPrefix, asPrefix: true, exists: has);
+            drive.ListingCache.PutPartial(bucket, listPrefix, has);
+            drive.ListingCache.PutExistsProbe(bucket, listPrefix, asPrefix: true, exists: has);
             return has;
         }
 
-        private bool ObjectExists(string bucket, string key)
+        private bool ObjectExists(S3DriveInfo drive, string bucket, string key)
         {
             // Cache the HEAD outcome (true or false): the engine resolves ItemExists many times per
             // command, so this avoids re-probing the same key. Invalidated on any write/delete at the key.
-            var cached = Drive.ListingCache.TryGetExistsProbe(bucket, key, asPrefix: false);
+            var cached = drive.ListingCache.TryGetExistsProbe(bucket, key, asPrefix: false);
             if (cached.HasValue)
                 return cached.Value;
 
             try
             {
-                RunSync(ct => ClientForBucket(bucket).GetObjectMetadataAsync(
+                RunSync(ct => ClientForBucket(drive, bucket).GetObjectMetadataAsync(
                     new GetObjectMetadataRequest { BucketName = bucket, Key = key }, ct));
-                Drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: true);
+                drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: true);
                 return true;
             }
             catch (AmazonS3Exception ex) when (IsNotFound(ex))
             {
-                Drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: false);
+                drive.ListingCache.PutExistsProbe(bucket, key, asPrefix: false, exists: false);
                 return false;
             }
             // AccessDenied is neither cached nor caught: it propagates to the caller, which treats it

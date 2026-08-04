@@ -42,6 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
+            // NOTE: an account-root mount intentionally keeps an EMPTY Root. A previous attempt gave it a
+            // "/" root to satisfy the engine's bare `Get-ChildItem S3: -Recurse` path check, but "/" makes
+            // the engine treat the drive's paths as filesystem-absolute and route new-object writes
+            // (Set-Content to a not-yet-existing key) to the C: FileSystem provider instead of AWS.S3 -
+            // silently failing every create. The bare `S3: -Recurse` form is a minor limitation
+            // (`S3:\ -Recurse` works); a broken write path is not an acceptable trade, so Root stays empty.
+
             var dp = DynamicParameters as S3DriveParameters;
 
             try
@@ -49,13 +56,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var region = ResolveRegion(dp);
                 var creds = ResolveCredentials(dp);   // may be null -> SDK default chain
 
+                // For an SSO profile with an expired token, surface the guided
+                // "run Invoke-AWSSSOLogin" error up front (as the S3 cmdlets do) instead of letting
+                // ValidateRoot's ListBuckets fail with a raw SDK message that NewDrive's catch would
+                // then flatten into a generic "NewDriveFailed". No-op for non-SSO credentials.
+                Amazon.PowerShell.Common.SettingsStore.ThrowIfSsoLoginRequired(creds);
+
                 var client = creds != null
                     ? new AmazonS3Client(creds, region)
                     : new AmazonS3Client(region);
 
                 // Use this local instance and mount client for ValidateRoot below: this.PSDriveInfo
-                // (and Drive/Client) stays null until the engine assigns it after NewDrive returns.
-                var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass);
+                // is not assigned until the engine wires the returned drive back to the provider.
+                // Thread the profile name through so a -ProfileName drive can re-resolve from disk when
+                // its credentials file is rotated externally (see RefreshCredentialsIfProfileChanged).
+                var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass,
+                    CredentialIdentityForDrive(dp, creds),
+                    profileName: dp?.ProfileName, profileLocation: null);
 
                 // Fail fast on an unreachable root, so a typo errors at mount instead of first listing.
                 if (!ValidateRoot(s3drive, client, drive.Root))
@@ -77,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         // Mount-time reachability check (true = mount, false = reject). Runs against the local drive +
-        // mount client since this.Drive is null inside NewDrive. AccessDenied always passes: the
+        // mount client because NewDrive has not assigned this.PSDriveInfo yet. AccessDenied always passes: the
         // resource exists but we can't inspect it, so the real error surfaces on the actual operation.
         private bool ValidateRoot(S3DriveInfo drive, IAmazonS3 mountClient, string root)
         {
