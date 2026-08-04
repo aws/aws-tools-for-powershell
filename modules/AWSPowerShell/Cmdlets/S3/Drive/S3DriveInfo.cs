@@ -15,6 +15,7 @@
  *
  */
 
+using System;
 using System.Collections.Concurrent;
 using System.Management.Automation;
 using Amazon;
@@ -29,8 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     internal sealed class S3DriveInfo : PSDriveInfo
     {
-        private readonly AWSCredentials _credentials;            // may be null => SDK default chain
+        private AWSCredentials _credentials;                     // may be null => SDK default chain
         private readonly RegionEndpoint _mountRegion;
+
+        // Set only when the drive was mounted with -ProfileName. Lets the drive re-resolve the profile
+        // from disk when its shared-credentials file is rewritten externally (e.g. `ada` rotating keys),
+        // so the drive doesn't keep failing on a stale one-time credential snapshot. See
+        // RefreshCredentialsIfProfileChanged. Null for the explicit-key / -AWSCredential / session-default
+        // forms, which are left as one-time snapshots (a remount picks up new credentials).
+        private readonly string _profileName;
+        private readonly string _profileLocation;
+        private string _credentialsFilePath;                     // the profile's backing file, if any
+        private DateTime? _credentialsFileMtimeUtc;              // its mtime when last resolved
 
         // region system-name -> client. The mount-region client is seeded here.
         private readonly ConcurrentDictionary<string, IAmazonS3> _clientsByRegion =
@@ -43,17 +54,48 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>Short-TTL listing cache (dedups within-cd/tab prefix probes).</summary>
         internal S3ListingCache ListingCache { get; }
 
+        // Non-secret credential identity used only to decide whether an otherwise drive-independent
+        // provider path can safely fall back across several mounted drives.
+        internal string CredentialIdentity { get; }
+
         // Drive-level upload default from -StorageClass at mount; null when unset. Per-upload -StorageClass overrides it.
         internal S3StorageClass DefaultStorageClass { get; }
 
-        internal S3DriveInfo(PSDriveInfo driveInfo, AWSCredentials credentials, RegionEndpoint mountRegion, IAmazonS3 mountClient, S3StorageClass defaultStorageClass = null)
+        internal S3DriveInfo(PSDriveInfo driveInfo, AWSCredentials credentials, RegionEndpoint mountRegion, IAmazonS3 mountClient,
+            S3StorageClass defaultStorageClass = null, string credentialIdentity = null,
+            string profileName = null, string profileLocation = null)
             : base(driveInfo)
         {
             _credentials = credentials;
             _mountRegion = mountRegion;
             _clientsByRegion[mountRegion.SystemName] = mountClient;
+            CredentialIdentity = string.IsNullOrEmpty(credentialIdentity)
+                ? BuildCredentialIdentity(credentials)
+                : credentialIdentity;
             DefaultStorageClass = defaultStorageClass;
             ListingCache = new S3ListingCache(System.TimeSpan.FromSeconds(1));   // 1s TTL
+
+            _profileName = profileName;
+            _profileLocation = profileLocation;
+            if (!string.IsNullOrEmpty(_profileName))
+                CaptureProfileFileState();
+        }
+
+        internal static string BuildCredentialIdentity(AWSCredentials credentials)
+        {
+            if (credentials == null)
+                return "SDKDefaultCredentials";
+
+            try
+            {
+                var immutable = credentials.GetCredentials();
+                if (!string.IsNullOrEmpty(immutable?.AccessKey))
+                    return "AccessKey:" + immutable.AccessKey;
+            }
+            catch { }
+
+            return "CredentialsObject:" + credentials.GetType().FullName + ":" +
+                System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(credentials);
         }
 
         /// <summary>The mount-region client. Used at the drive root (ListBuckets is global).</summary>
@@ -72,6 +114,95 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     ? new AmazonS3Client(_credentials, region)
                     : new AmazonS3Client(region);
             });
+        }
+
+        // ---- Profile-file re-resolution (PowerShell-608 pattern, for -ProfileName drives) ----------
+        // A named-profile drive resolves its credentials once at mount. If the shared-credentials file
+        // is rewritten externally (e.g. `ada`/aws-adfs rotating static session keys), the drive would
+        // otherwise keep using the stale snapshot and fail "token expired". Re-resolve from disk when
+        // the backing file's mtime changes, then rebuild the cached clients so later ops use the fresh
+        // keys - no remount needed. Limited to static snapshots (Basic/Session); SSO, assume-role,
+        // container, instance-profile, and credential_process credentials self-refresh in the SDK.
+        internal void RefreshCredentialsIfProfileChanged()
+        {
+            if (string.IsNullOrEmpty(_profileName))
+                return;   // only -ProfileName drives can be re-resolved from disk
+
+            lock (_gate)
+            {
+                // Don't tear down clients an in-flight streamed transfer is still reading from; a fresh
+                // op after it completes will pick up the rotated keys (same rule as deferred Dismount).
+                if (_activeContentOps > 0)
+                    return;
+
+                if (!ProfileFileChanged())
+                    return;
+
+                if (!Amazon.PowerShell.Common.SettingsStore.TryGetAWSCredentials(
+                        _profileName, _profileLocation, out var fresh) || fresh == null)
+                {
+                    // Profile no longer resolvable: keep the current creds and re-snapshot the mtime so
+                    // we don't re-probe every op. The next real call surfaces any genuine error.
+                    CaptureProfileFileState();
+                    return;
+                }
+
+                // Only rotate static snapshots. Self-refreshing credential types are left untouched so
+                // we don't needlessly rebuild clients (or re-trigger token work) for them.
+                if (!IsStaticSnapshot(_credentials))
+                {
+                    CaptureProfileFileState();
+                    return;
+                }
+
+                var stale = new System.Collections.Generic.List<IAmazonS3>(_clientsByRegion.Values);
+                _clientsByRegion.Clear();
+                _credentials = fresh;
+                // Re-seed the mount-region client so the Client property stays valid; other regions
+                // rebuild lazily via ClientForRegion with the new credentials.
+                _clientsByRegion[_mountRegion.SystemName] = new AmazonS3Client(fresh, _mountRegion);
+                CaptureProfileFileState();
+
+                foreach (var c in stale)
+                    try { c?.Dispose(); } catch { /* best-effort teardown of superseded clients */ }
+            }
+        }
+
+        private static bool IsStaticSnapshot(AWSCredentials credentials) =>
+            credentials is BasicAWSCredentials || credentials is SessionAWSCredentials;
+
+        // Record the profile's backing shared-credentials file and its mtime, so a later external
+        // rewrite is detectable. Only shared-credentials-file profiles expose a path; others (SDK
+        // store, env, etc.) leave the path null and are treated as never-changing.
+        private void CaptureProfileFileState()
+        {
+            _credentialsFilePath = null;
+            _credentialsFileMtimeUtc = null;
+            if (Amazon.PowerShell.Common.SettingsStore.TryGetProfile(_profileName, _profileLocation, out var profile))
+            {
+                _credentialsFilePath =
+                    (profile?.CredentialProfileStore as Amazon.Runtime.CredentialManagement.SharedCredentialsFile)?.FilePath;
+                _credentialsFileMtimeUtc = SafeGetLastWriteTimeUtc(_credentialsFilePath);
+            }
+        }
+
+        private bool ProfileFileChanged()
+        {
+            if (string.IsNullOrEmpty(_credentialsFilePath) || _credentialsFileMtimeUtc == null)
+                return false;
+            var current = SafeGetLastWriteTimeUtc(_credentialsFilePath);
+            return current != null && current != _credentialsFileMtimeUtc;
+        }
+
+        private static DateTime? SafeGetLastWriteTimeUtc(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return null;
+            try
+            {
+                return System.IO.File.Exists(path) ? System.IO.File.GetLastWriteTimeUtc(path) : (DateTime?)null;
+            }
+            catch { return null; }
         }
 
         /// <summary>Cached bucket->region lookup; null if not resolved yet.</summary>
