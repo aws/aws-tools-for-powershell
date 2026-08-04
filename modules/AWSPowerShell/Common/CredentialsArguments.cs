@@ -83,6 +83,25 @@ namespace Amazon.PowerShell.Common
                 return Credentials != null ? Credentials.ToString() : base.ToString();
         }
 
+        /// <summary>
+        /// Returns the non-secret profile provenance carried by these credentials. Session consumers
+        /// use this to preserve profile identity across shared-credentials-file key rotation without
+        /// exposing the wrapped credentials.
+        /// </summary>
+        public bool TryGetSourceProfile(out string profileName, out string profileLocation)
+        {
+            if (Source == CredentialsSource.Profile && !string.IsNullOrEmpty(Name))
+            {
+                profileName = Name;
+                profileLocation = ProfileLocation;
+                return true;
+            }
+
+            profileName = null;
+            profileLocation = null;
+            return false;
+        }
+
         internal AWSPSCredentials(AWSCredentials credentials, string name, CredentialsSource source)
             : this(credentials, name, source, null, null)
         {

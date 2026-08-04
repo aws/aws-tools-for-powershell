@@ -61,8 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // Credential precedence: explicit keys -> -ProfileName -> -AWSCredential -> session default
         // $StoredAWSCredentials (via Get-AWSCredential) -> null (SDK default chain).
-        private AWSCredentials ResolveCredentials(S3DriveParameters dp)
+        private AWSCredentials ResolveCredentials(S3DriveParameters dp,
+            out string sourceProfileName, out string sourceProfileLocation)
         {
+            sourceProfileName = null;
+            sourceProfileLocation = null;
+
             if (dp != null)
             {
                 // AccessKey and SecretKey are a pair, and SessionToken is meaningless on its own. A
@@ -86,29 +90,40 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
 
                 if (!string.IsNullOrEmpty(dp.ProfileName))
+                {
+                    sourceProfileName = dp.ProfileName;
                     return ResolveProfile(dp.ProfileName);
+                }
 
                 if (dp.AWSCredential != null)
                     return dp.AWSCredential;
             }
 
-            return SessionDefaultCredentials();   // $StoredAWSCredentials, via Common; null if unset
+            return SessionDefaultCredentials(out sourceProfileName, out sourceProfileLocation);
         }
 
-        private static string CredentialIdentityForDrive(S3DriveParameters dp, AWSCredentials credentials)
+        private static string CredentialIdentityForDrive(S3DriveParameters dp, AWSCredentials credentials,
+            string sourceProfileName, string sourceProfileLocation)
         {
             if (dp != null)
             {
                 if (!string.IsNullOrEmpty(dp.AccessKey))
                     return "AccessKey:" + dp.AccessKey;
-                if (!string.IsNullOrEmpty(dp.ProfileName))
-                    return "ProfileName:" + dp.ProfileName;
-                if (dp.AWSCredential != null)
-                    return S3DriveInfo.BuildCredentialIdentity(dp.AWSCredential);
             }
+
+            if (!string.IsNullOrEmpty(sourceProfileName))
+                return ProfileCredentialIdentity(sourceProfileName, sourceProfileLocation);
+
+            if (dp?.AWSCredential != null)
+                return S3DriveInfo.BuildCredentialIdentity(dp.AWSCredential);
 
             return S3DriveInfo.BuildCredentialIdentity(credentials);
         }
+
+        private static string ProfileCredentialIdentity(string profileName, string profileLocation) =>
+            string.IsNullOrEmpty(profileLocation)
+                ? "ProfileName:" + profileName
+                : "ProfileName:" + profileName + "|ProfileLocation:" + profileLocation;
 
         private static AWSCredentials ResolveProfile(string profileName)
         {
@@ -124,18 +139,39 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // does the unwrap for us. Best-effort: any failure (Common not loaded, no default set) falls
         // through to the next resolution step.
 
-        // $StoredAWSCredentials, unwrapped to raw AWSCredentials by Get-AWSCredential. Null if unset.
-        private AWSCredentials SessionDefaultCredentials()
+        // $StoredAWSCredentials, unwrapped to raw AWSCredentials by Get-AWSCredential. When it came
+        // from a profile, retain that provenance and resolve the latest profile snapshot now. This
+        // keeps a bare mount aligned with explicit -ProfileName mounts after external key rotation.
+        private AWSCredentials SessionDefaultCredentials(
+            out string sourceProfileName, out string sourceProfileLocation)
         {
+            sourceProfileName = null;
+            sourceProfileLocation = null;
+            AWSCredentials sessionCredentials = null;
+
             try
             {
+                var stored = SessionState.PSVariable.GetValue("StoredAWSCredentials") as AWSPSCredentials;
+                if (stored != null)
+                    stored.TryGetSourceProfile(out sourceProfileName, out sourceProfileLocation);
+
                 var results = SessionState.InvokeCommand.InvokeScript("Get-AWSCredential");
                 foreach (var o in results)
                     if (o?.BaseObject is AWSCredentials creds)
-                        return creds;
+                    {
+                        sessionCredentials = creds;
+                        break;
+                    }
             }
             catch { /* Common absent or cmdlet failed -> fall through to the SDK default chain */ }
-            return null;
+
+            if (!string.IsNullOrEmpty(sourceProfileName)
+                && SettingsStore.TryGetAWSCredentials(
+                    sourceProfileName, sourceProfileLocation, out var fresh)
+                && fresh != null)
+                return fresh;
+
+            return sessionCredentials;
         }
 
         // $StoredAWSRegion system name via Get-DefaultAWSRegion. Null if unset. The cmdlet writes an
