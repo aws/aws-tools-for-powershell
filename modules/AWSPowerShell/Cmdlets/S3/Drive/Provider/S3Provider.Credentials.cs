@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return region ?? RegionEndpoint.USEast1;
         }
 
-        // GetBySystemName does NOT throw on an unknown name - it returns a synthetic "Unknown" endpoint
+        // GetBySystemName does NOT throw on an unknown name; it returns a synthetic "Unknown" endpoint
         // that only fails later with an obscure DNS/signing error. Reject it up front instead.
         private static RegionEndpoint ValidRegionOrThrow(string systemName)
         {

@@ -132,37 +132,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private Stream OpenContentStream(TransferUtility tu, string bucket, string key, CancellationToken cancellationToken, long? partSize)
         {
-            try
+            // RANGE splits reads by byte ranges rather than the object's original upload part
+            // boundaries, so large objects can stream in parallel regardless of how they were uploaded.
+            // Zero-byte objects are handled by the SDK's RANGE path as of AWSSDK.S3 4.0.101.6
+            // (aws-sdk-net#4477); no local empty-object fallback is needed.
+            var request = new TransferUtilityOpenStreamRequest
             {
-                // RANGE splits reads by byte ranges rather than the object's original upload part
-                // boundaries, so large objects can stream in parallel regardless of how they were uploaded.
-                var request = new TransferUtilityOpenStreamRequest
-                {
-                    BucketName = bucket,
-                    Key = key,
-                    MultipartDownloadType = MultipartDownloadType.RANGE
-                };
-                if (partSize.HasValue)
-                    request.PartSize = partSize.Value;
+                BucketName = bucket,
+                Key = key,
+                MultipartDownloadType = MultipartDownloadType.RANGE
+            };
+            if (partSize.HasValue)
+                request.PartSize = partSize.Value;
 
-                var response = tu.OpenStreamWithResponseAsync(request, cancellationToken).GetAwaiter().GetResult();
-                return response.ResponseStream;
-            }
-            catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
-            {
-                // Empty objects can reject the SDK's initial ranged GET. Fall back to the
-                // ordinary stream path; there is nothing to parallelize for an empty object.
-                return tu.OpenStreamAsync(new TransferUtilityOpenStreamRequest
-                {
-                    BucketName = bucket,
-                    Key = key
-                }, cancellationToken).GetAwaiter().GetResult();
-            }
+            var response = tu.OpenStreamWithResponseAsync(request, cancellationToken).GetAwaiter().GetResult();
+            return response.ResponseStream;
         }
-
-        private static bool IsInvalidRange(AmazonS3Exception ex) =>
-            string.Equals(ex.ErrorCode, "InvalidRange", StringComparison.OrdinalIgnoreCase)
-            || (int)ex.StatusCode == 416;
 
         public object GetContentReaderDynamicParameters(string path) =>
             new S3ContentReaderDynamicParameters();

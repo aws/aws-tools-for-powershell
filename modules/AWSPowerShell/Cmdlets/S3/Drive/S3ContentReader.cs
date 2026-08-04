@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // 80 KiB transfer chunk - large enough to amortize per-call overhead, small enough
+        // 80 KiB transfer chunk: large enough to amortize per-call overhead, small enough
         // to keep memory bounded.
         private const int ChunkSize = 80 * 1024;
         private readonly byte[] _chunk = new byte[ChunkSize];

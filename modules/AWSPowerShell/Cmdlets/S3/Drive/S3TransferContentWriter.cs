@@ -28,13 +28,10 @@ using Amazon.S3.Transfer;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Upload writer over the SDK's <see cref="TransferUtility"/>. PowerShell pushes blocks at
-    /// Write()/Close(); TU pulls from an input Stream. A <see cref="PushPullStream"/> bridges the two,
-    /// with the upload running on a background task that reads the bridge while the pipeline feeds it.
-    ///
-    /// The bridge is non-seekable, so TU takes its unseekable multipart path (reads to EOF, aborts on
-    /// failure). Faults are surfaced only on the pipeline thread (Write/Close), never from the
-    /// background task; Ctrl+C cancels the shared CTS, which faults TU's Read into aborting the upload.
+    /// IContentWriter that uploads to S3 via TransferUtility. Because PowerShell pushes blocks at
+    /// Write/Close but TU pulls from a stream, a non-seekable PushPullStream bridges them (forcing TU's
+    /// multipart path) and the upload runs on a background task reading the bridge. Faults surface only
+    /// on the pipeline thread, never from the task; Ctrl+C cancels the shared CTS to abort TU's read.
     /// </summary>
     internal sealed class S3TransferContentWriter : IContentWriter
     {
@@ -54,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly MemoryStream _pending = new MemoryStream();
         private Task _uploadTask;
         // The real upload failure, captured by the fault continuation before _uploadTask.IsFaulted is
-        // observable - otherwise a bridge cancel could surface as a bare OperationCanceledException.
+        // observable; otherwise a bridge cancel could surface as a bare OperationCanceledException.
         private volatile Exception _uploadFault;
         private bool _wrotePreamble;
         private bool _failedBeforeClose;
