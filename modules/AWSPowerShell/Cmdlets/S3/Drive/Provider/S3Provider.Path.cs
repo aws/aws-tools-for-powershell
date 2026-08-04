@@ -203,5 +203,34 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var rel = fullKey.TrimEnd('/').Replace('/', Sep);
             return $"{bucket}{Sep}{rel}";
         }
+
+        // -Filter support (ProviderCapabilities.Filter). The engine sets the inherited Filter property;
+        // we apply it client-side as a case-insensitive wildcard on the LEAF name, matching the
+        // FileSystem provider. No filter set => everything matches. Compiled once per invocation.
+        private WildcardPattern _filterPattern;
+        private string _filterPatternSource;
+
+        private bool MatchesFilter(string leafName)
+        {
+            var filter = Filter;
+            if (string.IsNullOrEmpty(filter))
+                return true;
+            if (!ReferenceEquals(filter, _filterPatternSource) && filter != _filterPatternSource)
+            {
+                _filterPattern = new WildcardPattern(filter, WildcardOptions.IgnoreCase);
+                _filterPatternSource = filter;
+            }
+            return _filterPattern.IsMatch(leafName);
+        }
+
+        // The leaf segment of a (possibly nested, possibly "/"- or "\"-separated) child name. Under
+        // -Recurse a child Name can be a relative key like "sub/deep.txt"; -Filter matches the leaf,
+        // as FileSystem's -Filter -Recurse does.
+        private static string LeafName(string name)
+        {
+            var n = name.Replace('\\', '/').TrimEnd('/');
+            var i = n.LastIndexOf('/');
+            return i < 0 ? n : n.Substring(i + 1);
+        }
     }
 }

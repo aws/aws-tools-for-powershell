@@ -27,7 +27,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // ListBuckets is paginated: an account past the first page would otherwise silently list only
         // some buckets. Follow ContinuationToken to the end, stopping cleanly on Ctrl+C.
-        private List<S3Bucket> ListBuckets()
+        private List<S3Bucket> ListBuckets(S3DriveInfo drive)
         {
             var buckets = new List<S3Bucket>();
             var request = new ListBucketsRequest();
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 if (Stopping) break;
                 request.ContinuationToken = token;
-                var response = RunSync(ct => Client.ListBucketsAsync(request, ct));
+                var response = RunSync(ct => drive.Client.ListBucketsAsync(request, ct));
                 if (response.Buckets != null)
                     buckets.AddRange(response.Buckets);
                 token = response.ContinuationToken;
@@ -53,18 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // CommonPrefixes -> folders, objects -> files, and the prefix's own directory-marker is
         // filtered out. Streams each child to <paramref name="emit"/> as its page arrives (bounded
         // memory) and stops between pages on Ctrl+C.
-        private void StreamChildren(string bucket, string key, Action<ChildEntry> emit)
+        private void StreamChildren(S3DriveInfo drive, string bucket, string key, Action<ChildEntry> emit)
         {
             var listPrefix = string.IsNullOrEmpty(key) ? "" : EnsureTrailingSlash(key);
 
-            var cached = Drive.ListingCache.TryGetComplete(bucket, listPrefix);
+            var cached = drive.ListingCache.TryGetComplete(bucket, listPrefix);
             if (cached != null)
             {
                 foreach (var c in cached) emit(c);
                 return;
             }
 
-            var client = ClientForBucket(bucket);
+            var client = ClientForBucket(drive, bucket);
             // Folder names seen this listing, used to shadow a colliding object (folder-wins). Only
             // reliable when the object and its CommonPrefix share a page; across a page boundary the
             // object may list once alongside the folder - accepted, to keep the listing streaming.
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         };
                         // Record before emit: the engine may decorate (ItemExists/IsItemContainer)
                         // synchronously during emit, so the record must already be present.
-                        Drive.ListingCache.RecordChild(bucket, cp, isContainer: true);
+                        drive.ListingCache.RecordChild(bucket, cp, isContainer: true);
                         emit(entry);
                         accum = Accumulate(accum, entry);
                     }
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         {
                             prefixMarkerSeen = true;
                             if (!string.IsNullOrEmpty(listPrefix))
-                                Drive.ListingCache.RecordChild(bucket, listPrefix, isContainer: true);
+                                drive.ListingCache.RecordChild(bucket, listPrefix, isContainer: true);
                             continue;   // the folder's own marker, not a child
                         }
                         var name = obj.Key.Substring(listPrefix.Length);
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                             Item = S3ItemInfo.File(name, obj.Size, obj.LastModified),
                             Path = MakeChildPath(bucket, obj.Key)
                         };
-                        Drive.ListingCache.RecordChild(bucket, obj.Key, isContainer: false);
+                        drive.ListingCache.RecordChild(bucket, obj.Key, isContainer: false);
                         emit(entry);
                         accum = Accumulate(accum, entry);
                     }
@@ -145,9 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // Fully enumerated and under the cap -> cache COMPLETE.
             if (accum != null)
             {
-                Drive.ListingCache.PutComplete(bucket, listPrefix, accum, prefixMarkerSeen);
+                drive.ListingCache.PutComplete(bucket, listPrefix, accum, prefixMarkerSeen);
                 if (prefixMarkerSeen)
-                    Drive.ListingCache.PutExistsProbe(bucket, listPrefix, asPrefix: true, exists: true);
+                    drive.ListingCache.PutExistsProbe(bucket, listPrefix, asPrefix: true, exists: true);
             }
         }
 
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // Backs Get-ChildItem -Recurse: every object beneath a prefix, via a delimiter-less paginated
         // ListObjectsV2 (flat, no CommonPrefixes). Streams like StreamChildren but does not cache, so
         // it stays O(1) memory however large the listing.
-        private void StreamAllUnder(string bucket, string key, Action<ChildEntry> emit)
+        private void StreamAllUnder(S3DriveInfo drive, string bucket, string key, Action<ChildEntry> emit)
         {
-            var client = ClientForBucket(bucket);
+            var client = ClientForBucket(drive, bucket);
             var listPrefix = string.IsNullOrEmpty(key) ? "" : EnsureTrailingSlash(key);
             var request = new ListObjectsV2Request
             {
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         var name = obj.Key.Substring(listPrefix.Length);
                         if (name.Length == 0) continue;
                         // Record before emit so per-item decoration resolves without a probe.
-                        Drive.ListingCache.RecordChild(bucket, obj.Key, isContainer: false);
+                        drive.ListingCache.RecordChild(bucket, obj.Key, isContainer: false);
                         emit(new ChildEntry
                         {
                             Name = name,                       // relative key, may contain "/"

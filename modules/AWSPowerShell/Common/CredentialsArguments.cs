@@ -814,6 +814,33 @@ namespace Amazon.PowerShell.Common
             return new CredentialProfileStoreChain(profileLocation).TryGetProfile(name, out profile);
         }
 
+        /// <summary>
+        /// If <paramref name="credentials"/> are SSO credentials whose cached token has expired and
+        /// cannot be refreshed without an interactive login, throws an
+        /// <see cref="UnauthorizedAccessException"/> carrying the same guided message the service
+        /// cmdlets use ("SSO Token has expired. Please login by running Invoke-AWSSSOLogin."). A no-op
+        /// for any other credential type. SupportsGettingNewToken is forced off first so this only
+        /// validates the cached token and never starts an interactive login flow.
+        ///
+        /// Mirrors ServiceCmdlet.ValidateSSOToken so callers outside the cmdlet base classes - notably
+        /// the S3 PSDrive provider, which lives in a separate assembly (AWS.Tools.S3) and cannot reach
+        /// the internal SSOUtils - surface the same actionable error instead of a raw SDK failure.
+        /// </summary>
+        public static void ThrowIfSsoLoginRequired(AWSCredentials credentials)
+        {
+            if (!(credentials is SSOAWSCredentials ssoCredentials))
+                return;
+
+            // Never initiate the interactive login flow from here; only validate the cached token.
+            ssoCredentials.Options.SupportsGettingNewToken = false;
+
+            var options = Internal.SSOUtils.BuildSSOTokenManagerGetTokenOptions(
+                ssoCredentials, supportsGettingNewToken: false, ssoVerificationCallback: null);
+            if (Internal.SSOUtils.IsSsoLoginRequiredAsync(options).GetAwaiter().GetResult())
+                throw new UnauthorizedAccessException(
+                    "SSO Token has expired. Please login by running Invoke-AWSSSOLogin.");
+        }
+
         public static IEnumerable<CredentialProfile> ListProfiles(string profileLocation)
         {
             return new CredentialProfileStoreChain(profileLocation).ListProfiles();

@@ -21,6 +21,7 @@ using System.Management.Automation;
 using System.Management.Automation.Provider;
 using System.Threading;
 using Amazon.S3;
+using Amazon.S3.Transfer;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -28,15 +29,35 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         // ---- Content: download / upload (IContentCmdletProvider) -------------
 
-        // Backs Get-Content (download). Opens the object via TransferUtility.OpenStream (parallel
-        // multipart + ranged retries) and returns a reader that pulls blocks lazily, so any size
-        // streams back with bounded memory.
+        // Backs Get-Content (download). The SDK's multipart stream discovers object size and fetches
+        // ranged parts in parallel when there is more than one range to read.
         public IContentReader GetContentReader(string path)
         {
             if (!TryParseObjectPath(path,
-                    "Get-Content requires a path to an S3 object (bucket\\key).",
+                    $"Get-Content requires a path to an S3 object (bucket{Sep}key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
+            var drive = DriveForPath(path);
+
+            // Folder-wins: reading a prefix is not a content op. Refuse with a directory-specific error
+            // instead of letting the exact-key GET fail with the raw SDK "specified key does not exist"
+            // (matches the FileSystem provider, which refuses Get-Content on a directory).
+            try
+            {
+                if (PathIsExistingFolder(drive, bucket, key))
+                {
+                    WriteError(new ErrorRecord(
+                        new InvalidOperationException(
+                            $"Cannot get the content of '{path}' because it is a folder. Use Get-ChildItem to list its children."),
+                        "PathIsContainer", ErrorCategory.InvalidOperation, path));
+                    return null;
+                }
+            }
+            catch (AmazonS3Exception ex)   // a non-denied list failure during the probe
+            {
+                WriteError(new ErrorRecord(ex, "GetContentFailed", ErrorCategory.ReadError, path));
+                return null;
+            }
 
             // -AsByteStream / -Raw / -Encoding are dynamic parameters. On a pipeline bind
             // (Get-ChildItem | Get-Content) the engine hands us FileSystem's dynamic-params object, not
@@ -53,30 +74,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
-            // The CTS must outlive this method: multipart OpenStream fetches parts on background tasks
+            // The CTS must outlive this method: multipart downloads fetch parts on background tasks
             // as the reader reads, so the token stays live for the whole read. The reader owns it and
             // disposes it on Close; StopProcessing cancels it via the content-CTS set.
             var readerCts = new CancellationTokenSource();
             RegisterContentCts(readerCts);
-            Drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
+            drive.BeginContentOperation();   // keep the drive's clients alive for the whole read
             var handedOff = false;   // true once the reader owns readerCts (success path)
+            Amazon.S3.Transfer.TransferUtility tu = null;
             try
             {
-                // TU is only needed to open the stream (dispose eagerly); disposing it leaves our
-                // shared client and the opened multipart stream intact.
-                Stream stream;
-                using (var tu = TransferUtilityForBucket(bucket))
-                {
-                    var req = new Amazon.S3.Transfer.TransferUtilityOpenStreamRequest
-                    {
-                        BucketName = bucket,
-                        Key = key,
-                        MultipartDownloadType = Amazon.S3.Transfer.MultipartDownloadType.PART,
-                    };
-                    stream = tu.OpenStreamAsync(req, readerCts.Token).GetAwaiter().GetResult();
-                }
+                tu = TransferUtilityForBucket(drive, bucket);
+                var stream = OpenContentStream(tu, bucket, key, readerCts.Token);
+                var readerTu = tu;
                 var reader = new S3ContentReader(stream, readerCts, asByteStream, raw, encoding,
-                    onDispose: () => { UnregisterContentCts(readerCts); Drive.EndContentOperation(); });
+                    onDispose: () =>
+                    {
+                        try { readerTu.Dispose(); }
+                        finally { UnregisterContentCts(readerCts); drive.EndContentOperation(); }
+                    });
                 handedOff = true;   // reader now owns readerCts; the finally must NOT dispose it
                 return reader;
             }
@@ -98,10 +114,39 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     UnregisterContentCts(readerCts);
                     readerCts.Dispose();
-                    Drive.EndContentOperation();
+                    tu?.Dispose();
+                    drive.EndContentOperation();
                 }
             }
         }
+
+        private Stream OpenContentStream(TransferUtility tu, string bucket, string key, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
+                {
+                    BucketName = bucket,
+                    Key = key,
+                    MultipartDownloadType = MultipartDownloadType.RANGE
+                }, cancellationToken).GetAwaiter().GetResult();
+                return response.ResponseStream;
+            }
+            catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
+            {
+                // Empty objects can reject the SDK's initial ranged GET. Fall back to the
+                // ordinary stream path; there is nothing to parallelize for an empty object.
+                return tu.OpenStreamAsync(new TransferUtilityOpenStreamRequest
+                {
+                    BucketName = bucket,
+                    Key = key
+                }, cancellationToken).GetAwaiter().GetResult();
+            }
+        }
+
+        private static bool IsInvalidRange(AmazonS3Exception ex) =>
+            string.Equals(ex.ErrorCode, "InvalidRange", StringComparison.OrdinalIgnoreCase)
+            || (int)ex.StatusCode == 416;
 
         public object GetContentReaderDynamicParameters(string path) =>
             new S3ContentReaderDynamicParameters();
@@ -191,9 +236,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public IContentWriter GetContentWriter(string path)
         {
             if (!TryParseObjectPath(path,
-                    "Set-Content requires a path to an S3 object (bucket\\key).",
+                    $"Set-Content requires a path to an S3 object (bucket{Sep}key).",
                     "InvalidContentPath", out var bucket, out var key))
                 return null;
+            var drive = DriveForPath(path);
+
+            // Folder-wins: writing to an existing prefix would silently create a shadow object literally
+            // named after the folder (invisible, unremovable by name). Refuse it, matching the FileSystem
+            // provider, which won't Set-Content over a directory.
+            try
+            {
+                if (PathIsExistingFolder(drive, bucket, key))
+                {
+                    WriteError(new ErrorRecord(
+                        new InvalidOperationException(
+                            $"Cannot set the content of '{path}' because it is a folder. Specify a key that names an object, not a prefix."),
+                        "PathIsContainer", ErrorCategory.InvalidOperation, path));
+                    return null;
+                }
+            }
+            catch (AmazonS3Exception ex)
+            {
+                WriteError(new ErrorRecord(ex, "SetContentFailed", ErrorCategory.WriteError, path));
+                return null;
+            }
 
             bool asByteStream, noNewline;
             System.Text.Encoding encoding;
@@ -209,27 +275,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
             // Per-upload -StorageClass wins, else the drive default, else null (nothing set on the request).
-            var storageClass = writerParams?.StorageClass ?? Drive.DefaultStorageClass;
+            var storageClass = writerParams?.StorageClass ?? drive.DefaultStorageClass;
             var partSize = writerParams != null && writerParams.PartSize > 0
                 ? writerParams.PartSize
-                : MultipartThreshold;
-            var cache = Drive.ListingCache;
+                : DefaultMultipartUploadPartSize;
+            var cache = drive.ListingCache;
 
             // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.
             // On success the writer owns the CTS + TU; otherwise the finally releases them (handedOff guard).
             var writerCts = new CancellationTokenSource();
             RegisterContentCts(writerCts);
-            Drive.BeginContentOperation();   // keep the drive's clients alive for the whole upload
+            drive.BeginContentOperation();   // keep the drive's clients alive for the whole upload
             Amazon.S3.Transfer.TransferUtility tu = null;
             var handedOff = false;
             try
             {
-                tu = TransferUtilityForBucket(bucket);
+                tu = TransferUtilityForBucket(drive, bucket);
                 var writer = new S3TransferContentWriter(tu, bucket, key, asByteStream, writerCts,
                     onComplete: () => cache.InvalidateForKey(bucket, key),
                     onFault: ex => WriteError(new ErrorRecord(ex, "UploadFailed",
                         ErrorCategory.WriteError, $"{bucket}\\{key}")),
-                    onDispose: () => { UnregisterContentCts(writerCts); Drive.EndContentOperation(); },
+                    onDispose: () => { UnregisterContentCts(writerCts); drive.EndContentOperation(); },
                     partSize: partSize,
                     storageClass: storageClass,
                     encoding: encoding,
@@ -244,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     UnregisterContentCts(writerCts);
                     tu?.Dispose();
                     writerCts.Dispose();
-                    Drive.EndContentOperation();
+                    drive.EndContentOperation();
                 }
             }
         }
@@ -254,8 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         public void ClearContent(string path)
         {
-            throw new PSNotSupportedException(
-                "Clear-Content is not supported by the S3 drive.");
+            throw Unsupported("Clear-Content",
+                "Use Set-Content to replace the object's contents, or Remove-Item to delete it.");
         }
 
         public object ClearContentDynamicParameters(string path) => null;

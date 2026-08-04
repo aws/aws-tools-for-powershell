@@ -95,6 +95,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return SessionDefaultCredentials();   // $StoredAWSCredentials, via Common; null if unset
         }
 
+        private static string CredentialIdentityForDrive(S3DriveParameters dp, AWSCredentials credentials)
+        {
+            if (dp != null)
+            {
+                if (!string.IsNullOrEmpty(dp.AccessKey))
+                    return "AccessKey:" + dp.AccessKey;
+                if (!string.IsNullOrEmpty(dp.ProfileName))
+                    return "ProfileName:" + dp.ProfileName;
+                if (dp.AWSCredential != null)
+                    return S3DriveInfo.BuildCredentialIdentity(dp.AWSCredential);
+            }
+
+            return S3DriveInfo.BuildCredentialIdentity(credentials);
+        }
+
         private static AWSCredentials ResolveProfile(string profileName)
         {
             var chain = new Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain();
