@@ -24,6 +24,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Mounts an S3 drive so buckets, prefixes, and objects can be explored with the standard
     /// navigation commands (Set-Location, Get-ChildItem, Get-Content, Set-Content, Remove-Item).
+    /// The drive is intended for navigation and ad hoc content work; for large local file
+    /// transfers, use Read-S3Object and Write-S3Object.
     /// Credentials resolve the same way as the S3 cmdlets: explicit keys, then -ProfileName, then
     /// -AWSCredential, then the session default $StoredAWSCredentials, then the SDK default chain.
     /// Region follows the same order too: -Region, then $StoredAWSRegion, then the profile region,
@@ -71,13 +73,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>Default storage class for objects uploaded to this drive (e.g. STANDARD_IA,
         /// GLACIER). When unset, S3 uses STANDARD. Overridable per upload via -StorageClass on
         /// Set-Content.</summary>
-        [Parameter] public S3StorageClass StorageClass { get; set; }
+        [Parameter]
+        [Amazon.PowerShell.Common.AWSConstantClassSource("Amazon.S3.S3StorageClass")]
+        public S3StorageClass StorageClass { get; set; }
 
         /// <summary>Return the created PSDriveInfo. By default the cmdlet produces no output.</summary>
         [Parameter] public SwitchParameter PassThru { get; set; }
 
         protected override void ProcessRecord()
         {
+            // -StorageClass is typed S3StorageClass, a ConstantClass that constructs from ANY string,
+            // so an invalid value (e.g. "NOT_A_CLASS") would otherwise mount silently and fail only
+            // later at the first upload. Validate it up front against the SDK's known values and fail
+            // the mount with a clear, actionable error.
+            if (StorageClass != null && !IsKnownStorageClass(StorageClass))
+            {
+                ThrowTerminatingError(new ErrorRecord(
+                    new System.ArgumentException(
+                        $"'{StorageClass.Value}' is not a valid S3 storage class. Valid values: {string.Join(", ", KnownStorageClasses())}."),
+                    "InvalidStorageClass", ErrorCategory.InvalidArgument, StorageClass));
+                return;
+            }
+
             // Normalize the root to "bucket/prefix" (backslashes -> slashes, empty segments dropped).
             // Collapsing interior "//" is load-bearing: the engine prepends the stored root verbatim and
             // ParsePath only trims the ends, so "bkt//data" would inject an empty segment into the key.
@@ -117,6 +134,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     foreach (var r in results)
                         WriteObject(r, false);
             }
+        }
+
+        // The S3StorageClass "constants" are public static fields on the type; reflecting them keeps the
+        // valid set in lockstep with the SDK (no hardcoded list to drift). Case-sensitive, matching the
+        // SDK's canonical value strings (STANDARD, STANDARD_IA, GLACIER, ...).
+        private static System.Collections.Generic.IEnumerable<string> KnownStorageClasses()
+        {
+            foreach (var f in typeof(S3StorageClass).GetFields(
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static))
+            {
+                if (f.FieldType == typeof(S3StorageClass) && f.GetValue(null) is S3StorageClass sc)
+                    yield return sc.Value;
+            }
+        }
+
+        private static bool IsKnownStorageClass(S3StorageClass value)
+        {
+            foreach (var known in KnownStorageClasses())
+                if (string.Equals(known, value.Value, System.StringComparison.Ordinal))
+                    return true;
+            return false;
         }
     }
 }
