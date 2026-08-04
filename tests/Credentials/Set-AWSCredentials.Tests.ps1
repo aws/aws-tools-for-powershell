@@ -405,6 +405,18 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
             AssertCredentialsSet $null $null $basicOptions "BasicAWSCredentials"
         }
 
+        It "should expose non-secret source profile provenance for session consumers" {
+            $helper.RegisterProfile("profile_name", $helper.CustomSharedPath, $basicOptions)
+            Set-AWSCredentials -ProfileName "profile_name" -ProfileLocation $helper.CustomSharedPath
+
+            $profileName = $null
+            $profileLocation = $null
+            $StoredAWSCredentials.TryGetSourceProfile(
+                [ref] $profileName, [ref] $profileLocation) | Should -BeTrue
+            $profileName | Should -Be "profile_name"
+            $profileLocation | Should -Be $helper.CustomSharedPath
+        }
+
         It "should store BasicAWSCredentials from the .NET credentials file to the .NET credentials file" {
             $helper.RegisterProfile("profile_name", $null, $basicOptions)
             Set-AWSCredentials -ProfileName "profile_name" -StoreAs "copied_profile"

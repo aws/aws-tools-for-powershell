@@ -1,0 +1,19 @@
+---
+s3_DismountS3PSDrive:
+  title: Use Dismount-S3PSDrive
+  title_abbrev: Dismount-S3PSDrive
+  synopsis: use Dismount-S3PSDrive
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        sdk_action: Dismount-S3PSDrive
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Changes to a location outside the S3 drive, then removes the drive.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Dismount-S3PSDrive.1.1.ps1
+          description:
+  services:
+    s3:
+      Dismount-S3PSDrive:

@@ -24,6 +24,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Mounts an S3 drive so buckets, prefixes, and objects can be explored with the standard
     /// navigation commands (Set-Location, Get-ChildItem, Get-Content, Set-Content, Remove-Item).
+    /// By default, the drive maps to the whole account rather than a single bucket; use -Root to
+    /// scope it to a bucket or prefix. Mounting does not change the current location. Use
+    /// Get-PSDrive to list mounted drives and Set-Location to enter one.
     /// The drive is intended for navigation and ad hoc content work; for large local file
     /// transfers, use Read-S3Object and Write-S3Object.
     /// Credentials resolve the same way as the S3 cmdlets: explicit keys, then -ProfileName, then
@@ -43,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///   <para>Mounts using the PowerShell session defaults (no explicit credential/region needed).</para>
     /// </example>
     [Cmdlet(VerbsData.Mount, "S3PSDrive")]
+    [Amazon.PowerShell.Common.AWSCmdlet("Mounts a PowerShell drive backed by Amazon S3 so buckets, prefixes, and objects can be browsed with standard navigation commands. Maps to the whole account by default; use -Root to scope it to a bucket or prefix.")]
+    [Amazon.PowerShell.Common.AWSCmdletOutput("System.Management.Automation.PSDriveInfo", "If -PassThru is specified, returns information about the mounted drive. Otherwise, this cmdlet does not generate any output.")]
     [OutputType(typeof(PSDriveInfo))]
     public sealed class MountS3PSDriveCmdlet : PSCmdlet
     {

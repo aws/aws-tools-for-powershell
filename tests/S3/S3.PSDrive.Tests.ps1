@@ -214,6 +214,27 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
         }
     }
 
+    Context "Generated cmdlet help" {
+        It "<Name> has a real synopsis and at least one example" -TestCases @(
+            @{ Name = 'Mount-S3PSDrive' }
+            @{ Name = 'Dismount-S3PSDrive' }
+        ) {
+            param($Name)
+
+            $command = Get-Command $Name -ErrorAction Stop
+            $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
+            $moduleRoot = (Resolve-Path (Join-Path $repoRoot 'Deployment/AWSPowerShell.NetCore')).Path
+            $command.Module.Path.StartsWith(
+                $moduleRoot,
+                [System.StringComparison]::OrdinalIgnoreCase) | Should -BeTrue
+
+            $help = Get-Help $Name -Full
+            $help.Synopsis | Should -Not -BeNullOrEmpty
+            $help.Synopsis.Trim() | Should -Not -Be $Name
+            @($help.Examples.Example).Count | Should -BeGreaterThan 0
+        }
+    }
+
     Context "Navigation and listing" {
         It "lists the test bucket at the drive root" {
             (Get-ChildItem PSTest:\ -Name) | Should -Contain $script:Bucket
@@ -359,7 +380,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     }
 
     Context "Get-Content multipart download" {
-        It "reads a large byte-stream object through the multipart download stream" {
+        It "reads a large byte-stream object with default and custom download -PartSize" {
             $key = "download-multipart-$([DateTime]::Now.ToFileTime()).bin"
             $path = "PSTest:\$($script:Bucket)\$key"
             $size = 17 * 1024 * 1024
@@ -374,9 +395,25 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             try {
                 [BitConverter]::ToString($sha.ComputeHash($got)) |
                     Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+
+                $gotCustomPartSize = [byte[]]((Get-Content $path -AsByteStream -Raw -PartSize 5MB) | ForEach-Object { $_ })
+                $gotCustomPartSize.Length | Should -Be $size
+                [BitConverter]::ToString($sha.ComputeHash($gotCustomPartSize)) |
+                    Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
             } finally {
                 $sha.Dispose()
             }
+        }
+
+        It "rejects invalid download -PartSize values" {
+            $key = "download-bad-partsize-$([DateTime]::Now.ToFileTime()).txt"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            Set-Content $path -Value "content"
+
+            { Get-Content $path -Raw -PartSize 10 -ErrorAction Stop } |
+                Should -Throw
+            { Get-Content $path -Raw -PartSize -1 -ErrorAction Stop } |
+                Should -Throw
         }
     }
 
@@ -893,7 +930,7 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
     # tests only used literal-path strings, never piped Get-ChildItem output).
     Context "Pipe a listed item into another provider cmdlet (PSPath round-trip)" {
         AfterEach {
-            foreach ($d in 'PSTestPipe2','PSTestPipeRoot') {
+            foreach ($d in 'PSTestPipe2','PSTestPipeRoot','PSTestPipeSession') {
                 if (Test-Path "$($d):\") { try { Dismount-S3PSDrive -Name $d -ErrorAction SilentlyContinue } catch { } }
             }
         }
@@ -935,6 +972,26 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
                 Get-ChildItem $prefixPath |
                     Sort-Object Name |
                     ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw }
+            )
+
+            $got.Count | Should -Be 2
+            $got | Should -Contain 'one'
+            $got | Should -Contain 'two'
+        }
+        It "resolves listed PSPath across explicit and session-default mounts of the same profile" {
+            $prefix = "pipe-read-session-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p1.txt" -Value 'one' -NoNewline
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/p2.txt" -Value 'two' -NoNewline
+            Set-AWSCredential -ProfileName $script:Profile
+            Set-DefaultAWSRegion -Region $script:Region
+            Mount-S3PSDrive -Name PSTestPipeSession
+
+            $prefixPath = "PSTest:\$($script:Bucket)\$prefix"
+            (ListWhenReady $prefixPath 2).Count | Should -Be 2
+            $got = @(
+                Get-ChildItem $prefixPath |
+                    Sort-Object Name |
+                    ForEach-Object { Get-Content -LiteralPath $_.PSPath -Raw -ErrorAction Stop }
             )
 
             $got.Count | Should -Be 2
@@ -1062,6 +1119,12 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
 
             Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 5MB
             S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 4
+        }
+        It "rejects a negative -PartSize without creating an object" {
+            $key = "shape-$([DateTime]::Now.ToFileTime())/bad-part-size.bin"
+            { Set-Content "PSTest:\$($script:Bucket)\$key" -AsByteStream -Value ([byte[]](1,2,3)) -PartSize -1 -ErrorAction Stop } |
+                Should -Throw
+            S3ObjectExists $script:Bucket $key | Should -BeFalse
         }
         It "creates a zero-byte object from an explicit empty byte array" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/empty.bin"
@@ -1889,18 +1952,22 @@ else { "NO_ERROR_NO_DRIVE" }
         # Dismounting the drive you're STANDING ON must ERROR and must NOT silently drop the drive
         # (the safety contract). The "removes the drive" test below steps off first, so nothing else
         # exercises the still-on-the-drive path. Own drive so the shared PSTest teardown is unaffected.
-        #
-        # NOTE on the error id: the cmdlet TRIES to remap Remove-PSDrive's "in use" failure into an
-        # actionable 'DismountDriveInUse' hint (see Dismount-S3PSDrive in Mount-S3PSDrive-Cmdlet.cs).
-        # In isolation that remap fires (category ResourceBusy); inside the full suite the raw
-        # Remove-PSDrive error (InvalidOperation) sometimes passes through instead - the remap's
-        # category/message match is environment-sensitive. That inconsistency is a minor hint-id nit,
-        # not a safety issue; asserting the exact id here would be flaky, so we assert the reliable
-        # contract: it errors, and the drive is NOT lost.
-        It "errors and keeps the drive when you dismount the one you are standing on" {
+        It "returns one actionable error and keeps the drive when dismounting the current drive" {
             Mount-S3PSDrive -Name PSTestInUse -ProfileName $script:Profile -Region $script:Region
             Set-Location 'PSTestInUse:\'
-            { Dismount-S3PSDrive -Name PSTestInUse -ErrorAction Stop } | Should -Throw
+
+            $dismountErrors = @()
+            Dismount-S3PSDrive -Name PSTestInUse -ErrorAction SilentlyContinue -ErrorVariable +dismountErrors
+
+            @($dismountErrors).Count | Should -Be 1
+            $dismountErrors[0].FullyQualifiedErrorId |
+                Should -Be 'DismountDriveInUse,Amazon.PowerShell.Cmdlets.S3.DismountS3PSDriveCmdlet'
+            $dismountErrors[0].CategoryInfo.Category | Should -Be 'ResourceBusy'
+            $dismountErrors[0].Exception.Message | Should -Be (
+                "Cannot dismount drive 'PSTestInUse' because it is in use. " +
+                "Change to a location outside the drive (for example, Set-Location `$HOME), " +
+                "then retry Dismount-S3PSDrive -Name PSTestInUse.")
+
             Set-Location $HOME                                    # step off first
             Test-Path 'PSTestInUse:\' | Should -BeTrue            # drive survived the failed dismount
             Dismount-S3PSDrive -Name PSTestInUse -ErrorAction SilentlyContinue   # now remove it for real

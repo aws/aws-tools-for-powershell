@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private AWSCredentials _credentials;                     // may be null => SDK default chain
         private readonly RegionEndpoint _mountRegion;
 
-        // Set only when the drive was mounted with -ProfileName. Lets the drive re-resolve the profile
-        // from disk when its shared-credentials file is rewritten externally (e.g. `ada` rotating keys),
-        // so the drive doesn't keep failing on a stale one-time credential snapshot. See
-        // RefreshCredentialsIfProfileChanged. Null for the explicit-key / -AWSCredential / session-default
-        // forms, which are left as one-time snapshots (a remount picks up new credentials).
+        // Set when the drive was mounted with -ProfileName or profile-backed session defaults. Lets the
+        // drive re-resolve the profile when its shared-credentials file is rewritten externally (e.g.
+        // `ada` rotating keys), so it doesn't keep a stale one-time credential snapshot. Null for
+        // explicit-key, -AWSCredential, and non-profile session-default forms.
         private readonly string _profileName;
         private readonly string _profileLocation;
         private string _credentialsFilePath;                     // the profile's backing file, if any
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal void RefreshCredentialsIfProfileChanged()
         {
             if (string.IsNullOrEmpty(_profileName))
-                return;   // only -ProfileName drives can be re-resolved from disk
+                return;   // only profile-backed drives can be re-resolved from disk
 
             lock (_gate)
             {
