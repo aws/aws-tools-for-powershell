@@ -20,22 +20,17 @@ using System;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Uniform item the provider emits for buckets, folders (prefixes), and objects (files).
-    /// Gives every listed item a consistent surface - Name, Size, LastModified, Type - so
-    /// Get-ChildItem columns and pipeline filters (e.g. Where-Object { $_.Size -gt 10MB })
-    /// work. Raw SDK models can't be used directly: S3Bucket exposes BucketName (not Name)
-    /// and S3Object has no Name.
+    /// Uniform item emitted for buckets, folders, and objects, giving every listed item the same
+    /// surface (Name, Size, LastModified, Type) for Get-ChildItem columns and pipeline filters - which
+    /// the raw SDK models don't (S3Bucket has BucketName not Name; S3Object has no Name).
     ///
-    /// Name is the leaf name only (not a full key); the item's full drive path is carried by the
-    /// PSPath the provider attaches when emitting it, so pipeline consumers that need an
-    /// unambiguous identity should use PSPath rather than Name (recursive listings can surface the
-    /// same leaf Name under different prefixes).
+    /// Name is the leaf only; use the PSPath the provider attaches for an unambiguous identity, since
+    /// a recursive listing can surface the same leaf Name under different prefixes.
     /// </summary>
     public sealed class S3ItemInfo
     {
-        // The Type string values are a public contract: the format.ps1xml view, the README, and the
-        // integration tests all match on them, so they must stay exactly "Bucket"/"Folder"/"Object"
-        // (named consts here, deliberately NOT an enum, to keep the on-the-wire strings stable).
+        // Public contract matched by the format.ps1xml view, README, and tests - keep the exact strings
+        // (consts, not an enum, to keep the on-the-wire values stable).
         public const string TypeBucket = "Bucket";
         public const string TypeFolder = "Folder";
         public const string TypeObject = "Object";
