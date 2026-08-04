@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // is rewritten externally (e.g. `ada`/aws-adfs rotating static session keys), the drive would
         // otherwise keep using the stale snapshot and fail "token expired". Re-resolve from disk when
         // the backing file's mtime changes, then rebuild the cached clients so later ops use the fresh
-        // keys - no remount needed. Limited to static snapshots (Basic/Session); SSO, assume-role,
+        // keys, no remount needed. Limited to static snapshots (Basic/Session); SSO, assume-role,
         // container, instance-profile, and credential_process credentials self-refresh in the SDK.
         internal void RefreshCredentialsIfProfileChanged()
         {

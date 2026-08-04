@@ -1114,11 +1114,13 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $prefix = "shape-$([DateTime]::Now.ToFileTime())"
             $payload = New-Object byte[] (17 * 1024 * 1024)
 
+            # Default part size is 5 MiB (matches TransferUtility's default), so 17 MiB is 4 parts.
             Set-Content "PSTest:\$($script:Bucket)\$prefix/default.bin" -AsByteStream -Value $payload
-            S3GetPartsCount $script:Bucket "$prefix/default.bin" | Should -Be 2
+            S3GetPartsCount $script:Bucket "$prefix/default.bin" | Should -Be 4
 
-            Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 5MB
-            S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 4
+            # A larger -PartSize produces fewer parts: 17 MiB at 16 MiB per part is 2.
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/custom.bin" -AsByteStream -Value $payload -PartSize 16MB
+            S3GetPartsCount $script:Bucket "$prefix/custom.bin" | Should -Be 2
         }
         It "rejects a negative -PartSize without creating an object" {
             $key = "shape-$([DateTime]::Now.ToFileTime())/bad-part-size.bin"

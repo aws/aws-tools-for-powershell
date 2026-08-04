@@ -67,11 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var client = ClientForBucket(drive, bucket);
             // Folder names seen this listing, used to shadow a colliding object (folder-wins). Only
             // reliable when the object and its CommonPrefix share a page; across a page boundary the
-            // object may list once alongside the folder - accepted, to keep the listing streaming.
+            // object may list once alongside the folder, which is accepted to keep the listing streaming.
             var folderNames = new HashSet<string>(StringComparer.Ordinal);
 
             // Accumulate to upgrade the cache to COMPLETE, but only if we finish uninterrupted and under
-            // the cap - a truncated listing cached as complete would make existence checks read "absent".
+            // the cap: a truncated listing cached as complete would make existence checks read "absent".
             // Null once over the cap => stream without caching.
             var accum = new List<ChildEntry>();
             var prefixMarkerSeen = false;

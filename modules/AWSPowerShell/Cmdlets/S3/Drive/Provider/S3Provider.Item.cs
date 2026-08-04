@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // True if bucket/key names an existing folder (a prefix with children). Folder-wins: a name that
         // is both a prefix and an object counts as a folder here. On denied listing this returns false so
         // the caller proceeds and the real op surfaces AccessDenied (matches ItemExists's philosophy).
-        // Used to guard content ops (Get-Content/Set-Content) off a prefix - see GetContentReader/Writer.
+        // Used to guard content ops (Get-Content/Set-Content) off a prefix; see GetContentReader/Writer.
         private bool PathIsExistingFolder(S3DriveInfo drive, string bucket, string key) =>
             !string.IsNullOrEmpty(key) && TryPrefixHasChildren(drive, bucket, key, out _);
 
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // The credentials themselves are bad (not merely under-permissioned): the key doesn't exist,
         // the signature is wrong, or the session token is bad/expired. These come back as 403s too, so
-        // they must be split from IsAccessDenied - otherwise a mount validated against invalid credentials
+        // they must be split from IsAccessDenied; otherwise a mount validated against invalid credentials
         // would be treated as "exists but inaccessible" and succeed. Callers let these propagate so the
         // mount (or operation) fails with the real error.
         private static bool IsInvalidCredentials(AmazonS3Exception ex) =>
