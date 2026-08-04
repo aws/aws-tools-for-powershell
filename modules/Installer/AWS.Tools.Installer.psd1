@@ -10,7 +10,7 @@
     CompatiblePSEditions = @('Core', 'Desktop')
 
     # Version number of this module.
-    ModuleVersion = '2.0.1'
+    ModuleVersion = '2.0.2'
 
     # ID used to uniquely identify this module
     GUID = '450031c1-9177-4fc1-9518-93166b1a926b'
@@ -105,7 +105,6 @@ The installer is now distributed separately via CloudFront for improved reliabil
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/main/CHANGELOG.md'
-            Prerelease = 'preview002'
         }
     }
 }
