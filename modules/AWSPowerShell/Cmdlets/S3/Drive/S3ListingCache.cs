@@ -35,19 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     }
 
     /// <summary>
-    /// TTL-based listing cache, held per drive. Removes the within-operation redundancy where
-    /// PowerShell probes the same prefix several times during one cd / tab-completion (each
-    /// probe would otherwise be its own ListObjectsV2 round-trip).
-    ///
-    /// One entry per listed prefix, tagged partial vs complete:
-    ///   * HasChildren is answerable from ANY entry (S3 returns >=1 result iff children exist,
-    ///     so even a MaxKeys=1 probe is conclusive for presence).
-    ///   * The full child list (Get-ChildItem) needs a COMPLETE entry; a partial one is a miss
-    ///     and a full enumeration upgrades it to complete.
-    ///
-    /// TTL is short (1s) - sized for the burst, minimal staleness. Drive-originated writes
-    /// (Set-Content/Copy-Item/Remove-Item) invalidate affected entries immediately so the
-    /// change shows on the next ls without waiting for the TTL.
+    /// Short-TTL listing cache, per drive, that collapses the repeated prefix probes the engine
+    /// fires during one cd / tab-completion. One entry per prefix, tagged partial (presence only)
+    /// vs complete (full child list, needed by Get-ChildItem); a full enumeration upgrades partial
+    /// to complete. Drive-originated writes invalidate affected entries immediately (see InvalidateForKey).
     /// </summary>
     internal sealed class S3ListingCache
     {
@@ -63,42 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly ConcurrentDictionary<string, Entry> _entries =
             new ConcurrentDictionary<string, Entry>();
 
-        // Per-child POSITIVE cache: "this exact key was just emitted by a listing - it exists
-        // and here's whether it's a container." Populated INCREMENTALLY as items stream (see
-        // RecordChild), so the per-item decoration probe PowerShell fires DURING a listing
-        // (ItemExists/IsItemContainer on each emitted child) resolves with NO network call -
-        // even before the listing finishes, and even for listings too large to cache as a
-        // COMPLETE entry. Positive-only: a miss returns null and the caller falls back; it never
-        // asserts absence. Bounded by flush-on-full so a huge listing stays O(1) memory (the
-        // recently-emitted items being decorated survive, since decoration tracks emission).
-        // Note: this bounds the per-child positive cache (a count of individual recorded children).
-        // The provider has a separate, coincidentally-equal cap on per-listing accumulation
-        // (ListingCacheMaxItems); they bound different structures and may diverge independently.
+        // Per-child positive cache, populated as a listing streams (RecordChild), so the engine's
+        // per-item decoration probes resolve with no network call - even mid-listing and for listings
+        // too large to cache complete. Positive-only: a miss returns null, never asserts absence.
+        // Flush-on-full keeps it O(1). (Distinct from the provider's like-sized ListingCacheMaxItems.)
         private const int ChildCacheCap = 10000;
         private readonly ConcurrentDictionary<string, CachedChild> _children =
             new ConcurrentDictionary<string, CachedChild>();
 
         private struct CachedChild { public bool IsContainer; public DateTime FetchedUtc; }
 
-        // Existence-probe cache: the result of a direct existence check on an EXACT path - either an
-        // object HEAD (GetObjectMetadata) or a prefix probe (ListObjectsV2 MaxKeys=1). Records both
-        // true AND false. This collapses the storm of redundant existence probes the engine fires for
-        // ONE command: the engine spins up a FRESH provider instance every ~2 calls and re-resolves
-        // ItemExists/IsItemContainer dozens of times, and for a DEEP path it re-walks the entire
-        // ancestor chain (`.../L14/`, `.../L13/`, ... ) on each pass. Those probes are the dominant
-        // per-command latency (a 15-level Get-Content made 254 S3 calls / ~20s).
-        //
-        // TWO TTLs, because prefix existence is far more STABLE than a directory listing:
-        //   * a POSITIVE PREFIX result (it exists) is cached for the LONGER _probeTtl - long enough
-        //     to survive a whole command, which is what breaks the deep-walk feedback loop (a single
-        //     ancestor walk of 15 misses x ~78ms ALREADY exceeds a 1s TTL, so a short TTL expires
-        //     before the next pass reuses it -> pure thrash). Positive OBJECT probes use the short
-        //     _ttl so external object deletes are not hidden for 30s.
-        //   * a NEGATIVE result (absent) is cached only for the SHORT _ttl, so "create it externally,
-        //     then Test-Path" stays responsive (a just-created object isn't wrongly reported absent
-        //     for long). Drive-originated writes/deletes call InvalidateForKey, which drops the entry
-        //     immediately regardless of TTL, so the common create-through-the-drive path is instant.
-        // Bounded by ChildCacheCap with the same flush-on-full policy as the per-child cache.
+        // Existence-probe cache for an exact path (object HEAD or prefix probe), recording true and
+        // false. Collapses the engine's repeated existence probes, including its deep-ancestor re-walks.
+        // Two TTLs: a positive PREFIX result uses the longer _probeTtl (existence is stable, so it
+        // survives a whole command); everything else uses the short _ttl so external changes aren't
+        // hidden for long. Drive-originated writes call InvalidateForKey to drop entries at once.
         private readonly ConcurrentDictionary<string, (bool exists, DateTime at)> _existsProbes =
             new ConcurrentDictionary<string, (bool, DateTime)>();
 
@@ -106,14 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         internal S3ListingCache(TimeSpan ttl) : this(ttl, TimeSpan.FromSeconds(30)) { }
 
-        // ttl: short TTL for listings + negative probes (staleness-sensitive). probeTtl: longer TTL
-        // for POSITIVE existence probes (existence is stable; this is what de-thrashes deep walks).
+        // ttl: listings + negative probes. probeTtl: positive prefix probes (see _existsProbes).
         internal S3ListingCache(TimeSpan ttl, TimeSpan probeTtl) { _ttl = ttl; _probeTtl = probeTtl; }
 
         private static string Key(string bucket, string prefix) => bucket + "\0" + prefix;
 
-        // Canonical key form matching what ParsePath produces on the lookup side: forward
-        // slashes, no surrounding slashes (so a folder "a/b/" and a probe for "a/b" agree).
+        // Canonical key form: forward slashes, no surrounding slashes (so "a/b/" and "a/b" agree).
         private static string NormKey(string k) => (k ?? "").Replace('\\', '/').Trim('/');
 
         private bool Fresh(Entry e) => e != null && (DateTime.UtcNow - e.FetchedUtc) < _ttl;
@@ -134,13 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return null;
         }
 
-        /// <summary>
-        /// Answer "does childName exist under parentPrefix, and is it a container?" from the
-        /// parent's COMPLETE cached listing - WITHOUT a network call. Returns null if the
-        /// parent isn't completely cached (caller must fall back to S3). This is what avoids
-        /// a per-child ListObjectsV2 probe when PowerShell decorates each listed item during
-        /// completion/Get-ChildItem.
-        /// </summary>
+        // Resolve childName under parentPrefix from the parent's complete cached listing, or null if
+        // the parent isn't completely cached. Avoids a per-child probe during listing decoration.
         internal (bool exists, bool isContainer)? TryResolveChild(string bucket, string parentPrefix, string childName)
         {
             var items = TryGetComplete(bucket, parentPrefix);
@@ -160,9 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _entries[key] = new Entry { HasChildren = hasChildren, Complete = false, FetchedUtc = DateTime.UtcNow };
         }
 
-        /// <summary>Record a full listing (answers both presence and full enumeration). Two
-        /// overlapping same-prefix listings are last-writer-wins, which is harmless: each is an
-        /// internally consistent complete snapshot, bounded by the short TTL.</summary>
+        /// <summary>Record a full listing. Overlapping same-prefix listings are last-writer-wins
+        /// (harmless: each is a consistent snapshot).</summary>
         internal void PutComplete(string bucket, string prefix, List<ChildEntry> items, bool prefixExists = false)
         {
             _entries[Key(bucket, prefix)] = new Entry
@@ -174,11 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             };
         }
 
-        /// <summary>
-        /// Record a child the instant a listing emits it, so the engine's per-item decoration
-        /// probe (ItemExists/IsItemContainer) resolves without a network call - the fix for the
-        /// per-item probe storm on large listings. Flush-on-full keeps it O(1) for huge listings.
-        /// </summary>
+        // Record a child as a listing emits it, so the engine's per-item decoration resolves without a
+        // network call. Flush-on-full keeps it O(1).
         internal void RecordChild(string bucket, string fullKey, bool isContainer)
         {
             if (_children.Count >= ChildCacheCap)
@@ -187,11 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 new CachedChild { IsContainer = isContainer, FetchedUtc = DateTime.UtcNow };
         }
 
-        /// <summary>
-        /// Positive-only lookup for a just-listed child: (exists:true, isContainer) if a fresh
-        /// record is present, else null (caller falls back to a network check). Never returns
-        /// "absent" - absence of a record just means "not recently listed", not "doesn't exist".
-        /// </summary>
+        // Positive-only lookup for a just-listed child, else null. A miss means "not recently listed",
+        // not "absent".
         internal (bool exists, bool isContainer)? TryGetChild(string bucket, string key)
         {
             if (_children.TryGetValue(Key(bucket, NormKey(key)), out var c)
@@ -200,11 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return null;
         }
 
-        /// <summary>Cached result of a direct existence probe (object HEAD or prefix probe) on an
-        /// exact path, or null if no fresh probe. Positive results live for the longer _probeTtl;
-        /// negative results only for the short _ttl (see the _existsProbes comment). The 'kind'
-        /// (object vs prefix) is folded into the key so an object probe and a prefix probe for the
-        /// same name don't collide.</summary>
+        // Cached existence probe for an exact path, or null if none fresh. TTL per _existsProbes; the
+        // object-vs-prefix kind is folded into the key so the two don't collide.
         internal bool? TryGetExistsProbe(string bucket, string key, bool asPrefix)
         {
             if (_existsProbes.TryGetValue(ProbeKey(bucket, key, asPrefix), out var p))
@@ -232,22 +185,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal void Clear() { _entries.Clear(); _children.Clear(); _existsProbes.Clear(); }
 
         /// <summary>
-        /// Invalidate cache entries affected by a write/delete at bucket/key, so the change
-        /// shows immediately (no waiting for TTL). We evict every cached prefix that is an
-        /// ancestor of the key - the key's own listing AND each parent whose child set just
-        /// changed. Cheap and correct: a write under "a/b/c.txt" touches the listings of
-        /// "", "a/", and "a/b/"; clearing ancestors covers all of them. (Coarse but safe -
-        /// over-eviction only costs a re-list, never staleness.)
-        ///
-        /// Also drops the per-child positive records for the exact key AND everything beneath it,
-        /// so that after a recursive prefix delete no descendant is still reported "exists" from a
-        /// stale record within the TTL window.
+        /// Invalidate cache entries affected by a write/delete at bucket/key so the change shows
+        /// immediately. Evicts the key's own listing and every ancestor prefix whose child set changed,
+        /// plus the per-child records and existence probes for the key and everything beneath it (so a
+        /// recursive delete leaves no descendant reading "exists"). Coarse but safe: over-eviction only
+        /// costs a re-list.
         /// </summary>
         internal void InvalidateForKey(string bucket, string key)
         {
-            // Normalize the same way as every other cache key (forward slashes, no surrounding
-            // slashes). The ancestor loop below splits on '/' and skips empty segments, so trimming
-            // a trailing slash here is harmless and keeps normalization consistent with NormKey.
             var k = NormKey(key);
 
             // The key itself as a prefix (if it's a "folder"), plus every ancestor prefix.
@@ -264,48 +209,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
             foreach (var p in prefixes)
             {
                 _entries.TryRemove(Key(bucket, p), out _);
-                // Also drop the PREFIX existence-probe for each ancestor: a write/delete can flip
-                // whether an ancestor "has children" (e.g. deleting the last object under "a/b/"),
-                // and - because positive prefix probes live for the LONG _probeTtl - a stale
-                // positive would otherwise linger. Cheap: one dictionary remove per ancestor level.
+                // Drop each ancestor's prefix probe too: a write/delete can flip its "has children",
+                // and a stale positive would otherwise linger for the long _probeTtl.
                 _existsProbes.TryRemove(ProbeKey(bucket, p, asPrefix: true), out _);
                 var childKey = NormKey(p);
                 if (childKey.Length > 0)
                     _children.TryRemove(Key(bucket, childKey), out _);
             }
 
-            // Drop the per-child positive record for this exact key, so a deleted/overwritten
-            // object isn't reported "exists" from a stale record within the TTL window.
+            // The exact key's per-child record and both existence-probe kinds.
             var normKey = NormKey(key);
             _children.TryRemove(Key(bucket, normKey), out _);
-
-            // Same for BOTH existence-probe kinds at this exact key (object HEAD and prefix): a
-            // write/delete makes any recorded outcome stale, so a deleted object must not read back
-            // "exists", nor a freshly-written one read back "absent", within the (long) probe TTL.
             _existsProbes.TryRemove(ProbeKey(bucket, normKey, asPrefix: false), out _);
             _existsProbes.TryRemove(ProbeKey(bucket, normKey, asPrefix: true), out _);
 
-            // Drop descendant per-child records AND descendant existence-probes too (a recursive
-            // delete removes everything under the prefix). Scan for keys under "bucket\0normKey/".
-            // Bounded by ChildCacheCap (10k), so this stays cheap. Skipped when normKey is empty
-            // (bucket root) - nothing more specific to scan than the whole map, and a root-level
-            // write only affects the exact key already removed above.
+            // Everything beneath the key, for a recursive delete: scan "bucket\0normKey/". Bounded by
+            // ChildCacheCap so it stays cheap. Skipped for the bucket root (nothing narrower to scan).
             if (normKey.Length > 0)
             {
                 var descendantPrefix = Key(bucket, normKey) + "/";
                 foreach (var childKey in _children.Keys)
                     if (childKey.StartsWith(descendantPrefix, StringComparison.Ordinal))
                         _children.TryRemove(childKey, out _);
-                // Descendant LISTING entries too: a recursive delete of "a/b" empties "a/b/c/" etc.,
-                // whose cached listings would otherwise report stale children. (The ancestor loop
-                // above only covers ancestors + the key itself; descendants need this scan. This also
-                // fixes a pre-existing gap where an intermediate descendant prefix read stale after a
-                // recursive delete.) _entries keys are "bucket\0prefix" (no kind tag) => StartsWith.
                 foreach (var entryKey in _entries.Keys)
                     if (entryKey.StartsWith(descendantPrefix, StringComparison.Ordinal))
                         _entries.TryRemove(entryKey, out _);
-                // Existence-probe keys carry a "O\0"/"P\0" prefix, so match the descendant on the
-                // bucket+key portion regardless of kind.
+                // Probe keys carry an "O\0"/"P\0" prefix, so match on the bucket+key portion.
                 foreach (var probeKey in _existsProbes.Keys)
                     if (probeKey.IndexOf(descendantPrefix, StringComparison.Ordinal) >= 0)
                         _existsProbes.TryRemove(probeKey, out _);
