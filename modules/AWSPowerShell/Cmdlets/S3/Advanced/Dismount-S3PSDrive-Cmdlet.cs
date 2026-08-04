@@ -21,14 +21,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Unmounts an S3 drive previously created with Mount-S3PSDrive. Thin wrapper over
-    /// Remove-PSDrive. Step off the drive first (e.g. `Set-Location C:\`) — PowerShell won't
-    /// remove a drive that is the current location.
+    /// Remove-PSDrive. Step off the drive first (for example, `Set-Location $HOME`) because
+    /// PowerShell cannot remove a drive that is the current location. Use Get-PSDrive to list
+    /// mounted drives.
     /// </summary>
     /// <example>
-    ///   <code>Set-Location C:\; Dismount-S3PSDrive -Name S3</code>
+    ///   <code>Set-Location $HOME; Dismount-S3PSDrive -Name S3</code>
     ///   <para>Steps off the S3: drive and removes it.</para>
     /// </example>
     [Cmdlet(VerbsData.Dismount, "S3PSDrive")]
+    [Amazon.PowerShell.Common.AWSCmdlet("Removes an S3 PowerShell drive created by Mount-S3PSDrive. Step off the drive first if it is your current location.")]
+    [Amazon.PowerShell.Common.AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public sealed class DismountS3PSDriveCmdlet : PSCmdlet
     {
         /// <summary>Name of the drive to unmount (the -Name given to Mount-S3PSDrive).</summary>
@@ -37,32 +40,88 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         protected override void ProcessRecord()
         {
+            if (string.Equals(
+                SessionState.Path.CurrentLocation?.Drive?.Name,
+                Name,
+                System.StringComparison.OrdinalIgnoreCase))
+            {
+                WriteDriveInUseError(null);
+                return;
+            }
+
             using (var ps = System.Management.Automation.PowerShell.Create(RunspaceMode.CurrentRunspace))
             {
                 ps.AddCommand("Remove-PSDrive")
                   .AddParameter("Name", Name)
-                  .AddParameter("Scope", "Global");
-                ps.Invoke();
-                if (ps.HadErrors)
-                    foreach (var err in ps.Streams.Error)
+                  .AddParameter("Scope", "Global")
+                  .AddParameter("ErrorAction", ActionPreference.Stop);
+
+                ErrorRecord invocationError = null;
+                try
+                {
+                    ps.Invoke();
+                }
+                catch (RuntimeException e)
+                {
+                    invocationError = e.ErrorRecord ?? new ErrorRecord(
+                        e, "RemovePSDriveFailed", ErrorCategory.InvalidOperation, Name);
+                }
+
+                if (IsDriveInUseError(invocationError))
+                {
+                    WriteDriveInUseError(invocationError.Exception);
+                    return;
+                }
+
+                foreach (var error in ps.Streams.Error)
+                {
+                    if (IsDriveInUseError(error))
                     {
-                        // Remove-PSDrive refuses to remove the current-location drive with a generic
-                        // "in use" message; replace it with an actionable hint to step off first.
-                        if (err.CategoryInfo?.Category == ErrorCategory.ResourceBusy ||
-                            (err.Exception?.Message?.IndexOf("in use", System.StringComparison.OrdinalIgnoreCase) ?? -1) >= 0)
-                        {
-                            WriteError(new ErrorRecord(
-                                new System.Management.Automation.PSInvalidOperationException(
-                                    $"Cannot dismount drive '{Name}' because it is in use - it may be your current location. Step off it first (e.g. Set-Location $HOME), then Dismount-S3PSDrive -Name {Name}.",
-                                    err.Exception),
-                                "DismountDriveInUse", ErrorCategory.ResourceBusy, Name));
-                        }
-                        else
-                        {
-                            WriteError(err);
-                        }
+                        WriteDriveInUseError(error.Exception);
+                        return;
                     }
+                }
+
+                // A terminating error can also be present in Streams.Error. Prefer the stream
+                // records when available so the same underlying error is not emitted twice.
+                if (ps.Streams.Error.Count > 0)
+                {
+                    foreach (var error in ps.Streams.Error)
+                        WriteError(error);
+                }
+                else if (invocationError != null)
+                {
+                    WriteError(invocationError);
+                }
             }
+        }
+
+        private static bool IsDriveInUseError(ErrorRecord error)
+        {
+            if (error == null)
+                return false;
+
+            if (error.CategoryInfo?.Category == ErrorCategory.ResourceBusy)
+                return true;
+
+            return ContainsInUse(error.ErrorDetails?.Message) ||
+                   ContainsInUse(error.Exception?.Message) ||
+                   ContainsInUse(error.Exception?.InnerException?.Message);
+        }
+
+        private static bool ContainsInUse(string message)
+        {
+            return message?.IndexOf(
+                "in use", System.StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void WriteDriveInUseError(System.Exception innerException)
+        {
+            WriteError(new ErrorRecord(
+                new PSInvalidOperationException(
+                    $"Cannot dismount drive '{Name}' because it is in use. Change to a location outside the drive (for example, Set-Location $HOME), then retry Dismount-S3PSDrive -Name {Name}.",
+                    innerException),
+                "DismountDriveInUse", ErrorCategory.ResourceBusy, Name));
         }
     }
 }

@@ -59,18 +59,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return null;
             }
 
-            // -AsByteStream / -Raw / -Encoding are dynamic parameters. On a pipeline bind
+            // -AsByteStream / -Raw / -Encoding / -PartSize are dynamic parameters. On a pipeline bind
             // (Get-ChildItem | Get-Content) the engine hands us FileSystem's dynamic-params object, not
-            // ours, so ReadContentReaderParams reads them by name off either type rather than casting.
+            // ours, so ReadContentReaderParams reads shared params by name off either type. S3-only
+            // params such as PartSize stay available only from our native type.
             bool asByteStream, raw;
+            long? partSize;
             System.Text.Encoding encoding;
             try
             {
-                ReadContentReaderParams(DynamicParameters, out asByteStream, out raw, out encoding);
+                ReadContentReaderParams(DynamicParameters, out asByteStream, out raw, out encoding, out partSize);
             }
             catch (ArgumentException ex)
             {
                 WriteError(new ErrorRecord(ex, "BadEncoding", ErrorCategory.InvalidArgument, path));
+                return null;
+            }
+            if (partSize.HasValue && !IsValidMultipartDownloadPartSize(partSize.Value))
+            {
+                WriteError(new ErrorRecord(
+                    new ArgumentOutOfRangeException("PartSize", partSize.Value,
+                        $"PartSize must be between {S3ContentReaderDynamicParameters.MinMultipartDownloadPartSize} and {S3ContentReaderDynamicParameters.MaxMultipartDownloadPartSize} bytes."),
+                    "InvalidPartSize", ErrorCategory.InvalidArgument, path));
                 return null;
             }
 
@@ -85,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             try
             {
                 tu = TransferUtilityForBucket(drive, bucket);
-                var stream = OpenContentStream(tu, bucket, key, readerCts.Token);
+                var stream = OpenContentStream(tu, bucket, key, readerCts.Token, partSize);
                 var readerTu = tu;
                 var reader = new S3ContentReader(stream, readerCts, asByteStream, raw, encoding,
                     onDispose: () =>
@@ -120,16 +130,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        private Stream OpenContentStream(TransferUtility tu, string bucket, string key, CancellationToken cancellationToken)
+        private Stream OpenContentStream(TransferUtility tu, string bucket, string key, CancellationToken cancellationToken, long? partSize)
         {
             try
             {
-                var response = tu.OpenStreamWithResponseAsync(new TransferUtilityOpenStreamRequest
+                // RANGE splits reads by byte ranges rather than the object's original upload part
+                // boundaries, so large objects can stream in parallel regardless of how they were uploaded.
+                var request = new TransferUtilityOpenStreamRequest
                 {
                     BucketName = bucket,
                     Key = key,
                     MultipartDownloadType = MultipartDownloadType.RANGE
-                }, cancellationToken).GetAwaiter().GetResult();
+                };
+                if (partSize.HasValue)
+                    request.PartSize = partSize.Value;
+
+                var response = tu.OpenStreamWithResponseAsync(request, cancellationToken).GetAwaiter().GetResult();
                 return response.ResponseStream;
             }
             catch (AmazonS3Exception ex) when (IsInvalidRange(ex))
@@ -153,9 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // Read AsByteStream / Raw / Encoding off our dynamic-params type or, on a pipeline bind,
         // FileSystem's (same property names, but its Encoding is a System.Text.Encoding, not a string).
-        private static void ReadContentReaderParams(object dp, out bool asByteStream, out bool raw, out System.Text.Encoding encoding)
+        private static void ReadContentReaderParams(object dp, out bool asByteStream, out bool raw, out System.Text.Encoding encoding, out long? partSize)
         {
             asByteStream = false; raw = false; encoding = ResolveEncoding(null);   // default UTF-8 no-BOM
+            partSize = null;
             if (dp == null) return;
 
             if (dp is S3ContentReaderDynamicParameters ours)
@@ -163,6 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 asByteStream = ours.AsByteStream.IsPresent;
                 raw = ours.Raw.IsPresent;
                 encoding = ResolveEncoding(ours.Encoding);
+                if (ours.PartSize != 0)
+                    partSize = ours.PartSize;
                 return;
             }
 
@@ -276,9 +295,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var writerParams = DynamicParameters as S3ContentWriterDynamicParameters;
             // Per-upload -StorageClass wins, else the drive default, else null (nothing set on the request).
             var storageClass = writerParams?.StorageClass ?? drive.DefaultStorageClass;
-            var partSize = writerParams != null && writerParams.PartSize > 0
-                ? writerParams.PartSize
-                : DefaultMultipartUploadPartSize;
+            var partSize = DefaultMultipartUploadPartSize;
+            if (writerParams != null && writerParams.PartSize != 0)
+            {
+                if (!IsValidMultipartUploadPartSize(writerParams.PartSize))
+                {
+                    WriteError(new ErrorRecord(
+                        new ArgumentOutOfRangeException("PartSize", writerParams.PartSize,
+                            $"PartSize must be between {S3ContentWriterDynamicParameters.MinMultipartUploadPartSize} and {S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize} bytes."),
+                        "InvalidPartSize", ErrorCategory.InvalidArgument, path));
+                    return null;
+                }
+                partSize = writerParams.PartSize;
+            }
             var cache = drive.ListingCache;
 
             // Register the writer's CTS in the content-CTS set so Ctrl+C cancels the in-flight upload.
@@ -317,6 +346,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         public object GetContentWriterDynamicParameters(string path) =>
             new S3ContentWriterDynamicParameters();
+
+        private static bool IsValidMultipartDownloadPartSize(long partSize) =>
+            partSize >= S3ContentReaderDynamicParameters.MinMultipartDownloadPartSize
+            && partSize <= S3ContentReaderDynamicParameters.MaxMultipartDownloadPartSize;
+
+        private static bool IsValidMultipartUploadPartSize(long partSize) =>
+            partSize >= S3ContentWriterDynamicParameters.MinMultipartUploadPartSize
+            && partSize <= S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize;
 
         public void ClearContent(string path)
         {

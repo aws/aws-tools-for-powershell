@@ -22,11 +22,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Dynamic parameters contributed to Get-Content when the target is an S3 path.
-    /// -AsByteStream / -Raw / -Encoding are not static Get-Content parameters, so the
-    /// provider supplies them, as FileSystemProvider does.
+    /// -AsByteStream / -Raw / -Encoding mirror FileSystemProvider's dynamic parameters;
+    /// -PartSize is S3-specific.
     /// </summary>
     public sealed class S3ContentReaderDynamicParameters
     {
+        internal const long MinMultipartDownloadPartSize = 5L * 1024 * 1024;
+        internal const long MaxMultipartDownloadPartSize = 5L * 1024 * 1024 * 1024;
+
         /// <summary>Return the object's raw bytes instead of decoded text.</summary>
         [Parameter]
         public SwitchParameter AsByteStream { get; set; }
@@ -42,13 +45,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public string Encoding { get; set; }
+
+        /// <summary>
+        /// Byte range size for multipart downloads, overriding the SDK default. Between 5 MiB and 5 GiB.
+        /// </summary>
+        [Parameter]
+        [ValidateRange(MinMultipartDownloadPartSize, MaxMultipartDownloadPartSize)]
+        public long PartSize { get; set; }
     }
 
     /// <summary>Dynamic parameters contributed to Set-Content on an S3 path.</summary>
     public sealed class S3ContentWriterDynamicParameters
     {
-        private const long MinMultipartUploadPartSize = 5L * 1024 * 1024;
-        private const long MaxMultipartUploadPartSize = 5L * 1024 * 1024 * 1024;
+        internal const long MinMultipartUploadPartSize = 5L * 1024 * 1024;
+        internal const long MaxMultipartUploadPartSize = 5L * 1024 * 1024 * 1024;
 
         /// <summary>Write the pipeline's raw bytes instead of encoding text.</summary>
         [Parameter]
