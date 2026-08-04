@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             new ConcurrentDictionary<string, Entry>();
 
         // Per-child positive cache, populated as a listing streams (RecordChild), so the engine's
-        // per-item decoration probes resolve with no network call - even mid-listing and for listings
+        // per-item decoration probes resolve with no network call, even mid-listing and for listings
         // too large to cache complete. Positive-only: a miss returns null, never asserts absence.
         // Flush-on-full keeps it O(1). (Distinct from the provider's like-sized ListingCacheMaxItems.)
         private const int ChildCacheCap = 10000;

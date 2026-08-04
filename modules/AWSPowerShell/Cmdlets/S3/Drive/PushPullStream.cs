@@ -23,10 +23,10 @@ using System.Threading;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// A read-only Stream bridging the writer (which pushes chunks via <see cref="Produce"/>) to
-    /// TransferUtility (which pulls via Read). The bounded queue gives backpressure: Produce blocks
-    /// when TU falls behind instead of buffering unboundedly. CanSeek false / Length throwing is
-    /// deliberate - it routes TU into its unseekable multipart path, which reads to EOF.
+    /// A read-only Stream bridging the writer (which pushes chunks via Produce) to TransferUtility
+    /// (which pulls via Read). The bounded queue gives backpressure: Produce blocks when TU falls
+    /// behind instead of buffering unboundedly. CanSeek false and a throwing Length are deliberate:
+    /// they route TU into its unseekable multipart path, which reads to EOF.
     /// </summary>
     internal sealed class PushPullStream : Stream
     {

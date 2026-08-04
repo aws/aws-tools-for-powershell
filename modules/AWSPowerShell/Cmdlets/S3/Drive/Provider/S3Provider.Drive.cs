@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // NOTE: an account-root mount intentionally keeps an EMPTY Root. A previous attempt gave it a
             // "/" root to satisfy the engine's bare `Get-ChildItem S3: -Recurse` path check, but "/" makes
             // the engine treat the drive's paths as filesystem-absolute and route new-object writes
-            // (Set-Content to a not-yet-existing key) to the C: FileSystem provider instead of AWS.S3 -
+            // (Set-Content to a not-yet-existing key) to the C: FileSystem provider instead of AWS.S3,
             // silently failing every create. The bare `S3: -Recurse` form is a minor limitation
             // (`S3:\ -Recurse` works); a broken write path is not an acceptable trade, so Root stays empty.
 
