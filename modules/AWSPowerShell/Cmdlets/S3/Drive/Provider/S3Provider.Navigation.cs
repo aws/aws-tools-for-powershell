@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             try
             {
                 // Filter at the emit lambda (not inside StreamChildren) so the ListingCache still records
-                // ALL children - filtering must not corrupt the cache used by later existence probes.
+                // ALL children; filtering must not corrupt the cache used by later existence probes.
                 if (recurse)
                     StreamAllUnder(drive, bucket1, key, c => { if (MatchesFilter(LeafName(c.Name))) WriteItemObject(c.Item, c.Path, c.IsContainer); });
                 else
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 // Get-Item on the drive ROOT returns the SINGLE root item, not the whole listing (that's
                 // Get-ChildItem). Resolve the drive's own root: account-root -> a synthesized container
                 // named after the drive; bucket-root -> the Bucket; prefix-root -> the Folder. (Rooted
-                // drives normally don't reach this branch - the engine substitutes their root - but
+                // drives normally don't reach this branch, since the engine substitutes their root, but
                 // resolving drive.Root handles it defensively and drops the old ListBuckets fan-out.)
                 var root = NormalizeRoot(drive.Root);   // "bucket/prefix" or "" for the account root
                 if (root.Length == 0)
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     // One synthesized container for the account root (no backing S3 resource). The engine
                     // rejects an EMPTY item path ("value of argument 'path' is not valid"), and an
                     // account-root mount hands GetItem an empty path (Root is empty), so echoing `path`
-                    // back is not enough. Emit the drive-qualified root ("<drive>:") - a valid, non-empty
+                    // back is not enough. Emit the drive-qualified root ("<drive>:"), a valid, non-empty
                     // path the engine accepts and round-trips, mirroring FileSystem's "C:\" root item.
                     var rootPath = string.IsNullOrEmpty(path) ? drive.Name + ":" + Sep : path;
                     WriteItemObject(S3ItemInfo.Folder(drive.Name), rootPath, isContainer: true);

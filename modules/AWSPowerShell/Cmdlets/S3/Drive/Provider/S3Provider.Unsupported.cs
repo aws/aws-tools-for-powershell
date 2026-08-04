@@ -26,9 +26,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // Out-of-scope container/navigation mutators. Without these overrides the base provider throws
         // the engine's GENERIC "provider does not support this operation", which reads as a defect next
         // to the S3-specific guidance the content ops give. Override them to throw a single, consistent,
-        // actionable PSNotSupportedException so all unsupported operations look the same. (Add-Content
-        // is rejected in S3TransferContentWriter.Seek - it routes through the content writer, not a
-        // provider method - and ClearContent below; both use the same message shape.)
+        // actionable PSNotSupportedException so all unsupported operations look the same. (Add-Content,
+        // which routes through the content writer, not a provider method, is rejected in
+        // S3TransferContentWriter.Seek, and ClearContent below; both use the same message shape.)
 
         // Shared message: "<Cmdlet> is not supported by the S3 drive. <guidance>"
         internal static PSNotSupportedException Unsupported(string op, string guidance) =>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     public sealed class S3ItemInfo
     {
-        // Public contract matched by the format.ps1xml view, README, and tests - keep the exact strings
+        // Public contract matched by the format.ps1xml view, README, and tests, so keep the exact strings
         // (consts, not an enum, to keep the on-the-wire values stable).
         public const string TypeBucket = "Bucket";
         public const string TypeFolder = "Folder";
