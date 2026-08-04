@@ -1,0 +1,29 @@
+---
+s3_MountS3PSDrive:
+  title: Use Mount-S3PSDrive
+  title_abbrev: Mount-S3PSDrive
+  synopsis: use Mount-S3PSDrive
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        sdk_action: Mount-S3PSDrive
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Mounts an account-root S3 drive named S3 using the default credential and Region resolution. The cmdlet does not change the current location. Get-PSDrive shows the mounted drive, and Get-ChildItem lists the buckets available to the resolved credentials.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Mount-S3PSDrive.1.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Mounts a drive scoped to a bucket prefix and sets the Region used by the drive. Set-Location enters the drive explicitly because mounting does not change the current location.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Mount-S3PSDrive.2.1.ps1
+          description:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: Mounts an account-root drive using credentials from a named profile.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Mount-S3PSDrive.3.1.ps1
+          description:
+  services:
+    s3:
+      Mount-S3PSDrive:

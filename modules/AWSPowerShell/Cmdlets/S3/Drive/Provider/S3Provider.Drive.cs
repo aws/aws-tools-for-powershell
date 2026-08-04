@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             try
             {
                 var region = ResolveRegion(dp);
-                var creds = ResolveCredentials(dp);   // may be null -> SDK default chain
+                var creds = ResolveCredentials(dp, out var sourceProfileName,
+                    out var sourceProfileLocation);   // may be null -> SDK default chain
 
                 // For an SSO profile with an expired token, surface the guided
                 // "run Invoke-AWSSSOLogin" error up front (as the S3 cmdlets do) instead of letting
@@ -68,11 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
                 // Use this local instance and mount client for ValidateRoot below: this.PSDriveInfo
                 // is not assigned until the engine wires the returned drive back to the provider.
-                // Thread the profile name through so a -ProfileName drive can re-resolve from disk when
-                // its credentials file is rotated externally (see RefreshCredentialsIfProfileChanged).
+                // Thread profile provenance through for explicit -ProfileName and profile-backed
+                // session-default mounts so either form can re-resolve after external key rotation.
                 var s3drive = new S3DriveInfo(drive, creds, region, client, dp?.StorageClass,
-                    CredentialIdentityForDrive(dp, creds),
-                    profileName: dp?.ProfileName, profileLocation: null);
+                    CredentialIdentityForDrive(dp, creds, sourceProfileName, sourceProfileLocation),
+                    profileName: sourceProfileName, profileLocation: sourceProfileLocation);
 
                 // Fail fast on an unreachable root, so a typo errors at mount instead of first listing.
                 if (!ValidateRoot(s3drive, client, drive.Root))

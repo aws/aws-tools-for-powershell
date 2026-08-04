@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly string _bucket;
         private readonly string _key;
         private readonly S3StorageClass _storageClass;
-        private readonly long _partSize;
+        private readonly long? _partSize;
         private readonly bool _noNewline;
         private readonly PushPullStream _bridge;
         private readonly MemoryStream _pending = new MemoryStream();
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             TransferUtility transferUtility, string bucket, string key, bool asByteStream,
             CancellationTokenSource cts, Action onComplete, Action<Exception> onFault,
             Action onDispose,
-            long partSize = 0,
+            long? partSize = null,
             S3StorageClass storageClass = null, System.Text.Encoding encoding = null,
             bool noNewline = false)
         {
@@ -78,6 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _bucket = bucket;
             _key = key;
             _storageClass = storageClass;
+            if (partSize.HasValue &&
+                (partSize.Value < S3ContentWriterDynamicParameters.MinMultipartUploadPartSize ||
+                 partSize.Value > S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize))
+                throw new ArgumentOutOfRangeException(nameof(partSize), partSize.Value,
+                    $"Part size must be between {S3ContentWriterDynamicParameters.MinMultipartUploadPartSize} and {S3ContentWriterDynamicParameters.MaxMultipartUploadPartSize} bytes.");
             _partSize = partSize;
             _noNewline = noNewline;
             _bridge = new PushPullStream(cts.Token);
@@ -97,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             };
             if (_storageClass != null)   // leave unset to let S3 default to STANDARD
                 request.StorageClass = _storageClass;
-            if (_partSize > 0)
-                request.PartSize = _partSize;
+            if (_partSize.HasValue)
+                request.PartSize = _partSize.Value;
 
             // Started lazily, only after content flattens, so an unsupported op (Add-Content's Seek) or
             // invalid byte input can't replace an existing object with an empty one first.
