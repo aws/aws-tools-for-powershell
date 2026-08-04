@@ -57,8 +57,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         var cmdletAttribute = attributes.FirstOrDefault(attr => GetAttributeName(attr) == "Cmdlet");
                         if (cmdletAttribute != null)
                         {
-                            var cmdletVerb = (cmdletAttribute.ArgumentList.Arguments[0].Expression as LiteralExpressionSyntax).Token.ValueText;
-                            var cmdletNoun = (cmdletAttribute.ArgumentList.Arguments[1].Expression as LiteralExpressionSyntax).Token.ValueText;
+                            var cmdletVerb = GetCmdletAttributeValue(cmdletAttribute.ArgumentList.Arguments[0]);
+                            var cmdletNoun = GetCmdletAttributeValue(cmdletAttribute.ArgumentList.Arguments[1]);
                             var cmdletName = $"{cmdletVerb}-{cmdletNoun}";
                             var cmdletInfo = new AdvancedCmdletInfo();
                             advancedCmdlets.Add(cmdletName, cmdletInfo);
@@ -102,6 +102,19 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             catch (Exception e)
             {
                 throw new InvalidDataException($"Error parsing advanced cmdlet file {sourceFile}", e);
+            }
+        }
+
+        private static string GetCmdletAttributeValue(AttributeArgumentSyntax argument)
+        {
+            switch (argument.Expression)
+            {
+                case LiteralExpressionSyntax literal:
+                    return literal.Token.ValueText;
+                case MemberAccessExpressionSyntax memberAccess:
+                    return memberAccess.Name.Identifier.ValueText;
+                default:
+                    throw new InvalidDataException($"Unsupported Cmdlet attribute argument: {argument}");
             }
         }
 
