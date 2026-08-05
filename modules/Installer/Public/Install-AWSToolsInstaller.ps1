@@ -272,6 +272,64 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
             $installedVersion = $null
             
             if ($PSCmdlet.ShouldProcess($target, "Install AWS.Tools.Installer module")) {
+                # A module cannot overwrite the copy it is currently running from: on Windows the
+                # loaded AWS.Tools.Installer.dll is locked, so extracting the same version into the
+                # same folder fails. When the target equals the version loaded in this session, skip
+                # the install (even with -Force) since it would replace the running DLL. The loaded
+                # version stays until PowerShell is restarted, so there is nothing to update
+                # in-process anyway.
+                $loadedModule = $MyInvocation.MyCommand.Module
+                if ($loadedModule) {
+                    # Full loaded version, including any prerelease tag (Module.Version drops it).
+                    $loadedVersionString = $loadedModule.Version.ToString()
+                    if ($loadedModule.PrivateData.PSData.Prerelease) {
+                        $loadedVersionString = "$loadedVersionString-$($loadedModule.PrivateData.PSData.Prerelease)"
+                    }
+
+                    # Target version: resolved up front for CloudFront; read from the zip's version
+                    # folder for a local -SourceZipPath (the file is already on disk here).
+                    $targetVersionString = $null
+                    if ($resolvedVersionObj) {
+                        $targetVersionString = if ($resolvedVersionObj.PSObject.Properties['SemVerString']) {
+                            $resolvedVersionObj.SemVerString
+                        } else {
+                            $resolvedVersionObj.ToString()
+                        }
+                    }
+                    elseif ($SourceZipPath -and (Test-Path -Path $SourceZipPath)) {
+                        # Peek the version folder from the local zip without extracting: entries are
+                        # shaped AWS.Tools.Installer/<version>/AWS.Tools.Installer.psd1.
+                        try {
+                            Add-Type -AssemblyName System.IO.Compression.FileSystem
+                            $zipReader = [System.IO.Compression.ZipFile]::OpenRead($SourceZipPath)
+                            try {
+                                $manifestEntry = $zipReader.Entries |
+                                    Where-Object { $_.FullName -match '^AWS\.Tools\.Installer/([^/]+)/AWS\.Tools\.Installer\.psd1$' } |
+                                    Select-Object -First 1
+                                if ($manifestEntry -and $manifestEntry.FullName -match '^AWS\.Tools\.Installer/([^/]+)/') {
+                                    $targetVersionString = $Matches[1]
+                                }
+                            }
+                            finally {
+                                $zipReader.Dispose()
+                            }
+                        }
+                        catch {
+                            # If the peek fails, fall through and let the normal install path proceed.
+                            Write-Verbose ("[$($MyInvocation.MyCommand)] Could not read version from ${SourceZipPath}: $($_.Exception.Message)")
+                        }
+                    }
+
+                    if ($targetVersionString -and $targetVersionString -eq $loadedVersionString) {
+                        Write-Verbose ("[$($MyInvocation.MyCommand)] AWS.Tools.Installer version $targetVersionString is loaded in this session; skipping self-install")
+                        Write-Host "Skipped installation: AWS.Tools.Installer version $targetVersionString is already installed and loaded in this session."
+                        if ($Force) {
+                            Write-Warning "AWS.Tools.Installer $targetVersionString is loaded in this session and cannot be reinstalled in place. Restart PowerShell in a new session to reinstall it."
+                        }
+                        return
+                    }
+                }
+
                 # Check if version is already installed BEFORE downloading to avoid unnecessary network calls
                 # This check happens AFTER ShouldProcess so WhatIf users see what would be installed
                 if (-not $SourceZipPath -and -not $Force -and $resolvedVersionObj) {

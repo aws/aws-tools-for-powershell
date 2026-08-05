@@ -222,6 +222,30 @@ function Uninstall-AWSToolsInstaller {
             }
         }
 
+        # Exclude the version loaded in this session: on Windows its AWS.Tools.Installer.dll is
+        # locked, so removing that directory fails (and a partial delete would orphan the folder).
+        # Leave it in place and tell the user to restart PowerShell to remove it. This also covers
+        # the Install -Cleanup flow, which uninstalls previous versions after installing the new one.
+        $loadedModule = $MyInvocation.MyCommand.Module
+        if ($loadedModule -and $installedModules) {
+            # Full loaded version, including any prerelease tag (Module.Version drops it).
+            $loadedVersionString = $loadedModule.Version.ToString()
+            if ($loadedModule.PrivateData.PSData.Prerelease) {
+                $loadedVersionString = "$loadedVersionString-$($loadedModule.PrivateData.PSData.Prerelease)"
+            }
+            # Build the same version string per installed module so prerelease tags compare correctly.
+            $moduleVersionString = {
+                param($m)
+                $v = "$($m.Version.Major).$($m.Version.Minor).$($m.Version.Build)"
+                if ($m.PrivateData.PSData.Prerelease) { "$v-$($m.PrivateData.PSData.Prerelease)" } else { $v }
+            }
+            $isLoaded = { (& $moduleVersionString $args[0]) -eq $loadedVersionString }
+            if (@($installedModules | Where-Object { & $isLoaded $_ })) {
+                $installedModules = @($installedModules | Where-Object { -not (& $isLoaded $_) })
+                Write-Warning "AWS.Tools.Installer $loadedVersionString is loaded in this session and cannot be removed in place. Restart PowerShell in a new session to remove it."
+            }
+        }
+
         # Process AWS.Tools.Installer modules
         if ($installedModules) {
             $target = Format-ModuleTarget -Modules $installedModules -TargetPath $targetPath -ModuleType "AWS.Tools.Installer"
