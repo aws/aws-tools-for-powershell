@@ -672,6 +672,35 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             Remove-Item "PSTest:\$($script:Bucket)\$prefix" -Recurse -WhatIf
             S3PrefixObjectCount $script:Bucket "$prefix/" | Should -Be 1   # raw listing bypasses provider caches
         }
+        # -Filter must scope a recursive delete to matching leaf names, exactly as Get-ChildItem
+        # -Filter -Recurse does. Regression guard for a data-loss bug where RemoveItem ignored the
+        # filter and deleted every object under the prefix, including non-matching ones and nested keys.
+        It "removes only -Filter matches under -Recurse, leaving non-matching objects" {
+            $prefix = "delfilter-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/a.log"        -Value "a"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/keep.txt"     -Value "k"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/sub/c.log"    -Value "c"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/sub/keep2.txt" -Value "k2"
+
+            Remove-Item "PSTest:\$($script:Bucket)\$prefix" -Filter *.log -Recurse
+
+            # Assert via the raw client (bypasses provider caches). Only the .txt objects survive.
+            S3ObjectExists $script:Bucket "$prefix/a.log"        | Should -BeFalse
+            S3ObjectExists $script:Bucket "$prefix/sub/c.log"    | Should -BeFalse
+            S3ObjectExists $script:Bucket "$prefix/keep.txt"     | Should -BeTrue
+            S3ObjectExists $script:Bucket "$prefix/sub/keep2.txt" | Should -BeTrue
+        }
+        # No filter => the recursive delete still removes everything (the fix must not regress this).
+        It "removes every object under -Recurse when no -Filter is given" {
+            $prefix = "delnofilter-$([DateTime]::Now.ToFileTime())"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/a.log"     -Value "a"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/keep.txt"  -Value "k"
+            Set-Content "PSTest:\$($script:Bucket)\$prefix/sub/b.txt" -Value "b"
+
+            Remove-Item "PSTest:\$($script:Bucket)\$prefix" -Recurse
+
+            S3PrefixObjectCount $script:Bucket "$prefix/" | Should -Be 0
+        }
     }
 
     Context "Unsupported operations error cleanly" {
