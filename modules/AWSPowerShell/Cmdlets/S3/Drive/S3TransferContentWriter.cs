@@ -28,10 +28,13 @@ using Amazon.S3.Transfer;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// IContentWriter that uploads to S3 via TransferUtility. Because PowerShell pushes blocks at
-    /// Write/Close but TU pulls from a stream, a non-seekable PushPullStream bridges them (forcing TU's
-    /// multipart path) and the upload runs on a background task reading the bridge. Faults surface only
-    /// on the pipeline thread, never from the task; Ctrl+C cancels the shared CTS to abort TU's read.
+    /// IContentWriter that uploads to S3 via TransferUtility. Buffers written content and decides at
+    /// Close: content that stays under SimpleUploadThreshold is handed to TU as a seekable stream, so TU
+    /// picks a single PutObject; content that crosses the threshold escalates to the streaming path.
+    /// That path bridges PowerShell's push (Write/Close) to TU's pull with a non-seekable PushPullStream
+    /// (forcing TU's multipart path) and runs the upload on a background task reading the bridge. Faults
+    /// surface only on the pipeline thread, never from the task; Ctrl+C cancels the shared CTS to abort
+    /// TU's read.
     /// </summary>
     internal sealed class S3TransferContentWriter : IContentWriter
     {
@@ -49,6 +52,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private readonly bool _noNewline;
         private readonly PushPullStream _bridge;
         private readonly MemoryStream _pending = new MemoryStream();
+        // Below this many buffered bytes, Close hands _pending to TU as one seekable stream, so TU
+        // uploads with a single PutObject. Above it, we escalate to the streaming multipart bridge. 5 MiB
+        // is S3's smallest multipart part (so multipart buys nothing below it) and is under TU's 16 MiB
+        // MinSizeBeforePartUpload, so a seekable stream under it is guaranteed to be a single PutObject.
+        // Fixed internal bound, not the user's -PartSize, so the buffering path stays memory-bounded.
+        private const long SimpleUploadThreshold = S3ContentWriterDynamicParameters.MinMultipartUploadPartSize;
+        private bool _streaming;   // true once we escalate from buffering to the multipart bridge
         private Task _uploadTask;
         // The real upload failure, captured by the fault continuation before _uploadTask.IsFaulted is
         // observable; otherwise a bridge cancel could surface as a bare OperationCanceledException.
@@ -85,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             _bridge = new PushPullStream(cts.Token);
         }
 
-        private void EnsureUploadStarted()
+        private void EnsureStreamingUploadStarted()
         {
             if (_uploadTask != null) return;
 
@@ -122,8 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 foreach (var item in content)
                 {
                     AppendItem(_pending, item);
-                    if (_pending.Length >= BufferedUploadChunkSize)
-                        FlushPending();
+                    if (_streaming)
+                    {
+                        // Already streaming: flush at the bridge cadence to keep the buffer small.
+                        if (_pending.Length >= BufferedUploadChunkSize)
+                            FlushToBridge();
+                    }
+                    else if (_pending.Length >= SimpleUploadThreshold)
+                    {
+                        // Outgrew the simple path: switch to the streaming multipart bridge.
+                        EscalateToStreaming();
+                    }
                 }
                 return content;   // contract: return what we were handed
             }
@@ -150,10 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (_failedBeforeClose)
                     return;
 
-                FlushPending();
-                EnsureUploadStarted();
-                _bridge.CompleteProducing();          // EOF -> TU finishes reading and completes
-                _uploadTask.GetAwaiter().GetResult(); // throws here if the upload faulted
+                if (_streaming)
+                {
+                    FlushToBridge();
+                    _bridge.CompleteProducing();          // EOF -> TU finishes reading and completes
+                    _uploadTask.GetAwaiter().GetResult(); // throws here if the upload faulted
+                }
+                else
+                {
+                    UploadBufferedAsSimple();             // one PutObject from the seekable buffer
+                }
                 _onComplete?.Invoke();                // success: let the provider invalidate its cache
             }
             catch (Exception ex)
@@ -173,14 +198,48 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // Buffer before pushing to the bridge, so byte-record input doesn't push one byte at a time.
         private const int BufferedUploadChunkSize = 80 * 1024;
 
-        private void FlushPending()
+        // Switch from buffering to the streaming multipart bridge: start the upload, then drain whatever
+        // is already buffered into the bridge. Called once, the first time _pending crosses the threshold.
+        private void EscalateToStreaming()
+        {
+            _streaming = true;
+            EnsureStreamingUploadStarted();
+            FlushToBridge();
+        }
+
+        // Push buffered bytes into the bridge. Streaming mode only: callers (EscalateToStreaming, Close)
+        // start the upload before flushing, so this never has to, and Produce always has a reader waiting.
+        private void FlushToBridge()
         {
             if (_pending.Length == 0) return;
 
-            EnsureUploadStarted();
             _bridge.Produce(_pending.ToArray());   // blocks under backpressure
             _pending.SetLength(0);
             _pending.Position = 0;
+        }
+
+        // The simple path: hand TU the whole buffer as a seekable stream with a known length. Because the
+        // length is under MinSizeBeforePartUpload, TU chooses SimpleUploadCommand (a single PutObject).
+        // Runs synchronously inside Close, so a fault propagates to Close's catch. No cancel continuation
+        // is needed: there is no background producer to unblock.
+        private void UploadBufferedAsSimple()
+        {
+            // Rewind so TU reads ContentLength as the full buffer (that read happens before marshalling
+            // and picks the simple vs multipart path). AutoResetStreamPosition then reseeks to 0 at
+            // marshal time, so the first send and any SDK retry both read from the start.
+            _pending.Position = 0;
+            var request = new TransferUtilityUploadRequest
+            {
+                BucketName = _bucket,
+                Key = _key,
+                InputStream = _pending,
+                AutoCloseStream = false,          // Dispose owns _pending's lifetime
+                AutoResetStreamPosition = true,   // seekable buffer: reseek to 0 before each (re)send
+            };
+            if (_storageClass != null)   // leave unset to let S3 default to STANDARD
+                request.StorageClass = _storageClass;
+            // No PartSize: irrelevant for a single PutObject.
+            _transferUtility.UploadAsync(request, _cts.Token).GetAwaiter().GetResult();
         }
 
         // Flatten one engine-produced element to bytes: byte / byte[] / nested object[] in byte mode;
