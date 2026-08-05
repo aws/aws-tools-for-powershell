@@ -57,6 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
                 else
                 {
+                    // Honor -Filter on the single object too, so it never deletes a non-matching key
+                    // the user named explicitly. No filter set => MatchesFilter is true (delete).
+                    if (!MatchesFilter(LeafName(key)))
+                        return;
+
                     if (!ShouldProcess(path, "Remove S3 object"))
                         return;
 
@@ -99,6 +104,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     {
                         foreach (var obj in resp.S3Objects)
                         {
+                            // Honor -Filter: it matches the leaf name, same as the listing path
+                            // (GetChildItems -Recurse). Without this a filtered delete would remove
+                            // every object under the prefix, not just the matches. No filter set =>
+                            // MatchesFilter returns true, so everything is deleted as before.
+                            if (!MatchesFilter(LeafName(obj.Key)))
+                                continue;
                             batch.Add(new KeyVersion { Key = obj.Key });
                             if (batch.Count == DeleteBatchSize)
                             {
@@ -114,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
                 // Also delete the object at the exact key: when a name is both folder ("key/...") and
                 // object ("key"), the sweep above only covers "key/", leaving the shadowed object behind.
+                // Filtered the same way, so a filter can't sweep away the shadowed object either.
                 var exactKey = key.TrimEnd('/');
-                if (exactKey.Length > 0)
+                if (exactKey.Length > 0 && MatchesFilter(LeafName(exactKey)))
                     batch.Add(new KeyVersion { Key = exactKey });
 
                 if (batch.Count > 0)
