@@ -234,9 +234,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return ResolveEncoding(encName);
         }
 
-        // Backs Set-Content (upload). The writer feeds TU a non-seekable bridge stream, so every upload
-        // takes TU's multipart path: the object is replaced only at CompleteMultipartUpload, and TU
-        // aborts on failure/cancellation. Bounded memory (the bridge applies backpressure), no temp file.
+        // Backs Set-Content (upload). The writer buffers content and decides at Close: under 5 MiB it
+        // hands TU a seekable stream (one PutObject); at/over that it streams through a non-seekable
+        // bridge on TU's multipart path, where the object is replaced only at CompleteMultipartUpload and
+        // TU aborts on failure/cancellation. Bounded memory either way (the bridge applies backpressure),
+        // no temp file.
         public IContentWriter GetContentWriter(string path)
         {
             if (!TryParseObjectPath(path,

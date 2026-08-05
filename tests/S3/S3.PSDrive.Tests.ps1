@@ -76,6 +76,18 @@ BeforeAll {
         return $resp.PartsCount
     }
 
+    # True if the object was uploaded multipart. S3 encodes the part count after a dash in the ETag
+    # of a multipart object ("<md5>-<parts>"); a single PutObject gets a plain MD5 ETag with no dash.
+    # This is how the write tests tell the writer's simple (PutObject) path from its streaming
+    # multipart path without any SDK logging.
+    function script:S3WasMultipart([string]$bucket, [string]$key, $client = $null) {
+        if (-not $client) { $client = $script:S3 }
+        $req = New-Object Amazon.S3.Model.GetObjectMetadataRequest
+        $req.BucketName = $bucket; $req.Key = $key
+        $resp = $client.GetObjectMetadataAsync($req).GetAwaiter().GetResult()
+        return [bool]($resp.ETag -match '-\d+"?$')
+    }
+
     function script:S3GetText([string]$bucket, [string]$key, $client = $null) {
         if (-not $client) { $client = $script:S3 }
         $req = New-Object Amazon.S3.Model.GetObjectRequest
@@ -469,6 +481,75 @@ Describe -Tag "Smoke" "S3 PowerShell drive provider" {
             $srcHash = [BitConverter]::ToString($sha.ComputeHash($src))
             $gotHash = [BitConverter]::ToString($sha.ComputeHash($flat))
             $gotHash | Should -Be $srcHash   # byte-exact through multipart up + down
+        }
+    }
+
+    # The writer buffers content and decides at Close: under SimpleUploadThreshold (5 MiB) it hands
+    # TU a seekable stream so TU does a single PutObject; at or above it, it escalates to the
+    # streaming multipart bridge. These tests pin both the byte-correctness of that decision and that
+    # it actually engages, read from the stored object's ETag (see S3WasMultipart): a dashless ETag
+    # means one PutObject, a dashed one means multipart. The sub-threshold cases are fast and stay
+    # enabled; the over-threshold cases transfer >=5 MiB, so they carry the suite's "Disabled" slow tag.
+    Context "Small-write single PutObject (buffer-then-decide)" {
+        It "round-trips <name> as a single PutObject (no multipart)" -TestCases @(
+            @{ name = '0 bytes';  size = 0 }
+            @{ name = '1 byte';   size = 1 }
+            @{ name = '1 KB';     size = 1024 }
+            @{ name = '100 KB';   size = 100 * 1024 }
+            @{ name = '4.9 MiB';  size = [int](4.9 * 1024 * 1024) }
+        ) {
+            param($name, $size)
+            $key = "smallwrite/put-$($size)-$([DateTime]::Now.ToFileTime()).bin"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            $payload = [byte[]]::new($size)
+            if ($size -gt 0) { (New-Object System.Random ($size + 1)).NextBytes($payload) }
+
+            Set-Content $path -AsByteStream -Value $payload
+
+            S3WasMultipart $script:Bucket $key | Should -BeFalse   # single PutObject
+            $got = S3GetBytes $script:Bucket $key
+            $got.Length | Should -Be $size
+            if ($size -gt 0) {
+                $sha = [System.Security.Cryptography.SHA256]::Create()
+                try {
+                    [BitConverter]::ToString($sha.ComputeHash($got)) |
+                        Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+                } finally { $sha.Dispose() }
+            }
+        }
+
+        It "forwards -StorageClass on the simple path" {
+            $key = "smallwrite/sc-$([DateTime]::Now.ToFileTime()).txt"
+            Set-Content "PSTest:\$($script:Bucket)\$key" -Value 'sc' -StorageClass STANDARD_IA
+            S3WasMultipart $script:Bucket $key | Should -BeFalse
+            $req = New-Object Amazon.S3.Model.GetObjectMetadataRequest
+            $req.BucketName = $script:Bucket; $req.Key = $key
+            $resp = $script:S3.GetObjectMetadataAsync($req).GetAwaiter().GetResult()
+            $resp.StorageClass.Value | Should -Be 'STANDARD_IA'
+        }
+
+        # >=5 MiB must still escalate to multipart. Slow (transfers several MiB), so Disabled-tagged
+        # like the other large-object cases; the sub-threshold cases above run by default.
+        It "escalates <name> to multipart" -Tag "Disabled" -TestCases @(
+            @{ name = '5 MiB (exactly at threshold)'; size = 5 * 1024 * 1024 }
+            @{ name = '10 MiB';                        size = 10 * 1024 * 1024 }
+        ) {
+            param($name, $size)
+            $key = "smallwrite/multi-$($size)-$([DateTime]::Now.ToFileTime()).bin"
+            $path = "PSTest:\$($script:Bucket)\$key"
+            $payload = [byte[]]::new($size)
+            (New-Object System.Random ($size + 2)).NextBytes($payload)
+
+            Set-Content $path -AsByteStream -Value $payload
+
+            S3WasMultipart $script:Bucket $key | Should -BeTrue   # streaming multipart path
+            $got = S3GetBytes $script:Bucket $key
+            $got.Length | Should -Be $size
+            $sha = [System.Security.Cryptography.SHA256]::Create()
+            try {
+                [BitConverter]::ToString($sha.ComputeHash($got)) |
+                    Should -Be ([BitConverter]::ToString($sha.ComputeHash($payload)))
+            } finally { $sha.Dispose() }
         }
     }
 
