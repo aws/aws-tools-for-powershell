@@ -585,6 +585,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataCatalogExportConfiguration" OutputProperty="*" Verb="Get" Noun="DataCatalogExportConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataflowGraph" OutputProperty="*" Verb="Get" Noun="DataflowGraph" PipelineParameter="PythonScript" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1031,6 +1035,10 @@
                 <Param Name="DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionServiceRole" NewName="EncryptionAtRest_CatalogEncryptionServiceRole" />
                 <Param Name="DataCatalogEncryptionSettings_EncryptionAtRest_SseAwsKmsKeyId" NewName="EncryptionAtRest_SseAwsKmsKeyId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataCatalogExportConfiguration" OutputProperty="*" Verb="Write" Noun="DataCatalogExportConfiguration" ShouldProcessTarget="ExportSetting" PipelineParameter="ExportSetting" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataQualityProfileAnnotation" Verb="Write" Noun="DataQualityProfileAnnotation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">

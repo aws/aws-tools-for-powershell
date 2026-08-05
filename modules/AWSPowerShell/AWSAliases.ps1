@@ -15977,6 +15977,7 @@ Set-Alias -Name Get-GLUEDatabases -Value Get-GLUEDatabaseList
 Set-Alias -Name GLUE-GetDatabases -Value Get-GLUEDatabaseList
 Set-Alias -Name Get-GLUEDataCatalogEncryptionSettings -Value Get-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name GLUE-GetDataCatalogEncryptionSettings -Value Get-GLUEDataCatalogEncryptionSetting
+Set-Alias -Name GLUE-GetDataCatalogExportConfiguration -Value Get-GLUEDataCatalogExportConfiguration
 Set-Alias -Name GLUE-GetDataflowGraph -Value Get-GLUEDataflowGraph
 Set-Alias -Name GLUE-GetDataQualityModel -Value Get-GLUEDataQualityModel
 Set-Alias -Name GLUE-GetDataQualityModelResult -Value Get-GLUEDataQualityModelResult
@@ -16165,6 +16166,8 @@ Set-Alias -Name GLUE-PutAttachment -Value Write-GLUEAttachment
 Set-Alias -Name Put-GLUEDataCatalogEncryptionSettings -Value Set-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name Put-GLUEDataCatalogEncryptionSetting -Value Set-GLUEDataCatalogEncryptionSetting
 Set-Alias -Name GLUE-PutDataCatalogEncryptionSettings -Value Set-GLUEDataCatalogEncryptionSetting
+Set-Alias -Name Put-GLUEDataCatalogExportConfiguration -Value Write-GLUEDataCatalogExportConfiguration
+Set-Alias -Name GLUE-PutDataCatalogExportConfiguration -Value Write-GLUEDataCatalogExportConfiguration
 Set-Alias -Name Put-GLUEDataQualityProfileAnnotation -Value Write-GLUEDataQualityProfileAnnotation
 Set-Alias -Name GLUE-PutDataQualityProfileAnnotation -Value Write-GLUEDataQualityProfileAnnotation
 Set-Alias -Name Put-GLUEFormType -Value Write-GLUEFormType

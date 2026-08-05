@@ -241,6 +241,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ExportSetting
+        "Write-GLUEDataCatalogExportConfiguration/ExportSetting"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Glue.FilterMode
         {
             ($_ -eq "Register-GLUEConnectionType/RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode") -Or
@@ -693,6 +700,7 @@ $GLUE_map = @{
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
+    "ExportSetting"=@("Write-GLUEDataCatalogExportConfiguration")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
@@ -919,6 +927,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDatabase",
                "Get-GLUEDatabaseList",
                "Get-GLUEDataCatalogEncryptionSetting",
+               "Get-GLUEDataCatalogExportConfiguration",
                "Get-GLUEDataflowGraph",
                "Get-GLUEDataQualityModel",
                "Get-GLUEDataQualityModelResult",
@@ -1018,6 +1027,7 @@ $GLUE_SelectMap = @{
                "Write-GLUEAssetType",
                "Write-GLUEAttachment",
                "Set-GLUEDataCatalogEncryptionSetting",
+               "Write-GLUEDataCatalogExportConfiguration",
                "Write-GLUEDataQualityProfileAnnotation",
                "Write-GLUEFormType",
                "Set-GLUEResourcePolicy",

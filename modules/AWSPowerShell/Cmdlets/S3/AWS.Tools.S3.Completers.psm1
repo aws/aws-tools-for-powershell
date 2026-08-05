@@ -638,15 +638,15 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
-               "Test-S3Bucket",
-               "Read-S3Object",
-               "Remove-S3MultipartUpload",
                "Remove-S3Object",
-               "Copy-S3Object",
                "New-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
                "Remove-S3Bucket",
+               "Copy-S3Object",
                "Get-S3MultipartUpload",
+               "Test-S3Bucket",
+               "Get-S3PreSignedURL",
                "Write-S3Object")
 }
 

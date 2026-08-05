@@ -193,6 +193,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.ConnectorConfiguration[] TargetConfiguration_Mcp_Connector_Configuration { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Http_Connector_Source_ConnectorId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the HTTP connector integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetConfiguration_Http_Connector_Source_ConnectorId { get; set; }
+        #endregion
+        
         #region Parameter TargetConfiguration_Inference_Connector_Source_ConnectorId
         /// <summary>
         /// <para>
@@ -441,6 +451,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetConfiguration_Inference_Provider_Operations")]
         public Amazon.BedrockAgentCoreControl.Model.InferenceOperationConfiguration[] TargetConfiguration_Inference_Provider_Operation { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_Http_Connector_Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The resource parameters for this connector (for example, <c>memoryId</c>). The service
+        /// validates these parameters against the request path at runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Http_Connector_Parameters")]
+        public System.Collections.Hashtable TargetConfiguration_Http_Connector_Parameter { get; set; }
         #endregion
         
         #region Parameter TargetConfiguration_Http_Passthrough_ProtocolType
@@ -837,6 +863,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_InlinePayload = this.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_InlinePayload;
             context.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_BucketOwnerAccountId = this.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_BucketOwnerAccountId;
             context.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_Uri = this.TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_Uri;
+            if (this.TargetConfiguration_Http_Connector_Parameter != null)
+            {
+                context.TargetConfiguration_Http_Connector_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TargetConfiguration_Http_Connector_Parameter.Keys)
+                {
+                    context.TargetConfiguration_Http_Connector_Parameter.Add((String)hashKey, (System.String)(this.TargetConfiguration_Http_Connector_Parameter[hashKey]));
+                }
+            }
+            context.TargetConfiguration_Http_Connector_Source_ConnectorId = this.TargetConfiguration_Http_Connector_Source_ConnectorId;
             context.TargetConfiguration_Http_Passthrough_Endpoint = this.TargetConfiguration_Http_Passthrough_Endpoint;
             context.TargetConfiguration_Http_Passthrough_ProtocolType = this.TargetConfiguration_Http_Passthrough_ProtocolType;
             context.TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload = this.TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload;
@@ -1082,11 +1117,201 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate TargetConfiguration
             var requestTargetConfigurationIsNull = true;
             request.TargetConfiguration = new Amazon.BedrockAgentCoreControl.Model.TargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.InferenceTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference = null;
+            
+             // populate Inference
+            var requestTargetConfiguration_targetConfiguration_InferenceIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference = new Amazon.BedrockAgentCoreControl.Model.InferenceTargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.InferenceConnectorTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = null;
+            
+             // populate Connector
+            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = new Amazon.BedrockAgentCoreControl.Model.InferenceConnectorTargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.InferenceConnectorSource requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = null;
+            
+             // populate Source
+            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = new Amazon.BedrockAgentCoreControl.Model.InferenceConnectorSource();
+            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId = null;
+            if (cmdletContext.TargetConfiguration_Inference_Connector_Source_ConnectorId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId = cmdletContext.TargetConfiguration_Inference_Connector_Source_ConnectorId;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source.ConnectorId = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector.Source = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference.Connector = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector;
+                requestTargetConfiguration_targetConfiguration_InferenceIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.InferenceProviderTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = null;
+            
+             // populate Provider
+            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = new Amazon.BedrockAgentCoreControl.Model.InferenceProviderTargetConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint = null;
+            if (cmdletContext.TargetConfiguration_Inference_Provider_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint = cmdletContext.TargetConfiguration_Inference_Provider_Endpoint;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.Endpoint = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
+            }
+            List<Amazon.BedrockAgentCoreControl.Model.InferenceOperationConfiguration> requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation = null;
+            if (cmdletContext.TargetConfiguration_Inference_Provider_Operation != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation = cmdletContext.TargetConfiguration_Inference_Provider_Operation;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.Operations = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.ModelMapping requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = null;
+            
+             // populate ModelMapping
+            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = new Amazon.BedrockAgentCoreControl.Model.ModelMapping();
+            Amazon.BedrockAgentCoreControl.Model.ProviderPrefix requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = null;
+            
+             // populate ProviderPrefix
+            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = new Amazon.BedrockAgentCoreControl.Model.ProviderPrefix();
+            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator = null;
+            if (cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator = cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix.Separator = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = false;
+            }
+            System.Boolean? requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip = null;
+            if (cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip = cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip.Value;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix.Strip = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip.Value;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping.ProviderPrefix = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.ModelMapping = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping;
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference.Provider = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider;
+                requestTargetConfiguration_targetConfiguration_InferenceIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Inference should be set to null
+            if (requestTargetConfiguration_targetConfiguration_InferenceIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Inference = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Inference != null)
+            {
+                request.TargetConfiguration.Inference = requestTargetConfiguration_targetConfiguration_Inference;
+                requestTargetConfigurationIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.HttpTargetConfiguration requestTargetConfiguration_targetConfiguration_Http = null;
             
              // populate Http
             var requestTargetConfiguration_targetConfiguration_HttpIsNull = true;
             requestTargetConfiguration_targetConfiguration_Http = new Amazon.BedrockAgentCoreControl.Model.HttpTargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.HttpConnectorTargetConfiguration requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector = null;
+            
+             // populate Connector
+            var requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_ConnectorIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector = new Amazon.BedrockAgentCoreControl.Model.HttpConnectorTargetConfiguration();
+            Dictionary<System.String, System.String> requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Parameter = null;
+            if (cmdletContext.TargetConfiguration_Http_Connector_Parameter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Parameter = cmdletContext.TargetConfiguration_Http_Connector_Parameter;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Parameter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector.Parameters = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Parameter;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_ConnectorIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.HttpConnectorSource requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source = null;
+            
+             // populate Source
+            var requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_SourceIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source = new Amazon.BedrockAgentCoreControl.Model.HttpConnectorSource();
+            System.String requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source_targetConfiguration_Http_Connector_Source_ConnectorId = null;
+            if (cmdletContext.TargetConfiguration_Http_Connector_Source_ConnectorId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source_targetConfiguration_Http_Connector_Source_ConnectorId = cmdletContext.TargetConfiguration_Http_Connector_Source_ConnectorId;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source_targetConfiguration_Http_Connector_Source_ConnectorId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source.ConnectorId = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source_targetConfiguration_Http_Connector_Source_ConnectorId;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_SourceIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_SourceIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector.Source = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector_targetConfiguration_Http_Connector_Source;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_ConnectorIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_ConnectorIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http.Connector = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Connector;
+                requestTargetConfiguration_targetConfiguration_HttpIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.RuntimeTargetConfiguration requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_AgentcoreRuntime = null;
             
              // populate AgentcoreRuntime
@@ -1350,146 +1575,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestTargetConfiguration_targetConfiguration_Http != null)
             {
                 request.TargetConfiguration.Http = requestTargetConfiguration_targetConfiguration_Http;
-                requestTargetConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.InferenceTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference = null;
-            
-             // populate Inference
-            var requestTargetConfiguration_targetConfiguration_InferenceIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference = new Amazon.BedrockAgentCoreControl.Model.InferenceTargetConfiguration();
-            Amazon.BedrockAgentCoreControl.Model.InferenceConnectorTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = null;
-            
-             // populate Connector
-            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = new Amazon.BedrockAgentCoreControl.Model.InferenceConnectorTargetConfiguration();
-            Amazon.BedrockAgentCoreControl.Model.InferenceConnectorSource requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = null;
-            
-             // populate Source
-            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = new Amazon.BedrockAgentCoreControl.Model.InferenceConnectorSource();
-            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId = null;
-            if (cmdletContext.TargetConfiguration_Inference_Connector_Source_ConnectorId != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId = cmdletContext.TargetConfiguration_Inference_Connector_Source_ConnectorId;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source.ConnectorId = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source_targetConfiguration_Inference_Connector_Source_ConnectorId;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_SourceIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector.Source = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector_targetConfiguration_Inference_Connector_Source;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ConnectorIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference.Connector = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Connector;
-                requestTargetConfiguration_targetConfiguration_InferenceIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.InferenceProviderTargetConfiguration requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = null;
-            
-             // populate Provider
-            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = new Amazon.BedrockAgentCoreControl.Model.InferenceProviderTargetConfiguration();
-            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint = null;
-            if (cmdletContext.TargetConfiguration_Inference_Provider_Endpoint != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint = cmdletContext.TargetConfiguration_Inference_Provider_Endpoint;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.Endpoint = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Endpoint;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
-            }
-            List<Amazon.BedrockAgentCoreControl.Model.InferenceOperationConfiguration> requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation = null;
-            if (cmdletContext.TargetConfiguration_Inference_Provider_Operation != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation = cmdletContext.TargetConfiguration_Inference_Provider_Operation;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.Operations = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_Operation;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
-            }
-            Amazon.BedrockAgentCoreControl.Model.ModelMapping requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = null;
-            
-             // populate ModelMapping
-            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = new Amazon.BedrockAgentCoreControl.Model.ModelMapping();
-            Amazon.BedrockAgentCoreControl.Model.ProviderPrefix requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = null;
-            
-             // populate ProviderPrefix
-            var requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = true;
-            requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = new Amazon.BedrockAgentCoreControl.Model.ProviderPrefix();
-            System.String requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator = null;
-            if (cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator = cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix.Separator = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Separator;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = false;
-            }
-            System.Boolean? requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip = null;
-            if (cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip = cmdletContext.TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip.Value;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix.Strip = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip.Value;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefixIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping.ProviderPrefix = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping_targetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMappingIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider.ModelMapping = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider_targetConfiguration_Inference_Provider_ModelMapping;
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_ProviderIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider != null)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference.Provider = requestTargetConfiguration_targetConfiguration_Inference_targetConfiguration_Inference_Provider;
-                requestTargetConfiguration_targetConfiguration_InferenceIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Inference should be set to null
-            if (requestTargetConfiguration_targetConfiguration_InferenceIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Inference = null;
-            }
-            if (requestTargetConfiguration_targetConfiguration_Inference != null)
-            {
-                request.TargetConfiguration.Inference = requestTargetConfiguration_targetConfiguration_Inference;
                 requestTargetConfigurationIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.McpTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp = null;
@@ -2040,6 +2125,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_InlinePayload { get; set; }
             public System.String TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_BucketOwnerAccountId { get; set; }
             public System.String TargetConfiguration_Http_AgentcoreRuntime_Schema_Source_S3_Uri { get; set; }
+            public Dictionary<System.String, System.String> TargetConfiguration_Http_Connector_Parameter { get; set; }
+            public System.String TargetConfiguration_Http_Connector_Source_ConnectorId { get; set; }
             public System.String TargetConfiguration_Http_Passthrough_Endpoint { get; set; }
             public Amazon.BedrockAgentCoreControl.PassthroughProtocolType TargetConfiguration_Http_Passthrough_ProtocolType { get; set; }
             public System.String TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload { get; set; }

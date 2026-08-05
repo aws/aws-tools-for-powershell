@@ -1,4 +1,13 @@
-﻿### 5.0.269 (2026-08-04 21:56Z)
+﻿### 5.0.270 (2026-08-05 19:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.305.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameters TargetConfiguration_Http_Connector_Parameter and TargetConfiguration_Http_Connector_Source_ConnectorId.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters TargetConfiguration_Http_Connector_Parameter and TargetConfiguration_Http_Connector_Source_ConnectorId.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataCatalogExportConfiguration leveraging the GetDataCatalogExportConfiguration service API.
+    * Added cmdlet Write-GLUEDataCatalogExportConfiguration leveraging the PutDataCatalogExportConfiguration service API.
+
+### 5.0.269 (2026-08-04 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.304.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DynamoDB
     * Added cmdlet Search-DDBVector leveraging the SearchVectors service API.
