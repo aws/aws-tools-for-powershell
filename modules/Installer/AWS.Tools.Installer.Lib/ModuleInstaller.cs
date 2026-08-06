@@ -65,6 +65,15 @@ namespace Amazon.PowerShell.Installer
         private static readonly bool IsWindows =
             RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 
+        // Win32 sharing-violation code surfaced on IOException.HResult when a file is locked by
+        // another handle, e.g. the loaded AWS.Tools.Installer.dll during a self-update.
+        private const int HResultSharingViolation = unchecked((int)0x80070020);
+
+        // Suffix for a locked file moved aside so its replacement can take the original path. A
+        // loaded assembly cannot be deleted or truncated but can be renamed on the same volume.
+        // SweepLockedRenames deletes these once the lock is gone (a later install or a restart).
+        public const string LockedRenameSuffix = ".awstoolsdelete";
+
         /// <summary>
         /// Deletes each directory in <paramref name="paths"/> in parallel, then sweeps any
         /// parent directories that became empty as a result. Returns the paths that could
@@ -155,6 +164,10 @@ namespace Amazon.PowerShell.Installer
         /// (e.g. <c>AWS.Tools.Common</c>). Ignored if <paramref name="moduleNames"/> is null/empty.</param>
         /// <param name="ct">Cancellation token. Pass <c>$PSCmdlet.StoppingToken</c> from PowerShell
         /// to make the install interruptible by Ctrl+C.</param>
+        /// <param name="handleLockedFiles">When true, a destination locked by the running process
+        /// (the loaded AWS.Tools.Installer.dll during a self-update) is skipped if its content
+        /// already matches, or replaced via rename if it differs. Only Install-AWSToolsInstaller
+        /// passes true; module installs leave this false and keep the original write behavior.</param>
         /// <returns>One <see cref="InstalledModule"/> per (module, version) pair extracted.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="zipPath"/> or <paramref name="targetPath"/> is null.</exception>
         /// <exception cref="FileNotFoundException">No file at <paramref name="zipPath"/>.</exception>
@@ -163,13 +176,19 @@ namespace Amazon.PowerShell.Installer
         public static InstalledModule[] ExtractAndInstall(
             string zipPath, string targetPath,
             string[]? moduleNames, string[]? mandatoryModules,
-            CancellationToken ct = default)
+            CancellationToken ct = default,
+            bool handleLockedFiles = false)
         {
             if (zipPath is null) throw new ArgumentNullException(nameof(zipPath));
             if (targetPath is null) throw new ArgumentNullException(nameof(targetPath));
             if (!File.Exists(zipPath)) throw new FileNotFoundException("Zip file not found.", zipPath);
 
             Directory.CreateDirectory(targetPath);
+
+            // Remove marker files left when a prior self-update replaced a locked DLL. Installer
+            // only; module installs never set the flag, so their behavior is unchanged.
+            if (handleLockedFiles)
+                SweepLockedRenames(targetPath);
 
             var entriesByModule = IndexEntriesByModule(zipPath);
             entriesByModule = FilterRequested(entriesByModule, moduleNames, mandatoryModules);
@@ -193,7 +212,7 @@ namespace Amazon.PowerShell.Installer
                 localInit: () => new WorkerLocal(zipPath, CopyBufferSize),
                 body: (kv, _, local) =>
                 {
-                    foreach (var item in ExtractModule(local, kv.Key, kv.Value, targetPath))
+                    foreach (var item in ExtractModule(local, kv.Key, kv.Value, targetPath, handleLockedFiles))
                         results.Add(item);
                     return local;
                 },
@@ -307,7 +326,7 @@ namespace Amazon.PowerShell.Installer
         /// </summary>
         private static List<InstalledModule> ExtractModule(
             WorkerLocal local, string moduleName, IReadOnlyList<string> entryNames,
-            string targetPath)
+            string targetPath, bool handleLockedFiles)
         {
             var buffer = local.Buffer;
             var zip = local.Archive;
@@ -357,20 +376,149 @@ namespace Amazon.PowerShell.Installer
                     lastDir = destDir;
                 }
 
-                using var entryStream = entry.Open();
-                // FileStream's internal buffer is unnecessary - we already buffer reads in
-                // our 1 MiB `buffer` and Write() in 1 MiB chunks. Use the BCL default (4 KiB)
-                // to keep per-stream pinned-heap pressure low.
-                using var fileStream = new FileStream(destPath, FileMode.Create, FileAccess.Write,
-                    FileShare.None, bufferSize: 4096);
-                int read;
-                while ((read = entryStream.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    fileStream.Write(buffer, 0, read);
-                }
+                WriteEntry(entry, destPath, buffer, handleLockedFiles);
             }
 
             return ProcessExtractedModule(targetPath, moduleName, extractedVersions);
+        }
+
+        /// <summary>
+        /// Writes a zip entry to <paramref name="destPath"/>, overwriting any existing file. When
+        /// <paramref name="handleLockedFiles"/> is set and the destination is locked by the running
+        /// process (the loaded DLL during a self-update), the write is retried after either
+        /// confirming the content is identical (skip) or moving the locked file aside (replace).
+        /// </summary>
+        private static void WriteEntry(ZipArchiveEntry entry, string destPath, byte[] buffer, bool handleLockedFiles)
+        {
+            try
+            {
+                CopyEntryToFile(entry, destPath, buffer);
+            }
+            catch (IOException ex) when (handleLockedFiles && IsSharingViolation(ex) && File.Exists(destPath))
+            {
+                // Destination is locked. If it already matches the incoming bytes there is nothing
+                // to do; otherwise move the locked file aside so the new bytes take its path. If
+                // even the rename is blocked, File.Move throws and that exception surfaces.
+                if (EntryMatchesFile(entry, destPath))
+                    return;
+                File.Move(destPath, GetAsidePath(destPath));
+                CopyEntryToFile(entry, destPath, buffer);
+            }
+        }
+
+        // FileStream's internal buffer is unnecessary; reads are buffered in the 1 MiB `buffer`
+        // and written in 1 MiB chunks. Use the BCL default (4 KiB) to keep pinned-heap low.
+        private static void CopyEntryToFile(ZipArchiveEntry entry, string destPath, byte[] buffer)
+        {
+            using var entryStream = entry.Open();
+            using var fileStream = new FileStream(destPath, FileMode.Create, FileAccess.Write,
+                FileShare.None, bufferSize: 4096);
+            int read;
+            while ((read = entryStream.Read(buffer, 0, buffer.Length)) > 0)
+                fileStream.Write(buffer, 0, read);
+        }
+
+        private static bool IsSharingViolation(IOException ex) => ex.HResult == HResultSharingViolation;
+
+        // Unique sibling path with the marker suffix, used to move a locked file aside.
+        private static string GetAsidePath(string path) =>
+            path + "." + Guid.NewGuid().ToString("N") + LockedRenameSuffix;
+
+        // Compares the entry's content against the file on disk by length then bytes.
+        private static bool EntryMatchesFile(ZipArchiveEntry entry, string destPath)
+        {
+            var info = new FileInfo(destPath);
+            if (info.Length != entry.Length)
+                return false;
+            using var entryStream = entry.Open();
+            using var fileStream = new FileStream(destPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            var a = new byte[8192];
+            var b = new byte[8192];
+            int n;
+            while ((n = ReadBlock(entryStream, a)) > 0)
+            {
+                if (ReadBlock(fileStream, b, n) != n)
+                    return false;
+                for (int i = 0; i < n; i++)
+                    if (a[i] != b[i])
+                        return false;
+            }
+            return true;
+        }
+
+        // Fills up to `count` (default full buffer) bytes, since a single Read may return less.
+        private static int ReadBlock(Stream stream, byte[] buffer, int count = -1)
+        {
+            if (count < 0) count = buffer.Length;
+            int total = 0;
+            while (total < count)
+            {
+                int read = stream.Read(buffer, total, count - total);
+                if (read == 0) break;
+                total += read;
+            }
+            return total;
+        }
+
+        /// <summary>
+        /// Removes a version directory, moving aside any file locked by the running process (the
+        /// loaded DLL during a self-uninstall) so the directory can be deleted. The marker is
+        /// cleaned up by <see cref="SweepLockedRenames"/> later. Returns true if the directory no
+        /// longer exists on return. Never throws.
+        /// </summary>
+        public static bool TryRemoveModuleDirectory(string versionDir)
+        {
+            if (string.IsNullOrEmpty(versionDir)) return false;
+            if (!Directory.Exists(versionDir)) return true;
+
+            // Nothing locked (and always on POSIX, where open files can be unlinked): plain delete.
+            try
+            {
+                Directory.Delete(versionDir, recursive: true);
+                return true;
+            }
+            catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { }
+
+            var evictRoot = Path.GetDirectoryName(versionDir);
+            if (string.IsNullOrEmpty(evictRoot)) return false;
+            try
+            {
+                foreach (var file in Directory.GetFiles(versionDir, "*", SearchOption.AllDirectories))
+                {
+                    try { File.Delete(file); }
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException)
+                    {
+                        // Move the locked file out of the tree; if even that fails the directory
+                        // survives and the check below reports failure.
+                        try { File.Move(file, GetAsidePath(Path.Combine(evictRoot!, Path.GetFileName(file)))); }
+                        catch (Exception mv) when (mv is IOException || mv is UnauthorizedAccessException) { }
+                    }
+                }
+                Directory.Delete(versionDir, recursive: true);
+            }
+            catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { }
+
+            return !Directory.Exists(versionDir);
+        }
+
+        /// <summary>
+        /// Deletes marker files left by <see cref="WriteEntry"/> or
+        /// <see cref="TryRemoveModuleDirectory"/> when a locked file was moved aside. Files still
+        /// locked are skipped and retried on a later sweep. Never throws.
+        /// </summary>
+        public static void SweepLockedRenames(string targetPath)
+        {
+            if (string.IsNullOrEmpty(targetPath) || !Directory.Exists(targetPath)) return;
+            try
+            {
+                foreach (var file in Directory.EnumerateFiles(targetPath, "*" + LockedRenameSuffix,
+                             SearchOption.AllDirectories))
+                {
+                    try { File.Delete(file); }
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { }
+                }
+            }
+            catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException) { }
         }
 
         private static List<InstalledModule> ProcessExtractedModule(

@@ -514,5 +514,120 @@ namespace Amazon.PowerShell.Installer.Tests
             // success or failure both prove the contract that exceptions never propagate.
             Assert.True(failed.Length == 0 || failed.Contains(dir));
         }
+
+        // ----- Locked-file handling (self-update) -----
+
+        [Fact]
+        public void ExtractAndInstall_LockedIdenticalFile_SkippedWithoutMarker()
+        {
+            // A destination locked with identical content is skipped: no exception, no marker, and
+            // the file is left untouched. Uses FileShare.Read to lock without denying our read-back.
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+
+            var target = Path.Combine(_tempRoot, "modules");
+            var payloadDir = Path.Combine(target, "AWS.Tools.Installer", "2.0.2");
+            Directory.CreateDirectory(payloadDir);
+            var lockedFile = Path.Combine(payloadDir, "payload.bin");
+            File.WriteAllText(lockedFile, "SAME");
+            Fixtures.WriteManifest(Path.Combine(payloadDir, "AWS.Tools.Installer.psd1"), "AWS.Tools.Installer", "2.0.2");
+
+            var zip = Fixtures.BuildZipWithPayload(Path.Combine(_tempRoot, "AWS.Tools.Installer.zip"),
+                "AWS.Tools.Installer", "2.0.2", "payload.bin", "SAME");
+
+            using (new FileStream(lockedFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                ModuleInstaller.ExtractAndInstall(zip, target, new[] { "AWS.Tools.Installer" }, null,
+                    ct: default, handleLockedFiles: true);
+            }
+
+            Assert.Equal("SAME", File.ReadAllText(lockedFile));
+            Assert.Empty(Directory.GetFiles(target, "*" + ModuleInstaller.LockedRenameSuffix, SearchOption.AllDirectories));
+        }
+
+        [Fact]
+        public void ExtractAndInstall_LockedDifferentFile_ReplacedViaRename()
+        {
+            // A genuinely loaded assembly is locked against delete/overwrite but can be renamed.
+            // The differing new bytes must land at the original path and the old copy moved aside.
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+
+            var target = Path.Combine(_tempRoot, "modules");
+            var payloadDir = Path.Combine(target, "AWS.Tools.Installer", "2.0.2");
+            Directory.CreateDirectory(payloadDir);
+            Fixtures.WriteManifest(Path.Combine(payloadDir, "AWS.Tools.Installer.psd1"), "AWS.Tools.Installer", "2.0.2");
+            // Put a real, loadable assembly at the payload path and load it so it is truly locked.
+            var lockedDll = Path.Combine(payloadDir, "locked.dll");
+            File.Copy(typeof(ModuleInstaller).Assembly.Location, lockedDll);
+            System.Reflection.Assembly.LoadFile(lockedDll);
+
+            var zip = Fixtures.BuildZipWithPayload(Path.Combine(_tempRoot, "AWS.Tools.Installer.zip"),
+                "AWS.Tools.Installer", "2.0.2", "locked.dll", "NEW-CONTENT");
+
+            ModuleInstaller.ExtractAndInstall(zip, target, new[] { "AWS.Tools.Installer" }, null,
+                ct: default, handleLockedFiles: true);
+
+            Assert.Equal("NEW-CONTENT", File.ReadAllText(lockedDll));
+            Assert.Single(Directory.GetFiles(target, "*" + ModuleInstaller.LockedRenameSuffix, SearchOption.AllDirectories));
+        }
+
+        [Fact]
+        public void ExtractAndInstall_LockedFile_WithoutFlag_Throws()
+        {
+            // Isolation guarantee: module installs (handleLockedFiles = false) keep the original
+            // behavior, where a locked destination surfaces the sharing-violation IOException.
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+
+            var target = Path.Combine(_tempRoot, "modules");
+            var payloadDir = Path.Combine(target, "AWS.Tools.S3", "5.0.0");
+            Directory.CreateDirectory(payloadDir);
+            var lockedFile = Path.Combine(payloadDir, "payload.bin");
+            File.WriteAllText(lockedFile, "OLD");
+            Fixtures.WriteManifest(Path.Combine(payloadDir, "AWS.Tools.S3.psd1"), "AWS.Tools.S3", "5.0.0");
+
+            var zip = Fixtures.BuildZipWithPayload(Path.Combine(_tempRoot, "AWS.Tools.zip"),
+                "AWS.Tools.S3", "5.0.0", "payload.bin", "NEW");
+
+            using (new FileStream(lockedFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                var ex = Record.Exception(() =>
+                    ModuleInstaller.ExtractAndInstall(zip, target, new[] { "AWS.Tools.S3" }, null));
+                Assert.IsType<IOException>(Unwrap(ex));
+            }
+        }
+
+        [Fact]
+        public void TryRemoveModuleDirectory_LockedFile_EvictsAndRemoves()
+        {
+            // A version directory containing the loaded (locked) assembly is still removed by
+            // moving the locked file aside under the marker suffix.
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+
+            var moduleRoot = Path.Combine(_tempRoot, "AWS.Tools.Installer");
+            var versionDir = Path.Combine(moduleRoot, "2.0.2");
+            Directory.CreateDirectory(versionDir);
+            var lockedDll = Path.Combine(versionDir, "locked.dll");
+            File.Copy(typeof(ModuleInstaller).Assembly.Location, lockedDll);
+            System.Reflection.Assembly.LoadFile(lockedDll);
+
+            var removed = ModuleInstaller.TryRemoveModuleDirectory(versionDir);
+
+            Assert.True(removed);
+            Assert.False(Directory.Exists(versionDir));
+            Assert.Single(Directory.GetFiles(moduleRoot, "*" + ModuleInstaller.LockedRenameSuffix, SearchOption.AllDirectories));
+        }
+
+        [Fact]
+        public void SweepLockedRenames_RemovesMarkerFiles()
+        {
+            var target = Path.Combine(_tempRoot, "modules");
+            var dir = Path.Combine(target, "AWS.Tools.Installer", "2.0.2");
+            Directory.CreateDirectory(dir);
+            var marker = Path.Combine(dir, "old.dll." + Guid.NewGuid().ToString("N") + ModuleInstaller.LockedRenameSuffix);
+            File.WriteAllText(marker, "stale");
+
+            ModuleInstaller.SweepLockedRenames(target);
+
+            Assert.False(File.Exists(marker));
+        }
     }
 }

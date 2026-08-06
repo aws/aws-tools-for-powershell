@@ -71,9 +71,13 @@ function Install-AWSToolsModuleFromZip {
 
         Write-Verbose "[$($MyInvocation.MyCommand)] Extracting via [Amazon.PowerShell.Installer.ModuleInstaller]"
 
+        # Only the installer self-update needs locked-file handling; its own loaded DLL is locked
+        # on Windows. Module installs pass false and keep the original extraction behavior.
+        $handleLockedFiles = $Name -eq 'AWS.Tools.Installer'
+
         try {
             $results = [Amazon.PowerShell.Installer.ModuleInstaller]::ExtractAndInstall(
-                $ZipPath, $TargetPath, $ModuleNames, $mandatoryModules, $CancellationToken)
+                $ZipPath, $TargetPath, $ModuleNames, $mandatoryModules, $CancellationToken, $handleLockedFiles)
         }
         catch [Amazon.PowerShell.Installer.MissingModulesException] {
             $missing = $_.Exception.MissingModules

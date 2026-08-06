@@ -213,6 +213,31 @@ namespace Amazon.PowerShell.Installer.Tests
                 File.SetAttributes(xmlPath, File.GetAttributes(xmlPath) | FileAttributes.Hidden);
         }
 
+        /// <summary>
+        /// Builds a zip with one module version whose folder holds a manifest plus an extra named
+        /// payload file with the given content (used as a stand-in for AWS.Tools.Installer.dll).
+        /// </summary>
+        public static string BuildZipWithPayload(
+            string zipPath, string moduleName, string version, string payloadName, string payloadContent)
+        {
+            string stagingRoot = Path.Combine(Path.GetTempPath(), "fixture-stage-" + Guid.NewGuid().ToString("N"));
+            try
+            {
+                var versionDir = Path.Combine(stagingRoot, moduleName, version);
+                Directory.CreateDirectory(versionDir);
+                WriteManifest(Path.Combine(versionDir, $"{moduleName}.psd1"), moduleName, version);
+                File.WriteAllText(Path.Combine(versionDir, payloadName), payloadContent);
+                if (File.Exists(zipPath)) File.Delete(zipPath);
+                ZipFile.CreateFromDirectory(stagingRoot, zipPath);
+                return zipPath;
+            }
+            finally
+            {
+                if (Directory.Exists(stagingRoot))
+                    Directory.Delete(stagingRoot, recursive: true);
+            }
+        }
+
         public static string BuildZipWithMissingPsd1(string zipPath, string moduleName, string version)
         {
             string stagingRoot = Path.Combine(Path.GetTempPath(), "fixture-stage-" + Guid.NewGuid().ToString("N"));

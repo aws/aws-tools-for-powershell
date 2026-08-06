@@ -376,7 +376,14 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     
                     # Provide installation summary via Write-Host
                     Write-Host "Installed AWS.Tools.Installer version $installedVersionString to $targetPath"
-                    
+
+                    # A loaded AWS.Tools.Installer assembly keeps running until the process restarts,
+                    # so the newly installed version is not active in this session yet.
+                    $loadedModule = $MyInvocation.MyCommand.Module
+                    if ($loadedModule) {
+                        Write-Warning "AWS.Tools.Installer $(Get-ModuleVersionString -Module $loadedModule) is loaded in this session. Restart PowerShell to use the newly installed version $installedVersionString."
+                    }
+
                     # Update progress - installation complete, preparing for cleanup
                     Write-Progress -Id 1 -Activity "Install-AWSToolsInstaller" -Status "Installation complete, cleaning up previous versions..." -PercentComplete 70
                 }

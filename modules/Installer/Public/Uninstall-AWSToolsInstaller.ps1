@@ -33,8 +33,9 @@
 
 .Notes
     This cmdlet uses Remove-ModuleItem to delete module directories for improved performance
-    and consistent error handling. This cmdlet is specifically for AWS.Tools.Installer and
-    is separate from Uninstall-AWSToolsModule which handles AWS Tools service modules.
+    and consistent error handling, falling back to evicting the loaded (locked) DLL on Windows
+    during a self-uninstall. This cmdlet is specifically for AWS.Tools.Installer and is separate
+    from Uninstall-AWSToolsModule which handles AWS Tools service modules.
 
 .Example
     Uninstall-AWSToolsInstaller -ExceptVersion "1.0.3" -Confirm:$false
@@ -257,16 +258,30 @@ function Uninstall-AWSToolsInstaller {
                     
                     Write-Verbose ("[$($MyInvocation.MyCommand)] Removing module: $moduleName " +
                         "version $moduleVersion")
-                    
-                    # Use Remove-ModuleItem for actual removal
-                    $moduleResult = Remove-ModuleItem -Module $module -Reason "Uninstall AWS.Tools.Installer"
-                    
-                    # Consolidate results
+
+                    # Use Remove-ModuleItem for actual removal (retry on transient locks, empty
+                    # parent cleanup, structured result). SilentlyContinue so a failure returns in
+                    # the summary rather than terminating under the caller's ErrorActionPreference.
+                    $moduleResult = Remove-ModuleItem -Module $module -Reason "Uninstall AWS.Tools.Installer" -ErrorAction SilentlyContinue
+
+                    # Remove-ModuleItem cannot delete the loaded AWS.Tools.Installer.dll, which is
+                    # locked on Windows during a self-uninstall. Fall back to the compiled helper,
+                    # which moves the locked file aside so the directory can still be removed.
+                    if ($moduleResult.FailureCount -gt 0 -and (Test-Path -Path $module.ModuleBase)) {
+                        if ([Amazon.PowerShell.Installer.ModuleInstaller]::TryRemoveModuleDirectory($module.ModuleBase)) {
+                            $moduleResult = @{ SuccessCount = 1; FailureCount = 0; RemovedModules = @("$moduleName ($moduleVersion)"); FailedModules = @() }
+                        }
+                    }
+
                     $result.SuccessCount += $moduleResult.SuccessCount
                     $result.FailureCount += $moduleResult.FailureCount
                     $result.RemovedModules += $moduleResult.RemovedModules
                     $result.FailedModules += $moduleResult.FailedModules
                 }
+
+                # Clean up any files moved aside when a locked DLL was evicted. Markers only live
+                # under the installer's own folder, so scope the sweep there.
+                [Amazon.PowerShell.Installer.ModuleInstaller]::SweepLockedRenames((Join-Path $targetPath 'AWS.Tools.Installer'))
                 
                 if ($result.FailureCount -gt 0) {
                     Write-Warning ("Failed to remove $($result.FailureCount) AWS.Tools.Installer modules: " +
