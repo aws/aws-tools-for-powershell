@@ -107,7 +107,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
             break
         }
 
@@ -169,6 +169,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.RuntimeType
         {
+            ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
@@ -215,6 +216,7 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")

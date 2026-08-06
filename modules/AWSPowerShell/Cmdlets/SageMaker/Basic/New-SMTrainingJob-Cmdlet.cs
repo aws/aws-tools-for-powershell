@@ -713,6 +713,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter ServerlessJobConfig_SequenceLength
+        /// <summary>
+        /// <para>
+        /// <para> The maximum sequence length, in tokens, that the customization job supports. SageMaker
+        /// uses this value to select a training configuration for the base model that you specify.
+        /// The parameter supports the following values: </para><ul><li><para><c>1K</c></para></li><li><para><c>2K</c></para></li><li><para><c>4K</c></para></li><li><para><c>8K</c></para></li><li><para><c>16K</c></para></li><li><para><c>32K</c></para></li><li><para><c>64K</c></para></li><li><para><c>128K</c></para></li></ul><para> If you don't specify a value, SageMaker selects a training configuration based on
+        /// the other values that you specify. The selection is not restricted to a particular
+        /// sequence length. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessJobConfig_SequenceLength { get; set; }
+        #endregion
+        
         #region Parameter ModelPackageConfig_SourceModelPackageArn
         /// <summary>
         /// <para>
@@ -942,6 +956,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ServerlessJobConfig_EvaluatorArn = this.ServerlessJobConfig_EvaluatorArn;
             context.ServerlessJobConfig_JobType = this.ServerlessJobConfig_JobType;
             context.ServerlessJobConfig_Peft = this.ServerlessJobConfig_Peft;
+            context.ServerlessJobConfig_SequenceLength = this.ServerlessJobConfig_SequenceLength;
             context.SessionChainingConfig_EnableSessionTagChaining = this.SessionChainingConfig_EnableSessionTagChaining;
             context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
@@ -1406,6 +1421,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ServerlessJobConfig.Peft = requestServerlessJobConfig_serverlessJobConfig_Peft;
                 requestServerlessJobConfigIsNull = false;
             }
+            System.String requestServerlessJobConfig_serverlessJobConfig_SequenceLength = null;
+            if (cmdletContext.ServerlessJobConfig_SequenceLength != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_SequenceLength = cmdletContext.ServerlessJobConfig_SequenceLength;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_SequenceLength != null)
+            {
+                request.ServerlessJobConfig.SequenceLength = requestServerlessJobConfig_serverlessJobConfig_SequenceLength;
+                requestServerlessJobConfigIsNull = false;
+            }
              // determine if request.ServerlessJobConfig should be set to null
             if (requestServerlessJobConfigIsNull)
             {
@@ -1631,6 +1656,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ServerlessJobConfig_EvaluatorArn { get; set; }
             public Amazon.SageMaker.ServerlessJobType ServerlessJobConfig_JobType { get; set; }
             public Amazon.SageMaker.Peft ServerlessJobConfig_Peft { get; set; }
+            public System.String ServerlessJobConfig_SequenceLength { get; set; }
             public System.Boolean? SessionChainingConfig_EnableSessionTagChaining { get; set; }
             public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }

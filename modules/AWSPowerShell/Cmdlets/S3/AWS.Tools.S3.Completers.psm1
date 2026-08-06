@@ -353,7 +353,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_ONTAP","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "AWS_BACKUP_LOW_COST_WARM","AWS_BACKUP_WARM","DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_ONTAP","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -383,7 +383,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
-            $v = "","AES256","aws:fsx","aws:kms","aws:kms:dsse"
+            $v = "","AES256","aws:backup","aws:fsx","aws:kms","aws:kms:dsse"
             break
         }
 
@@ -638,16 +638,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "New-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Read-S3Object",
-               "Remove-S3Bucket",
-               "Copy-S3Object",
                "Get-S3MultipartUpload",
-               "Test-S3Bucket",
+               "Write-S3Object",
+               "Remove-S3Bucket",
                "Get-S3PreSignedURL",
-               "Write-S3Object")
+               "Test-S3Bucket",
+               "New-S3Bucket",
+               "Remove-S3Object",
+               "Read-S3Object",
+               "Remove-S3MultipartUpload",
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

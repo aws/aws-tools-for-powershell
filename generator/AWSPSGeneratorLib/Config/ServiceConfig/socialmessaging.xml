@@ -27,6 +27,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWhatsAppDataset" OutputProperty="DatasetId" Verb="New" Noun="WhatsAppDataset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWhatsAppFlow" OutputProperty="*" Verb="New" Noun="WhatsAppFlow" ShouldProcessTarget="Id,FlowName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -126,6 +130,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutWhatsAppBusinessAccountEventDestinations" Verb="Write" Noun="WhatsAppBusinessAccountEventDestination" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendWhatsAppConversionEvent" OutputProperty="*" Verb="Send" Noun="WhatsAppConversionEvent" ShouldProcessTarget="DatasetId,Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

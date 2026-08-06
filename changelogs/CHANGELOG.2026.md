@@ -1,4 +1,56 @@
-﻿### 5.0.270 (2026-08-05 19:09Z)
+﻿### 5.0.271 (2026-08-06 19:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.306.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agent Registry. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGRG and can be listed using the command 'Get-AWSCmdletName -Service AGRG'.
+  * Amazon Agent Registry Control. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGRC and can be listed using the command 'Get-AWSCmdletName -Service AGRC'.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter Operator_Principal.
+  * Amazon Backup
+    * Added cmdlet Get-BAKBackupAccessPointDetail leveraging the DescribeBackupAccessPoint service API.
+    * Added cmdlet Get-BAKBackupAccessPointList leveraging the ListBackupAccessPoints service API.
+    * Added cmdlet Get-BAKBackupAccessPointsByRecoveryPointList leveraging the ListBackupAccessPointsByRecoveryPoint service API.
+    * Added cmdlet Get-BAKBackupAccessPointsByResourceList leveraging the ListBackupAccessPointsByResource service API.
+    * Added cmdlet New-BAKBackupAccessPoint leveraging the CreateBackupAccessPoint service API.
+    * Added cmdlet Remove-BAKBackupAccessPoint leveraging the DeleteBackupAccessPoint service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCAgentRuntimeVersionsByCapacityProviderList leveraging the ListAgentRuntimeVersionsByCapacityProvider service API.
+    * Added cmdlet Get-BACCCapacityProvider leveraging the GetCapacityProvider service API.
+    * Added cmdlet Get-BACCCapacityProviderList leveraging the ListCapacityProviders service API.
+    * Added cmdlet Get-BACCGatewayRateLimit leveraging the GetGatewayRateLimit service API.
+    * Added cmdlet Get-BACCGatewayRateLimitList leveraging the ListGatewayRateLimits service API.
+    * Added cmdlet New-BACCCapacityProvider leveraging the CreateCapacityProvider service API.
+    * Added cmdlet New-BACCGatewayRateLimit leveraging the CreateGatewayRateLimit service API.
+    * Added cmdlet Remove-BACCCapacityProvider leveraging the DeleteCapacityProvider service API.
+    * Added cmdlet Remove-BACCGatewayRateLimit leveraging the DeleteGatewayRateLimit service API.
+    * Added cmdlet Update-BACCCapacityProvider leveraging the UpdateCapacityProvider service API.
+    * Added cmdlet Update-BACCGatewayRateLimit leveraging the UpdateGatewayRateLimit service API.
+    * Added cmdlet Write-BACCGatewayRateLimitBatch leveraging the BatchPutGatewayRateLimits service API.
+    * Modified cmdlet New-BACCAgentRuntime: added parameter CapacityProviderConfiguration_CapacityProviderArn.
+    * Modified cmdlet Remove-BACCAgentRuntime: added parameter AgentRuntimeVersion.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter CapacityProviderConfiguration_CapacityProviderArn.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Remove-BACCapacityProviderSession leveraging the DeleteCapacityProviderSession service API.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Get-CWLFieldIndex: added parameter IndexCategory.
+  * Amazon Device Farm
+    * Modified cmdlet Get-DFDevicePoolCompatibility: added parameter Configuration_InsightsType.
+    * Modified cmdlet Submit-DFTestRun: added parameter Configuration_InsightsType.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Get-EC2SpotPlacementScore: added parameter IncludeLocalZone.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Write-EMTFunction: added parameters ConcurrentExecutorConfiguration_FunctionList, ConcurrentExecutorConfiguration_MaxConcurrency, ConcurrentExecutorConfiguration_Output, ConcurrentExecutorConfiguration_Runtime and ConcurrentExecutorConfiguration_TimeoutMillisecond.
+  * Amazon End User Messaging Social
+    * Added cmdlet New-SOCIALWhatsAppDataset leveraging the CreateWhatsAppDataset service API.
+    * Added cmdlet Send-SOCIALWhatsAppConversionEvent leveraging the SendWhatsAppConversionEvent service API.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Modified cmdlet New-MSKCluster: added parameters LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled, LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup, LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream, LoggingInfo_AuthorizerLogs_Firehose_Enabled, LoggingInfo_AuthorizerLogs_S3_Bucket, LoggingInfo_AuthorizerLogs_S3_Enabled and LoggingInfo_AuthorizerLogs_S3_Prefix.
+    * Modified cmdlet New-MSKClusterV2: added parameters Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled, Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup, Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream, Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled, Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket, Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled and Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix.
+    * Modified cmdlet Update-MSKMonitoring: added parameters LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled, LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup, LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream, LoggingInfo_AuthorizerLogs_Firehose_Enabled, LoggingInfo_AuthorizerLogs_S3_Bucket, LoggingInfo_AuthorizerLogs_S3_Enabled and LoggingInfo_AuthorizerLogs_S3_Prefix.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMTrainingJob: added parameter ServerlessJobConfig_SequenceLength.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBFreeTrialStatusesV2List leveraging the ListFreeTrialStatusesV2 service API.
+
+### 5.0.270 (2026-08-05 19:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.305.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGatewayTarget: added parameters TargetConfiguration_Http_Connector_Parameter and TargetConfiguration_Http_Connector_Source_ConnectorId.

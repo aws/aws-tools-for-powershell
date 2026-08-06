@@ -70,7 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// /12 and /28.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Ipv4CidrBlock { get; set; }
         #endregion
         
@@ -167,6 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
             context.Ipv4CidrBlock = this.Ipv4CidrBlock;
+            #if MODULAR
+            if (this.Ipv4CidrBlock == null && ParameterWasBound(nameof(this.Ipv4CidrBlock)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Ipv4CidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.NetworkType = this.NetworkType;
             #if MODULAR
             if (this.NetworkType == null && ParameterWasBound(nameof(this.NetworkType)))

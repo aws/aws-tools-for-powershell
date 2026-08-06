@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCapacityProviderSession" OutputProperty="*" Verb="Remove" Noun="CapacityProviderSession" ShouldProcessTarget="CapacityProviderId,SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEvent" OutputProperty="EventId" Verb="Remove" Noun="Event" ShouldProcessTarget="EventId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

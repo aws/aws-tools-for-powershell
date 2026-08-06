@@ -403,6 +403,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFreeTrialStatusesV2" OutputProperty="AccountFreeTrialStatuses" Verb="Get" Noun="FreeTrialStatusesV2List" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />

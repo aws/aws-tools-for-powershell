@@ -770,6 +770,189 @@ $ACM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ACM_SelectCompleters $ACM_SelectMap
+# Argument completions for service Agent Registry Control
+
+
+$AGRC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AgentRegistryControl.EndpointIpAddressType
+        {
+            ($_ -eq "New-AGRCRegistry/DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
+            ($_ -eq "Update-AGRCRegistry/DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
+        # Amazon.AgentRegistryControl.RecordType
+        {
+            ($_ -eq "New-AGRCRegistryRecord/RecordType") -Or
+            ($_ -eq "Update-AGRCRegistryRecord/RecordType")
+        }
+        {
+            $v = "AGENT","CUSTOM","MCP","SKILL"
+            break
+        }
+
+        # Amazon.AgentRegistryControl.RegistryAuthorizerType
+        "New-AGRCRegistry/DiscoveryConfiguration_AuthorizerType"
+        {
+            $v = "AWS_IAM","CUSTOM_JWT"
+            break
+        }
+
+        # Amazon.AgentRegistryControl.RegistryRecordStatus
+        "Update-AGRCRegistryRecordStatus/Status"
+        {
+            $v = "APPROVED","CREATE_FAILED","CREATING","DEPRECATED","DRAFT","PENDING_APPROVAL","REJECTED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AGRC_map = @{
+    "DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-AGRCRegistry")
+    "DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-AGRCRegistry")
+    "DiscoveryConfiguration_AuthorizerType"=@("New-AGRCRegistry")
+    "RecordType"=@("New-AGRCRegistryRecord","Update-AGRCRegistryRecord")
+    "Status"=@("Update-AGRCRegistryRecordStatus")
+}
+
+_awsArgumentCompleterRegistration $AGRC_Completers $AGRC_map
+
+$AGRC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AGRC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AGRC_SelectMap = @{
+    "Select"=@("New-AGRCRegistry",
+               "New-AGRCRegistryRecord",
+               "Remove-AGRCRegistry",
+               "Remove-AGRCRegistryRecord",
+               "Get-AGRCRegistry",
+               "Get-AGRCRegistryRecord",
+               "Get-AGRCRegistryList",
+               "Get-AGRCRegistryRecordList",
+               "Get-AGRCResourceTag",
+               "Submit-AGRCRegistryRecordForApproval",
+               "Add-AGRCResourceTag",
+               "Remove-AGRCResourceTag",
+               "Update-AGRCRegistry",
+               "Update-AGRCRegistryRecord",
+               "Update-AGRCRegistryRecordStatus")
+}
+
+_awsArgumentCompleterRegistration $AGRC_SelectCompleters $AGRC_SelectMap
+# Argument completions for service Agent Registry
+
+
+$AGRG_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AGRG.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AGRG_SelectMap = @{
+    "Select"=@("Get-AGRGDiscoverableRegistryRecordBatch",
+               "Get-AGRGDiscoverableRegistryRecordList",
+               "Search-AGRGDiscoverableRegistryRecord")
+}
+
+_awsArgumentCompleterRegistration $AGRG_SelectCompleters $AGRG_SelectMap
 # Argument completions for service AWS AI Ops
 
 
@@ -6879,6 +7062,7 @@ $BAK_SelectCompleters = {
 $BAK_SelectMap = @{
     "Select"=@("Add-BAKBackupVaultMpaApprovalTeam",
                "Stop-BAKLegalHold",
+               "New-BAKBackupAccessPoint",
                "New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
@@ -6890,6 +7074,7 @@ $BAK_SelectMap = @{
                "New-BAKRestoreTestingPlan",
                "New-BAKRestoreTestingSelection",
                "New-BAKTieringConfiguration",
+               "Remove-BAKBackupAccessPoint",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
@@ -6902,6 +7087,7 @@ $BAK_SelectMap = @{
                "Remove-BAKRestoreTestingPlan",
                "Remove-BAKRestoreTestingSelection",
                "Remove-BAKTieringConfiguration",
+               "Get-BAKBackupAccessPointDetail",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
@@ -6934,6 +7120,9 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreTestingSelection",
                "Get-BAKSupportedResourceType",
                "Get-BAKTieringConfiguration",
+               "Get-BAKBackupAccessPointList",
+               "Get-BAKBackupAccessPointsByRecoveryPointList",
+               "Get-BAKBackupAccessPointsByResourceList",
                "Get-BAKBackupJobList",
                "Get-BAKBackupJobSummaryList",
                "Get-BAKBackupPlanList",
@@ -8751,6 +8940,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.CapacityReservationPreference
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"
+        {
+            $v = "capacity-reservations-only","none","open"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType
         {
             ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod") -Or
@@ -8793,6 +8989,13 @@ $BACC_Completers = {
         }
         {
             $v = "A2A","AGENT_SKILLS","CUSTOM","MCP"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.EbsVolumeType
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"
+        {
+            $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
         }
 
@@ -8929,6 +9132,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.Monitoring
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"
+        {
+            $v = "BASIC","DETAILED"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
             ($_ -eq "New-BACCHarness/Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode") -Or
@@ -8955,6 +9165,13 @@ $BACC_Completers = {
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.OperatingSystem
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem"
+        {
+            $v = "LINUX_ARM64","LINUX_X86_64"
             break
         }
 
@@ -9142,6 +9359,10 @@ $BACC_map = @{
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"=@("New-BACCCapacityProvider")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
     "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
@@ -9241,17 +9462,20 @@ $BACC_SelectCompleters = {
 
 $BACC_SelectMap = @{
     "Select"=@("Add-BACCDatasetExample",
+               "Write-BACCGatewayRateLimitBatch",
                "New-BACCAgentRuntime",
                "New-BACCAgentRuntimeEndpoint",
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
+               "New-BACCCapacityProvider",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
                "New-BACCDataset",
                "New-BACCDatasetVersion",
                "New-BACCEvaluator",
                "New-BACCGateway",
+               "New-BACCGatewayRateLimit",
                "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
@@ -9272,12 +9496,14 @@ $BACC_SelectMap = @{
                "Remove-BACCApiKeyCredentialProvider",
                "Remove-BACCBrowser",
                "Remove-BACCBrowserProfile",
+               "Remove-BACCCapacityProvider",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
                "Remove-BACCDataset",
                "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
+               "Remove-BACCGatewayRateLimit",
                "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
@@ -9299,12 +9525,14 @@ $BACC_SelectMap = @{
                "Get-BACCApiKeyCredentialProvider",
                "Get-BACCBrowser",
                "Get-BACCBrowserProfile",
+               "Get-BACCCapacityProvider",
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
                "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
+               "Get-BACCGatewayRateLimit",
                "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
@@ -9329,9 +9557,11 @@ $BACC_SelectMap = @{
                "Get-BACCAgentRuntimeEndpointList",
                "Get-BACCAgentRuntimeList",
                "Get-BACCAgentRuntimeVersionList",
+               "Get-BACCAgentRuntimeVersionsByCapacityProviderList",
                "Get-BACCApiKeyCredentialProviderList",
                "Get-BACCBrowserProfileList",
                "Get-BACCBrowserList",
+               "Get-BACCCapacityProviderList",
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
@@ -9339,6 +9569,7 @@ $BACC_SelectMap = @{
                "Get-BACCDatasetList",
                "Get-BACCDatasetVersionList",
                "Get-BACCEvaluatorList",
+               "Get-BACCGatewayRateLimitList",
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
@@ -9372,11 +9603,13 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCCapacityProvider",
                "Update-BACCConfigurationBundle",
                "Update-BACCDataset",
                "Update-BACCDatasetExample",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
+               "Update-BACCGatewayRateLimit",
                "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",
@@ -9670,6 +9903,7 @@ $BAC_SelectMap = @{
                "New-BACPaymentSession",
                "Remove-BACABTest",
                "Remove-BACBatchEvaluation",
+               "Remove-BACCapacityProviderSession",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
                "Remove-BACPaymentInstrument",
@@ -15994,9 +16228,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
+    "Select"=@("Search-CSDDocument",
                "Write-CSDDocument",
-               "Search-CSDDocument")
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29437,12 +29671,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
-               "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable",
+               "Add-DDBKeySchema",
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -38395,7 +38629,7 @@ $GML_Completers = {
             ($_ -eq "New-GMLFleet/EC2InstanceType")
         }
         {
-            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.xlarge","c6in.12xlarge","c6in.16xlarge","c6in.24xlarge","c6in.2xlarge","c6in.32xlarge","c6in.4xlarge","c6in.8xlarge","c6in.large","c6in.xlarge","c7a.12xlarge","c7a.16xlarge","c7a.24xlarge","c7a.2xlarge","c7a.32xlarge","c7a.48xlarge","c7a.4xlarge","c7a.8xlarge","c7a.large","c7a.medium","c7a.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.xlarge","c7gd.12xlarge","c7gd.16xlarge","c7gd.2xlarge","c7gd.4xlarge","c7gd.8xlarge","c7gd.large","c7gd.medium","c7gd.xlarge","c7gn.12xlarge","c7gn.16xlarge","c7gn.2xlarge","c7gn.4xlarge","c7gn.8xlarge","c7gn.large","c7gn.medium","c7gn.xlarge","c7i.12xlarge","c7i.16xlarge","c7i.24xlarge","c7i.2xlarge","c7i.48xlarge","c7i.4xlarge","c7i.8xlarge","c7i.large","c7i.xlarge","c8g.12xlarge","c8g.16xlarge","c8g.24xlarge","c8g.2xlarge","c8g.48xlarge","c8g.4xlarge","c8g.8xlarge","c8g.large","c8g.medium","c8g.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.xlarge","m6idn.12xlarge","m6idn.16xlarge","m6idn.24xlarge","m6idn.2xlarge","m6idn.32xlarge","m6idn.4xlarge","m6idn.8xlarge","m6idn.large","m6idn.xlarge","m6in.12xlarge","m6in.16xlarge","m6in.24xlarge","m6in.2xlarge","m6in.32xlarge","m6in.4xlarge","m6in.8xlarge","m6in.large","m6in.xlarge","m7a.12xlarge","m7a.16xlarge","m7a.24xlarge","m7a.2xlarge","m7a.32xlarge","m7a.48xlarge","m7a.4xlarge","m7a.8xlarge","m7a.large","m7a.medium","m7a.xlarge","m7g.12xlarge","m7g.16xlarge","m7g.2xlarge","m7g.4xlarge","m7g.8xlarge","m7g.large","m7g.medium","m7g.xlarge","m7gd.12xlarge","m7gd.16xlarge","m7gd.2xlarge","m7gd.4xlarge","m7gd.8xlarge","m7gd.large","m7gd.medium","m7gd.xlarge","m7i.12xlarge","m7i.16xlarge","m7i.24xlarge","m7i.2xlarge","m7i.48xlarge","m7i.4xlarge","m7i.8xlarge","m7i.large","m7i.xlarge","m8g.12xlarge","m8g.16xlarge","m8g.24xlarge","m8g.2xlarge","m8g.48xlarge","m8g.4xlarge","m8g.8xlarge","m8g.large","m8g.medium","m8g.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.xlarge","r6idn.12xlarge","r6idn.16xlarge","r6idn.24xlarge","r6idn.2xlarge","r6idn.32xlarge","r6idn.4xlarge","r6idn.8xlarge","r6idn.large","r6idn.xlarge","r6in.12xlarge","r6in.16xlarge","r6in.24xlarge","r6in.2xlarge","r6in.32xlarge","r6in.4xlarge","r6in.8xlarge","r6in.large","r6in.xlarge","r7a.12xlarge","r7a.16xlarge","r7a.24xlarge","r7a.2xlarge","r7a.32xlarge","r7a.48xlarge","r7a.4xlarge","r7a.8xlarge","r7a.large","r7a.medium","r7a.xlarge","r7g.12xlarge","r7g.16xlarge","r7g.2xlarge","r7g.4xlarge","r7g.8xlarge","r7g.large","r7g.medium","r7g.xlarge","r7gd.12xlarge","r7gd.16xlarge","r7gd.2xlarge","r7gd.4xlarge","r7gd.8xlarge","r7gd.large","r7gd.medium","r7gd.xlarge","r7i.12xlarge","r7i.16xlarge","r7i.24xlarge","r7i.2xlarge","r7i.48xlarge","r7i.4xlarge","r7i.8xlarge","r7i.large","r7i.xlarge","r8g.12xlarge","r8g.16xlarge","r8g.24xlarge","r8g.2xlarge","r8g.48xlarge","r8g.4xlarge","r8g.8xlarge","r8g.large","r8g.medium","r8g.xlarge","t2.large","t2.medium","t2.micro","t2.small"
+            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.xlarge","c6in.12xlarge","c6in.16xlarge","c6in.24xlarge","c6in.2xlarge","c6in.32xlarge","c6in.4xlarge","c6in.8xlarge","c6in.large","c6in.xlarge","c7a.12xlarge","c7a.16xlarge","c7a.24xlarge","c7a.2xlarge","c7a.32xlarge","c7a.48xlarge","c7a.4xlarge","c7a.8xlarge","c7a.large","c7a.medium","c7a.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.xlarge","c7gd.12xlarge","c7gd.16xlarge","c7gd.2xlarge","c7gd.4xlarge","c7gd.8xlarge","c7gd.large","c7gd.medium","c7gd.xlarge","c7gn.12xlarge","c7gn.16xlarge","c7gn.2xlarge","c7gn.4xlarge","c7gn.8xlarge","c7gn.large","c7gn.medium","c7gn.xlarge","c7i.12xlarge","c7i.16xlarge","c7i.24xlarge","c7i.2xlarge","c7i.48xlarge","c7i.4xlarge","c7i.8xlarge","c7i.large","c7i.xlarge","c8a.2xlarge","c8a.large","c8a.medium","c8a.xlarge","c8g.12xlarge","c8g.16xlarge","c8g.24xlarge","c8g.2xlarge","c8g.48xlarge","c8g.4xlarge","c8g.8xlarge","c8g.large","c8g.medium","c8g.xlarge","c8i.2xlarge","c8i.large","c8i.xlarge","c9g.2xlarge","c9g.large","c9g.medium","c9g.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.xlarge","m6idn.12xlarge","m6idn.16xlarge","m6idn.24xlarge","m6idn.2xlarge","m6idn.32xlarge","m6idn.4xlarge","m6idn.8xlarge","m6idn.large","m6idn.xlarge","m6in.12xlarge","m6in.16xlarge","m6in.24xlarge","m6in.2xlarge","m6in.32xlarge","m6in.4xlarge","m6in.8xlarge","m6in.large","m6in.xlarge","m7a.12xlarge","m7a.16xlarge","m7a.24xlarge","m7a.2xlarge","m7a.32xlarge","m7a.48xlarge","m7a.4xlarge","m7a.8xlarge","m7a.large","m7a.medium","m7a.xlarge","m7g.12xlarge","m7g.16xlarge","m7g.2xlarge","m7g.4xlarge","m7g.8xlarge","m7g.large","m7g.medium","m7g.xlarge","m7gd.12xlarge","m7gd.16xlarge","m7gd.2xlarge","m7gd.4xlarge","m7gd.8xlarge","m7gd.large","m7gd.medium","m7gd.xlarge","m7i.12xlarge","m7i.16xlarge","m7i.24xlarge","m7i.2xlarge","m7i.48xlarge","m7i.4xlarge","m7i.8xlarge","m7i.large","m7i.xlarge","m8a.2xlarge","m8a.large","m8a.medium","m8a.xlarge","m8g.12xlarge","m8g.16xlarge","m8g.24xlarge","m8g.2xlarge","m8g.48xlarge","m8g.4xlarge","m8g.8xlarge","m8g.large","m8g.medium","m8g.xlarge","m8i.2xlarge","m8i.large","m8i.xlarge","m9g.2xlarge","m9g.large","m9g.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.xlarge","r6idn.12xlarge","r6idn.16xlarge","r6idn.24xlarge","r6idn.2xlarge","r6idn.32xlarge","r6idn.4xlarge","r6idn.8xlarge","r6idn.large","r6idn.xlarge","r6in.12xlarge","r6in.16xlarge","r6in.24xlarge","r6in.2xlarge","r6in.32xlarge","r6in.4xlarge","r6in.8xlarge","r6in.large","r6in.xlarge","r7a.12xlarge","r7a.16xlarge","r7a.24xlarge","r7a.2xlarge","r7a.32xlarge","r7a.48xlarge","r7a.4xlarge","r7a.8xlarge","r7a.large","r7a.medium","r7a.xlarge","r7g.12xlarge","r7g.16xlarge","r7g.2xlarge","r7g.4xlarge","r7g.8xlarge","r7g.large","r7g.medium","r7g.xlarge","r7gd.12xlarge","r7gd.16xlarge","r7gd.2xlarge","r7gd.4xlarge","r7gd.8xlarge","r7gd.large","r7gd.medium","r7gd.xlarge","r7i.12xlarge","r7i.16xlarge","r7i.24xlarge","r7i.2xlarge","r7i.48xlarge","r7i.4xlarge","r7i.8xlarge","r7i.large","r7i.xlarge","r8g.12xlarge","r8g.16xlarge","r8g.24xlarge","r8g.2xlarge","r8g.48xlarge","r8g.4xlarge","r8g.8xlarge","r8g.large","r8g.medium","r8g.xlarge","t2.large","t2.medium","t2.micro","t2.small"
             break
         }
 
@@ -39698,8 +39932,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -56797,7 +57031,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
             break
         }
 
@@ -56859,6 +57093,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.RuntimeType
         {
+            ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
@@ -56905,6 +57140,7 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
     "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
@@ -76489,7 +76725,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_ONTAP","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "AWS_BACKUP_LOW_COST_WARM","AWS_BACKUP_WARM","DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_ONTAP","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -76519,7 +76755,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
         }
         {
-            $v = "","AES256","aws:fsx","aws:kms","aws:kms:dsse"
+            $v = "","AES256","aws:backup","aws:fsx","aws:kms","aws:kms:dsse"
             break
         }
 
@@ -76774,16 +77010,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "New-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Read-S3Object",
-               "Remove-S3Bucket",
-               "Copy-S3Object",
                "Get-S3MultipartUpload",
-               "Test-S3Bucket",
+               "Write-S3Object",
+               "Remove-S3Bucket",
                "Get-S3PreSignedURL",
-               "Write-S3Object")
+               "Test-S3Bucket",
+               "New-S3Bucket",
+               "Remove-S3Object",
+               "Read-S3Object",
+               "Remove-S3MultipartUpload",
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -79510,7 +79746,7 @@ $SM_Completers = {
             ($_ -eq "New-SMProcessingJob/ClusterConfig_InstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p5.4xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p5.4xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
             break
         }
 
@@ -80050,7 +80286,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -82213,6 +82449,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
+               "Get-SHUBFreeTrialStatusesV2List",
                "Get-SHUBInvitationList",
                "Get-SHUBMemberList",
                "Get-SHUBOrganizationAdminAccountList",
@@ -84408,6 +84645,7 @@ $SOCIAL_SelectCompleters = {
 
 $SOCIAL_SelectMap = @{
     "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "New-SOCIALWhatsAppDataset",
                "New-SOCIALWhatsAppFlow",
                "New-SOCIALWhatsAppMessageTemplate",
                "New-SOCIALWhatsAppMessageTemplateFromLibrary",
@@ -84432,6 +84670,7 @@ $SOCIAL_SelectMap = @{
                "Send-SOCIALWhatsAppMessageMedia",
                "Publish-SOCIALWhatsAppFlow",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
+               "Send-SOCIALWhatsAppConversionEvent",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
                "Remove-SOCIALResourceTag",
@@ -86502,8 +86741,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93254,44 +93493,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93331,3 +93532,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

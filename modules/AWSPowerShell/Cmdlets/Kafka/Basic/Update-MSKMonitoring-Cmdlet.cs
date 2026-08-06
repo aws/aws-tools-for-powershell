@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter LoggingInfo_AuthorizerLogs_S3_Bucket
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingInfo_AuthorizerLogs_S3_Bucket { get; set; }
+        #endregion
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>
@@ -93,6 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream { get; set; }
+        #endregion
+        
         #region Parameter Firehose_DeliveryStream
         /// <summary>
         /// <para>
@@ -102,6 +122,36 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LoggingInfo_BrokerLogs_Firehose_DeliveryStream")]
         public System.String Firehose_DeliveryStream { get; set; }
+        #endregion
+        
+        #region Parameter LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LoggingInfo_AuthorizerLogs_Firehose_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingInfo_AuthorizerLogs_Firehose_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LoggingInfo_AuthorizerLogs_S3_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingInfo_AuthorizerLogs_S3_Enabled { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogs_Enabled
@@ -171,6 +221,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public Amazon.Kafka.EnhancedMonitoring EnhancedMonitoring { get; set; }
         #endregion
         
+        #region Parameter LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_LogGroup
         /// <summary>
         /// <para>
@@ -180,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LoggingInfo_BrokerLogs_CloudWatchLogs_LogGroup")]
         public System.String CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter LoggingInfo_AuthorizerLogs_S3_Prefix
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingInfo_AuthorizerLogs_S3_Prefix { get; set; }
         #endregion
         
         #region Parameter S3_Prefix
@@ -254,6 +324,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             #endif
             context.EnhancedMonitoring = this.EnhancedMonitoring;
+            context.LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = this.LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled;
+            context.LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = this.LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+            context.LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream = this.LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+            context.LoggingInfo_AuthorizerLogs_Firehose_Enabled = this.LoggingInfo_AuthorizerLogs_Firehose_Enabled;
+            context.LoggingInfo_AuthorizerLogs_S3_Bucket = this.LoggingInfo_AuthorizerLogs_S3_Bucket;
+            context.LoggingInfo_AuthorizerLogs_S3_Enabled = this.LoggingInfo_AuthorizerLogs_S3_Enabled;
+            context.LoggingInfo_AuthorizerLogs_S3_Prefix = this.LoggingInfo_AuthorizerLogs_S3_Prefix;
             context.CloudWatchLogs_Enabled = this.CloudWatchLogs_Enabled;
             context.CloudWatchLogs_LogGroup = this.CloudWatchLogs_LogGroup;
             context.Firehose_DeliveryStream = this.Firehose_DeliveryStream;
@@ -295,6 +372,136 @@ namespace Amazon.PowerShell.Cmdlets.MSK
              // populate LoggingInfo
             var requestLoggingInfoIsNull = true;
             request.LoggingInfo = new Amazon.Kafka.Model.LoggingInfo();
+            Amazon.Kafka.Model.AuthorizerLogs requestLoggingInfo_loggingInfo_AuthorizerLogs = null;
+            
+             // populate AuthorizerLogs
+            var requestLoggingInfo_loggingInfo_AuthorizerLogsIsNull = true;
+            requestLoggingInfo_loggingInfo_AuthorizerLogs = new Amazon.Kafka.Model.AuthorizerLogs();
+            Amazon.Kafka.Model.CloudWatchLogs requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            var requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = true;
+            requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs = new Amazon.Kafka.Model.CloudWatchLogs();
+            System.Boolean? requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = cmdletContext.LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs.Enabled = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled.Value;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = false;
+            }
+            System.String requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = cmdletContext.LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs.LogGroup = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs should be set to null
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogsIsNull)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs = null;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs.CloudWatchLogs = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_CloudWatchLogs;
+                requestLoggingInfo_loggingInfo_AuthorizerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.Firehose requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose = null;
+            
+             // populate Firehose
+            var requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_FirehoseIsNull = true;
+            requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose = new Amazon.Kafka.Model.Firehose();
+            System.String requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_DeliveryStream = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_DeliveryStream = cmdletContext.LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_DeliveryStream != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose.DeliveryStream = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_FirehoseIsNull = false;
+            }
+            System.Boolean? requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_Enabled = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_Firehose_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_Enabled = cmdletContext.LoggingInfo_AuthorizerLogs_Firehose_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose.Enabled = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose_loggingInfo_AuthorizerLogs_Firehose_Enabled.Value;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_FirehoseIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose should be set to null
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_FirehoseIsNull)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose = null;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs.Firehose = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_Firehose;
+                requestLoggingInfo_loggingInfo_AuthorizerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.S3 requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3 = null;
+            
+             // populate S3
+            var requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3IsNull = true;
+            requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3 = new Amazon.Kafka.Model.S3();
+            System.String requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Bucket = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_S3_Bucket != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Bucket = cmdletContext.LoggingInfo_AuthorizerLogs_S3_Bucket;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Bucket != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3.Bucket = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Bucket;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+            System.Boolean? requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Enabled = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_S3_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Enabled = cmdletContext.LoggingInfo_AuthorizerLogs_S3_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3.Enabled = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Enabled.Value;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+            System.String requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Prefix = null;
+            if (cmdletContext.LoggingInfo_AuthorizerLogs_S3_Prefix != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Prefix = cmdletContext.LoggingInfo_AuthorizerLogs_S3_Prefix;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Prefix != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3.Prefix = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3_loggingInfo_AuthorizerLogs_S3_Prefix;
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3 should be set to null
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3IsNull)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3 = null;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3 != null)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs.S3 = requestLoggingInfo_loggingInfo_AuthorizerLogs_loggingInfo_AuthorizerLogs_S3;
+                requestLoggingInfo_loggingInfo_AuthorizerLogsIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_AuthorizerLogs should be set to null
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogsIsNull)
+            {
+                requestLoggingInfo_loggingInfo_AuthorizerLogs = null;
+            }
+            if (requestLoggingInfo_loggingInfo_AuthorizerLogs != null)
+            {
+                request.LoggingInfo.AuthorizerLogs = requestLoggingInfo_loggingInfo_AuthorizerLogs;
+                requestLoggingInfoIsNull = false;
+            }
             Amazon.Kafka.Model.BrokerLogs requestLoggingInfo_loggingInfo_BrokerLogs = null;
             
              // populate BrokerLogs
@@ -562,6 +769,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.String ClusterArn { get; set; }
             public System.String CurrentVersion { get; set; }
             public Amazon.Kafka.EnhancedMonitoring EnhancedMonitoring { get; set; }
+            public System.Boolean? LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled { get; set; }
+            public System.String LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup { get; set; }
+            public System.String LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream { get; set; }
+            public System.Boolean? LoggingInfo_AuthorizerLogs_Firehose_Enabled { get; set; }
+            public System.String LoggingInfo_AuthorizerLogs_S3_Bucket { get; set; }
+            public System.Boolean? LoggingInfo_AuthorizerLogs_S3_Enabled { get; set; }
+            public System.String LoggingInfo_AuthorizerLogs_S3_Prefix { get; set; }
             public System.Boolean? CloudWatchLogs_Enabled { get; set; }
             public System.String CloudWatchLogs_LogGroup { get; set; }
             public System.String Firehose_DeliveryStream { get; set; }

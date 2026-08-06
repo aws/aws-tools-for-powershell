@@ -346,6 +346,7 @@ $BAC_SelectMap = @{
                "New-BACPaymentSession",
                "Remove-BACABTest",
                "Remove-BACBatchEvaluation",
+               "Remove-BACCapacityProviderSession",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
                "Remove-BACPaymentInstrument",

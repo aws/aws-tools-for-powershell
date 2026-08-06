@@ -139,6 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String S3_Bucket { get; set; }
         #endregion
         
+        #region Parameter CapacityProviderConfiguration_CapacityProviderArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the capacity provider to use for the AgentCore Runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CapacityProviderConfiguration_CapacityProviderArn { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfiguration_ContainerUri
         /// <summary>
         /// <para>
@@ -289,13 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>The network mode for the AgentCore Runtime.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.NetworkMode")]
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
@@ -686,6 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride = new List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride>(this.AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride);
             }
+            context.CapacityProviderConfiguration_CapacityProviderArn = this.CapacityProviderConfiguration_CapacityProviderArn;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.EnvironmentVariable != null)
@@ -704,12 +709,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.LifecycleConfiguration_MaxLifetime = this.LifecycleConfiguration_MaxLifetime;
             context.MetadataConfiguration_RequireMMDSV2 = this.MetadataConfiguration_RequireMMDSV2;
             context.NetworkConfiguration_NetworkMode = this.NetworkConfiguration_NetworkMode;
-            #if MODULAR
-            if (this.NetworkConfiguration_NetworkMode == null && ParameterWasBound(nameof(this.NetworkConfiguration_NetworkMode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NetworkConfiguration_NetworkMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint = this.NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint;
             if (this.NetworkModeConfig_SecurityGroup != null)
             {
@@ -1124,6 +1123,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.AuthorizerConfiguration = null;
             }
+            
+             // populate CapacityProviderConfiguration
+            var requestCapacityProviderConfigurationIsNull = true;
+            request.CapacityProviderConfiguration = new Amazon.BedrockAgentCoreControl.Model.CapacityProviderConfiguration();
+            System.String requestCapacityProviderConfiguration_capacityProviderConfiguration_CapacityProviderArn = null;
+            if (cmdletContext.CapacityProviderConfiguration_CapacityProviderArn != null)
+            {
+                requestCapacityProviderConfiguration_capacityProviderConfiguration_CapacityProviderArn = cmdletContext.CapacityProviderConfiguration_CapacityProviderArn;
+            }
+            if (requestCapacityProviderConfiguration_capacityProviderConfiguration_CapacityProviderArn != null)
+            {
+                request.CapacityProviderConfiguration.CapacityProviderArn = requestCapacityProviderConfiguration_capacityProviderConfiguration_CapacityProviderArn;
+                requestCapacityProviderConfigurationIsNull = false;
+            }
+             // determine if request.CapacityProviderConfiguration should be set to null
+            if (requestCapacityProviderConfigurationIsNull)
+            {
+                request.CapacityProviderConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -1372,6 +1390,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_VpcIdentifier { get; set; }
             public System.String AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.PrivateEndpointOverride> AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
+            public System.String CapacityProviderConfiguration_CapacityProviderArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }

@@ -77,6 +77,12 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AgentRegistry">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AgentRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AgentRegistryControl">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AgentRegistryControl.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AIOps">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AIOps.dll</HintPath>
     </Reference>
@@ -1357,6 +1363,12 @@
     </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AgentRegistry">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AgentRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AgentRegistryControl">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AgentRegistryControl.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AIOps">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AIOps.dll</HintPath>

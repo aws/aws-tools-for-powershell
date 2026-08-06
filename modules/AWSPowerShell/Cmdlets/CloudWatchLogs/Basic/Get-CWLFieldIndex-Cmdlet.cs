@@ -30,8 +30,14 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns a list of custom and default field indexes which are discovered in log data.
-    /// For more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of field indexes discovered in log data. By default, the response includes
+    /// the <c>DEFAULT</c>, <c>CUSTOM</c>, and <c>INACTIVE</c> index categories. To return
+    /// indexes from other categories, use the <c>indexCategories</c> parameter.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLFieldIndex")]
     [OutputType("Amazon.CloudWatchLogs.Model.FieldIndex")]
@@ -45,6 +51,33 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter IndexCategory
+        /// <summary>
+        /// <para>
+        /// <para>The index categories to return. The following values are supported:</para><ul><li><para><c>DEFAULT</c>: Fields that CloudWatch Logs indexes by default. Examples include
+        /// <c>@logStream</c> and <c>@data_format</c>.</para></li><li><para><c>CUSTOM</c>: Fields that you added manually to the field index policy. CloudWatch
+        /// Logs always indexes these fields. These fields count toward the quota of 20 fields
+        /// for each log group.</para></li><li><para><c>AUTO</c>: Fields that CloudWatch Logs indexes automatically based on your query
+        /// patterns and usage. These fields do not count toward the field index quota. CloudWatch
+        /// Logs might update these fields based on changes in your query patterns. To keep a
+        /// field indexed permanently, add it to an account-level or log-group level field index
+        /// policy.</para></li><li><para><c>INACTIVE</c>: Fields that CloudWatch Logs indexed before but does not index now.
+        /// This happens if you remove a field from the field index policy or if CloudWatch Logs
+        /// automatically selects a different field based on your queries.</para></li></ul><para>If you omit this parameter, the response includes the <c>DEFAULT</c>, <c>CUSTOM</c>,
+        /// and <c>INACTIVE</c> categories.</para><para>For more information about automatically indexed fields and using the <c>AUTO</c>
+        /// category, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Automatic.html">Automatically
+        /// indexed fields</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IndexCategories")]
+        public System.String[] IndexCategory { get; set; }
+        #endregion
         
         #region Parameter LogGroupIdentifier
         /// <summary>
@@ -123,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse, GetCWLFieldIndexCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.IndexCategory != null)
+            {
+                context.IndexCategory = new List<System.String>(this.IndexCategory);
+            }
             if (this.LogGroupIdentifier != null)
             {
                 context.LogGroupIdentifier = new List<System.String>(this.LogGroupIdentifier);
@@ -152,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request and set iteration invariants
             var request = new Amazon.CloudWatchLogs.Model.DescribeFieldIndexesRequest();
             
+            if (cmdletContext.IndexCategory != null)
+            {
+                request.IndexCategories = cmdletContext.IndexCategory;
+            }
             if (cmdletContext.LogGroupIdentifier != null)
             {
                 request.LogGroupIdentifiers = cmdletContext.LogGroupIdentifier;
@@ -235,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> IndexCategory { get; set; }
             public List<System.String> LogGroupIdentifier { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse, GetCWLFieldIndexCmdlet, object> Select { get; set; } =

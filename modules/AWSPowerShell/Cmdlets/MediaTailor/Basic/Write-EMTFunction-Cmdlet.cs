@@ -85,6 +85,22 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String FunctionId { get; set; }
         #endregion
         
+        #region Parameter ConcurrentExecutorConfiguration_FunctionList
+        /// <summary>
+        /// <para>
+        /// <para>The list of child functions that MediaTailor runs in parallel. Each entry specifies
+        /// a child function to execute and an optional run condition expression that controls
+        /// whether the function runs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaTailor.Model.FunctionRef[] ConcurrentExecutorConfiguration_FunctionList { get; set; }
+        #endregion
+        
         #region Parameter SequentialExecutorConfiguration_FunctionList
         /// <summary>
         /// <para>
@@ -141,6 +157,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable HttpRequestConfiguration_Header { get; set; }
         #endregion
         
+        #region Parameter ConcurrentExecutorConfiguration_MaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of child functions that MediaTailor runs simultaneously. When the
+        /// list contains more functions than <c>MaxConcurrency</c>, MediaTailor starts additional
+        /// functions as running ones complete, so that no more than <c>MaxConcurrency</c> functions
+        /// run at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConcurrentExecutorConfiguration_MaxConcurrency { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_MethodType
         /// <summary>
         /// <para>
@@ -150,6 +179,23 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.MethodType")]
         public Amazon.MediaTailor.MethodType HttpRequestConfiguration_MethodType { get; set; }
+        #endregion
+        
+        #region Parameter ConcurrentExecutorConfiguration_Output
+        /// <summary>
+        /// <para>
+        /// <para>A map of output bindings that controls which bindings the executor commits to the
+        /// session state after all child functions complete. Each key is a namespaced output
+        /// path, and each value is an expression that MediaTailor evaluates against the combined
+        /// results of the child functions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ConcurrentExecutorConfiguration_Output { get; set; }
         #endregion
         
         #region Parameter CustomOutputConfiguration_Output
@@ -219,6 +265,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? HttpRequestConfiguration_RequestTimeoutMillisecond { get; set; }
         #endregion
         
+        #region Parameter ConcurrentExecutorConfiguration_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The expression language used to evaluate expressions in the function configuration.
+        /// Set this to <c>JSONata</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
+        public Amazon.MediaTailor.RuntimeType ConcurrentExecutorConfiguration_Runtime { get; set; }
+        #endregion
+        
         #region Parameter CustomOutputConfiguration_Runtime
         /// <summary>
         /// <para>
@@ -271,6 +329,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ConcurrentExecutorConfiguration_TimeoutMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, for all child functions to complete. This timeout
+        /// covers every function in the list, including any HTTP calls the child functions make.
+        /// If the executor exceeds this timeout, MediaTailor discards all output from the executor
+        /// and proceeds with default behavior.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConcurrentExecutorConfiguration_TimeoutMilliseconds")]
+        public System.Int32? ConcurrentExecutorConfiguration_TimeoutMillisecond { get; set; }
         #endregion
         
         #region Parameter SequentialExecutorConfiguration_TimeoutMillisecond
@@ -344,6 +416,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.PutFunctionResponse, WriteEMTFunctionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.ConcurrentExecutorConfiguration_FunctionList != null)
+            {
+                context.ConcurrentExecutorConfiguration_FunctionList = new List<Amazon.MediaTailor.Model.FunctionRef>(this.ConcurrentExecutorConfiguration_FunctionList);
+            }
+            context.ConcurrentExecutorConfiguration_MaxConcurrency = this.ConcurrentExecutorConfiguration_MaxConcurrency;
+            if (this.ConcurrentExecutorConfiguration_Output != null)
+            {
+                context.ConcurrentExecutorConfiguration_Output = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ConcurrentExecutorConfiguration_Output.Keys)
+                {
+                    context.ConcurrentExecutorConfiguration_Output.Add((String)hashKey, (System.String)(this.ConcurrentExecutorConfiguration_Output[hashKey]));
+                }
+            }
+            context.ConcurrentExecutorConfiguration_Runtime = this.ConcurrentExecutorConfiguration_Runtime;
+            context.ConcurrentExecutorConfiguration_TimeoutMillisecond = this.ConcurrentExecutorConfiguration_TimeoutMillisecond;
             if (this.CustomOutputConfiguration_Output != null)
             {
                 context.CustomOutputConfiguration_Output = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -427,6 +514,65 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.PutFunctionRequest();
             
+            
+             // populate ConcurrentExecutorConfiguration
+            var requestConcurrentExecutorConfigurationIsNull = true;
+            request.ConcurrentExecutorConfiguration = new Amazon.MediaTailor.Model.ConcurrentExecutorConfiguration();
+            List<Amazon.MediaTailor.Model.FunctionRef> requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_FunctionList = null;
+            if (cmdletContext.ConcurrentExecutorConfiguration_FunctionList != null)
+            {
+                requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_FunctionList = cmdletContext.ConcurrentExecutorConfiguration_FunctionList;
+            }
+            if (requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_FunctionList != null)
+            {
+                request.ConcurrentExecutorConfiguration.FunctionList = requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_FunctionList;
+                requestConcurrentExecutorConfigurationIsNull = false;
+            }
+            System.Int32? requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_MaxConcurrency = null;
+            if (cmdletContext.ConcurrentExecutorConfiguration_MaxConcurrency != null)
+            {
+                requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_MaxConcurrency = cmdletContext.ConcurrentExecutorConfiguration_MaxConcurrency.Value;
+            }
+            if (requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_MaxConcurrency != null)
+            {
+                request.ConcurrentExecutorConfiguration.MaxConcurrency = requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_MaxConcurrency.Value;
+                requestConcurrentExecutorConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Output = null;
+            if (cmdletContext.ConcurrentExecutorConfiguration_Output != null)
+            {
+                requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Output = cmdletContext.ConcurrentExecutorConfiguration_Output;
+            }
+            if (requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Output != null)
+            {
+                request.ConcurrentExecutorConfiguration.Output = requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Output;
+                requestConcurrentExecutorConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.RuntimeType requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Runtime = null;
+            if (cmdletContext.ConcurrentExecutorConfiguration_Runtime != null)
+            {
+                requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Runtime = cmdletContext.ConcurrentExecutorConfiguration_Runtime;
+            }
+            if (requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Runtime != null)
+            {
+                request.ConcurrentExecutorConfiguration.Runtime = requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_Runtime;
+                requestConcurrentExecutorConfigurationIsNull = false;
+            }
+            System.Int32? requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_TimeoutMillisecond = null;
+            if (cmdletContext.ConcurrentExecutorConfiguration_TimeoutMillisecond != null)
+            {
+                requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_TimeoutMillisecond = cmdletContext.ConcurrentExecutorConfiguration_TimeoutMillisecond.Value;
+            }
+            if (requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_TimeoutMillisecond != null)
+            {
+                request.ConcurrentExecutorConfiguration.TimeoutMilliseconds = requestConcurrentExecutorConfiguration_concurrentExecutorConfiguration_TimeoutMillisecond.Value;
+                requestConcurrentExecutorConfigurationIsNull = false;
+            }
+             // determine if request.ConcurrentExecutorConfiguration should be set to null
+            if (requestConcurrentExecutorConfigurationIsNull)
+            {
+                request.ConcurrentExecutorConfiguration = null;
+            }
             
              // populate CustomOutputConfiguration
             var requestCustomOutputConfigurationIsNull = true;
@@ -655,6 +801,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.MediaTailor.Model.FunctionRef> ConcurrentExecutorConfiguration_FunctionList { get; set; }
+            public System.Int32? ConcurrentExecutorConfiguration_MaxConcurrency { get; set; }
+            public Dictionary<System.String, System.String> ConcurrentExecutorConfiguration_Output { get; set; }
+            public Amazon.MediaTailor.RuntimeType ConcurrentExecutorConfiguration_Runtime { get; set; }
+            public System.Int32? ConcurrentExecutorConfiguration_TimeoutMillisecond { get; set; }
             public Dictionary<System.String, System.String> CustomOutputConfiguration_Output { get; set; }
             public Amazon.MediaTailor.RuntimeType CustomOutputConfiguration_Runtime { get; set; }
             public System.String Description { get; set; }

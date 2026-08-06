@@ -129,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SHUBFindingStatisticsV2', 
         'Get-SHUBFindingsTrendsV2', 
         'Get-SHUBFindingsV2', 
+        'Get-SHUBFreeTrialStatusesV2List', 
         'Get-SHUBGetAutomationRule', 
         'Get-SHUBGetConfigurationPolicyAssociation', 
         'Get-SHUBGetSecurityControl', 

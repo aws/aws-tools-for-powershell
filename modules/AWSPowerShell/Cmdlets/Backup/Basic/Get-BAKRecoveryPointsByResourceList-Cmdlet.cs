@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>This attribute filters recovery points based on ownership.</para><para>If this is set to <c>TRUE</c>, the response will contain recovery points associated
         /// with the selected resources that are managed by Backup.</para><para>If this is set to <c>FALSE</c>, the response will contain all recovery points associated
-        /// with the selected resource.</para><para>Type: Boolean</para>
+        /// with the selected resource, except for EBS snapshots copied within the same Region
+        /// and account.</para><para>Type: Boolean</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

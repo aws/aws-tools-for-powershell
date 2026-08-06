@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>agent-registry-control</C2jFilename>
+    <AssemblyName>AgentRegistryControl</AssemblyName>
+    <ServiceNounPrefix>AGRC</ServiceNounPrefix>
+    <ServiceName>Agent Registry Control</ServiceName>
+    <ServiceId>Agent Registry Control</ServiceId>
+    <ServiceClientInterface>IAmazonAgentRegistryControl</ServiceClientInterface>
+    <ServiceClient>AmazonAgentRegistryControlClient</ServiceClient>
+    <ServiceModuleGuid>f3ca4d1b-5ad2-4633-9573-fb7989f7057a</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateRegistry" OutputProperty="RegistryArn" Verb="New" Noun="Registry" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistryRecord" OutputProperty="*" Verb="New" Noun="RegistryRecord" ShouldProcessTarget="RegistryId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistry" OutputProperty="Status" Verb="Remove" Noun="Registry" ShouldProcessTarget="RegistryId" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegistryRecord" Verb="Remove" Noun="RegistryRecord" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegistryRecord" OutputProperty="*" Verb="Get" Noun="RegistryRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistries" OutputProperty="Registries" Verb="Get" Noun="RegistryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistryRecords" OutputProperty="RegistryRecords" Verb="Get" Noun="RegistryRecordList" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitRegistryRecordForApproval" OutputProperty="*" Verb="Submit" Noun="RegistryRecordForApproval" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistry" OutputProperty="*" Verb="Update" Noun="Registry" ShouldProcessTarget="RegistryId" PipelineParameter="RegistryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistryRecord" OutputProperty="*" Verb="Update" Noun="RegistryRecord" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistryRecordStatus" OutputProperty="*" Verb="Update" Noun="RegistryRecordStatus" ShouldProcessTarget="RecordId,RegistryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

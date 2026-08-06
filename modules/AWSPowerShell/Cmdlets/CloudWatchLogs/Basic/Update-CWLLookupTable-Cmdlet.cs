@@ -94,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The ID of a completed CloudWatch Logs query whose results replace the lookup table
-        /// content.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
+        /// <para>The ID of a completed or cancelled CloudWatch Logs query whose results replace the
+        /// lookup table content. A cancelled query replaces the content with the partial results
+        /// that were available when the query was stopped.</para><para>You must specify either <c>tableBody</c> or <c>queryId</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

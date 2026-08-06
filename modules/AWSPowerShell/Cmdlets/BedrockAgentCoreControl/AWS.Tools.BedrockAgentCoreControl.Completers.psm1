@@ -117,6 +117,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.CapacityReservationPreference
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"
+        {
+            $v = "capacity-reservations-only","none","open"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ClientAuthenticationMethodType
         {
             ($_ -eq "New-BACCOauth2CredentialProvider/Oauth2ProviderConfigInput_CustomOauth2ProviderConfig_ClientAuthenticationMethod") -Or
@@ -159,6 +166,13 @@ $BACC_Completers = {
         }
         {
             $v = "A2A","AGENT_SKILLS","CUSTOM","MCP"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.EbsVolumeType
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"
+        {
+            $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
         }
 
@@ -295,6 +309,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.Monitoring
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"
+        {
+            $v = "BASIC","DETAILED"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.NetworkMode
         {
             ($_ -eq "New-BACCHarness/Environment_AgentCoreRuntimeEnvironment_NetworkConfiguration_NetworkMode") -Or
@@ -321,6 +342,13 @@ $BACC_Completers = {
         "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.OperatingSystem
+        "New-BACCCapacityProvider/ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem"
+        {
+            $v = "LINUX_ARM64","LINUX_X86_64"
             break
         }
 
@@ -508,6 +536,10 @@ $BACC_map = @{
     "AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-BACCHarness","Update-BACCRegistry")
     "AuthorizerType"=@("Get-BACCRegistryList","New-BACCGateway","New-BACCPaymentManager","New-BACCRegistry","Update-BACCGateway","Update-BACCPaymentManager")
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_CapacityReservationSpecification_CapacityReservationPreference"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_Monitoring"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_LaunchTemplateSource_LaunchParameters_OperatingSystem"=@("New-BACCCapacityProvider")
+    "ComputeConfiguration_Ec2Configuration_RootVolume_VolumeType"=@("New-BACCCapacityProvider")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","New-BACCPaymentCredentialProvider","Update-BACCOauth2CredentialProvider","Update-BACCPaymentCredentialProvider")
     "DescriptorType"=@("Get-BACCRegistryRecordList","New-BACCRegistryRecord","Update-BACCRegistryRecord")
     "EnforcementMode"=@("New-BACCPolicy","Update-BACCPolicy")
@@ -607,17 +639,20 @@ $BACC_SelectCompleters = {
 
 $BACC_SelectMap = @{
     "Select"=@("Add-BACCDatasetExample",
+               "Write-BACCGatewayRateLimitBatch",
                "New-BACCAgentRuntime",
                "New-BACCAgentRuntimeEndpoint",
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCBrowserProfile",
+               "New-BACCCapacityProvider",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
                "New-BACCDataset",
                "New-BACCDatasetVersion",
                "New-BACCEvaluator",
                "New-BACCGateway",
+               "New-BACCGatewayRateLimit",
                "New-BACCGatewayRule",
                "New-BACCGatewayTarget",
                "New-BACCHarness",
@@ -638,12 +673,14 @@ $BACC_SelectMap = @{
                "Remove-BACCApiKeyCredentialProvider",
                "Remove-BACCBrowser",
                "Remove-BACCBrowserProfile",
+               "Remove-BACCCapacityProvider",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
                "Remove-BACCDataset",
                "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
                "Remove-BACCGateway",
+               "Remove-BACCGatewayRateLimit",
                "Remove-BACCGatewayRule",
                "Remove-BACCGatewayTarget",
                "Remove-BACCHarness",
@@ -665,12 +702,14 @@ $BACC_SelectMap = @{
                "Get-BACCApiKeyCredentialProvider",
                "Get-BACCBrowser",
                "Get-BACCBrowserProfile",
+               "Get-BACCCapacityProvider",
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
                "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
+               "Get-BACCGatewayRateLimit",
                "Get-BACCGatewayRule",
                "Get-BACCGatewayTarget",
                "Get-BACCHarness",
@@ -695,9 +734,11 @@ $BACC_SelectMap = @{
                "Get-BACCAgentRuntimeEndpointList",
                "Get-BACCAgentRuntimeList",
                "Get-BACCAgentRuntimeVersionList",
+               "Get-BACCAgentRuntimeVersionsByCapacityProviderList",
                "Get-BACCApiKeyCredentialProviderList",
                "Get-BACCBrowserProfileList",
                "Get-BACCBrowserList",
+               "Get-BACCCapacityProviderList",
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
@@ -705,6 +746,7 @@ $BACC_SelectMap = @{
                "Get-BACCDatasetList",
                "Get-BACCDatasetVersionList",
                "Get-BACCEvaluatorList",
+               "Get-BACCGatewayRateLimitList",
                "Get-BACCGatewayRuleList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
@@ -738,11 +780,13 @@ $BACC_SelectMap = @{
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCCapacityProvider",
                "Update-BACCConfigurationBundle",
                "Update-BACCDataset",
                "Update-BACCDatasetExample",
                "Update-BACCEvaluator",
                "Update-BACCGateway",
+               "Update-BACCGatewayRateLimit",
                "Update-BACCGatewayRule",
                "Update-BACCGatewayTarget",
                "Update-BACCHarness",

@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public Amazon.Kafka.Model.BrokerNodeGroupInfo Provisioned_BrokerNodeGroupInfo { get; set; }
         #endregion
         
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket { get; set; }
+        #endregion
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>
@@ -135,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String EncryptionAtRest_DataVolumeKMSKeyId { get; set; }
         #endregion
         
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream { get; set; }
+        #endregion
+        
         #region Parameter Firehose_DeliveryStream
         /// <summary>
         /// <para>
@@ -188,6 +208,36 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Provisioned_ClientAuthentication_Unauthenticated_Enabled")]
         public System.Boolean? Unauthenticated_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogs_Enabled
@@ -289,6 +339,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String Provisioned_KafkaVersion { get; set; }
         #endregion
         
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_LogGroup
         /// <summary>
         /// <para>
@@ -309,6 +369,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Provisioned_NumberOfBrokerNodes")]
         public System.Int32? Provisioned_NumberOfBrokerNode { get; set; }
+        #endregion
+        
+        #region Parameter Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix { get; set; }
         #endregion
         
         #region Parameter S3_Prefix
@@ -456,6 +526,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             context.EncryptionInTransit_InCluster = this.EncryptionInTransit_InCluster;
             context.Provisioned_EnhancedMonitoring = this.Provisioned_EnhancedMonitoring;
             context.Provisioned_KafkaVersion = this.Provisioned_KafkaVersion;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = this.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = this.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream = this.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled = this.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket = this.Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled = this.Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled;
+            context.Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix = this.Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix;
             context.CloudWatchLogs_Enabled = this.CloudWatchLogs_Enabled;
             context.CloudWatchLogs_LogGroup = this.CloudWatchLogs_LogGroup;
             context.Firehose_DeliveryStream = this.Firehose_DeliveryStream;
@@ -553,151 +630,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_StorageMode != null)
             {
                 request.Provisioned.StorageMode = requestProvisioned_provisioned_StorageMode;
-                requestProvisionedIsNull = false;
-            }
-            Amazon.Kafka.Model.LoggingInfo requestProvisioned_provisioned_LoggingInfo = null;
-            
-             // populate LoggingInfo
-            var requestProvisioned_provisioned_LoggingInfoIsNull = true;
-            requestProvisioned_provisioned_LoggingInfo = new Amazon.Kafka.Model.LoggingInfo();
-            Amazon.Kafka.Model.BrokerLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
-            
-             // populate BrokerLogs
-            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = true;
-            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = new Amazon.Kafka.Model.BrokerLogs();
-            Amazon.Kafka.Model.CloudWatchLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = null;
-            
-             // populate CloudWatchLogs
-            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = true;
-            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = new Amazon.Kafka.Model.CloudWatchLogs();
-            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = null;
-            if (cmdletContext.CloudWatchLogs_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = cmdletContext.CloudWatchLogs_Enabled.Value;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled.Value;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
-            }
-            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = null;
-            if (cmdletContext.CloudWatchLogs_LogGroup != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = cmdletContext.CloudWatchLogs_LogGroup;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs.LogGroup = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs should be set to null
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = null;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.CloudWatchLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
-            }
-            Amazon.Kafka.Model.Firehose requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = null;
-            
-             // populate Firehose
-            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = true;
-            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = new Amazon.Kafka.Model.Firehose();
-            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = null;
-            if (cmdletContext.Firehose_DeliveryStream != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = cmdletContext.Firehose_DeliveryStream;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose.DeliveryStream = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = false;
-            }
-            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled = null;
-            if (cmdletContext.Firehose_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled = cmdletContext.Firehose_Enabled.Value;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled.Value;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose should be set to null
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = null;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.Firehose = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
-            }
-            Amazon.Kafka.Model.S3 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = null;
-            
-             // populate S3
-            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = true;
-            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = new Amazon.Kafka.Model.S3();
-            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket = null;
-            if (cmdletContext.S3_Bucket != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket = cmdletContext.S3_Bucket;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Bucket = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
-            }
-            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled = null;
-            if (cmdletContext.S3_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled = cmdletContext.S3_Enabled.Value;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled.Value;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
-            }
-            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix = null;
-            if (cmdletContext.S3_Prefix != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix = cmdletContext.S3_Prefix;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Prefix = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 should be set to null
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = null;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.S3 = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs should be set to null
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs != null)
-            {
-                requestProvisioned_provisioned_LoggingInfo.BrokerLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs;
-                requestProvisioned_provisioned_LoggingInfoIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo should be set to null
-            if (requestProvisioned_provisioned_LoggingInfoIsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo = null;
-            }
-            if (requestProvisioned_provisioned_LoggingInfo != null)
-            {
-                request.Provisioned.LoggingInfo = requestProvisioned_provisioned_LoggingInfo;
                 requestProvisionedIsNull = false;
             }
             Amazon.Kafka.Model.OpenMonitoringInfo requestProvisioned_provisioned_OpenMonitoring = null;
@@ -913,6 +845,281 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_EncryptionInfo != null)
             {
                 request.Provisioned.EncryptionInfo = requestProvisioned_provisioned_EncryptionInfo;
+                requestProvisionedIsNull = false;
+            }
+            Amazon.Kafka.Model.LoggingInfo requestProvisioned_provisioned_LoggingInfo = null;
+            
+             // populate LoggingInfo
+            var requestProvisioned_provisioned_LoggingInfoIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo = new Amazon.Kafka.Model.LoggingInfo();
+            Amazon.Kafka.Model.AuthorizerLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs = null;
+            
+             // populate AuthorizerLogs
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogsIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs = new Amazon.Kafka.Model.AuthorizerLogs();
+            Amazon.Kafka.Model.CloudWatchLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs = new Amazon.Kafka.Model.CloudWatchLogs();
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = false;
+            }
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs.LogGroup = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogsIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs.CloudWatchLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.Firehose requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose = null;
+            
+             // populate Firehose
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_FirehoseIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose = new Amazon.Kafka.Model.Firehose();
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose.DeliveryStream = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_FirehoseIsNull = false;
+            }
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose_provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_FirehoseIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_FirehoseIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs.Firehose = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_Firehose;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.S3 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3 = null;
+            
+             // populate S3
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3IsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3 = new Amazon.Kafka.Model.S3();
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3.Bucket = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix = null;
+            if (cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix = cmdletContext.Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3.Prefix = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3_provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3IsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3 should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3IsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3 = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3 != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs.S3 = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs_provisioned_LoggingInfo_AuthorizerLogs_S3;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogsIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogsIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo.AuthorizerLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_AuthorizerLogs;
+                requestProvisioned_provisioned_LoggingInfoIsNull = false;
+            }
+            Amazon.Kafka.Model.BrokerLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
+            
+             // populate BrokerLogs
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = new Amazon.Kafka.Model.BrokerLogs();
+            Amazon.Kafka.Model.CloudWatchLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = new Amazon.Kafka.Model.CloudWatchLogs();
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = null;
+            if (cmdletContext.CloudWatchLogs_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = cmdletContext.CloudWatchLogs_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
+            }
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = null;
+            if (cmdletContext.CloudWatchLogs_LogGroup != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = cmdletContext.CloudWatchLogs_LogGroup;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs.LogGroup = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogsIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.CloudWatchLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.Firehose requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = null;
+            
+             // populate Firehose
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = new Amazon.Kafka.Model.Firehose();
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = null;
+            if (cmdletContext.Firehose_DeliveryStream != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = cmdletContext.Firehose_DeliveryStream;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose.DeliveryStream = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = false;
+            }
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled = null;
+            if (cmdletContext.Firehose_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled = cmdletContext.Firehose_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose_firehose_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_FirehoseIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.Firehose = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.S3 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = null;
+            
+             // populate S3
+            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = true;
+            requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = new Amazon.Kafka.Model.S3();
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket = null;
+            if (cmdletContext.S3_Bucket != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket = cmdletContext.S3_Bucket;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Bucket = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Bucket;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
+            }
+            System.Boolean? requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled = null;
+            if (cmdletContext.S3_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled = cmdletContext.S3_Enabled.Value;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Enabled = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Enabled.Value;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
+            }
+            System.String requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix = null;
+            if (cmdletContext.S3_Prefix != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix = cmdletContext.S3_Prefix;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3.Prefix = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3_s3_Prefix;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3IsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.S3 = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3;
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs should be set to null
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs != null)
+            {
+                requestProvisioned_provisioned_LoggingInfo.BrokerLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs;
+                requestProvisioned_provisioned_LoggingInfoIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_LoggingInfo should be set to null
+            if (requestProvisioned_provisioned_LoggingInfoIsNull)
+            {
+                requestProvisioned_provisioned_LoggingInfo = null;
+            }
+            if (requestProvisioned_provisioned_LoggingInfo != null)
+            {
+                request.Provisioned.LoggingInfo = requestProvisioned_provisioned_LoggingInfo;
                 requestProvisionedIsNull = false;
             }
             Amazon.Kafka.Model.ClientAuthentication requestProvisioned_provisioned_ClientAuthentication = null;
@@ -1207,6 +1414,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Boolean? EncryptionInTransit_InCluster { get; set; }
             public Amazon.Kafka.EnhancedMonitoring Provisioned_EnhancedMonitoring { get; set; }
             public System.String Provisioned_KafkaVersion { get; set; }
+            public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_Enabled { get; set; }
+            public System.String Provisioned_LoggingInfo_AuthorizerLogs_CloudWatchLogs_LogGroup { get; set; }
+            public System.String Provisioned_LoggingInfo_AuthorizerLogs_Firehose_DeliveryStream { get; set; }
+            public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_Firehose_Enabled { get; set; }
+            public System.String Provisioned_LoggingInfo_AuthorizerLogs_S3_Bucket { get; set; }
+            public System.Boolean? Provisioned_LoggingInfo_AuthorizerLogs_S3_Enabled { get; set; }
+            public System.String Provisioned_LoggingInfo_AuthorizerLogs_S3_Prefix { get; set; }
             public System.Boolean? CloudWatchLogs_Enabled { get; set; }
             public System.String CloudWatchLogs_LogGroup { get; set; }
             public System.String Firehose_DeliveryStream { get; set; }

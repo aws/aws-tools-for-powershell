@@ -458,6 +458,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
                "Get-SHUBFindingAggregatorList",
+               "Get-SHUBFreeTrialStatusesV2List",
                "Get-SHUBInvitationList",
                "Get-SHUBMemberList",
                "Get-SHUBOrganizationAdminAccountList",

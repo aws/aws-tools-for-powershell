@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackupAccessPoint" OutputProperty="*" Verb="New" Noun="BackupAccessPoint" ShouldProcessTarget="Name,RecoveryPointArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBackupPlan" OutputProperty="*" Verb="New" Noun="BackupPlan" AnonymousShouldProcessTarget="true" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -91,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupAccessPoint" Verb="Remove" Noun="BackupAccessPoint" ShouldProcessTarget="AccessPointArn" PipelineParameter="AccessPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTieringConfiguration" Verb="Remove" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfigurationName" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBackupAccessPoint" OutputProperty="*" Verb="Get" Noun="BackupAccessPointDetail" PipelineParameter="AccessPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -264,6 +276,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTieringConfiguration" OutputProperty="TieringConfiguration" Verb="Get" Noun="TieringConfiguration" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupAccessPoints" OutputProperty="BackupAccessPoints" Verb="Get" Noun="BackupAccessPointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupAccessPointsByRecoveryPoint" OutputProperty="BackupAccessPoints" Verb="Get" Noun="BackupAccessPointsByRecoveryPointList" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupAccessPointsByResource" OutputProperty="BackupAccessPoints" Verb="Get" Noun="BackupAccessPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

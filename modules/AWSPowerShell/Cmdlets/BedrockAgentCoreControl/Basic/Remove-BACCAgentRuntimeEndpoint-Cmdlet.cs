@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes an AAgentCore Runtime endpoint.
+    /// Deletes an AgentCore Runtime endpoint.
     /// </summary>
     [Cmdlet("Remove", "BACCAgentRuntimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.AgentRuntimeEndpointStatus")]

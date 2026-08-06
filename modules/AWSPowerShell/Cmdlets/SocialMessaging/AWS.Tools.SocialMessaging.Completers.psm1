@@ -124,6 +124,7 @@ $SOCIAL_SelectCompleters = {
 
 $SOCIAL_SelectMap = @{
     "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "New-SOCIALWhatsAppDataset",
                "New-SOCIALWhatsAppFlow",
                "New-SOCIALWhatsAppMessageTemplate",
                "New-SOCIALWhatsAppMessageTemplateFromLibrary",
@@ -148,6 +149,7 @@ $SOCIAL_SelectMap = @{
                "Send-SOCIALWhatsAppMessageMedia",
                "Publish-SOCIALWhatsAppFlow",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
+               "Send-SOCIALWhatsAppConversionEvent",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
                "Remove-SOCIALResourceTag",

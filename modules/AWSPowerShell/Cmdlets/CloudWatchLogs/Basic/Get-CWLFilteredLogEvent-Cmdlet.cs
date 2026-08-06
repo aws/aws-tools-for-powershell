@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The start of the time range, expressed as the number of milliseconds after <c>Jan
-        /// 1, 1970 00:00:00 UTC</c>. Events with a timestamp before this time are not returned.</para>
+        /// 1, 1970 00:00:00 UTC</c>. Events with a timestamp before this time are not returned.</para><note><para>Set <c>startTime</c> explicitly to reduce the chances of empty pages in the response.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

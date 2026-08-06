@@ -210,6 +210,23 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String DeviceProxy_Host { get; set; }
         #endregion
         
+        #region Parameter Configuration_InsightsType
+        /// <summary>
+        /// <para>
+        /// <para>The types of insights to generate for a run. Specify one or more values to opt in
+        /// to insights generation when scheduling a run.</para><para>Insights are currently supported for custom mode runs with Instrumentation, Appium
+        /// Java TestNG, and XCTest UI test types.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_InsightsTypes")]
+        public System.String[] Configuration_InsightsType { get; set; }
+        #endregion
+        
         #region Parameter CustomerArtifactPaths_IosPath
         /// <summary>
         /// <para>
@@ -447,6 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             context.Configuration_ExecutionRoleArn = this.Configuration_ExecutionRoleArn;
             context.Configuration_ExtraDataPackageArn = this.Configuration_ExtraDataPackageArn;
+            if (this.Configuration_InsightsType != null)
+            {
+                context.Configuration_InsightsType = new List<System.String>(this.Configuration_InsightsType);
+            }
             context.Configuration_Locale = this.Configuration_Locale;
             context.Location_Latitude = this.Location_Latitude;
             context.Location_Longitude = this.Location_Longitude;
@@ -552,6 +573,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_ExtraDataPackageArn != null)
             {
                 request.Configuration.ExtraDataPackageArn = requestConfiguration_configuration_ExtraDataPackageArn;
+                requestConfigurationIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_InsightsType = null;
+            if (cmdletContext.Configuration_InsightsType != null)
+            {
+                requestConfiguration_configuration_InsightsType = cmdletContext.Configuration_InsightsType;
+            }
+            if (requestConfiguration_configuration_InsightsType != null)
+            {
+                request.Configuration.InsightsTypes = requestConfiguration_configuration_InsightsType;
                 requestConfigurationIsNull = false;
             }
             System.String requestConfiguration_configuration_Locale = null;
@@ -896,6 +927,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public List<Amazon.DeviceFarm.Model.EnvironmentVariable> Configuration_EnvironmentVariable { get; set; }
             public System.String Configuration_ExecutionRoleArn { get; set; }
             public System.String Configuration_ExtraDataPackageArn { get; set; }
+            public List<System.String> Configuration_InsightsType { get; set; }
             public System.String Configuration_Locale { get; set; }
             public System.Double? Location_Latitude { get; set; }
             public System.Double? Location_Longitude { get; set; }

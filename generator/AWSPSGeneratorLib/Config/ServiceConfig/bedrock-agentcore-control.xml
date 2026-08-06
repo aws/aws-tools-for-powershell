@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutGatewayRateLimits" OutputProperty="RateLimits" Verb="Write" Noun="GatewayRateLimitBatch" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAgentRuntime" OutputProperty="*" Verb="New" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="AgentRuntimeArtifact_CodeConfiguration_Code_S3_Bucket" NewName="S3_Bucket" />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBrowserProfile" OutputProperty="*" Verb="New" Noun="BrowserProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityProvider" OutputProperty="*" Verb="New" Noun="CapacityProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,6 +115,10 @@
                 <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
                 <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGatewayRateLimit" OutputProperty="*" Verb="New" Noun="GatewayRateLimit" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGatewayRule" OutputProperty="*" Verb="New" Noun="GatewayRule" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
@@ -241,6 +253,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCapacityProvider" OutputProperty="*" Verb="Remove" Noun="CapacityProvider" ShouldProcessTarget="CapacityProviderId" PipelineParameter="CapacityProviderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeInterpreter" OutputProperty="*" Verb="Remove" Noun="CodeInterpreter" ShouldProcessTarget="CodeInterpreterId" PipelineParameter="CodeInterpreterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -262,6 +278,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGateway" OutputProperty="*" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayRateLimit" OutputProperty="*" Verb="Remove" Noun="GatewayRateLimit" ShouldProcessTarget="RateLimitId,GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -349,6 +369,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityProvider" OutputProperty="*" Verb="Get" Noun="CapacityProvider" PipelineParameter="CapacityProviderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCodeInterpreter" OutputProperty="*" Verb="Get" Noun="CodeInterpreter" PipelineParameter="CodeInterpreterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -370,6 +394,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGatewayRateLimit" OutputProperty="*" Verb="Get" Noun="GatewayRateLimit" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -469,6 +497,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRuntimeVersionsByCapacityProvider" OutputProperty="AgentRuntimes" Verb="Get" Noun="AgentRuntimeVersionsByCapacityProviderList" PipelineParameter="CapacityProviderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListApiKeyCredentialProviders" OutputProperty="CredentialProviders" Verb="Get" Noun="ApiKeyCredentialProviderList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -478,6 +510,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBrowsers" OutputProperty="BrowserSummaries" Verb="Get" Noun="BrowserList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCapacityProviders" OutputProperty="CapacityProviders" Verb="Get" Noun="CapacityProviderList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -506,6 +542,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluators" OutputProperty="Evaluators" Verb="Get" Noun="EvaluatorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayRateLimits" OutputProperty="RateLimits" Verb="Get" Noun="GatewayRateLimitList" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -655,6 +695,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityProvider" OutputProperty="*" Verb="Update" Noun="CapacityProvider" ShouldProcessTarget="CapacityProviderId" PipelineParameter="CapacityProviderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationBundle" OutputProperty="*" Verb="Update" Noun="ConfigurationBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -692,6 +736,10 @@
                 <Param Name="ProtocolConfiguration_Mcp_SearchType" NewName="Mcp_SearchType" />
                 <Param Name="ProtocolConfiguration_Mcp_SupportedVersions" NewName="Mcp_SupportedVersion" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayRateLimit" OutputProperty="*" Verb="Update" Noun="GatewayRateLimit" ShouldProcessTarget="RateLimitId,GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayRule" OutputProperty="*" Verb="Update" Noun="GatewayRule" ShouldProcessTarget="RuleId,GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">

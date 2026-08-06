@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.305.0",
+    "ProductVersion"    : "4.0.306.0",
     "CoreVersion"       : "4.0.100.9",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -16,7 +16,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "4.0.102.0",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -130,7 +130,7 @@
             "InPreview"               : false
         },
         "DeviceFarm"        : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.108.0",
+            "Version" : "4.0.109.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -508,7 +508,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "4.0.101.4",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.105.0",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1068,7 +1068,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "4.0.102.2",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1228,7 +1228,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "4.0.102.4",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1252,7 +1252,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "4.0.101.0",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -1284,7 +1284,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "MarketplaceAgreement"                : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -2956,7 +2956,7 @@
             "InPreview"               : false
         },
         "SocialMessaging"                     : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.107.0",
+            "Version" : "4.0.108.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3380,7 +3380,7 @@
             "InPreview"               : false
         },
         "MarketplaceDiscovery"                : {
-            "Version" : "4.0.100.7",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.100.9"
@@ -3444,6 +3444,22 @@
             "InPreview"               : false
         },
         "PricingPlanManager"                  : {
+            "Version" : "4.0.100.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.100.9"
+            },
+            "InPreview"               : false
+        },
+        "AgentRegistry"                       : {
+            "Version" : "4.0.100.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.100.9"
+            },
+            "InPreview"               : false
+        },
+        "AgentRegistryControl"                : {
             "Version" : "4.0.100.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

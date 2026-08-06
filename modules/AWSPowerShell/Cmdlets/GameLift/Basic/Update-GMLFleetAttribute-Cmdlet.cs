@@ -30,7 +30,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere
     /// 
     ///  
     /// <para>

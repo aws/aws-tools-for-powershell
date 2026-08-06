@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// The default is <c>balanced-best-effort</c>. </para><ul><li><para><c>balanced-only</c> - If launches fail in an Availability Zone, Auto Scaling will
         /// continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.</para></li><li><para><c>balanced-best-effort</c> - If launches fail in an Availability Zone, Auto Scaling
         /// will attempt to launch in another healthy Availability Zone instead.</para></li><li><para><c>reservations-then-balanced</c> - Auto Scaling will first attempt to launch into
-        /// your Capacity Reservations, and then balance any remaining capacity across the healthy
+        /// your Capacity Reservations, and then balance any remaining capacity across healthy
         /// Availability Zones.</para></li></ul>
         /// </para>
         /// </summary>
@@ -531,6 +531,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String PlacementGroup { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The service principal that is authorized to manage the Auto Scaling group. When an
+        /// operator is specified, only the designated operator service principal can make mutating
+        /// changes to the Auto Scaling group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter ServiceLinkedRoleARN
         /// <summary>
         /// <para>
@@ -805,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #endif
             context.MixedInstancesPolicy = this.MixedInstancesPolicy;
             context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
+            context.Operator_Principal = this.Operator_Principal;
             context.PlacementGroup = this.PlacementGroup;
             context.ServiceLinkedRoleARN = this.ServiceLinkedRoleARN;
             context.SkipZonalShiftValidation = this.SkipZonalShiftValidation;
@@ -1129,6 +1142,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.NewInstancesProtectedFromScaleIn = cmdletContext.NewInstancesProtectedFromScaleIn.Value;
             }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.AutoScaling.Model.Operator();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
+            }
             if (cmdletContext.PlacementGroup != null)
             {
                 request.PlacementGroup = cmdletContext.PlacementGroup;
@@ -1249,6 +1281,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Int32? MinSize { get; set; }
             public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.String PlacementGroup { get; set; }
             public System.String ServiceLinkedRoleARN { get; set; }
             public System.Boolean? SkipZonalShiftValidation { get; set; }

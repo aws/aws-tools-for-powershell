@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of log that the source is sending.</para><ul><li><para>For Amazon Bedrock Agents, the valid values are <c>APPLICATION_LOGS</c> and <c>EVENT_LOGS</c>.</para></li><li><para>For Amazon Bedrock Knowledge Bases, the valid values are <c>APPLICATION_LOGS</c> and
+        /// <para>Defines the type of log that the source is sending.</para><ul><li><para>For Application Load Balancer, the valid values are <c>ALB_ACCESS_LOGS</c>, <c>ALB_CONNECTION_LOGS</c>,
+        /// and <c>ALB_HEALTH_CHECK_LOGS</c>.</para></li><li><para>For Amazon Bedrock Agents, the valid values are <c>APPLICATION_LOGS</c> and <c>EVENT_LOGS</c>.</para></li><li><para>For Amazon Bedrock Knowledge Bases, the valid values are <c>APPLICATION_LOGS</c> and
         /// <c>TRACES</c>.</para></li><li><para>For Amazon Bedrock AgentCore Runtime, the valid values are <c>APPLICATION_LOGS</c>,
         /// <c>USAGE_LOGS</c> and <c>TRACES</c>.</para></li><li><para>For Amazon Bedrock AgentCore Tools, the valid values are <c>APPLICATION_LOGS</c>,
         /// <c>USAGE_LOGS</c> and <c>TRACES</c>.</para></li><li><para>For Amazon Bedrock AgentCore Identity, the valid values are <c>APPLICATION_LOGS</c>

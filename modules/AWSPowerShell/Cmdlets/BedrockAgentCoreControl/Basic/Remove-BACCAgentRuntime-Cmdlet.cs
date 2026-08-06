@@ -30,7 +30,8 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes an Amazon Bedrock AgentCore Runtime.
+    /// Deletes an Amazon Bedrock AgentCore Runtime, or a single version of an AgentCore Runtime
+    /// when you provide the version qualifier.
     /// </summary>
     [Cmdlet("Remove", "BACCAgentRuntime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.AgentRuntimeStatus")]
@@ -60,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AgentRuntimeId { get; set; }
+        #endregion
+        
+        #region Parameter AgentRuntimeVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the AgentCore Runtime to delete. When you provide this value, only
+        /// that version is deleted. When you omit it, the entire AgentCore Runtime and all of
+        /// its versions are deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgentRuntimeVersion { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -127,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter AgentRuntimeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AgentRuntimeVersion = this.AgentRuntimeVersion;
             context.ClientToken = this.ClientToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -147,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.AgentRuntimeId != null)
             {
                 request.AgentRuntimeId = cmdletContext.AgentRuntimeId;
+            }
+            if (cmdletContext.AgentRuntimeVersion != null)
+            {
+                request.AgentRuntimeVersion = cmdletContext.AgentRuntimeVersion;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -208,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentRuntimeId { get; set; }
+            public System.String AgentRuntimeVersion { get; set; }
             public System.String ClientToken { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse, RemoveBACCAgentRuntimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Status;

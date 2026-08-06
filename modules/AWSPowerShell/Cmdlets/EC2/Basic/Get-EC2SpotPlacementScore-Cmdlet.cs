@@ -210,6 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] InstanceRequirements_ExcludedInstanceType { get; set; }
         #endregion
         
+        #region Parameter IncludeLocalZone
+        /// <summary>
+        /// <para>
+        /// <para>Specify <c>true</c> so that the response returns scores that include Local Zones.
+        /// Otherwise, the response ignores Local Zones.</para><para>When you request regional scores, Local Zone capacity counts toward its parent Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLocalZones")]
+        public System.Boolean? IncludeLocalZone { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_InstanceGeneration
         /// <summary>
         /// <para>
@@ -733,6 +745,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DryRun = this.DryRun;
+            context.IncludeLocalZone = this.IncludeLocalZone;
             if (this.InstanceRequirementsWithMetadata_ArchitectureType != null)
             {
                 context.InstanceRequirementsWithMetadata_ArchitectureType = new List<System.String>(this.InstanceRequirementsWithMetadata_ArchitectureType);
@@ -843,6 +856,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.IncludeLocalZone != null)
+            {
+                request.IncludeLocalZones = cmdletContext.IncludeLocalZone.Value;
             }
             
              // populate InstanceRequirementsWithMetadata
@@ -1507,6 +1524,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DryRun { get; set; }
+            public System.Boolean? IncludeLocalZone { get; set; }
             public List<System.String> InstanceRequirementsWithMetadata_ArchitectureType { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }

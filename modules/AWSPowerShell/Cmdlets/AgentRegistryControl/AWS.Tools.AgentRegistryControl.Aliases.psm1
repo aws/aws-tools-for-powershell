@@ -1,0 +1,3 @@
+﻿# AgentRegistryControl
+
+Export-ModuleMember -Alias *
