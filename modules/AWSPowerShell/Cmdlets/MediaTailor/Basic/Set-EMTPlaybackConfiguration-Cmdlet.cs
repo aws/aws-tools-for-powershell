@@ -73,6 +73,37 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
         #endregion
         
+        #region Parameter AdDecisionServerConfiguration_VastResponse_AdSequencingMode
+        /// <summary>
+        /// <para>
+        /// <para>The ad sequencing mode that controls how MediaTailor handles sequenced and standalone
+        /// ads in VAST responses. <c>FOLLOW_AD_SEQUENCE</c> inserts sequenced ads in increasing
+        /// order for both live and VOD workflows, using standalone ads only as replacements when
+        /// a sequenced ad fails. <c>FOLLOW_AD_SEQUENCE_ONLY_LIVE</c> enables ad sequencing for
+        /// live workflows only. <c>FOLLOW_AD_SEQUENCE_ONLY_VOD</c> enables ad sequencing for
+        /// VOD workflows only. <c>IGNORE_AD_SEQUENCE</c> inserts ads in the order they appear
+        /// in the VAST response, regardless of sequence attributes. The default behavior is <c>IGNORE_AD_SEQUENCE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.AdSequencingMode")]
+        public Amazon.MediaTailor.AdSequencingMode AdDecisionServerConfiguration_VastResponse_AdSequencingMode { get; set; }
+        #endregion
+        
+        #region Parameter LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode
+        /// <summary>
+        /// <para>
+        /// <para>The ad sequencing mode for live pre-roll ads. <c>FOLLOW_AD_SEQUENCE</c> inserts sequenced
+        /// ads in increasing order and uses standalone ads only as replacements when a sequenced
+        /// ad fails. <c>IGNORE_AD_SEQUENCE</c> inserts ads in the order they appear in the VAST
+        /// response, regardless of sequence attributes. The default behavior is <c>IGNORE_AD_SEQUENCE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.PreRollAdSequencingMode")]
+        public Amazon.MediaTailor.PreRollAdSequencingMode LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode { get; set; }
+        #endregion
+        
         #region Parameter AdsPersonalizationTimeouts_AdsRequestTimeoutMillisecond
         /// <summary>
         /// <para>
@@ -540,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.HttpRequest_Method = this.HttpRequest_Method;
+            context.AdDecisionServerConfiguration_VastResponse_AdSequencingMode = this.AdDecisionServerConfiguration_VastResponse_AdSequencingMode;
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
             context.AdsPersonalizationConcurrency_EnableVodVastParallelization = this.AdsPersonalizationConcurrency_EnableVodVastParallelization;
             context.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest = this.AdsPersonalizationConcurrency_MaxConcurrentAdsRequest;
@@ -572,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.InsertionMode = this.InsertionMode;
+            context.LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode = this.LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
             context.AdMarkerPassthrough_Enabled = this.AdMarkerPassthrough_Enabled;
@@ -633,6 +666,31 @@ namespace Amazon.PowerShell.Cmdlets.EMT
              // populate AdDecisionServerConfiguration
             var requestAdDecisionServerConfigurationIsNull = true;
             request.AdDecisionServerConfiguration = new Amazon.MediaTailor.Model.AdDecisionServerConfiguration();
+            Amazon.MediaTailor.Model.VastResponse requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse = null;
+            
+             // populate VastResponse
+            var requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponseIsNull = true;
+            requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse = new Amazon.MediaTailor.Model.VastResponse();
+            Amazon.MediaTailor.AdSequencingMode requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse_adDecisionServerConfiguration_VastResponse_AdSequencingMode = null;
+            if (cmdletContext.AdDecisionServerConfiguration_VastResponse_AdSequencingMode != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse_adDecisionServerConfiguration_VastResponse_AdSequencingMode = cmdletContext.AdDecisionServerConfiguration_VastResponse_AdSequencingMode;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse_adDecisionServerConfiguration_VastResponse_AdSequencingMode != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse.AdSequencingMode = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse_adDecisionServerConfiguration_VastResponse_AdSequencingMode;
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponseIsNull = false;
+            }
+             // determine if requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse should be set to null
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponseIsNull)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse = null;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse != null)
+            {
+                request.AdDecisionServerConfiguration.VastResponse = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_VastResponse;
+                requestAdDecisionServerConfigurationIsNull = false;
+            }
             Amazon.MediaTailor.Model.HttpRequest requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest = null;
             
              // populate HttpRequest
@@ -897,6 +955,46 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.LivePreRollConfiguration.MaxDurationSeconds = requestLivePreRollConfiguration_livePreRollConfiguration_MaxDurationSecond.Value;
                 requestLivePreRollConfigurationIsNull = false;
             }
+            Amazon.MediaTailor.Model.PreRollAdDecisionServerConfiguration requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration = null;
+            
+             // populate AdDecisionServerConfiguration
+            var requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfigurationIsNull = true;
+            requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration = new Amazon.MediaTailor.Model.PreRollAdDecisionServerConfiguration();
+            Amazon.MediaTailor.Model.PreRollVastResponse requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse = null;
+            
+             // populate VastResponse
+            var requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponseIsNull = true;
+            requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse = new Amazon.MediaTailor.Model.PreRollVastResponse();
+            Amazon.MediaTailor.PreRollAdSequencingMode requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode = null;
+            if (cmdletContext.LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode != null)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode = cmdletContext.LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode;
+            }
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode != null)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse.AdSequencingMode = requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode;
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponseIsNull = false;
+            }
+             // determine if requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse should be set to null
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponseIsNull)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse = null;
+            }
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse != null)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration.VastResponse = requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration_VastResponse;
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfigurationIsNull = false;
+            }
+             // determine if requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration should be set to null
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfigurationIsNull)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration = null;
+            }
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration != null)
+            {
+                request.LivePreRollConfiguration.AdDecisionServerConfiguration = requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerConfiguration;
+                requestLivePreRollConfigurationIsNull = false;
+            }
              // determine if request.LivePreRollConfiguration should be set to null
             if (requestLivePreRollConfigurationIsNull)
             {
@@ -1020,6 +1118,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.CompressionMethod HttpRequest_CompressRequest { get; set; }
             public Dictionary<System.String, System.String> HttpRequest_Header { get; set; }
             public Amazon.MediaTailor.Method HttpRequest_Method { get; set; }
+            public Amazon.MediaTailor.AdSequencingMode AdDecisionServerConfiguration_VastResponse_AdSequencingMode { get; set; }
             public System.String AdDecisionServerUrl { get; set; }
             public System.Boolean? AdsPersonalizationConcurrency_EnableVodVastParallelization { get; set; }
             public System.Int32? AdsPersonalizationConcurrency_MaxConcurrentAdsRequest { get; set; }
@@ -1038,6 +1137,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public Dictionary<System.String, System.String> FunctionMapping { get; set; }
             public Amazon.MediaTailor.InsertionMode InsertionMode { get; set; }
+            public Amazon.MediaTailor.PreRollAdSequencingMode LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
             public System.Boolean? AdMarkerPassthrough_Enabled { get; set; }

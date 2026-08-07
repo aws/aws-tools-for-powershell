@@ -8236,6 +8236,7 @@ Set-Alias -Name CONN-UpdateContactFlowModuleMetadata -Value Update-CONNContactFl
 Set-Alias -Name CONN-UpdateContactFlowName -Value Update-CONNContactFlowName
 Set-Alias -Name CONN-UpdateContactRoutingData -Value Update-CONNContactRoutingData
 Set-Alias -Name CONN-UpdateContactSchedule -Value Update-CONNContactSchedule
+Set-Alias -Name CONN-UpdateContactTaskTemplate -Value Update-CONNContactTaskTemplate
 Set-Alias -Name CONN-UpdateDataTableAttribute -Value Update-CONNDataTableAttribute
 Set-Alias -Name CONN-UpdateDataTableMetadata -Value Update-CONNDataTableMetadata
 Set-Alias -Name Update-CONNDataTablePrimaryValues -Value Update-CONNDataTablePrimaryValue
@@ -11251,6 +11252,9 @@ Set-Alias -Name Authorize-EC2SecurityGroupEgress -Value Grant-EC2SecurityGroupEg
 Set-Alias -Name EC2-AuthorizeSecurityGroupEgress -Value Grant-EC2SecurityGroupEgress
 Set-Alias -Name Authorize-EC2SecurityGroupIngress -Value Grant-EC2SecurityGroupIngress
 Set-Alias -Name EC2-AuthorizeSecurityGroupIngress -Value Grant-EC2SecurityGroupIngress
+Set-Alias -Name Modify-EC2IpamRoutingPolicyRegistrations -Value Edit-EC2IpamRoutingPolicyRegistrationBatch
+Set-Alias -Name Modify-EC2IpamRoutingPolicyRegistrationBatch -Value Edit-EC2IpamRoutingPolicyRegistrationBatch
+Set-Alias -Name EC2-BatchModifyIpamRoutingPolicyRegistrations -Value Edit-EC2IpamRoutingPolicyRegistrationBatch
 Set-Alias -Name Bundle-EC2Instance -Value New-EC2InstanceBundle
 Set-Alias -Name Bundle-EC2InstanceBundle -Value New-EC2InstanceBundle
 Set-Alias -Name EC2-BundleInstance -Value New-EC2InstanceBundle
@@ -11343,6 +11347,8 @@ Set-Alias -Name Create-EC2Ipam -Value New-EC2Ipam
 Set-Alias -Name EC2-CreateIpam -Value New-EC2Ipam
 Set-Alias -Name Create-EC2IpamExternalResourceVerificationToken -Value New-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name EC2-CreateIpamExternalResourceVerificationToken -Value New-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name Create-EC2IpamInternetRegistryAssociation -Value New-EC2IpamInternetRegistryAssociation
+Set-Alias -Name EC2-CreateIpamInternetRegistryAssociation -Value New-EC2IpamInternetRegistryAssociation
 Set-Alias -Name Create-EC2IpamPolicy -Value New-EC2IpamPolicy
 Set-Alias -Name EC2-CreateIpamPolicy -Value New-EC2IpamPolicy
 Set-Alias -Name Create-EC2IpamPool -Value New-EC2IpamPool
@@ -11353,6 +11359,8 @@ Set-Alias -Name Create-EC2IpamPrefixListResolverTarget -Value New-EC2IpamPrefixL
 Set-Alias -Name EC2-CreateIpamPrefixListResolverTarget -Value New-EC2IpamPrefixListResolverTarget
 Set-Alias -Name Create-EC2IpamResourceDiscovery -Value New-EC2IpamResourceDiscovery
 Set-Alias -Name EC2-CreateIpamResourceDiscovery -Value New-EC2IpamResourceDiscovery
+Set-Alias -Name Create-EC2IpamRoutingPolicyRegistration -Value New-EC2IpamRoutingPolicyRegistration
+Set-Alias -Name EC2-CreateIpamRoutingPolicyRegistration -Value New-EC2IpamRoutingPolicyRegistration
 Set-Alias -Name Create-EC2IpamScope -Value New-EC2IpamScope
 Set-Alias -Name EC2-CreateIpamScope -Value New-EC2IpamScope
 Set-Alias -Name Create-EC2KeyPair -Value New-EC2KeyPair
@@ -11542,6 +11550,8 @@ Set-Alias -Name Delete-EC2Ipam -Value Remove-EC2Ipam
 Set-Alias -Name EC2-DeleteIpam -Value Remove-EC2Ipam
 Set-Alias -Name Delete-EC2IpamExternalResourceVerificationToken -Value Remove-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name EC2-DeleteIpamExternalResourceVerificationToken -Value Remove-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name Delete-EC2IpamInternetRegistryAssociation -Value Remove-EC2IpamInternetRegistryAssociation
+Set-Alias -Name EC2-DeleteIpamInternetRegistryAssociation -Value Remove-EC2IpamInternetRegistryAssociation
 Set-Alias -Name Delete-EC2IpamPolicy -Value Remove-EC2IpamPolicy
 Set-Alias -Name EC2-DeleteIpamPolicy -Value Remove-EC2IpamPolicy
 Set-Alias -Name Delete-EC2IpamPool -Value Remove-EC2IpamPool
@@ -11552,6 +11562,8 @@ Set-Alias -Name Delete-EC2IpamPrefixListResolverTarget -Value Remove-EC2IpamPref
 Set-Alias -Name EC2-DeleteIpamPrefixListResolverTarget -Value Remove-EC2IpamPrefixListResolverTarget
 Set-Alias -Name Delete-EC2IpamResourceDiscovery -Value Remove-EC2IpamResourceDiscovery
 Set-Alias -Name EC2-DeleteIpamResourceDiscovery -Value Remove-EC2IpamResourceDiscovery
+Set-Alias -Name Delete-EC2IpamRoutingPolicyRegistration -Value Remove-EC2IpamRoutingPolicyRegistration
+Set-Alias -Name EC2-DeleteIpamRoutingPolicyRegistration -Value Remove-EC2IpamRoutingPolicyRegistration
 Set-Alias -Name Delete-EC2IpamScope -Value Remove-EC2IpamScope
 Set-Alias -Name EC2-DeleteIpamScope -Value Remove-EC2IpamScope
 Set-Alias -Name Delete-EC2KeyPair -Value Remove-EC2KeyPair
@@ -11932,6 +11944,9 @@ Set-Alias -Name EC2-DescribeIpamByoasn -Value Get-EC2IpamByoasn
 Set-Alias -Name Describe-EC2IpamExternalResourceVerificationTokens -Value Get-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name Describe-EC2IpamExternalResourceVerificationToken -Value Get-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name EC2-DescribeIpamExternalResourceVerificationTokens -Value Get-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name Describe-EC2IpamInternetRegistryAssociations -Value Get-EC2IpamInternetRegistryAssociationDetail
+Set-Alias -Name Describe-EC2IpamInternetRegistryAssociationDetail -Value Get-EC2IpamInternetRegistryAssociationDetail
+Set-Alias -Name EC2-DescribeIpamInternetRegistryAssociations -Value Get-EC2IpamInternetRegistryAssociationDetail
 Set-Alias -Name Describe-EC2IpamPolicies -Value Get-EC2IpamPolicy
 Set-Alias -Name Describe-EC2IpamPolicy -Value Get-EC2IpamPolicy
 Set-Alias -Name EC2-DescribeIpamPolicies -Value Get-EC2IpamPolicy
@@ -12354,6 +12369,7 @@ Set-Alias -Name EC2-EnableImageDeprecation -Value Enable-EC2ImageDeprecation
 Set-Alias -Name EC2-EnableImageDeregistrationProtection -Value Enable-EC2ImageDeregistrationProtection
 Set-Alias -Name Enable-EC2InstanceSqlHaStandbyDetections -Value Enable-EC2InstanceSqlHaStandbyDetection
 Set-Alias -Name EC2-EnableInstanceSqlHaStandbyDetections -Value Enable-EC2InstanceSqlHaStandbyDetection
+Set-Alias -Name EC2-EnableIpamInternetRegistryAssociation -Value Enable-EC2IpamInternetRegistryAssociation
 Set-Alias -Name EC2-EnableIpamOrganizationAdminAccount -Value Enable-EC2IpamOrganizationAdminAccount
 Set-Alias -Name EC2-EnableIpamPolicy -Value Enable-EC2IpamPolicy
 Set-Alias -Name EC2-EnableReachabilityAnalyzerOrganizationSharing -Value Enable-EC2ReachabilityAnalyzerOrganizationSharing
@@ -12413,6 +12429,12 @@ Set-Alias -Name Get-EC2IpamDiscoveredPublicAddresses -Value Get-EC2IpamDiscovere
 Set-Alias -Name EC2-GetIpamDiscoveredPublicAddresses -Value Get-EC2IpamDiscoveredPublicAddress
 Set-Alias -Name Get-EC2IpamDiscoveredResourceCidrs -Value Get-EC2IpamDiscoveredResourceCidr
 Set-Alias -Name EC2-GetIpamDiscoveredResourceCidrs -Value Get-EC2IpamDiscoveredResourceCidr
+Set-Alias -Name Get-EC2IpamDiscoveredRoutes -Value Get-EC2IpamDiscoveredRoute
+Set-Alias -Name EC2-GetIpamDiscoveredRoutes -Value Get-EC2IpamDiscoveredRoute
+Set-Alias -Name Get-EC2IpamInternetRegistryAssociationAsns -Value Get-EC2IpamInternetRegistryAssociationAsn
+Set-Alias -Name EC2-GetIpamInternetRegistryAssociationAsns -Value Get-EC2IpamInternetRegistryAssociationAsn
+Set-Alias -Name Get-EC2IpamInternetRegistryAssociationCidrs -Value Get-EC2IpamInternetRegistryAssociationCidr
+Set-Alias -Name EC2-GetIpamInternetRegistryAssociationCidrs -Value Get-EC2IpamInternetRegistryAssociationCidr
 Set-Alias -Name Get-EC2IpamPolicyAllocationRules -Value Get-EC2IpamPolicyAllocationRule
 Set-Alias -Name EC2-GetIpamPolicyAllocationRules -Value Get-EC2IpamPolicyAllocationRule
 Set-Alias -Name Get-EC2IpamPolicyOrganizationTargets -Value Get-EC2IpamPolicyOrganizationTarget
@@ -12429,6 +12451,14 @@ Set-Alias -Name Get-EC2IpamPrefixListResolverVersions -Value Get-EC2IpamPrefixLi
 Set-Alias -Name EC2-GetIpamPrefixListResolverVersions -Value Get-EC2IpamPrefixListResolverVersion
 Set-Alias -Name Get-EC2IpamResourceCidrs -Value Get-EC2IpamResourceCidr
 Set-Alias -Name EC2-GetIpamResourceCidrs -Value Get-EC2IpamResourceCidr
+Set-Alias -Name Get-EC2IpamRouteOriginAuthorizations -Value Get-EC2IpamRouteOriginAuthorization
+Set-Alias -Name EC2-GetIpamRouteOriginAuthorizations -Value Get-EC2IpamRouteOriginAuthorization
+Set-Alias -Name Get-EC2IpamRouteProtectionFindings -Value Get-EC2IpamRouteProtectionFinding
+Set-Alias -Name EC2-GetIpamRouteProtectionFindings -Value Get-EC2IpamRouteProtectionFinding
+Set-Alias -Name Get-EC2IpamRoutingPolicyRegistrationDeltas -Value Get-EC2IpamRoutingPolicyRegistrationDelta
+Set-Alias -Name EC2-GetIpamRoutingPolicyRegistrationDeltas -Value Get-EC2IpamRoutingPolicyRegistrationDelta
+Set-Alias -Name Get-EC2IpamRoutingPolicyRegistrations -Value Get-EC2IpamRoutingPolicyRegistration
+Set-Alias -Name EC2-GetIpamRoutingPolicyRegistrations -Value Get-EC2IpamRoutingPolicyRegistration
 Set-Alias -Name EC2-GetLaunchTemplateData -Value Get-EC2LaunchTemplateData
 Set-Alias -Name Get-EC2ManagedPrefixListAssociations -Value Get-EC2ManagedPrefixListAssociation
 Set-Alias -Name EC2-GetManagedPrefixListAssociations -Value Get-EC2ManagedPrefixListAssociation
@@ -12568,6 +12598,8 @@ Set-Alias -Name Modify-EC2IpamResourceCidr -Value Edit-EC2IpamResourceCidr
 Set-Alias -Name EC2-ModifyIpamResourceCidr -Value Edit-EC2IpamResourceCidr
 Set-Alias -Name Modify-EC2IpamResourceDiscovery -Value Edit-EC2IpamResourceDiscovery
 Set-Alias -Name EC2-ModifyIpamResourceDiscovery -Value Edit-EC2IpamResourceDiscovery
+Set-Alias -Name Modify-EC2IpamRoutingPolicyRegistration -Value Edit-EC2IpamRoutingPolicyRegistration
+Set-Alias -Name EC2-ModifyIpamRoutingPolicyRegistration -Value Edit-EC2IpamRoutingPolicyRegistration
 Set-Alias -Name Modify-EC2IpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name EC2-ModifyIpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name Modify-EC2LaunchTemplate -Value Edit-EC2LaunchTemplate

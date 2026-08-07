@@ -131,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String ProfileId { get; set; }
         #endregion
         
+        #region Parameter ProvenanceEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable provenance for the import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ProvenanceEnabled { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
@@ -243,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             context.S3Configuration_KmsKeyId = this.S3Configuration_KmsKeyId;
             context.S3Configuration_S3Uri = this.S3Configuration_S3Uri;
             context.ProfileId = this.ProfileId;
+            context.ProvenanceEnabled = this.ProvenanceEnabled;
             context.ValidationLevel = this.ValidationLevel;
             
             // allow further manipulation of loaded context prior to processing
@@ -351,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             {
                 request.ProfileId = cmdletContext.ProfileId;
             }
+            if (cmdletContext.ProvenanceEnabled != null)
+            {
+                request.ProvenanceEnabled = cmdletContext.ProvenanceEnabled.Value;
+            }
             if (cmdletContext.ValidationLevel != null)
             {
                 request.ValidationLevel = cmdletContext.ValidationLevel;
@@ -420,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String S3Configuration_KmsKeyId { get; set; }
             public System.String S3Configuration_S3Uri { get; set; }
             public System.String ProfileId { get; set; }
+            public System.Boolean? ProvenanceEnabled { get; set; }
             public Amazon.HealthLake.ValidationLevel ValidationLevel { get; set; }
             public System.Func<Amazon.HealthLake.Model.StartFHIRImportJobResponse, StartAHLFHIRImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

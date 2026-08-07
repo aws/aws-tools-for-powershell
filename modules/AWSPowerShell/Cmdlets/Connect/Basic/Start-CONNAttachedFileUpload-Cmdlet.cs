@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Provides a pre-signed Amazon S3 URL in response for uploading your content.
     /// 
     ///  <important><para>
-    /// You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect
-    /// Customer Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Connect
-    /// Customer Email</a>. 
+    /// You may only use this API to upload attachments to a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect
+    /// Customer Case</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Connect
+    /// Customer Email</a>, or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Connect
+    /// Customer Task</a>. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Start", "CONNAttachedFileUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,8 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The resource to which the attached file is (being) uploaded to. The supported resources
-        /// are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>
-        /// and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</para><note><para>This value must be a valid ARN.</para></note>
+        /// are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>,
+        /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>,
+        /// and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</para><note><para>This value must be a valid ARN.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

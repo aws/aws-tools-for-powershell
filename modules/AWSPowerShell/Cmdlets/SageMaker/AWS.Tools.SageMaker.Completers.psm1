@@ -1287,7 +1287,7 @@ $SM_Completers = {
         # Amazon.SageMaker.NotebookInstanceStatus
         "Get-SMNotebookInstanceList/StatusEqual"
         {
-            $v = "Deleting","Failed","InService","Pending","Stopped","Stopping","Updating"
+            $v = "Deleting","Failed","InMaintenance","InService","Pending","PendingMaintenance","Stopped","Stopping","Updating"
             break
         }
 

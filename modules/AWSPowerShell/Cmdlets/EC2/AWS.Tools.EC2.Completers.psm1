@@ -274,6 +274,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ChronologicalOrder
+        "Get-EC2IpamRoutingPolicyRegistrationDelta/ChronologicalOrder"
+        {
+            $v = "forward","reverse"
+            break
+        }
+
         # Amazon.EC2.ConnectivityType
         "New-EC2NatGateway/ConnectivityType"
         {
@@ -1142,6 +1149,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.Rir
+        "New-EC2IpamInternetRegistryAssociation/Rir"
+        {
+            $v = "apnic","arin","lacnic","ripe"
+            break
+        }
+
         # Amazon.EC2.RouteServerPeerLivenessMode
         "New-EC2RouteServerPeer/BgpOptions_PeerLivenessDetection"
         {
@@ -1590,6 +1604,7 @@ $EC2_map = @{
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
+    "ChronologicalOrder"=@("Get-EC2IpamRoutingPolicyRegistrationDelta")
     "CidrOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
@@ -1713,6 +1728,7 @@ $EC2_map = @{
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
+    "Rir"=@("New-EC2IpamInternetRegistryAssociation")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "Schedule"=@("New-EC2CapacityManagerDataExport")
@@ -1867,6 +1883,7 @@ $EC2_SelectMap = @{
                "Grant-EC2ClientVpnIngress",
                "Grant-EC2SecurityGroupEgress",
                "Grant-EC2SecurityGroupIngress",
+               "Edit-EC2IpamRoutingPolicyRegistrationBatch",
                "New-EC2InstanceBundle",
                "Stop-EC2BundleTask",
                "Remove-EC2CapacityReservation",
@@ -1912,11 +1929,13 @@ $EC2_SelectMap = @{
                "New-EC2InterruptibleCapacityReservationAllocation",
                "New-EC2Ipam",
                "New-EC2IpamExternalResourceVerificationToken",
+               "New-EC2IpamInternetRegistryAssociation",
                "New-EC2IpamPolicy",
                "New-EC2IpamPool",
                "New-EC2IpamPrefixListResolver",
                "New-EC2IpamPrefixListResolverTarget",
                "New-EC2IpamResourceDiscovery",
+               "New-EC2IpamRoutingPolicyRegistration",
                "New-EC2IpamScope",
                "New-EC2KeyPair",
                "New-EC2LaunchTemplate",
@@ -2009,11 +2028,13 @@ $EC2_SelectMap = @{
                "Remove-EC2InternetGateway",
                "Remove-EC2Ipam",
                "Remove-EC2IpamExternalResourceVerificationToken",
+               "Remove-EC2IpamInternetRegistryAssociation",
                "Remove-EC2IpamPolicy",
                "Remove-EC2IpamPool",
                "Remove-EC2IpamPrefixListResolver",
                "Remove-EC2IpamPrefixListResolverTarget",
                "Remove-EC2IpamResourceDiscovery",
+               "Remove-EC2IpamRoutingPolicyRegistration",
                "Remove-EC2IpamScope",
                "Remove-EC2KeyPair",
                "Remove-EC2LaunchTemplate",
@@ -2169,6 +2190,7 @@ $EC2_SelectMap = @{
                "Get-EC2InternetGateway",
                "Get-EC2IpamByoasn",
                "Get-EC2IpamExternalResourceVerificationToken",
+               "Get-EC2IpamInternetRegistryAssociationDetail",
                "Get-EC2IpamPolicy",
                "Get-EC2IpamPoolAllocationDetail",
                "Get-EC2IpamPool",
@@ -2344,6 +2366,7 @@ $EC2_SelectMap = @{
                "Enable-EC2ImageDeprecation",
                "Enable-EC2ImageDeregistrationProtection",
                "Enable-EC2InstanceSqlHaStandbyDetection",
+               "Enable-EC2IpamInternetRegistryAssociation",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2IpamPolicy",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
@@ -2391,6 +2414,9 @@ $EC2_SelectMap = @{
                "Get-EC2IpamDiscoveredAccount",
                "Get-EC2IpamDiscoveredPublicAddress",
                "Get-EC2IpamDiscoveredResourceCidr",
+               "Get-EC2IpamDiscoveredRoute",
+               "Get-EC2IpamInternetRegistryAssociationAsn",
+               "Get-EC2IpamInternetRegistryAssociationCidr",
                "Get-EC2IpamPolicyAllocationRule",
                "Get-EC2IpamPolicyOrganizationTarget",
                "Get-EC2IpamPoolAllocation",
@@ -2399,6 +2425,10 @@ $EC2_SelectMap = @{
                "Get-EC2IpamPrefixListResolverVersionEntry",
                "Get-EC2IpamPrefixListResolverVersion",
                "Get-EC2IpamResourceCidr",
+               "Get-EC2IpamRouteOriginAuthorization",
+               "Get-EC2IpamRouteProtectionFinding",
+               "Get-EC2IpamRoutingPolicyRegistrationDelta",
+               "Get-EC2IpamRoutingPolicyRegistration",
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
@@ -2472,6 +2502,7 @@ $EC2_SelectMap = @{
                "Edit-EC2IpamPrefixListResolverTarget",
                "Edit-EC2IpamResourceCidr",
                "Edit-EC2IpamResourceDiscovery",
+               "Edit-EC2IpamRoutingPolicyRegistration",
                "Edit-EC2IpamScope",
                "Edit-EC2LaunchTemplate",
                "Edit-EC2LocalGatewayRoute",

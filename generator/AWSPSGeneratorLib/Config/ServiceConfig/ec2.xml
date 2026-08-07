@@ -258,6 +258,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchModifyIpamRoutingPolicyRegistrations" OutputProperty="IpamRoutingPolicyRegistrationDelta" Verb="Edit" Noun="IpamRoutingPolicyRegistrationBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Force" NewName="ForceEdit" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BundleInstance" OutputProperty="BundleTask" Verb="New" Noun="InstanceBundle" ShouldProcessTarget="InstanceId" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Storage_S3_AWSAccessKeyId" NewName="S3_AWSAccessKeyId" />
@@ -452,6 +458,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamInternetRegistryAssociation" OutputProperty="IpamInternetRegistryAssociation" Verb="New" Noun="IpamInternetRegistryAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIpamPolicy" OutputProperty="IpamPolicy" Verb="New" Noun="IpamPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -470,6 +480,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIpamResourceDiscovery" OutputProperty="IpamResourceDiscovery" Verb="New" Noun="IpamResourceDiscovery" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamRoutingPolicyRegistration" OutputProperty="IpamRoutingPolicyRegistrationDelta" Verb="New" Noun="IpamRoutingPolicyRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Force" NewName="ForceNew" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIpamScope" OutputProperty="IpamScope" Verb="New" Noun="IpamScope" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -860,6 +876,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamInternetRegistryAssociation" OutputProperty="IpamInternetRegistryAssociation" Verb="Remove" Noun="IpamInternetRegistryAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteIpamPolicy" OutputProperty="IpamPolicy" Verb="Remove" Noun="IpamPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -878,6 +898,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIpamResourceDiscovery" OutputProperty="IpamResourceDiscovery" Verb="Remove" Noun="IpamResourceDiscovery" ShouldProcessTarget="IpamResourceDiscoveryId" PipelineParameter="IpamResourceDiscoveryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamRoutingPolicyRegistration" OutputProperty="IpamRoutingPolicyRegistrationDelta" Verb="Remove" Noun="IpamRoutingPolicyRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Force" NewName="ForceRemove" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIpamScope" OutputProperty="IpamScope" Verb="Remove" Noun="IpamScope" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -1509,6 +1535,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamInternetRegistryAssociations" OutputProperty="IpamInternetRegistryAssociations" Verb="Get" Noun="IpamInternetRegistryAssociationDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2234,6 +2264,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableIpamInternetRegistryAssociation" OutputProperty="IpamInternetRegistryAssociation" Verb="Enable" Noun="IpamInternetRegistryAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Enable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2442,6 +2476,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamDiscoveredRoutes" OutputProperty="IpamDiscoveredRoutes" Verb="Get" Noun="IpamDiscoveredRoute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamInternetRegistryAssociationAsns" OutputProperty="IpamInternetRegistryAssociationAsns" Verb="Get" Noun="IpamInternetRegistryAssociationAsn" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamInternetRegistryAssociationCidrs" OutputProperty="IpamInternetRegistryAssociationCidrs" Verb="Get" Noun="IpamInternetRegistryAssociationCidr" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIpamPolicyAllocationRules" OutputProperty="IpamPolicyDocuments" Verb="Get" Noun="IpamPolicyAllocationRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -2471,6 +2517,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetIpamResourceCidrs" OutputProperty="IpamResourceCidrs" Verb="Get" Noun="IpamResourceCidr" PipelineParameter="IpamScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamRouteOriginAuthorizations" OutputProperty="IpamRouteOriginAuthorizations" Verb="Get" Noun="IpamRouteOriginAuthorization" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamRouteProtectionFindings" OutputProperty="*" Verb="Get" Noun="IpamRouteProtectionFinding" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamRoutingPolicyRegistrationDeltas" OutputProperty="IpamRoutingPolicyRegistrationDeltas" Verb="Get" Noun="IpamRoutingPolicyRegistrationDelta" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamRoutingPolicyRegistrations" OutputProperty="IpamRoutingPolicyRegistrations" Verb="Get" Noun="IpamRoutingPolicyRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2822,6 +2884,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyIpamResourceDiscovery" OutputProperty="IpamResourceDiscovery" Verb="Edit" Noun="IpamResourceDiscovery" ShouldProcessTarget="IpamResourceDiscoveryId" PipelineParameter="IpamResourceDiscoveryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamRoutingPolicyRegistration" OutputProperty="IpamRoutingPolicyRegistrationDelta" Verb="Edit" Noun="IpamRoutingPolicyRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Force" NewName="ForceEdit" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyIpamScope" OutputProperty="IpamScope" Verb="Edit" Noun="IpamScope" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">

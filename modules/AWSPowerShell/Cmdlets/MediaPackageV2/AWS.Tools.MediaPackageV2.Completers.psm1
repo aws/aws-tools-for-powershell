@@ -171,6 +171,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.StreamNameOutputMode
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/StreamNameOutputMode") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/StreamNameOutputMode")
+        }
+        {
+            $v = "INDEX","PASSTHROUGH_NAME"
+            break
+        }
+
         # Amazon.MediaPackageV2.TsEncryptionMethod
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionMethod_TsEncryptionMethod") -Or
@@ -211,6 +221,7 @@ $MPV2_map = @{
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
+    "StreamNameOutputMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
 

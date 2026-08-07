@@ -1,4 +1,32 @@
-﻿### 5.0.271 (2026-08-06 19:26Z)
+﻿### 5.0.272 (2026-08-07 19:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.307.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNContactTaskTemplate leveraging the UpdateContactTaskTemplate service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2IpamRoutingPolicyRegistration leveraging the ModifyIpamRoutingPolicyRegistration service API.
+    * Added cmdlet Edit-EC2IpamRoutingPolicyRegistrationBatch leveraging the BatchModifyIpamRoutingPolicyRegistrations service API.
+    * Added cmdlet Enable-EC2IpamInternetRegistryAssociation leveraging the EnableIpamInternetRegistryAssociation service API.
+    * Added cmdlet Get-EC2IpamDiscoveredRoute leveraging the GetIpamDiscoveredRoutes service API.
+    * Added cmdlet Get-EC2IpamInternetRegistryAssociationAsn leveraging the GetIpamInternetRegistryAssociationAsns service API.
+    * Added cmdlet Get-EC2IpamInternetRegistryAssociationCidr leveraging the GetIpamInternetRegistryAssociationCidrs service API.
+    * Added cmdlet Get-EC2IpamInternetRegistryAssociationDetail leveraging the DescribeIpamInternetRegistryAssociations service API.
+    * Added cmdlet Get-EC2IpamRouteOriginAuthorization leveraging the GetIpamRouteOriginAuthorizations service API.
+    * Added cmdlet Get-EC2IpamRouteProtectionFinding leveraging the GetIpamRouteProtectionFindings service API.
+    * Added cmdlet Get-EC2IpamRoutingPolicyRegistration leveraging the GetIpamRoutingPolicyRegistrations service API.
+    * Added cmdlet Get-EC2IpamRoutingPolicyRegistrationDelta leveraging the GetIpamRoutingPolicyRegistrationDeltas service API.
+    * Added cmdlet New-EC2IpamInternetRegistryAssociation leveraging the CreateIpamInternetRegistryAssociation service API.
+    * Added cmdlet New-EC2IpamRoutingPolicyRegistration leveraging the CreateIpamRoutingPolicyRegistration service API.
+    * Added cmdlet Remove-EC2IpamInternetRegistryAssociation leveraging the DeleteIpamInternetRegistryAssociation service API.
+    * Added cmdlet Remove-EC2IpamRoutingPolicyRegistration leveraging the DeleteIpamRoutingPolicyRegistration service API.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter StreamNameOutputMode.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter StreamNameOutputMode.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameters AdDecisionServerConfiguration_VastResponse_AdSequencingMode and LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode.
+  * Amazon HealthLake
+    * Modified cmdlet Start-AHLFHIRImportJob: added parameter ProvenanceEnabled.
+
+### 5.0.271 (2026-08-06 19:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.306.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agent Registry. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGRG and can be listed using the command 'Get-AWSCmdletName -Service AGRG'.
   * Amazon Agent Registry Control. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AGRC and can be listed using the command 'Get-AWSCmdletName -Service AGRC'.

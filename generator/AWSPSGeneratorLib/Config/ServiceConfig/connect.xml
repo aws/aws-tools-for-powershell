@@ -1703,6 +1703,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContactTaskTemplate" Verb="Update" Noun="ContactTaskTemplate" ShouldProcessTarget="ContactId,InstanceId,TaskTemplateId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataTableAttribute" OutputProperty="*" Verb="Update" Noun="DataTableAttribute" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Validation_Enum_Strict" NewName="Enum_Strict" />

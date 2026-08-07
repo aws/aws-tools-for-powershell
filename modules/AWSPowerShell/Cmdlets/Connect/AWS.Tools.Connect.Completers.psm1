@@ -1412,6 +1412,7 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNContactRoutingData",
                "Update-CONNContactSchedule",
+               "Update-CONNContactTaskTemplate",
                "Update-CONNDataTableAttribute",
                "Update-CONNDataTableMetadata",
                "Update-CONNDataTablePrimaryValue",

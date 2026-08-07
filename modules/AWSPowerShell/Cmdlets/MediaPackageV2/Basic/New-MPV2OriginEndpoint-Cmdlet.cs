@@ -494,6 +494,21 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.Int32? StartoverWindowSecond { get; set; }
         #endregion
         
+        #region Parameter StreamNameOutputMode
+        /// <summary>
+        /// <para>
+        /// <para>The output mode for stream names in egress manifests. This setting is valid only when
+        /// the associated channel's <c>InputType</c> is <c>HLS</c>. You can't change the stream
+        /// name output mode after you create the endpoint.</para><para><c>INDEX</c> uses numeric indices for stream names (for example, 1, 2, 3). <c>PASSTHROUGH_NAME</c>
+        /// uses the stream names from the input manifest. If you don't specify a value, the default
+        /// is <c>INDEX</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.StreamNameOutputMode")]
+        public Amazon.MediaPackageV2.StreamNameOutputMode StreamNameOutputMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -708,6 +723,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.Segment_TsIncludeDvbSubtitle = this.Segment_TsIncludeDvbSubtitle;
             context.Segment_TsUseAudioRenditionGroup = this.Segment_TsUseAudioRenditionGroup;
             context.StartoverWindowSecond = this.StartoverWindowSecond;
+            context.StreamNameOutputMode = this.StreamNameOutputMode;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1100,6 +1116,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.StartoverWindowSeconds = cmdletContext.StartoverWindowSecond.Value;
             }
+            if (cmdletContext.StreamNameOutputMode != null)
+            {
+                request.StreamNameOutputMode = cmdletContext.StreamNameOutputMode;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1197,6 +1217,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.Boolean? Segment_TsIncludeDvbSubtitle { get; set; }
             public System.Boolean? Segment_TsUseAudioRenditionGroup { get; set; }
             public System.Int32? StartoverWindowSecond { get; set; }
+            public Amazon.MediaPackageV2.StreamNameOutputMode StreamNameOutputMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.MediaPackageV2.UriSeparator UriSeparator { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.CreateOriginEndpointResponse, NewMPV2OriginEndpointCmdlet, object> Select { get; set; } =

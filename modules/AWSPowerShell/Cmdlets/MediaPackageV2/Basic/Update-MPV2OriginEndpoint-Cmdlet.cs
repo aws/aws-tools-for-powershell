@@ -496,6 +496,19 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.Int32? StartoverWindowSecond { get; set; }
         #endregion
         
+        #region Parameter StreamNameOutputMode
+        /// <summary>
+        /// <para>
+        /// <para>The output mode for stream names in egress manifests. If you provide a value, it must
+        /// match the current value. You can't change the stream name output mode after you create
+        /// the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.StreamNameOutputMode")]
+        public Amazon.MediaPackageV2.StreamNameOutputMode StreamNameOutputMode { get; set; }
+        #endregion
+        
         #region Parameter EncryptionMethod_TsEncryptionMethod
         /// <summary>
         /// <para>
@@ -696,6 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.Segment_TsIncludeDvbSubtitle = this.Segment_TsIncludeDvbSubtitle;
             context.Segment_TsUseAudioRenditionGroup = this.Segment_TsUseAudioRenditionGroup;
             context.StartoverWindowSecond = this.StartoverWindowSecond;
+            context.StreamNameOutputMode = this.StreamNameOutputMode;
             context.UriSeparator = this.UriSeparator;
             
             // allow further manipulation of loaded context prior to processing
@@ -1080,6 +1094,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.StartoverWindowSeconds = cmdletContext.StartoverWindowSecond.Value;
             }
+            if (cmdletContext.StreamNameOutputMode != null)
+            {
+                request.StreamNameOutputMode = cmdletContext.StreamNameOutputMode;
+            }
             if (cmdletContext.UriSeparator != null)
             {
                 request.UriSeparator = cmdletContext.UriSeparator;
@@ -1173,6 +1191,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.Boolean? Segment_TsIncludeDvbSubtitle { get; set; }
             public System.Boolean? Segment_TsUseAudioRenditionGroup { get; set; }
             public System.Int32? StartoverWindowSecond { get; set; }
+            public Amazon.MediaPackageV2.StreamNameOutputMode StreamNameOutputMode { get; set; }
             public Amazon.MediaPackageV2.UriSeparator UriSeparator { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse, UpdateMPV2OriginEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

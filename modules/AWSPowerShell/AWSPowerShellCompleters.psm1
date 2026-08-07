@@ -15084,8 +15084,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15767,8 +15767,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16228,9 +16228,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -22354,6 +22354,7 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNContactRoutingData",
                "Update-CONNContactSchedule",
+               "Update-CONNContactTaskTemplate",
                "Update-CONNDataTableAttribute",
                "Update-CONNDataTableMetadata",
                "Update-CONNDataTablePrimaryValue",
@@ -29671,12 +29672,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem",
+               "New-DDBTableSchema",
                "New-DDBTable",
                "Add-DDBKeySchema",
-               "New-DDBTableSchema")
+               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -30114,6 +30115,13 @@ $EC2_Completers = {
         "Add-EC2CapacityReservation/Tenancy"
         {
             $v = "dedicated","default"
+            break
+        }
+
+        # Amazon.EC2.ChronologicalOrder
+        "Get-EC2IpamRoutingPolicyRegistrationDelta/ChronologicalOrder"
+        {
+            $v = "forward","reverse"
             break
         }
 
@@ -30985,6 +30993,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.Rir
+        "New-EC2IpamInternetRegistryAssociation/Rir"
+        {
+            $v = "apnic","arin","lacnic","ripe"
+            break
+        }
+
         # Amazon.EC2.RouteServerPeerLivenessMode
         "New-EC2RouteServerPeer/BgpOptions_PeerLivenessDetection"
         {
@@ -31433,6 +31448,7 @@ $EC2_map = @{
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
+    "ChronologicalOrder"=@("Get-EC2IpamRoutingPolicyRegistrationDelta")
     "CidrOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
@@ -31556,6 +31572,7 @@ $EC2_map = @{
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
+    "Rir"=@("New-EC2IpamInternetRegistryAssociation")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "Schedule"=@("New-EC2CapacityManagerDataExport")
@@ -31710,6 +31727,7 @@ $EC2_SelectMap = @{
                "Grant-EC2ClientVpnIngress",
                "Grant-EC2SecurityGroupEgress",
                "Grant-EC2SecurityGroupIngress",
+               "Edit-EC2IpamRoutingPolicyRegistrationBatch",
                "New-EC2InstanceBundle",
                "Stop-EC2BundleTask",
                "Remove-EC2CapacityReservation",
@@ -31755,11 +31773,13 @@ $EC2_SelectMap = @{
                "New-EC2InterruptibleCapacityReservationAllocation",
                "New-EC2Ipam",
                "New-EC2IpamExternalResourceVerificationToken",
+               "New-EC2IpamInternetRegistryAssociation",
                "New-EC2IpamPolicy",
                "New-EC2IpamPool",
                "New-EC2IpamPrefixListResolver",
                "New-EC2IpamPrefixListResolverTarget",
                "New-EC2IpamResourceDiscovery",
+               "New-EC2IpamRoutingPolicyRegistration",
                "New-EC2IpamScope",
                "New-EC2KeyPair",
                "New-EC2LaunchTemplate",
@@ -31852,11 +31872,13 @@ $EC2_SelectMap = @{
                "Remove-EC2InternetGateway",
                "Remove-EC2Ipam",
                "Remove-EC2IpamExternalResourceVerificationToken",
+               "Remove-EC2IpamInternetRegistryAssociation",
                "Remove-EC2IpamPolicy",
                "Remove-EC2IpamPool",
                "Remove-EC2IpamPrefixListResolver",
                "Remove-EC2IpamPrefixListResolverTarget",
                "Remove-EC2IpamResourceDiscovery",
+               "Remove-EC2IpamRoutingPolicyRegistration",
                "Remove-EC2IpamScope",
                "Remove-EC2KeyPair",
                "Remove-EC2LaunchTemplate",
@@ -32012,6 +32034,7 @@ $EC2_SelectMap = @{
                "Get-EC2InternetGateway",
                "Get-EC2IpamByoasn",
                "Get-EC2IpamExternalResourceVerificationToken",
+               "Get-EC2IpamInternetRegistryAssociationDetail",
                "Get-EC2IpamPolicy",
                "Get-EC2IpamPoolAllocationDetail",
                "Get-EC2IpamPool",
@@ -32187,6 +32210,7 @@ $EC2_SelectMap = @{
                "Enable-EC2ImageDeprecation",
                "Enable-EC2ImageDeregistrationProtection",
                "Enable-EC2InstanceSqlHaStandbyDetection",
+               "Enable-EC2IpamInternetRegistryAssociation",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2IpamPolicy",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
@@ -32234,6 +32258,9 @@ $EC2_SelectMap = @{
                "Get-EC2IpamDiscoveredAccount",
                "Get-EC2IpamDiscoveredPublicAddress",
                "Get-EC2IpamDiscoveredResourceCidr",
+               "Get-EC2IpamDiscoveredRoute",
+               "Get-EC2IpamInternetRegistryAssociationAsn",
+               "Get-EC2IpamInternetRegistryAssociationCidr",
                "Get-EC2IpamPolicyAllocationRule",
                "Get-EC2IpamPolicyOrganizationTarget",
                "Get-EC2IpamPoolAllocation",
@@ -32242,6 +32269,10 @@ $EC2_SelectMap = @{
                "Get-EC2IpamPrefixListResolverVersionEntry",
                "Get-EC2IpamPrefixListResolverVersion",
                "Get-EC2IpamResourceCidr",
+               "Get-EC2IpamRouteOriginAuthorization",
+               "Get-EC2IpamRouteProtectionFinding",
+               "Get-EC2IpamRoutingPolicyRegistrationDelta",
+               "Get-EC2IpamRoutingPolicyRegistration",
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
                "Get-EC2ManagedPrefixListEntry",
@@ -32315,6 +32346,7 @@ $EC2_SelectMap = @{
                "Edit-EC2IpamPrefixListResolverTarget",
                "Edit-EC2IpamResourceCidr",
                "Edit-EC2IpamResourceDiscovery",
+               "Edit-EC2IpamRoutingPolicyRegistration",
                "Edit-EC2IpamScope",
                "Edit-EC2LaunchTemplate",
                "Edit-EC2LocalGatewayRoute",
@@ -39932,8 +39964,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -56676,6 +56708,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.StreamNameOutputMode
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/StreamNameOutputMode") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/StreamNameOutputMode")
+        }
+        {
+            $v = "INDEX","PASSTHROUGH_NAME"
+            break
+        }
+
         # Amazon.MediaPackageV2.TsEncryptionMethod
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionMethod_TsEncryptionMethod") -Or
@@ -56716,6 +56758,7 @@ $MPV2_map = @{
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
+    "StreamNameOutputMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "UriSeparator"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
 
@@ -57014,6 +57057,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.AdSequencingMode
+        "Set-EMTPlaybackConfiguration/AdDecisionServerConfiguration_VastResponse_AdSequencingMode"
+        {
+            $v = "FOLLOW_AD_SEQUENCE","FOLLOW_AD_SEQUENCE_ONLY_LIVE","FOLLOW_AD_SEQUENCE_ONLY_VOD","IGNORE_AD_SEQUENCE"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -57084,6 +57134,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.PreRollAdSequencingMode
+        "Set-EMTPlaybackConfiguration/LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode"
+        {
+            $v = "FOLLOW_AD_SEQUENCE","IGNORE_AD_SEQUENCE"
+            break
+        }
+
         # Amazon.MediaTailor.RelativePosition
         "New-EMTProgram/Transition_RelativePosition"
         {
@@ -57138,6 +57195,7 @@ $EMT_Completers = {
 $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
+    "AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
@@ -57148,6 +57206,7 @@ $EMT_map = @{
     "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")
     "HttpRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
+    "LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "Retrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
@@ -77010,16 +77069,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3MultipartUpload",
-               "Write-S3Object",
-               "Remove-S3Bucket",
-               "Get-S3PreSignedURL",
                "Test-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Read-S3Object",
                "New-S3Bucket",
                "Remove-S3Object",
-               "Read-S3Object",
+               "Get-S3MultipartUpload",
+               "Remove-S3Bucket",
                "Remove-S3MultipartUpload",
-               "Copy-S3Object")
+               "Copy-S3Object",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -79659,7 +79718,7 @@ $SM_Completers = {
         # Amazon.SageMaker.NotebookInstanceStatus
         "Get-SMNotebookInstanceList/StatusEqual"
         {
-            $v = "Deleting","Failed","InService","Pending","Stopped","Stopping","Updating"
+            $v = "Deleting","Failed","InMaintenance","InService","Pending","PendingMaintenance","Stopped","Stopping","Updating"
             break
         }
 
@@ -86741,8 +86800,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93493,6 +93552,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93532,41 +93629,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

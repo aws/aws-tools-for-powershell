@@ -90,6 +90,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.AdSequencingMode
+        "Set-EMTPlaybackConfiguration/AdDecisionServerConfiguration_VastResponse_AdSequencingMode"
+        {
+            $v = "FOLLOW_AD_SEQUENCE","FOLLOW_AD_SEQUENCE_ONLY_LIVE","FOLLOW_AD_SEQUENCE_ONLY_VOD","IGNORE_AD_SEQUENCE"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -160,6 +167,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.PreRollAdSequencingMode
+        "Set-EMTPlaybackConfiguration/LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode"
+        {
+            $v = "FOLLOW_AD_SEQUENCE","IGNORE_AD_SEQUENCE"
+            break
+        }
+
         # Amazon.MediaTailor.RelativePosition
         "New-EMTProgram/Transition_RelativePosition"
         {
@@ -214,6 +228,7 @@ $EMT_Completers = {
 $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
+    "AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
@@ -224,6 +239,7 @@ $EMT_map = @{
     "HttpRequestConfiguration_MethodType"=@("Write-EMTFunction")
     "HttpRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
+    "LivePreRollConfiguration_AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
     "Retrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")

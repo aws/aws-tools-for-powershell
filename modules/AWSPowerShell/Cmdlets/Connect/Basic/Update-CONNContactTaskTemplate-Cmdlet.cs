@@ -30,61 +30,59 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes the specified fields containing personally identifiable information (PII)
-    /// from a contact in the specified Connect Customer instance. We redact PII (such as
-    /// customer endpoints, additional email recipients, and the email subject) from the contact
-    /// and its associated contact trace record (CTR). The contact must be in a terminated
-    /// state.
+    /// Updates the task template association on an existing task contact. You can update
+    /// the task template on a contact before assignment to support tasks that are created
+    /// without a template (for example <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-rules.html">Rules</a>
+    /// or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-disconnect-flow.html">disconnect
+    /// flows</a>) or change the agent interaction form to represent the latest task data
+    /// (for example an initial request that was submitted as a refund gets updated to an
+    /// account cancellation and requires a new template).
     /// 
-    ///  <important><para><b>This deletion is permanent and cannot be undone.</b> Performing this operation
-    /// permanently deletes the specified PII. There is no retention period; you cannot recover
-    /// the data after deletion. We remove only the fields that Connect Customer identifies
-    /// and stores as PII. Any PII that you place in fields outside the scope of this operation
-    /// remains your responsibility to remove.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// This operation can only be used with task contacts that are in progress and not connected
+    /// to an agent. A task template can be updated a maximum of 5 times per contact.
+    /// </para><para>
+    /// The task's references must be compatible with the fields of the target task template.
+    /// If the target template has a required field, the task must have a corresponding reference
+    /// with a matching name and compatible type. The following task template field types
+    /// map to reference types:
+    /// </para><ul><li><para><c>TEXT</c>, <c>TEXT_AREA</c>, <c>BOOLEAN</c>, and <c>SINGLE_SELECT</c> map to references
+    /// of type <c>STRING</c>.
+    /// </para></li><li><para><c>NUMBER</c> maps to references of type <c>NUMBER</c>.
+    /// </para></li><li><para><c>DATE_TIME</c> maps to references of type <c>DATE</c>.
+    /// </para></li><li><para><c>URL</c> maps to references of type <c>URL</c>.
+    /// </para></li><li><para><c>EMAIL</c> maps to references of type <c>EMAIL</c>.
+    /// </para></li></ul><para>
+    /// References corresponding to <c>TEXT</c> fields must be fewer than 512 characters.
+    /// <c>TEXT_AREA</c> fields must be fewer than 4,096 characters. <c>BOOLEAN</c> fields
+    /// must have a value of <c>true</c> or <c>false</c>.
+    /// </para><para>
+    /// An <c>InvalidRequestException</c> occurs when <c>UpdateContactTaskTemplate</c> is
+    /// called on a connected or terminated task, when it is called on non-task contacts,
+    /// and when the task contact already uses the provided task template. A <c>PropertyValidationException</c>
+    /// occurs when the task's references conflict with the task template's fields, for example
+    /// if the task is missing a reference that matches a required field, or if the task has
+    /// a reference that matches a required field's name but not its datatype.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CONNContactData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Update", "CONNContactTaskTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service DeleteContactData API operation.", Operation = new[] {"DeleteContactData"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteContactDataResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteContactDataResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service UpdateContactTaskTemplate API operation.", Operation = new[] {"UpdateContactTaskTemplate"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateContactTaskTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateContactTaskTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteContactDataResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.UpdateContactTaskTemplateResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCONNContactDataCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class UpdateCONNContactTaskTemplateCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ContactField
-        /// <summary>
-        /// <para>
-        /// <para>The categories of PII to redact from the contact. Specify one or more of the following
-        /// values:</para><ul><li><para><c>CUSTOMER_ENDPOINT</c> – The customer's contact endpoint.</para></li><li><para><c>ADDITIONAL_EMAIL_RECIPIENTS</c> – Additional recipients on an email contact (email
-        /// channel only).</para></li><li><para><c>EMAIL_SUBJECT</c> – The subject line of an email contact (email channel only).</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ContactFields")]
-        public System.String[] ContactField { get; set; }
-        #endregion
-        
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact. You can delete PII only from a contact that has been
-        /// disconnected (is in a terminated state).</para>
+        /// <para>The identifier of the contact in this instance of Connect Customer. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,10 +114,29 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter TaskTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the task template. For more information about task templates,
+        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Task
+        /// templates</a> in the <i>Connect Customer Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TaskTemplateId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteContactDataResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateContactTaskTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             var targetParameterNames = new string[]
             {
                 nameof(this.ContactId),
-                nameof(this.InstanceId)
+                nameof(this.InstanceId),
+                nameof(this.TaskTemplateId)
             };
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNContactData (DeleteContactData)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNContactTaskTemplate (UpdateContactTaskTemplate)"))
             {
                 return;
             }
@@ -163,19 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteContactDataResponse, RemoveCONNContactDataCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateContactTaskTemplateResponse, UpdateCONNContactTaskTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.ContactField != null)
-            {
-                context.ContactField = new List<System.String>(this.ContactField);
-            }
-            #if MODULAR
-            if (this.ContactField == null && ParameterWasBound(nameof(this.ContactField)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ContactField which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ContactId = this.ContactId;
             #if MODULAR
             if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
@@ -188,6 +196,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TaskTemplateId = this.TaskTemplateId;
+            #if MODULAR
+            if (this.TaskTemplateId == null && ParameterWasBound(nameof(this.TaskTemplateId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TaskTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -204,12 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DeleteContactDataRequest();
+            var request = new Amazon.Connect.Model.UpdateContactTaskTemplateRequest();
             
-            if (cmdletContext.ContactField != null)
-            {
-                request.ContactFields = cmdletContext.ContactField;
-            }
             if (cmdletContext.ContactId != null)
             {
                 request.ContactId = cmdletContext.ContactId;
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.TaskTemplateId != null)
+            {
+                request.TaskTemplateId = cmdletContext.TaskTemplateId;
             }
             
             CmdletOutput output;
@@ -251,12 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DeleteContactDataResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteContactDataRequest request)
+        private Amazon.Connect.Model.UpdateContactTaskTemplateResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateContactTaskTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteContactData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateContactTaskTemplate");
             try
             {
-                return client.DeleteContactDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateContactTaskTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -273,10 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ContactField { get; set; }
             public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DeleteContactDataResponse, RemoveCONNContactDataCmdlet, object> Select { get; set; } =
+            public System.String TaskTemplateId { get; set; }
+            public System.Func<Amazon.Connect.Model.UpdateContactTaskTemplateResponse, UpdateCONNContactTaskTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
