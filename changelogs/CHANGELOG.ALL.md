@@ -1,4 +1,12 @@
-﻿### 5.0.272 (2026-08-07 19:16Z)
+﻿### 5.0.273 (2026-08-10 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.308.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental Inference
+    * Added cmdlet Search-EMIFixture leveraging the SearchFixtures service API.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpoint: added parameter PrefixAwareId.
+    * Modified cmdlet Invoke-SMREndpointWithResponseStream: added parameter PrefixAwareId.
+
+### 5.0.272 (2026-08-07 19:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.307.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Update-CONNContactTaskTemplate leveraging the UpdateContactTaskTemplate service API.

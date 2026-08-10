@@ -80,6 +80,13 @@ $EMI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElementalInference.DataSourceSport
+        "Search-EMIFixture/Sport"
+        {
+            $v = "american-football","basketball"
+            break
+        }
+
         # Amazon.ElementalInference.DictionaryLanguage
         {
             ($_ -eq "New-EMIDictionary/Language") -Or
@@ -100,6 +107,7 @@ $EMI_Completers = {
 
 $EMI_map = @{
     "Language"=@("New-EMIDictionary","Update-EMIDictionary")
+    "Sport"=@("Search-EMIFixture")
 }
 
 _awsArgumentCompleterRegistration $EMI_Completers $EMI_map
@@ -164,6 +172,7 @@ $EMI_SelectMap = @{
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
                "Get-EMIResourceTag",
+               "Search-EMIFixture",
                "Add-EMIResourceTag",
                "Remove-EMIResourceTag",
                "Update-EMIDictionary",

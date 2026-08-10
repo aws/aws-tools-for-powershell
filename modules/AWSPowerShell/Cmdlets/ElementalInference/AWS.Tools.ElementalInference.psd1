@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMIDictionary', 
         'Remove-EMIFeed', 
         'Remove-EMIResourceTag', 
+        'Search-EMIFixture', 
         'Unregister-EMIFeed', 
         'Update-EMIDictionary', 
         'Update-EMIFeed')

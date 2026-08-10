@@ -176,6 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String InferenceId { get; set; }
         #endregion
         
+        #region Parameter PrefixAwareId
+        /// <summary>
+        /// <para>
+        /// <para>An optional, stable identifier that serves as a routing hint for prefix-aware routing.
+        /// The service routes requests with the same prefix and the same identifier to the same
+        /// instance. If requests from different applications might have the same prompt prefix,
+        /// set a different identifier for each application to differentiate their routing decisions.</para><para>Applies only to endpoints configured with a <c>RoutingStrategy</c> of <c>PREFIX_AWARE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrefixAwareId { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
@@ -280,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             #endif
             context.InferenceComponentName = this.InferenceComponentName;
             context.InferenceId = this.InferenceId;
+            context.PrefixAwareId = this.PrefixAwareId;
             context.SessionId = this.SessionId;
             context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetVariant = this.TargetVariant;
@@ -331,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.InferenceId != null)
                 {
                     request.InferenceId = cmdletContext.InferenceId;
+                }
+                if (cmdletContext.PrefixAwareId != null)
+                {
+                    request.PrefixAwareId = cmdletContext.PrefixAwareId;
                 }
                 if (cmdletContext.SessionId != null)
                 {
@@ -414,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String EndpointName { get; set; }
             public System.String InferenceComponentName { get; set; }
             public System.String InferenceId { get; set; }
+            public System.String PrefixAwareId { get; set; }
             public System.String SessionId { get; set; }
             public System.String TargetContainerHostname { get; set; }
             public System.String TargetVariant { get; set; }

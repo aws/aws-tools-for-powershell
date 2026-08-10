@@ -364,7 +364,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
         }
         {
-            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","ja-JP","ko-KR","ms-MY","pt-BR","zh-CN"
             break
         }
 

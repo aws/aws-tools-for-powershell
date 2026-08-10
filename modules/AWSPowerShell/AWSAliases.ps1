@@ -13976,6 +13976,8 @@ Set-Alias -Name List-EMIFeeds -Value Get-EMIFeedList
 Set-Alias -Name List-EMIFeedList -Value Get-EMIFeedList
 Set-Alias -Name EMI-ListFeeds -Value Get-EMIFeedList
 Set-Alias -Name EMI-ListTagsForResource -Value Get-EMIResourceTag
+Set-Alias -Name Search-EMIFixtures -Value Search-EMIFixture
+Set-Alias -Name EMI-SearchFixtures -Value Search-EMIFixture
 Set-Alias -Name EMI-TagResource -Value Add-EMIResourceTag
 Set-Alias -Name EMI-UntagResource -Value Remove-EMIResourceTag
 Set-Alias -Name EMI-UpdateDictionary -Value Update-EMIDictionary
