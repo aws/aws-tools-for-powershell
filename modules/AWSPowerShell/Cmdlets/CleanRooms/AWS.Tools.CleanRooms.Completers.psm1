@@ -103,6 +103,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.AnalysisLogExportStatus
+        "Get-CRSAnalysisLogExportList/Status"
+        {
+            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            break
+        }
+
         # Amazon.CleanRooms.AnalysisMethod
         {
             ($_ -eq "New-CRSConfiguredTable/AnalysisMethod") -Or
@@ -234,6 +241,13 @@ $CRS_Completers = {
         }
         {
             $v = "QUERY_RUNNER"
+            break
+        }
+
+        # Amazon.CleanRooms.LogExportAnalysisType
+        "Start-CRSAnalysisLogExport/AnalysisType"
+        {
+            $v = "PROTECTED_QUERY"
             break
         }
 
@@ -375,6 +389,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Custom_AdditionalAnalyses"=@("New-CRSIntermediateTableAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","Get-CRSIntermediateTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","New-CRSIntermediateTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSIntermediateTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
+    "AnalysisType"=@("Start-CRSAnalysisLogExport")
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
@@ -391,7 +406,7 @@ $CRS_map = @{
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
-    "Status"=@("Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
+    "Status"=@("Get-CRSAnalysisLogExportList","Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
     "Worker_Type"=@("Start-CRSProtectedJob","Start-CRSProtectedQuery")
@@ -479,6 +494,7 @@ $CRS_SelectMap = @{
                "Remove-CRSMembership",
                "Remove-CRSPrivacyBudgetTemplate",
                "Disable-CRSIntermediateTable",
+               "Get-CRSAnalysisLogExport",
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
@@ -501,6 +517,7 @@ $CRS_SelectMap = @{
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
+               "Get-CRSAnalysisLogExportList",
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
                "Get-CRSCollaborationChangeRequestList",
@@ -527,6 +544,7 @@ $CRS_SelectMap = @{
                "Invoke-CRSIdMappingTable",
                "Import-CRSIntermediateTable",
                "Test-CRSPrivacyImpact",
+               "Start-CRSAnalysisLogExport",
                "Start-CRSProtectedJob",
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",

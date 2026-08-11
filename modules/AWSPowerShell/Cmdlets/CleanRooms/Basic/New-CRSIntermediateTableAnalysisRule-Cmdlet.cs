@@ -31,9 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
     /// Creates an analysis rule for an intermediate table. Only the CUSTOM analysis rule
-    /// type is supported. The service automatically determines whether the rule is first-party
-    /// or multi-party restricted based on the intermediate table's inherited constraints.
-    /// Only the intermediate table owner can call this operation.
+    /// type is supported. Only the intermediate table owner can call this operation.
     /// </summary>
     [Cmdlet("New", "CRSIntermediateTableAnalysisRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.IntermediateTableAnalysisRule")]

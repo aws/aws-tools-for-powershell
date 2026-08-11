@@ -251,6 +251,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String OutpostConfig_EtcdInstanceType { get; set; }
         #endregion
         
+        #region Parameter KubeApiServerConfig_EventTtl
+        /// <summary>
+        /// <para>
+        /// <para>The duration that Kubernetes events are retained. Valid values are single-unit durations
+        /// such as <c>30m</c> or <c>1h</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KubeApiServerConfig_EventTtl { get; set; }
+        #endregion
+        
         #region Parameter ControlPlanePlacement_GroupName
         /// <summary>
         /// <para>
@@ -261,6 +272,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OutpostConfig_ControlPlanePlacement_GroupName")]
         public System.String ControlPlanePlacement_GroupName { get; set; }
+        #endregion
+        
+        #region Parameter KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The interval between each sync of the horizontal pod autoscaler. Valid values are
+        /// single-unit durations such as <c>15s</c> or <c>1m</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod { get; set; }
         #endregion
         
         #region Parameter KubernetesNetworkConfig_IpFamily
@@ -284,6 +306,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EKS.IpFamily")]
         public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
+        #endregion
+        
+        #region Parameter KubeApiServerConfig_ServiceNodePortRange_MaxPort
+        /// <summary>
+        /// <para>
+        /// <para>The maximum port number in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MaxPort { get; set; }
+        #endregion
+        
+        #region Parameter KubeApiServerConfig_ServiceNodePortRange_MinPort
+        /// <summary>
+        /// <para>
+        /// <para>The minimum port number in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MinPort { get; set; }
         #endregion
         
         #region Parameter Name
@@ -397,6 +439,21 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RemoteNetworkConfig_RemotePodNetworks")]
         public Amazon.EKS.Model.RemotePodNetwork[] RemoteNetworkConfig_RemotePodNetwork { get; set; }
+        #endregion
+        
+        #region Parameter KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource
+        /// <summary>
+        /// <para>
+        /// <para>The resource weights used for scoring nodes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resources")]
+        public Amazon.EKS.Model.ResourceWeight[] KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource { get; set; }
         #endregion
         
         #region Parameter ResourcesVpcConfig
@@ -527,6 +584,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
         #endregion
         
+        #region Parameter KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type
+        /// <summary>
+        /// <para>
+        /// <para>The scoring strategy type. Valid values are <c>LeastAllocated</c> or <c>MostAllocated</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.ScoringStrategyType")]
+        public Amazon.EKS.ScoringStrategyType KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -600,9 +668,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
             }
+            context.KubeApiServerConfig_EventTtl = this.KubeApiServerConfig_EventTtl;
+            context.KubeApiServerConfig_ServiceNodePortRange_MaxPort = this.KubeApiServerConfig_ServiceNodePortRange_MaxPort;
+            context.KubeApiServerConfig_ServiceNodePortRange_MinPort = this.KubeApiServerConfig_ServiceNodePortRange_MinPort;
+            context.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod = this.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod;
             context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
+            if (this.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource != null)
+            {
+                context.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource = new List<Amazon.EKS.Model.ResourceWeight>(this.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource);
+            }
+            context.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type = this.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type;
             if (this.Logging_ClusterLogging != null)
             {
                 context.Logging_ClusterLogging = new List<Amazon.EKS.Model.LogSetup>(this.Logging_ClusterLogging);
@@ -777,6 +854,94 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.EncryptionConfig = cmdletContext.EncryptionConfig;
             }
             
+             // populate KubeApiServerConfig
+            var requestKubeApiServerConfigIsNull = true;
+            request.KubeApiServerConfig = new Amazon.EKS.Model.KubeApiServerConfigRequest();
+            System.String requestKubeApiServerConfig_kubeApiServerConfig_EventTtl = null;
+            if (cmdletContext.KubeApiServerConfig_EventTtl != null)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_EventTtl = cmdletContext.KubeApiServerConfig_EventTtl;
+            }
+            if (requestKubeApiServerConfig_kubeApiServerConfig_EventTtl != null)
+            {
+                request.KubeApiServerConfig.EventTtl = requestKubeApiServerConfig_kubeApiServerConfig_EventTtl;
+                requestKubeApiServerConfigIsNull = false;
+            }
+            Amazon.EKS.Model.ServiceNodePortRange requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange = null;
+            
+             // populate ServiceNodePortRange
+            var requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRangeIsNull = true;
+            requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange = new Amazon.EKS.Model.ServiceNodePortRange();
+            System.Int32? requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MaxPort = null;
+            if (cmdletContext.KubeApiServerConfig_ServiceNodePortRange_MaxPort != null)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MaxPort = cmdletContext.KubeApiServerConfig_ServiceNodePortRange_MaxPort.Value;
+            }
+            if (requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MaxPort != null)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange.MaxPort = requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MaxPort.Value;
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRangeIsNull = false;
+            }
+            System.Int32? requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MinPort = null;
+            if (cmdletContext.KubeApiServerConfig_ServiceNodePortRange_MinPort != null)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MinPort = cmdletContext.KubeApiServerConfig_ServiceNodePortRange_MinPort.Value;
+            }
+            if (requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MinPort != null)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange.MinPort = requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange_kubeApiServerConfig_ServiceNodePortRange_MinPort.Value;
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRangeIsNull = false;
+            }
+             // determine if requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange should be set to null
+            if (requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRangeIsNull)
+            {
+                requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange = null;
+            }
+            if (requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange != null)
+            {
+                request.KubeApiServerConfig.ServiceNodePortRange = requestKubeApiServerConfig_kubeApiServerConfig_ServiceNodePortRange;
+                requestKubeApiServerConfigIsNull = false;
+            }
+             // determine if request.KubeApiServerConfig should be set to null
+            if (requestKubeApiServerConfigIsNull)
+            {
+                request.KubeApiServerConfig = null;
+            }
+            
+             // populate KubeControllerManagerConfig
+            var requestKubeControllerManagerConfigIsNull = true;
+            request.KubeControllerManagerConfig = new Amazon.EKS.Model.KubeControllerManagerConfigRequest();
+            Amazon.EKS.Model.HorizontalPodAutoscalerControllerConfigRequest requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig = null;
+            
+             // populate HorizontalPodAutoscalerControllerConfig
+            var requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfigIsNull = true;
+            requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig = new Amazon.EKS.Model.HorizontalPodAutoscalerControllerConfigRequest();
+            System.String requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod = null;
+            if (cmdletContext.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod != null)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod = cmdletContext.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod;
+            }
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod != null)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig.HorizontalPodAutoscalerSyncPeriod = requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod;
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfigIsNull = false;
+            }
+             // determine if requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig should be set to null
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfigIsNull)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig = null;
+            }
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig != null)
+            {
+                request.KubeControllerManagerConfig.HorizontalPodAutoscalerControllerConfig = requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig;
+                requestKubeControllerManagerConfigIsNull = false;
+            }
+             // determine if request.KubeControllerManagerConfig should be set to null
+            if (requestKubeControllerManagerConfigIsNull)
+            {
+                request.KubeControllerManagerConfig = null;
+            }
+            
              // populate KubernetesNetworkConfig
             var requestKubernetesNetworkConfigIsNull = true;
             request.KubernetesNetworkConfig = new Amazon.EKS.Model.KubernetesNetworkConfigRequest();
@@ -829,6 +994,65 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestKubernetesNetworkConfigIsNull)
             {
                 request.KubernetesNetworkConfig = null;
+            }
+            
+             // populate KubeSchedulerConfig
+            var requestKubeSchedulerConfigIsNull = true;
+            request.KubeSchedulerConfig = new Amazon.EKS.Model.KubeSchedulerConfigRequest();
+            Amazon.EKS.Model.NodeResourcesFitConfig requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit = null;
+            
+             // populate NodeResourcesFit
+            var requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFitIsNull = true;
+            requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit = new Amazon.EKS.Model.NodeResourcesFitConfig();
+            Amazon.EKS.Model.ScoringStrategy requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy = null;
+            
+             // populate ScoringStrategy
+            var requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategyIsNull = true;
+            requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy = new Amazon.EKS.Model.ScoringStrategy();
+            List<Amazon.EKS.Model.ResourceWeight> requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource = null;
+            if (cmdletContext.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource != null)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource = cmdletContext.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource;
+            }
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource != null)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy.Resources = requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource;
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategyIsNull = false;
+            }
+            Amazon.EKS.ScoringStrategyType requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type = null;
+            if (cmdletContext.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type != null)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type = cmdletContext.KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type;
+            }
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type != null)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy.Type = requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type;
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategyIsNull = false;
+            }
+             // determine if requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy should be set to null
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategyIsNull)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy = null;
+            }
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy != null)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit.ScoringStrategy = requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit_kubeSchedulerConfig_NodeResourcesFit_ScoringStrategy;
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFitIsNull = false;
+            }
+             // determine if requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit should be set to null
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFitIsNull)
+            {
+                requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit = null;
+            }
+            if (requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit != null)
+            {
+                request.KubeSchedulerConfig.NodeResourcesFit = requestKubeSchedulerConfig_kubeSchedulerConfig_NodeResourcesFit;
+                requestKubeSchedulerConfigIsNull = false;
+            }
+             // determine if request.KubeSchedulerConfig should be set to null
+            if (requestKubeSchedulerConfigIsNull)
+            {
+                request.KubeSchedulerConfig = null;
             }
             
              // populate Logging
@@ -1134,9 +1358,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
+            public System.String KubeApiServerConfig_EventTtl { get; set; }
+            public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MaxPort { get; set; }
+            public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MinPort { get; set; }
+            public System.String KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
+            public List<Amazon.EKS.Model.ResourceWeight> KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource { get; set; }
+            public Amazon.EKS.ScoringStrategyType KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }

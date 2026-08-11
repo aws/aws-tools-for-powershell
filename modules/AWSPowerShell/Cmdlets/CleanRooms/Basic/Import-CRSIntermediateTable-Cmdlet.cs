@@ -30,10 +30,9 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Executes the stored query of an intermediate table to materialize data into managed
-    /// storage. With this operation, you can perform initial population and subsequent refreshes.
-    /// Each call creates a new version. The returned analysis ID can be tracked using <c>GetProtectedQuery</c>.
-    /// Only the intermediate table owner can call this operation.
+    /// Runs the stored query of an intermediate table and makes the results available for
+    /// querying. Each call creates a new version. Use <c>GetProtectedQuery</c> with the returned
+    /// analysis ID to track progress. Only the intermediate table owner can call this operation.
     /// </summary>
     [Cmdlet("Import", "CRSIntermediateTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.PopulateIntermediateTableResponse")]

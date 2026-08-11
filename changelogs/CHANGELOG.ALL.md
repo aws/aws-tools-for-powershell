@@ -1,4 +1,25 @@
-﻿### 5.0.273 (2026-08-10 19:13Z)
+﻿### 5.0.274 (2026-08-11 19:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.309.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account Access. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCAC and can be listed using the command 'Get-AWSCmdletName -Service ACCAC'.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACRecommendation: added parameters RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime, RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn, RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime, RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime, RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn and RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSAnalysisLogExport leveraging the GetAnalysisLogExport service API.
+    * Added cmdlet Get-CRSAnalysisLogExportList leveraging the ListAnalysisLogExports service API.
+    * Added cmdlet Start-CRSAnalysisLogExport leveraging the StartAnalysisLogExport service API.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNMetricDetail leveraging the DescribeMetric service API.
+    * Added cmdlet Get-CONNMetricList leveraging the ListMetrics service API.
+    * Added cmdlet New-CONNMetric leveraging the CreateMetric service API.
+    * Added cmdlet Remove-CONNMetric leveraging the DeleteMetric service API.
+    * Added cmdlet Search-CONNMetric leveraging the SearchMetrics service API.
+    * Added cmdlet Update-CONNMetricContent leveraging the UpdateMetricContent service API.
+    * Added cmdlet Update-CONNMetricMetadata leveraging the UpdateMetricMetadata service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameters KubeApiServerConfig_EventTtl, KubeApiServerConfig_ServiceNodePortRange_MaxPort, KubeApiServerConfig_ServiceNodePortRange_MinPort, KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod, KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource and KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type.
+    * Modified cmdlet Update-EKSClusterConfig: added parameters KubeApiServerConfig_EventTtl, KubeApiServerConfig_ServiceNodePortRange_MaxPort, KubeApiServerConfig_ServiceNodePortRange_MinPort, KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod, KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Resource and KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type.
+
+### 5.0.273 (2026-08-10 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.308.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental Inference
     * Added cmdlet Search-EMIFixture leveraging the SearchFixtures service API.

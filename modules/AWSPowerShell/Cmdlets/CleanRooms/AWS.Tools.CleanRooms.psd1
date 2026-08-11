@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CRSResourceTag', 
         'Disable-CRSIntermediateTable', 
+        'Get-CRSAnalysisLogExport', 
+        'Get-CRSAnalysisLogExportList', 
         'Get-CRSAnalysisTemplate', 
         'Get-CRSAnalysisTemplateList', 
         'Get-CRSBatchCollaborationAnalysisTemplate', 
@@ -168,6 +170,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CRSMembership', 
         'Remove-CRSPrivacyBudgetTemplate', 
         'Remove-CRSResourceTag', 
+        'Start-CRSAnalysisLogExport', 
         'Start-CRSProtectedJob', 
         'Start-CRSProtectedQuery', 
         'Test-CRSPrivacyImpact', 

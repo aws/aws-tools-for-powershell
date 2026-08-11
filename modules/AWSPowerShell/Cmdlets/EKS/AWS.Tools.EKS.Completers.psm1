@@ -196,6 +196,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ScoringStrategyType
+        {
+            ($_ -eq "New-EKSCluster/KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type") -Or
+            ($_ -eq "Update-EKSClusterConfig/KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type")
+        }
+        {
+            $v = "LeastAllocated","MostAllocated"
+            break
+        }
+
         # Amazon.EKS.SpreadLevel
         {
             ($_ -eq "New-EKSCluster/OutpostConfig_ControlPlanePlacement_SpreadLevel") -Or
@@ -250,6 +260,7 @@ $EKS_map = @{
     "ControlPlaneScalingConfig_Tier"=@("New-EKSCluster","Update-EKSClusterConfig")
     "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "OutpostConfig_ControlPlanePlacement_SpreadLevel"=@("New-EKSCluster")
     "OutpostConfig_EtcdPlacement_SpreadLevel"=@("New-EKSCluster")

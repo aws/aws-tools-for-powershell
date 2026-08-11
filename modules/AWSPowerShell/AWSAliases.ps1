@@ -70,6 +70,25 @@ Set-Alias -Name IAMAA-UpdateFindings -Value Update-IAMAAFinding
 Set-Alias -Name Validate-IAMAAPolicy -Value Use-IAMAAPolicyValidation
 Set-Alias -Name Validate-IAMAAPolicyValidation -Value Use-IAMAAPolicyValidation
 Set-Alias -Name IAMAA-ValidatePolicy -Value Use-IAMAAPolicyValidation
+Set-Alias -Name Create-ACCACApplication -Value New-ACCACApplication
+Set-Alias -Name ACCAC-CreateApplication -Value New-ACCACApplication
+Set-Alias -Name Create-ACCACEntitlement -Value New-ACCACEntitlement
+Set-Alias -Name ACCAC-CreateEntitlement -Value New-ACCACEntitlement
+Set-Alias -Name Delete-ACCACApplication -Value Remove-ACCACApplication
+Set-Alias -Name ACCAC-DeleteApplication -Value Remove-ACCACApplication
+Set-Alias -Name Delete-ACCACEntitlement -Value Remove-ACCACEntitlement
+Set-Alias -Name ACCAC-DeleteEntitlement -Value Remove-ACCACEntitlement
+Set-Alias -Name ACCAC-GetApplication -Value Get-ACCACApplication
+Set-Alias -Name ACCAC-GetEntitlement -Value Get-ACCACEntitlement
+Set-Alias -Name List-ACCACApplications -Value Get-ACCACApplicationList
+Set-Alias -Name List-ACCACApplicationList -Value Get-ACCACApplicationList
+Set-Alias -Name ACCAC-ListApplications -Value Get-ACCACApplicationList
+Set-Alias -Name List-ACCACEntitlements -Value Get-ACCACEntitlementList
+Set-Alias -Name List-ACCACEntitlementList -Value Get-ACCACEntitlementList
+Set-Alias -Name ACCAC-ListEntitlements -Value Get-ACCACEntitlementList
+Set-Alias -Name ACCAC-ListTagsForResource -Value Get-ACCACResourceTag
+Set-Alias -Name ACCAC-TagResource -Value Add-ACCACResourceTag
+Set-Alias -Name ACCAC-UntagResource -Value Remove-ACCACResourceTag
 Set-Alias -Name Accept-ACCTPrimaryEmailUpdate -Value Approve-ACCTPrimaryEmailUpdate
 Set-Alias -Name ACCT-AcceptPrimaryEmailUpdate -Value Approve-ACCTPrimaryEmailUpdate
 Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
@@ -4677,6 +4696,7 @@ Set-Alias -Name Delete-CRSPrivacyBudgetTemplate -Value Remove-CRSPrivacyBudgetTe
 Set-Alias -Name CRS-DeletePrivacyBudgetTemplate -Value Remove-CRSPrivacyBudgetTemplate
 Set-Alias -Name Disallow-CRSIntermediateTable -Value Disable-CRSIntermediateTable
 Set-Alias -Name CRS-DisallowIntermediateTable -Value Disable-CRSIntermediateTable
+Set-Alias -Name CRS-GetAnalysisLogExport -Value Get-CRSAnalysisLogExport
 Set-Alias -Name CRS-GetAnalysisTemplate -Value Get-CRSAnalysisTemplate
 Set-Alias -Name CRS-GetCollaborationAnalysisTemplate -Value Get-CRSCollaborationAnalysisTemplate
 Set-Alias -Name CRS-GetCollaboration -Value Get-CRSCollaboration
@@ -4699,6 +4719,9 @@ Set-Alias -Name CRS-GetProtectedJob -Value Get-CRSProtectedJob
 Set-Alias -Name CRS-GetProtectedQuery -Value Get-CRSProtectedQuery
 Set-Alias -Name CRS-GetSchemaAnalysisRule -Value Get-CRSSchemaAnalysisRule
 Set-Alias -Name CRS-GetSchema -Value Get-CRSSchema
+Set-Alias -Name List-CRSAnalysisLogExports -Value Get-CRSAnalysisLogExportList
+Set-Alias -Name List-CRSAnalysisLogExportList -Value Get-CRSAnalysisLogExportList
+Set-Alias -Name CRS-ListAnalysisLogExports -Value Get-CRSAnalysisLogExportList
 Set-Alias -Name List-CRSAnalysisTemplates -Value Get-CRSAnalysisTemplateList
 Set-Alias -Name List-CRSAnalysisTemplateList -Value Get-CRSAnalysisTemplateList
 Set-Alias -Name CRS-ListAnalysisTemplates -Value Get-CRSAnalysisTemplateList
@@ -4772,6 +4795,7 @@ Set-Alias -Name Populate-CRSIntermediateTable -Value Import-CRSIntermediateTable
 Set-Alias -Name CRS-PopulateIntermediateTable -Value Import-CRSIntermediateTable
 Set-Alias -Name Preview-CRSPrivacyImpact -Value Test-CRSPrivacyImpact
 Set-Alias -Name CRS-PreviewPrivacyImpact -Value Test-CRSPrivacyImpact
+Set-Alias -Name CRS-StartAnalysisLogExport -Value Start-CRSAnalysisLogExport
 Set-Alias -Name CRS-StartProtectedJob -Value Start-CRSProtectedJob
 Set-Alias -Name CRS-StartProtectedQuery -Value Start-CRSProtectedQuery
 Set-Alias -Name CRS-TagResource -Value Add-CRSResourceTag
@@ -7647,6 +7671,8 @@ Set-Alias -Name Create-CONNInstance -Value New-CONNInstance
 Set-Alias -Name CONN-CreateInstance -Value New-CONNInstance
 Set-Alias -Name Create-CONNIntegrationAssociation -Value New-CONNIntegrationAssociation
 Set-Alias -Name CONN-CreateIntegrationAssociation -Value New-CONNIntegrationAssociation
+Set-Alias -Name Create-CONNMetric -Value New-CONNMetric
+Set-Alias -Name CONN-CreateMetric -Value New-CONNMetric
 Set-Alias -Name Create-CONNNotification -Value New-CONNNotification
 Set-Alias -Name CONN-CreateNotification -Value New-CONNNotification
 Set-Alias -Name Create-CONNParticipant -Value New-CONNParticipant
@@ -7725,6 +7751,8 @@ Set-Alias -Name Delete-CONNInstance -Value Remove-CONNInstance
 Set-Alias -Name CONN-DeleteInstance -Value Remove-CONNInstance
 Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
+Set-Alias -Name Delete-CONNMetric -Value Remove-CONNMetric
+Set-Alias -Name CONN-DeleteMetric -Value Remove-CONNMetric
 Set-Alias -Name Delete-CONNNotification -Value Remove-CONNNotification
 Set-Alias -Name CONN-DeleteNotification -Value Remove-CONNNotification
 Set-Alias -Name Delete-CONNPredefinedAttribute -Value Remove-CONNPredefinedAttribute
@@ -7807,6 +7835,9 @@ Set-Alias -Name Describe-CONNInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name CONN-DescribeInstanceAttribute -Value Get-CONNInstanceAttribute
 Set-Alias -Name Describe-CONNInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
 Set-Alias -Name CONN-DescribeInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
+Set-Alias -Name Describe-CONNMetric -Value Get-CONNMetricDetail
+Set-Alias -Name Describe-CONNMetricDetail -Value Get-CONNMetricDetail
+Set-Alias -Name CONN-DescribeMetric -Value Get-CONNMetricDetail
 Set-Alias -Name Describe-CONNNotification -Value Get-CONNNotification
 Set-Alias -Name CONN-DescribeNotification -Value Get-CONNNotification
 Set-Alias -Name Describe-CONNPhoneNumber -Value Get-CONNPhoneNumber
@@ -8009,6 +8040,9 @@ Set-Alias -Name CONN-ListLambdaFunctions -Value Get-CONNLambdaFunctionList
 Set-Alias -Name List-CONNLexBots -Value Get-CONNLexBotList
 Set-Alias -Name List-CONNLexBotList -Value Get-CONNLexBotList
 Set-Alias -Name CONN-ListLexBots -Value Get-CONNLexBotList
+Set-Alias -Name List-CONNMetrics -Value Get-CONNMetricList
+Set-Alias -Name List-CONNMetricList -Value Get-CONNMetricList
+Set-Alias -Name CONN-ListMetrics -Value Get-CONNMetricList
 Set-Alias -Name List-CONNNotifications -Value Get-CONNNotificationList
 Set-Alias -Name List-CONNNotificationList -Value Get-CONNNotificationList
 Set-Alias -Name CONN-ListNotifications -Value Get-CONNNotificationList
@@ -8153,6 +8187,8 @@ Set-Alias -Name Search-CONNHoursOfOperationOverrides -Value Search-CONNHoursOfOp
 Set-Alias -Name CONN-SearchHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
 Set-Alias -Name CONN-SearchHoursOfOperations -Value Search-CONNHoursOfOperation
+Set-Alias -Name Search-CONNMetrics -Value Search-CONNMetric
+Set-Alias -Name CONN-SearchMetrics -Value Search-CONNMetric
 Set-Alias -Name Search-CONNNotifications -Value Search-CONNNotification
 Set-Alias -Name CONN-SearchNotifications -Value Search-CONNNotification
 Set-Alias -Name Search-CONNPredefinedAttributes -Value Search-CONNPredefinedAttribute
@@ -8247,6 +8283,8 @@ Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
 Set-Alias -Name CONN-UpdateHoursOfOperationOverride -Value Update-CONNHoursOfOperationOverride
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
+Set-Alias -Name CONN-UpdateMetricContent -Value Update-CONNMetricContent
+Set-Alias -Name CONN-UpdateMetricMetadata -Value Update-CONNMetricMetadata
 Set-Alias -Name CONN-UpdateNotificationContent -Value Update-CONNNotificationContent
 Set-Alias -Name CONN-UpdateParticipantAuthentication -Value Update-CONNParticipantAuthentication
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig

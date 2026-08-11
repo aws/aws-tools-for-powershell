@@ -30,10 +30,8 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates an intermediate table in a membership. An intermediate table stores a query
-    /// definition that you can execute later using <c>PopulateIntermediateTable</c> to materialize
-    /// cached results. The intermediate table is owned by the member with the CAN_QUERY ability.
-    /// This operation does not execute the stored query.
+    /// Creates an intermediate table in a membership. The intermediate table is owned by
+    /// the member with the CAN_QUERY ability. To populate the table with results, use <c>PopulateIntermediateTable</c>.
     /// </summary>
     [Cmdlet("New", "CRSIntermediateTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CleanRooms.Model.IntermediateTable")]
@@ -117,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter PopulationAnalysisConfiguration_SqlParameters_QueryString
         /// <summary>
         /// <para>
-        /// <para>The SQL query string used to populate the intermediate table. Maximum length of 500,000
-        /// characters.</para>
+        /// <para>The SQL query string used to populate the intermediate table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter RetentionInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain populated data versions. Minimum value of 1, maximum
-        /// value of 365.</para>
+        /// <para>The number of days to retain populated data versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime { get; set; }
         #endregion
         
+        #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The end time of the time range. Only sessions evaluated before this timestamp are
+        /// included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime { get; set; }
+        #endregion
+        
         #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime
         /// <summary>
         /// <para>
@@ -113,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_EndTime { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The end time of the time range. Only sessions evaluated before this timestamp are
+        /// included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime { get; set; }
         #endregion
         
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_EvaluationConfig_Evaluator
@@ -218,6 +240,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the online evaluation configuration to reuse sessions from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the online evaluation configuration to reuse sessions from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn { get; set; }
+        #endregion
+        
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName
         /// <summary>
         /// <para>
@@ -288,6 +330,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime { get; set; }
         #endregion
         
+        #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start time of the time range. Only sessions evaluated at or after this timestamp
+        /// are included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime { get; set; }
+        #endregion
+        
         #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime
         /// <summary>
         /// <para>
@@ -296,6 +349,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start time of the time range. Only sessions evaluated at or after this timestamp
+        /// are included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime { get; set; }
         #endregion
         
         #region Parameter RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_SystemPromptJsonPath
@@ -485,6 +549,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName = new List<System.String>(this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName);
             }
             context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime;
+            context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime;
+            context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+            context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime;
             if (this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan != null)
             {
                 context.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan = new List<Amazon.Runtime.Documents.Document>(this.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan);
@@ -512,6 +579,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName = new List<System.String>(this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName);
             }
             context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime;
+            context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime;
+            context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+            context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime;
             if (this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan != null)
             {
                 context.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan = new List<Amazon.Runtime.Documents.Document>(this.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan);
@@ -705,6 +775,51 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation != null)
             {
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces.BatchEvaluation = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_BatchEvaluation;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTracesIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.OnlineEvaluationTraceConfig requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation = null;
+            
+             // populate OnlineEvaluation
+            var requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = true;
+            requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation = new Amazon.BedrockAgentCore.Model.OnlineEvaluationTraceConfig();
+            System.DateTime? requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime.Value;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation.EndTime = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime.Value;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+            System.String requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation.OnlineEvaluationConfigArn = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+            System.DateTime? requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = null;
+            if (cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = cmdletContext.RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime.Value;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation.StartTime = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime.Value;
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation should be set to null
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluationIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation != null)
+            {
+                requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces.OnlineEvaluation = requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation;
                 requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTracesIsNull = false;
             }
             Amazon.BedrockAgentCore.Model.CloudWatchLogsTraceConfig requestRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_recommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs = null;
@@ -947,6 +1062,51 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces.BatchEvaluation = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_BatchEvaluation;
                 requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTracesIsNull = false;
             }
+            Amazon.BedrockAgentCore.Model.OnlineEvaluationTraceConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation = null;
+            
+             // populate OnlineEvaluation
+            var requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = true;
+            requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation = new Amazon.BedrockAgentCore.Model.OnlineEvaluationTraceConfig();
+            System.DateTime? requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime.Value;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation.EndTime = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime.Value;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+            System.String requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation.OnlineEvaluationConfigArn = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+            System.DateTime? requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = null;
+            if (cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime = cmdletContext.RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime.Value;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation.StartTime = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime.Value;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluationIsNull = false;
+            }
+             // determine if requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation should be set to null
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluationIsNull)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation = null;
+            }
+            if (requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation != null)
+            {
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces.OnlineEvaluation = requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation;
+                requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTracesIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.CloudWatchLogsTraceConfig requestRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_recommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs = null;
             
              // populate CloudwatchLogs
@@ -1125,6 +1285,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.CloudWatchLogsFilter> RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filter { get; set; }
             public List<System.String> RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName { get; set; }
             public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime { get; set; }
+            public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime { get; set; }
+            public System.String RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn { get; set; }
+            public System.DateTime? RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime { get; set; }
             public List<Amazon.Runtime.Documents.Document> RecommendationConfig_SystemPromptRecommendationConfig_AgentTraces_SessionSpan { get; set; }
             public List<Amazon.BedrockAgentCore.Model.RecommendationEvaluatorReference> RecommendationConfig_SystemPromptRecommendationConfig_EvaluationConfig_Evaluator { get; set; }
             public System.String RecommendationConfig_SystemPromptRecommendationConfig_SystemPrompt_ConfigurationBundle_BundleArn { get; set; }
@@ -1137,6 +1300,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.CloudWatchLogsFilter> RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_Rule_Filter { get; set; }
             public List<System.String> RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_ServiceName { get; set; }
             public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_CloudwatchLogs_StartTime { get; set; }
+            public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_EndTime { get; set; }
+            public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_OnlineEvaluationConfigArn { get; set; }
+            public System.DateTime? RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_OnlineEvaluation_StartTime { get; set; }
             public List<Amazon.Runtime.Documents.Document> RecommendationConfig_ToolDescriptionRecommendationConfig_AgentTraces_SessionSpan { get; set; }
             public System.String RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_BundleArn { get; set; }
             public List<Amazon.BedrockAgentCore.Model.ConfigurationBundleToolEntry> RecommendationConfig_ToolDescriptionRecommendationConfig_ToolDescription_ConfigurationBundle_Tool { get; set; }

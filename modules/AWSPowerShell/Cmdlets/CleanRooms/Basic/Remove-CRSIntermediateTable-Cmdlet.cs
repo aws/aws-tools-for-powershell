@@ -30,9 +30,8 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Deletes an intermediate table. When you delete the table, the service marks it as
-    /// DELETED, removes its analysis rule and schema, and triggers storage cleanup. This
-    /// operation is idempotent. Only the intermediate table owner can call this operation.
+    /// Deletes an intermediate table. The delete is idempotent. Only the intermediate table
+    /// owner can call this operation.
     /// </summary>
     [Cmdlet("Remove", "CRSIntermediateTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

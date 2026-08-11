@@ -263,6 +263,71 @@ $IAMAA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IAMAA_SelectCompleters $IAMAA_SelectMap
+# Argument completions for service Account Access
+
+
+$ACCAC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ACCAC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACCAC_SelectMap = @{
+    "Select"=@("New-ACCACApplication",
+               "New-ACCACEntitlement",
+               "Remove-ACCACApplication",
+               "Remove-ACCACEntitlement",
+               "Get-ACCACApplication",
+               "Get-ACCACEntitlement",
+               "Get-ACCACApplicationList",
+               "Get-ACCACEntitlementList",
+               "Get-ACCACResourceTag",
+               "Add-ACCACResourceTag",
+               "Remove-ACCACResourceTag")
+}
+
+_awsArgumentCompleterRegistration $ACCAC_SelectCompleters $ACCAC_SelectMap
 # Argument completions for service AWS Account
 
 
@@ -13582,6 +13647,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.AnalysisLogExportStatus
+        "Get-CRSAnalysisLogExportList/Status"
+        {
+            $v = "FAILED","IN_PROGRESS","SUCCESS"
+            break
+        }
+
         # Amazon.CleanRooms.AnalysisMethod
         {
             ($_ -eq "New-CRSConfiguredTable/AnalysisMethod") -Or
@@ -13713,6 +13785,13 @@ $CRS_Completers = {
         }
         {
             $v = "QUERY_RUNNER"
+            break
+        }
+
+        # Amazon.CleanRooms.LogExportAnalysisType
+        "Start-CRSAnalysisLogExport/AnalysisType"
+        {
+            $v = "PROTECTED_QUERY"
             break
         }
 
@@ -13854,6 +13933,7 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AnalysisRulePolicy_V1_Custom_AdditionalAnalyses"=@("New-CRSIntermediateTableAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","Get-CRSIntermediateTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","New-CRSIntermediateTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSIntermediateTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule","Update-CRSIntermediateTableAnalysisRule")
+    "AnalysisType"=@("Start-CRSAnalysisLogExport")
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
@@ -13870,7 +13950,7 @@ $CRS_map = @{
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
-    "Status"=@("Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
+    "Status"=@("Get-CRSAnalysisLogExportList","Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
     "Worker_Type"=@("Start-CRSProtectedJob","Start-CRSProtectedQuery")
@@ -13958,6 +14038,7 @@ $CRS_SelectMap = @{
                "Remove-CRSMembership",
                "Remove-CRSPrivacyBudgetTemplate",
                "Disable-CRSIntermediateTable",
+               "Get-CRSAnalysisLogExport",
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
@@ -13980,6 +14061,7 @@ $CRS_SelectMap = @{
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
+               "Get-CRSAnalysisLogExportList",
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
                "Get-CRSCollaborationChangeRequestList",
@@ -14006,6 +14088,7 @@ $CRS_SelectMap = @{
                "Invoke-CRSIdMappingTable",
                "Import-CRSIntermediateTable",
                "Test-CRSPrivacyImpact",
+               "Start-CRSAnalysisLogExport",
                "Start-CRSProtectedJob",
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
@@ -16229,8 +16312,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -21073,7 +21156,8 @@ $CONN_Completers = {
         # Amazon.Connect.BooleanComparisonType
         {
             ($_ -eq "Search-CONNContactEvaluation/BooleanCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNEvaluationForm/BooleanCondition_ComparisonType")
+            ($_ -eq "Search-CONNEvaluationForm/BooleanCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNMetric/SearchCriteria_BooleanCondition_ComparisonType")
         }
         {
             $v = "IS_FALSE","IS_TRUE"
@@ -21467,6 +21551,30 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.MetricStatus
+        "New-CONNMetric/Status"
+        {
+            $v = "PUBLISHED","SAVED"
+            break
+        }
+
+        # Amazon.Connect.MetricType
+        "Get-CONNMetricList/Type"
+        {
+            $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
+        # Amazon.Connect.MetricUnit
+        {
+            ($_ -eq "New-CONNMetric/Unit") -Or
+            ($_ -eq "Update-CONNMetricContent/Unit")
+        }
+        {
+            $v = "DOUBLE","INTEGER","PERCENT","SECONDS"
+            break
+        }
+
         # Amazon.Connect.NotificationStatus
         "Update-CONNUserNotificationStatus/Status"
         {
@@ -21682,6 +21790,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNMetric/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNNotification/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNRule/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNTestCase/SearchCriteria_StringCondition_ComparisonType") -Or
@@ -21770,6 +21879,16 @@ $CONN_Completers = {
         }
         {
             $v = "CAMPAIGN","GENERAL"
+            break
+        }
+
+        # Amazon.Connect.TrendIndicator
+        {
+            ($_ -eq "New-CONNMetric/PositiveTrendIndicator") -Or
+            ($_ -eq "Update-CONNMetricContent/PositiveTrendIndicator")
+        }
+        {
+            $v = "NEGATIVE","NEUTRAL","POSITIVE"
             break
         }
 
@@ -21922,6 +22041,7 @@ $CONN_map = @{
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
+    "PositiveTrendIndicator"=@("New-CONNMetric","Update-CONNMetricContent")
     "Priority"=@("New-CONNNotification")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
@@ -21933,10 +22053,11 @@ $CONN_map = @{
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchableSegmentAttributes_MatchType"=@("Search-CONNContact")
+    "SearchCriteria_BooleanCondition_ComparisonType"=@("Search-CONNMetric")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNTestCase")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNNotification","Search-CONNRule","Search-CONNTestCase")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNMetric","Search-CONNNotification","Search-CONNRule","Search-CONNTestCase")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
     "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
@@ -21951,7 +22072,7 @@ $CONN_map = @{
     "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","Get-CONNTestCaseDetail","Get-CONNTestCaseExecutionList","Get-CONNTestCaseExecutionRecordList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNTestCase","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNTestCase","Update-CONNUserNotificationStatus","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","Get-CONNTestCaseDetail","Get-CONNTestCaseExecutionList","Get-CONNTestCaseExecutionRecordList","New-CONNContactFlow","New-CONNDataTable","New-CONNMetric","New-CONNTaskTemplate","New-CONNTestCase","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNTestCase","Update-CONNUserNotificationStatus","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
@@ -21966,7 +22087,8 @@ $CONN_map = @{
     "TrafficType"=@("Send-CONNOutboundEmail","Start-CONNOutboundVoiceContact")
     "Transcript_MatchType"=@("Search-CONNContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
-    "Type"=@("Get-CONNViewList","New-CONNContactFlow")
+    "Type"=@("Get-CONNMetricList","Get-CONNViewList","New-CONNContactFlow")
+    "Unit"=@("New-CONNMetric","Update-CONNMetricContent")
     "UseCaseType"=@("New-CONNUseCase")
     "ValueLockLevel"=@("New-CONNDataTable","Update-CONNDataTableMetadata")
     "ValueType"=@("New-CONNDataTableAttribute","Update-CONNDataTableAttribute")
@@ -22074,6 +22196,7 @@ $CONN_SelectMap = @{
                "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNMetric",
                "New-CONNNotification",
                "New-CONNParticipant",
                "New-CONNPersistentContactAssociation",
@@ -22113,6 +22236,7 @@ $CONN_SelectMap = @{
                "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
+               "Remove-CONNMetric",
                "Remove-CONNNotification",
                "Remove-CONNPredefinedAttribute",
                "Remove-CONNPrompt",
@@ -22152,6 +22276,7 @@ $CONN_SelectMap = @{
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
+               "Get-CONNMetricDetail",
                "Get-CONNNotification",
                "Get-CONNPhoneNumber",
                "Get-CONNPredefinedAttribute",
@@ -22239,6 +22364,7 @@ $CONN_SelectMap = @{
                "Get-CONNIntegrationAssociationList",
                "Get-CONNLambdaFunctionList",
                "Get-CONNLexBotList",
+               "Get-CONNMetricList",
                "Get-CONNNotificationList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPhoneNumbersV2List",
@@ -22293,6 +22419,7 @@ $CONN_SelectMap = @{
                "Search-CONNEvaluationForm",
                "Search-CONNHoursOfOperationOverride",
                "Search-CONNHoursOfOperation",
+               "Search-CONNMetric",
                "Search-CONNNotification",
                "Search-CONNPredefinedAttribute",
                "Search-CONNPrompt",
@@ -22364,6 +22491,8 @@ $CONN_SelectMap = @{
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNMetricContent",
+               "Update-CONNMetricMetadata",
                "Update-CONNNotificationContent",
                "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
@@ -29672,12 +29801,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
+               "ConvertTo-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem")
+               "Add-DDBKeySchema",
+               "New-DDBTableSchema",
+               "New-DDBTable",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33548,6 +33677,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ScoringStrategyType
+        {
+            ($_ -eq "New-EKSCluster/KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type") -Or
+            ($_ -eq "Update-EKSClusterConfig/KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type")
+        }
+        {
+            $v = "LeastAllocated","MostAllocated"
+            break
+        }
+
         # Amazon.EKS.SpreadLevel
         {
             ($_ -eq "New-EKSCluster/OutpostConfig_ControlPlanePlacement_SpreadLevel") -Or
@@ -33602,6 +33741,7 @@ $EKS_map = @{
     "ControlPlaneScalingConfig_Tier"=@("New-EKSCluster","Update-EKSClusterConfig")
     "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "KubeSchedulerConfig_NodeResourcesFit_ScoringStrategy_Type"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "OutpostConfig_ControlPlanePlacement_SpreadLevel"=@("New-EKSCluster")
     "OutpostConfig_EtcdPlacement_SpreadLevel"=@("New-EKSCluster")
@@ -39973,8 +40113,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -77078,16 +77218,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Bucket",
                "Copy-S3Object",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
                "Read-S3Object",
-               "New-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Get-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "Write-S3Object",
                "Remove-S3MultipartUpload",
-               "Remove-S3Object",
-               "Test-S3Bucket")
+               "New-S3Bucket",
+               "Test-S3Bucket",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

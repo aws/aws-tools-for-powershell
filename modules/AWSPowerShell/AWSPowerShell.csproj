@@ -74,6 +74,9 @@
     <Reference Include="AWSSDK.Account">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Account.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AccountAccess">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.AccountAccess.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
@@ -1360,6 +1363,9 @@
     </Reference>
     <Reference Include="AWSSDK.Account">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Account.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AccountAccess">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AccountAccess.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>

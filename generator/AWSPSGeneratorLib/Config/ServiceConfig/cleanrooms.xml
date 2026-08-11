@@ -218,6 +218,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAnalysisLogExport" OutputProperty="AnalysisLogExport" Verb="Get" Noun="AnalysisLogExport" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="Get" Noun="AnalysisTemplate" PipelineParameter="AnalysisTemplateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -303,6 +307,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSchemaAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="SchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalysisLogExports" OutputProperty="AnalysisLogExports" Verb="Get" Noun="AnalysisLogExportList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -411,6 +419,10 @@
                 <Param Name="Parameters_DifferentialPrivacy_Epsilon" NewName="DifferentialPrivacy_Epsilon" />
                 <Param Name="Parameters_DifferentialPrivacy_UsersNoisePerQuery" NewName="DifferentialPrivacy_UsersNoisePerQuery" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAnalysisLogExport" OutputProperty="AnalysisLogExport" Verb="Start" Noun="AnalysisLogExport" ShouldProcessTarget="AnalysisId,MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProtectedJob" OutputProperty="ProtectedJob" Verb="Start" Noun="ProtectedJob" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">

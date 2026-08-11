@@ -230,6 +230,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMetric" OutputProperty="*" Verb="New" Noun="Metric" ShouldProcessTarget="InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNotification" OutputProperty="*" Verb="New" Noun="Notification" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -439,6 +443,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetric" Verb="Remove" Noun="Metric" ShouldProcessTarget="MetricId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="NotificationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -592,6 +600,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetric" OutputProperty="Metric" Verb="Get" Noun="MetricDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -945,6 +957,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="MetricSummaryList" Verb="Get" Noun="MetricList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNotifications" OutputProperty="NotificationSummaryList" Verb="Get" Noun="NotificationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1289,6 +1305,10 @@
                 <Param Name="SearchFilter_TagFilter_AndConditions" NewName="TagFilter_AndCondition" />
                 <Param Name="SearchFilter_TagFilter_OrConditions" NewName="TagFilter_OrCondition" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchMetrics" OutputProperty="*" Verb="Search" Noun="Metric" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchNotifications" OutputProperty="*" Verb="Search" Noun="Notification" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
@@ -1755,6 +1775,14 @@
                 <Param Name="StorageConfig_S3Config_BucketName" NewName="S3Config_BucketName" />
                 <Param Name="StorageConfig_S3Config_BucketPrefix" NewName="S3Config_BucketPrefix" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMetricContent" Verb="Update" Noun="MetricContent" ShouldProcessTarget="InstanceId,MetricId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMetricMetadata" Verb="Update" Noun="MetricMetadata" ShouldProcessTarget="InstanceId,MetricId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotificationContent" Verb="Update" Noun="NotificationContent" ShouldProcessTarget="InstanceId,NotificationId" PipelineParameter="" NoPipelineParameter="true">
