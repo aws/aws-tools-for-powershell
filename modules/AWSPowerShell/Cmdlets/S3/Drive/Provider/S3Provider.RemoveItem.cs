@@ -123,12 +123,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
                 while (!string.IsNullOrEmpty(token));
 
-                // Also delete the object at the exact key: when a name is both folder ("key/...") and
-                // object ("key"), the sweep above only covers "key/", leaving the shadowed object behind.
-                // Filtered the same way, so a filter can't sweep away the shadowed object either.
+                // Also delete the object at the exact key: when a name is both a folder ("key/...") and an
+                // object ("key"), the sweep above only covers "key/", so the shadowed object would be left
+                // behind. Reads and single-level listings hide it (folder-wins), so a -Confirm user who
+                // approved removing the folder may not know it exists; warn when it does so the extra
+                // deletion is visible. Filtered the same way, so a filter can't sweep away the shadowed
+                // object either.
                 var exactKey = key.TrimEnd('/');
                 if (exactKey.Length > 0 && MatchesFilter(LeafName(exactKey)))
-                    batch.Add(new KeyVersion { Key = exactKey });
+                {
+                    bool? shadowExists;
+                    try { shadowExists = ObjectExists(drive, bucket, exactKey); }
+                    catch (AmazonS3Exception) { shadowExists = null; }   // can't confirm; delete anyway, real error surfaces
+                    if (shadowExists != false)   // exists or unknown: delete (a batched delete no-ops a missing key)
+                        batch.Add(new KeyVersion { Key = exactKey });
+                    if (shadowExists == true)
+                        WriteWarning(
+                            $"'{displayPath}' matched both a folder and an object with the same name; both were removed.");
+                }
 
                 if (batch.Count > 0)
                     DeleteBatch(drive, bucket, batch);
