@@ -1,4 +1,78 @@
-﻿### 5.0.274 (2026-08-11 19:17Z)
+﻿### 5.0.275 (2026-08-12 19:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.310.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNRouterOutput: added parameter FabricConfiguration_RecoveryLatencyMode.
+    * Modified cmdlet Update-EMCNRouterOutput: added parameter FabricConfiguration_RecoveryLatencyMode.
+  * Amazon Identity and Access Management
+    * Added cmdlet Get-IAMAccountProperty leveraging the GetAccountProperties service API.
+    * Added cmdlet Get-IAMRoleTemplateVersion leveraging the GetRoleTemplateVersion service API.
+    * Added cmdlet Invoke-IAMAcquireRole leveraging the AcquireRole service API.
+    * Added cmdlet Write-IAMAccountProperty leveraging the PutAccountProperties service API.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Add-ODBVirtualMachinesToExadbVmCluster leveraging the AssociateVirtualMachinesToExadbVmCluster service API.
+    * Added cmdlet Get-ODBExadbVmCluster leveraging the GetExadbVmCluster service API.
+    * Added cmdlet Get-ODBExadbVmClusterList leveraging the ListExadbVmClusters service API.
+    * Added cmdlet Get-ODBExascaleDbStorageVault leveraging the GetExascaleDbStorageVault service API.
+    * Added cmdlet Get-ODBExascaleDbStorageVaultList leveraging the ListExascaleDbStorageVaults service API.
+    * Added cmdlet Get-ODBGiMinorVersionList leveraging the ListGiMinorVersions service API.
+    * Added cmdlet New-ODBExadbVmCluster leveraging the CreateExadbVmCluster service API.
+    * Added cmdlet New-ODBExascaleDbStorageVault leveraging the CreateExascaleDbStorageVault service API.
+    * Added cmdlet Remove-ODBExadbVmCluster leveraging the DeleteExadbVmCluster service API.
+    * Added cmdlet Remove-ODBExascaleDbStorageVault leveraging the DeleteExascaleDbStorageVault service API.
+    * Added cmdlet Remove-ODBVirtualMachinesFromExadbVmCluster leveraging the DisassociateVirtualMachinesFromExadbVmCluster service API.
+    * Added cmdlet Update-ODBExadbVmCluster leveraging the UpdateExadbVmCluster service API.
+    * Added cmdlet Update-ODBExascaleDbStorageVault leveraging the UpdateExascaleDbStorageVault service API.
+    * Modified cmdlet Get-ODBDbNode: added parameter ExadbVmClusterId.
+    * Modified cmdlet Get-ODBDbNodeList: added parameter ExadbVmClusterId.
+    * Modified cmdlet Get-ODBDbSystemShapeList: added parameter ShapeFamily.
+    * Modified cmdlet Restart-ODBDbNode: added parameter ExadbVmClusterId.
+    * Modified cmdlet Start-ODBDbNode: added parameter ExadbVmClusterId.
+    * Modified cmdlet Stop-ODBDbNode: added parameter ExadbVmClusterId.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSApprovalPolicyDetail leveraging the DescribeApprovalPolicy service API.
+    * Added cmdlet Get-QSApprovalPolicyList leveraging the ListApprovalPolicies service API.
+    * Added cmdlet Get-QSDlpSettingDetail leveraging the DescribeDlpSetting service API.
+    * Added cmdlet Get-QSDlpSettingList leveraging the ListDlpSettings service API.
+    * Added cmdlet Get-QSLimitsProfileDetail leveraging the DescribeLimitsProfile service API.
+    * Added cmdlet Get-QSLimitsProfileList leveraging the ListLimitsProfiles service API.
+    * Added cmdlet Get-QSUserLimitDetailBatch leveraging the BatchDescribeUserLimits service API.
+    * Added cmdlet New-QSApprovalPolicy leveraging the CreateApprovalPolicy service API.
+    * Added cmdlet New-QSDlpSetting leveraging the CreateDlpSetting service API.
+    * Added cmdlet New-QSLimitsProfile leveraging the CreateLimitsProfile service API.
+    * Added cmdlet Remove-QSApprovalPolicy leveraging the DeleteApprovalPolicy service API.
+    * Added cmdlet Remove-QSDlpSetting leveraging the DeleteDlpSetting service API.
+    * Added cmdlet Remove-QSLimitsProfile leveraging the DeleteLimitsProfile service API.
+    * Added cmdlet Update-QSApprovalPolicy leveraging the UpdateApprovalPolicy service API.
+    * Added cmdlet Update-QSDlpSetting leveraging the UpdateDlpSetting service API.
+    * Added cmdlet Update-QSLimitsProfile leveraging the UpdateLimitsProfile service API.
+    * Modified cmdlet Start-QSAssetBundleExportJob: added parameter CloudFormationOverridePropertyConfiguration_TopicsV2.
+    * Modified cmdlet Start-QSAssetBundleImportJob: added parameters OverrideParameters_TopicsV2, OverridePermissions_TopicsV2 and OverrideTags_TopicsV2.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Get-WATAgentContext leveraging the GetAgentContext service API.
+    * Added cmdlet Get-WATAgentContextList leveraging the ListAgentContexts service API.
+    * Added cmdlet Get-WATAgentGoal leveraging the GetAgentGoal service API.
+    * Added cmdlet Get-WATAgentGoalList leveraging the ListAgentGoals service API.
+    * Added cmdlet Get-WATAgentProfile leveraging the GetAgentProfile service API.
+    * Added cmdlet Get-WATAgentProfileList leveraging the ListAgentProfiles service API.
+    * Added cmdlet Get-WATAgentRecommendation leveraging the GetAgentRecommendation service API.
+    * Added cmdlet Get-WATAgentRecommendationGeneration leveraging the GetAgentRecommendationGeneration service API.
+    * Added cmdlet Get-WATAgentRecommendationGenerationList leveraging the ListAgentRecommendationGenerations service API.
+    * Added cmdlet Get-WATAgentRecommendationItemList leveraging the ListAgentRecommendationItems service API.
+    * Added cmdlet Get-WATAgentRecommendationList leveraging the ListAgentRecommendations service API.
+    * Added cmdlet New-WATAgentContext leveraging the CreateAgentContext service API.
+    * Added cmdlet New-WATAgentGoal leveraging the CreateAgentGoal service API.
+    * Added cmdlet New-WATAgentProfile leveraging the CreateAgentProfile service API.
+    * Added cmdlet Remove-WATAgentContext leveraging the DeleteAgentContext service API.
+    * Added cmdlet Remove-WATAgentGoal leveraging the DeleteAgentGoal service API.
+    * Added cmdlet Remove-WATAgentProfile leveraging the DeleteAgentProfile service API.
+    * Added cmdlet Start-WATAgentRecommendationGeneration leveraging the StartAgentRecommendationGeneration service API.
+    * Added cmdlet Update-WATAgentContext leveraging the UpdateAgentContext service API.
+    * Added cmdlet Update-WATAgentGoal leveraging the UpdateAgentGoal service API.
+    * Added cmdlet Update-WATAgentProfile leveraging the UpdateAgentProfile service API.
+    * Added cmdlet Update-WATAgentRecommendationStatus leveraging the UpdateAgentRecommendationStatus service API.
+    * Added cmdlet Write-WATAgentRecommendationFeedback leveraging the PutAgentRecommendationFeedback service API.
+
+### 5.0.274 (2026-08-11 19:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.309.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account Access. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ACCAC and can be listed using the command 'Get-AWSCmdletName -Service ACCAC'.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer

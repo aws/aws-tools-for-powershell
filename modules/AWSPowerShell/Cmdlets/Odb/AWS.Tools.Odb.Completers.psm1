@@ -206,7 +206,9 @@ $ODB_Completers = {
             ($_ -eq "New-ODBAutonomousDatabase/LicenseModel") -Or
             ($_ -eq "New-ODBCloudAutonomousVmCluster/LicenseModel") -Or
             ($_ -eq "New-ODBCloudVmCluster/LicenseModel") -Or
-            ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel")
+            ($_ -eq "New-ODBExadbVmCluster/LicenseModel") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel") -Or
+            ($_ -eq "Update-ODBExadbVmCluster/LicenseModel")
         }
         {
             $v = "BRING_YOUR_OWN_LICENSE","LICENSE_INCLUDED"
@@ -269,6 +271,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.ShapeAttribute
+        "New-ODBExadbVmCluster/ShapeAttribute"
+        {
+            $v = "BLOCK_STORAGE","SMART_STORAGE"
+            break
+        }
+
         # Amazon.Odb.SourceType
         "New-ODBAutonomousDatabase/Source"
         {
@@ -293,6 +302,13 @@ $ODB_Completers = {
         }
         {
             $v = "KmsTde"
+            break
+        }
+
+        # Amazon.Odb.UpdateAction
+        "Update-ODBExadbVmCluster/UpdateAction"
+        {
+            $v = "NON_ROLLING_APPLY","PRECHECK","ROLLBACK","ROLLING_APPLY"
             break
         }
 
@@ -330,7 +346,7 @@ $ODB_map = @{
     "EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "EncryptionKeyProvider"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
-    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","Update-ODBAutonomousDatabase")
+    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBExadbVmCluster")
     "LongTermBackupSchedule_RepeatCadence"=@("Update-ODBAutonomousDatabase")
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
@@ -340,6 +356,7 @@ $ODB_map = @{
     "PermissionLevel"=@("Update-ODBAutonomousDatabase")
     "RefreshableMode"=@("Update-ODBAutonomousDatabase")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "ShapeAttribute"=@("New-ODBExadbVmCluster")
     "Source"=@("New-ODBAutonomousDatabase")
     "SourceConfiguration_CloneToRefreshable_CloneType"=@("New-ODBAutonomousDatabase")
     "SourceConfiguration_CloneToRefreshable_OpenMode"=@("New-ODBAutonomousDatabase")
@@ -352,6 +369,7 @@ $ODB_map = @{
     "Status"=@("Get-ODBAutonomousDatabaseBackupList")
     "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "Type"=@("Get-ODBAutonomousDatabaseBackupList")
+    "UpdateAction"=@("Update-ODBExadbVmCluster")
     "WalletType"=@("New-ODBAutonomousDatabaseWallet")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
@@ -408,12 +426,15 @@ $ODB_SelectCompleters = {
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
                "Add-ODBIamRoleToResource",
+               "Add-ODBVirtualMachinesToExadbVmCluster",
                "New-ODBAutonomousDatabase",
                "New-ODBAutonomousDatabaseBackup",
                "New-ODBAutonomousDatabaseWallet",
                "New-ODBCloudAutonomousVmCluster",
                "New-ODBCloudExadataInfrastructure",
                "New-ODBCloudVmCluster",
+               "New-ODBExadbVmCluster",
+               "New-ODBExascaleDbStorageVault",
                "New-ODBOdbNetwork",
                "New-ODBOdbPeeringConnection",
                "Remove-ODBAutonomousDatabase",
@@ -421,9 +442,12 @@ $ODB_SelectMap = @{
                "Remove-ODBCloudAutonomousVmCluster",
                "Remove-ODBCloudExadataInfrastructure",
                "Remove-ODBCloudVmCluster",
+               "Remove-ODBExadbVmCluster",
+               "Remove-ODBExascaleDbStorageVault",
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
                "Remove-ODBIamRoleFromResource",
+               "Remove-ODBVirtualMachinesFromExadbVmCluster",
                "Start-ODBAutonomousDatabaseFailover",
                "Get-ODBAutonomousDatabase",
                "Get-ODBAutonomousDatabaseBackup",
@@ -434,6 +458,8 @@ $ODB_SelectMap = @{
                "Get-ODBCloudVmCluster",
                "Get-ODBDbNode",
                "Get-ODBDbServer",
+               "Get-ODBExadbVmCluster",
+               "Get-ODBExascaleDbStorageVault",
                "Get-ODBOciOnboardingStatus",
                "Get-ODBOdbNetwork",
                "Get-ODBOdbPeeringConnection",
@@ -451,6 +477,9 @@ $ODB_SelectMap = @{
                "Get-ODBDbNodeList",
                "Get-ODBDbServerList",
                "Get-ODBDbSystemShapeList",
+               "Get-ODBExadbVmClusterList",
+               "Get-ODBExascaleDbStorageVaultList",
+               "Get-ODBGiMinorVersionList",
                "Get-ODBGiVersionList",
                "Get-ODBOdbNetworkList",
                "Get-ODBOdbPeeringConnectionList",
@@ -470,6 +499,8 @@ $ODB_SelectMap = @{
                "Update-ODBAutonomousDatabase",
                "Update-ODBAutonomousDatabaseBackup",
                "Update-ODBCloudExadataInfrastructure",
+               "Update-ODBExadbVmCluster",
+               "Update-ODBExascaleDbStorageVault",
                "Update-ODBOdbNetwork",
                "Update-ODBOdbPeeringConnection")
 }

@@ -338,6 +338,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.RouterOutputProtocol Standard_Protocol { get; set; }
         #endregion
         
+        #region Parameter FabricConfiguration_RecoveryLatencyMode
+        /// <summary>
+        /// <para>
+        /// <para>The recovery latency mode for the router fabric connection. Valid values include the
+        /// following:</para><ul><li><para><c>BALANCED</c> (default) – Optimizes for stream quality.</para></li><li><para><c>LOW_LATENCY</c> – Reduces latency at the potential cost of stream quality under
+        /// adverse network conditions.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FabricLatencyMode")]
+        public Amazon.MediaConnect.FabricLatencyMode FabricConfiguration_RecoveryLatencyMode { get; set; }
+        #endregion
+        
         #region Parameter RegionName
         /// <summary>
         /// <para>
@@ -597,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn = this.SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn;
             context.SrtListener_MinimumLatencyMillisecond = this.SrtListener_MinimumLatencyMillisecond;
             context.SrtListener_Port = this.SrtListener_Port;
+            context.FabricConfiguration_RecoveryLatencyMode = this.FabricConfiguration_RecoveryLatencyMode;
             context.MaintenanceConfiguration_Default = this.MaintenanceConfiguration_Default;
             context.PreferredDayTime_Day = this.PreferredDayTime_Day;
             context.PreferredDayTime_Time = this.PreferredDayTime_Time;
@@ -1231,6 +1245,25 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.Configuration = null;
             }
             
+             // populate FabricConfiguration
+            var requestFabricConfigurationIsNull = true;
+            request.FabricConfiguration = new Amazon.MediaConnect.Model.FabricConfiguration();
+            Amazon.MediaConnect.FabricLatencyMode requestFabricConfiguration_fabricConfiguration_RecoveryLatencyMode = null;
+            if (cmdletContext.FabricConfiguration_RecoveryLatencyMode != null)
+            {
+                requestFabricConfiguration_fabricConfiguration_RecoveryLatencyMode = cmdletContext.FabricConfiguration_RecoveryLatencyMode;
+            }
+            if (requestFabricConfiguration_fabricConfiguration_RecoveryLatencyMode != null)
+            {
+                request.FabricConfiguration.RecoveryLatencyMode = requestFabricConfiguration_fabricConfiguration_RecoveryLatencyMode;
+                requestFabricConfigurationIsNull = false;
+            }
+             // determine if request.FabricConfiguration should be set to null
+            if (requestFabricConfigurationIsNull)
+            {
+                request.FabricConfiguration = null;
+            }
+            
              // populate MaintenanceConfiguration
             var requestMaintenanceConfigurationIsNull = true;
             request.MaintenanceConfiguration = new Amazon.MediaConnect.Model.MaintenanceConfiguration();
@@ -1394,6 +1427,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn { get; set; }
             public System.Int64? SrtListener_MinimumLatencyMillisecond { get; set; }
             public System.Int32? SrtListener_Port { get; set; }
+            public Amazon.MediaConnect.FabricLatencyMode FabricConfiguration_RecoveryLatencyMode { get; set; }
             public Amazon.MediaConnect.Model.DefaultMaintenanceConfiguration MaintenanceConfiguration_Default { get; set; }
             public Amazon.MediaConnect.Day PreferredDayTime_Day { get; set; }
             public System.String PreferredDayTime_Time { get; set; }

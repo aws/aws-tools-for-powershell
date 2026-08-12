@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String AvailabilityZoneId { get; set; }
         #endregion
         
+        #region Parameter ShapeFamily
+        /// <summary>
+        /// <para>
+        /// <para>The shape family to filter results by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ShapeFamily { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -151,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ShapeFamily = this.ShapeFamily;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ShapeFamily != null)
+            {
+                request.ShapeFamily = cmdletContext.ShapeFamily;
             }
             
             // Initialize loop variant and commence piping
@@ -264,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String AvailabilityZoneId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ShapeFamily { get; set; }
             public System.Func<Amazon.Odb.Model.ListDbSystemShapesResponse, GetODBDbSystemShapeListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DbSystemShapes;
         }

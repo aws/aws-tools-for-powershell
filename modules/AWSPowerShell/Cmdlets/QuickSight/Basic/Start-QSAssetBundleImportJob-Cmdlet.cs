@@ -460,6 +460,50 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideTags[] OverrideTags_Theme { get; set; }
         #endregion
         
+        #region Parameter OverrideParameters_TopicsV2
+        /// <summary>
+        /// <para>
+        /// <para>A list of overrides for any <c>Topic</c> resources that are present in the asset bundle
+        /// that is imported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideParameters[] OverrideParameters_TopicsV2 { get; set; }
+        #endregion
+        
+        #region Parameter OverridePermissions_TopicsV2
+        /// <summary>
+        /// <para>
+        /// <para>A list of permissions for the topics that you want to apply overrides to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverridePermissions[] OverridePermissions_TopicsV2 { get; set; }
+        #endregion
+        
+        #region Parameter OverrideTags_TopicsV2
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag overrides for any <c>Topic</c> resources that are present in the asset
+        /// bundle that is imported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideTags[] OverrideTags_TopicsV2 { get; set; }
+        #endregion
+        
         #region Parameter OverrideParameters_VPCConnection
         /// <summary>
         /// <para>
@@ -584,6 +628,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.OverrideParameters_Theme = new List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideParameters>(this.OverrideParameters_Theme);
             }
+            if (this.OverrideParameters_TopicsV2 != null)
+            {
+                context.OverrideParameters_TopicsV2 = new List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideParameters>(this.OverrideParameters_TopicsV2);
+            }
             if (this.OverrideParameters_VPCConnection != null)
             {
                 context.OverrideParameters_VPCConnection = new List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideParameters>(this.OverrideParameters_VPCConnection);
@@ -612,6 +660,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.OverridePermissions_Theme = new List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverridePermissions>(this.OverridePermissions_Theme);
             }
+            if (this.OverridePermissions_TopicsV2 != null)
+            {
+                context.OverridePermissions_TopicsV2 = new List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverridePermissions>(this.OverridePermissions_TopicsV2);
+            }
             if (this.OverrideTags_Analyses != null)
             {
                 context.OverrideTags_Analyses = new List<Amazon.QuickSight.Model.AssetBundleImportJobAnalysisOverrideTags>(this.OverrideTags_Analyses);
@@ -635,6 +687,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.OverrideTags_Theme != null)
             {
                 context.OverrideTags_Theme = new List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideTags>(this.OverrideTags_Theme);
+            }
+            if (this.OverrideTags_TopicsV2 != null)
+            {
+                context.OverrideTags_TopicsV2 = new List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideTags>(this.OverrideTags_TopicsV2);
             }
             if (this.OverrideTags_VPCConnection != null)
             {
@@ -777,6 +833,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     request.OverrideParameters.Themes = requestOverrideParameters_overrideParameters_Theme;
                     requestOverrideParametersIsNull = false;
                 }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideParameters> requestOverrideParameters_overrideParameters_TopicsV2 = null;
+                if (cmdletContext.OverrideParameters_TopicsV2 != null)
+                {
+                    requestOverrideParameters_overrideParameters_TopicsV2 = cmdletContext.OverrideParameters_TopicsV2;
+                }
+                if (requestOverrideParameters_overrideParameters_TopicsV2 != null)
+                {
+                    request.OverrideParameters.TopicsV2 = requestOverrideParameters_overrideParameters_TopicsV2;
+                    requestOverrideParametersIsNull = false;
+                }
                 List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideParameters> requestOverrideParameters_overrideParameters_VPCConnection = null;
                 if (cmdletContext.OverrideParameters_VPCConnection != null)
                 {
@@ -881,6 +947,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     request.OverridePermissions.Themes = requestOverridePermissions_overridePermissions_Theme;
                     requestOverridePermissionsIsNull = false;
                 }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverridePermissions> requestOverridePermissions_overridePermissions_TopicsV2 = null;
+                if (cmdletContext.OverridePermissions_TopicsV2 != null)
+                {
+                    requestOverridePermissions_overridePermissions_TopicsV2 = cmdletContext.OverridePermissions_TopicsV2;
+                }
+                if (requestOverridePermissions_overridePermissions_TopicsV2 != null)
+                {
+                    request.OverridePermissions.TopicsV2 = requestOverridePermissions_overridePermissions_TopicsV2;
+                    requestOverridePermissionsIsNull = false;
+                }
                  // determine if request.OverridePermissions should be set to null
                 if (requestOverridePermissionsIsNull)
                 {
@@ -948,6 +1024,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 if (requestOverrideTags_overrideTags_Theme != null)
                 {
                     request.OverrideTags.Themes = requestOverrideTags_overrideTags_Theme;
+                    requestOverrideTagsIsNull = false;
+                }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideTags> requestOverrideTags_overrideTags_TopicsV2 = null;
+                if (cmdletContext.OverrideTags_TopicsV2 != null)
+                {
+                    requestOverrideTags_overrideTags_TopicsV2 = cmdletContext.OverrideTags_TopicsV2;
+                }
+                if (requestOverrideTags_overrideTags_TopicsV2 != null)
+                {
+                    request.OverrideTags.TopicsV2 = requestOverrideTags_overrideTags_TopicsV2;
                     requestOverrideTagsIsNull = false;
                 }
                 List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideTags> requestOverrideTags_overrideTags_VPCConnection = null;
@@ -1060,6 +1146,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleImportJobRefreshScheduleOverrideParameters> OverrideParameters_RefreshSchedule { get; set; }
             public System.String ResourceIdOverrideConfiguration_PrefixForAllResource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideParameters> OverrideParameters_Theme { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideParameters> OverrideParameters_TopicsV2 { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideParameters> OverrideParameters_VPCConnection { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobAnalysisOverridePermissions> OverridePermissions_Analyses { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDashboardOverridePermissions> OverridePermissions_Dashboard { get; set; }
@@ -1067,12 +1154,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverridePermissions> OverridePermissions_DataSource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverridePermissions> OverridePermissions_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverridePermissions> OverridePermissions_Theme { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverridePermissions> OverridePermissions_TopicsV2 { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobAnalysisOverrideTags> OverrideTags_Analyses { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDashboardOverrideTags> OverrideTags_Dashboard { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSetOverrideTags> OverrideTags_DataSet { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverrideTags> OverrideTags_DataSource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideTags> OverrideTags_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideTags> OverrideTags_Theme { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobTopicV2OverrideTags> OverrideTags_TopicsV2 { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideTags> OverrideTags_VPCConnection { get; set; }
             public System.Boolean? OverrideValidationStrategy_StrictModeForAllResource { get; set; }
             public System.Func<Amazon.QuickSight.Model.StartAssetBundleImportJobResponse, StartQSAssetBundleImportJobCmdlet, object> Select { get; set; } =

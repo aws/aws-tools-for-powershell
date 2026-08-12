@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter DbNodeStorageSizeInGBs
         /// <summary>
         /// <para>
-        /// <para>The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster.</para>
+        /// <para>The amount of local node storage, in gigabytes (GB), to allocate for the VM cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter MemorySizeInGBs
         /// <summary>
         /// <para>
-        /// <para>The amount of memory, in gigabytes (GBs), to allocate for the VM cluster.</para>
+        /// <para>The amount of memory, in gigabytes (GB), to allocate for the VM cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

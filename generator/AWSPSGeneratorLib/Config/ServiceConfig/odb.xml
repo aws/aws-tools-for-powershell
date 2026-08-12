@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateVirtualMachinesToExadbVmCluster" OutputProperty="*" Verb="Add" Noun="VirtualMachinesToExadbVmCluster" ShouldProcessTarget="ExadbVmClusterId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAutonomousDatabase" OutputProperty="*" Verb="New" Noun="AutonomousDatabase" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +52,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudVmCluster" OutputProperty="*" Verb="New" Noun="CloudVmCluster" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExadbVmCluster" OutputProperty="*" Verb="New" Noun="ExadbVmCluster" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExascaleDbStorageVault" OutputProperty="*" Verb="New" Noun="ExascaleDbStorageVault" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +91,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExadbVmCluster" Verb="Remove" Noun="ExadbVmCluster" ShouldProcessTarget="ExadbVmClusterId" PipelineParameter="ExadbVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExascaleDbStorageVault" Verb="Remove" Noun="ExascaleDbStorageVault" ShouldProcessTarget="ExascaleDbStorageVaultId" PipelineParameter="ExascaleDbStorageVaultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOdbNetwork" Verb="Remove" Noun="OdbNetwork" ShouldProcessTarget="OdbNetworkId" PipelineParameter="OdbNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIamRoleFromResource" Verb="Remove" Noun="IamRoleFromResource" ShouldProcessTarget="IamRoleArn,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVirtualMachinesFromExadbVmCluster" OutputProperty="*" Verb="Remove" Noun="VirtualMachinesFromExadbVmCluster" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ExadbVmClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +152,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDbServer" OutputProperty="DbServer" Verb="Get" Noun="DbServer" PipelineParameter="DbServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExadbVmCluster" OutputProperty="ExadbVmCluster" Verb="Get" Noun="ExadbVmCluster" PipelineParameter="ExadbVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExascaleDbStorageVault" OutputProperty="ExascaleDbStorageVault" Verb="Get" Noun="ExascaleDbStorageVault" PipelineParameter="ExascaleDbStorageVaultId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +228,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDbSystemShapes" OutputProperty="DbSystemShapes" Verb="Get" Noun="DbSystemShapeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExadbVmClusters" OutputProperty="ExadbVmClusters" Verb="Get" Noun="ExadbVmClusterList" PipelineParameter="ExascaleDbStorageVaultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExascaleDbStorageVaults" OutputProperty="ExascaleDbStorageVaults" Verb="Get" Noun="ExascaleDbStorageVaultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGiMinorVersions" OutputProperty="GiMinorVersions" Verb="Get" Noun="GiMinorVersionList" PipelineParameter="GiVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -272,6 +316,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudExadataInfrastructure" OutputProperty="*" Verb="Update" Noun="CloudExadataInfrastructure" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExadbVmCluster" OutputProperty="*" Verb="Update" Noun="ExadbVmCluster" ShouldProcessTarget="ExadbVmClusterId" PipelineParameter="ExadbVmClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExascaleDbStorageVault" OutputProperty="*" Verb="Update" Noun="ExascaleDbStorageVault" ShouldProcessTarget="ExascaleDbStorageVaultId" PipelineParameter="ExascaleDbStorageVaultId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

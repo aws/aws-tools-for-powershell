@@ -94,6 +94,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ApplicableToType
+        {
+            ($_ -eq "New-QSApprovalPolicy/ApplicableTo_Type") -Or
+            ($_ -eq "Update-QSApprovalPolicy/ApplicableTo_Type")
+        }
+        {
+            $v = "GROUP"
+            break
+        }
+
         # Amazon.QuickSight.AssetBundleExportFormat
         "Start-QSAssetBundleExportJob/ExportFormat"
         {
@@ -863,6 +873,28 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DlpAction
+        {
+            ($_ -eq "New-QSDlpSetting/ProviderConfig_MicrosoftPurview_UnmappedAction") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderConfig_MicrosoftPurview_UnmappedAction") -Or
+            ($_ -eq "New-QSDlpSetting/ProviderOutageAction") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderOutageAction")
+        }
+        {
+            $v = "ALLOW","BLOCK","WARN"
+            break
+        }
+
+        # Amazon.QuickSight.DlpProviderType
+        {
+            ($_ -eq "New-QSDlpSetting/ProviderType") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderType")
+        }
+        {
+            $v = "MICROSOFT_PURVIEW"
+            break
+        }
+
         # Amazon.QuickSight.Edition
         "New-QSAccountSubscription/Edition"
         {
@@ -1194,6 +1226,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ResourceType
+        "Get-QSLimitsProfileList/ResourceType"
+        {
+            $v = "AGENT_HOURS","INDEX_STORAGE"
+            break
+        }
+
         # Amazon.QuickSight.Role
         {
             ($_ -eq "Get-QSRoleCustomPermission/Role") -Or
@@ -1468,6 +1507,7 @@ $QS_map = @{
     "Action"=@("Update-QSSelfUpgrade")
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AgentLifecycle"=@("New-QSAgent")
+    "ApplicableTo_Type"=@("New-QSApprovalPolicy","Update-QSApprovalPolicy")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
@@ -1828,6 +1868,9 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
+    "ProviderConfig_MicrosoftPurview_UnmappedAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
+    "ProviderOutageAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
+    "ProviderType"=@("New-QSDlpSetting","Update-QSDlpSetting")
     "PublishOption"=@("Update-QSTopicV2")
     "PublishState"=@("Get-QSFlowDetail")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
@@ -1836,6 +1879,7 @@ $QS_map = @{
     "QuickSuiteActionsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
+    "ResourceType"=@("Get-QSLimitsProfileList")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
@@ -1923,17 +1967,20 @@ $QS_SelectMap = @{
     "Select"=@("Set-QSBatchCreateTopicReviewedAnswer",
                "Remove-QSKnowledgeBaseBatch",
                "Set-QSBatchDeleteTopicReviewedAnswer",
+               "Get-QSUserLimitDetailBatch",
                "Stop-QSIngestion",
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSActionConnector",
                "New-QSAgent",
                "New-QSAnalysis",
+               "New-QSApprovalPolicy",
                "New-QSBrand",
                "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
+               "New-QSDlpSetting",
                "New-QSFlow",
                "New-QSFolder",
                "New-QSFolderMembership",
@@ -1942,6 +1989,7 @@ $QS_SelectMap = @{
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
                "New-QSKnowledgeBase",
+               "New-QSLimitsProfile",
                "New-QSNamespace",
                "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
@@ -1961,6 +2009,7 @@ $QS_SelectMap = @{
                "Remove-QSActionConnector",
                "Remove-QSAgent",
                "Remove-QSAnalysis",
+               "Remove-QSApprovalPolicy",
                "Remove-QSBrand",
                "Remove-QSBrandAssignment",
                "Remove-QSCustomPermission",
@@ -1969,6 +2018,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
                "Remove-QSDefaultQBusinessApplication",
+               "Remove-QSDlpSetting",
                "Remove-QSFlow",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
@@ -1977,6 +2027,7 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
                "Remove-QSKnowledgeBase",
+               "Remove-QSLimitsProfile",
                "Remove-QSNamespace",
                "Remove-QSOAuthClientApplication",
                "Remove-QSRefreshSchedule",
@@ -2005,6 +2056,7 @@ $QS_SelectMap = @{
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
+               "Get-QSApprovalPolicyDetail",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
                "Get-QSAutomationJobDetail",
@@ -2024,6 +2076,7 @@ $QS_SelectMap = @{
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
                "Get-QSDefaultQBusinessApplication",
+               "Get-QSDlpSettingDetail",
                "Get-QSFlowDetail",
                "Get-QSFolder",
                "Get-QSFolderPermission",
@@ -2036,6 +2089,7 @@ $QS_SelectMap = @{
                "Get-QSKeyRegistration",
                "Get-QSKnowledgeBaseDetail",
                "Get-QSKnowledgeBasePermissionDetail",
+               "Get-QSLimitsProfileDetail",
                "Get-QSNamespace",
                "Get-QSOAuthClientApplicationDetail",
                "Get-QSQPersonalizationConfiguration",
@@ -2071,6 +2125,7 @@ $QS_SelectMap = @{
                "Get-QSActionConnectorList",
                "Get-QSAgentList",
                "Get-QSAnalysisList",
+               "Get-QSApprovalPolicyList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
                "Get-QSBrandList",
@@ -2079,6 +2134,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
                "Get-QSDataSourceList",
+               "Get-QSDlpSettingList",
                "Get-QSFlowList",
                "Get-QSFolderMemberList",
                "Get-QSFolderList",
@@ -2090,6 +2146,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
                "Get-QSKnowledgeBasisList",
+               "Get-QSLimitsProfileList",
                "Get-QSNamespaceList",
                "Get-QSOAuthClientApplicationList",
                "Get-QSRefreshScheduleList",
@@ -2146,6 +2203,7 @@ $QS_SelectMap = @{
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSApplicationWithTokenExchangeGrant",
+               "Update-QSApprovalPolicy",
                "Update-QSBrand",
                "Update-QSBrandAssignment",
                "Update-QSBrandPublishedVersion",
@@ -2160,6 +2218,7 @@ $QS_SelectMap = @{
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
                "Update-QSDefaultQBusinessApplication",
+               "Update-QSDlpSetting",
                "Update-QSFlow",
                "Update-QSFlowPermission",
                "Update-QSFolder",
@@ -2171,6 +2230,7 @@ $QS_SelectMap = @{
                "Update-QSKeyRegistration",
                "Update-QSKnowledgeBase",
                "Update-QSKnowledgeBasePermission",
+               "Update-QSLimitsProfile",
                "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",

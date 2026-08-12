@@ -48,18 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter CloudVmClusterId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the VM cluster.</para>
+        /// <para>The unique identifier of the VM cluster. You must specify either this parameter or
+        /// <c>exadbVmClusterId</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CloudVmClusterId { get; set; }
+        #endregion
+        
+        #region Parameter ExadbVmClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Exascale VM cluster. You must specify either this parameter
+        /// or <c>cloudVmClusterId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExadbVmClusterId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -135,12 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CloudVmClusterId = this.CloudVmClusterId;
-            #if MODULAR
-            if (this.CloudVmClusterId == null && ParameterWasBound(nameof(this.CloudVmClusterId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CloudVmClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ExadbVmClusterId = this.ExadbVmClusterId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -173,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.CloudVmClusterId != null)
             {
                 request.CloudVmClusterId = cmdletContext.CloudVmClusterId;
+            }
+            if (cmdletContext.ExadbVmClusterId != null)
+            {
+                request.ExadbVmClusterId = cmdletContext.ExadbVmClusterId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -258,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CloudVmClusterId { get; set; }
+            public System.String ExadbVmClusterId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Odb.Model.ListDbNodesResponse, GetODBDbNodeListCmdlet, object> Select { get; set; } =

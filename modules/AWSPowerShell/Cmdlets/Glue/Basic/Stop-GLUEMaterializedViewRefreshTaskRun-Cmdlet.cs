@@ -30,7 +30,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Stops a materialized view refresh task run, for a specified table and columns.
+    /// Stops a materialized view refresh task run for a specified materialized view.
     /// </summary>
     [Cmdlet("Stop", "GLUEMaterializedViewRefreshTaskRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table to generate statistics.</para>
+        /// <para>The name of the materialized view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -146,6 +146,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FabricLatencyMode
+        {
+            ($_ -eq "New-EMCNRouterOutput/FabricConfiguration_RecoveryLatencyMode") -Or
+            ($_ -eq "Update-EMCNRouterOutput/FabricConfiguration_RecoveryLatencyMode")
+        }
+        {
+            $v = "BALANCED","LOW_LATENCY"
+            break
+        }
+
         # Amazon.MediaConnect.FailoverInputSourcePriorityMode
         {
             ($_ -eq "New-EMCNRouterInput/Failover_SourcePriorityMode") -Or
@@ -414,6 +424,7 @@ $EMCN_map = @{
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "FabricConfiguration_RecoveryLatencyMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")

@@ -19,11 +19,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateLenses" Verb="Register" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Add-WATLense" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AssociateLenses" Verb="Register" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-WATLense">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateProfiles" Verb="Register" Noun="Profile" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentContext" OutputProperty="Context" Verb="New" Noun="AgentContext" ShouldProcessTarget="ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentGoal" OutputProperty="Goal" Verb="New" Noun="AgentGoal" ShouldProcessTarget="ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAgentProfile" OutputProperty="*" Verb="New" Noun="AgentProfile" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,6 +77,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentContext" Verb="Remove" Noun="AgentContext" ShouldProcessTarget="Id,ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentGoal" Verb="Remove" Noun="AgentGoal" ShouldProcessTarget="Id,ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAgentProfile" Verb="Remove" Noun="AgentProfile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLens" Verb="Remove" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -97,7 +121,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyAlias="Remove-WATLense" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DisassociateLenses" Verb="Unregister" Noun="Lens" ShouldProcessTarget="WorkloadId" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-WATLense">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -106,6 +130,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportLens" OutputProperty="LensJSON" Verb="Export" Noun="Lens" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentContext" OutputProperty="Context" Verb="Get" Noun="AgentContext" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentGoal" OutputProperty="Goal" Verb="Get" Noun="AgentGoal" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentProfile" OutputProperty="*" Verb="Get" Noun="AgentProfile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentRecommendation" OutputProperty="*" Verb="Get" Noun="AgentRecommendation" PipelineParameter="RecommendationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentRecommendationGeneration" OutputProperty="*" Verb="Get" Noun="AgentRecommendationGeneration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,6 +213,30 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentContexts" OutputProperty="Items" Verb="Get" Noun="AgentContextList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentGoals" OutputProperty="Items" Verb="Get" Noun="AgentGoalList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentProfiles" OutputProperty="Items" Verb="Get" Noun="AgentProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRecommendationGenerations" OutputProperty="Items" Verb="Get" Noun="AgentRecommendationGenerationList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRecommendationItems" OutputProperty="Items" Verb="Get" Noun="AgentRecommendationItemList" PipelineParameter="RecommendationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentRecommendations" OutputProperty="Items" Verb="Get" Noun="AgentRecommendationList" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAnswers" OutputProperty="*" Verb="Get" Noun="AnswerList" PipelineParameter="WorkloadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -181,7 +249,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WATLenseList" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-WATLenseList">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -245,11 +313,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAgentRecommendationFeedback" Verb="Write" Noun="AgentRecommendationFeedback" ShouldProcessTarget="RecommendationArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAgentRecommendationGeneration" OutputProperty="*" Verb="Start" Noun="AgentRecommendationGeneration" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="WorkloadArn" PipelineParameter="WorkloadArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentContext" OutputProperty="Context" Verb="Update" Noun="AgentContext" ShouldProcessTarget="Id,ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentGoal" OutputProperty="Goal" Verb="Update" Noun="AgentGoal" ShouldProcessTarget="Id,ProfileArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentProfile" OutputProperty="*" Verb="Update" Noun="AgentProfile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentRecommendationStatus" Verb="Update" Noun="AgentRecommendationStatus" ShouldProcessTarget="RecommendationArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -333,6 +333,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.AssetBundleExportJobThemeOverrideProperties[] CloudFormationOverridePropertyConfiguration_Theme { get; set; }
         #endregion
         
+        #region Parameter CloudFormationOverridePropertyConfiguration_TopicsV2
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of structures that controls how <c>Topic</c> resources are parameterized
+        /// in the returned CloudFormation template.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.AssetBundleExportJobTopicV2OverrideProperties[] CloudFormationOverridePropertyConfiguration_TopicsV2 { get; set; }
+        #endregion
+        
         #region Parameter CloudFormationOverridePropertyConfiguration_VPCConnection
         /// <summary>
         /// <para>
@@ -437,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.CloudFormationOverridePropertyConfiguration_Theme != null)
             {
                 context.CloudFormationOverridePropertyConfiguration_Theme = new List<Amazon.QuickSight.Model.AssetBundleExportJobThemeOverrideProperties>(this.CloudFormationOverridePropertyConfiguration_Theme);
+            }
+            if (this.CloudFormationOverridePropertyConfiguration_TopicsV2 != null)
+            {
+                context.CloudFormationOverridePropertyConfiguration_TopicsV2 = new List<Amazon.QuickSight.Model.AssetBundleExportJobTopicV2OverrideProperties>(this.CloudFormationOverridePropertyConfiguration_TopicsV2);
             }
             if (this.CloudFormationOverridePropertyConfiguration_VPCConnection != null)
             {
@@ -561,6 +580,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Theme != null)
             {
                 request.CloudFormationOverridePropertyConfiguration.Themes = requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Theme;
+                requestCloudFormationOverridePropertyConfigurationIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.AssetBundleExportJobTopicV2OverrideProperties> requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_TopicsV2 = null;
+            if (cmdletContext.CloudFormationOverridePropertyConfiguration_TopicsV2 != null)
+            {
+                requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_TopicsV2 = cmdletContext.CloudFormationOverridePropertyConfiguration_TopicsV2;
+            }
+            if (requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_TopicsV2 != null)
+            {
+                request.CloudFormationOverridePropertyConfiguration.TopicsV2 = requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_TopicsV2;
                 requestCloudFormationOverridePropertyConfigurationIsNull = false;
             }
             List<Amazon.QuickSight.Model.AssetBundleExportJobVPCConnectionOverrideProperties> requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_VPCConnection = null;
@@ -715,6 +744,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleExportJobRefreshScheduleOverrideProperties> CloudFormationOverridePropertyConfiguration_RefreshSchedule { get; set; }
             public System.Boolean? ResourceIdOverrideConfiguration_PrefixForAllResource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobThemeOverrideProperties> CloudFormationOverridePropertyConfiguration_Theme { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleExportJobTopicV2OverrideProperties> CloudFormationOverridePropertyConfiguration_TopicsV2 { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobVPCConnectionOverrideProperties> CloudFormationOverridePropertyConfiguration_VPCConnection { get; set; }
             public Amazon.QuickSight.AssetBundleExportFormat ExportFormat { get; set; }
             public System.Boolean? IncludeAllDependency { get; set; }

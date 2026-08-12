@@ -16311,9 +16311,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
+    "Select"=@("Write-CSDDocument",
                "Get-CSDSuggestion",
-               "Write-CSDDocument")
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29801,12 +29801,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
                "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
                "Add-DDBKeySchema",
                "New-DDBTableSchema",
-               "New-DDBTable",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -42816,6 +42816,7 @@ $IAM_SelectCompleters = {
 
 $IAM_SelectMap = @{
     "Select"=@("Approve-IAMDelegationRequest",
+               "Invoke-IAMAcquireRole",
                "Add-IAMClientIDToOpenIDConnectProvider",
                "Add-IAMRoleToInstanceProfile",
                "Add-IAMUserToGroup",
@@ -42879,6 +42880,7 @@ $IAM_SelectMap = @{
                "Get-IAMAccessKeyLastUsed",
                "Get-IAMAccountAuthorizationDetail",
                "Get-IAMAccountPasswordPolicy",
+               "Get-IAMAccountProperty",
                "Get-IAMAccountSummary",
                "Get-IAMContextKeysForCustomPolicy",
                "Get-IAMContextKeysForPrincipalPolicy",
@@ -42897,6 +42899,7 @@ $IAM_SelectMap = @{
                "Get-IAMPolicyVersion",
                "Get-IAMRole",
                "Get-IAMRolePolicy",
+               "Get-IAMRoleTemplateVersion",
                "Get-IAMSAMLProvider",
                "Get-IAMServerCertificate",
                "Get-IAMServiceLastAccessedDetail",
@@ -42941,6 +42944,7 @@ $IAM_SelectMap = @{
                "Get-IAMUserList",
                "Get-IAMUserTagList",
                "Get-IAMVirtualMFADevice",
+               "Write-IAMAccountProperty",
                "Write-IAMGroupPolicy",
                "Set-IAMRolePermissionsBoundary",
                "Write-IAMRolePolicy",
@@ -55362,6 +55366,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FabricLatencyMode
+        {
+            ($_ -eq "New-EMCNRouterOutput/FabricConfiguration_RecoveryLatencyMode") -Or
+            ($_ -eq "Update-EMCNRouterOutput/FabricConfiguration_RecoveryLatencyMode")
+        }
+        {
+            $v = "BALANCED","LOW_LATENCY"
+            break
+        }
+
         # Amazon.MediaConnect.FailoverInputSourcePriorityMode
         {
             ($_ -eq "New-EMCNRouterInput/Failover_SourcePriorityMode") -Or
@@ -55630,6 +55644,7 @@ $EMCN_map = @{
     "DesiredState"=@("Update-EMCNBridgeState")
     "EncodingConfig_EncodingProfile"=@("New-EMCNFlow","Update-EMCNFlow")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "FabricConfiguration_RecoveryLatencyMode"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
@@ -62475,7 +62490,9 @@ $ODB_Completers = {
             ($_ -eq "New-ODBAutonomousDatabase/LicenseModel") -Or
             ($_ -eq "New-ODBCloudAutonomousVmCluster/LicenseModel") -Or
             ($_ -eq "New-ODBCloudVmCluster/LicenseModel") -Or
-            ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel")
+            ($_ -eq "New-ODBExadbVmCluster/LicenseModel") -Or
+            ($_ -eq "Update-ODBAutonomousDatabase/LicenseModel") -Or
+            ($_ -eq "Update-ODBExadbVmCluster/LicenseModel")
         }
         {
             $v = "BRING_YOUR_OWN_LICENSE","LICENSE_INCLUDED"
@@ -62538,6 +62555,13 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.ShapeAttribute
+        "New-ODBExadbVmCluster/ShapeAttribute"
+        {
+            $v = "BLOCK_STORAGE","SMART_STORAGE"
+            break
+        }
+
         # Amazon.Odb.SourceType
         "New-ODBAutonomousDatabase/Source"
         {
@@ -62562,6 +62586,13 @@ $ODB_Completers = {
         }
         {
             $v = "KmsTde"
+            break
+        }
+
+        # Amazon.Odb.UpdateAction
+        "Update-ODBExadbVmCluster/UpdateAction"
+        {
+            $v = "NON_ROLLING_APPLY","PRECHECK","ROLLBACK","ROLLING_APPLY"
             break
         }
 
@@ -62599,7 +62630,7 @@ $ODB_map = @{
     "EncryptionKeyConfiguration_AwsEncryptionKey_ExternalIdType"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "EncryptionKeyProvider"=@("New-ODBAutonomousDatabase","Update-ODBAutonomousDatabase")
     "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
-    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","Update-ODBAutonomousDatabase")
+    "LicenseModel"=@("New-ODBAutonomousDatabase","New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster","New-ODBExadbVmCluster","Update-ODBAutonomousDatabase","Update-ODBExadbVmCluster")
     "LongTermBackupSchedule_RepeatCadence"=@("Update-ODBAutonomousDatabase")
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
@@ -62609,6 +62640,7 @@ $ODB_map = @{
     "PermissionLevel"=@("Update-ODBAutonomousDatabase")
     "RefreshableMode"=@("Update-ODBAutonomousDatabase")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "ShapeAttribute"=@("New-ODBExadbVmCluster")
     "Source"=@("New-ODBAutonomousDatabase")
     "SourceConfiguration_CloneToRefreshable_CloneType"=@("New-ODBAutonomousDatabase")
     "SourceConfiguration_CloneToRefreshable_OpenMode"=@("New-ODBAutonomousDatabase")
@@ -62621,6 +62653,7 @@ $ODB_map = @{
     "Status"=@("Get-ODBAutonomousDatabaseBackupList")
     "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "Type"=@("Get-ODBAutonomousDatabaseBackupList")
+    "UpdateAction"=@("Update-ODBExadbVmCluster")
     "WalletType"=@("New-ODBAutonomousDatabaseWallet")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
@@ -62677,12 +62710,15 @@ $ODB_SelectCompleters = {
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
                "Add-ODBIamRoleToResource",
+               "Add-ODBVirtualMachinesToExadbVmCluster",
                "New-ODBAutonomousDatabase",
                "New-ODBAutonomousDatabaseBackup",
                "New-ODBAutonomousDatabaseWallet",
                "New-ODBCloudAutonomousVmCluster",
                "New-ODBCloudExadataInfrastructure",
                "New-ODBCloudVmCluster",
+               "New-ODBExadbVmCluster",
+               "New-ODBExascaleDbStorageVault",
                "New-ODBOdbNetwork",
                "New-ODBOdbPeeringConnection",
                "Remove-ODBAutonomousDatabase",
@@ -62690,9 +62726,12 @@ $ODB_SelectMap = @{
                "Remove-ODBCloudAutonomousVmCluster",
                "Remove-ODBCloudExadataInfrastructure",
                "Remove-ODBCloudVmCluster",
+               "Remove-ODBExadbVmCluster",
+               "Remove-ODBExascaleDbStorageVault",
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
                "Remove-ODBIamRoleFromResource",
+               "Remove-ODBVirtualMachinesFromExadbVmCluster",
                "Start-ODBAutonomousDatabaseFailover",
                "Get-ODBAutonomousDatabase",
                "Get-ODBAutonomousDatabaseBackup",
@@ -62703,6 +62742,8 @@ $ODB_SelectMap = @{
                "Get-ODBCloudVmCluster",
                "Get-ODBDbNode",
                "Get-ODBDbServer",
+               "Get-ODBExadbVmCluster",
+               "Get-ODBExascaleDbStorageVault",
                "Get-ODBOciOnboardingStatus",
                "Get-ODBOdbNetwork",
                "Get-ODBOdbPeeringConnection",
@@ -62720,6 +62761,9 @@ $ODB_SelectMap = @{
                "Get-ODBDbNodeList",
                "Get-ODBDbServerList",
                "Get-ODBDbSystemShapeList",
+               "Get-ODBExadbVmClusterList",
+               "Get-ODBExascaleDbStorageVaultList",
+               "Get-ODBGiMinorVersionList",
                "Get-ODBGiVersionList",
                "Get-ODBOdbNetworkList",
                "Get-ODBOdbPeeringConnectionList",
@@ -62739,6 +62783,8 @@ $ODB_SelectMap = @{
                "Update-ODBAutonomousDatabase",
                "Update-ODBAutonomousDatabaseBackup",
                "Update-ODBCloudExadataInfrastructure",
+               "Update-ODBExadbVmCluster",
+               "Update-ODBExascaleDbStorageVault",
                "Update-ODBOdbNetwork",
                "Update-ODBOdbPeeringConnection")
 }
@@ -70004,6 +70050,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ApplicableToType
+        {
+            ($_ -eq "New-QSApprovalPolicy/ApplicableTo_Type") -Or
+            ($_ -eq "Update-QSApprovalPolicy/ApplicableTo_Type")
+        }
+        {
+            $v = "GROUP"
+            break
+        }
+
         # Amazon.QuickSight.AssetBundleExportFormat
         "Start-QSAssetBundleExportJob/ExportFormat"
         {
@@ -70773,6 +70829,28 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DlpAction
+        {
+            ($_ -eq "New-QSDlpSetting/ProviderConfig_MicrosoftPurview_UnmappedAction") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderConfig_MicrosoftPurview_UnmappedAction") -Or
+            ($_ -eq "New-QSDlpSetting/ProviderOutageAction") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderOutageAction")
+        }
+        {
+            $v = "ALLOW","BLOCK","WARN"
+            break
+        }
+
+        # Amazon.QuickSight.DlpProviderType
+        {
+            ($_ -eq "New-QSDlpSetting/ProviderType") -Or
+            ($_ -eq "Update-QSDlpSetting/ProviderType")
+        }
+        {
+            $v = "MICROSOFT_PURVIEW"
+            break
+        }
+
         # Amazon.QuickSight.Edition
         "New-QSAccountSubscription/Edition"
         {
@@ -71104,6 +71182,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.ResourceType
+        "Get-QSLimitsProfileList/ResourceType"
+        {
+            $v = "AGENT_HOURS","INDEX_STORAGE"
+            break
+        }
+
         # Amazon.QuickSight.Role
         {
             ($_ -eq "Get-QSRoleCustomPermission/Role") -Or
@@ -71378,6 +71463,7 @@ $QS_map = @{
     "Action"=@("Update-QSSelfUpgrade")
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AgentLifecycle"=@("New-QSAgent")
+    "ApplicableTo_Type"=@("New-QSApprovalPolicy","Update-QSApprovalPolicy")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
@@ -71738,6 +71824,9 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
+    "ProviderConfig_MicrosoftPurview_UnmappedAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
+    "ProviderOutageAction"=@("New-QSDlpSetting","Update-QSDlpSetting")
+    "ProviderType"=@("New-QSDlpSetting","Update-QSDlpSetting")
     "PublishOption"=@("Update-QSTopicV2")
     "PublishState"=@("Get-QSFlowDetail")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
@@ -71746,6 +71835,7 @@ $QS_map = @{
     "QuickSuiteActionsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
+    "ResourceType"=@("Get-QSLimitsProfileList")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
@@ -71833,17 +71923,20 @@ $QS_SelectMap = @{
     "Select"=@("Set-QSBatchCreateTopicReviewedAnswer",
                "Remove-QSKnowledgeBaseBatch",
                "Set-QSBatchDeleteTopicReviewedAnswer",
+               "Get-QSUserLimitDetailBatch",
                "Stop-QSIngestion",
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSActionConnector",
                "New-QSAgent",
                "New-QSAnalysis",
+               "New-QSApprovalPolicy",
                "New-QSBrand",
                "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
+               "New-QSDlpSetting",
                "New-QSFlow",
                "New-QSFolder",
                "New-QSFolderMembership",
@@ -71852,6 +71945,7 @@ $QS_SelectMap = @{
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
                "New-QSKnowledgeBase",
+               "New-QSLimitsProfile",
                "New-QSNamespace",
                "New-QSOAuthClientApplication",
                "New-QSRefreshSchedule",
@@ -71871,6 +71965,7 @@ $QS_SelectMap = @{
                "Remove-QSActionConnector",
                "Remove-QSAgent",
                "Remove-QSAnalysis",
+               "Remove-QSApprovalPolicy",
                "Remove-QSBrand",
                "Remove-QSBrandAssignment",
                "Remove-QSCustomPermission",
@@ -71879,6 +71974,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
                "Remove-QSDefaultQBusinessApplication",
+               "Remove-QSDlpSetting",
                "Remove-QSFlow",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
@@ -71887,6 +71983,7 @@ $QS_SelectMap = @{
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSIdentityPropagationConfig",
                "Remove-QSKnowledgeBase",
+               "Remove-QSLimitsProfile",
                "Remove-QSNamespace",
                "Remove-QSOAuthClientApplication",
                "Remove-QSRefreshSchedule",
@@ -71915,6 +72012,7 @@ $QS_SelectMap = @{
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
+               "Get-QSApprovalPolicyDetail",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
                "Get-QSAutomationJobDetail",
@@ -71934,6 +72032,7 @@ $QS_SelectMap = @{
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
                "Get-QSDefaultQBusinessApplication",
+               "Get-QSDlpSettingDetail",
                "Get-QSFlowDetail",
                "Get-QSFolder",
                "Get-QSFolderPermission",
@@ -71946,6 +72045,7 @@ $QS_SelectMap = @{
                "Get-QSKeyRegistration",
                "Get-QSKnowledgeBaseDetail",
                "Get-QSKnowledgeBasePermissionDetail",
+               "Get-QSLimitsProfileDetail",
                "Get-QSNamespace",
                "Get-QSOAuthClientApplicationDetail",
                "Get-QSQPersonalizationConfiguration",
@@ -71981,6 +72081,7 @@ $QS_SelectMap = @{
                "Get-QSActionConnectorList",
                "Get-QSAgentList",
                "Get-QSAnalysisList",
+               "Get-QSApprovalPolicyList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
                "Get-QSBrandList",
@@ -71989,6 +72090,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
                "Get-QSDataSourceList",
+               "Get-QSDlpSettingList",
                "Get-QSFlowList",
                "Get-QSFolderMemberList",
                "Get-QSFolderList",
@@ -72000,6 +72102,7 @@ $QS_SelectMap = @{
                "Get-QSIdentityPropagationConfigList",
                "Get-QSIngestionList",
                "Get-QSKnowledgeBasisList",
+               "Get-QSLimitsProfileList",
                "Get-QSNamespaceList",
                "Get-QSOAuthClientApplicationList",
                "Get-QSRefreshScheduleList",
@@ -72056,6 +72159,7 @@ $QS_SelectMap = @{
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSApplicationWithTokenExchangeGrant",
+               "Update-QSApprovalPolicy",
                "Update-QSBrand",
                "Update-QSBrandAssignment",
                "Update-QSBrandPublishedVersion",
@@ -72070,6 +72174,7 @@ $QS_SelectMap = @{
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
                "Update-QSDefaultQBusinessApplication",
+               "Update-QSDlpSetting",
                "Update-QSFlow",
                "Update-QSFlowPermission",
                "Update-QSFolder",
@@ -72081,6 +72186,7 @@ $QS_SelectMap = @{
                "Update-QSKeyRegistration",
                "Update-QSKnowledgeBase",
                "Update-QSKnowledgeBasePermission",
+               "Update-QSLimitsProfile",
                "Update-QSOAuthClientApplication",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",
@@ -77218,16 +77324,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
                "Get-S3MultipartUpload",
-               "Remove-S3Bucket",
-               "Write-S3Object",
+               "Copy-S3Object",
                "Remove-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL",
                "New-S3Bucket",
-               "Test-S3Bucket",
-               "Remove-S3Object")
+               "Write-S3Object",
+               "Read-S3Object",
+               "Remove-S3Object",
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -86949,8 +87055,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -91260,10 +91366,44 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.ApplicationType
+        {
+            ($_ -eq "New-WATAgentContext/Content_ApplicationType") -Or
+            ($_ -eq "Update-WATAgentContext/Content_ApplicationType")
+        }
+        {
+            $v = "DESKTOP_APPLICATION","OTHER","SAS"
+            break
+        }
+
+        # Amazon.WellArchitected.ContextType
+        "New-WATAgentContext/ContextType"
+        {
+            $v = "APPLICATION"
+            break
+        }
+
+        # Amazon.WellArchitected.Criticality
+        {
+            ($_ -eq "New-WATAgentContext/Content_Criticality") -Or
+            ($_ -eq "Update-WATAgentContext/Content_Criticality")
+        }
+        {
+            $v = "BUSINESS_CRITICAL","MISSION_CRITICAL","NON_CRITICAL","TEST_DEVELOPMENT"
+            break
+        }
+
         # Amazon.WellArchitected.DiscoveryIntegrationStatus
         "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.WellArchitected.FeedbackCategory
+        "Write-WATAgentRecommendationFeedback/FeedbackCategory"
+        {
+            $v = "OTHER","RECOMMENDATION_INCORRECT","RECOMMENDATION_NOT_RELEVANT","RESOURCE_NOT_IMPORTANT","RESOURCE_TYPE_NOT_IMPORTANT"
             break
         }
 
@@ -91326,6 +91466,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.Pillar
+        "Get-WATAgentRecommendationList/Pillar"
+        {
+            $v = "COST_OPTIMIZATION","OPERATIONAL_EXCELLENCE","PERFORMANCE","RESILIENCE","SECURITY"
+            break
+        }
+
         # Amazon.WellArchitected.ProfileOwnerType
         "Get-WATProfileList/ProfileOwnerType"
         {
@@ -91340,6 +91487,48 @@ $WAT_Completers = {
         }
         {
             $v = "NONE","PRIORITIZED"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationFeedbackType
+        "Write-WATAgentRecommendationFeedback/Type"
+        {
+            $v = "NOT_USEFUL","USEFUL"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationItemType
+        "Get-WATAgentRecommendationItemList/Type"
+        {
+            $v = "AWS_RESOURCE","RECOMMENDATION"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationState
+        "Get-WATAgentRecommendationList/State"
+        {
+            $v = "CLOSED","OPEN"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationStatus
+        "Update-WATAgentRecommendationStatus/Status"
+        {
+            $v = "ACTIVE","COMPLETED","SUPPRESSED"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationType
+        "Get-WATAgentRecommendationGenerationList/RecommendationType"
+        {
+            $v = "APPLICATION","ARCHITECTURE","RESOURCE"
+            break
+        }
+
+        # Amazon.WellArchitected.RemediationType
+        "Get-WATAgentRecommendation/RemediationType"
+        {
+            $v = "AUTO_REMEDIATION","CLI","CONSOLE","IAC","MCP","SDK"
             break
         }
 
@@ -91422,9 +91611,13 @@ $WAT_Completers = {
 }
 
 $WAT_map = @{
+    "Content_ApplicationType"=@("New-WATAgentContext","Update-WATAgentContext")
+    "Content_Criticality"=@("New-WATAgentContext","Update-WATAgentContext")
+    "ContextType"=@("New-WATAgentContext")
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "DiscoveryIntegrationStatus"=@("Update-WATGlobalSetting")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
+    "FeedbackCategory"=@("Write-WATAgentRecommendationFeedback")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
     "IntegratingService"=@("Update-WATIntegration")
@@ -91435,12 +91628,17 @@ $WAT_map = @{
     "LensType"=@("Get-WATLensList")
     "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
+    "Pillar"=@("Get-WATAgentRecommendationList")
     "ProfileOwnerType"=@("Get-WATProfileList")
     "QuestionPriority"=@("Get-WATAnswerList","Get-WATLensReviewImprovementList")
     "Reason"=@("Update-WATAnswer","Update-WATReviewTemplateAnswer")
+    "RecommendationType"=@("Get-WATAgentRecommendationGenerationList")
+    "RemediationType"=@("Get-WATAgentRecommendation")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
-    "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATTemplateShareList","Get-WATWorkloadShareList")
+    "State"=@("Get-WATAgentRecommendationList")
+    "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATTemplateShareList","Get-WATWorkloadShareList","Update-WATAgentRecommendationStatus")
+    "Type"=@("Get-WATAgentRecommendationItemList","Write-WATAgentRecommendationFeedback")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -91495,6 +91693,9 @@ $WAT_SelectCompleters = {
 $WAT_SelectMap = @{
     "Select"=@("Register-WATLens",
                "Register-WATProfile",
+               "New-WATAgentContext",
+               "New-WATAgentGoal",
+               "New-WATAgentProfile",
                "New-WATLensShare",
                "New-WATLensVersion",
                "New-WATMilestone",
@@ -91504,6 +91705,9 @@ $WAT_SelectMap = @{
                "New-WATTemplateShare",
                "New-WATWorkload",
                "New-WATWorkloadShare",
+               "Remove-WATAgentContext",
+               "Remove-WATAgentGoal",
+               "Remove-WATAgentProfile",
                "Remove-WATLens",
                "Remove-WATLensShare",
                "Remove-WATProfile",
@@ -91515,6 +91719,11 @@ $WAT_SelectMap = @{
                "Unregister-WATLens",
                "Unregister-WATProfile",
                "Export-WATLens",
+               "Get-WATAgentContext",
+               "Get-WATAgentGoal",
+               "Get-WATAgentProfile",
+               "Get-WATAgentRecommendation",
+               "Get-WATAgentRecommendationGeneration",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
                "Get-WATGlobalSetting",
@@ -91530,6 +91739,12 @@ $WAT_SelectMap = @{
                "Get-WATReviewTemplateLensReview",
                "Get-WATWorkload",
                "Import-WATLens",
+               "Get-WATAgentContextList",
+               "Get-WATAgentGoalList",
+               "Get-WATAgentProfileList",
+               "Get-WATAgentRecommendationGenerationList",
+               "Get-WATAgentRecommendationItemList",
+               "Get-WATAgentRecommendationList",
                "Get-WATAnswerList",
                "Get-WATCheckDetailList",
                "Get-WATCheckSummaryList",
@@ -91549,8 +91764,14 @@ $WAT_SelectMap = @{
                "Get-WATTemplateShareList",
                "Get-WATWorkloadList",
                "Get-WATWorkloadShareList",
+               "Write-WATAgentRecommendationFeedback",
+               "Start-WATAgentRecommendationGeneration",
                "Add-WATResourceTag",
                "Remove-WATResourceTag",
+               "Update-WATAgentContext",
+               "Update-WATAgentGoal",
+               "Update-WATAgentProfile",
+               "Update-WATAgentRecommendationStatus",
                "Update-WATAnswer",
                "Update-WATGlobalSetting",
                "Update-WATIntegration",
@@ -93701,6 +93922,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93740,41 +93999,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

@@ -233,6 +233,7 @@ $IAM_SelectCompleters = {
 
 $IAM_SelectMap = @{
     "Select"=@("Approve-IAMDelegationRequest",
+               "Invoke-IAMAcquireRole",
                "Add-IAMClientIDToOpenIDConnectProvider",
                "Add-IAMRoleToInstanceProfile",
                "Add-IAMUserToGroup",
@@ -296,6 +297,7 @@ $IAM_SelectMap = @{
                "Get-IAMAccessKeyLastUsed",
                "Get-IAMAccountAuthorizationDetail",
                "Get-IAMAccountPasswordPolicy",
+               "Get-IAMAccountProperty",
                "Get-IAMAccountSummary",
                "Get-IAMContextKeysForCustomPolicy",
                "Get-IAMContextKeysForPrincipalPolicy",
@@ -314,6 +316,7 @@ $IAM_SelectMap = @{
                "Get-IAMPolicyVersion",
                "Get-IAMRole",
                "Get-IAMRolePolicy",
+               "Get-IAMRoleTemplateVersion",
                "Get-IAMSAMLProvider",
                "Get-IAMServerCertificate",
                "Get-IAMServiceLastAccessedDetail",
@@ -358,6 +361,7 @@ $IAM_SelectMap = @{
                "Get-IAMUserList",
                "Get-IAMUserTagList",
                "Get-IAMVirtualMFADevice",
+               "Write-IAMAccountProperty",
                "Write-IAMGroupPolicy",
                "Set-IAMRolePermissionsBoundary",
                "Write-IAMRolePolicy",

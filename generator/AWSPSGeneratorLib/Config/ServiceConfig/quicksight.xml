@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDescribeUserLimits" OutputProperty="*" Verb="Get" Noun="UserLimitDetailBatch" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +104,10 @@
                 <Param Name="SourceEntity_SourceTemplate_Arn" NewName="SourceTemplate_Arn" />
                 <Param Name="SourceEntity_SourceTemplate_DataSetReferences" NewName="SourceTemplate_DataSetReference" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApprovalPolicy" OutputProperty="Policy" Verb="New" Noun="ApprovalPolicy" ShouldProcessTarget="PolicyId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBrand" OutputProperty="*" Verb="New" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -301,6 +309,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDlpSetting" OutputProperty="*" Verb="New" Noun="DlpSetting" ShouldProcessTarget="DlpSettingId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFlow" OutputProperty="*" Verb="New" Noun="Flow" ShouldProcessTarget="AwsAccountId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -331,6 +343,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="*" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLimitsProfile" OutputProperty="*" Verb="New" Noun="LimitsProfile" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ProfileName" NewName="Profile" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -521,6 +539,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApprovalPolicy" Verb="Remove" Noun="ApprovalPolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBrand" OutputProperty="*" Verb="Remove" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -553,6 +575,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDlpSetting" OutputProperty="*" Verb="Remove" Noun="DlpSetting" ShouldProcessTarget="DlpSettingId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFlow" OutputProperty="*" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -582,6 +608,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLimitsProfile" OutputProperty="Arn" Verb="Remove" Noun="LimitsProfile" ShouldProcessTarget="AccountId,ProfileId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -697,6 +727,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApprovalPolicy" OutputProperty="Policy" Verb="Get" Noun="ApprovalPolicyDetail" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAssetBundleExportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleExportJob" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -773,6 +807,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDlpSetting" OutputProperty="DlpSetting" Verb="Get" Noun="DlpSettingDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFlow" OutputProperty="Flow" Verb="Get" Noun="FlowDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -818,6 +856,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeKnowledgeBasePermissions" OutputProperty="*" Verb="Get" Noun="KnowledgeBasePermissionDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLimitsProfile" OutputProperty="Profile" Verb="Get" Noun="LimitsProfileDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1020,6 +1062,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApprovalPolicies" OutputProperty="Policies" Verb="Get" Noun="ApprovalPolicyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssetBundleExportJobs" OutputProperty="AssetBundleExportJobSummaryList" Verb="Get" Noun="AssetBundleExportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1049,6 +1095,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDlpSettings" OutputProperty="DlpSettingSummaries" Verb="Get" Noun="DlpSettingList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1093,6 +1143,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLimitsProfiles" OutputProperty="Profiles" Verb="Get" Noun="LimitsProfileList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1375,6 +1429,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApprovalPolicy" OutputProperty="Policy" Verb="Update" Noun="ApprovalPolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateBrand" OutputProperty="*" Verb="Update" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
@@ -1610,6 +1668,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDlpSetting" OutputProperty="*" Verb="Update" Noun="DlpSetting" ShouldProcessTarget="DlpSettingId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlow" OutputProperty="*" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1652,6 +1714,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKnowledgeBasePermissions" OutputProperty="*" Verb="Update" Noun="KnowledgeBasePermission" ShouldProcessTarget="AwsAccountId,KnowledgeBaseId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLimitsProfile" OutputProperty="Arn" Verb="Update" Noun="LimitsProfile" ShouldProcessTarget="AccountId,ProfileId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ProfileName" NewName="Profile" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOAuthClientApplication" OutputProperty="*" Verb="Update" Noun="OAuthClientApplication" ShouldProcessTarget="OAuthClientApplicationId" PipelineParameter="" NoPipelineParameter="true">

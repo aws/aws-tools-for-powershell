@@ -97,10 +97,44 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.ApplicationType
+        {
+            ($_ -eq "New-WATAgentContext/Content_ApplicationType") -Or
+            ($_ -eq "Update-WATAgentContext/Content_ApplicationType")
+        }
+        {
+            $v = "DESKTOP_APPLICATION","OTHER","SAS"
+            break
+        }
+
+        # Amazon.WellArchitected.ContextType
+        "New-WATAgentContext/ContextType"
+        {
+            $v = "APPLICATION"
+            break
+        }
+
+        # Amazon.WellArchitected.Criticality
+        {
+            ($_ -eq "New-WATAgentContext/Content_Criticality") -Or
+            ($_ -eq "Update-WATAgentContext/Content_Criticality")
+        }
+        {
+            $v = "BUSINESS_CRITICAL","MISSION_CRITICAL","NON_CRITICAL","TEST_DEVELOPMENT"
+            break
+        }
+
         # Amazon.WellArchitected.DiscoveryIntegrationStatus
         "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.WellArchitected.FeedbackCategory
+        "Write-WATAgentRecommendationFeedback/FeedbackCategory"
+        {
+            $v = "OTHER","RECOMMENDATION_INCORRECT","RECOMMENDATION_NOT_RELEVANT","RESOURCE_NOT_IMPORTANT","RESOURCE_TYPE_NOT_IMPORTANT"
             break
         }
 
@@ -163,6 +197,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.Pillar
+        "Get-WATAgentRecommendationList/Pillar"
+        {
+            $v = "COST_OPTIMIZATION","OPERATIONAL_EXCELLENCE","PERFORMANCE","RESILIENCE","SECURITY"
+            break
+        }
+
         # Amazon.WellArchitected.ProfileOwnerType
         "Get-WATProfileList/ProfileOwnerType"
         {
@@ -177,6 +218,48 @@ $WAT_Completers = {
         }
         {
             $v = "NONE","PRIORITIZED"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationFeedbackType
+        "Write-WATAgentRecommendationFeedback/Type"
+        {
+            $v = "NOT_USEFUL","USEFUL"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationItemType
+        "Get-WATAgentRecommendationItemList/Type"
+        {
+            $v = "AWS_RESOURCE","RECOMMENDATION"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationState
+        "Get-WATAgentRecommendationList/State"
+        {
+            $v = "CLOSED","OPEN"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationStatus
+        "Update-WATAgentRecommendationStatus/Status"
+        {
+            $v = "ACTIVE","COMPLETED","SUPPRESSED"
+            break
+        }
+
+        # Amazon.WellArchitected.RecommendationType
+        "Get-WATAgentRecommendationGenerationList/RecommendationType"
+        {
+            $v = "APPLICATION","ARCHITECTURE","RESOURCE"
+            break
+        }
+
+        # Amazon.WellArchitected.RemediationType
+        "Get-WATAgentRecommendation/RemediationType"
+        {
+            $v = "AUTO_REMEDIATION","CLI","CONSOLE","IAC","MCP","SDK"
             break
         }
 
@@ -259,9 +342,13 @@ $WAT_Completers = {
 }
 
 $WAT_map = @{
+    "Content_ApplicationType"=@("New-WATAgentContext","Update-WATAgentContext")
+    "Content_Criticality"=@("New-WATAgentContext","Update-WATAgentContext")
+    "ContextType"=@("New-WATAgentContext")
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "DiscoveryIntegrationStatus"=@("Update-WATGlobalSetting")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
+    "FeedbackCategory"=@("Write-WATAgentRecommendationFeedback")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
     "IntegratingService"=@("Update-WATIntegration")
@@ -272,12 +359,17 @@ $WAT_map = @{
     "LensType"=@("Get-WATLensList")
     "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
     "PermissionType"=@("New-WATWorkloadShare","Update-WATWorkloadShare")
+    "Pillar"=@("Get-WATAgentRecommendationList")
     "ProfileOwnerType"=@("Get-WATProfileList")
     "QuestionPriority"=@("Get-WATAnswerList","Get-WATLensReviewImprovementList")
     "Reason"=@("Update-WATAnswer","Update-WATReviewTemplateAnswer")
+    "RecommendationType"=@("Get-WATAgentRecommendationGenerationList")
+    "RemediationType"=@("Get-WATAgentRecommendation")
     "ShareInvitationAction"=@("Update-WATShareInvitation")
     "ShareResourceType"=@("Get-WATShareInvitationList")
-    "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATTemplateShareList","Get-WATWorkloadShareList")
+    "State"=@("Get-WATAgentRecommendationList")
+    "Status"=@("Get-WATLensShareList","Get-WATProfileShareList","Get-WATTemplateShareList","Get-WATWorkloadShareList","Update-WATAgentRecommendationStatus")
+    "Type"=@("Get-WATAgentRecommendationItemList","Write-WATAgentRecommendationFeedback")
 }
 
 _awsArgumentCompleterRegistration $WAT_Completers $WAT_map
@@ -332,6 +424,9 @@ $WAT_SelectCompleters = {
 $WAT_SelectMap = @{
     "Select"=@("Register-WATLens",
                "Register-WATProfile",
+               "New-WATAgentContext",
+               "New-WATAgentGoal",
+               "New-WATAgentProfile",
                "New-WATLensShare",
                "New-WATLensVersion",
                "New-WATMilestone",
@@ -341,6 +436,9 @@ $WAT_SelectMap = @{
                "New-WATTemplateShare",
                "New-WATWorkload",
                "New-WATWorkloadShare",
+               "Remove-WATAgentContext",
+               "Remove-WATAgentGoal",
+               "Remove-WATAgentProfile",
                "Remove-WATLens",
                "Remove-WATLensShare",
                "Remove-WATProfile",
@@ -352,6 +450,11 @@ $WAT_SelectMap = @{
                "Unregister-WATLens",
                "Unregister-WATProfile",
                "Export-WATLens",
+               "Get-WATAgentContext",
+               "Get-WATAgentGoal",
+               "Get-WATAgentProfile",
+               "Get-WATAgentRecommendation",
+               "Get-WATAgentRecommendationGeneration",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
                "Get-WATGlobalSetting",
@@ -367,6 +470,12 @@ $WAT_SelectMap = @{
                "Get-WATReviewTemplateLensReview",
                "Get-WATWorkload",
                "Import-WATLens",
+               "Get-WATAgentContextList",
+               "Get-WATAgentGoalList",
+               "Get-WATAgentProfileList",
+               "Get-WATAgentRecommendationGenerationList",
+               "Get-WATAgentRecommendationItemList",
+               "Get-WATAgentRecommendationList",
                "Get-WATAnswerList",
                "Get-WATCheckDetailList",
                "Get-WATCheckSummaryList",
@@ -386,8 +495,14 @@ $WAT_SelectMap = @{
                "Get-WATTemplateShareList",
                "Get-WATWorkloadList",
                "Get-WATWorkloadShareList",
+               "Write-WATAgentRecommendationFeedback",
+               "Start-WATAgentRecommendationGeneration",
                "Add-WATResourceTag",
                "Remove-WATResourceTag",
+               "Update-WATAgentContext",
+               "Update-WATAgentGoal",
+               "Update-WATAgentProfile",
+               "Update-WATAgentRecommendationStatus",
                "Update-WATAnswer",
                "Update-WATGlobalSetting",
                "Update-WATIntegration",

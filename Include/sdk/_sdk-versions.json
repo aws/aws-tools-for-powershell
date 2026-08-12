@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.309.0",
+    "ProductVersion"    : "4.0.310.0",
     "CoreVersion"       : "4.0.101.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -212,7 +212,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.103.1",
+            "Version" : "4.0.103.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.106.1",
+            "Version" : "4.0.107.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -1212,7 +1212,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "4.0.100.8",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -1900,7 +1900,7 @@
             "InPreview"               : false
         },
         "WellArchitected"                 : {
-            "Version" : "4.0.100.8",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3076,7 +3076,7 @@
             "InPreview"               : false
         },
         "DSQL"                                : {
-            "Version" : "4.0.101.6",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3172,7 +3172,7 @@
             "InPreview"               : false
         },
         "Odb"                                 : {
-            "Version" : "4.0.101.4",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table for which statistics is generated.</para>
+        /// <para>The name of the materialized view.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
