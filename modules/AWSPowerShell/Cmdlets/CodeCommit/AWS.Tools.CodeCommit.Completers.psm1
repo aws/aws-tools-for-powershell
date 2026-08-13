@@ -287,6 +287,7 @@ $CC_SelectMap = @{
                "Invoke-CCPullRequestApprovalRule",
                "Get-CCApprovalRuleTemplate",
                "Get-CCBlob",
+               "Get-CCBlobDifference",
                "Get-CCBranch",
                "Get-CCComment",
                "Get-CCCommentReaction",

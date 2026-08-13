@@ -668,6 +668,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.RehydrationType
         {
+            ($_ -eq "Start-CONNAssistantContact/PersistentChat_RehydrationType") -Or
             ($_ -eq "Start-CONNChatContact/PersistentChat_RehydrationType") -Or
             ($_ -eq "New-CONNPersistentContactAssociation/RehydrationType")
         }
@@ -1013,7 +1014,7 @@ $CONN_map = @{
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
-    "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
+    "PersistentChat_RehydrationType"=@("Start-CONNAssistantContact","Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PositiveTrendIndicator"=@("New-CONNMetric","Update-CONNMetricContent")
@@ -1414,6 +1415,7 @@ $CONN_SelectMap = @{
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
                "Send-CONNOutboundWebNotification",
+               "Start-CONNAssistantContact",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactConversationalAnalyticsJob",

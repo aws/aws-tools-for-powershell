@@ -108,6 +108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateDomainValidations" OutputProperty="DomainValidationSummaryList" Verb="Get" Noun="CertificateDomainValidationList" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

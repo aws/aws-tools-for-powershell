@@ -195,7 +195,11 @@ $ACM_Completers = {
         }
 
         # Amazon.CertificateManager.ValidationMethod
-        "New-ACMCertificate/ValidationMethod"
+        {
+            ($_ -eq "New-ACMCertificate/Options_ValidationMethod") -Or
+            ($_ -eq "Update-ACMCertificateOption/Options_ValidationMethod") -Or
+            ($_ -eq "New-ACMCertificate/ValidationMethod")
+        }
         {
             $v = "DNS","EMAIL","HTTP"
             break
@@ -219,6 +223,7 @@ $ACM_map = @{
     "ManagedBy"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "Options_Export"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "Options_ValidationMethod"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_ExactDomain"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Subdomain"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Wildcard"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
@@ -300,6 +305,7 @@ $ACM_SelectMap = @{
                "Get-ACMAcmeDomainValidationList",
                "Get-ACMAcmeEndpointList",
                "Get-ACMAcmeExternalAccountBindingList",
+               "Get-ACMCertificateDomainValidationList",
                "Get-ACMCertificateList",
                "Get-ACMCertificateTagList",
                "Get-ACMResourceTag",

@@ -58,6 +58,24 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.AdditionalAnalyses AnalysisRulePolicy_V1_Custom_AdditionalAnalyses { get; set; }
         #endregion
         
+        #region Parameter AnalysisRulePolicy_V1_Custom_AggregationThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The aggregation thresholds that each query output group must satisfy. Clean Rooms
+        /// filters out any group that represents fewer than the specified number of distinct
+        /// identities. You can specify at most one threshold. You can't use aggregation thresholds
+        /// with differential privacy, or when <c>allowedAnalyses</c> allows only jobs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Custom_AggregationThresholds")]
+        public Amazon.CleanRooms.Model.AggregationThreshold[] AnalysisRulePolicy_V1_Custom_AggregationThreshold { get; set; }
+        #endregion
+        
         #region Parameter AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses
         /// <summary>
         /// <para>
@@ -99,6 +117,42 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AnalysisRulePolicy_V1_Custom_AllowedAnalysisProviders")]
         public System.String[] AnalysisRulePolicy_V1_Custom_AllowedAnalysisProvider { get; set; }
+        #endregion
+        
+        #region Parameter AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn
+        /// <summary>
+        /// <para>
+        /// <para>The columns that a query can compare to another column, for example, in a join, a
+        /// WHERE clause, a GROUP BY clause, or a window function. Clean Rooms rejects a query
+        /// that uses any other column in a column-to-column comparison. Specify an empty list
+        /// to block column-to-column comparison on every column.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumns")]
+        public System.String[] AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn { get; set; }
+        #endregion
+        
+        #region Parameter AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn
+        /// <summary>
+        /// <para>
+        /// <para>The columns that a query can compare to literal values, for example, in a WHERE clause.
+        /// Clean Rooms rejects a query that compares any other column to a literal value. Specify
+        /// an empty list to block literal comparison on every column. You can't specify a column
+        /// that you also use as an identity column in an aggregation threshold.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumns")]
+        public System.String[] AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn { get; set; }
         #endregion
         
         #region Parameter AnalysisRulePolicy_V1_Custom_AllowedResultReceiver
@@ -253,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AnalysisRulePolicy_V1_Custom_AdditionalAnalyses = this.AnalysisRulePolicy_V1_Custom_AdditionalAnalyses;
+            if (this.AnalysisRulePolicy_V1_Custom_AggregationThreshold != null)
+            {
+                context.AnalysisRulePolicy_V1_Custom_AggregationThreshold = new List<Amazon.CleanRooms.Model.AggregationThreshold>(this.AnalysisRulePolicy_V1_Custom_AggregationThreshold);
+            }
             if (this.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses != null)
             {
                 context.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses);
@@ -268,6 +326,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (this.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver != null)
             {
                 context.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_AllowedResultReceiver);
+            }
+            if (this.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn != null)
+            {
+                context.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn);
+            }
+            if (this.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn != null)
+            {
+                context.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn = new List<System.String>(this.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn);
             }
             if (this.AnalysisRulePolicy_V1_Custom_DifferentialPrivacy_Column != null)
             {
@@ -336,6 +402,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AdditionalAnalyses != null)
             {
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AdditionalAnalyses = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AdditionalAnalyses;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
+            }
+            List<Amazon.CleanRooms.Model.AggregationThreshold> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AggregationThreshold = null;
+            if (cmdletContext.AnalysisRulePolicy_V1_Custom_AggregationThreshold != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AggregationThreshold = cmdletContext.AnalysisRulePolicy_V1_Custom_AggregationThreshold;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AggregationThreshold != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.AggregationThresholds = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AggregationThreshold;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
             }
             List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses = null;
@@ -411,6 +487,41 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy != null)
             {
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.DifferentialPrivacy = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_DifferentialPrivacy;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
+            }
+            Amazon.CleanRooms.Model.ComparisonControls requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls = null;
+            
+             // populate ComparisonControls
+            var requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControlsIsNull = true;
+            requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls = new Amazon.CleanRooms.Model.ComparisonControls();
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn = null;
+            if (cmdletContext.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn = cmdletContext.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls.AllowedColumnComparisonColumns = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControlsIsNull = false;
+            }
+            List<System.String> requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn = null;
+            if (cmdletContext.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn = cmdletContext.AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls.AllowedLiteralComparisonColumns = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls_analysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn;
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControlsIsNull = false;
+            }
+             // determine if requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls should be set to null
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControlsIsNull)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls = null;
+            }
+            if (requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls != null)
+            {
+                requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom.ComparisonControls = requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom_analysisRulePolicy_V1_Custom_ComparisonControls;
                 requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_CustomIsNull = false;
             }
              // determine if requestAnalysisRulePolicy_analysisRulePolicy_V1_analysisRulePolicy_V1_Custom should be set to null
@@ -506,10 +617,13 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CleanRooms.AdditionalAnalyses AnalysisRulePolicy_V1_Custom_AdditionalAnalyses { get; set; }
+            public List<Amazon.CleanRooms.Model.AggregationThreshold> AnalysisRulePolicy_V1_Custom_AggregationThreshold { get; set; }
             public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedAdditionalAnalyses { get; set; }
             public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedAnalyses { get; set; }
             public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedAnalysisProvider { get; set; }
             public List<System.String> AnalysisRulePolicy_V1_Custom_AllowedResultReceiver { get; set; }
+            public List<System.String> AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn { get; set; }
+            public List<System.String> AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn { get; set; }
             public List<Amazon.CleanRooms.Model.DifferentialPrivacyColumn> AnalysisRulePolicy_V1_Custom_DifferentialPrivacy_Column { get; set; }
             public List<System.String> AnalysisRulePolicy_V1_Custom_DisallowedOutputColumn { get; set; }
             public Amazon.CleanRooms.IntermediateTableAnalysisRuleType AnalysisRuleType { get; set; }

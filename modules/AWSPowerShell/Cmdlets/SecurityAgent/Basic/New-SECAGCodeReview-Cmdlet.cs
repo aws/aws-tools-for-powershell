@@ -154,6 +154,19 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String LogConfig_LogStream { get; set; }
         #endregion
         
+        #region Parameter MaxTaskHour
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of billable task hours allowed for jobs started from this code
+        /// review. Must be a positive number. If not set, jobs run to completion with no budget
+        /// cap.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxTaskHours")]
+        public System.Double? MaxTaskHour { get; set; }
+        #endregion
+        
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
@@ -282,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             context.CodeRemediationStrategy = this.CodeRemediationStrategy;
             context.LogConfig_LogGroup = this.LogConfig_LogGroup;
             context.LogConfig_LogStream = this.LogConfig_LogStream;
+            context.MaxTaskHour = this.MaxTaskHour;
             context.ServiceRole = this.ServiceRole;
             context.Title = this.Title;
             #if MODULAR
@@ -403,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.LogConfig = null;
             }
+            if (cmdletContext.MaxTaskHour != null)
+            {
+                request.MaxTaskHours = cmdletContext.MaxTaskHour.Value;
+            }
             if (cmdletContext.ServiceRole != null)
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
@@ -479,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public Amazon.SecurityAgent.CodeRemediationStrategy CodeRemediationStrategy { get; set; }
             public System.String LogConfig_LogGroup { get; set; }
             public System.String LogConfig_LogStream { get; set; }
+            public System.Double? MaxTaskHour { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String Title { get; set; }
             public Amazon.SecurityAgent.ValidationMode ValidationMode { get; set; }

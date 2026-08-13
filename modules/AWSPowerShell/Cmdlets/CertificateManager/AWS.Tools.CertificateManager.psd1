@@ -102,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ACMAcmeExternalAccountBindingList', 
         'Get-ACMCertificate', 
         'Get-ACMCertificateDetail', 
+        'Get-ACMCertificateDomainValidationList', 
         'Get-ACMCertificateList', 
         'Get-ACMCertificateTagList', 
         'Get-ACMResourceTag', 

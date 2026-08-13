@@ -317,7 +317,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" OutputProperty="Activity" Verb="Stop" Noun="InstanceInAutoScalingGroup" ShouldProcessTarget="InstanceId" PositionalParameters="ShouldDecrementDesiredCapacity" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="InstanceIds" AutoRename="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAutoScalingGroup" Verb="Update" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">

@@ -1,4 +1,29 @@
-﻿### 5.0.275 (2026-08-12 19:14Z)
+﻿### 5.0.276 (2026-08-13 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.311.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Stop-ASInstanceInAutoScalingGroup: added parameters AutoScalingGroupName and InstanceIds.
+  * Amazon Certificate Manager
+    * Added cmdlet Get-ACMCertificateDomainValidationList leveraging the ListCertificateDomainValidations service API.
+    * Modified cmdlet New-ACMCertificate: added parameter Options_ValidationMethod.
+    * Modified cmdlet Update-ACMCertificateOption: added parameter Options_ValidationMethod.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AggregationThreshold, AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn and AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn.
+    * Modified cmdlet New-CRSIntermediateTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AggregationThreshold, AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn and AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AggregationThreshold, AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn and AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn.
+    * Modified cmdlet Update-CRSIntermediateTableAnalysisRule: added parameters AnalysisRulePolicy_V1_Custom_AggregationThreshold, AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedColumnComparisonColumn and AnalysisRulePolicy_V1_Custom_ComparisonControls_AllowedLiteralComparisonColumn.
+  * Amazon CodeCommit
+    * Added cmdlet Get-CCBlobDifference leveraging the GetBlobDifferences service API.
+  * Amazon Connect Service
+    * Added cmdlet Start-CONNAssistantContact leveraging the StartAssistantContact service API.
+    * Modified cmdlet Start-CONNWebRTCContact: added parameter SegmentAttribute.
+  * Amazon Security Agent
+    * Modified cmdlet New-SECAGCodeReview: added parameter MaxTaskHour.
+    * Modified cmdlet New-SECAGPentest: added parameter MaxTaskHour.
+    * Modified cmdlet Start-SECAGPentestJob: added parameters JobType and SelectedFindingId.
+    * Modified cmdlet Update-SECAGCodeReview: added parameter MaxTaskHour.
+    * Modified cmdlet Update-SECAGPentest: added parameter MaxTaskHour.
+
+### 5.0.275 (2026-08-12 19:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.310.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaConnect
     * Modified cmdlet New-EMCNRouterOutput: added parameter FabricConfiguration_RecoveryLatencyMode.

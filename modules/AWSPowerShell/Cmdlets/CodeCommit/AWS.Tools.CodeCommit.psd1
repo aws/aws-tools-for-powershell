@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCApprovalRuleTemplateList', 
         'Get-CCAssociatedApprovalRuleTemplatesForRepositoryList', 
         'Get-CCBlob', 
+        'Get-CCBlobDifference', 
         'Get-CCBranch', 
         'Get-CCBranchList', 
         'Get-CCComment', 

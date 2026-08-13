@@ -35,12 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// This call simply makes a termination request. The instance is not terminated immediately.
+    /// This call simply makes a termination request. The instances are not terminated immediately.
     /// When an instance is terminated, the instance status changes to <c>terminated</c>.
     /// You can't connect to or start an instance after you've terminated it.
     /// </para><para>
     /// If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto
     /// Scaling launches instances to replace the ones that are terminated. 
+    /// </para><para>
+    /// To terminate multiple instances in a single call, use the <c>InstanceIds</c> and <c>AutoScalingGroupName</c>
+    /// parameters instead of <c>InstanceId</c>. When terminating multiple instances, the
+    /// response populates <c>Activities</c> instead of <c>Activity</c>.
     /// </para><para>
     /// By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones.
     /// If you decrement the desired capacity, your Auto Scaling group can become unbalanced
@@ -63,21 +67,38 @@ namespace Amazon.PowerShell.Cmdlets.AS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AutoScalingGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Auto Scaling group. Required when using <c>InstanceIds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceIds
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the instances. You can specify up to 100 instances.</para><para>This parameter requires that you also specify <c>AutoScalingGroupName</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] InstanceIds { get; set; }
         #endregion
         
         #region Parameter ShouldDecrementDesiredCapacity
@@ -143,13 +164,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse, StopASInstanceInAutoScalingGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoScalingGroupName = this.AutoScalingGroupName;
             context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.InstanceIds != null)
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.InstanceIds = new List<System.String>(this.InstanceIds);
             }
-            #endif
             context.ShouldDecrementDesiredCapacity = this.ShouldDecrementDesiredCapacity;
             #if MODULAR
             if (this.ShouldDecrementDesiredCapacity == null && ParameterWasBound(nameof(this.ShouldDecrementDesiredCapacity)))
@@ -173,9 +193,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
             // create request
             var request = new Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupRequest();
             
+            if (cmdletContext.AutoScalingGroupName != null)
+            {
+                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.InstanceIds != null)
+            {
+                request.InstanceIds = cmdletContext.InstanceIds;
             }
             if (cmdletContext.ShouldDecrementDesiredCapacity != null)
             {
@@ -236,7 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AutoScalingGroupName { get; set; }
             public System.String InstanceId { get; set; }
+            public List<System.String> InstanceIds { get; set; }
             public System.Boolean? ShouldDecrementDesiredCapacity { get; set; }
             public System.Func<Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse, StopASInstanceInAutoScalingGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Activity;

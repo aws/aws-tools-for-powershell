@@ -219,6 +219,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         public Amazon.CertificateManager.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Options_ValidationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The domain validation method for the certificate. To migrate from email to DNS validation,
+        /// specify <c>DNS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.ValidationMethod")]
+        public Amazon.CertificateManager.ValidationMethod Options_ValidationMethod { get; set; }
+        #endregion
+        
         #region Parameter ValidationMethod
         /// <summary>
         /// <para>
@@ -311,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             context.ManagedBy = this.ManagedBy;
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             context.Options_Export = this.Options_Export;
+            context.Options_ValidationMethod = this.Options_ValidationMethod;
             if (this.SubjectAlternativeName != null)
             {
                 context.SubjectAlternativeName = new List<System.String>(this.SubjectAlternativeName);
@@ -382,6 +395,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_Export != null)
             {
                 request.Options.Export = requestOptions_options_Export;
+                requestOptionsIsNull = false;
+            }
+            Amazon.CertificateManager.ValidationMethod requestOptions_options_ValidationMethod = null;
+            if (cmdletContext.Options_ValidationMethod != null)
+            {
+                requestOptions_options_ValidationMethod = cmdletContext.Options_ValidationMethod;
+            }
+            if (requestOptions_options_ValidationMethod != null)
+            {
+                request.Options.ValidationMethod = requestOptions_options_ValidationMethod;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -465,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             [System.ObsoleteAttribute]
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
+            public Amazon.CertificateManager.ValidationMethod Options_ValidationMethod { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }
             public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }
             public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }

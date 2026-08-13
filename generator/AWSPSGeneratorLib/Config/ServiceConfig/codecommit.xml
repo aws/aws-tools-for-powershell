@@ -28,7 +28,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -96,7 +96,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,6 +117,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBlob" OutputProperty="Content" Verb="Get" Noun="Blob" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBlobDifferences" OutputProperty="*" Verb="Get" Noun="BlobDifference" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -160,7 +164,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

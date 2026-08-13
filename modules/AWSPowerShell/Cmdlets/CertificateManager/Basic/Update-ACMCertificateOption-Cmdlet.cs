@@ -30,10 +30,9 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Updates a certificate. You can use this function to specify whether to export your
-    /// certificate. Certificate transparency logging opt-out is no longer available. For
-    /// more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate
-    /// Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate
+    /// Updates certificate options. You can use this operation to change the domain validation
+    /// method or specify whether to export your certificate. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html">Migrate
+    /// from email to DNS validation</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate
     /// Manager Exportable Managed Certificates</a>.
     /// </summary>
     [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CertificateManager.CertificateExport")]
         public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
+        #endregion
+        
+        #region Parameter Options_ValidationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The domain validation method for the certificate. To migrate from email to DNS validation,
+        /// specify <c>DNS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.ValidationMethod")]
+        public Amazon.CertificateManager.ValidationMethod Options_ValidationMethod { get; set; }
         #endregion
         
         #region Parameter Options_CertificateTransparencyLoggingPreference
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             #endif
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             context.Options_Export = this.Options_Export;
+            context.Options_ValidationMethod = this.Options_ValidationMethod;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +201,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_Export != null)
             {
                 request.Options.Export = requestOptions_options_Export;
+                requestOptionsIsNull = false;
+            }
+            Amazon.CertificateManager.ValidationMethod requestOptions_options_ValidationMethod = null;
+            if (cmdletContext.Options_ValidationMethod != null)
+            {
+                requestOptions_options_ValidationMethod = cmdletContext.Options_ValidationMethod;
+            }
+            if (requestOptions_options_ValidationMethod != null)
+            {
+                request.Options.ValidationMethod = requestOptions_options_ValidationMethod;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -255,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             [System.ObsoleteAttribute]
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public Amazon.CertificateManager.CertificateExport Options_Export { get; set; }
+            public Amazon.CertificateManager.ValidationMethod Options_ValidationMethod { get; set; }
             public System.Func<Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse, UpdateACMCertificateOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -215,7 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// 100 to 200.</para><para>If you specify <c>MaxHealthyPercentage</c>, you must also specify <c>MinHealthyPercentage</c>,
         /// and the difference between them cannot be greater than 100. A larger range increases
         /// the number of instances that can be replaced at the same time.</para><para>If you do not specify this property, the default is 100 percent, or the percentage
-        /// set in the instance maintenance policy for the Auto Scaling group, if defined.</para>
+        /// set in the instance maintenance policy for the Auto Scaling group, if defined.</para><important><para>Explicitly setting <c>MaxHealthyPercentage</c> to 100 is not equivalent to omitting
+        /// it. When <c>MaxHealthyPercentage</c> is explicitly set and it is mathematically impossible
+        /// to replace instances while honoring both <c>MinHealthyPercentage</c> and <c>MaxHealthyPercentage</c>
+        /// bounds simultaneously, Auto Scaling launches a new instance before terminating an
+        /// old one (temporarily exceeding the desired capacity). When <c>MaxHealthyPercentage</c>
+        /// is omitted, Auto Scaling terminates an instance and launches its replacement simultaneously.
+        /// This behavioral difference can affect workflows that depend on instance replacement
+        /// ordering.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -710,7 +710,11 @@ $ACM_Completers = {
         }
 
         # Amazon.CertificateManager.ValidationMethod
-        "New-ACMCertificate/ValidationMethod"
+        {
+            ($_ -eq "New-ACMCertificate/Options_ValidationMethod") -Or
+            ($_ -eq "Update-ACMCertificateOption/Options_ValidationMethod") -Or
+            ($_ -eq "New-ACMCertificate/ValidationMethod")
+        }
         {
             $v = "DNS","EMAIL","HTTP"
             break
@@ -734,6 +738,7 @@ $ACM_map = @{
     "ManagedBy"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "Options_Export"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "Options_ValidationMethod"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_ExactDomain"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Subdomain"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
     "PrevalidationOptions_DnsPrevalidation_DomainScope_Wildcard"=@("New-ACMAcmeDomainValidation","Update-ACMAcmeDomainValidation")
@@ -815,6 +820,7 @@ $ACM_SelectMap = @{
                "Get-ACMAcmeDomainValidationList",
                "Get-ACMAcmeEndpointList",
                "Get-ACMAcmeExternalAccountBindingList",
+               "Get-ACMCertificateDomainValidationList",
                "Get-ACMCertificateList",
                "Get-ACMCertificateTagList",
                "Get-ACMResourceTag",
@@ -15167,8 +15173,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15850,8 +15856,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16311,8 +16317,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
                "Search-CSDDocument")
 }
 
@@ -17743,6 +17749,7 @@ $CC_SelectMap = @{
                "Invoke-CCPullRequestApprovalRule",
                "Get-CCApprovalRuleTemplate",
                "Get-CCBlob",
+               "Get-CCBlobDifference",
                "Get-CCBranch",
                "Get-CCComment",
                "Get-CCCommentReaction",
@@ -21693,6 +21700,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.RehydrationType
         {
+            ($_ -eq "Start-CONNAssistantContact/PersistentChat_RehydrationType") -Or
             ($_ -eq "Start-CONNChatContact/PersistentChat_RehydrationType") -Or
             ($_ -eq "New-CONNPersistentContactAssociation/RehydrationType")
         }
@@ -22038,7 +22046,7 @@ $CONN_map = @{
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
-    "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
+    "PersistentChat_RehydrationType"=@("Start-CONNAssistantContact","Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PositiveTrendIndicator"=@("New-CONNMetric","Update-CONNMetricContent")
@@ -22439,6 +22447,7 @@ $CONN_SelectMap = @{
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
                "Send-CONNOutboundWebNotification",
+               "Start-CONNAssistantContact",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactConversationalAnalyticsJob",
@@ -29801,12 +29810,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
+               "New-DDBTable",
+               "Add-DDBIndexSchema",
                "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
                "New-DDBTableSchema",
-               "New-DDBTable")
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32604,8 +32613,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -40113,8 +40122,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -77324,16 +77333,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3MultipartUpload",
-               "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Bucket",
-               "Get-S3PreSignedURL",
-               "New-S3Bucket",
-               "Write-S3Object",
                "Read-S3Object",
+               "Remove-S3Bucket",
                "Remove-S3Object",
-               "Test-S3Bucket")
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Remove-S3MultipartUpload",
+               "Copy-S3Object",
+               "New-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -82080,6 +82089,13 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.JobType
+        "Start-SECAGPentestJob/JobType"
+        {
+            $v = "FULL","REVALIDATION"
+            break
+        }
+
         # Amazon.SecurityAgent.ManagementType
         "Get-SECAGSecurityRequirementPackList/Filter_ManagementType"
         {
@@ -82219,6 +82235,7 @@ $SECAG_map = @{
     "Filter_ProviderType"=@("Get-SECAGIntegrationList")
     "Filter_Status"=@("Get-SECAGSecurityRequirementPackList")
     "Input_Gitlab_TokenType"=@("New-SECAGIntegration")
+    "JobType"=@("Start-SECAGPentestJob")
     "MemberType"=@("Get-SECAGMembershipList","New-SECAGMembership","Remove-SECAGMembership")
     "Mode_ServiceManaged_DnsResolution"=@("New-SECAGPrivateConnection")
     "Mode_ServiceManaged_IpAddressType"=@("New-SECAGPrivateConnection")
@@ -87055,8 +87072,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93922,44 +93939,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93999,3 +93978,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

@@ -30,33 +30,35 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Returns information about the differences in a valid commit specifier (such as a branch,
-    /// tag, HEAD, commit ID, or other fully qualified reference). Results can be limited
-    /// to a specified path.
+    /// Returns a structured, line-level diff between two blob versions in a repository. The
+    /// diff is returned as an ordered list of hunks, where each hunk represents a contiguous
+    /// run of changed lines together with any surrounding unchanged context lines.
     /// 
     ///  
     /// <para>
-    /// For line-level diff details, pass the <c>beforeBlob.blobId</c> and <c>afterBlob.blobId</c>
-    /// values from a <c>Difference</c> object to <a>GetBlobDifferences</a>.
+    /// Results are paginated. Use <c>MaxResults</c> and <c>NextToken</c> to retrieve additional
+    /// pages.
+    /// </para><para>
+    /// For the typical usage workflow, see <a>GetDifferences</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CCDifferenceList")]
-    [OutputType("Amazon.CodeCommit.Model.Difference")]
-    [AWSCmdlet("Calls the AWS CodeCommit GetDifferences API operation.", Operation = new[] {"GetDifferences"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetDifferencesResponse))]
-    [AWSCmdletOutput("Amazon.CodeCommit.Model.Difference or Amazon.CodeCommit.Model.GetDifferencesResponse",
-        "This cmdlet returns a collection of Amazon.CodeCommit.Model.Difference objects.",
-        "The service call response (type Amazon.CodeCommit.Model.GetDifferencesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CCBlobDifference")]
+    [OutputType("Amazon.CodeCommit.Model.GetBlobDifferencesResponse")]
+    [AWSCmdlet("Calls the AWS CodeCommit GetBlobDifferences API operation.", Operation = new[] {"GetBlobDifferences"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetBlobDifferencesResponse))]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.GetBlobDifferencesResponse",
+        "This cmdlet returns an Amazon.CodeCommit.Model.GetBlobDifferencesResponse object containing multiple properties."
     )]
-    public partial class GetCCDifferenceListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class GetCCBlobDifferenceCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AfterCommitSpecifier
+        #region Parameter AfterBlobId
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</para>
+        /// <para>The ID of the "after" (destination) blob in the diff. Typically the value of <c>afterBlob.blobId</c>
+        /// from a <c>Difference</c> object returned by <a>GetDifferences</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,50 +69,49 @@ namespace Amazon.PowerShell.Cmdlets.CC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AfterCommitSpecifier { get; set; }
+        public System.String AfterBlobId { get; set; }
         #endregion
         
-        #region Parameter AfterPath
+        #region Parameter BeforeBlobId
         /// <summary>
         /// <para>
-        /// <para>The file path in which to check differences. Limits the results to this path. Can
-        /// also be used to specify the changed name of a directory or folder, if it has changed.
-        /// If not specified, differences are shown for all paths.</para>
+        /// <para>The ID of the "before" (source) blob in the diff. Typically the value of <c>beforeBlob.blobId</c>
+        /// from a <c>Difference</c> object returned by <a>GetDifferences</a>.</para><para>If you do not specify a value, the operation returns a diff against an empty before-state.
+        /// This is equivalent to treating the file as newly added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AfterPath { get; set; }
+        public System.String BeforeBlobId { get; set; }
         #endregion
         
-        #region Parameter BeforeCommitSpecifier
+        #region Parameter ContextLine
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
-        /// (for example, the full commit ID). Optional. If not specified, all changes before
-        /// the <c>afterCommitSpecifier</c> value are shown. If you do not use <c>beforeCommitSpecifier</c>
-        /// in your request, consider limiting the results with <c>maxResults</c>.</para>
+        /// <para>The number of unchanged lines of context to include before and after each block of
+        /// changes in a hunk. Valid values are 0 through 20. Defaults to <c>3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BeforeCommitSpecifier { get; set; }
+        [Alias("ContextLines")]
+        public System.Int32? ContextLine { get; set; }
         #endregion
         
-        #region Parameter BeforePath
+        #region Parameter IgnoreWhitespace
         /// <summary>
         /// <para>
-        /// <para>The file path in which to check for differences. Limits the results to this path.
-        /// Can also be used to specify the previous name of a directory or folder. If <c>beforePath</c>
-        /// and <c>afterPath</c> are not specified, differences are shown for all paths.</para>
+        /// <para>Specifies whether to ignore whitespace-only changes when computing the diff. When
+        /// <c>true</c>, the operation treats lines that differ only in whitespace as unchanged.
+        /// Defaults to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BeforePath { get; set; }
+        public System.Boolean? IgnoreWhitespace { get; set; }
         #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository where you want to get differences.</para>
+        /// <para>The name of the repository that contains the blobs to compare.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,19 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A non-zero, non-negative integer used to limit the number of returned results.</para>
+        /// <para>The maximum number of <c>DiffHunk</c> entries to return in a single response page.
+        /// Defaults to <c>100</c>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
-        /// results.</para>
+        /// <para>An enumeration token that returns the next batch of results when present in a request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -152,13 +158,13 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Differences'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.GetDifferencesResponse).
-        /// Specifying the name of a property of type Amazon.CodeCommit.Model.GetDifferencesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.GetBlobDifferencesResponse).
+        /// Specifying the name of a property of type Amazon.CodeCommit.Model.GetBlobDifferencesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Differences";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -187,20 +193,29 @@ namespace Amazon.PowerShell.Cmdlets.CC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.GetDifferencesResponse, GetCCDifferenceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.GetBlobDifferencesResponse, GetCCBlobDifferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AfterCommitSpecifier = this.AfterCommitSpecifier;
+            context.AfterBlobId = this.AfterBlobId;
             #if MODULAR
-            if (this.AfterCommitSpecifier == null && ParameterWasBound(nameof(this.AfterCommitSpecifier)))
+            if (this.AfterBlobId == null && ParameterWasBound(nameof(this.AfterBlobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AfterCommitSpecifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AfterBlobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AfterPath = this.AfterPath;
-            context.BeforeCommitSpecifier = this.BeforeCommitSpecifier;
-            context.BeforePath = this.BeforePath;
+            context.BeforeBlobId = this.BeforeBlobId;
+            context.ContextLine = this.ContextLine;
+            context.IgnoreWhitespace = this.IgnoreWhitespace;
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             context.RepositoryName = this.RepositoryName;
             #if MODULAR
@@ -225,27 +240,27 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CodeCommit.Model.GetDifferencesRequest();
+            var request = new Amazon.CodeCommit.Model.GetBlobDifferencesRequest();
             
-            if (cmdletContext.AfterCommitSpecifier != null)
+            if (cmdletContext.AfterBlobId != null)
             {
-                request.AfterCommitSpecifier = cmdletContext.AfterCommitSpecifier;
+                request.AfterBlobId = cmdletContext.AfterBlobId;
             }
-            if (cmdletContext.AfterPath != null)
+            if (cmdletContext.BeforeBlobId != null)
             {
-                request.AfterPath = cmdletContext.AfterPath;
+                request.BeforeBlobId = cmdletContext.BeforeBlobId;
             }
-            if (cmdletContext.BeforeCommitSpecifier != null)
+            if (cmdletContext.ContextLine != null)
             {
-                request.BeforeCommitSpecifier = cmdletContext.BeforeCommitSpecifier;
+                request.ContextLines = cmdletContext.ContextLine.Value;
             }
-            if (cmdletContext.BeforePath != null)
+            if (cmdletContext.IgnoreWhitespace != null)
             {
-                request.BeforePath = cmdletContext.BeforePath;
+                request.IgnoreWhitespace = cmdletContext.IgnoreWhitespace.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.RepositoryName != null)
             {
@@ -308,12 +323,12 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeCommit.Model.GetDifferencesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetDifferencesRequest request)
+        private Amazon.CodeCommit.Model.GetBlobDifferencesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetBlobDifferencesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "GetDifferences");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "GetBlobDifferences");
             try
             {
-                return client.GetDifferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetBlobDifferencesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -330,15 +345,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AfterCommitSpecifier { get; set; }
-            public System.String AfterPath { get; set; }
-            public System.String BeforeCommitSpecifier { get; set; }
-            public System.String BeforePath { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String AfterBlobId { get; set; }
+            public System.String BeforeBlobId { get; set; }
+            public System.Int32? ContextLine { get; set; }
+            public System.Boolean? IgnoreWhitespace { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String RepositoryName { get; set; }
-            public System.Func<Amazon.CodeCommit.Model.GetDifferencesResponse, GetCCDifferenceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Differences;
+            public System.Func<Amazon.CodeCommit.Model.GetBlobDifferencesResponse, GetCCBlobDifferenceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

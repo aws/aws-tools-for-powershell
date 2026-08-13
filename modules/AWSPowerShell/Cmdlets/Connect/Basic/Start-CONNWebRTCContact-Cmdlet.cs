@@ -184,6 +184,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.ScreenShareCapability Customer_ScreenShare { get; set; }
         #endregion
         
+        #region Parameter SegmentAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Use this map to specify system-defined attributes for the WebRTC contact segment.
+        /// Use the <c>connect:Subtype</c> attribute to specify the channel subtype, such as <c>connect:WebRTC</c>.</para><para>Attribute keys can contain only alphanumeric characters, hyphens, and underscores.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentAttributes")]
+        public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
         #region Parameter Agent_Video
         /// <summary>
         /// <para>
@@ -314,6 +330,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 }
             }
             context.RelatedContactId = this.RelatedContactId;
+            if (this.SegmentAttribute != null)
+            {
+                context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SegmentAttribute.Keys)
+                {
+                    context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -456,6 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.RelatedContactId = cmdletContext.RelatedContactId;
             }
+            if (cmdletContext.SegmentAttribute != null)
+            {
+                request.SegmentAttributes = cmdletContext.SegmentAttribute;
+            }
             
             CmdletOutput output;
             
@@ -523,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ParticipantDetails_DisplayName { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
             public System.Func<Amazon.Connect.Model.StartWebRTCContactResponse, StartCONNWebRTCContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

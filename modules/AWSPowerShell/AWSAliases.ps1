@@ -203,6 +203,9 @@ Set-Alias -Name ACM-ListAcmeEndpoints -Value Get-ACMAcmeEndpointList
 Set-Alias -Name List-ACMAcmeExternalAccountBindings -Value Get-ACMAcmeExternalAccountBindingList
 Set-Alias -Name List-ACMAcmeExternalAccountBindingList -Value Get-ACMAcmeExternalAccountBindingList
 Set-Alias -Name ACM-ListAcmeExternalAccountBindings -Value Get-ACMAcmeExternalAccountBindingList
+Set-Alias -Name List-ACMCertificateDomainValidations -Value Get-ACMCertificateDomainValidationList
+Set-Alias -Name List-ACMCertificateDomainValidationList -Value Get-ACMCertificateDomainValidationList
+Set-Alias -Name ACM-ListCertificateDomainValidations -Value Get-ACMCertificateDomainValidationList
 Set-Alias -Name List-ACMCertificates -Value Get-ACMCertificateList
 Set-Alias -Name List-ACMCertificateList -Value Get-ACMCertificateList
 Set-Alias -Name ACM-ListCertificates -Value Get-ACMCertificateList
@@ -6225,6 +6228,8 @@ Set-Alias -Name Evaluate-CCPullRequestApprovalRule -Value Invoke-CCPullRequestAp
 Set-Alias -Name CC-EvaluatePullRequestApprovalRules -Value Invoke-CCPullRequestApprovalRule
 Set-Alias -Name CC-GetApprovalRuleTemplate -Value Get-CCApprovalRuleTemplate
 Set-Alias -Name CC-GetBlob -Value Get-CCBlob
+Set-Alias -Name Get-CCBlobDifferences -Value Get-CCBlobDifference
+Set-Alias -Name CC-GetBlobDifferences -Value Get-CCBlobDifference
 Set-Alias -Name CC-GetBranch -Value Get-CCBranch
 Set-Alias -Name CC-GetComment -Value Get-CCComment
 Set-Alias -Name Get-CCCommentReactions -Value Get-CCCommentReaction
@@ -8224,6 +8229,7 @@ Set-Alias -Name CONN-SearchWorkspaces -Value Search-CONNWorkspace
 Set-Alias -Name CONN-SendChatIntegrationEvent -Value Send-CONNChatIntegrationEvent
 Set-Alias -Name CONN-SendOutboundEmail -Value Send-CONNOutboundEmail
 Set-Alias -Name CONN-SendOutboundWebNotification -Value Send-CONNOutboundWebNotification
+Set-Alias -Name CONN-StartAssistantContact -Value Start-CONNAssistantContact
 Set-Alias -Name CONN-StartAttachedFileUpload -Value Start-CONNAttachedFileUpload
 Set-Alias -Name CONN-StartChatContact -Value Start-CONNChatContact
 Set-Alias -Name CONN-StartContactConversationalAnalyticsJob -Value Start-CONNContactConversationalAnalyticsJob
