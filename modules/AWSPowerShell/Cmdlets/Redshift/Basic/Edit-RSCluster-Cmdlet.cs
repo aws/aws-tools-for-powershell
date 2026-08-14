@@ -350,7 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The new password for the cluster admin user. This change is asynchronously applied
         /// as soon as possible. Between the time of the request and the completion of the request,
         /// the <c>MasterUserPassword</c> element exists in the <c>PendingModifiedValues</c> element
-        /// of the operation response. </para><para>You can't use <c>MasterUserPassword</c> if <c>ManageMasterPassword</c> is <c>true</c>.</para><note><para>Operations never return the password, so this operation provides a way to regain access
+        /// of the operation response. </para><para>You can't use <c>MasterUserPassword</c> if <c>ManageMasterPassword</c> is <c>true</c>.</para><para>If your admin user account is locked, this operation also unlocks your account and
+        /// resets the failed-login counter. This option is available only when account lockout
+        /// security is enabled for the cluster.</para><note><para>Operations never return the password, so this operation provides a way to regain access
         /// to the admin user account for a cluster if the password is lost.</para></note><para>Default: Uses existing setting.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <c>'</c> (single quote),
         /// <c>"</c> (double quote), <c>\</c>, <c>/</c>, or <c>@</c>.</para></li></ul>
         /// </para>

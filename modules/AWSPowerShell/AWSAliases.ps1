@@ -2879,6 +2879,8 @@ Set-Alias -Name BCMD-UpdateScheduledReport -Value Update-BCMDScheduledReport
 Set-Alias -Name Retrieve-BARStream -Value Invoke-BARAgenticRetrieveStream
 Set-Alias -Name Retrieve-BARAgenticRetrieveStream -Value Invoke-BARAgenticRetrieveStream
 Set-Alias -Name BAR-AgenticRetrieveStream -Value Invoke-BARAgenticRetrieveStream
+Set-Alias -Name Check-BARIngestedDocumentAcl -Value Test-BARIngestedDocumentAcl
+Set-Alias -Name BAR-CheckIngestedDocumentAcl -Value Test-BARIngestedDocumentAcl
 Set-Alias -Name Create-BARInvocation -Value New-BARInvocation
 Set-Alias -Name BAR-CreateInvocation -Value New-BARInvocation
 Set-Alias -Name Create-BARSession -Value New-BARSession
@@ -2896,6 +2898,7 @@ Set-Alias -Name BAR-GetAgentMemory -Value Get-BARAgentMemory
 Set-Alias -Name BAR-GetDocumentContent -Value Get-BARDocumentContent
 Set-Alias -Name BAR-GetExecutionFlowSnapshot -Value Get-BARExecutionFlowSnapshot
 Set-Alias -Name BAR-GetFlowExecution -Value Get-BARFlowExecution
+Set-Alias -Name BAR-GetIngestedDocumentAcl -Value Get-BARIngestedDocumentAcl
 Set-Alias -Name BAR-GetInvocationStep -Value Get-BARInvocationStep
 Set-Alias -Name BAR-GetSession -Value Get-BARSession
 Set-Alias -Name BAR-InvokeAgent -Value Invoke-BARAgent

@@ -54,6 +54,22 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String AgentName { get; set; }
         #endregion
         
+        #region Parameter PaymentInput_Mpp_BuyerPaysGasFee
+        /// <summary>
+        /// <para>
+        /// <para>Authorizes the service to sign a payment whose blockchain network (gas) fees are charged
+        /// to your wallet, on top of the payment amount.</para><para>The challenge indicates who sponsors the network fees. When the challenge does not
+        /// sponsor them, the service signs the payment only if this field is <c>true</c>. Otherwise
+        /// it returns a validation error, so you can decide whether to pay the fees or obtain
+        /// a challenge that sponsors them.</para><para>Optional. When omitted or <c>false</c>, you decline to pay network fees. This field
+        /// has no effect on challenges that already sponsor the fees.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PaymentInput_Mpp_BuyerPaysGasFees")]
+        public System.Boolean? PaymentInput_Mpp_BuyerPaysGasFee { get; set; }
+        #endregion
+        
         #region Parameter PaymentInput_CryptoX402_Payload
         /// <summary>
         /// <para>
@@ -132,6 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public Amazon.BedrockAgentCore.PaymentType PaymentType { get; set; }
         #endregion
         
+        #region Parameter PaymentInput_CryptoX402_Permit2AllowanceLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum on-chain Permit2 allowance to grant before signing the payment authorization,
+        /// in the asset's smallest denomination. This field is valid only for the <c>upto</c>
+        /// (metered) scheme; supplying it for the <c>exact</c> scheme returns a validation error.</para><para>When set, the service approves an ERC-20 allowance for this amount before processing
+        /// the payment. The approval sets, rather than adds to, the wallet's allowance. Set this
+        /// field only when the wallet needs approving, for example on its first <c>upto</c> payment,
+        /// to avoid a redundant on-chain transaction. Omit the field to skip allowance handling.
+        /// This is the default, and the only behavior for the <c>exact</c> scheme.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PaymentInput_CryptoX402_Permit2AllowanceLimit { get; set; }
+        #endregion
+        
         #region Parameter UserId
         /// <summary>
         /// <para>
@@ -150,6 +182,33 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PaymentInput_CryptoX402_Version { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_Mpp_Version
+        /// <summary>
+        /// <para>
+        /// <para>The MPP protocol version, for example "1" or "2".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PaymentInput_Mpp_Version { get; set; }
+        #endregion
+        
+        #region Parameter PaymentInput_Mpp_WwwAuthenticateHeader
+        /// <summary>
+        /// <para>
+        /// <para>The raw <c>WWW-Authenticate: Payment</c> header value from the 402 response, passed
+        /// verbatim. Provide exactly one entry. The service uses this value to generate the payment
+        /// credential.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PaymentInput_Mpp_WwwAuthenticateHeaders")]
+        public System.String[] PaymentInput_Mpp_WwwAuthenticateHeader { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -212,7 +271,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.AgentName = this.AgentName;
             context.ClientToken = this.ClientToken;
             context.PaymentInput_CryptoX402_Payload = this.PaymentInput_CryptoX402_Payload;
+            context.PaymentInput_CryptoX402_Permit2AllowanceLimit = this.PaymentInput_CryptoX402_Permit2AllowanceLimit;
             context.PaymentInput_CryptoX402_Version = this.PaymentInput_CryptoX402_Version;
+            context.PaymentInput_Mpp_BuyerPaysGasFee = this.PaymentInput_Mpp_BuyerPaysGasFee;
+            context.PaymentInput_Mpp_Version = this.PaymentInput_Mpp_Version;
+            if (this.PaymentInput_Mpp_WwwAuthenticateHeader != null)
+            {
+                context.PaymentInput_Mpp_WwwAuthenticateHeader = new List<System.String>(this.PaymentInput_Mpp_WwwAuthenticateHeader);
+            }
             context.PaymentInstrumentId = this.PaymentInstrumentId;
             #if MODULAR
             if (this.PaymentInstrumentId == null && ParameterWasBound(nameof(this.PaymentInstrumentId)))
@@ -285,6 +351,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestPaymentInput_paymentInput_CryptoX402.Payload = requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Payload.Value;
                 requestPaymentInput_paymentInput_CryptoX402IsNull = false;
             }
+            System.String requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Permit2AllowanceLimit = null;
+            if (cmdletContext.PaymentInput_CryptoX402_Permit2AllowanceLimit != null)
+            {
+                requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Permit2AllowanceLimit = cmdletContext.PaymentInput_CryptoX402_Permit2AllowanceLimit;
+            }
+            if (requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Permit2AllowanceLimit != null)
+            {
+                requestPaymentInput_paymentInput_CryptoX402.Permit2AllowanceLimit = requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Permit2AllowanceLimit;
+                requestPaymentInput_paymentInput_CryptoX402IsNull = false;
+            }
             System.String requestPaymentInput_paymentInput_CryptoX402_paymentInput_CryptoX402_Version = null;
             if (cmdletContext.PaymentInput_CryptoX402_Version != null)
             {
@@ -303,6 +379,51 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestPaymentInput_paymentInput_CryptoX402 != null)
             {
                 request.PaymentInput.CryptoX402 = requestPaymentInput_paymentInput_CryptoX402;
+                requestPaymentInputIsNull = false;
+            }
+            Amazon.BedrockAgentCore.Model.MppPaymentInput requestPaymentInput_paymentInput_Mpp = null;
+            
+             // populate Mpp
+            var requestPaymentInput_paymentInput_MppIsNull = true;
+            requestPaymentInput_paymentInput_Mpp = new Amazon.BedrockAgentCore.Model.MppPaymentInput();
+            System.Boolean? requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_BuyerPaysGasFee = null;
+            if (cmdletContext.PaymentInput_Mpp_BuyerPaysGasFee != null)
+            {
+                requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_BuyerPaysGasFee = cmdletContext.PaymentInput_Mpp_BuyerPaysGasFee.Value;
+            }
+            if (requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_BuyerPaysGasFee != null)
+            {
+                requestPaymentInput_paymentInput_Mpp.BuyerPaysGasFees = requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_BuyerPaysGasFee.Value;
+                requestPaymentInput_paymentInput_MppIsNull = false;
+            }
+            System.String requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_Version = null;
+            if (cmdletContext.PaymentInput_Mpp_Version != null)
+            {
+                requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_Version = cmdletContext.PaymentInput_Mpp_Version;
+            }
+            if (requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_Version != null)
+            {
+                requestPaymentInput_paymentInput_Mpp.Version = requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_Version;
+                requestPaymentInput_paymentInput_MppIsNull = false;
+            }
+            List<System.String> requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_WwwAuthenticateHeader = null;
+            if (cmdletContext.PaymentInput_Mpp_WwwAuthenticateHeader != null)
+            {
+                requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_WwwAuthenticateHeader = cmdletContext.PaymentInput_Mpp_WwwAuthenticateHeader;
+            }
+            if (requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_WwwAuthenticateHeader != null)
+            {
+                requestPaymentInput_paymentInput_Mpp.WwwAuthenticateHeaders = requestPaymentInput_paymentInput_Mpp_paymentInput_Mpp_WwwAuthenticateHeader;
+                requestPaymentInput_paymentInput_MppIsNull = false;
+            }
+             // determine if requestPaymentInput_paymentInput_Mpp should be set to null
+            if (requestPaymentInput_paymentInput_MppIsNull)
+            {
+                requestPaymentInput_paymentInput_Mpp = null;
+            }
+            if (requestPaymentInput_paymentInput_Mpp != null)
+            {
+                request.PaymentInput.Mpp = requestPaymentInput_paymentInput_Mpp;
                 requestPaymentInputIsNull = false;
             }
              // determine if request.PaymentInput should be set to null
@@ -388,7 +509,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String AgentName { get; set; }
             public System.String ClientToken { get; set; }
             public System.Management.Automation.PSObject PaymentInput_CryptoX402_Payload { get; set; }
+            public System.String PaymentInput_CryptoX402_Permit2AllowanceLimit { get; set; }
             public System.String PaymentInput_CryptoX402_Version { get; set; }
+            public System.Boolean? PaymentInput_Mpp_BuyerPaysGasFee { get; set; }
+            public System.String PaymentInput_Mpp_Version { get; set; }
+            public List<System.String> PaymentInput_Mpp_WwwAuthenticateHeader { get; set; }
             public System.String PaymentInstrumentId { get; set; }
             public System.String PaymentManagerArn { get; set; }
             public System.String PaymentSessionId { get; set; }

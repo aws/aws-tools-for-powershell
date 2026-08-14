@@ -212,7 +212,7 @@ $BAC_Completers = {
         # Amazon.BedrockAgentCore.PaymentType
         "Invoke-BACPayment/PaymentType"
         {
-            $v = "CRYPTO_X402"
+            $v = "CRYPTO_X402","MPP"
             break
         }
 

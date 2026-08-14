@@ -199,6 +199,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.HostingEnvironment[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting
+        /// sensitive payment manager data at rest. If you don't specify a key, the data is encrypted
+        /// with an Amazon Web Services owned key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -489,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -783,6 +796,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -869,6 +886,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType AuthorizerType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

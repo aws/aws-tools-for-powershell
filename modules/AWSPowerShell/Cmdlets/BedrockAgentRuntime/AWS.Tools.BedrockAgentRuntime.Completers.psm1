@@ -375,6 +375,7 @@ $BAR_SelectCompleters = {
 
 $BAR_SelectMap = @{
     "Select"=@("Invoke-BARAgenticRetrieveStream",
+               "Test-BARIngestedDocumentAcl",
                "New-BARInvocation",
                "New-BARSession",
                "Remove-BARAgentMemory",
@@ -385,6 +386,7 @@ $BAR_SelectMap = @{
                "Get-BARDocumentContent",
                "Get-BARExecutionFlowSnapshot",
                "Get-BARFlowExecution",
+               "Get-BARIngestedDocumentAcl",
                "Get-BARInvocationStep",
                "Get-BARSession",
                "Invoke-BARAgent",

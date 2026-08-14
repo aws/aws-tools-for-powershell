@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.311.0",
+    "ProductVersion"    : "4.0.312.0",
     "CoreVersion"       : "4.0.101.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "4.0.101.3",
+            "Version" : "4.0.101.4",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.103.2",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.108.1",
+            "Version" : "4.0.109.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -2284,7 +2284,7 @@
             "InPreview"               : false
         },
         "RedshiftServerless"                  : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.101.6",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -2740,7 +2740,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "4.0.100.8",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3036,7 +3036,7 @@
             "InPreview"               : false
         },
         "ObservabilityAdmin"                  : {
-            "Version" : "4.0.103.1",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.104.0",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.108.1",
+            "Version" : "4.0.109.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3236,7 +3236,7 @@
             "InPreview"               : false
         },
         "MWAAServerless"                      : {
-            "Version" : "4.0.100.8",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.0"
@@ -3481,15 +3481,6 @@
             "Version" : "4.0.0.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
-            },
-            "InPreview"               : false
-        },
-        "Extensions.Bedrock.MEAI" : {
-            "Version" : "4.0.101.8",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.101.0",
-                "BedrockRuntime" : "4.0.101.1"
             },
             "InPreview"               : false
         },

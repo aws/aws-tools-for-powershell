@@ -75,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The password of the administrator for the first database created in the namespace.
-        /// This parameter must be updated together with <c>adminUsername</c>.</para><para>You can't use <c>adminUserPassword</c> if <c>manageAdminPassword</c> is true. </para>
+        /// This parameter must be updated together with <c>adminUsername</c>.</para><para>You can't use <c>adminUserPassword</c> if <c>manageAdminPassword</c> is true. </para><para>If your admin user account is locked, this operation also unlocks your account and
+        /// resets the failed-login counter. This option is available only when account lockout
+        /// security is enabled for the namespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

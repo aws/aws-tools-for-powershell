@@ -186,6 +186,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.Model.HostingEnvironment[] AuthorizerConfiguration_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The updated Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt
+        /// sensitive payment manager data at rest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter PaymentManagerId
         /// <summary>
         /// <para>
@@ -442,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.AuthorizerType = this.AuthorizerType;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.KmsKeyArn = this.KmsKeyArn;
             context.PaymentManagerId = this.PaymentManagerId;
             #if MODULAR
             if (this.PaymentManagerId == null && ParameterWasBound(nameof(this.PaymentManagerId)))
@@ -722,6 +734,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.PaymentManagerId != null)
             {
                 request.PaymentManagerId = cmdletContext.PaymentManagerId;
@@ -804,6 +820,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Amazon.BedrockAgentCoreControl.PaymentsAuthorizerType AuthorizerType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public System.String PaymentManagerId { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdatePaymentManagerResponse, UpdateBACCPaymentManagerCmdlet, object> Select { get; set; } =

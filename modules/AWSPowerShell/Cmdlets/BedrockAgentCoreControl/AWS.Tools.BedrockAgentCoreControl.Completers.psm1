@@ -362,6 +362,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.PaymentConnectorProvisionMode
+        "New-BACCPaymentConnector/ProvisionMode"
+        {
+            $v = "MANUAL","QUICK_CREATE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.PaymentConnectorType
         {
             ($_ -eq "New-BACCPaymentConnector/Type") -Or
@@ -575,6 +582,7 @@ $BACC_map = @{
     "ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProvisionMode"=@("New-BACCPaymentConnector")
     "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")

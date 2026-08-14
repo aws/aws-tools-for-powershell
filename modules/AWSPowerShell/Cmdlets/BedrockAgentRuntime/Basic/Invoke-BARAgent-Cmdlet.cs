@@ -30,40 +30,7 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// <note></note><para>
-    /// Sends a prompt for the agent to process and respond to. Note the following fields
-    /// for the request:
-    /// 
-    ///  <ul><li><para>
-    /// To continue the same conversation with an agent, use the same <c>sessionId</c> value
-    /// in the request.
-    /// </para></li><li><para>
-    /// To activate trace enablement, turn <c>enableTrace</c> to <c>true</c>. Trace enablement
-    /// helps you follow the agent's reasoning process that led it to the information it processed,
-    /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
-    /// enablement</a>.
-    /// </para></li><li><para>
-    /// End a conversation by setting <c>endSession</c> to <c>true</c>.
-    /// </para></li><li><para>
-    /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
-    /// or, if you configured an action group to return control, results from invocation of
-    /// the action group.
-    /// </para></li></ul><para>
-    /// The response contains both <b>chunk</b> and <b>trace</b> attributes.
-    /// </para><para>
-    /// The final response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
-    /// The <c>InvokeAgent</c> returns one chunk for the entire interaction.
-    /// </para><ul><li><para>
-    /// The <c>attribution</c> object contains citations for parts of the response.
-    /// </para></li><li><para>
-    /// If you set <c>enableTrace</c> to <c>true</c> in the request, you can trace the agent's
-    /// steps and reasoning process that led it to the response.
-    /// </para></li><li><para>
-    /// If the action predicted was configured to return control, the response returns parameters
-    /// for the action, elicited from the user, in the <c>returnControl</c> field.
-    /// </para></li><li><para>
-    /// Errors are also surfaced in the response.
-    /// </para></li></ul></para>
+    /// Amazon.BedrockAgentRuntime.IAmazonBedrockAgentRuntime.InvokeAgent
     /// </summary>
     [Cmdlet("Invoke", "BARAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse")]

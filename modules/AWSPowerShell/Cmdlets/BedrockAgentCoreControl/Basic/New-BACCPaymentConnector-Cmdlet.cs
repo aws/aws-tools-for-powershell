@@ -112,6 +112,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String PaymentManagerId { get; set; }
         #endregion
         
+        #region Parameter ProvisionMode
+        /// <summary>
+        /// <para>
+        /// <para>The provision mode for creating the payment connector. If you don't specify a value,
+        /// the default is <c>MANUAL</c>.</para><ul><li><para><c>MANUAL</c> - You provide the credential provider configurations directly.</para></li><li><para><c>QUICK_CREATE</c> - The service orchestrates OAuth consent and provisions the credential
+        /// provider for you.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.PaymentConnectorProvisionMode")]
+        public Amazon.BedrockAgentCoreControl.PaymentConnectorProvisionMode ProvisionMode { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -220,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter PaymentManagerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProvisionMode = this.ProvisionMode;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -262,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.PaymentManagerId != null)
             {
                 request.PaymentManagerId = cmdletContext.PaymentManagerId;
+            }
+            if (cmdletContext.ProvisionMode != null)
+            {
+                request.ProvisionMode = cmdletContext.ProvisionMode;
             }
             if (cmdletContext.Type != null)
             {
@@ -327,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String PaymentManagerId { get; set; }
+            public Amazon.BedrockAgentCoreControl.PaymentConnectorProvisionMode ProvisionMode { get; set; }
             public Amazon.BedrockAgentCoreControl.PaymentConnectorType Type { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreatePaymentConnectorResponse, NewBACCPaymentConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

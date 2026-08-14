@@ -1,4 +1,25 @@
-﻿### 5.0.276 (2026-08-13 19:05Z)
+﻿### 5.0.277 (2026-08-14 19:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.312.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAAServerless
+    * Modified cmdlet New-MWAASWorkflow: added parameters Code_S3Location_Bucket, Code_S3Location_ObjectKey and Code_S3Location_VersionId.
+    * Modified cmdlet Update-MWAASWorkflow: added parameters Code_S3Location_Bucket, Code_S3Location_ObjectKey and Code_S3Location_VersionId.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCPaymentConnector: added parameter ProvisionMode.
+    * Modified cmdlet New-BACCPaymentManager: added parameter KmsKeyArn.
+    * Modified cmdlet Update-BACCPaymentManager: added parameter KmsKeyArn.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Get-BARIngestedDocumentAcl leveraging the GetIngestedDocumentAcl service API.
+    * Added cmdlet Test-BARIngestedDocumentAcl leveraging the CheckIngestedDocumentAcl service API.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACPayment: added parameters PaymentInput_CryptoX402_Permit2AllowanceLimit, PaymentInput_Mpp_BuyerPaysGasFee, PaymentInput_Mpp_Version and PaymentInput_Mpp_WwwAuthenticateHeader.
+  * Amazon CloudWatch Observability Admin Service
+    * Modified cmdlet New-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn and Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy.
+    * Modified cmdlet Update-CWOADMNCentralizationRuleForOrganization: added parameters Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn and Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy.
+  * Amazon Glue
+    * Modified cmdlet Add-GLUEGlossaryTerm: added parameters ItemIdentifier and IterableFormName.
+    * Modified cmdlet Unregister-GLUEGlossaryTerm: added parameters ItemIdentifier and IterableFormName.
+
+### 5.0.276 (2026-08-13 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.311.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet Stop-ASInstanceInAutoScalingGroup: added parameters AutoScalingGroupName and InstanceIds.

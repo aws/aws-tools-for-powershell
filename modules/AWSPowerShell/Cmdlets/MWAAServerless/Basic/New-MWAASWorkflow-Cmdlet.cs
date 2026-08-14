@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Code_S3Location_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3Location_Bucket { get; set; }
+        #endregion
+        
         #region Parameter DefinitionS3Location_Bucket
         /// <summary>
         /// <para>
@@ -132,6 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Code_S3Location_ObjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The key of the code artifact within the Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3Location_ObjectKey { get; set; }
         #endregion
         
         #region Parameter DefinitionS3Location_ObjectKey
@@ -242,6 +262,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         public Amazon.MWAAServerless.EncryptionType EncryptionConfiguration_Type { get; set; }
         #endregion
         
+        #region Parameter Code_S3Location_VersionId
+        /// <summary>
+        /// <para>
+        /// <para>The version ID of the object in Amazon S3. If not specified, the latest version is
+        /// used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_S3Location_VersionId { get; set; }
+        #endregion
+        
         #region Parameter DefinitionS3Location_VersionId
         /// <summary>
         /// <para>
@@ -316,6 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.Code_S3Location_Bucket = this.Code_S3Location_Bucket;
+            context.Code_S3Location_ObjectKey = this.Code_S3Location_ObjectKey;
+            context.Code_S3Location_VersionId = this.Code_S3Location_VersionId;
             context.DefinitionS3Location_Bucket = this.DefinitionS3Location_Bucket;
             #if MODULAR
             if (this.DefinitionS3Location_Bucket == null && ParameterWasBound(nameof(this.DefinitionS3Location_Bucket)))
@@ -386,6 +420,60 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate Code
+            var requestCodeIsNull = true;
+            request.Code = new Amazon.MWAAServerless.Model.Code();
+            Amazon.MWAAServerless.Model.S3Location requestCode_code_S3Location = null;
+            
+             // populate S3Location
+            var requestCode_code_S3LocationIsNull = true;
+            requestCode_code_S3Location = new Amazon.MWAAServerless.Model.S3Location();
+            System.String requestCode_code_S3Location_code_S3Location_Bucket = null;
+            if (cmdletContext.Code_S3Location_Bucket != null)
+            {
+                requestCode_code_S3Location_code_S3Location_Bucket = cmdletContext.Code_S3Location_Bucket;
+            }
+            if (requestCode_code_S3Location_code_S3Location_Bucket != null)
+            {
+                requestCode_code_S3Location.Bucket = requestCode_code_S3Location_code_S3Location_Bucket;
+                requestCode_code_S3LocationIsNull = false;
+            }
+            System.String requestCode_code_S3Location_code_S3Location_ObjectKey = null;
+            if (cmdletContext.Code_S3Location_ObjectKey != null)
+            {
+                requestCode_code_S3Location_code_S3Location_ObjectKey = cmdletContext.Code_S3Location_ObjectKey;
+            }
+            if (requestCode_code_S3Location_code_S3Location_ObjectKey != null)
+            {
+                requestCode_code_S3Location.ObjectKey = requestCode_code_S3Location_code_S3Location_ObjectKey;
+                requestCode_code_S3LocationIsNull = false;
+            }
+            System.String requestCode_code_S3Location_code_S3Location_VersionId = null;
+            if (cmdletContext.Code_S3Location_VersionId != null)
+            {
+                requestCode_code_S3Location_code_S3Location_VersionId = cmdletContext.Code_S3Location_VersionId;
+            }
+            if (requestCode_code_S3Location_code_S3Location_VersionId != null)
+            {
+                requestCode_code_S3Location.VersionId = requestCode_code_S3Location_code_S3Location_VersionId;
+                requestCode_code_S3LocationIsNull = false;
+            }
+             // determine if requestCode_code_S3Location should be set to null
+            if (requestCode_code_S3LocationIsNull)
+            {
+                requestCode_code_S3Location = null;
+            }
+            if (requestCode_code_S3Location != null)
+            {
+                request.Code.S3Location = requestCode_code_S3Location;
+                requestCodeIsNull = false;
+            }
+             // determine if request.Code should be set to null
+            if (requestCodeIsNull)
+            {
+                request.Code = null;
             }
             
              // populate DefinitionS3Location
@@ -583,6 +671,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Code_S3Location_Bucket { get; set; }
+            public System.String Code_S3Location_ObjectKey { get; set; }
+            public System.String Code_S3Location_VersionId { get; set; }
             public System.String DefinitionS3Location_Bucket { get; set; }
             public System.String DefinitionS3Location_ObjectKey { get; set; }
             public System.String DefinitionS3Location_VersionId { get; set; }

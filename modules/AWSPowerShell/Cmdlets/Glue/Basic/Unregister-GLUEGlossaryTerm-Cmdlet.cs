@@ -83,6 +83,29 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] GlossaryTermIdentifier { get; set; }
         #endregion
         
+        #region Parameter ItemIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the item within the iterable form. Required when <c>iterableFormName</c>
+        /// is specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ItemIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter IterableFormName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the iterable form. When specified along with <c>itemIdentifier</c>, the
+        /// glossary terms are disassociated from an item within the iterable form rather than
+        /// the asset itself.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IterableFormName { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -158,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter GlossaryTermIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ItemIdentifier = this.ItemIdentifier;
+            context.IterableFormName = this.IterableFormName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,6 +210,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.GlossaryTermIdentifier != null)
             {
                 request.GlossaryTermIdentifiers = cmdletContext.GlossaryTermIdentifier;
+            }
+            if (cmdletContext.ItemIdentifier != null)
+            {
+                request.ItemIdentifier = cmdletContext.ItemIdentifier;
+            }
+            if (cmdletContext.IterableFormName != null)
+            {
+                request.IterableFormName = cmdletContext.IterableFormName;
             }
             
             CmdletOutput output;
@@ -244,6 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String AssetIdentifier { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> GlossaryTermIdentifier { get; set; }
+            public System.String ItemIdentifier { get; set; }
+            public System.String IterableFormName { get; set; }
             public System.Func<Amazon.Glue.Model.DisassociateGlossaryTermsResponse, UnregisterGLUEGlossaryTermCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

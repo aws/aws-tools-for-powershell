@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BARFlowExecution', 
         'Get-BARFlowExecutionEventList', 
         'Get-BARFlowExecutionList', 
+        'Get-BARIngestedDocumentAcl', 
         'Get-BARInvocationList', 
         'Get-BARInvocationStep', 
         'Get-BARInvocationStepList', 
@@ -118,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BARSession', 
         'Start-BARFlowExecution', 
         'Stop-BARFlowExecution', 
+        'Test-BARIngestedDocumentAcl', 
         'Update-BARSession', 
         'Write-BARInvocationStep')
 

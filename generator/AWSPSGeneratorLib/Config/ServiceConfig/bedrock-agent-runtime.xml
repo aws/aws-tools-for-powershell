@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckIngestedDocumentAcl" OutputProperty="HasAccess" Verb="Test" Noun="IngestedDocumentAcl" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInvocation" OutputProperty="*" Verb="New" Noun="Invocation" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFlowExecution" OutputProperty="*" Verb="Get" Noun="FlowExecution" PipelineParameter="ExecutionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIngestedDocumentAcl" OutputProperty="DocumentAcl" Verb="Get" Noun="IngestedDocumentAcl" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

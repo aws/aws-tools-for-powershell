@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion { get; set; }
         #endregion
         
+        #region Parameter Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of a customer-managed IAM role in the destination account. The service assumes
+        /// this role to propagate tags to destination log groups. You must have <c>iam:PassRole</c>
+        /// permission on this role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn { get; set; }
+        #endregion
+        
         #region Parameter SourceLogsConfiguration_EncryptedLogGroupStrategy
         /// <summary>
         /// <para>
@@ -288,6 +300,21 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Source_Scope { get; set; }
         #endregion
         
+        #region Parameter Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy for resolving conflicts when a tag key exists on both the source and
+        /// destination log groups. If not specified, defaults to <c>UPDATE_SYNC</c>.</para><ul><li><para><c>ADD_ONLY</c> – Only adds new tags from the source without modifying existing destination
+        /// tags.</para></li><li><para><c>UPDATE_SYNC</c> – Adds new tags and updates existing tags from the source. Does
+        /// not remove destination tags that are absent from the source.</para></li><li><para><c>IN_SYNC</c> – Keeps destination tags fully synchronized with source tags, including
+        /// removing destination tags that do not exist on the source.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.TagConflictResolutionStrategy")]
+        public Amazon.ObservabilityAdmin.TagConflictResolutionStrategy Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RuleArn'.
@@ -342,6 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope = this.Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope;
             context.LogsEncryptionConfiguration_EncryptionStrategy = this.LogsEncryptionConfiguration_EncryptionStrategy;
             context.LogsEncryptionConfiguration_KmsKeyArn = this.LogsEncryptionConfiguration_KmsKeyArn;
+            context.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn = this.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn;
+            context.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy = this.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy;
             context.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region = this.Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region;
             context.Destination_Region = this.Destination_Region;
             #if MODULAR
@@ -520,6 +549,41 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_BackupConfiguration != null)
             {
                 requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration.BackupConfiguration = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_BackupConfiguration;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.TagPropagationConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration = null;
+            
+             // populate TagPropagationConfiguration
+            var requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfigurationIsNull = true;
+            requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration = new Amazon.ObservabilityAdmin.Model.TagPropagationConfiguration();
+            System.String requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn = null;
+            if (cmdletContext.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn = cmdletContext.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration.DestinationRoleArn = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.TagConflictResolutionStrategy requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy = null;
+            if (cmdletContext.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy = cmdletContext.Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration.TagConflictResolutionStrategy = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy;
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfigurationIsNull = false;
+            }
+             // determine if requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration should be set to null
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfigurationIsNull)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration = null;
+            }
+            if (requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration != null)
+            {
+                requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration.TagPropagationConfiguration = requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration;
                 requestRule_rule_Destination_rule_Destination_DestinationLogsConfigurationIsNull = false;
             }
             Amazon.ObservabilityAdmin.Model.LogsEncryptionConfiguration requestRule_rule_Destination_rule_Destination_DestinationLogsConfiguration_rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration = null;
@@ -774,6 +838,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public Amazon.ObservabilityAdmin.EncryptionScope Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope { get; set; }
             public Amazon.ObservabilityAdmin.EncryptionStrategy LogsEncryptionConfiguration_EncryptionStrategy { get; set; }
             public System.String LogsEncryptionConfiguration_KmsKeyArn { get; set; }
+            public System.String Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_DestinationRoleArn { get; set; }
+            public Amazon.ObservabilityAdmin.TagConflictResolutionStrategy Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy { get; set; }
             public System.String Rule_Destination_DestinationMetricsConfiguration_BackupConfiguration_Region { get; set; }
             public System.String Destination_Region { get; set; }
             public List<System.String> Source_Region { get; set; }

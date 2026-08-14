@@ -157,8 +157,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
                "Search-CSDDocument")
 }
 

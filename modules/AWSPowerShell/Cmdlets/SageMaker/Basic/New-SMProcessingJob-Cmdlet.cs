@@ -150,13 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// jobs, specify a value greater than 1. The default value is 1.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ProcessingResources_ClusterConfig_InstanceCount")]
         public System.Int32? ClusterConfig_InstanceCount { get; set; }
         #endregion
@@ -167,13 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The ML compute instance type for the processing job.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ProcessingResources_ClusterConfig_InstanceType")]
         [AWSConstantClassSource("Amazon.SageMaker.ProcessingInstanceType")]
         public Amazon.SageMaker.ProcessingInstanceType ClusterConfig_InstanceType { get; set; }
@@ -495,19 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ProcessingOutputConfig_Output = new List<Amazon.SageMaker.Model.ProcessingOutput>(this.ProcessingOutputConfig_Output);
             }
             context.ClusterConfig_InstanceCount = this.ClusterConfig_InstanceCount;
-            #if MODULAR
-            if (this.ClusterConfig_InstanceCount == null && ParameterWasBound(nameof(this.ClusterConfig_InstanceCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterConfig_InstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClusterConfig_InstanceType = this.ClusterConfig_InstanceType;
-            #if MODULAR
-            if (this.ClusterConfig_InstanceType == null && ParameterWasBound(nameof(this.ClusterConfig_InstanceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterConfig_InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClusterConfig_VolumeKmsKeyId = this.ClusterConfig_VolumeKmsKeyId;
             context.ClusterConfig_VolumeSizeInGB = this.ClusterConfig_VolumeSizeInGB;
             #if MODULAR

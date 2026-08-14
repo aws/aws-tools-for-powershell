@@ -8386,6 +8386,7 @@ $BAR_SelectCompleters = {
 
 $BAR_SelectMap = @{
     "Select"=@("Invoke-BARAgenticRetrieveStream",
+               "Test-BARIngestedDocumentAcl",
                "New-BARInvocation",
                "New-BARSession",
                "Remove-BARAgentMemory",
@@ -8396,6 +8397,7 @@ $BAR_SelectMap = @{
                "Get-BARDocumentContent",
                "Get-BARExecutionFlowSnapshot",
                "Get-BARFlowExecution",
+               "Get-BARIngestedDocumentAcl",
                "Get-BARInvocationStep",
                "Get-BARSession",
                "Invoke-BARAgent",
@@ -9256,6 +9258,13 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.PaymentConnectorProvisionMode
+        "New-BACCPaymentConnector/ProvisionMode"
+        {
+            $v = "MANUAL","QUICK_CREATE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.PaymentConnectorType
         {
             ($_ -eq "New-BACCPaymentConnector/Type") -Or
@@ -9469,6 +9478,7 @@ $BACC_map = @{
     "ProviderConfigurationInput_CoinbaseCdpConfiguration_WalletSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "ProviderConfigurationInput_StripePrivyConfiguration_AppSecretSource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
     "ProviderConfigurationInput_StripePrivyConfiguration_AuthorizationPrivateKeySource"=@("New-BACCPaymentCredentialProvider","Update-BACCPaymentCredentialProvider")
+    "ProvisionMode"=@("New-BACCPaymentConnector")
     "SchemaType"=@("New-BACCDataset")
     "Status"=@("Get-BACCRegistryList","Get-BACCRegistryRecordList","Update-BACCRegistryRecordStatus")
     "SynchronizationType"=@("New-BACCRegistryRecord")
@@ -9840,7 +9850,7 @@ $BAC_Completers = {
         # Amazon.BedrockAgentCore.PaymentType
         "Invoke-BACPayment/PaymentType"
         {
-            $v = "CRYPTO_X402"
+            $v = "CRYPTO_X402","MPP"
             break
         }
 
@@ -16317,8 +16327,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
                "Search-CSDDocument")
 }
 
@@ -29810,12 +29820,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "New-DDBTableSchema",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
                "New-DDBTable",
-               "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
-               "New-DDBTableSchema",
-               "Add-DDBKeySchema")
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32613,8 +32623,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -62224,6 +62234,16 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.TagConflictResolutionStrategy
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy")
+        }
+        {
+            $v = "ADD_ONLY","IN_SYNC","UPDATE_SYNC"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.TelemetryType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/Rule_TelemetryType") -Or
@@ -62264,6 +62284,7 @@ $CWOADMN_map = @{
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_Destination_DestinationLogsConfiguration_LogsEncryptionConfiguration_EncryptionScope"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_DestinationConfiguration_MskMonitoringParameters_EnhancedMonitoring"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
@@ -77333,16 +77354,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
                "Remove-S3Bucket",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload",
-               "Remove-S3MultipartUpload",
-               "Copy-S3Object",
-               "New-S3Bucket",
                "Get-S3PreSignedURL",
-               "Write-S3Object")
+               "Get-S3MultipartUpload",
+               "Copy-S3Object",
+               "Remove-S3Object",
+               "Remove-S3MultipartUpload",
+               "Test-S3Bucket",
+               "Write-S3Object",
+               "Read-S3Object",
+               "New-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87072,8 +87093,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93939,6 +93960,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -93978,41 +94037,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
