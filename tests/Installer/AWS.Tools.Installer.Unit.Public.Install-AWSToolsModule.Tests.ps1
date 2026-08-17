@@ -346,6 +346,67 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
         }
 
+        It "Should skip cleanup and warn to use -Force when -Cleanup is specified but the target version is already installed" {
+            # Option A: cleanup runs only as part of an installation. When install is skipped
+            # (target already installed), cleanup is skipped too and the user is told to use -Force.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.276" }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @(
+                    [PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.276" }
+                    [PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.222" }
+                )
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Version "5.0.276" -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable cleanupWarn @script:InformationActionSplat
+
+            # Assert - install and cleanup both skipped; a warning points the user at -Force
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule
+            ($cleanupWarn -join "`n") | Should -Match 'Cleanup was skipped'
+            ($cleanupWarn -join "`n") | Should -Match '-Force'
+        }
+
+        It "Should skip cleanup and warn for a named install already at the target version with -Cleanup" {
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.276" }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsModuleNames { return @('AWS.Tools.Common', 'AWS.Tools.S3') }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @(
+                    [PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.276" }
+                    [PSCustomObject]@{ Name = 'AWS.Tools.S3';     Version = [Version]"5.0.276" }
+                    [PSCustomObject]@{ Name = 'AWS.Tools.S3';     Version = [Version]"5.0.222" }
+                )
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'AWS.Tools.S3' -Version "5.0.276" -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable cleanupWarn @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule
+            ($cleanupWarn -join "`n") | Should -Match 'Cleanup was skipped'
+        }
+
+        It "Should not warn about cleanup when -Cleanup is not specified and install is skipped" {
+            # Guard: the cleanup-skipped warning must only appear when the user asked for -Cleanup.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.276" }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @([PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.276" })
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+
+            # Act
+            Install-AWSToolsModule -Version "5.0.276" -Confirm:$false -WarningAction SilentlyContinue -WarningVariable cleanupWarn @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+            ($cleanupWarn -join "`n") | Should -Not -Match 'Cleanup was skipped'
+        }
+
         It "Should install a named module that is missing even when AWS.Tools.Common is already present at the target version" {
             # Arrange: Common is installed at the target version but the requested
             # service module (AWS.Tools.S3) is not. The skip must NOT fire — Common

@@ -185,7 +185,29 @@ InModuleScope AWS.Tools.Installer {
                 Should -Not -Invoke Resolve-AWSToolsZipSource
                 Should -Not -Invoke Install-AWSToolsModuleFromZip
             }
-            
+
+            It "Should skip cleanup and warn to use -Force when -Cleanup is specified but the installer is already installed" {
+                # Option A: cleanup runs only as part of an install. When install is skipped
+                # (installer already at target), cleanup is skipped too and the user is told to use -Force.
+                Mock Resolve-AWSToolsVersion { return [Version]"1.0.3" }
+                Mock Get-PSModulePath { return (Join-Path -Path $HOME -ChildPath "TestPath") }
+                Mock Get-InstalledAWSToolsModule {
+                    return [PSCustomObject]@{ Name = 'AWS.Tools.Installer'; Version = [Version]"1.0.3" }
+                }
+                Mock Resolve-AWSToolsZipSource { }
+                Mock Install-AWSToolsModuleFromZip { }
+                Mock Uninstall-AWSToolsInstaller { }
+
+                # Act
+                Install-AWSToolsInstaller -Version "1.0.3" -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable cleanupWarn @script:InformationActionSplat
+
+                # Assert - install and cleanup both skipped; a warning points the user at -Force
+                Should -Not -Invoke Install-AWSToolsModuleFromZip
+                Should -Not -Invoke Uninstall-AWSToolsInstaller
+                ($cleanupWarn -join "`n") | Should -Match 'Cleanup was skipped'
+                ($cleanupWarn -join "`n") | Should -Match '-Force'
+            }
+
             It "Should proceed with installation if Force specified" {
                 # Arrange - Set up mocks for all dependencies
                 Mock Resolve-AWSToolsVersion { return [Version]"1.0.3" }
