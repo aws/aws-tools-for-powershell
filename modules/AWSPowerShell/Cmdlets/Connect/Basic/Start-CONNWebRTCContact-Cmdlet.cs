@@ -187,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SegmentAttribute
         /// <summary>
         /// <para>
-        /// <para>Use this map to specify system-defined attributes for the WebRTC contact segment.
-        /// Use the <c>connect:Subtype</c> attribute to specify the channel subtype, such as <c>connect:WebRTC</c>.</para><para>Attribute keys can contain only alphanumeric characters, hyphens, and underscores.</para><para />
+        /// <para>A map of system-defined attributes for the WebRTC contact segment. Use the <c>connect:Subtype</c>
+        /// attribute to specify the channel subtype, such as <c>connect:WebRTC</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

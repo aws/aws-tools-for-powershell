@@ -154,7 +154,7 @@ $BACC_Completers = {
         # Amazon.BedrockAgentCoreControl.DatasetSchemaType
         "New-BACCDataset/SchemaType"
         {
-            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1"
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","GENERIC_EVALUATION_PREDEFINED_V1"
             break
         }
 

@@ -87,6 +87,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode
+        "Invoke-BARAgenticRetrieveStream/MemoryConfiguration_PersistenceMode"
+        {
+            $v = "DEFAULT","NONE"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingConfigurationType
         "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingConfiguration_Type"
         {
@@ -300,6 +307,7 @@ $BAR_map = @{
     "Image_Format"=@("Invoke-BARRetrieve")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "MemoryConfiguration_PersistenceMode"=@("Invoke-BARAgenticRetrieveStream")
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "OrchestrationType"=@("Invoke-BARInlineAgent")

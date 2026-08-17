@@ -121,6 +121,30 @@ $EDRS_Completers = {
             break
         }
 
+        # Amazon.Drs.RecoveryPlanExecutionMode
+        "Start-EDRSRecoveryPlanExecution/Mode"
+        {
+            $v = "DRILL","RECOVERY"
+            break
+        }
+
+        # Amazon.Drs.RecoveryPlanExecutionStatus
+        "Get-EDRSRecoveryPlanExecutionList/Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","CREATED","FAILED","IN_PROGRESS"
+            break
+        }
+
+        # Amazon.Drs.RecoveryPlanExecutionStepStatus
+        {
+            ($_ -eq "Get-EDRSRecoveryPlanExecutionStepList/Filter_Status") -Or
+            ($_ -eq "Update-EDRSRecoveryPlanExecutionStep/Status")
+        }
+        {
+            $v = "COMPLETED","EXECUTING","FAILED","NOT_STARTED","SKIPPED","TIMED_OUT","WAITING"
+            break
+        }
+
         # Amazon.Drs.RecoverySnapshotsOrder
         "Get-EDRSRecoverySnapshot/Order"
         {
@@ -185,10 +209,13 @@ $EDRS_map = @{
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
+    "Filter_Status"=@("Get-EDRSRecoveryPlanExecutionStepList")
     "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
+    "Mode"=@("Start-EDRSRecoveryPlanExecution")
     "Order"=@("Get-EDRSRecoverySnapshot")
     "RecoveryMode"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
+    "Status"=@("Get-EDRSRecoveryPlanExecutionList","Update-EDRSRecoveryPlanExecutionStep")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
 }
 
@@ -243,14 +270,20 @@ $EDRS_SelectCompleters = {
 
 $EDRS_SelectMap = @{
     "Select"=@("Register-EDRSSourceNetworkStack",
+               "Stop-EDRSRecoveryPlanExecution",
                "New-EDRSExtendedSourceServer",
                "New-EDRSLaunchConfigurationTemplate",
+               "New-EDRSRecoveryPlan",
+               "New-EDRSRecoveryPlanStep",
                "New-EDRSReplicationConfigurationTemplate",
                "New-EDRSSourceNetwork",
                "Remove-EDRSJob",
                "Remove-EDRSLaunchAction",
                "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
+               "Remove-EDRSRecoveryPlan",
+               "Remove-EDRSRecoveryPlanExecution",
+               "Remove-EDRSRecoveryPlanStep",
                "Remove-EDRSReplicationConfigurationTemplate",
                "Remove-EDRSSourceNetwork",
                "Remove-EDRSSourceServer",
@@ -267,17 +300,28 @@ $EDRS_SelectMap = @{
                "Export-EDRSSourceNetworkCfnTemplate",
                "Get-EDRSFailbackReplicationConfiguration",
                "Get-EDRSLaunchConfiguration",
+               "Get-EDRSRecoveryPlan",
+               "Get-EDRSRecoveryPlanExecution",
+               "Get-EDRSRecoveryPlanExecutionStep",
+               "Get-EDRSRecoveryPlanStep",
                "Get-EDRSReplicationConfiguration",
                "Initialize-EDRSService",
                "Get-EDRSExtensibleSourceServerList",
                "Get-EDRSLaunchActionList",
+               "Get-EDRSRecoveryPlanExecutionList",
+               "Get-EDRSRecoveryPlanExecutionStepList",
+               "Get-EDRSRecoveryPlanList",
+               "Get-EDRSRecoveryPlanStepList",
                "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
                "Write-EDRSLaunchAction",
+               "Set-EDRSRecoveryPlanStepOrder",
                "Restart-EDRSDataReplication",
+               "Redo-EDRSRecoveryPlanExecutionStep",
                "Start-EDRSReversedReplication",
                "Start-EDRSFailbackLaunch",
                "Start-EDRSRecovery",
+               "Start-EDRSRecoveryPlanExecution",
                "Start-EDRSReplication",
                "Start-EDRSSourceNetworkRecovery",
                "Start-EDRSSourceNetworkReplication",
@@ -290,6 +334,9 @@ $EDRS_SelectMap = @{
                "Update-EDRSFailbackReplicationConfiguration",
                "Update-EDRSLaunchConfiguration",
                "Update-EDRSLaunchConfigurationTemplate",
+               "Update-EDRSRecoveryPlan",
+               "Update-EDRSRecoveryPlanExecutionStep",
+               "Update-EDRSRecoveryPlanStep",
                "Update-EDRSReplicationConfiguration",
                "Update-EDRSReplicationConfigurationTemplate")
 }

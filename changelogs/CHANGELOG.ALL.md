@@ -1,4 +1,41 @@
-﻿### 5.0.277 (2026-08-14 19:10Z)
+﻿### 5.0.278 (2026-08-17 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.313.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_Derived_BaseEvaluatorId, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_AdditionalModelRequestField, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_MaxToken, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_StopSequence, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_Temperature, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_TopP.
+    * Modified cmdlet Update-BACCEvaluator: added parameters EvaluatorConfig_Derived_BaseEvaluatorId, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_AdditionalModelRequestField, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_MaxToken, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_StopSequence, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_Temperature, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_TopP.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgenticRetrieveStream: added parameters MemoryConfiguration_MemoryId, MemoryConfiguration_PersistenceMode, MemoryConfiguration_RetrievalConfig, MemoryConfiguration_SessionBinding_ActorId and MemoryConfiguration_SessionBinding_SessionId.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNExtractionDefinitionDetail leveraging the DescribeExtractionDefinition service API.
+    * Added cmdlet Get-CONNExtractionDefinitionList leveraging the ListExtractionDefinitions service API.
+    * Added cmdlet New-CONNExtractionDefinition leveraging the CreateExtractionDefinition service API.
+    * Added cmdlet Remove-CONNExtractionDefinition leveraging the DeleteExtractionDefinition service API.
+    * Added cmdlet Update-CONNExtractionDefinition leveraging the UpdateExtractionDefinition service API.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Get-EDRSRecoveryPlan leveraging the GetRecoveryPlan service API.
+    * Added cmdlet Get-EDRSRecoveryPlanExecution leveraging the GetRecoveryPlanExecution service API.
+    * Added cmdlet Get-EDRSRecoveryPlanExecutionList leveraging the ListRecoveryPlanExecutions service API.
+    * Added cmdlet Get-EDRSRecoveryPlanExecutionStep leveraging the GetRecoveryPlanExecutionStep service API.
+    * Added cmdlet Get-EDRSRecoveryPlanExecutionStepList leveraging the ListRecoveryPlanExecutionSteps service API.
+    * Added cmdlet Get-EDRSRecoveryPlanList leveraging the ListRecoveryPlans service API.
+    * Added cmdlet Get-EDRSRecoveryPlanStep leveraging the GetRecoveryPlanStep service API.
+    * Added cmdlet Get-EDRSRecoveryPlanStepList leveraging the ListRecoveryPlanSteps service API.
+    * Added cmdlet New-EDRSRecoveryPlan leveraging the CreateRecoveryPlan service API.
+    * Added cmdlet New-EDRSRecoveryPlanStep leveraging the CreateRecoveryPlanStep service API.
+    * Added cmdlet Redo-EDRSRecoveryPlanExecutionStep leveraging the RetryRecoveryPlanExecutionStep service API.
+    * Added cmdlet Remove-EDRSRecoveryPlan leveraging the DeleteRecoveryPlan service API.
+    * Added cmdlet Remove-EDRSRecoveryPlanExecution leveraging the DeleteRecoveryPlanExecution service API.
+    * Added cmdlet Remove-EDRSRecoveryPlanStep leveraging the DeleteRecoveryPlanStep service API.
+    * Added cmdlet Set-EDRSRecoveryPlanStepOrder leveraging the ReorderRecoveryPlanSteps service API.
+    * Added cmdlet Start-EDRSRecoveryPlanExecution leveraging the StartRecoveryPlanExecution service API.
+    * Added cmdlet Stop-EDRSRecoveryPlanExecution leveraging the CancelRecoveryPlanExecution service API.
+    * Added cmdlet Update-EDRSRecoveryPlan leveraging the UpdateRecoveryPlan service API.
+    * Added cmdlet Update-EDRSRecoveryPlanExecutionStep leveraging the UpdateRecoveryPlanExecutionStep service API.
+    * Added cmdlet Update-EDRSRecoveryPlanStep leveraging the UpdateRecoveryPlanStep service API.
+  * Amazon Location Service Maps V2
+    * Modified cmdlet Get-GEOMStyleDescriptor: added parameters PoiCategory and PoiDensity.
+
+### 5.0.277 (2026-08-14 19:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.312.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAAServerless
     * Modified cmdlet New-MWAASWorkflow: added parameters Code_S3Location_Bucket, Code_S3Location_ObjectKey and Code_S3Location_VersionId.

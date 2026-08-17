@@ -129,6 +129,13 @@ $GEOM_Completers = {
             break
         }
 
+        # Amazon.GeoMaps.PoiDensity
+        "Get-GEOMStyleDescriptor/PoiDensity"
+        {
+            $v = "Default","Dense","Off","Sparse","VeryDense","VerySparse"
+            break
+        }
+
         # Amazon.GeoMaps.ScaleBarUnit
         "Get-GEOMStaticMap/ScaleBarUnit"
         {
@@ -177,6 +184,7 @@ $GEOM_map = @{
     "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "ContourDensity"=@("Get-GEOMStyleDescriptor")
     "LabelSize"=@("Get-GEOMStaticMap")
+    "PoiDensity"=@("Get-GEOMStyleDescriptor")
     "PointsOfInterest"=@("Get-GEOMStaticMap")
     "ScaleBarUnit"=@("Get-GEOMStaticMap")
     "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")

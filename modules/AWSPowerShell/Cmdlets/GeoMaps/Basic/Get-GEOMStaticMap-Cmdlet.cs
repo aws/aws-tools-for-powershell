@@ -30,7 +30,20 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Amazon.GeoMaps.IAmazonGeoMaps.GetStaticMap
+    /// <c>GetStaticMap</c> provides high-quality static map images with customizable options.
+    /// You can modify the map's appearance and overlay additional information. It's an ideal
+    /// solution for applications requiring tailored static map snapshots. Not supported in
+    /// <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+    /// customers.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see the following topics in the <i>Amazon Location Service Developer
+    /// Guide</i>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html">Static
+    /// maps</a></para></li><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html">Customize
+    /// static maps</a></para></li><li><para><a href="https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html">Overlay
+    /// on the static map</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GEOMStaticMap")]
     [OutputType("Amazon.GeoMaps.Model.GetStaticMapResponse")]

@@ -25,11 +25,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelRecoveryPlanExecution" OutputProperty="RecoveryPlanExecution" Verb="Stop" Noun="RecoveryPlanExecution" ShouldProcessTarget="RecoveryPlanExecutionArn" PipelineParameter="RecoveryPlanExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateExtendedSourceServer" OutputProperty="SourceServer" Verb="New" Noun="ExtendedSourceServer" ShouldProcessTarget="SourceServerArn" PipelineParameter="SourceServerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLaunchConfigurationTemplate" OutputProperty="LaunchConfigurationTemplate" Verb="New" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecoveryPlan" OutputProperty="RecoveryPlan" Verb="New" Noun="RecoveryPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecoveryPlanStep" OutputProperty="RecoveryPlanStep" Verb="New" Noun="RecoveryPlanStep" ShouldProcessTarget="StepName,RecoveryPlanArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +66,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecoveryInstance" Verb="Remove" Noun="RecoveryInstance" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryPlan" OutputProperty="RecoveryPlanArn" Verb="Remove" Noun="RecoveryPlan" ShouldProcessTarget="RecoveryPlanArn" PipelineParameter="RecoveryPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryPlanExecution" OutputProperty="RecoveryPlanExecutionArn" Verb="Remove" Noun="RecoveryPlanExecution" ShouldProcessTarget="RecoveryPlanExecutionArn" PipelineParameter="RecoveryPlanExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryPlanStep" OutputProperty="RecoveryPlanStepArn" Verb="Remove" Noun="RecoveryPlanStep" ShouldProcessTarget="RecoveryPlanStepArn" PipelineParameter="RecoveryPlanStepArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -121,6 +145,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPlan" OutputProperty="RecoveryPlan" Verb="Get" Noun="RecoveryPlan" PipelineParameter="RecoveryPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPlanExecution" OutputProperty="RecoveryPlanExecution" Verb="Get" Noun="RecoveryPlanExecution" PipelineParameter="RecoveryPlanExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPlanExecutionStep" OutputProperty="RecoveryPlanExecutionStep" Verb="Get" Noun="RecoveryPlanExecutionStep" PipelineParameter="RecoveryPlanExecutionStepArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPlanStep" OutputProperty="RecoveryPlanStep" Verb="Get" Noun="RecoveryPlanStep" PipelineParameter="RecoveryPlanStepArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetReplicationConfiguration" OutputProperty="*" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="SourceServerID" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -137,6 +177,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPlanExecutions" OutputProperty="RecoveryPlanExecutions" Verb="Get" Noun="RecoveryPlanExecutionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPlanExecutionSteps" OutputProperty="RecoveryPlanExecutionSteps" Verb="Get" Noun="RecoveryPlanExecutionStepList" PipelineParameter="RecoveryPlanExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPlans" OutputProperty="RecoveryPlans" Verb="Get" Noun="RecoveryPlanList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPlanSteps" OutputProperty="RecoveryPlanSteps" Verb="Get" Noun="RecoveryPlanStepList" PipelineParameter="RecoveryPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStagingAccounts" OutputProperty="Accounts" Verb="Get" Noun="StagingAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -149,7 +205,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReorderRecoveryPlanSteps" OutputProperty="RecoveryPlanSteps" Verb="Set" Noun="RecoveryPlanStepOrder" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="RecoveryPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RetryDataReplication" OutputProperty="*" Verb="Restart" Noun="DataReplication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryRecoveryPlanExecutionStep" OutputProperty="RecoveryPlanExecutionStep" Verb="Redo" Noun="RecoveryPlanExecutionStep" ShouldProcessTarget="RecoveryPlanExecutionStepArn" PipelineParameter="RecoveryPlanExecutionStepArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -162,6 +226,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartRecovery" OutputProperty="Job" Verb="Start" Noun="Recovery" ShouldProcessTarget="IsDrill" PipelineParameter="IsDrill" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRecoveryPlanExecution" OutputProperty="RecoveryPlanExecution" Verb="Start" Noun="RecoveryPlanExecution" ShouldProcessTarget="RecoveryPlanArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -210,6 +278,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLaunchConfigurationTemplate" OutputProperty="LaunchConfigurationTemplate" Verb="Update" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="LaunchConfigurationTemplateID" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryPlan" OutputProperty="RecoveryPlan" Verb="Update" Noun="RecoveryPlan" ShouldProcessTarget="RecoveryPlanArn" PipelineParameter="RecoveryPlanArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryPlanExecutionStep" OutputProperty="RecoveryPlanExecutionStep" Verb="Update" Noun="RecoveryPlanExecutionStep" ShouldProcessTarget="RecoveryPlanExecutionStepArn" PipelineParameter="RecoveryPlanExecutionStepArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryPlanStep" OutputProperty="RecoveryPlanStep" Verb="Update" Noun="RecoveryPlanStep" ShouldProcessTarget="RecoveryPlanStepArn" PipelineParameter="RecoveryPlanStepArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

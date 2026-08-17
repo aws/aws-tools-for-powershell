@@ -638,16 +638,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Write-S3Object",
                "Remove-S3Bucket",
+               "Test-S3Bucket",
                "Get-S3PreSignedURL",
-               "Get-S3MultipartUpload",
-               "Copy-S3Object",
                "Remove-S3Object",
                "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Write-S3Object",
+               "New-S3Bucket",
+               "Copy-S3Object",
                "Read-S3Object",
-               "New-S3Bucket")
+               "Get-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

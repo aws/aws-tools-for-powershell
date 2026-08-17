@@ -395,7 +395,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnAfterCallWorkAvailable","OnAfterChatWorkAvailable","OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -547,6 +547,16 @@ $CONN_Completers = {
         }
         {
             $v = "DOUBLE","INTEGER","PERCENT","SECONDS"
+            break
+        }
+
+        # Amazon.Connect.NotFoundBehaviorType
+        {
+            ($_ -eq "New-CONNExtractionDefinition/ExtractionConfiguration_NotFoundBehavior_Behavior") -Or
+            ($_ -eq "Update-CONNExtractionDefinition/ExtractionConfiguration_NotFoundBehavior_Behavior")
+        }
+        {
+            $v = "OMIT","USE_DEFAULT_VALUE"
             break
         }
 
@@ -992,6 +1002,7 @@ $CONN_map = @{
     "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "ExtractionConfiguration_NotFoundBehavior_Behavior"=@("New-CONNExtractionDefinition","Update-CONNExtractionDefinition")
     "FailureMode"=@("Start-CONNContactMediaProcessing")
     "FileUseCaseType"=@("New-CONNAttachedFile","Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -1168,6 +1179,7 @@ $CONN_SelectMap = @{
                "New-CONNDataTableAttribute",
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
+               "New-CONNExtractionDefinition",
                "New-CONNHoursOfOperation",
                "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
@@ -1208,6 +1220,7 @@ $CONN_SelectMap = @{
                "Remove-CONNDataTableAttribute",
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
+               "Remove-CONNExtractionDefinition",
                "Remove-CONNHoursOfOperation",
                "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
@@ -1247,6 +1260,7 @@ $CONN_SelectMap = @{
                "Get-CONNDataTableAttributeDetail",
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
+               "Get-CONNExtractionDefinitionDetail",
                "Get-CONNHoursOfOperation",
                "Get-CONNHoursOfOperationOverride",
                "Get-CONNInstance",
@@ -1331,6 +1345,7 @@ $CONN_SelectMap = @{
                "Get-CONNEntitySecurityProfileList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
+               "Get-CONNExtractionDefinitionList",
                "Get-CONNFlowAssociationList",
                "Get-CONNHoursOfOperationOverrideList",
                "Get-CONNHoursOfOperationList",
@@ -1464,6 +1479,7 @@ $CONN_SelectMap = @{
                "Update-CONNDataTablePrimaryValue",
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
+               "Update-CONNExtractionDefinition",
                "Update-CONNHoursOfOperation",
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",

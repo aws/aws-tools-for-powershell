@@ -214,6 +214,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateExtractionDefinition" OutputProperty="*" Verb="New" Noun="ExtractionDefinition" ShouldProcessTarget="InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateHoursOfOperation" OutputProperty="*" Verb="New" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -427,6 +431,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExtractionDefinition" Verb="Remove" Noun="ExtractionDefinition" ShouldProcessTarget="ExtractionDefinitionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteHoursOfOperation" Verb="Remove" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -580,6 +588,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvaluationForm" OutputProperty="EvaluationForm" Verb="Get" Noun="EvaluationForm" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExtractionDefinition" OutputProperty="ExtractionDefinition" Verb="Get" Noun="ExtractionDefinitionDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -918,6 +930,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluationFormVersions" OutputProperty="EvaluationFormVersionSummaryList" Verb="Get" Noun="EvaluationFormVersionList" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExtractionDefinitions" OutputProperty="ExtractionDefinitionSummaryList" Verb="Get" Noun="ExtractionDefinitionList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1751,6 +1767,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEvaluationForm" OutputProperty="*" Verb="Update" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExtractionDefinition" Verb="Update" Noun="ExtractionDefinition" ShouldProcessTarget="ExtractionDefinitionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

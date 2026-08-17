@@ -100,6 +100,45 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         public System.String Key { get; set; }
         #endregion
         
+        #region Parameter PoiCategory
+        /// <summary>
+        /// <para>
+        /// <para>Renders only the specified categories of points of interest. When you omit this parameter,
+        /// the map renders all categories.</para><para>The following categories are currently supported:</para><ul><li><para><c>FoodAndDrink</c></para></li><li><para><c>Entertainment</c></para></li><li><para><c>SightsAndMuseums</c></para></li><li><para><c>Transportation</c></para></li><li><para><c>Accommodations</c></para></li><li><para><c>LeisureAndOutdoor</c></para></li><li><para><c>Shopping</c></para></li><li><para><c>BusinessAndServices</c></para></li><li><para><c>FacilitiesAndBuildings</c></para></li></ul><para>Specify each category as a separate <c>poi-categories</c> query parameter. Duplicate
+        /// values are rejected.</para><note><para>This parameter has no effect when <c>poi-density</c> is set to <c>Off</c>, which hides
+        /// all points of interest regardless of category.</para></note><para>This parameter is valid only for the <c>Standard</c> and <c>Hybrid</c> map styles.
+        /// In <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, this parameter is valid only for the <c>Standard</c> map style.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PoiCategories")]
+        public System.String[] PoiCategory { get; set; }
+        #endregion
+        
+        #region Parameter PoiDensity
+        /// <summary>
+        /// <para>
+        /// <para>Controls how densely points of interest are rendered on the map. The density value
+        /// controls the zoom level at which each category of points of interest appears, and
+        /// how quickly less prominent points of interest are revealed as you zoom in. Denser
+        /// values display more points of interest at lower zoom levels.</para><para>Use <c>Off</c> to hide all points of interest. When you omit this parameter, the map
+        /// renders at <c>Default</c> density.</para><note><para>The difference between density values is most noticeable at mid-range zoom levels.
+        /// At high zoom levels, all density values converge on displaying every available point
+        /// of interest.</para></note><para>This parameter is valid only for the <c>Standard</c> and <c>Hybrid</c> map styles.
+        /// In <c>ap-southeast-1</c> and <c>ap-southeast-5</c> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a>
+        /// customers, this parameter is valid only for the <c>Standard</c> map style.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.PoiDensity")]
+        public Amazon.GeoMaps.PoiDensity PoiDensity { get; set; }
+        #endregion
+        
         #region Parameter PoliticalView
         /// <summary>
         /// <para>
@@ -215,6 +254,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             context.ColorScheme = this.ColorScheme;
             context.ContourDensity = this.ContourDensity;
             context.Key = this.Key;
+            if (this.PoiCategory != null)
+            {
+                context.PoiCategory = new List<System.String>(this.PoiCategory);
+            }
+            context.PoiDensity = this.PoiDensity;
             context.PoliticalView = this.PoliticalView;
             context.Style = this.Style;
             #if MODULAR
@@ -260,6 +304,14 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.PoiCategory != null)
+            {
+                request.PoiCategories = cmdletContext.PoiCategory;
+            }
+            if (cmdletContext.PoiDensity != null)
+            {
+                request.PoiDensity = cmdletContext.PoiDensity;
             }
             if (cmdletContext.PoliticalView != null)
             {
@@ -340,6 +392,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
             public Amazon.GeoMaps.ContourDensity ContourDensity { get; set; }
             public System.String Key { get; set; }
+            public List<System.String> PoiCategory { get; set; }
+            public Amazon.GeoMaps.PoiDensity PoiDensity { get; set; }
             public System.String PoliticalView { get; set; }
             public Amazon.GeoMaps.MapStyle Style { get; set; }
             public Amazon.GeoMaps.Terrain Terrain { get; set; }

@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MemoryConfiguration_SessionBinding_ActorId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the end user or agent that the session belongs to. This identifier
+        /// scopes session history so that one actor's history is never returned for another.
+        /// You are responsible for sending the correct actor value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemoryConfiguration_SessionBinding_ActorId { get; set; }
+        #endregion
+        
         #region Parameter AgenticRetrieveConfiguration_FoundationModelType
         /// <summary>
         /// <para>
@@ -108,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Int32? AgenticRetrieveConfiguration_MaxAgentIteration { get; set; }
         #endregion
         
+        #region Parameter MemoryConfiguration_MemoryId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the AgentCore Memory resource to use. The resource must exist in
+        /// your account and be in the ACTIVE state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemoryConfiguration_MemoryId { get; set; }
+        #endregion
+        
         #region Parameter Message
         /// <summary>
         /// <para>
@@ -150,6 +173,20 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String AgenticRetrieveConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn { get; set; }
         #endregion
         
+        #region Parameter MemoryConfiguration_PersistenceMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the agent-generated answer is written back to the given short-term
+        /// memory session, and applies only when sessionBinding is set. Valid values:</para><ul><li><para><c>DEFAULT</c> (default) – Specifies that the question and the agent-generated answer
+        /// are persisted to the session as a single event. This value requires generateResponse
+        /// to be true.</para></li><li><para><c>NONE</c> – Specifies that the session is left unchanged.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode")]
+        public Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode MemoryConfiguration_PersistenceMode { get; set; }
+        #endregion
+        
         #region Parameter AgenticRetrieveConfiguration_RerankingModelType
         /// <summary>
         /// <para>
@@ -161,6 +198,23 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingModelType")]
         public Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingModelType AgenticRetrieveConfiguration_RerankingModelType { get; set; }
+        #endregion
+        
+        #region Parameter MemoryConfiguration_RetrievalConfig
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the long-term memory configuration the agent can retrieve from. The agent
+        /// decides whether to retrieve and composes its own query. This field currently accepts
+        /// at most one entry.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemoryConfiguration_RetrievalConfigs")]
+        public Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryRetrievalConfig[] MemoryConfiguration_RetrievalConfig { get; set; }
         #endregion
         
         #region Parameter Retriever
@@ -183,6 +237,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Retrievers")]
         public Amazon.BedrockAgentRuntime.Model.AgenticRetriever[] Retriever { get; set; }
+        #endregion
+        
+        #region Parameter MemoryConfiguration_SessionBinding_SessionId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the session to restore and continue. You are responsible for sending
+        /// the correct session value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemoryConfiguration_SessionBinding_SessionId { get; set; }
         #endregion
         
         #region Parameter AgenticRetrieveConfiguration_FoundationModelConfiguration_Type
@@ -281,6 +346,14 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.AgenticRetrieveConfiguration_RerankingConfiguration_Type = this.AgenticRetrieveConfiguration_RerankingConfiguration_Type;
             context.AgenticRetrieveConfiguration_RerankingModelType = this.AgenticRetrieveConfiguration_RerankingModelType;
             context.GenerateResponse = this.GenerateResponse;
+            context.MemoryConfiguration_MemoryId = this.MemoryConfiguration_MemoryId;
+            context.MemoryConfiguration_PersistenceMode = this.MemoryConfiguration_PersistenceMode;
+            if (this.MemoryConfiguration_RetrievalConfig != null)
+            {
+                context.MemoryConfiguration_RetrievalConfig = new List<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryRetrievalConfig>(this.MemoryConfiguration_RetrievalConfig);
+            }
+            context.MemoryConfiguration_SessionBinding_ActorId = this.MemoryConfiguration_SessionBinding_ActorId;
+            context.MemoryConfiguration_SessionBinding_SessionId = this.MemoryConfiguration_SessionBinding_SessionId;
             if (this.Message != null)
             {
                 context.Message = new List<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMessage>(this.Message);
@@ -494,6 +567,80 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 request.GenerateResponse = cmdletContext.GenerateResponse.Value;
             }
+            
+             // populate MemoryConfiguration
+            var requestMemoryConfigurationIsNull = true;
+            request.MemoryConfiguration = new Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryConfiguration();
+            System.String requestMemoryConfiguration_memoryConfiguration_MemoryId = null;
+            if (cmdletContext.MemoryConfiguration_MemoryId != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_MemoryId = cmdletContext.MemoryConfiguration_MemoryId;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_MemoryId != null)
+            {
+                request.MemoryConfiguration.MemoryId = requestMemoryConfiguration_memoryConfiguration_MemoryId;
+                requestMemoryConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode requestMemoryConfiguration_memoryConfiguration_PersistenceMode = null;
+            if (cmdletContext.MemoryConfiguration_PersistenceMode != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_PersistenceMode = cmdletContext.MemoryConfiguration_PersistenceMode;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_PersistenceMode != null)
+            {
+                request.MemoryConfiguration.PersistenceMode = requestMemoryConfiguration_memoryConfiguration_PersistenceMode;
+                requestMemoryConfigurationIsNull = false;
+            }
+            List<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryRetrievalConfig> requestMemoryConfiguration_memoryConfiguration_RetrievalConfig = null;
+            if (cmdletContext.MemoryConfiguration_RetrievalConfig != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_RetrievalConfig = cmdletContext.MemoryConfiguration_RetrievalConfig;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_RetrievalConfig != null)
+            {
+                request.MemoryConfiguration.RetrievalConfigs = requestMemoryConfiguration_memoryConfiguration_RetrievalConfig;
+                requestMemoryConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemorySessionBinding requestMemoryConfiguration_memoryConfiguration_SessionBinding = null;
+            
+             // populate SessionBinding
+            var requestMemoryConfiguration_memoryConfiguration_SessionBindingIsNull = true;
+            requestMemoryConfiguration_memoryConfiguration_SessionBinding = new Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemorySessionBinding();
+            System.String requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_ActorId = null;
+            if (cmdletContext.MemoryConfiguration_SessionBinding_ActorId != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_ActorId = cmdletContext.MemoryConfiguration_SessionBinding_ActorId;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_ActorId != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionBinding.ActorId = requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_ActorId;
+                requestMemoryConfiguration_memoryConfiguration_SessionBindingIsNull = false;
+            }
+            System.String requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_SessionId = null;
+            if (cmdletContext.MemoryConfiguration_SessionBinding_SessionId != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_SessionId = cmdletContext.MemoryConfiguration_SessionBinding_SessionId;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_SessionId != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionBinding.SessionId = requestMemoryConfiguration_memoryConfiguration_SessionBinding_memoryConfiguration_SessionBinding_SessionId;
+                requestMemoryConfiguration_memoryConfiguration_SessionBindingIsNull = false;
+            }
+             // determine if requestMemoryConfiguration_memoryConfiguration_SessionBinding should be set to null
+            if (requestMemoryConfiguration_memoryConfiguration_SessionBindingIsNull)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionBinding = null;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionBinding != null)
+            {
+                request.MemoryConfiguration.SessionBinding = requestMemoryConfiguration_memoryConfiguration_SessionBinding;
+                requestMemoryConfigurationIsNull = false;
+            }
+             // determine if request.MemoryConfiguration should be set to null
+            if (requestMemoryConfigurationIsNull)
+            {
+                request.MemoryConfiguration = null;
+            }
             if (cmdletContext.Message != null)
             {
                 request.Messages = cmdletContext.Message;
@@ -632,6 +779,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingConfigurationType AgenticRetrieveConfiguration_RerankingConfiguration_Type { get; set; }
             public Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingModelType AgenticRetrieveConfiguration_RerankingModelType { get; set; }
             public System.Boolean? GenerateResponse { get; set; }
+            public System.String MemoryConfiguration_MemoryId { get; set; }
+            public Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode MemoryConfiguration_PersistenceMode { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMemoryRetrievalConfig> MemoryConfiguration_RetrievalConfig { get; set; }
+            public System.String MemoryConfiguration_SessionBinding_ActorId { get; set; }
+            public System.String MemoryConfiguration_SessionBinding_SessionId { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.AgenticRetrieveMessage> Message { get; set; }
             public System.String NextToken { get; set; }
             public System.String PolicyConfiguration_BedrockGuardrailConfiguration_GuardrailId { get; set; }

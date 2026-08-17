@@ -23,74 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Ends a transfer. A <i>transfer</i> is an arrangement between two management accounts
-    /// where one account designates the other with specified responsibilities for their organization.
-    /// 
-    ///  
-    /// <para>
-    /// When a transfer ends, Organizations publishes a <c>ResponsibilityTransferTerminated</c>
-    /// service event to CloudTrail. Each affected account receives this event, including
-    /// upstream participants such as distributors in a chained transfer. For an example log
-    /// entry, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html#Log-entries-terminate-responsibility-transfer">Example
-    /// log entries: TerminateResponsibilityTransfer</a> in the <i>Organizations User Guide</i>.
-    /// </para>
+    /// Deletes an extraction definition from the specified Connect Customer instance.
     /// </summary>
-    [Cmdlet("Stop", "ORGResponsibilityTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.ResponsibilityTransfer")]
-    [AWSCmdlet("Calls the AWS Organizations TerminateResponsibilityTransfer API operation.", Operation = new[] {"TerminateResponsibilityTransfer"}, SelectReturnType = typeof(Amazon.Organizations.Model.TerminateResponsibilityTransferResponse))]
-    [AWSCmdletOutput("Amazon.Organizations.Model.ResponsibilityTransfer or Amazon.Organizations.Model.TerminateResponsibilityTransferResponse",
-        "This cmdlet returns an Amazon.Organizations.Model.ResponsibilityTransfer object.",
-        "The service call response (type Amazon.Organizations.Model.TerminateResponsibilityTransferResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CONNExtractionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service DeleteExtractionDefinition API operation.", Operation = new[] {"DeleteExtractionDefinition"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteExtractionDefinitionResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteExtractionDefinitionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.DeleteExtractionDefinitionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class StopORGResponsibilityTransferCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemoveCONNExtractionDefinitionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EndTimestamp
+        #region Parameter ExtractionDefinitionId
         /// <summary>
         /// <para>
-        /// <para>Timestamp when the responsibility transfer is to end.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? EndTimestamp { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// <para>ID for the transfer.</para>
+        /// <para>The identifier of the extraction definition to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String ExtractionDefinitionId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResponsibilityTransfer'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.TerminateResponsibilityTransferResponse).
-        /// Specifying the name of a property of type Amazon.Organizations.Model.TerminateResponsibilityTransferResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteExtractionDefinitionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResponsibilityTransfer";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -112,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-ORGResponsibilityTransfer (TerminateResponsibilityTransfer)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExtractionDefinitionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNExtractionDefinition (DeleteExtractionDefinition)"))
             {
                 return;
             }
@@ -125,15 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.TerminateResponsibilityTransferResponse, StopORGResponsibilityTransferCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteExtractionDefinitionResponse, RemoveCONNExtractionDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EndTimestamp = this.EndTimestamp;
-            context.Id = this.Id;
+            context.ExtractionDefinitionId = this.ExtractionDefinitionId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ExtractionDefinitionId == null && ParameterWasBound(nameof(this.ExtractionDefinitionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExtractionDefinitionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.TerminateResponsibilityTransferRequest();
+            var request = new Amazon.Connect.Model.DeleteExtractionDefinitionRequest();
             
-            if (cmdletContext.EndTimestamp != null)
+            if (cmdletContext.ExtractionDefinitionId != null)
             {
-                request.EndTimestamp = cmdletContext.EndTimestamp.Value;
+                request.ExtractionDefinitionId = cmdletContext.ExtractionDefinitionId;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -193,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.TerminateResponsibilityTransferResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.TerminateResponsibilityTransferRequest request)
+        private Amazon.Connect.Model.DeleteExtractionDefinitionResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteExtractionDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "TerminateResponsibilityTransfer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteExtractionDefinition");
             try
             {
-                return client.TerminateResponsibilityTransferAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteExtractionDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -215,10 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTimestamp { get; set; }
-            public System.String Id { get; set; }
-            public System.Func<Amazon.Organizations.Model.TerminateResponsibilityTransferResponse, StopORGResponsibilityTransferCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResponsibilityTransfer;
+            public System.String ExtractionDefinitionId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.DeleteExtractionDefinitionResponse, RemoveCONNExtractionDefinitionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

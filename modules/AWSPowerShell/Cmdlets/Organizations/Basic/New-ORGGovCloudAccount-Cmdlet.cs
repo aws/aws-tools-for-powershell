@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// still be in progress. You might need to wait a few minutes before you can successfully
     /// access the account. To check the status of the request, do one of the following:
     /// </para><ul><li><para>
-    /// Use the <c>OperationId</c> response element from this operation to provide as a parameter
-    /// to the <a>DescribeCreateAccountStatus</a> operation.
+    /// Use the <c>Id</c> response element from this operation to provide as a parameter to
+    /// the <a>DescribeCreateAccountStatus</a> operation.
     /// </para></li><li><para>
     /// Check the CloudTrail log for the <c>CreateAccountResult</c> event. For information
     /// on using CloudTrail with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html">Logging

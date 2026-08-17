@@ -23,52 +23,52 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.Drs;
+using Amazon.Drs.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Ends a transfer. A <i>transfer</i> is an arrangement between two management accounts
-    /// where one account designates the other with specified responsibilities for their organization.
-    /// 
-    ///  
-    /// <para>
-    /// When a transfer ends, Organizations publishes a <c>ResponsibilityTransferTerminated</c>
-    /// service event to CloudTrail. Each affected account receives this event, including
-    /// upstream participants such as distributors in a chained transfer. For an example log
-    /// entry, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html#Log-entries-terminate-responsibility-transfer">Example
-    /// log entries: TerminateResponsibilityTransfer</a> in the <i>Organizations User Guide</i>.
-    /// </para>
+    /// Updates a Recovery Plan's name or description.
     /// </summary>
-    [Cmdlet("Stop", "ORGResponsibilityTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.ResponsibilityTransfer")]
-    [AWSCmdlet("Calls the AWS Organizations TerminateResponsibilityTransfer API operation.", Operation = new[] {"TerminateResponsibilityTransfer"}, SelectReturnType = typeof(Amazon.Organizations.Model.TerminateResponsibilityTransferResponse))]
-    [AWSCmdletOutput("Amazon.Organizations.Model.ResponsibilityTransfer or Amazon.Organizations.Model.TerminateResponsibilityTransferResponse",
-        "This cmdlet returns an Amazon.Organizations.Model.ResponsibilityTransfer object.",
-        "The service call response (type Amazon.Organizations.Model.TerminateResponsibilityTransferResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "EDRSRecoveryPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Drs.Model.RecoveryPlan")]
+    [AWSCmdlet("Calls the Elastic Disaster Recovery Service UpdateRecoveryPlan API operation.", Operation = new[] {"UpdateRecoveryPlan"}, SelectReturnType = typeof(Amazon.Drs.Model.UpdateRecoveryPlanResponse))]
+    [AWSCmdletOutput("Amazon.Drs.Model.RecoveryPlan or Amazon.Drs.Model.UpdateRecoveryPlanResponse",
+        "This cmdlet returns an Amazon.Drs.Model.RecoveryPlan object.",
+        "The service call response (type Amazon.Drs.Model.UpdateRecoveryPlanResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class StopORGResponsibilityTransferCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class UpdateEDRSRecoveryPlanCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EndTimestamp
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Timestamp when the responsibility transfer is to end.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? EndTimestamp { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>ID for the transfer.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RecoveryPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Recovery Plan to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,18 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String RecoveryPlanArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResponsibilityTransfer'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.TerminateResponsibilityTransferResponse).
-        /// Specifying the name of a property of type Amazon.Organizations.Model.TerminateResponsibilityTransferResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecoveryPlan'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.UpdateRecoveryPlanResponse).
+        /// Specifying the name of a property of type Amazon.Drs.Model.UpdateRecoveryPlanResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResponsibilityTransfer";
+        public string Select { get; set; } = "RecoveryPlan";
         #endregion
         
         #region Parameter Force
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-ORGResponsibilityTransfer (TerminateResponsibilityTransfer)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecoveryPlanArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EDRSRecoveryPlan (UpdateRecoveryPlan)"))
             {
                 return;
             }
@@ -125,15 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.TerminateResponsibilityTransferResponse, StopORGResponsibilityTransferCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Drs.Model.UpdateRecoveryPlanResponse, UpdateEDRSRecoveryPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EndTimestamp = this.EndTimestamp;
-            context.Id = this.Id;
+            context.Description = this.Description;
+            context.Name = this.Name;
+            context.RecoveryPlanArn = this.RecoveryPlanArn;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.RecoveryPlanArn == null && ParameterWasBound(nameof(this.RecoveryPlanArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecoveryPlanArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +151,19 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.TerminateResponsibilityTransferRequest();
+            var request = new Amazon.Drs.Model.UpdateRecoveryPlanRequest();
             
-            if (cmdletContext.EndTimestamp != null)
+            if (cmdletContext.Description != null)
             {
-                request.EndTimestamp = cmdletContext.EndTimestamp.Value;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.Name != null)
             {
-                request.Id = cmdletContext.Id;
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RecoveryPlanArn != null)
+            {
+                request.RecoveryPlanArn = cmdletContext.RecoveryPlanArn;
             }
             
             CmdletOutput output;
@@ -193,12 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.TerminateResponsibilityTransferResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.TerminateResponsibilityTransferRequest request)
+        private Amazon.Drs.Model.UpdateRecoveryPlanResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.UpdateRecoveryPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "TerminateResponsibilityTransfer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "UpdateRecoveryPlan");
             try
             {
-                return client.TerminateResponsibilityTransferAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateRecoveryPlanAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -215,10 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTimestamp { get; set; }
-            public System.String Id { get; set; }
-            public System.Func<Amazon.Organizations.Model.TerminateResponsibilityTransferResponse, StopORGResponsibilityTransferCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResponsibilityTransfer;
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String RecoveryPlanArn { get; set; }
+            public System.Func<Amazon.Drs.Model.UpdateRecoveryPlanResponse, UpdateEDRSRecoveryPlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RecoveryPlan;
         }
         
     }

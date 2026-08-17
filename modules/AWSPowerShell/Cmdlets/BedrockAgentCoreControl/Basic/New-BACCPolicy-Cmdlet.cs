@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// defines the available tools, their parameters, and expected data types. This is an
     /// asynchronous operation. Use the <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html">GetPolicy</a>
     /// operation to poll the <c>status</c> field to track completion.
+    /// 
+    ///  
+    /// <para>
+    /// If the new policy is a temporal policy, creating it invalidates the policy engine's
+    /// active temporal sessions. For more information about temporal policy sessions, see
+    /// <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-session-based-temporal.html">session-based
+    /// temporal policies</a>. The policy engine returns an HTTP 409 <c>ConflictException</c>
+    /// to in-flight sessions. To resume, you must start a new session with a new session
+    /// ID.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "BACCPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.CreatePolicyResponse")]

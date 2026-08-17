@@ -8098,6 +8098,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode
+        "Invoke-BARAgenticRetrieveStream/MemoryConfiguration_PersistenceMode"
+        {
+            $v = "DEFAULT","NONE"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.AgenticRetrieveRerankingConfigurationType
         "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_RerankingConfiguration_Type"
         {
@@ -8311,6 +8318,7 @@ $BAR_map = @{
     "Image_Format"=@("Invoke-BARRetrieve")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "MemoryConfiguration_PersistenceMode"=@("Invoke-BARAgenticRetrieveStream")
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "OrchestrationType"=@("Invoke-BARInlineAgent")
@@ -9050,7 +9058,7 @@ $BACC_Completers = {
         # Amazon.BedrockAgentCoreControl.DatasetSchemaType
         "New-BACCDataset/SchemaType"
         {
-            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1"
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","GENERIC_EVALUATION_PREDEFINED_V1"
             break
         }
 
@@ -15183,8 +15191,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16327,9 +16335,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
+    "Select"=@("Search-CSDDocument",
                "Get-CSDSuggestion",
-               "Search-CSDDocument")
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -21437,7 +21445,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnAfterCallWorkAvailable","OnAfterChatWorkAvailable","OnAlertUpdate","OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnEmailAnalysisAvailable","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSchedulePublish","OnScheduleTimeOffRequestActivity","OnScheduleUpdate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -21589,6 +21597,16 @@ $CONN_Completers = {
         }
         {
             $v = "DOUBLE","INTEGER","PERCENT","SECONDS"
+            break
+        }
+
+        # Amazon.Connect.NotFoundBehaviorType
+        {
+            ($_ -eq "New-CONNExtractionDefinition/ExtractionConfiguration_NotFoundBehavior_Behavior") -Or
+            ($_ -eq "Update-CONNExtractionDefinition/ExtractionConfiguration_NotFoundBehavior_Behavior")
+        }
+        {
+            $v = "OMIT","USE_DEFAULT_VALUE"
             break
         }
 
@@ -22034,6 +22052,7 @@ $CONN_map = @{
     "EntryPoint_Type"=@("New-CONNTestCase","Update-CONNTestCase")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "ExtractionConfiguration_NotFoundBehavior_Behavior"=@("New-CONNExtractionDefinition","Update-CONNExtractionDefinition")
     "FailureMode"=@("Start-CONNContactMediaProcessing")
     "FileUseCaseType"=@("New-CONNAttachedFile","Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -22210,6 +22229,7 @@ $CONN_SelectMap = @{
                "New-CONNDataTableAttribute",
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
+               "New-CONNExtractionDefinition",
                "New-CONNHoursOfOperation",
                "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
@@ -22250,6 +22270,7 @@ $CONN_SelectMap = @{
                "Remove-CONNDataTableAttribute",
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
+               "Remove-CONNExtractionDefinition",
                "Remove-CONNHoursOfOperation",
                "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
@@ -22289,6 +22310,7 @@ $CONN_SelectMap = @{
                "Get-CONNDataTableAttributeDetail",
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
+               "Get-CONNExtractionDefinitionDetail",
                "Get-CONNHoursOfOperation",
                "Get-CONNHoursOfOperationOverride",
                "Get-CONNInstance",
@@ -22373,6 +22395,7 @@ $CONN_SelectMap = @{
                "Get-CONNEntitySecurityProfileList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
+               "Get-CONNExtractionDefinitionList",
                "Get-CONNFlowAssociationList",
                "Get-CONNHoursOfOperationOverrideList",
                "Get-CONNHoursOfOperationList",
@@ -22506,6 +22529,7 @@ $CONN_SelectMap = @{
                "Update-CONNDataTablePrimaryValue",
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
+               "Update-CONNExtractionDefinition",
                "Update-CONNHoursOfOperation",
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
@@ -28841,6 +28865,30 @@ $EDRS_Completers = {
             break
         }
 
+        # Amazon.Drs.RecoveryPlanExecutionMode
+        "Start-EDRSRecoveryPlanExecution/Mode"
+        {
+            $v = "DRILL","RECOVERY"
+            break
+        }
+
+        # Amazon.Drs.RecoveryPlanExecutionStatus
+        "Get-EDRSRecoveryPlanExecutionList/Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","CREATED","FAILED","IN_PROGRESS"
+            break
+        }
+
+        # Amazon.Drs.RecoveryPlanExecutionStepStatus
+        {
+            ($_ -eq "Get-EDRSRecoveryPlanExecutionStepList/Filter_Status") -Or
+            ($_ -eq "Update-EDRSRecoveryPlanExecutionStep/Status")
+        }
+        {
+            $v = "COMPLETED","EXECUTING","FAILED","NOT_STARTED","SKIPPED","TIMED_OUT","WAITING"
+            break
+        }
+
         # Amazon.Drs.RecoverySnapshotsOrder
         "Get-EDRSRecoverySnapshot/Order"
         {
@@ -28905,10 +28953,13 @@ $EDRS_map = @{
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
+    "Filter_Status"=@("Get-EDRSRecoveryPlanExecutionStepList")
     "InternetProtocol"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSFailbackReplicationConfiguration","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
+    "Mode"=@("Start-EDRSRecoveryPlanExecution")
     "Order"=@("Get-EDRSRecoverySnapshot")
     "RecoveryMode"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
+    "Status"=@("Get-EDRSRecoveryPlanExecutionList","Update-EDRSRecoveryPlanExecutionStep")
     "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
 }
 
@@ -28963,14 +29014,20 @@ $EDRS_SelectCompleters = {
 
 $EDRS_SelectMap = @{
     "Select"=@("Register-EDRSSourceNetworkStack",
+               "Stop-EDRSRecoveryPlanExecution",
                "New-EDRSExtendedSourceServer",
                "New-EDRSLaunchConfigurationTemplate",
+               "New-EDRSRecoveryPlan",
+               "New-EDRSRecoveryPlanStep",
                "New-EDRSReplicationConfigurationTemplate",
                "New-EDRSSourceNetwork",
                "Remove-EDRSJob",
                "Remove-EDRSLaunchAction",
                "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
+               "Remove-EDRSRecoveryPlan",
+               "Remove-EDRSRecoveryPlanExecution",
+               "Remove-EDRSRecoveryPlanStep",
                "Remove-EDRSReplicationConfigurationTemplate",
                "Remove-EDRSSourceNetwork",
                "Remove-EDRSSourceServer",
@@ -28987,17 +29044,28 @@ $EDRS_SelectMap = @{
                "Export-EDRSSourceNetworkCfnTemplate",
                "Get-EDRSFailbackReplicationConfiguration",
                "Get-EDRSLaunchConfiguration",
+               "Get-EDRSRecoveryPlan",
+               "Get-EDRSRecoveryPlanExecution",
+               "Get-EDRSRecoveryPlanExecutionStep",
+               "Get-EDRSRecoveryPlanStep",
                "Get-EDRSReplicationConfiguration",
                "Initialize-EDRSService",
                "Get-EDRSExtensibleSourceServerList",
                "Get-EDRSLaunchActionList",
+               "Get-EDRSRecoveryPlanExecutionList",
+               "Get-EDRSRecoveryPlanExecutionStepList",
+               "Get-EDRSRecoveryPlanList",
+               "Get-EDRSRecoveryPlanStepList",
                "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
                "Write-EDRSLaunchAction",
+               "Set-EDRSRecoveryPlanStepOrder",
                "Restart-EDRSDataReplication",
+               "Redo-EDRSRecoveryPlanExecutionStep",
                "Start-EDRSReversedReplication",
                "Start-EDRSFailbackLaunch",
                "Start-EDRSRecovery",
+               "Start-EDRSRecoveryPlanExecution",
                "Start-EDRSReplication",
                "Start-EDRSSourceNetworkRecovery",
                "Start-EDRSSourceNetworkReplication",
@@ -29010,6 +29078,9 @@ $EDRS_SelectMap = @{
                "Update-EDRSFailbackReplicationConfiguration",
                "Update-EDRSLaunchConfiguration",
                "Update-EDRSLaunchConfigurationTemplate",
+               "Update-EDRSRecoveryPlan",
+               "Update-EDRSRecoveryPlanExecutionStep",
+               "Update-EDRSRecoveryPlanStep",
                "Update-EDRSReplicationConfiguration",
                "Update-EDRSReplicationConfigurationTemplate")
 }
@@ -29820,12 +29891,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "Add-DDBKeySchema",
                "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem",
                "New-DDBTable",
-               "Add-DDBIndexSchema")
+               "ConvertTo-DDBItem",
+               "New-DDBTableSchema",
+               "Add-DDBIndexSchema",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32623,8 +32694,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -39763,6 +39834,13 @@ $GEOM_Completers = {
             break
         }
 
+        # Amazon.GeoMaps.PoiDensity
+        "Get-GEOMStyleDescriptor/PoiDensity"
+        {
+            $v = "Default","Dense","Off","Sparse","VeryDense","VerySparse"
+            break
+        }
+
         # Amazon.GeoMaps.ScaleBarUnit
         "Get-GEOMStaticMap/ScaleBarUnit"
         {
@@ -39811,6 +39889,7 @@ $GEOM_map = @{
     "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "ContourDensity"=@("Get-GEOMStyleDescriptor")
     "LabelSize"=@("Get-GEOMStaticMap")
+    "PoiDensity"=@("Get-GEOMStyleDescriptor")
     "PointsOfInterest"=@("Get-GEOMStaticMap")
     "ScaleBarUnit"=@("Get-GEOMStaticMap")
     "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
@@ -40132,8 +40211,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -77354,16 +77433,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Write-S3Object",
                "Remove-S3Bucket",
+               "Test-S3Bucket",
                "Get-S3PreSignedURL",
-               "Get-S3MultipartUpload",
-               "Copy-S3Object",
                "Remove-S3Object",
                "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Write-S3Object",
+               "New-S3Bucket",
+               "Copy-S3Object",
                "Read-S3Object",
-               "New-S3Bucket")
+               "Get-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87093,8 +87172,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -93960,44 +94039,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94037,3 +94078,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
