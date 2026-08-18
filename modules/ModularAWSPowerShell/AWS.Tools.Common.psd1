@@ -93,7 +93,11 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Get-AWSPublicIpAddressRange', 
+        'Remove-AWSCredentialProfile', 
+        'Set-AWSProxy', 
+        'Clear-AWSProxy', 
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -110,23 +114,19 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Clear-DefaultAWSRegion', 
         'Get-DefaultAWSRegion', 
         'Get-AWSRegion', 
-        'Remove-AWSCredentialProfile', 
         'Invoke-AWSSSOLogin', 
         'Initialize-AWSSSOConfiguration', 
         'Set-AWSSSOSessionConfiguration', 
         'Invoke-AWSSSOLogout', 
-        'Set-AWSProxy', 
-        'Clear-AWSProxy', 
+        'Get-AWSPublicIpAddressRange', 
+        'Get-AWSService', 
+        'Get-AWSCmdletName', 
         'New-AWSCredential', 
         'Set-AWSCredential', 
         'Clear-AWSCredential', 
         'Get-AWSCredential', 
         'Set-AWSSamlEndpoint', 
-        'Set-AWSSamlRoleProfile', 
-        'Invoke-AWSLogin', 
-        'Invoke-AWSLogout', 
-        'Get-AWSService', 
-        'Get-AWSCmdletName')
+        'Set-AWSSamlRoleProfile')
 
     # Variables to export from this module
     VariablesToExport = '*'

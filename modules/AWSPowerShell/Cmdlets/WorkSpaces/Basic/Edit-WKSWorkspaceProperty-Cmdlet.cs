@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.AGAModeForWorkSpaceEnum GlobalAccelerator_Mode { get; set; }
         #endregion
         
+        #region Parameter WorkspaceProperties_NestedVirtualizationEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether nested virtualization is enabled for the WorkSpace.</para><para>For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html">Nested
+        /// virtualization for Amazon WorkSpaces</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WorkspaceProperties_NestedVirtualizationEnabled { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_OperatingSystemName
         /// <summary>
         /// <para>
@@ -255,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.WorkspaceProperties_ComputeTypeName = this.WorkspaceProperties_ComputeTypeName;
             context.GlobalAccelerator_Mode = this.GlobalAccelerator_Mode;
             context.GlobalAccelerator_PreferredProtocol = this.GlobalAccelerator_PreferredProtocol;
+            context.WorkspaceProperties_NestedVirtualizationEnabled = this.WorkspaceProperties_NestedVirtualizationEnabled;
             context.WorkspaceProperties_OperatingSystemName = this.WorkspaceProperties_OperatingSystemName;
             if (this.WorkspaceProperties_Protocol != null)
             {
@@ -300,6 +312,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceProperties_workspaceProperties_ComputeTypeName != null)
             {
                 request.WorkspaceProperties.ComputeTypeName = requestWorkspaceProperties_workspaceProperties_ComputeTypeName;
+                requestWorkspacePropertiesIsNull = false;
+            }
+            System.Boolean? requestWorkspaceProperties_workspaceProperties_NestedVirtualizationEnabled = null;
+            if (cmdletContext.WorkspaceProperties_NestedVirtualizationEnabled != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_NestedVirtualizationEnabled = cmdletContext.WorkspaceProperties_NestedVirtualizationEnabled.Value;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_NestedVirtualizationEnabled != null)
+            {
+                request.WorkspaceProperties.NestedVirtualizationEnabled = requestWorkspaceProperties_workspaceProperties_NestedVirtualizationEnabled.Value;
                 requestWorkspacePropertiesIsNull = false;
             }
             Amazon.WorkSpaces.OperatingSystemName requestWorkspaceProperties_workspaceProperties_OperatingSystemName = null;
@@ -462,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
             public Amazon.WorkSpaces.AGAModeForWorkSpaceEnum GlobalAccelerator_Mode { get; set; }
             public Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace GlobalAccelerator_PreferredProtocol { get; set; }
+            public System.Boolean? WorkspaceProperties_NestedVirtualizationEnabled { get; set; }
             public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }
             public List<System.String> WorkspaceProperties_Protocol { get; set; }
             public System.Int32? WorkspaceProperties_RootVolumeSizeGib { get; set; }

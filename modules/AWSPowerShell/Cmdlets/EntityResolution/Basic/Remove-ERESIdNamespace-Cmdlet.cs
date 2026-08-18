@@ -30,7 +30,8 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Deletes the <c>IdNamespace</c> with a given name.
+    /// Deletes the <c>IdNamespace</c> with a given name. This operation returns a <c>ResourceNotFoundException</c>
+    /// if an ID namespace with the given name does not exist.
     /// </summary>
     [Cmdlet("Remove", "ERESIdNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

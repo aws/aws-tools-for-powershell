@@ -22101,11 +22101,17 @@ Set-Alias -Name Cancel-MCATChangeSet -Value Stop-MCATChangeSet
 Set-Alias -Name MCAT-CancelChangeSet -Value Stop-MCATChangeSet
 Set-Alias -Name Delete-MCATResourcePolicy -Value Remove-MCATResourcePolicy
 Set-Alias -Name MCAT-DeleteResourcePolicy -Value Remove-MCATResourcePolicy
+Set-Alias -Name Describe-MCATAssessment -Value Get-MCATAssessmentDetail
+Set-Alias -Name Describe-MCATAssessmentDetail -Value Get-MCATAssessmentDetail
+Set-Alias -Name MCAT-DescribeAssessment -Value Get-MCATAssessmentDetail
 Set-Alias -Name Describe-MCATChangeSet -Value Get-MCATChangeSet
 Set-Alias -Name MCAT-DescribeChangeSet -Value Get-MCATChangeSet
 Set-Alias -Name Describe-MCATEntity -Value Get-MCATEntity
 Set-Alias -Name MCAT-DescribeEntity -Value Get-MCATEntity
 Set-Alias -Name MCAT-GetResourcePolicy -Value Get-MCATResourcePolicy
+Set-Alias -Name List-MCATAssessments -Value Get-MCATAssessmentList
+Set-Alias -Name List-MCATAssessmentList -Value Get-MCATAssessmentList
+Set-Alias -Name MCAT-ListAssessments -Value Get-MCATAssessmentList
 Set-Alias -Name List-MCATChangeSets -Value Get-MCATChangeSetList
 Set-Alias -Name List-MCATChangeSetList -Value Get-MCATChangeSetList
 Set-Alias -Name MCAT-ListChangeSets -Value Get-MCATChangeSetList
@@ -25569,6 +25575,8 @@ Set-Alias -Name Create-OUTPOrder -Value New-OUTPOrder
 Set-Alias -Name OUTP-CreateOrder -Value New-OUTPOrder
 Set-Alias -Name Create-OUTPOutpost -Value New-OUTPOutpost
 Set-Alias -Name OUTP-CreateOutpost -Value New-OUTPOutpost
+Set-Alias -Name Create-OUTPPrivateConnectivityConfig -Value New-OUTPPrivateConnectivityConfig
+Set-Alias -Name OUTP-CreatePrivateConnectivityConfig -Value New-OUTPPrivateConnectivityConfig
 Set-Alias -Name Create-OUTPQuote -Value New-OUTPQuote
 Set-Alias -Name OUTP-CreateQuote -Value New-OUTPQuote
 Set-Alias -Name Create-OUTPRenewal -Value New-OUTPRenewal
@@ -25591,6 +25599,7 @@ Set-Alias -Name Get-OUTPOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name OUTP-GetOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name Get-OUTPOutpostSupportedInstanceTypes -Value Get-OUTPOutpostSupportedInstanceType
 Set-Alias -Name OUTP-GetOutpostSupportedInstanceTypes -Value Get-OUTPOutpostSupportedInstanceType
+Set-Alias -Name OUTP-GetPrivateConnectivityConfig -Value Get-OUTPPrivateConnectivityConfig
 Set-Alias -Name OUTP-GetQuote -Value Get-OUTPQuote
 Set-Alias -Name OUTP-GetRenewalPricing -Value Get-OUTPRenewalPricing
 Set-Alias -Name OUTP-GetSiteAddress -Value Get-OUTPSiteAddress

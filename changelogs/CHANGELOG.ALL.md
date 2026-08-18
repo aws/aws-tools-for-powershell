@@ -1,4 +1,15 @@
-﻿### 5.0.278 (2026-08-17 20:24Z)
+﻿### 5.0.279 (2026-08-18 19:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.314.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Marketplace Catalog Service
+    * Added cmdlet Get-MCATAssessmentDetail leveraging the DescribeAssessment service API.
+    * Added cmdlet Get-MCATAssessmentList leveraging the ListAssessments service API.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPPrivateConnectivityConfig leveraging the GetPrivateConnectivityConfig service API.
+    * Added cmdlet New-OUTPPrivateConnectivityConfig leveraging the CreatePrivateConnectivityConfig service API.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceProperty: added parameter WorkspaceProperties_NestedVirtualizationEnabled.
+
+### 5.0.278 (2026-08-17 20:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.313.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCEvaluator: added parameters EvaluatorConfig_Derived_BaseEvaluatorId, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_AdditionalModelRequestField, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_MaxToken, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_StopSequence, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_Temperature, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_InferenceConfig_TopP, EvaluatorConfig_Derived_ModelConfig_BedrockEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_MaxOutputToken, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_ModelId, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Reasoning_Effort, EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_Temperature and EvaluatorConfig_Derived_ModelConfig_ResponsesEvaluatorModelConfig_TopP.

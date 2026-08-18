@@ -30,7 +30,7 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Deletes the <c>SchemaMapping</c> with a given name. This operation will succeed even
+    /// Deletes the <c>SchemaMapping</c> with a given name. This operation returns a <c>ResourceNotFoundException</c>
     /// if a schema with the given name does not exist. This operation will fail if there
     /// is a <c>MatchingWorkflow</c> object that references the <c>SchemaMapping</c> in the
     /// workflow's <c>InputSourceConfig</c>.

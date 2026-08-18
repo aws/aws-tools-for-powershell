@@ -23,33 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.EntityResolution;
-using Amazon.EntityResolution.Model;
+using Amazon.Outposts;
+using Amazon.Outposts.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ERES
+namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Deletes the <c>MatchingWorkflow</c> with a given name. This operation returns a <c>ResourceNotFoundException</c>
-    /// if a workflow with the given name does not exist.
+    /// Gets the private connectivity configuration for the specified Outpost.
     /// </summary>
-    [Cmdlet("Remove", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS EntityResolution DeleteMatchingWorkflow API operation.", Operation = new[] {"DeleteMatchingWorkflow"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OUTPPrivateConnectivityConfig")]
+    [OutputType("Amazon.Outposts.Model.PrivateConnectivityConfig")]
+    [AWSCmdlet("Calls the AWS Outposts GetPrivateConnectivityConfig API operation.", Operation = new[] {"GetPrivateConnectivityConfig"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse))]
+    [AWSCmdletOutput("Amazon.Outposts.Model.PrivateConnectivityConfig or Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse",
+        "This cmdlet returns an Amazon.Outposts.Model.PrivateConnectivityConfig object.",
+        "The service call response (type Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveERESMatchingWorkflowCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
+    public partial class GetOUTPPrivateConnectivityConfigCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter WorkflowName
+        #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para>The name of the workflow to be retrieved.</para>
+        /// <para>The ID or ARN of the Outpost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,28 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkflowName { get; set; }
+        public System.String OutpostId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Message'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse).
-        /// Specifying the name of a property of type Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PrivateConnectivityConfig'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse).
+        /// Specifying the name of a property of type Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Message";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "PrivateConnectivityConfig";
         #endregion
         
         protected override void StopProcessing()
@@ -93,12 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkflowName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ERESMatchingWorkflow (DeleteMatchingWorkflow)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -106,14 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse, RemoveERESMatchingWorkflowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse, GetOUTPPrivateConnectivityConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.WorkflowName = this.WorkflowName;
+            context.OutpostId = this.OutpostId;
             #if MODULAR
-            if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
+            if (this.OutpostId == null && ParameterWasBound(nameof(this.OutpostId)))
             {
-                WriteWarning("You are passing $null as a value for parameter WorkflowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OutpostId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -130,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EntityResolution.Model.DeleteMatchingWorkflowRequest();
+            var request = new Amazon.Outposts.Model.GetPrivateConnectivityConfigRequest();
             
-            if (cmdletContext.WorkflowName != null)
+            if (cmdletContext.OutpostId != null)
             {
-                request.WorkflowName = cmdletContext.WorkflowName;
+                request.OutpostId = cmdletContext.OutpostId;
             }
             
             CmdletOutput output;
@@ -169,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         #region AWS Service Operation Call
         
-        private Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.DeleteMatchingWorkflowRequest request)
+        private Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.GetPrivateConnectivityConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "DeleteMatchingWorkflow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "GetPrivateConnectivityConfig");
             try
             {
-                return client.DeleteMatchingWorkflowAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetPrivateConnectivityConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -191,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String WorkflowName { get; set; }
-            public System.Func<Amazon.EntityResolution.Model.DeleteMatchingWorkflowResponse, RemoveERESMatchingWorkflowCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Message;
+            public System.String OutpostId { get; set; }
+            public System.Func<Amazon.Outposts.Model.GetPrivateConnectivityConfigResponse, GetOUTPPrivateConnectivityConfigCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PrivateConnectivityConfig;
         }
         
     }

@@ -100,9 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The command that's passed to the container. This parameter maps to <c>Cmd</c> in the
-        /// <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-        /// section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
-        /// and the <c>COMMAND</c> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
+        /// Remote API</a> and the <c>COMMAND</c> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>Any of the host devices to expose to the container. This parameter maps to <c>Devices</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--device</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note><para />
@@ -220,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The environment variables to pass to a container. This parameter maps to <c>Env</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--env</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><important><para>We don't recommend using plaintext environment variables for sensitive information,
         /// such as credential data.</para></important><note><para>Environment variables cannot start with "<c>AWS_BATCH</c>". This naming convention
@@ -289,8 +289,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// are specified with <c><i>repository-url</i>/<i>image</i>:<i>tag</i></c>. It can
         /// be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens
         /// (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs
-        /// (#). This parameter maps to <c>Image</c> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// (#). This parameter maps to <c>Image</c> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>IMAGE</c> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>Docker image architecture must match the processor architecture of the compute resources
         /// that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based
@@ -493,8 +493,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The mount points for data volumes in your container. This parameter maps to <c>Volumes</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--volume</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -648,8 +648,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>When this parameter is true, the container is given elevated permissions on the host
         /// container instance (similar to the <c>root</c> user). This parameter maps to <c>Privileged</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--privileged</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. The default value is false.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
         /// shouldn't be provided, or specified as false.</para></note>
@@ -679,8 +679,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>When this parameter is true, the container is given read-only access to its root file
-        /// system. This parameter maps to <c>ReadonlyRootfs</c> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// system. This parameter maps to <c>ReadonlyRootfs</c> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--read-only</c> option to <c>docker run</c>.</para>
         /// </para>
         /// </summary>
@@ -921,8 +921,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>A list of <c>ulimits</c> to set in the container. This parameter maps to <c>Ulimits</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--ulimit</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources and
         /// shouldn't be provided.</para></note><para />
@@ -941,9 +941,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The user name to use inside the container. This parameter maps to <c>User</c> in the
-        /// <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-        /// section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
-        /// and the <c>--user</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
+        /// Remote API</a> and the <c>--user</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para>
         /// </para>
         /// </summary>
@@ -1006,8 +1006,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// requirements for the job definition. It's not supported for jobs running on Fargate
         /// resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs
         /// reserved for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <c>CpuShares</c>
-        /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
-        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+        /// in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
         /// Remote API</a> and the <c>--cpu-shares</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. The number of vCPUs must be specified but can be specified in several places.
         /// You must specify it at least once for each node.</para>

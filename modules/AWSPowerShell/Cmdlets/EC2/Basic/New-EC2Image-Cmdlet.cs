@@ -48,6 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// If the source instance is in a Local Zone, you can create the snapshots in the same
     /// Local Zone or in its parent Region.
+    /// </para></li><li><para>
+    /// If the source instance is on an Outpost that supports local snapshots, you can create
+    /// the snapshots on the same Outpost or in the parent Region of that Outpost. In this
+    /// case, you must use the <c>SnapshotLocation</c> parameter to specify where to create
+    /// the snapshots.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create
     /// an Amazon EBS-backed AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -162,9 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SnapshotLocation
         /// <summary>
         /// <para>
-        /// <note><para>Only supported for instances in Local Zones. If the source instance is not in a Local
-        /// Zone, omit this parameter.</para></note><para>The Amazon S3 location where the snapshots will be stored.</para><ul><li><para>To create local snapshots in the same Local Zone as the source instance, specify <c>local</c>.</para></li><li><para>To create regional snapshots in the parent Region of the Local Zone, specify <c>regional</c>
-        /// or omit this parameter.</para></li></ul><para>Default: <c>regional</c></para>
+        /// <note><para>Only supported for instances in Local Zones and for instances on Outposts that support
+        /// local snapshots. If the source instance is not in one of these locations, omit this
+        /// parameter.</para></note><para>The Amazon S3 location where the snapshots will be stored.</para><ul><li><para>To create local snapshots in the same Local Zone or on the same Outpost as the source
+        /// instance, specify <c>local</c>.</para></li><li><para>To create regional snapshots in the parent Region of the Local Zone or Outpost, specify
+        /// <c>regional</c>.</para></li></ul><para>If the source instance is in a Local Zone and you omit this parameter, regional snapshots
+        /// are created in the parent Region of the Local Zone.</para><para>If the source instance is on an Outpost that supports local snapshots, this parameter
+        /// is required. If you omit it, the request fails with an <c>InvalidParameterValue</c>
+        /// error.</para><para>Default: <c>regional</c> (for instances in Local Zones only)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

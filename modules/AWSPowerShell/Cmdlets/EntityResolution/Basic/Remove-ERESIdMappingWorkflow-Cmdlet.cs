@@ -30,8 +30,8 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Deletes the <c>IdMappingWorkflow</c> with a given name. This operation will succeed
-    /// even if a workflow with the given name does not exist.
+    /// Deletes the <c>IdMappingWorkflow</c> with a given name. This operation returns a <c>ResourceNotFoundException</c>
+    /// if a workflow with the given name does not exist.
     /// </summary>
     [Cmdlet("Remove", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

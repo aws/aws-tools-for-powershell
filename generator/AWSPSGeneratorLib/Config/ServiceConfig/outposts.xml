@@ -36,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePrivateConnectivityConfig" OutputProperty="*" Verb="New" Noun="PrivateConnectivityConfig" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateQuote" OutputProperty="Quote" Verb="New" Noun="Quote" ShouldProcessTarget="CountryCode" PipelineParameter="CountryCode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -89,6 +93,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOutpostSupportedInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostSupportedInstanceType" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPrivateConnectivityConfig" OutputProperty="PrivateConnectivityConfig" Verb="Get" Noun="PrivateConnectivityConfig" PipelineParameter="OutpostId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
