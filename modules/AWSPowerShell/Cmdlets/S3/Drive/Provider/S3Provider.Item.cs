@@ -67,6 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // Access-denied returns true (not throw): the engine turns any throw from ItemExists into a
             // misleading "Cannot find path", so we let the real op surface the AccessDenied instead.
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
+            // Same for bad/expired credentials: returning true lets the op surface the real error (e.g.
+            // "token has expired") instead of a masked "Cannot find path"; mount still rejects them.
+            catch (AmazonS3Exception ex) when (IsInvalidCredentials(ex)) { return true; }
         }
 
         protected override bool IsItemContainer(string path)
@@ -105,6 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
             // Access-denied: assume container so navigation proceeds (see ItemExists for why).
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
+            // Bad/expired credentials: assume container too so the op surfaces the real error (see ItemExists).
+            catch (AmazonS3Exception ex) when (IsInvalidCredentials(ex)) { return true; }
         }
 
         // Resolve exists/isContainer from the parent prefix's complete cached listing, or null if it
@@ -155,6 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             catch (AmazonS3Exception ex) when (IsNotFound(ex)) { return false; }
             // Access-denied: assume children (see ItemExists for why).
             catch (AmazonS3Exception ex) when (IsAccessDenied(ex)) { return true; }
+            // Bad/expired credentials: assume children too (see ItemExists).
+            catch (AmazonS3Exception ex) when (IsInvalidCredentials(ex)) { return true; }
         }
 
         private bool BucketExists(S3DriveInfo drive, string bucket)
@@ -250,11 +257,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             || string.Equals(ex.ErrorCode, "NoSuchBucket", StringComparison.OrdinalIgnoreCase)
             || string.Equals(ex.ErrorCode, "NoSuchKey", StringComparison.OrdinalIgnoreCase);
 
-        // The credentials themselves are bad (not merely under-permissioned): the key doesn't exist,
+        // The credentials themselves are bad (not merely under-permissioned): the access key is unknown,
         // the signature is wrong, or the session token is bad/expired. These come back as 403s too, so
-        // they must be split from IsAccessDenied; otherwise a mount validated against invalid credentials
-        // would be treated as "exists but inaccessible" and succeed. Callers let these propagate so the
-        // mount (or operation) fails with the real error.
+        // they must be split from IsAccessDenied: at mount, ValidateRoot lets them propagate so NewDrive
+        // fails with the real error rather than mounting a drive on dead credentials. During path
+        // resolution, ItemExists/IsItemContainer/HasChildItems return true on them (like AccessDenied) so
+        // the operation surfaces the real error instead of a masked "Cannot find path".
         private static bool IsInvalidCredentials(AmazonS3Exception ex) =>
             string.Equals(ex.ErrorCode, "InvalidAccessKeyId", StringComparison.OrdinalIgnoreCase)
             || string.Equals(ex.ErrorCode, "SignatureDoesNotMatch", StringComparison.OrdinalIgnoreCase)
