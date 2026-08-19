@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter LogDestinationType
         /// <summary>
         /// <para>
-        /// <para>The log destination type. An enum with possible values of <c>s3</c> and <c>cloudwatch</c>.</para>
+        /// <para>The log destination type. An enum with possible values of <c>s3</c>, <c>cloudwatch</c>,
+        /// and <c>s3table</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter LogExport
         /// <summary>
         /// <para>
-        /// <para>The collection of exported log types. Possible values are <c>connectionlog</c>, <c>useractivitylog</c>,
-        /// and <c>userlog</c>.</para><para />
+        /// <para>The collection of exported log types. When <c>LogDestinationType</c> is <c>s3</c>
+        /// or <c>cloudwatch</c>, possible values are <c>connectionlog</c>, <c>useractivitylog</c>,
+        /// and <c>userlog</c>. When <c>LogDestinationType</c> is <c>s3table</c>, the values are
+        /// the names of the system tables to publish. Omitting this parameter, passing an empty
+        /// list, or including the value <c>all</c> publishes all current and future system tables.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -110,6 +114,30 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3KeyPrefix { get; set; }
+        #endregion
+        
+        #region Parameter S3TableGranularity
+        /// <summary>
+        /// <para>
+        /// <para>The scope of system table publishing. Valid values are <c>cluster</c> and <c>account</c>.
+        /// A value of <c>cluster</c> scopes publishing to the individual cluster. A value of
+        /// <c>account</c> scopes publishing to the Amazon Web Services account. This parameter
+        /// is valid only when <c>LogDestinationType</c> is <c>s3table</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3TableGranularity { get; set; }
+        #endregion
+        
+        #region Parameter S3TableKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a customer managed KMS key used to encrypt the S3 tables. This parameter
+        /// is valid only when <c>LogDestinationType</c> is <c>s3table</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3TableKmsKeyId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -172,6 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.LogExport = new List<System.String>(this.LogExport);
             }
             context.S3KeyPrefix = this.S3KeyPrefix;
+            context.S3TableGranularity = this.S3TableGranularity;
+            context.S3TableKmsKeyId = this.S3TableKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +237,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.S3KeyPrefix != null)
             {
                 request.S3KeyPrefix = cmdletContext.S3KeyPrefix;
+            }
+            if (cmdletContext.S3TableGranularity != null)
+            {
+                request.S3TableGranularity = cmdletContext.S3TableGranularity;
+            }
+            if (cmdletContext.S3TableKmsKeyId != null)
+            {
+                request.S3TableKmsKeyId = cmdletContext.S3TableKmsKeyId;
             }
             
             CmdletOutput output;
@@ -268,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
             public List<System.String> LogExport { get; set; }
             public System.String S3KeyPrefix { get; set; }
+            public System.String S3TableGranularity { get; set; }
+            public System.String S3TableKmsKeyId { get; set; }
             public System.Func<Amazon.Redshift.Model.EnableLoggingResponse, EnableRSLoggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -104,6 +104,16 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.ContainerInsights
+        {
+            ($_ -eq "New-BATComputeEnvironment/EcsSettings_ContainerInsight") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EcsSettings_ContainerInsight")
+        }
+        {
+            $v = "DISABLED","ENABLED","ENHANCED"
+            break
+        }
+
         # Amazon.Batch.CRAllocationStrategy
         "New-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
@@ -258,6 +268,7 @@ $BAT_Completers = {
 $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")

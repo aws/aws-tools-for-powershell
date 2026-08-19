@@ -34,6 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     /// multiple parameters in one request. For example, you must specify both <c>adminUsername</c>
     /// and <c>adminUserPassword</c> to update either field, but you can't update both <c>kmsKeyId</c>
     /// and <c>logExports</c> in a single request.
+    /// 
+    ///  
+    /// <para>
+    /// Similarly, an S3 Tables log-publishing update (a request where <c>logDestinationType</c>
+    /// is <c>s3table</c>) cannot be combined with any other namespace configuration change
+    /// and must be submitted as its own request.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "RSSNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RedshiftServerless.Model.Namespace")]
@@ -122,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter LogDestinationType
+        /// <summary>
+        /// <para>
+        /// <para>The destination for the log data. Valid values are <c>s3table</c> and <c>cloudwatch</c>.</para><para>Set this to <c>s3table</c> to manage Amazon S3 Tables system-table publishing for
+        /// the namespace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftServerless.LogDestinationType")]
+        public Amazon.RedshiftServerless.LogDestinationType LogDestinationType { get; set; }
+        #endregion
+        
         #region Parameter LogExport
         /// <summary>
         /// <para>
@@ -167,6 +186,64 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String NamespaceName { get; set; }
+        #endregion
+        
+        #region Parameter S3TableAction
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable or disable Amazon S3 Tables publishing. Valid values are <c>Enable</c>
+        /// and <c>Disable</c>, matched case-insensitively.</para><para>When omitted, defaults to <c>Enable</c>. Valid only when <c>logDestinationType</c>
+        /// is <c>s3table</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftServerless.S3TableAction")]
+        public Amazon.RedshiftServerless.S3TableAction S3TableAction { get; set; }
+        #endregion
+        
+        #region Parameter S3TableGranularity
+        /// <summary>
+        /// <para>
+        /// <para>The scope of the Amazon S3 Tables destination. Valid values are <c>namespace</c> and
+        /// <c>account</c>, matched case-insensitively. <c>namespace</c> scopes the published
+        /// tables to this namespace; <c>account</c> scopes them to the Amazon Web Services account.</para><para>Required when enabling. Omitting this parameter or passing a blank value fails with
+        /// <c>ValidationException</c>. Valid only when <c>logDestinationType</c> is <c>s3table</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftServerless.S3TableGranularity")]
+        public Amazon.RedshiftServerless.S3TableGranularity S3TableGranularity { get; set; }
+        #endregion
+        
+        #region Parameter S3TableKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Key Management Service key used to encrypt the published Amazon
+        /// S3 Tables data. When omitted, the data is encrypted with SSE-S3 (Amazon S3 managed
+        /// keys).</para><para>Valid only when <c>logDestinationType</c> is <c>s3table</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3TableKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter S3TableName
+        /// <summary>
+        /// <para>
+        /// <para>The system tables to publish (on enable) or to stop publishing (on disable). Each
+        /// value is either a system table view name that begins with <c>sys_</c> or the keyword
+        /// <c>all</c>.</para><para>Omitting this parameter, passing an empty list, or including <c>all</c> each select
+        /// every current and future system table. Each name must be 1-128 characters, and the
+        /// list can contain up to 256 names.</para><para>Valid only when <c>logDestinationType</c> is <c>s3table</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3TableNames")]
+        public System.String[] S3TableName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -224,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.IamRole = new List<System.String>(this.IamRole);
             }
             context.KmsKeyId = this.KmsKeyId;
+            context.LogDestinationType = this.LogDestinationType;
             if (this.LogExport != null)
             {
                 context.LogExport = new List<System.String>(this.LogExport);
@@ -236,6 +314,13 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 WriteWarning("You are passing $null as a value for parameter NamespaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3TableAction = this.S3TableAction;
+            context.S3TableGranularity = this.S3TableGranularity;
+            context.S3TableKmsKeyId = this.S3TableKmsKeyId;
+            if (this.S3TableName != null)
+            {
+                context.S3TableName = new List<System.String>(this.S3TableName);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -276,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            if (cmdletContext.LogDestinationType != null)
+            {
+                request.LogDestinationType = cmdletContext.LogDestinationType;
+            }
             if (cmdletContext.LogExport != null)
             {
                 request.LogExports = cmdletContext.LogExport;
@@ -287,6 +376,22 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
+            }
+            if (cmdletContext.S3TableAction != null)
+            {
+                request.S3TableAction = cmdletContext.S3TableAction;
+            }
+            if (cmdletContext.S3TableGranularity != null)
+            {
+                request.S3TableGranularity = cmdletContext.S3TableGranularity;
+            }
+            if (cmdletContext.S3TableKmsKeyId != null)
+            {
+                request.S3TableKmsKeyId = cmdletContext.S3TableKmsKeyId;
+            }
+            if (cmdletContext.S3TableName != null)
+            {
+                request.S3TableNames = cmdletContext.S3TableName;
             }
             
             CmdletOutput output;
@@ -349,9 +454,14 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.String DefaultIamRoleArn { get; set; }
             public List<System.String> IamRole { get; set; }
             public System.String KmsKeyId { get; set; }
+            public Amazon.RedshiftServerless.LogDestinationType LogDestinationType { get; set; }
             public List<System.String> LogExport { get; set; }
             public System.Boolean? ManageAdminPassword { get; set; }
             public System.String NamespaceName { get; set; }
+            public Amazon.RedshiftServerless.S3TableAction S3TableAction { get; set; }
+            public Amazon.RedshiftServerless.S3TableGranularity S3TableGranularity { get; set; }
+            public System.String S3TableKmsKeyId { get; set; }
+            public List<System.String> S3TableName { get; set; }
             public System.Func<Amazon.RedshiftServerless.Model.UpdateNamespaceResponse, UpdateRSSNamespaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Namespace;
         }

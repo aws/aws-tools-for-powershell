@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Optional human-readable description for this limit.</para>
+        /// <para>The updated human-readable description for this rate limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>Updated rule entries. key and dimensionKeys are immutable and cannot be changed.</para><para />
+        /// <para>The updated rule entries. The dimension keys are immutable after creation and cannot
+        /// be changed.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

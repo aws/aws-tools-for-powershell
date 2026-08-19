@@ -20,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ActivateCertificateAuthority" OutputProperty="*" Verb="Enable" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateAccessPolicy" OutputProperty="*" Verb="Add" Noun="AccessPolicy" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -52,6 +56,10 @@
                 <Param Name="Configuration_ArgoCd_NetworkAccess_VpceIds" NewName="NetworkAccess_VpceId" />
                 <Param Name="Configuration_ArgoCd_RbacRoleMappings" NewName="ArgoCd_RbacRoleMapping" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCertificateAuthority" OutputProperty="*" Verb="New" Noun="CertificateAuthority" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -87,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCapability" OutputProperty="Capability" Verb="Remove" Noun="Capability" ShouldProcessTarget="CapabilityName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificateAuthority" OutputProperty="*" Verb="Remove" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +143,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapability" OutputProperty="Capability" Verb="Get" Noun="CapabilityDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificateAuthority" OutputProperty="CertificateAuthority" Verb="Get" Noun="CertificateAuthorityDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCapabilities" OutputProperty="Capabilities" Verb="Get" Noun="CapabilityList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

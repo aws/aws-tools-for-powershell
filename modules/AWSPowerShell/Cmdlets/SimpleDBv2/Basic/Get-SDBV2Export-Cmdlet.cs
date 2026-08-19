@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter ExportArn
         /// <summary>
         /// <para>
-        /// <para>Unique ARN identifier of the export.</para>
+        /// Unique ARN identifier of the export.
         /// </para>
         /// </summary>
         #if !MODULAR

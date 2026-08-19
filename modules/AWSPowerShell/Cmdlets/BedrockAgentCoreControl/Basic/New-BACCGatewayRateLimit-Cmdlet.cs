@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Optional human-readable description for this limit.</para>
+        /// <para>An optional human-readable description for this rate limit. If not provided, the rate
+        /// limit is created without a description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter DimensionKey
         /// <summary>
         /// <para>
-        /// <para>Ordered list of dimension names defining the scope of this limit. Unique per gateway
-        /// — no two limits can share the same dimensionKeys.</para><para />
+        /// <para>The ordered list of dimension key names that define the scope of this rate limit.
+        /// Must be unique per gateway—no two rate limits can share the same dimension keys.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>Rule entries mapping dimension values to rate configurations.</para><para />
+        /// <para>The rule entries that map dimension values to rate configurations.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -121,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter RateLimitId
         /// <summary>
         /// <para>
-        /// <para>Optional customer-defined limit ID. If not provided, system generates one.</para>
+        /// <para>An optional customer-defined identifier for the rate limit. If not provided, the system
+        /// generates one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

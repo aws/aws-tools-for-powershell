@@ -23,45 +23,53 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SimpleDBv2;
-using Amazon.SimpleDBv2.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SDBV2
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists all exports that were created. The results are paginated and can be filtered
-    /// by domain name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the certificate authorities (CAs) for your cluster. A cluster has at most two
+    /// certificate authorities: the outgoing CA that's currently signing and, during a rotation,
+    /// one successor CA.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SDBV2ExportList")]
-    [OutputType("Amazon.SimpleDBv2.Model.ExportSummary")]
-    [AWSCmdlet("Calls the Amazon SimpleDB v2 ListExports API operation.", Operation = new[] {"ListExports"}, SelectReturnType = typeof(Amazon.SimpleDBv2.Model.ListExportsResponse))]
-    [AWSCmdletOutput("Amazon.SimpleDBv2.Model.ExportSummary or Amazon.SimpleDBv2.Model.ListExportsResponse",
-        "This cmdlet returns a collection of Amazon.SimpleDBv2.Model.ExportSummary objects.",
-        "The service call response (type Amazon.SimpleDBv2.Model.ListExportsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EKSCertificateAuthorityList")]
+    [OutputType("Amazon.EKS.Model.CertificateAuthoritySummary")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes ListCertificateAuthorities API operation.", Operation = new[] {"ListCertificateAuthorities"}, SelectReturnType = typeof(Amazon.EKS.Model.ListCertificateAuthoritiesResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.CertificateAuthoritySummary or Amazon.EKS.Model.ListCertificateAuthoritiesResponse",
+        "This cmdlet returns a collection of Amazon.EKS.Model.CertificateAuthoritySummary objects.",
+        "The service call response (type Amazon.EKS.Model.ListCertificateAuthoritiesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSDBV2ExportListCmdlet : AmazonSimpleDBv2ClientCmdlet, IExecutor
+    public partial class GetEKSCertificateAuthorityListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainName
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// The name of the domain to filter exports. If
-        /// not provided, exports for all the domains will be listed.
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DomainName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClusterName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of exports to return in
-        /// a single response.
+        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
+        /// results, make another call with the returned <c>nextToken</c> value. If you don't
+        /// specify a value, the default is 100 results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -77,9 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A pagination token used to retrieve the next
-        /// page of results. This token is obtained from the nextToken field in the previous ListExportsResponse.
-        /// Leave empty for the first request.
+        /// <para>The <c>nextToken</c> value returned from a previous paginated request, where <c>maxResults</c>
+        /// was used and the results exceeded the value of that parameter. Pagination continues
+        /// from the end of the previous results that returned the <c>nextToken</c> value. This
+        /// value is null when there are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -92,13 +102,13 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ExportSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleDBv2.Model.ListExportsResponse).
-        /// Specifying the name of a property of type Amazon.SimpleDBv2.Model.ListExportsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CertificateAuthorities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.ListCertificateAuthoritiesResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.ListCertificateAuthoritiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ExportSummaries";
+        public string Select { get; set; } = "CertificateAuthorities";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -127,10 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleDBv2.Model.ListExportsResponse, GetSDBV2ExportListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.ListCertificateAuthoritiesResponse, GetEKSCertificateAuthorityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainName = this.DomainName;
+            context.ClusterName = this.ClusterName;
+            #if MODULAR
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -158,11 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleDBv2.Model.ListExportsRequest();
+            var request = new Amazon.EKS.Model.ListCertificateAuthoritiesRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.ClusterName = cmdletContext.ClusterName;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -225,12 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleDBv2.Model.ListExportsResponse CallAWSServiceOperation(IAmazonSimpleDBv2 client, Amazon.SimpleDBv2.Model.ListExportsRequest request)
+        private Amazon.EKS.Model.ListCertificateAuthoritiesResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.ListCertificateAuthoritiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SimpleDB v2", "ListExports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "ListCertificateAuthorities");
             try
             {
-                return client.ListExportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListCertificateAuthoritiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -247,11 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
+            public System.String ClusterName { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SimpleDBv2.Model.ListExportsResponse, GetSDBV2ExportListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ExportSummaries;
+            public System.Func<Amazon.EKS.Model.ListCertificateAuthoritiesResponse, GetEKSCertificateAuthorityListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CertificateAuthorities;
         }
         
     }

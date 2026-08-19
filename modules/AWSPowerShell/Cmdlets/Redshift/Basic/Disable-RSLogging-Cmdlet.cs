@@ -62,6 +62,36 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter LogDestinationType
+        /// <summary>
+        /// <para>
+        /// <para>The log destination type. An enum with possible values of <c>s3</c>, <c>cloudwatch</c>,
+        /// and <c>s3table</c>. When set to <c>s3table</c>, stops system table publishing. When
+        /// omitted, the operation disables audit logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Redshift.LogDestinationType")]
+        public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
+        #endregion
+        
+        #region Parameter LogExport
+        /// <summary>
+        /// <para>
+        /// <para>The collection of log types to stop exporting. When <c>LogDestinationType</c> is <c>s3table</c>,
+        /// the values are the names of the system tables to stop publishing. Omitting this parameter
+        /// or passing <c>all</c> stops publishing all system tables.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogExports")]
+        public System.String[] LogExport { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -115,6 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogDestinationType = this.LogDestinationType;
+            if (this.LogExport != null)
+            {
+                context.LogExport = new List<System.String>(this.LogExport);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +169,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.LogDestinationType != null)
+            {
+                request.LogDestinationType = cmdletContext.LogDestinationType;
+            }
+            if (cmdletContext.LogExport != null)
+            {
+                request.LogExports = cmdletContext.LogExport;
             }
             
             CmdletOutput output;
@@ -191,6 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
+            public List<System.String> LogExport { get; set; }
             public System.Func<Amazon.Redshift.Model.DisableLoggingResponse, DisableRSLoggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

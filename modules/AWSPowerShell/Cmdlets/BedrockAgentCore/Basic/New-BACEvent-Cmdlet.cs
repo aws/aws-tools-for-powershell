@@ -141,10 +141,28 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Branch_Name { get; set; }
         #endregion
         
+        #region Parameter ExtractionConfig_NamespaceVariable
+        /// <summary>
+        /// <para>
+        /// <para>A map of <c>namespaceKeys</c> to their values. The service substitutes these values
+        /// into <c>namespaceTemplates</c> during long-term memory extraction to control namespace
+        /// hierarchy.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExtractionConfig_NamespaceVariables")]
+        public System.Collections.Hashtable ExtractionConfig_NamespaceVariable { get; set; }
+        #endregion
+        
         #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para>The content payload of the event. This can include conversational data or binary content.</para><para />
+        /// <para>The content payload of the event. This can include conversational data, JSON data,
+        /// or binary content.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -258,6 +276,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter EventTimestamp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ExtractionConfig_NamespaceVariable != null)
+            {
+                context.ExtractionConfig_NamespaceVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ExtractionConfig_NamespaceVariable.Keys)
+                {
+                    context.ExtractionConfig_NamespaceVariable.Add((String)hashKey, (System.String)(this.ExtractionConfig_NamespaceVariable[hashKey]));
+                }
+            }
             context.ExtractionMode = this.ExtractionMode;
             context.MemoryId = this.MemoryId;
             #if MODULAR
@@ -342,6 +368,25 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.EventTimestamp = cmdletContext.EventTimestamp.Value;
             }
+            
+             // populate ExtractionConfig
+            var requestExtractionConfigIsNull = true;
+            request.ExtractionConfig = new Amazon.BedrockAgentCore.Model.ExtractionConfig();
+            Dictionary<System.String, System.String> requestExtractionConfig_extractionConfig_NamespaceVariable = null;
+            if (cmdletContext.ExtractionConfig_NamespaceVariable != null)
+            {
+                requestExtractionConfig_extractionConfig_NamespaceVariable = cmdletContext.ExtractionConfig_NamespaceVariable;
+            }
+            if (requestExtractionConfig_extractionConfig_NamespaceVariable != null)
+            {
+                request.ExtractionConfig.NamespaceVariables = requestExtractionConfig_extractionConfig_NamespaceVariable;
+                requestExtractionConfigIsNull = false;
+            }
+             // determine if request.ExtractionConfig should be set to null
+            if (requestExtractionConfigIsNull)
+            {
+                request.ExtractionConfig = null;
+            }
             if (cmdletContext.ExtractionMode != null)
             {
                 request.ExtractionMode = cmdletContext.ExtractionMode;
@@ -422,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String Branch_RootEventId { get; set; }
             public System.String ClientToken { get; set; }
             public System.DateTime? EventTimestamp { get; set; }
+            public Dictionary<System.String, System.String> ExtractionConfig_NamespaceVariable { get; set; }
             public Amazon.BedrockAgentCore.ExtractionMode ExtractionMode { get; set; }
             public System.String MemoryId { get; set; }
             public Dictionary<System.String, Amazon.BedrockAgentCore.Model.MetadataValue> Metadata { get; set; }

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain to export.</para>
+        /// The name of the domain to export.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket where the domain data will be exported.</para>
+        /// The name of the S3 bucket where the domain data
+        /// will be exported.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter S3BucketOwner
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that owns the bucket the export will be stored in.</para>
+        /// The ID of the AWS account that owns the
+        /// bucket the export will be stored in.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix string to be used to generate the S3 object keys for export artifacts.</para>
+        /// The prefix string to be used to generate the
+        /// S3 object keys for export artifacts.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter S3SseAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The server-side encryption algorithm to use for the exported data in S3. Valid values
-        /// are: AES256 (SSE-S3) and KMS (SSE-KMS). If not specified, bucket's default encryption
-        /// will apply.</para>
+        /// The server-side encryption algorithm to
+        /// use for the exported data in S3. Valid values are: AES256 (SSE-S3) and KMS (SSE-KMS).
+        /// If not specified, bucket's default encryption will apply.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter S3SseKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key ID to use for server-side encryption with AWS KMS-managed keys (SSE-KMS).
-        /// This parameter is only expected with KMS as the S3 SSE algorithm.</para>
+        /// The KMS key ID to use for server-side encryption
+        /// with AWS KMS-managed keys (SSE-KMS). This parameter is only expected with KMS as the
+        /// S3 SSE algorithm.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,14 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.SDBV2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Providing a ClientToken makes the call to StartDomainExport API idempotent, meaning
-        /// that multiple identical calls have the same effect as one single call. A client token
-        /// is valid for 8 hours after the first request that uses it is completed. After 8 hours,
-        /// any request with the same client token is treated as a new request. Do not resubmit
-        /// the same request with the same client token for more than 8 hours, or the result might
-        /// not be idempotent. If you submit a request with the same client token but a change
-        /// in other parameters within the 8-hour idempotency window, a ConflictException will
-        /// be returned.</para>
+        /// Providing a ClientToken makes the call to
+        /// StartDomainExport API idempotent, meaning that multiple identical calls have the same
+        /// effect as one single call. A client token is valid for 8 hours after the first request
+        /// that uses it is completed. After 8 hours, any request with the same client token is
+        /// treated as a new request. Do not resubmit the same request with the same client token
+        /// for more than 8 hours, or the result might not be idempotent. If you submit a request
+        /// with the same client token but a change in other parameters within the 8-hour idempotency
+        /// window, a ConflictException will be returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

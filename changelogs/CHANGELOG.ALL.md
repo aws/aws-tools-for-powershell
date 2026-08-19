@@ -1,4 +1,30 @@
-﻿### 5.0.279 (2026-08-18 19:18Z)
+﻿### 5.0.280 (2026-08-19 19:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.315.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter EcsSettings_ContainerInsight.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter EcsSettings_ContainerInsight.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCMemory: added parameter NamespaceKey.
+    * Modified cmdlet Update-BACCMemory: added parameter NamespaceKey.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Get-BACMemoryRecord: added parameter Namespace.
+    * Modified cmdlet New-BACEvent: added parameter ExtractionConfig_NamespaceVariable.
+    * Modified cmdlet Remove-BACMemoryRecord: added parameter Namespace.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Enable-EKSCertificateAuthority leveraging the ActivateCertificateAuthority service API.
+    * Added cmdlet Get-EKSCertificateAuthorityDetail leveraging the DescribeCertificateAuthority service API.
+    * Added cmdlet Get-EKSCertificateAuthorityList leveraging the ListCertificateAuthorities service API.
+    * Added cmdlet New-EKSCertificateAuthority leveraging the CreateCertificateAuthority service API.
+    * Added cmdlet Remove-EKSCertificateAuthority leveraging the DeleteCertificateAuthority service API.
+  * Amazon Redshift
+    * Modified cmdlet Disable-RSLogging: added parameters LogDestinationType and LogExport.
+    * Modified cmdlet Enable-RSLogging: added parameters S3TableGranularity and S3TableKmsKeyId.
+  * Amazon Redshift Serverless
+    * Modified cmdlet Update-RSSNamespace: added parameters LogDestinationType, S3TableAction, S3TableGranularity, S3TableKmsKeyId and S3TableName.
+  * Amazon VPC Lattice
+    * Modified cmdlet Update-VPCLServiceNetworkVpcAssociation: added parameters DnsOptions_PrivateDnsPreference, DnsOptions_PrivateDnsSpecifiedDomain and PrivateDnsEnabled.
+
+### 5.0.279 (2026-08-18 19:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.314.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Marketplace Catalog Service
     * Added cmdlet Get-MCATAssessmentDetail leveraging the DescribeAssessment service API.

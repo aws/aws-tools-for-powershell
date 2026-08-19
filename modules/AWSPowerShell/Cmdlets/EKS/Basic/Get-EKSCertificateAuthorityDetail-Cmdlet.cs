@@ -23,38 +23,34 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCore;
-using Amazon.BedrockAgentCore.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAC
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Retrieves a specific memory record from an AgentCore Memory resource.
-    /// 
-    ///  
-    /// <para>
-    /// To use this operation, you must have the <c>bedrock-agentcore:GetMemoryRecord</c>
-    /// permission.
-    /// </para>
+    /// Returns detailed information about a certificate authority (CA) in your cluster, including
+    /// its validity period, signing and distribution status, provenance, scheduled auto-activation
+    /// events, and public certificate data.
     /// </summary>
-    [Cmdlet("Get", "BACMemoryRecord")]
-    [OutputType("Amazon.BedrockAgentCore.Model.MemoryRecord")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetMemoryRecord API operation.", Operation = new[] {"GetMemoryRecord"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.MemoryRecord or Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCore.Model.MemoryRecord object.",
-        "The service call response (type Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EKSCertificateAuthorityDetail")]
+    [OutputType("Amazon.EKS.Model.CertificateAuthority")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeCertificateAuthority API operation.", Operation = new[] {"DescribeCertificateAuthority"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeCertificateAuthorityResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.CertificateAuthority or Amazon.EKS.Model.DescribeCertificateAuthorityResponse",
+        "This cmdlet returns an Amazon.EKS.Model.CertificateAuthority object.",
+        "The service call response (type Amazon.EKS.Model.DescribeCertificateAuthorityResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBACMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class GetEKSCertificateAuthorityDetailCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MemoryId
+        #region Parameter CertificateAuthorityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AgentCore Memory resource containing the memory record.</para>
+        /// <para>The ID of the certificate authority to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryId { get; set; }
+        public System.String CertificateAuthorityId { get; set; }
         #endregion
         
-        #region Parameter MemoryRecordId
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory record to retrieve.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,29 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryRecordId { get; set; }
-        #endregion
-        
-        #region Parameter Namespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace of the memory record to retrieve. This value is used for IAM condition
-        /// key authorization.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Namespace { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemoryRecord'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CertificateAuthority'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.DescribeCertificateAuthorityResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.DescribeCertificateAuthorityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MemoryRecord";
+        public string Select { get; set; } = "CertificateAuthority";
         #endregion
         
         protected override void StopProcessing()
@@ -123,24 +108,23 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse, GetBACMemoryRecordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.DescribeCertificateAuthorityResponse, GetEKSCertificateAuthorityDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MemoryId = this.MemoryId;
+            context.CertificateAuthorityId = this.CertificateAuthorityId;
             #if MODULAR
-            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
+            if (this.CertificateAuthorityId == null && ParameterWasBound(nameof(this.CertificateAuthorityId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CertificateAuthorityId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemoryRecordId = this.MemoryRecordId;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.MemoryRecordId == null && ParameterWasBound(nameof(this.MemoryRecordId)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryRecordId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,19 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCore.Model.GetMemoryRecordRequest();
+            var request = new Amazon.EKS.Model.DescribeCertificateAuthorityRequest();
             
-            if (cmdletContext.MemoryId != null)
+            if (cmdletContext.CertificateAuthorityId != null)
             {
-                request.MemoryId = cmdletContext.MemoryId;
+                request.CertificateAuthorityId = cmdletContext.CertificateAuthorityId;
             }
-            if (cmdletContext.MemoryRecordId != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.MemoryRecordId = cmdletContext.MemoryRecordId;
-            }
-            if (cmdletContext.Namespace != null)
-            {
-                request.Namespace = cmdletContext.Namespace;
+                request.ClusterName = cmdletContext.ClusterName;
             }
             
             CmdletOutput output;
@@ -202,12 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetMemoryRecordRequest request)
+        private Amazon.EKS.Model.DescribeCertificateAuthorityResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.DescribeCertificateAuthorityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetMemoryRecord");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "DescribeCertificateAuthority");
             try
             {
-                return client.GetMemoryRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeCertificateAuthorityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -224,11 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemoryId { get; set; }
-            public System.String MemoryRecordId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.GetMemoryRecordResponse, GetBACMemoryRecordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MemoryRecord;
+            public System.String CertificateAuthorityId { get; set; }
+            public System.String ClusterName { get; set; }
+            public System.Func<Amazon.EKS.Model.DescribeCertificateAuthorityResponse, GetEKSCertificateAuthorityDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CertificateAuthority;
         }
         
     }

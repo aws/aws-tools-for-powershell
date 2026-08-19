@@ -7381,6 +7381,16 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.ContainerInsights
+        {
+            ($_ -eq "New-BATComputeEnvironment/EcsSettings_ContainerInsight") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EcsSettings_ContainerInsight")
+        }
+        {
+            $v = "DISABLED","ENABLED","ENHANCED"
+            break
+        }
+
         # Amazon.Batch.CRAllocationStrategy
         "New-BATComputeEnvironment/ComputeResources_AllocationStrategy"
         {
@@ -7535,6 +7545,7 @@ $BAT_Completers = {
 $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
@@ -15191,8 +15202,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15874,8 +15885,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16335,8 +16346,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -29891,12 +29902,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
-               "Add-DDBIndexSchema",
                "New-DDBTableSchema",
-               "New-DDBTable")
+               "Add-DDBIndexSchema",
+               "Add-DDBKeySchema",
+               "New-DDBTable",
+               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33895,13 +33906,15 @@ $EKS_SelectCompleters = {
 }
 
 $EKS_SelectMap = @{
-    "Select"=@("Add-EKSAccessPolicy",
+    "Select"=@("Enable-EKSCertificateAuthority",
+               "Add-EKSAccessPolicy",
                "Add-EKSEncryptionConfig",
                "Add-EKSIdentityProviderConfig",
                "Stop-EKSUpdate",
                "New-EKSAccessEntry",
                "New-EKSAddon",
                "New-EKSCapability",
+               "New-EKSCertificateAuthority",
                "New-EKSCluster",
                "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
@@ -33910,6 +33923,7 @@ $EKS_SelectMap = @{
                "Remove-EKSAccessEntry",
                "Remove-EKSAddon",
                "Remove-EKSCapability",
+               "Remove-EKSCertificateAuthority",
                "Remove-EKSCluster",
                "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
@@ -33921,6 +33935,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
                "Get-EKSCapabilityDetail",
+               "Get-EKSCertificateAuthorityDetail",
                "Get-EKSCluster",
                "Get-EKSClusterVersion",
                "Get-EKSEksAnywhereSubscription",
@@ -33938,6 +33953,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddonList",
                "Get-EKSAssociatedAccessPolicyList",
                "Get-EKSCapabilityList",
+               "Get-EKSCertificateAuthorityList",
                "Get-EKSClusterList",
                "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
@@ -73140,6 +73156,13 @@ $RSS_Completers = {
             break
         }
 
+        # Amazon.RedshiftServerless.LogDestinationType
+        "Update-RSSNamespace/LogDestinationType"
+        {
+            $v = "cloudwatch","s3table"
+            break
+        }
+
         # Amazon.RedshiftServerless.PerformanceTargetStatus
         {
             ($_ -eq "New-RSSWorkgroup/PricePerformanceTarget_Status") -Or
@@ -73147,6 +73170,20 @@ $RSS_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.RedshiftServerless.S3TableAction
+        "Update-RSSNamespace/S3TableAction"
+        {
+            $v = "Disable","Enable"
+            break
+        }
+
+        # Amazon.RedshiftServerless.S3TableGranularity
+        "Update-RSSNamespace/S3TableGranularity"
+        {
+            $v = "account","namespace"
             break
         }
 
@@ -73189,8 +73226,11 @@ $RSS_map = @{
     "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
     "LakehouseIdcRegistration"=@("Update-RSSLakehouseConfiguration")
     "LakehouseRegistration"=@("Update-RSSLakehouseConfiguration")
+    "LogDestinationType"=@("Update-RSSNamespace")
     "Period"=@("New-RSSUsageLimit")
     "PricePerformanceTarget_Status"=@("New-RSSWorkgroup","Update-RSSWorkgroup")
+    "S3TableAction"=@("Update-RSSNamespace")
+    "S3TableGranularity"=@("Update-RSSNamespace")
     "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
 }
 
@@ -73374,9 +73414,12 @@ $RS_Completers = {
         }
 
         # Amazon.Redshift.LogDestinationType
-        "Enable-RSLogging/LogDestinationType"
         {
-            $v = "cloudwatch","s3"
+            ($_ -eq "Disable-RSLogging/LogDestinationType") -Or
+            ($_ -eq "Enable-RSLogging/LogDestinationType")
+        }
+        {
+            $v = "cloudwatch","s3","s3table"
             break
         }
 
@@ -73459,7 +73502,7 @@ $RS_map = @{
     "LakehouseIdcRegistration"=@("Edit-RSLakehouseConfiguration")
     "LakehouseRegistration"=@("Edit-RSLakehouseConfiguration")
     "LimitType"=@("New-RSUsageLimit")
-    "LogDestinationType"=@("Enable-RSLogging")
+    "LogDestinationType"=@("Disable-RSLogging","Enable-RSLogging")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
     "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")
@@ -77437,16 +77480,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Write-S3Object",
-               "Remove-S3Bucket",
-               "New-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Copy-S3Object",
-               "Get-S3MultipartUpload",
-               "Read-S3Object",
                "Remove-S3MultipartUpload",
+               "Remove-S3Object",
+               "Copy-S3Object",
+               "Read-S3Object",
                "Test-S3Bucket",
-               "Remove-S3Object")
+               "Remove-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Get-S3PreSignedURL",
+               "New-S3Bucket",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -90541,7 +90584,10 @@ $VPCL_Completers = {
         }
 
         # Amazon.VPCLattice.PrivateDnsPreference
-        "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference"
+        {
+            ($_ -eq "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference") -Or
+            ($_ -eq "Update-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference")
+        }
         {
             $v = "ALL_DOMAINS","SPECIFIED_DOMAINS_ONLY","VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","VERIFIED_DOMAINS_ONLY"
             break
@@ -90634,7 +90680,7 @@ $VPCL_map = @{
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
-    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation")
+    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation","Update-VPCLServiceNetworkVpcAssociation")
     "DnsResource_IpAddressType"=@("New-VPCLResourceConfiguration","Update-VPCLResourceConfiguration")
     "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
@@ -94043,44 +94089,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94120,3 +94128,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

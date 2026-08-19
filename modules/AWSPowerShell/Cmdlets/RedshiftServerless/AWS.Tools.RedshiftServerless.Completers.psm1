@@ -94,6 +94,13 @@ $RSS_Completers = {
             break
         }
 
+        # Amazon.RedshiftServerless.LogDestinationType
+        "Update-RSSNamespace/LogDestinationType"
+        {
+            $v = "cloudwatch","s3table"
+            break
+        }
+
         # Amazon.RedshiftServerless.PerformanceTargetStatus
         {
             ($_ -eq "New-RSSWorkgroup/PricePerformanceTarget_Status") -Or
@@ -101,6 +108,20 @@ $RSS_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.RedshiftServerless.S3TableAction
+        "Update-RSSNamespace/S3TableAction"
+        {
+            $v = "Disable","Enable"
+            break
+        }
+
+        # Amazon.RedshiftServerless.S3TableGranularity
+        "Update-RSSNamespace/S3TableGranularity"
+        {
+            $v = "account","namespace"
             break
         }
 
@@ -143,8 +164,11 @@ $RSS_map = @{
     "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
     "LakehouseIdcRegistration"=@("Update-RSSLakehouseConfiguration")
     "LakehouseRegistration"=@("Update-RSSLakehouseConfiguration")
+    "LogDestinationType"=@("Update-RSSNamespace")
     "Period"=@("New-RSSUsageLimit")
     "PricePerformanceTarget_Status"=@("New-RSSWorkgroup","Update-RSSWorkgroup")
+    "S3TableAction"=@("Update-RSSNamespace")
+    "S3TableGranularity"=@("Update-RSSNamespace")
     "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
 }
 

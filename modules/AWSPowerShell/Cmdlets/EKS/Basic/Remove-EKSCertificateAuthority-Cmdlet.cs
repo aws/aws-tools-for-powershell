@@ -23,39 +23,43 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCore;
-using Amazon.BedrockAgentCore.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAC
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deletes a memory record from an AgentCore Memory resource. When you delete a memory
-    /// record, it is permanently removed.
+    /// Deletes a certificate authority (CA) from your cluster.
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have the <c>bedrock-agentcore:DeleteMemoryRecord</c>
-    /// permission.
+    /// Deleting a certificate authority removes its public certificate from the cluster's
+    /// trust bundle. You can't delete the certificate authority that's currently signing
+    /// certificates for the cluster (its <c>signingStatus</c> is <c>IN_USE</c>) — to remove
+    /// the outgoing CA, first activate the successor CA with <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html"><c>ActivateCertificateAuthority</c></a>. Amazon EKS also protects a successor CA
+    /// from deletion in certain cases to keep a valid rotation path — for example, a successor
+    /// that Amazon EKS appended can't be deleted while it's the only successor on the cluster.
+    /// This is an asynchronous operation that returns an <c>update</c> object.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "BACMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer DeleteMemoryRecord API operation.", Operation = new[] {"DeleteMemoryRecord"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "EKSCertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EKS.Model.DeleteCertificateAuthorityResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeleteCertificateAuthority API operation.", Operation = new[] {"DeleteCertificateAuthority"}, SelectReturnType = typeof(Amazon.EKS.Model.DeleteCertificateAuthorityResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.DeleteCertificateAuthorityResponse",
+        "This cmdlet returns an Amazon.EKS.Model.DeleteCertificateAuthorityResponse object containing multiple properties."
     )]
-    public partial class RemoveBACMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class RemoveEKSCertificateAuthorityCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MemoryId
+        #region Parameter CertificateAuthorityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AgentCore Memory resource from which to delete the memory record.</para>
+        /// <para>The ID of the certificate authority to delete. You can't delete the certificate authority
+        /// that's currently signing certificates for the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +70,24 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryId { get; set; }
+        public System.String CertificateAuthorityId { get; set; }
         #endregion
         
-        #region Parameter MemoryRecordId
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The identifier of the memory record to delete.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter ClusterName
+        /// <summary>
+        /// <para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,29 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemoryRecordId { get; set; }
-        #endregion
-        
-        #region Parameter Namespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace of the memory record to delete. This value is used for IAM condition
-        /// key authorization.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Namespace { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemoryRecordId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.DeleteCertificateAuthorityResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.DeleteCertificateAuthorityResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MemoryRecordId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -127,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemoryRecordId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACMemoryRecord (DeleteMemoryRecord)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CertificateAuthorityId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EKSCertificateAuthority (DeleteCertificateAuthority)"))
             {
                 return;
             }
@@ -140,24 +144,24 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse, RemoveBACMemoryRecordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.DeleteCertificateAuthorityResponse, RemoveEKSCertificateAuthorityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MemoryId = this.MemoryId;
+            context.CertificateAuthorityId = this.CertificateAuthorityId;
             #if MODULAR
-            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
+            if (this.CertificateAuthorityId == null && ParameterWasBound(nameof(this.CertificateAuthorityId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CertificateAuthorityId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemoryRecordId = this.MemoryRecordId;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.MemoryRecordId == null && ParameterWasBound(nameof(this.MemoryRecordId)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemoryRecordId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCore.Model.DeleteMemoryRecordRequest();
+            var request = new Amazon.EKS.Model.DeleteCertificateAuthorityRequest();
             
-            if (cmdletContext.MemoryId != null)
+            if (cmdletContext.CertificateAuthorityId != null)
             {
-                request.MemoryId = cmdletContext.MemoryId;
+                request.CertificateAuthorityId = cmdletContext.CertificateAuthorityId;
             }
-            if (cmdletContext.MemoryRecordId != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.MemoryRecordId = cmdletContext.MemoryRecordId;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.ClusterName = cmdletContext.ClusterName;
             }
             
             CmdletOutput output;
@@ -219,12 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.DeleteMemoryRecordRequest request)
+        private Amazon.EKS.Model.DeleteCertificateAuthorityResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.DeleteCertificateAuthorityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "DeleteMemoryRecord");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "DeleteCertificateAuthority");
             try
             {
-                return client.DeleteMemoryRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteCertificateAuthorityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -241,11 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemoryId { get; set; }
-            public System.String MemoryRecordId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.DeleteMemoryRecordResponse, RemoveBACMemoryRecordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MemoryRecordId;
+            public System.String CertificateAuthorityId { get; set; }
+            public System.String ClientRequestToken { get; set; }
+            public System.String ClusterName { get; set; }
+            public System.Func<Amazon.EKS.Model.DeleteCertificateAuthorityResponse, RemoveEKSCertificateAuthorityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

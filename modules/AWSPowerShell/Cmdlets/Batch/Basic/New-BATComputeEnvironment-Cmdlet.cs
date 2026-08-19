@@ -167,6 +167,23 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ComputeEnvironmentName { get; set; }
         #endregion
         
+        #region Parameter EcsSettings_ContainerInsight
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the CloudWatch Container Insights mode for the compute environment. Valid
+        /// values are:</para><dl><dt>ENABLED</dt><dd><para>Turns on standard Container Insights, which collects CPU, memory, disk, and network
+        /// utilization metrics for the compute environment.</para></dd><dt>ENHANCED</dt><dd><para>Turns on enhanced Container Insights, which collects the standard metrics along with
+        /// additional per-task observability metrics.</para></dd><dt>DISABLED</dt><dd><para>Turns off Container Insights for the compute environment.</para></dd></dl><para>If you don't specify a value, the default is <c>DISABLED</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container
+        /// Insights</a> in the <i>Batch User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EcsSettings_ContainerInsights")]
+        [AWSConstantClassSource("Amazon.Batch.ContainerInsights")]
+        public Amazon.Batch.ContainerInsights EcsSettings_ContainerInsight { get; set; }
+        #endregion
+        
         #region Parameter Context
         /// <summary>
         /// <para>
@@ -756,6 +773,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.ComputeResources_Type = this.ComputeResources_Type;
             context.Context = this.Context;
+            context.EcsSettings_ContainerInsight = this.EcsSettings_ContainerInsight;
             context.EksConfiguration_EksClusterArn = this.EksConfiguration_EksClusterArn;
             context.EksConfiguration_KubernetesNamespace = this.EksConfiguration_KubernetesNamespace;
             context.ServiceRole = this.ServiceRole;
@@ -1060,6 +1078,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.Context = cmdletContext.Context;
             }
             
+             // populate EcsSettings
+            var requestEcsSettingsIsNull = true;
+            request.EcsSettings = new Amazon.Batch.Model.EcsSettings();
+            Amazon.Batch.ContainerInsights requestEcsSettings_ecsSettings_ContainerInsight = null;
+            if (cmdletContext.EcsSettings_ContainerInsight != null)
+            {
+                requestEcsSettings_ecsSettings_ContainerInsight = cmdletContext.EcsSettings_ContainerInsight;
+            }
+            if (requestEcsSettings_ecsSettings_ContainerInsight != null)
+            {
+                request.EcsSettings.ContainerInsights = requestEcsSettings_ecsSettings_ContainerInsight;
+                requestEcsSettingsIsNull = false;
+            }
+             // determine if request.EcsSettings should be set to null
+            if (requestEcsSettingsIsNull)
+            {
+                request.EcsSettings = null;
+            }
+            
              // populate EksConfiguration
             var requestEksConfigurationIsNull = true;
             request.EksConfiguration = new Amazon.Batch.Model.EksConfiguration();
@@ -1188,6 +1225,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Dictionary<System.String, System.String> ComputeResources_Tag { get; set; }
             public Amazon.Batch.CRType ComputeResources_Type { get; set; }
             public System.String Context { get; set; }
+            public Amazon.Batch.ContainerInsights EcsSettings_ContainerInsight { get; set; }
             public System.String EksConfiguration_EksClusterArn { get; set; }
             public System.String EksConfiguration_KubernetesNamespace { get; set; }
             public System.String ServiceRole { get; set; }

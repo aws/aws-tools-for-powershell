@@ -124,7 +124,10 @@ $VPCL_Completers = {
         }
 
         # Amazon.VPCLattice.PrivateDnsPreference
-        "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference"
+        {
+            ($_ -eq "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference") -Or
+            ($_ -eq "Update-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference")
+        }
         {
             $v = "ALL_DOMAINS","SPECIFIED_DOMAINS_ONLY","VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","VERIFIED_DOMAINS_ONLY"
             break
@@ -217,7 +220,7 @@ $VPCL_map = @{
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
-    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation")
+    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation","Update-VPCLServiceNetworkVpcAssociation")
     "DnsResource_IpAddressType"=@("New-VPCLResourceConfiguration","Update-VPCLResourceConfiguration")
     "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")

@@ -134,9 +134,12 @@ $RS_Completers = {
         }
 
         # Amazon.Redshift.LogDestinationType
-        "Enable-RSLogging/LogDestinationType"
         {
-            $v = "cloudwatch","s3"
+            ($_ -eq "Disable-RSLogging/LogDestinationType") -Or
+            ($_ -eq "Enable-RSLogging/LogDestinationType")
+        }
+        {
+            $v = "cloudwatch","s3","s3table"
             break
         }
 
@@ -219,7 +222,7 @@ $RS_map = @{
     "LakehouseIdcRegistration"=@("Edit-RSLakehouseConfiguration")
     "LakehouseRegistration"=@("Edit-RSLakehouseConfiguration")
     "LimitType"=@("New-RSUsageLimit")
-    "LogDestinationType"=@("Enable-RSLogging")
+    "LogDestinationType"=@("Disable-RSLogging","Enable-RSLogging")
     "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
     "Status"=@("Get-RSDataSharesForConsumer","Get-RSDataSharesForProducer","Update-RSPartnerStatus")

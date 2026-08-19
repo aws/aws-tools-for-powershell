@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.314.0",
+    "ProductVersion"    : "4.0.315.0",
     "CoreVersion"       : "4.0.101.1",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -324,7 +324,7 @@
             "InPreview"               : false
         },
         "SimpleDBv2"           : {
-            "Version" : "4.0.100.9",
+            "Version" : "4.0.100.10",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -684,7 +684,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.100.9",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.102.0",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -1436,7 +1436,7 @@
             "InPreview"               : false
         },
         "SSO"                             : {
-            "Version" : "4.0.100.9",
+            "Version" : "4.0.100.10",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -2284,7 +2284,7 @@
             "InPreview"               : false
         },
         "RedshiftServerless"                  : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -2308,7 +2308,7 @@
             "InPreview"               : false
         },
         "SupportApp"                          : {
-            "Version" : "4.0.100.9",
+            "Version" : "4.0.100.10",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -2524,7 +2524,7 @@
             "InPreview"               : false
         },
         "VPCLattice"                          : {
-            "Version" : "4.0.100.9",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.105.1",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.110.1",
+            "Version" : "4.0.111.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"
@@ -3468,7 +3468,7 @@
             "InPreview"               : false
         },
         "AccountAccess"                       : {
-            "Version" : "4.0.100.1",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.101.1"

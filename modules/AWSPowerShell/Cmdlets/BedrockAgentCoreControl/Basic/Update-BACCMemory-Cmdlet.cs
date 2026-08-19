@@ -137,6 +137,23 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String MemoryId { get; set; }
         #endregion
         
+        #region Parameter NamespaceKey
+        /// <summary>
+        /// <para>
+        /// <para>The namespace variable key definitions with validation rules for this memory. Use
+        /// this parameter to update existing <c>namespaceKey</c> validation rules or add new
+        /// keys when namespace templates change.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NamespaceKeys")]
+        public Amazon.BedrockAgentCoreControl.Model.NamespaceKeyEntry[] NamespaceKey { get; set; }
+        #endregion
+        
         #region Parameter StreamDeliveryResources_Resource
         /// <summary>
         /// <para>
@@ -251,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.MemoryStrategies_UpdateMemoryStrategy = new List<Amazon.BedrockAgentCoreControl.Model.ModifyMemoryStrategyInput>(this.MemoryStrategies_UpdateMemoryStrategy);
             }
+            if (this.NamespaceKey != null)
+            {
+                context.NamespaceKey = new List<Amazon.BedrockAgentCoreControl.Model.NamespaceKeyEntry>(this.NamespaceKey);
+            }
             if (this.StreamDeliveryResources_Resource != null)
             {
                 context.StreamDeliveryResources_Resource = new List<Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource>(this.StreamDeliveryResources_Resource);
@@ -333,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestMemoryStrategiesIsNull)
             {
                 request.MemoryStrategies = null;
+            }
+            if (cmdletContext.NamespaceKey != null)
+            {
+                request.NamespaceKeys = cmdletContext.NamespaceKey;
             }
             
              // populate StreamDeliveryResources
@@ -417,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.MemoryStrategyInput> MemoryStrategies_AddMemoryStrategy { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.DeleteMemoryStrategyInput> MemoryStrategies_DeleteMemoryStrategy { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ModifyMemoryStrategyInput> MemoryStrategies_UpdateMemoryStrategy { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.NamespaceKeyEntry> NamespaceKey { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.StreamDeliveryResource> StreamDeliveryResources_Resource { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdateMemoryResponse, UpdateBACCMemoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Memory;

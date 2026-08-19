@@ -13260,6 +13260,8 @@ Set-Alias -Name ECS-UpdateTaskProtection -Value Update-ECSTaskProtection
 Set-Alias -Name ECS-UpdateTaskSet -Value Update-ECSTaskSet
 Set-Alias -Name Assume-EKSAURoleForPodIdentity -Value Use-EKSAURoleForPodIdentity
 Set-Alias -Name EKSAU-AssumeRoleForPodIdentity -Value Use-EKSAURoleForPodIdentity
+Set-Alias -Name Activate-EKSCertificateAuthority -Value Enable-EKSCertificateAuthority
+Set-Alias -Name EKS-ActivateCertificateAuthority -Value Enable-EKSCertificateAuthority
 Set-Alias -Name Associate-EKSAccessPolicy -Value Add-EKSAccessPolicy
 Set-Alias -Name EKS-AssociateAccessPolicy -Value Add-EKSAccessPolicy
 Set-Alias -Name Associate-EKSEncryptionConfig -Value Add-EKSEncryptionConfig
@@ -13274,6 +13276,8 @@ Set-Alias -Name Create-EKSAddon -Value New-EKSAddon
 Set-Alias -Name EKS-CreateAddon -Value New-EKSAddon
 Set-Alias -Name Create-EKSCapability -Value New-EKSCapability
 Set-Alias -Name EKS-CreateCapability -Value New-EKSCapability
+Set-Alias -Name Create-EKSCertificateAuthority -Value New-EKSCertificateAuthority
+Set-Alias -Name EKS-CreateCertificateAuthority -Value New-EKSCertificateAuthority
 Set-Alias -Name Create-EKSCluster -Value New-EKSCluster
 Set-Alias -Name EKS-CreateCluster -Value New-EKSCluster
 Set-Alias -Name Create-EKSEksAnywhereSubscription -Value New-EKSEksAnywhereSubscription
@@ -13290,6 +13294,8 @@ Set-Alias -Name Delete-EKSAddon -Value Remove-EKSAddon
 Set-Alias -Name EKS-DeleteAddon -Value Remove-EKSAddon
 Set-Alias -Name Delete-EKSCapability -Value Remove-EKSCapability
 Set-Alias -Name EKS-DeleteCapability -Value Remove-EKSCapability
+Set-Alias -Name Delete-EKSCertificateAuthority -Value Remove-EKSCertificateAuthority
+Set-Alias -Name EKS-DeleteCertificateAuthority -Value Remove-EKSCertificateAuthority
 Set-Alias -Name Delete-EKSCluster -Value Remove-EKSCluster
 Set-Alias -Name EKS-DeleteCluster -Value Remove-EKSCluster
 Set-Alias -Name Delete-EKSEksAnywhereSubscription -Value Remove-EKSEksAnywhereSubscription
@@ -13314,6 +13320,9 @@ Set-Alias -Name EKS-DescribeAddonVersions -Value Get-EKSAddonVersion
 Set-Alias -Name Describe-EKSCapability -Value Get-EKSCapabilityDetail
 Set-Alias -Name Describe-EKSCapabilityDetail -Value Get-EKSCapabilityDetail
 Set-Alias -Name EKS-DescribeCapability -Value Get-EKSCapabilityDetail
+Set-Alias -Name Describe-EKSCertificateAuthority -Value Get-EKSCertificateAuthorityDetail
+Set-Alias -Name Describe-EKSCertificateAuthorityDetail -Value Get-EKSCertificateAuthorityDetail
+Set-Alias -Name EKS-DescribeCertificateAuthority -Value Get-EKSCertificateAuthorityDetail
 Set-Alias -Name Describe-EKSCluster -Value Get-EKSCluster
 Set-Alias -Name EKS-DescribeCluster -Value Get-EKSCluster
 Set-Alias -Name Describe-EKSClusterVersions -Value Get-EKSClusterVersion
@@ -13354,6 +13363,9 @@ Set-Alias -Name EKS-ListAssociatedAccessPolicies -Value Get-EKSAssociatedAccessP
 Set-Alias -Name List-EKSCapabilities -Value Get-EKSCapabilityList
 Set-Alias -Name List-EKSCapabilityList -Value Get-EKSCapabilityList
 Set-Alias -Name EKS-ListCapabilities -Value Get-EKSCapabilityList
+Set-Alias -Name List-EKSCertificateAuthorities -Value Get-EKSCertificateAuthorityList
+Set-Alias -Name List-EKSCertificateAuthorityList -Value Get-EKSCertificateAuthorityList
+Set-Alias -Name EKS-ListCertificateAuthorities -Value Get-EKSCertificateAuthorityList
 Set-Alias -Name List-EKSClusters -Value Get-EKSClusterList
 Set-Alias -Name List-EKSClusterList -Value Get-EKSClusterList
 Set-Alias -Name EKS-ListClusters -Value Get-EKSClusterList
