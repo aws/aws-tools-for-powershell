@@ -141,6 +141,10 @@ $SES2_Completers = {
 
         # Amazon.SimpleEmailV2.FeatureStatus
         {
+            ($_ -eq "Send-SES2BulkEmail/ConfigurationOverrides_Tracking_ClickTrackingEnabled") -Or
+            ($_ -eq "Send-SES2Email/ConfigurationOverrides_Tracking_ClickTrackingEnabled") -Or
+            ($_ -eq "Send-SES2BulkEmail/ConfigurationOverrides_Tracking_OpenTrackingEnabled") -Or
+            ($_ -eq "Send-SES2Email/ConfigurationOverrides_Tracking_OpenTrackingEnabled") -Or
             ($_ -eq "Write-SES2AccountVdmAttribute/DashboardAttributes_EngagementMetric") -Or
             ($_ -eq "New-SES2ConfigurationSet/DashboardOptions_EngagementMetric") -Or
             ($_ -eq "Write-SES2ConfigurationSetVdmOption/DashboardOptions_EngagementMetric") -Or
@@ -294,6 +298,8 @@ $SES2_Completers = {
 
 $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
+    "ConfigurationOverrides_Tracking_ClickTrackingEnabled"=@("Send-SES2BulkEmail","Send-SES2Email")
+    "ConfigurationOverrides_Tracking_OpenTrackingEnabled"=@("Send-SES2BulkEmail","Send-SES2Email")
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")

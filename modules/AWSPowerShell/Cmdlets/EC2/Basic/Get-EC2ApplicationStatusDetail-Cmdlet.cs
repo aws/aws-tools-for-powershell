@@ -30,8 +30,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the application status for the specified instances. Returns the aggregated
-    /// application health status for each instance. The following rules apply:
+    /// Describes the aggregated application health status for the specified instances. The
+    /// following rules apply:
     /// 
     ///  <ul><li><para>
     /// The instance-level status is derived from all application status checks with the aggregation

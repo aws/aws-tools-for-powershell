@@ -127,7 +127,7 @@ $BAT_Completers = {
             ($_ -eq "Update-BATComputeEnvironment/ComputeResources_Type")
         }
         {
-            $v = "EC2","FARGATE","FARGATE_SPOT","SPOT"
+            $v = "EC2","ECS_MANAGED_INSTANCES","FARGATE","FARGATE_SPOT","SPOT"
             break
         }
 
@@ -148,7 +148,7 @@ $BAT_Completers = {
         # Amazon.Batch.JobQueueType
         "New-BATJobQueue/JobQueueType"
         {
-            $v = "ECS","ECS_FARGATE","EKS","SAGEMAKER_TRAINING"
+            $v = "ECS","ECS_FARGATE","ECS_MANAGED_INSTANCES","EKS","SAGEMAKER_TRAINING"
             break
         }
 

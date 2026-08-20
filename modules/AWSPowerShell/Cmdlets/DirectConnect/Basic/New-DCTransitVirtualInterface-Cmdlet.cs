@@ -186,6 +186,26 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.Int32? NewTransitVirtualInterface_Mtu { get; set; }
         #endregion
         
+        #region Parameter NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4
+        /// <summary>
+        /// <para>
+        /// <para>The number of inbound IPv4 route prefixes to allocate to the virtual interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 { get; set; }
+        #endregion
+        
+        #region Parameter NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6
+        /// <summary>
+        /// <para>
+        /// <para>The number of inbound IPv6 route prefixes to allocate to the virtual interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 { get; set; }
+        #endregion
+        
         #region Parameter NewTransitVirtualInterface_RateLimit
         /// <summary>
         /// <para>
@@ -297,6 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewTransitVirtualInterface_DirectConnectGatewayId = this.NewTransitVirtualInterface_DirectConnectGatewayId;
             context.NewTransitVirtualInterface_EnableSiteLink = this.NewTransitVirtualInterface_EnableSiteLink;
             context.NewTransitVirtualInterface_Mtu = this.NewTransitVirtualInterface_Mtu;
+            context.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 = this.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4;
+            context.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 = this.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6;
             context.NewTransitVirtualInterface_RateLimit = this.NewTransitVirtualInterface_RateLimit;
             if (this.NewTransitVirtualInterface_Tag != null)
             {
@@ -418,6 +440,26 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewTransitVirtualInterface.Mtu = requestNewTransitVirtualInterface_newTransitVirtualInterface_Mtu.Value;
                 requestNewTransitVirtualInterfaceIsNull = false;
             }
+            System.Int32? requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 = null;
+            if (cmdletContext.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 != null)
+            {
+                requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 = cmdletContext.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4.Value;
+            }
+            if (requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 != null)
+            {
+                request.NewTransitVirtualInterface.PrefixPoolAllocatedCountIpv4 = requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv4.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
+            }
+            System.Int32? requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 = null;
+            if (cmdletContext.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 != null)
+            {
+                requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 = cmdletContext.NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6.Value;
+            }
+            if (requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 != null)
+            {
+                request.NewTransitVirtualInterface.PrefixPoolAllocatedCountIpv6 = requestNewTransitVirtualInterface_newTransitVirtualInterface_PrefixPoolAllocatedCountIpv6.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
+            }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_RateLimit = null;
             if (cmdletContext.NewTransitVirtualInterface_RateLimit != null)
             {
@@ -528,6 +570,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.String NewTransitVirtualInterface_DirectConnectGatewayId { get; set; }
             public System.Boolean? NewTransitVirtualInterface_EnableSiteLink { get; set; }
             public System.Int32? NewTransitVirtualInterface_Mtu { get; set; }
+            public System.Int32? NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 { get; set; }
+            public System.Int32? NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6 { get; set; }
             public System.String NewTransitVirtualInterface_RateLimit { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> NewTransitVirtualInterface_Tag { get; set; }
             public System.String NewTransitVirtualInterface_VirtualInterfaceName { get; set; }

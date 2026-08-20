@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The following rules apply:
     /// 
     ///  <ul><li><para>
-    /// Maximum 100 instance IDs per request.
+    /// You can specify a maximum of 100 instance IDs for each request.
     /// </para></li><li><para>
     /// Use <c>DisableApplicationStatusCheckSuppression</c> to resume normal health check
     /// reporting.
@@ -98,8 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier that you provide to ensure that the operation
+        /// completes no more than one time. If you retry a request with the same token, the service
+        /// ignores the request but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a>.</para>
         /// </para>
         /// </summary>

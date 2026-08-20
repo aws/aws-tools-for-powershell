@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.PPM
         /// <para>
         /// <para>Determines whether the subscription requires explicit approval before billing starts.
         /// Set to <c>MANUAL</c> to require a separate <c>ApprovePaidSubscription</c> call, or
-        /// <c>IMMEDIATE</c> to activate the subscription right away. Defaults to <c>IMMEDIATE</c>
-        /// if not specified.</para>
+        /// <c>IMMEDIATE</c> to activate the subscription right away. For paid tier plans, this
+        /// defaults to <c>MANUAL</c> if not specified. For the <c>FREE</c> plan tier, only <c>IMMEDIATE</c>
+        /// is supported, and it is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.PPM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the AWS resources to include in the subscription. Specify one or more
-        /// supported resources.</para><note><para>For subscriptions in the CloudFront plan family, the resources must include exactly
-        /// one Amazon CloudFront distribution and exactly one AWS WAF web ACL. You can also include
+        /// <para>The ARNs of the resources to include in the subscription. Specify one or more supported
+        /// resources.</para><note><para>For subscriptions in the CloudFront plan family, the resources must include exactly
+        /// one Amazon CloudFront distribution and exactly one WAF web ACL. You can also include
         /// other supported resources, such as Amazon Route 53 hosted zones and CloudFront KeyValueStores.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

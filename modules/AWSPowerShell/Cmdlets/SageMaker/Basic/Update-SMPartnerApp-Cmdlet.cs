@@ -124,6 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ApplicationConfig_AssignedGroupPattern { get; set; }
         #endregion
         
+        #region Parameter AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authorization type that users use to access the SageMaker Partner AI App. Use
+        /// this parameter to migrate an existing SageMaker Partner AI App from <c>IAM</c> authorization
+        /// to <c>IDC</c> authorization. Valid values:</para><ul><li><para><c>IAM</c>: Users access the SageMaker Partner AI App with their Amazon Web Services
+        /// IAM identity.</para></li><li><para><c>IDC</c>: Users access the SageMaker Partner AI App with their Amazon Web Services
+        /// IAM Identity Center identity. Specify the Identity Center instance to use in <c>IdcConfig</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.PartnerAppAuthType")]
+        public Amazon.SageMaker.PartnerAppAuthType AuthType { get; set; }
+        #endregion
+        
         #region Parameter EnableAutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -145,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
+        #endregion
+        
+        #region Parameter IdcConfig_InstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Web Services IAM Identity Center instance that the SageMaker
+        /// Partner AI App uses to authenticate users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdcConfig_InstanceArn { get; set; }
         #endregion
         
         #region Parameter MaintenanceConfig_MaintenanceWindowStart
@@ -288,9 +314,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthType = this.AuthType;
             context.ClientToken = this.ClientToken;
             context.EnableAutoMinorVersionUpgrade = this.EnableAutoMinorVersionUpgrade;
             context.EnableIamSessionBasedIdentity = this.EnableIamSessionBasedIdentity;
+            context.IdcConfig_InstanceArn = this.IdcConfig_InstanceArn;
             context.MaintenanceConfig_MaintenanceWindowStart = this.MaintenanceConfig_MaintenanceWindowStart;
             if (this.Tag != null)
             {
@@ -370,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.Arn = cmdletContext.Arn;
             }
+            if (cmdletContext.AuthType != null)
+            {
+                request.AuthType = cmdletContext.AuthType;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -381,6 +413,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.EnableIamSessionBasedIdentity != null)
             {
                 request.EnableIamSessionBasedIdentity = cmdletContext.EnableIamSessionBasedIdentity.Value;
+            }
+            
+             // populate IdcConfig
+            var requestIdcConfigIsNull = true;
+            request.IdcConfig = new Amazon.SageMaker.Model.IdcConfigInput();
+            System.String requestIdcConfig_idcConfig_InstanceArn = null;
+            if (cmdletContext.IdcConfig_InstanceArn != null)
+            {
+                requestIdcConfig_idcConfig_InstanceArn = cmdletContext.IdcConfig_InstanceArn;
+            }
+            if (requestIdcConfig_idcConfig_InstanceArn != null)
+            {
+                request.IdcConfig.InstanceArn = requestIdcConfig_idcConfig_InstanceArn;
+                requestIdcConfigIsNull = false;
+            }
+             // determine if request.IdcConfig should be set to null
+            if (requestIdcConfigIsNull)
+            {
+                request.IdcConfig = null;
             }
             
              // populate MaintenanceConfig
@@ -470,9 +521,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.RoleGroupAssignment> ApplicationConfig_RoleGroupAssignment { get; set; }
             public System.String AppVersion { get; set; }
             public System.String Arn { get; set; }
+            public Amazon.SageMaker.PartnerAppAuthType AuthType { get; set; }
             public System.String ClientToken { get; set; }
             public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
             public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
+            public System.String IdcConfig_InstanceArn { get; set; }
             public System.String MaintenanceConfig_MaintenanceWindowStart { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String Tier { get; set; }

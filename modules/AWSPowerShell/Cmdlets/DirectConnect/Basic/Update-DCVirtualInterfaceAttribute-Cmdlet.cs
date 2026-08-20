@@ -75,6 +75,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.Int32? Mtu { get; set; }
         #endregion
         
+        #region Parameter PrefixPoolAllocatedCountIpv4
+        /// <summary>
+        /// <para>
+        /// <para>The number of inbound IPv4 route prefixes to allocate to the virtual interface. Not
+        /// applicable to public virtual interfaces.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PrefixPoolAllocatedCountIpv4 { get; set; }
+        #endregion
+        
+        #region Parameter PrefixPoolAllocatedCountIpv6
+        /// <summary>
+        /// <para>
+        /// <para>The number of inbound IPv6 route prefixes to allocate to the virtual interface. Not
+        /// applicable to public virtual interfaces.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PrefixPoolAllocatedCountIpv6 { get; set; }
+        #endregion
+        
         #region Parameter RateLimit
         /// <summary>
         /// <para>
@@ -161,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             context.EnableSiteLink = this.EnableSiteLink;
             context.Mtu = this.Mtu;
+            context.PrefixPoolAllocatedCountIpv4 = this.PrefixPoolAllocatedCountIpv4;
+            context.PrefixPoolAllocatedCountIpv6 = this.PrefixPoolAllocatedCountIpv6;
             context.RateLimit = this.RateLimit;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
             #if MODULAR
@@ -193,6 +217,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.Mtu != null)
             {
                 request.Mtu = cmdletContext.Mtu.Value;
+            }
+            if (cmdletContext.PrefixPoolAllocatedCountIpv4 != null)
+            {
+                request.PrefixPoolAllocatedCountIpv4 = cmdletContext.PrefixPoolAllocatedCountIpv4.Value;
+            }
+            if (cmdletContext.PrefixPoolAllocatedCountIpv6 != null)
+            {
+                request.PrefixPoolAllocatedCountIpv6 = cmdletContext.PrefixPoolAllocatedCountIpv6.Value;
             }
             if (cmdletContext.RateLimit != null)
             {
@@ -263,6 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             public System.Boolean? EnableSiteLink { get; set; }
             public System.Int32? Mtu { get; set; }
+            public System.Int32? PrefixPoolAllocatedCountIpv4 { get; set; }
+            public System.Int32? PrefixPoolAllocatedCountIpv6 { get; set; }
             public System.String RateLimit { get; set; }
             public System.String VirtualInterfaceId { get; set; }
             public System.String VirtualInterfaceName { get; set; }

@@ -23,65 +23,56 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Set the pricing plan for your Amazon SES account.
+    /// Retrieves the <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// policy</a> attached to a Lambda resource.
     /// </summary>
-    [Cmdlet("Write", "SES2AccountPricingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutAccountPricingAttributes API operation.", Operation = new[] {"PutAccountPricingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "LMResourcePolicy")]
+    [OutputType("Amazon.Lambda.Model.GetResourcePolicyResponse")]
+    [AWSCmdlet("Calls the AWS Lambda GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.Lambda.Model.GetResourcePolicyResponse",
+        "This cmdlet returns an Amazon.Lambda.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
-    public partial class WriteSES2AccountPricingAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class GetLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Plan
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The pricing plan to apply to your Amazon SES account. For details about each plan,
-        /// see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>. Can be one
-        /// of the following:</para><ul><li><para><c>NONE</c></para></li><li><para><c>ESSENTIALS</c></para></li><li><para><c>PRO</c></para></li><li><para><c>ENTERPRISE</c></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy
+        /// for. You can use a qualified or an unqualified ARN. The value must be a complete ARN,
+        /// and the operation does not accept wildcard characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.SimpleEmailV2.PricingPlan")]
-        public Amazon.SimpleEmailV2.PricingPlan Plan { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -93,12 +84,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Plan), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SES2AccountPricingAttribute (PutAccountPricingAttributes)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -106,14 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse, WriteSES2AccountPricingAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.GetResourcePolicyResponse, GetLMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Plan = this.Plan;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Plan == null && ParameterWasBound(nameof(this.Plan)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Plan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -130,11 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesRequest();
+            var request = new Amazon.Lambda.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.Plan != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Plan = cmdletContext.Plan;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -169,12 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesRequest request)
+        private Amazon.Lambda.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutAccountPricingAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetResourcePolicy");
             try
             {
-                return client.PutAccountPricingAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -191,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.SimpleEmailV2.PricingPlan Plan { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse, WriteSES2AccountPricingAttributeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.Lambda.Model.GetResourcePolicyResponse, GetLMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

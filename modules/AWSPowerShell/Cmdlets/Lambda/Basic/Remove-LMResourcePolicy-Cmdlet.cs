@@ -23,51 +23,64 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Set the pricing plan for your Amazon SES account.
+    /// Deletes a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// policy</a> from a Lambda resource.
     /// </summary>
-    [Cmdlet("Write", "SES2AccountPricingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "LMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutAccountPricingAttributes API operation.", Operation = new[] {"PutAccountPricingAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse",
+    [AWSCmdlet("Calls the AWS Lambda DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Lambda.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
-    public partial class WriteSES2AccountPricingAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class RemoveLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Plan
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The pricing plan to apply to your Amazon SES account. For details about each plan,
-        /// see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>. Can be one
-        /// of the following:</para><ul><li><para><c>NONE</c></para></li><li><para><c>ESSENTIALS</c></para></li><li><para><c>PRO</c></para></li><li><para><c>ENTERPRISE</c></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy
+        /// from. You can use a qualified or an unqualified ARN. The value must be a complete
+        /// ARN, and the operation does not accept wildcard characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.SimpleEmailV2.PricingPlan")]
-        public Amazon.SimpleEmailV2.PricingPlan Plan { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The revision ID that the existing policy must match for the deletion to proceed. If
+        /// the revision ID doesn't match, the operation fails with a <c>PreconditionFailedException</c>
+        /// error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RevisionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Plan), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SES2AccountPricingAttribute (PutAccountPricingAttributes)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -106,16 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse, WriteSES2AccountPricingAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Plan = this.Plan;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Plan == null && ParameterWasBound(nameof(this.Plan)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Plan which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,11 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesRequest();
+            var request = new Amazon.Lambda.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.Plan != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Plan = cmdletContext.Plan;
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             
             CmdletOutput output;
@@ -169,12 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesRequest request)
+        private Amazon.Lambda.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutAccountPricingAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "DeleteResourcePolicy");
             try
             {
-                return client.PutAccountPricingAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -191,8 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.SimpleEmailV2.PricingPlan Plan { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.PutAccountPricingAttributesResponse, WriteSES2AccountPricingAttributeCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public System.String RevisionId { get; set; }
+            public System.Func<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -95,6 +95,23 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.CRUpdateAllocationStrategy ComputeResources_AllocationStrategy { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>A list of specific instance types or instance families that Amazon ECS can launch
+        /// (for example, <c>m5.large</c> or <c>g5</c>). When specified, only these instance types
+        /// are used.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceTypes")]
+        public System.String[] ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_BidPercentage
         /// <summary>
         /// <para>
@@ -111,6 +128,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ComputeResources_BidPercentage { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_CapacityTag
+        /// <summary>
+        /// <para>
+        /// <para>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances.
+        /// This parameter is only valid for <c>ECS_MANAGED_INSTANCES</c> compute environments.
+        /// You must have the <c>batch:SetCapacityTags</c> permission on the compute environment
+        /// resource to use this parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_CapacityTags")]
+        public System.Collections.Hashtable ComputeResources_CapacityTag { get; set; }
         #endregion
         
         #region Parameter ComputeEnvironment
@@ -197,6 +232,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.Ec2Configuration[] ComputeResources_Ec2Configuration { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn
+        /// <summary>
+        /// <para>
+        /// <para>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the
+        /// managed instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_Ec2KeyPair
         /// <summary>
         /// <para>
@@ -232,6 +278,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ComputeResources_ImageId { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The updated Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to
+        /// manage Amazon EC2 instances on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether instance tags are accessible from the instance metadata service
+        /// (IMDS).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation { get; set; }
         #endregion
         
         #region Parameter ComputeResources_InstanceRole
@@ -373,6 +441,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? ComputeResources_MinvCpu { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring
+        /// <summary>
+        /// <para>
+        /// <para>The updated monitoring level. Valid values are <c>BASIC</c> and <c>DETAILED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring { get; set; }
+        #endregion
+        
         #region Parameter LaunchTemplate_Override
         /// <summary>
         /// <para>
@@ -411,6 +489,52 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ComputeResources_PlacementGroup { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ManagedInstancesProvider_PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances
+        /// it launches. Valid values:</para><ul><li><para><c>CAPACITY_PROVIDER</c> — Propagates tags to instances.</para></li><li><para><c>NONE</c> — Does not propagate tags to instances.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_ManagedInstancesProvider_PropagateTags")]
+        public System.String ComputeResources_ManagedInstancesProvider_PropagateTag { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the capacity reservation group to target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference
+        /// <summary>
+        /// <para>
+        /// <para>The capacity reservation preference. Valid values:</para><ul><li><para><c>RESERVATIONS_ONLY</c> — Use only capacity reservations.</para></li><li><para><c>RESERVATIONS_FIRST</c> — Prefer capacity reservations but fall back to On-Demand
+        /// if unavailable.</para></li><li><para><c>RESERVATIONS_EXCLUDED</c> — Do not use capacity reservations.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds an instance can remain idle before it is terminated. Valid values
+        /// are <c>-1</c> or <c>0</c> to <c>3600</c>. Use <c>-1</c> as a special value to disable
+        /// scale-in (instances are never terminated for being idle). If not specified, a default
+        /// value applies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_SecurityGroupId
         /// <summary>
         /// <para>
@@ -431,6 +555,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ComputeResources_SecurityGroupIds")]
         public System.String[] ComputeResources_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security groups to associate with the managed instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroups")]
+        public System.String[] ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup { get; set; }
         #endregion
         
         #region Parameter ServiceRole
@@ -477,6 +616,32 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Batch.CEState")]
         public Amazon.Batch.CEState State { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB
+        /// <summary>
+        /// <para>
+        /// <para>The size of the root EBS volume in GiB for the managed instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The VPC subnets where managed instances are launched. If your subnets don't provide
+        /// public IP addresses, they must have a NAT gateway for outbound internet access.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnets")]
+        public System.String[] ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet { get; set; }
         #endregion
         
         #region Parameter ComputeResources_Subnet
@@ -544,13 +709,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Type
         /// <summary>
         /// <para>
-        /// <para>The type of compute environment: <c>EC2</c>, <c>SPOT</c>, <c>FARGATE</c>, or <c>FARGATE_SPOT</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+        /// <para>The type of compute environment: <c>EC2</c>, <c>SPOT</c>, <c>FARGATE</c>, <c>FARGATE_SPOT</c>,
+        /// or <c>ECS_MANAGED_INSTANCES</c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
         /// environments</a> in the <i>Batch User Guide</i>.</para><para> If you choose <c>SPOT</c>, you must also specify an Amazon EC2 Spot Fleet role with
         /// the <c>spotIamFleetRole</c> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
         /// EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</para><para>When updating a compute environment, changing the type of a compute environment requires
         /// an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-        /// compute environments</a> in the <i>Batch User Guide</i>.</para>
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para><para>You cannot change the type to or from <c>ECS_MANAGED_INSTANCES</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,6 +753,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ComputeResources_UpdateToLatestImageVersion { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether instance store volumes (local NVMe SSDs) are available to containers.
+        /// When enabled, containers can use the instance store for high-performance temporary
+        /// storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage { get; set; }
         #endregion
         
         #region Parameter LaunchTemplate_UserdataType
@@ -681,6 +858,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             #endif
             context.ComputeResources_AllocationStrategy = this.ComputeResources_AllocationStrategy;
             context.ComputeResources_BidPercentage = this.ComputeResources_BidPercentage;
+            if (this.ComputeResources_CapacityTag != null)
+            {
+                context.ComputeResources_CapacityTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ComputeResources_CapacityTag.Keys)
+                {
+                    context.ComputeResources_CapacityTag.Add((String)hashKey, (System.String)(this.ComputeResources_CapacityTag[hashKey]));
+                }
+            }
             context.ComputeResources_DesiredvCpu = this.ComputeResources_DesiredvCpu;
             if (this.ComputeResources_Ec2Configuration != null)
             {
@@ -701,6 +886,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.LaunchTemplate_UserdataType = this.LaunchTemplate_UserdataType;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
+            context.ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter = this.ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter;
+            context.ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn = this.ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn;
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn;
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation;
+            if (this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType != null)
+            {
+                context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType = new List<System.String>(this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType);
+            }
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage;
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring;
+            if (this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup != null)
+            {
+                context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup = new List<System.String>(this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup);
+            }
+            if (this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet != null)
+            {
+                context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet = new List<System.String>(this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet);
+            }
+            context.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB = this.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB;
+            context.ComputeResources_ManagedInstancesProvider_PropagateTag = this.ComputeResources_ManagedInstancesProvider_PropagateTag;
             context.ComputeResources_MaxvCpu = this.ComputeResources_MaxvCpu;
             context.ComputeResources_MinvCpu = this.ComputeResources_MinvCpu;
             context.ComputeResources_PlacementGroup = this.ComputeResources_PlacementGroup;
@@ -772,6 +979,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestComputeResources_computeResources_BidPercentage != null)
             {
                 request.ComputeResources.BidPercentage = requestComputeResources_computeResources_BidPercentage.Value;
+                requestComputeResourcesIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestComputeResources_computeResources_CapacityTag = null;
+            if (cmdletContext.ComputeResources_CapacityTag != null)
+            {
+                requestComputeResources_computeResources_CapacityTag = cmdletContext.ComputeResources_CapacityTag;
+            }
+            if (requestComputeResources_computeResources_CapacityTag != null)
+            {
+                request.ComputeResources.CapacityTags = requestComputeResources_computeResources_CapacityTag;
                 requestComputeResourcesIsNull = false;
             }
             System.Int32? requestComputeResources_computeResources_DesiredvCpu = null;
@@ -937,6 +1154,256 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestComputeResources_computeResources_ScalingPolicy != null)
             {
                 request.ComputeResources.ScalingPolicy = requestComputeResources_computeResources_ScalingPolicy;
+                requestComputeResourcesIsNull = false;
+            }
+            Amazon.Batch.Model.UpdateManagedInstancesProviderConfiguration requestComputeResources_computeResources_ManagedInstancesProvider = null;
+            
+             // populate ManagedInstancesProvider
+            var requestComputeResources_computeResources_ManagedInstancesProviderIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider = new Amazon.Batch.Model.UpdateManagedInstancesProviderConfiguration();
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureRoleArn = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureRoleArn = cmdletContext.ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureRoleArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider.InfrastructureRoleArn = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureRoleArn;
+                requestComputeResources_computeResources_ManagedInstancesProviderIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_PropagateTag = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_PropagateTag != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_PropagateTag = cmdletContext.ComputeResources_ManagedInstancesProvider_PropagateTag;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_PropagateTag != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider.PropagateTags = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_PropagateTag;
+                requestComputeResources_computeResources_ManagedInstancesProviderIsNull = false;
+            }
+            Amazon.Batch.Model.InfrastructureOptimization requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization = null;
+            
+             // populate InfrastructureOptimization
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimizationIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization = new Amazon.Batch.Model.InfrastructureOptimization();
+            System.Int32? requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization_computeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization_computeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter = cmdletContext.ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter.Value;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization_computeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization.ScaleInAfter = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization_computeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter.Value;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimizationIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimizationIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider.InfrastructureOptimization = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InfrastructureOptimization;
+                requestComputeResources_computeResources_ManagedInstancesProviderIsNull = false;
+            }
+            Amazon.Batch.Model.InstanceLaunchTemplateUpdate requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate = null;
+            
+             // populate InstanceLaunchTemplate
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate = new Amazon.Batch.Model.InstanceLaunchTemplateUpdate();
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.Ec2InstanceProfileArn = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            System.Boolean? requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.Value;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.InstanceMetadataTagsPropagation = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation.Value;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.Monitoring = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.Batch.Model.InstanceRequirementsRequest requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements = null;
+            
+             // populate InstanceRequirements
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirementsIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements = new Amazon.Batch.Model.InstanceRequirementsRequest();
+            List<System.String> requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements.AllowedInstanceTypes = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirementsIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirementsIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.InstanceRequirements = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.Batch.Model.ManagedInstancesLocalStorageConfiguration requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = null;
+            
+             // populate LocalStorageConfiguration
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = new Amazon.Batch.Model.ManagedInstancesLocalStorageConfiguration();
+            System.Boolean? requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.Value;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration.UseLocalStorage = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage.Value;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfigurationIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.LocalStorageConfiguration = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.Batch.Model.ManagedInstancesStorageConfiguration requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration = null;
+            
+             // populate StorageConfiguration
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfigurationIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration = new Amazon.Batch.Model.ManagedInstancesStorageConfiguration();
+            System.Int32? requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB.Value;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration.StorageSizeGiB = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB.Value;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfigurationIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfigurationIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.StorageConfiguration = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.Batch.Model.CapacityReservationRequest requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = null;
+            
+             // populate CapacityReservations
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = new Amazon.Batch.Model.CapacityReservationRequest();
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations.ReservationGroupArn = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations.ReservationPreference = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservationsIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.CapacityReservations = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+            Amazon.Batch.Model.ManagedInstancesNetworkConfiguration requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration = null;
+            
+             // populate NetworkConfiguration
+            var requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfigurationIsNull = true;
+            requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration = new Amazon.Batch.Model.ManagedInstancesNetworkConfiguration();
+            List<System.String> requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration.SecurityGroups = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfigurationIsNull = false;
+            }
+            List<System.String> requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet = null;
+            if (cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet = cmdletContext.ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration.Subnets = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfigurationIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfigurationIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate.NetworkConfiguration = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration;
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplateIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate != null)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider.InstanceLaunchTemplate = requestComputeResources_computeResources_ManagedInstancesProvider_computeResources_ManagedInstancesProvider_InstanceLaunchTemplate;
+                requestComputeResources_computeResources_ManagedInstancesProviderIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_ManagedInstancesProvider should be set to null
+            if (requestComputeResources_computeResources_ManagedInstancesProviderIsNull)
+            {
+                requestComputeResources_computeResources_ManagedInstancesProvider = null;
+            }
+            if (requestComputeResources_computeResources_ManagedInstancesProvider != null)
+            {
+                request.ComputeResources.ManagedInstancesProvider = requestComputeResources_computeResources_ManagedInstancesProvider;
                 requestComputeResourcesIsNull = false;
             }
             Amazon.Batch.Model.LaunchTemplateSpecification requestComputeResources_computeResources_LaunchTemplate = null;
@@ -1131,6 +1598,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String ComputeEnvironment { get; set; }
             public Amazon.Batch.CRUpdateAllocationStrategy ComputeResources_AllocationStrategy { get; set; }
             public System.Int32? ComputeResources_BidPercentage { get; set; }
+            public Dictionary<System.String, System.String> ComputeResources_CapacityTag { get; set; }
             public System.Int32? ComputeResources_DesiredvCpu { get; set; }
             public List<Amazon.Batch.Model.Ec2Configuration> ComputeResources_Ec2Configuration { get; set; }
             public System.String ComputeResources_Ec2KeyPair { get; set; }
@@ -1142,6 +1610,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride> LaunchTemplate_Override { get; set; }
             public Amazon.Batch.UserdataType LaunchTemplate_UserdataType { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
+            public System.Int32? ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
+            public System.Boolean? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation { get; set; }
+            public List<System.String> ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType { get; set; }
+            public System.Boolean? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring { get; set; }
+            public List<System.String> ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup { get; set; }
+            public List<System.String> ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet { get; set; }
+            public System.Int32? ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB { get; set; }
+            public System.String ComputeResources_ManagedInstancesProvider_PropagateTag { get; set; }
             public System.Int32? ComputeResources_MaxvCpu { get; set; }
             public System.Int32? ComputeResources_MinvCpu { get; set; }
             public System.String ComputeResources_PlacementGroup { get; set; }

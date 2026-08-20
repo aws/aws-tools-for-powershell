@@ -30,9 +30,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more application status checks. Returns configuration details for
-    /// your application status checks, including protocol, port, path, thresholds, and associations.
-    /// The following rules apply:
+    /// Describes application status checks, including configuration details such as protocol,
+    /// port, path, thresholds, and associations. Results are paginated. Use the <c>NextToken</c>
+    /// parameter to retrieve additional results. The following rules apply:
     /// 
     ///  <ul><li><para>
     /// If you do not specify any application status check IDs, all checks in your account

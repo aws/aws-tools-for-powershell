@@ -164,6 +164,26 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String Subject_Charset { get; set; }
         #endregion
         
+        #region Parameter ConfigurationOverrides_Tracking_ClickTrackingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon SES tracks when the recipient clicks a link in this message.
+        /// Can be one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES tracks clicks for this message, even when your account-level
+        /// and configuration set settings don't enable click tracking.</para></li><li><para><c>DISABLED</c> – Amazon SES doesn't track clicks for this message, even when your
+        /// account-level or configuration set settings enable click tracking. Amazon SES doesn't
+        /// rewrite the links in the message.</para></li></ul><para>If you don't specify this value, Amazon SES uses the click tracking setting that would
+        /// otherwise apply to the message.</para><note><para>Enabling open or click tracking with an override doesn't create an event destination.
+        /// Amazon SES records the resulting open and click events in VDM, where you can review
+        /// them using VDM metrics and Message Insights. To also receive these events at a destination
+        /// that you own, the configuration set that the message uses must have an event destination
+        /// that publishes open and click events.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.FeatureStatus")]
+        public Amazon.SimpleEmailV2.FeatureStatus ConfigurationOverrides_Tracking_ClickTrackingEnabled { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
@@ -357,6 +377,22 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String TemplateContent_Html { get; set; }
         #endregion
         
+        #region Parameter ConfigurationOverrides_Tracking_OpenTrackingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon SES tracks when the recipient opens this message. Can be
+        /// one of the following:</para><ul><li><para><c>ENABLED</c> – Amazon SES tracks opens for this message, even when your account-level
+        /// and configuration set settings don't enable open tracking.</para></li><li><para><c>DISABLED</c> – Amazon SES doesn't track opens for this message, even when your
+        /// account-level or configuration set settings enable open tracking. Amazon SES doesn't
+        /// add the tracking image to the message.</para></li></ul><para>If you don't specify this value, Amazon SES uses the open tracking setting that would
+        /// otherwise apply to the message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.FeatureStatus")]
+        public Amazon.SimpleEmailV2.FeatureStatus ConfigurationOverrides_Tracking_OpenTrackingEnabled { get; set; }
+        #endregion
+        
         #region Parameter ReplyToAddress
         /// <summary>
         /// <para>
@@ -514,6 +550,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.SendEmailResponse, SendSES2EmailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ConfigurationOverrides_Tracking_ClickTrackingEnabled = this.ConfigurationOverrides_Tracking_ClickTrackingEnabled;
+            context.ConfigurationOverrides_Tracking_OpenTrackingEnabled = this.ConfigurationOverrides_Tracking_OpenTrackingEnabled;
             context.ConfigurationSetName = this.ConfigurationSetName;
             context.Raw_Data = this.Raw_Data;
             if (this.Simple_Attachment != null)
@@ -592,6 +630,50 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 // create request
                 var request = new Amazon.SimpleEmailV2.Model.SendEmailRequest();
                 
+                
+                 // populate ConfigurationOverrides
+                var requestConfigurationOverridesIsNull = true;
+                request.ConfigurationOverrides = new Amazon.SimpleEmailV2.Model.ConfigurationOverrides();
+                Amazon.SimpleEmailV2.Model.TrackingConfigurationOverrides requestConfigurationOverrides_configurationOverrides_Tracking = null;
+                
+                 // populate Tracking
+                var requestConfigurationOverrides_configurationOverrides_TrackingIsNull = true;
+                requestConfigurationOverrides_configurationOverrides_Tracking = new Amazon.SimpleEmailV2.Model.TrackingConfigurationOverrides();
+                Amazon.SimpleEmailV2.FeatureStatus requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_ClickTrackingEnabled = null;
+                if (cmdletContext.ConfigurationOverrides_Tracking_ClickTrackingEnabled != null)
+                {
+                    requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_ClickTrackingEnabled = cmdletContext.ConfigurationOverrides_Tracking_ClickTrackingEnabled;
+                }
+                if (requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_ClickTrackingEnabled != null)
+                {
+                    requestConfigurationOverrides_configurationOverrides_Tracking.ClickTrackingEnabled = requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_ClickTrackingEnabled;
+                    requestConfigurationOverrides_configurationOverrides_TrackingIsNull = false;
+                }
+                Amazon.SimpleEmailV2.FeatureStatus requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_OpenTrackingEnabled = null;
+                if (cmdletContext.ConfigurationOverrides_Tracking_OpenTrackingEnabled != null)
+                {
+                    requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_OpenTrackingEnabled = cmdletContext.ConfigurationOverrides_Tracking_OpenTrackingEnabled;
+                }
+                if (requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_OpenTrackingEnabled != null)
+                {
+                    requestConfigurationOverrides_configurationOverrides_Tracking.OpenTrackingEnabled = requestConfigurationOverrides_configurationOverrides_Tracking_configurationOverrides_Tracking_OpenTrackingEnabled;
+                    requestConfigurationOverrides_configurationOverrides_TrackingIsNull = false;
+                }
+                 // determine if requestConfigurationOverrides_configurationOverrides_Tracking should be set to null
+                if (requestConfigurationOverrides_configurationOverrides_TrackingIsNull)
+                {
+                    requestConfigurationOverrides_configurationOverrides_Tracking = null;
+                }
+                if (requestConfigurationOverrides_configurationOverrides_Tracking != null)
+                {
+                    request.ConfigurationOverrides.Tracking = requestConfigurationOverrides_configurationOverrides_Tracking;
+                    requestConfigurationOverridesIsNull = false;
+                }
+                 // determine if request.ConfigurationOverrides should be set to null
+                if (requestConfigurationOverridesIsNull)
+                {
+                    request.ConfigurationOverrides = null;
+                }
                 if (cmdletContext.ConfigurationSetName != null)
                 {
                     request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
@@ -1059,6 +1141,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SimpleEmailV2.FeatureStatus ConfigurationOverrides_Tracking_ClickTrackingEnabled { get; set; }
+            public Amazon.SimpleEmailV2.FeatureStatus ConfigurationOverrides_Tracking_OpenTrackingEnabled { get; set; }
             public System.String ConfigurationSetName { get; set; }
             public byte[] Raw_Data { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Attachment> Simple_Attachment { get; set; }

@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The signing protocol of the origin access control, which determines how CloudFront
-        /// signs (authenticates) requests. The only valid value is <c>sigv4</c>.</para>
+        /// signs (authenticates) requests. The only valid values are <c>sigv4</c> and <c>sigv4a</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

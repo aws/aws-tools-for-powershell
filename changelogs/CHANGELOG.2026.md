@@ -1,4 +1,25 @@
-﻿### 5.0.280 (2026-08-19 19:48Z)
+﻿### 5.0.281 (2026-08-20 19:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.316.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameters ComputeResources_CapacityTag, ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter, ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB and ComputeResources_ManagedInstancesProvider_PropagateTag.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameters ComputeResources_CapacityTag, ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter, ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB and ComputeResources_ManagedInstancesProvider_PropagateTag.
+  * Amazon Direct Connect
+    * Modified cmdlet New-DCPrivateVirtualInterface: added parameters NewPrivateVirtualInterface_PrefixPoolAllocatedCountIpv4 and NewPrivateVirtualInterface_PrefixPoolAllocatedCountIpv6.
+    * Modified cmdlet New-DCTransitVirtualInterface: added parameters NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv4 and NewTransitVirtualInterface_PrefixPoolAllocatedCountIpv6.
+    * Modified cmdlet Update-DCVirtualInterfaceAttribute: added parameters PrefixPoolAllocatedCountIpv4 and PrefixPoolAllocatedCountIpv6.
+  * Amazon Lambda
+    * Added cmdlet Get-LMResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-LMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-LMResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMMlflowApp: added parameter KmsKeyId.
+    * Modified cmdlet New-SMPartnerApp: added parameter IdcConfig_InstanceArn.
+    * Modified cmdlet Update-SMPartnerApp: added parameters AuthType and IdcConfig_InstanceArn.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet Send-SES2BulkEmail: added parameters ConfigurationOverrides_Tracking_ClickTrackingEnabled and ConfigurationOverrides_Tracking_OpenTrackingEnabled.
+    * Modified cmdlet Send-SES2Email: added parameters ConfigurationOverrides_Tracking_ClickTrackingEnabled and ConfigurationOverrides_Tracking_OpenTrackingEnabled.
+
+### 5.0.280 (2026-08-19 19:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.315.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet New-BATComputeEnvironment: added parameter EcsSettings_ContainerInsight.

@@ -616,7 +616,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The platform capabilities required by the job definition. If no value is specified,
-        /// it defaults to <c>EC2</c>. To run the job on Fargate resources, specify <c>FARGATE</c>.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <c>platformCapabilities</c>.</para></note><para />
+        /// it defaults to <c>EC2</c>. To run the job on Fargate resources, specify <c>FARGATE</c>.
+        /// To run the job on Amazon ECS Managed Instances, specify <c>MANAGED_INSTANCES</c>.</para><para>Jobs with the <c>MANAGED_INSTANCES</c> platform capability must use <c>ecsProperties</c>
+        /// (not <c>containerProperties</c>) and do not support multi-node parallel jobs.</para><note><para>If the job runs on Amazon EKS resources, then you must not specify <c>platformCapabilities</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

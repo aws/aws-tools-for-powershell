@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMPolicy', 
         'Get-LMProvisionedConcurrencyConfig', 
         'Get-LMProvisionedConcurrencyConfigList', 
+        'Get-LMResourcePolicy', 
         'Get-LMResourceTag', 
         'Get-LMRuntimeManagementConfig', 
         'Get-LMVersionsByFunction', 
@@ -151,6 +152,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMLayerVersionPermission', 
         'Remove-LMPermission', 
         'Remove-LMProvisionedConcurrencyConfig', 
+        'Remove-LMResourcePolicy', 
         'Remove-LMResourceTag', 
         'Send-LMDurableExecutionCallbackFailure', 
         'Send-LMDurableExecutionCallbackHeartbeat', 
@@ -170,6 +172,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-LMFunctionRecursionConfig', 
         'Write-LMFunctionScalingConfig', 
         'Write-LMProvisionedConcurrencyConfig', 
+        'Write-LMResourcePolicy', 
         'Write-LMRuntimeManagementConfig')
 
     # Variables to export from this module

@@ -1325,9 +1325,12 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.PartnerAppAuthType
-        "New-SMPartnerApp/AuthType"
         {
-            $v = "IAM"
+            ($_ -eq "New-SMPartnerApp/AuthType") -Or
+            ($_ -eq "Update-SMPartnerApp/AuthType")
+        }
+        {
+            $v = "IAM","IDC"
             break
         }
 
@@ -2045,7 +2048,7 @@ $SM_map = @{
     "AppTypeEqual"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
-    "AuthType"=@("New-SMPartnerApp")
+    "AuthType"=@("New-SMPartnerApp","Update-SMPartnerApp")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
     "AutoScaling_AutoScalerType"=@("New-SMCluster","Update-SMCluster")

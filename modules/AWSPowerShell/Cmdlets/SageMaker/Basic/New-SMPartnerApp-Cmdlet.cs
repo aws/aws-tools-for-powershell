@@ -98,7 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AuthType
         /// <summary>
         /// <para>
-        /// <para>The authorization type that users use to access the SageMaker Partner AI App.</para>
+        /// <para>The authorization type that users use to access the SageMaker Partner AI App. Valid
+        /// values:</para><ul><li><para><c>IAM</c>: Users access the SageMaker Partner AI App with their Amazon Web Services
+        /// IAM identity.</para></li><li><para><c>IDC</c>: Users access the SageMaker Partner AI App with their Amazon Web Services
+        /// IAM Identity Center identity. Specify the Identity Center instance to use in <c>IdcConfig</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IdcConfig_InstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Web Services IAM Identity Center instance that the SageMaker
+        /// Partner AI App uses to authenticate users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdcConfig_InstanceArn { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -357,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdcConfig_InstanceArn = this.IdcConfig_InstanceArn;
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceConfig_MaintenanceWindowStart = this.MaintenanceConfig_MaintenanceWindowStart;
             context.Name = this.Name;
@@ -469,6 +484,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
             }
+            
+             // populate IdcConfig
+            var requestIdcConfigIsNull = true;
+            request.IdcConfig = new Amazon.SageMaker.Model.IdcConfigInput();
+            System.String requestIdcConfig_idcConfig_InstanceArn = null;
+            if (cmdletContext.IdcConfig_InstanceArn != null)
+            {
+                requestIdcConfig_idcConfig_InstanceArn = cmdletContext.IdcConfig_InstanceArn;
+            }
+            if (requestIdcConfig_idcConfig_InstanceArn != null)
+            {
+                request.IdcConfig.InstanceArn = requestIdcConfig_idcConfig_InstanceArn;
+                requestIdcConfigIsNull = false;
+            }
+             // determine if request.IdcConfig should be set to null
+            if (requestIdcConfigIsNull)
+            {
+                request.IdcConfig = null;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -572,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
             public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.String IdcConfig_InstanceArn { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceConfig_MaintenanceWindowStart { get; set; }
             public System.String Name { get; set; }

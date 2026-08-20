@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] DefaultDomainIdList { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services KMS key used to encrypt the data at rest associated
+        /// with the MLflow App. If you don't specify a value, the MLflow App is not encrypted
+        /// with a customer-managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ModelRegistrationMode
         /// <summary>
         /// <para>
@@ -228,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.DefaultDomainIdList = new List<System.String>(this.DefaultDomainIdList);
             }
+            context.KmsKeyId = this.KmsKeyId;
             context.ModelRegistrationMode = this.ModelRegistrationMode;
             context.Name = this.Name;
             #if MODULAR
@@ -275,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DefaultDomainIdList != null)
             {
                 request.DefaultDomainIdList = cmdletContext.DefaultDomainIdList;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.ModelRegistrationMode != null)
             {
@@ -354,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.AccountDefaultStatus AccountDefaultStatus { get; set; }
             public System.String ArtifactStoreUri { get; set; }
             public List<System.String> DefaultDomainIdList { get; set; }
+            public System.String KmsKeyId { get; set; }
             public Amazon.SageMaker.ModelRegistrationMode ModelRegistrationMode { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }

@@ -297,7 +297,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_SigningProtocol")
         }
         {
-            $v = "sigv4"
+            $v = "sigv4","sigv4a"
             break
         }
 
@@ -690,8 +690,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap

@@ -7404,7 +7404,7 @@ $BAT_Completers = {
             ($_ -eq "Update-BATComputeEnvironment/ComputeResources_Type")
         }
         {
-            $v = "EC2","FARGATE","FARGATE_SPOT","SPOT"
+            $v = "EC2","ECS_MANAGED_INSTANCES","FARGATE","FARGATE_SPOT","SPOT"
             break
         }
 
@@ -7425,7 +7425,7 @@ $BAT_Completers = {
         # Amazon.Batch.JobQueueType
         "New-BATJobQueue/JobQueueType"
         {
-            $v = "ECS","ECS_FARGATE","EKS","SAGEMAKER_TRAINING"
+            $v = "ECS","ECS_FARGATE","ECS_MANAGED_INSTANCES","EKS","SAGEMAKER_TRAINING"
             break
         }
 
@@ -15492,7 +15492,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_SigningProtocol")
         }
         {
-            $v = "sigv4"
+            $v = "sigv4","sigv4a"
             break
         }
 
@@ -15885,8 +15885,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16347,8 +16347,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
-               "Get-CSDSuggestion")
+               "Get-CSDSuggestion",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29903,11 +29903,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "New-DDBTableSchema",
-               "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
-               "New-DDBTable",
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem")
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32705,8 +32705,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -40227,8 +40227,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -51370,6 +51370,7 @@ $LM_SelectMap = @{
                "Remove-LMFunctionUrlConfig",
                "Remove-LMLayerVersion",
                "Remove-LMProvisionedConcurrencyConfig",
+               "Remove-LMResourcePolicy",
                "Get-LMAccountSetting",
                "Get-LMAlias",
                "Get-LMCapacityProvider",
@@ -51391,6 +51392,7 @@ $LM_SelectMap = @{
                "Get-LMLayerVersionPolicy",
                "Get-LMPolicy",
                "Get-LMProvisionedConcurrencyConfig",
+               "Get-LMResourcePolicy",
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMWithResponseStream",
@@ -51417,6 +51419,7 @@ $LM_SelectMap = @{
                "Write-LMFunctionRecursionConfig",
                "Write-LMFunctionScalingConfig",
                "Write-LMProvisionedConcurrencyConfig",
+               "Write-LMResourcePolicy",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",
@@ -77480,16 +77483,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3MultipartUpload",
-               "Remove-S3Object",
-               "Copy-S3Object",
-               "Read-S3Object",
+               "Get-S3PreSignedURL",
                "Test-S3Bucket",
                "Remove-S3Bucket",
-               "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
                "New-S3Bucket",
-               "Write-S3Object")
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Get-S3MultipartUpload",
+               "Copy-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -80167,9 +80170,12 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.PartnerAppAuthType
-        "New-SMPartnerApp/AuthType"
         {
-            $v = "IAM"
+            ($_ -eq "New-SMPartnerApp/AuthType") -Or
+            ($_ -eq "Update-SMPartnerApp/AuthType")
+        }
+        {
+            $v = "IAM","IDC"
             break
         }
 
@@ -80887,7 +80893,7 @@ $SM_map = @{
     "AppTypeEqual"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
-    "AuthType"=@("New-SMPartnerApp")
+    "AuthType"=@("New-SMPartnerApp","Update-SMPartnerApp")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
     "AutoScaling_AutoScalerType"=@("New-SMCluster","Update-SMCluster")
@@ -83916,6 +83922,10 @@ $SES2_Completers = {
 
         # Amazon.SimpleEmailV2.FeatureStatus
         {
+            ($_ -eq "Send-SES2BulkEmail/ConfigurationOverrides_Tracking_ClickTrackingEnabled") -Or
+            ($_ -eq "Send-SES2Email/ConfigurationOverrides_Tracking_ClickTrackingEnabled") -Or
+            ($_ -eq "Send-SES2BulkEmail/ConfigurationOverrides_Tracking_OpenTrackingEnabled") -Or
+            ($_ -eq "Send-SES2Email/ConfigurationOverrides_Tracking_OpenTrackingEnabled") -Or
             ($_ -eq "Write-SES2AccountVdmAttribute/DashboardAttributes_EngagementMetric") -Or
             ($_ -eq "New-SES2ConfigurationSet/DashboardOptions_EngagementMetric") -Or
             ($_ -eq "Write-SES2ConfigurationSetVdmOption/DashboardOptions_EngagementMetric") -Or
@@ -84069,6 +84079,8 @@ $SES2_Completers = {
 
 $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
+    "ConfigurationOverrides_Tracking_ClickTrackingEnabled"=@("Send-SES2BulkEmail","Send-SES2Email")
+    "ConfigurationOverrides_Tracking_OpenTrackingEnabled"=@("Send-SES2BulkEmail","Send-SES2Email")
     "ContactLanguage"=@("Write-SES2AccountDetail")
     "ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
     "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")
@@ -87219,8 +87231,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
@@ -94089,6 +94101,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94128,41 +94178,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
