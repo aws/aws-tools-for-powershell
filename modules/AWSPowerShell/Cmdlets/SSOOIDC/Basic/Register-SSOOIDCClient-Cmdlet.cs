@@ -30,9 +30,9 @@ using Amazon.SSOOIDC.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOOIDC
 {
     /// <summary>
-    /// Registers a public client with IAM Identity Center. This allows clients to perform
-    /// authorization using the authorization code grant with Proof Key for Code Exchange
-    /// (PKCE) or the device code grant.
+    /// Registers a public client with IAM Identity Center. This allows clients to perform
+    /// authorization using the authorization code grant with Proof Key for Code Exchange
+    /// (PKCE) or the device code grant.
     /// </summary>
     [Cmdlet("Register", "SSOOIDCClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SSOOIDC.Model.RegisterClientResponse")]
@@ -99,9 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>The list of OAuth 2.0 grant types that are defined by the client. This list is used
         /// to restrict the token granting flows available to the client. Supports the following
         /// OAuth 2.0 grant types: Authorization Code, Device Code, and Refresh Token. </para><para>* Authorization Code - <c>authorization_code</c></para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -127,9 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>The list of redirect URI that are defined by the client. At completion of authorization,
         /// this list is used to restrict what locations the user agent can be redirected back
         /// to.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -142,9 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <para>
         /// <para>The list of scopes that are defined by the client. Upon authorization, this list is
         /// used to restrict permissions when granting an access token.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

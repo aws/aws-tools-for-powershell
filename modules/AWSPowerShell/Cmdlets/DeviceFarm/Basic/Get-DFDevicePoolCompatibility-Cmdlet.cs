@@ -300,11 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The test's parameters, such as test framework parameters and fixture settings. Parameters
-        /// are represented by name-value pairs of strings.</para><para>For all tests:</para><ul><li><para><c>app_performance_monitoring</c>: Performance monitoring is enabled by default.
-        /// Set this parameter to false to disable it.</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are 1.6.5 (and later),
-        /// latest, and default.</para><ul><li><para>latest runs the latest Appium version supported by Device Farm (1.9.1).</para></li><li><para>For default, Device Farm selects a compatible version of Appium for the device. The
-        /// current behavior is to run 1.7.2 on Android devices and iOS 9 and earlier and 1.7.2
-        /// for iOS 10 and later.</para></li><li><para>This behavior is subject to change.</para></li></ul></li></ul><para>For fuzz tests (Android only):</para><ul><li><para>event_count: The number of events, between 1 and 10000, that the UI fuzz test should
+        /// are represented by name-value pairs of strings.</para><para>For fuzz tests (Android only):</para><ul><li><para>event_count: The number of events, between 1 and 10000, that the UI fuzz test should
         /// perform.</para></li><li><para>throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between
         /// events.</para></li><li><para>seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between
         /// tests ensures identical event sequences.</para></li></ul><para>For Instrumentation:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: <c>com.android.abc.Test1</c></para></li><li><para>Running a single test: <c>com.android.abc.Test1#smoke</c></para></li><li><para>Running multiple tests: <c>com.android.abc.Test1,com.android.abc.Test2</c></para></li></ul></li></ul><para>For XCTest and XCTestUI:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test class: <c>LoginTests</c></para></li><li><para>Running a multiple test classes: <c>LoginTests,SmokeTests</c></para></li><li><para>Running a single test: <c>LoginTests/testValid</c></para></li><li><para>Running multiple tests: <c>LoginTests/testValid,LoginTests/testInvalid</c></para></li></ul></li></ul><para />

@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// statistics to stream for those metrics. The additional statistics that you can stream
         /// depend on the stream's <c>OutputFormat</c>. If the <c>OutputFormat</c> is <c>json</c>,
         /// you can stream any additional statistic that is supported by CloudWatch, listed in
-        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">
         /// CloudWatch statistics definitions</a>. If the <c>OutputFormat</c> is <c>opentelemetry1.0</c>
         /// or <c>opentelemetry0.7</c>, you can stream percentile statistics such as p95, p99.9,
         /// and so on.</para><para />

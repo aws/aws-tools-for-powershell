@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter NamespaceKey
         /// <summary>
         /// <para>
-        /// <para>The namespace variable key definitions with validation rules for this memory. Use
-        /// this parameter to update existing <c>namespaceKey</c> validation rules or add new
-        /// keys when namespace templates change.</para><para />
+        /// <para>The namespace variable key definitions with validation rules for this memory. This
+        /// value fully replaces the existing set — any key you omit is removed. Any referenced
+        /// <c>namespaceKey</c> omission will throw ValidationException.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

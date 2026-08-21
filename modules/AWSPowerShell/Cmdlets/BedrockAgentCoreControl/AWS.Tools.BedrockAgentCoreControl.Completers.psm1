@@ -154,7 +154,7 @@ $BACC_Completers = {
         # Amazon.BedrockAgentCoreControl.DatasetSchemaType
         "New-BACCDataset/SchemaType"
         {
-            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","GENERIC_EVALUATION_PREDEFINED_V1"
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","THIRD_PARTY_EVALUATION_V1"
             break
         }
 
@@ -512,6 +512,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution")
+        }
+        {
+            $v = "CLIENT_OVERRIDE","STATIC_OVERRIDE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SynchronizationType
         {
             ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
@@ -588,6 +598,7 @@ $BACC_map = @{
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "TargetConfiguration_Http_Passthrough_ProtocolType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
+    "TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList","New-BACCPaymentConnector","Update-BACCPaymentConnector")

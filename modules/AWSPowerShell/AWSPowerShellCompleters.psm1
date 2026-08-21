@@ -9069,7 +9069,7 @@ $BACC_Completers = {
         # Amazon.BedrockAgentCoreControl.DatasetSchemaType
         "New-BACCDataset/SchemaType"
         {
-            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","GENERIC_EVALUATION_PREDEFINED_V1"
+            $v = "AGENTCORE_EVALUATION_PREDEFINED_V1","AGENTCORE_EVALUATION_SIMULATED_V1","THIRD_PARTY_EVALUATION_V1"
             break
         }
 
@@ -9427,6 +9427,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution
+        {
+            ($_ -eq "New-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution") -Or
+            ($_ -eq "Update-BACCGatewayTarget/TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution")
+        }
+        {
+            $v = "CLIENT_OVERRIDE","STATIC_OVERRIDE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SynchronizationType
         {
             ($_ -eq "New-BACCRegistryRecord/SynchronizationType") -Or
@@ -9503,6 +9513,7 @@ $BACC_map = @{
     "SynchronizationType"=@("New-BACCRegistryRecord")
     "SynchronizationType_OptionalValue"=@("Update-BACCRegistryRecord")
     "TargetConfiguration_Http_Passthrough_ProtocolType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
+    "TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "TargetConfiguration_Mcp_McpServer_ListingMode"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "Truncation_Strategy"=@("New-BACCHarness","Update-BACCHarness")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList","New-BACCPaymentConnector","Update-BACCPaymentConnector")
@@ -16347,8 +16358,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Write-CSDDocument",
-               "Get-CSDSuggestion",
-               "Search-CSDDocument")
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29902,12 +29913,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "Add-DDBKeySchema",
-               "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
-               "New-DDBTable")
+               "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
+               "New-DDBTable",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -77483,16 +77494,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3PreSignedURL",
-               "Test-S3Bucket",
-               "Remove-S3Bucket",
+               "Copy-S3Object",
                "New-S3Bucket",
-               "Write-S3Object",
-               "Remove-S3Object",
+               "Get-S3MultipartUpload",
                "Remove-S3MultipartUpload",
                "Read-S3Object",
-               "Get-S3MultipartUpload",
-               "Copy-S3Object")
+               "Get-S3PreSignedURL",
+               "Test-S3Bucket",
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87231,8 +87242,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

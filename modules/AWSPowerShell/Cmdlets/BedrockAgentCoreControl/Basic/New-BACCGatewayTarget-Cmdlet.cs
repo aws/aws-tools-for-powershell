@@ -172,6 +172,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String SmithyModel_S3_BucketOwnerAccountId { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Additional headers to include in session affinity routing. When set, requests are
+        /// only considered part of the same session if both the <c>identifier</c> and all composite
+        /// identifier values match.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier { get; set; }
+        #endregion
+        
         #region Parameter TargetConfiguration_Mcp_Connector_Configuration
         /// <summary>
         /// <para>
@@ -571,6 +587,37 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String ApiGateway_Stage { get; set; }
         #endregion
         
+        #region Parameter TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution
+        /// <summary>
+        /// <para>
+        /// <para>Controls precedence when a client request supplies a query parameter whose name matches
+        /// a configured static query parameter. If not set, defaults to <c>CLIENT_OVERRIDE</c>:</para><ul><li><para><c>CLIENT_OVERRIDE</c> - The client-supplied value overrides the configured static
+        /// value for that parameter name.</para></li><li><para><c>STATIC_OVERRIDE</c> - The configured static value is retained, overriding the
+        /// client-supplied value for that parameter name.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution")]
+        public Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_Http_Passthrough_StaticQueryParameter
+        /// <summary>
+        /// <para>
+        /// <para>A map of static query parameters that the gateway always appends to the outbound URL
+        /// when forwarding requests to the target. The total outbound URL length, which includes
+        /// the endpoint and the percent-encoded query parameters, is enforced by the service.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Http_Passthrough_StaticQueryParameters")]
+        public System.Collections.Hashtable TargetConfiguration_Http_Passthrough_StaticQueryParameter { get; set; }
+        #endregion
+        
         #region Parameter TargetConfiguration_Inference_Provider_ModelMapping_ProviderPrefix_Strip
         /// <summary>
         /// <para>
@@ -870,6 +917,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload = this.TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload;
             context.TargetConfiguration_Http_Passthrough_Schema_Source_S3_BucketOwnerAccountId = this.TargetConfiguration_Http_Passthrough_Schema_Source_S3_BucketOwnerAccountId;
             context.TargetConfiguration_Http_Passthrough_Schema_Source_S3_Uri = this.TargetConfiguration_Http_Passthrough_Schema_Source_S3_Uri;
+            context.TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution = this.TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution;
+            if (this.TargetConfiguration_Http_Passthrough_StaticQueryParameter != null)
+            {
+                context.TargetConfiguration_Http_Passthrough_StaticQueryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TargetConfiguration_Http_Passthrough_StaticQueryParameter.Keys)
+                {
+                    context.TargetConfiguration_Http_Passthrough_StaticQueryParameter.Add((String)hashKey, (System.String)(this.TargetConfiguration_Http_Passthrough_StaticQueryParameter[hashKey]));
+                }
+            }
+            if (this.TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier != null)
+            {
+                context.TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier = new List<System.String>(this.TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier);
+            }
             context.TargetConfiguration_Http_Passthrough_StickinessConfiguration_Identifier = this.TargetConfiguration_Http_Passthrough_StickinessConfiguration_Identifier;
             context.TargetConfiguration_Http_Passthrough_StickinessConfiguration_Timeout = this.TargetConfiguration_Http_Passthrough_StickinessConfiguration_Timeout;
             context.TargetConfiguration_Inference_Connector_Source_ConnectorId = this.TargetConfiguration_Inference_Connector_Source_ConnectorId;
@@ -1437,6 +1497,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough.ProtocolType = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_ProtocolType;
                 requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_PassthroughIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution = null;
+            if (cmdletContext.TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution = cmdletContext.TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough.StaticQueryParameterConflictResolution = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_PassthroughIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameter = null;
+            if (cmdletContext.TargetConfiguration_Http_Passthrough_StaticQueryParameter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameter = cmdletContext.TargetConfiguration_Http_Passthrough_StaticQueryParameter;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough.StaticQueryParameters = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StaticQueryParameter;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_PassthroughIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.HttpApiSchemaConfiguration requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_Schema = null;
             
              // populate Schema
@@ -1517,6 +1597,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate StickinessConfiguration
             var requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfigurationIsNull = true;
             requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration = new Amazon.BedrockAgentCoreControl.Model.StickinessConfiguration();
+            List<System.String> requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration_targetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier = null;
+            if (cmdletContext.TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration_targetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier = cmdletContext.TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration_targetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration.CompositeIdentifier = requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration_targetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier;
+                requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfigurationIsNull = false;
+            }
             System.String requestTargetConfiguration_targetConfiguration_Http_targetConfiguration_Http_Passthrough_targetConfiguration_Http_Passthrough_StickinessConfiguration_targetConfiguration_Http_Passthrough_StickinessConfiguration_Identifier = null;
             if (cmdletContext.TargetConfiguration_Http_Passthrough_StickinessConfiguration_Identifier != null)
             {
@@ -2119,6 +2209,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String TargetConfiguration_Http_Passthrough_Schema_Source_InlinePayload { get; set; }
             public System.String TargetConfiguration_Http_Passthrough_Schema_Source_S3_BucketOwnerAccountId { get; set; }
             public System.String TargetConfiguration_Http_Passthrough_Schema_Source_S3_Uri { get; set; }
+            public Amazon.BedrockAgentCoreControl.StaticQueryParameterConflictResolution TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution { get; set; }
+            public Dictionary<System.String, System.String> TargetConfiguration_Http_Passthrough_StaticQueryParameter { get; set; }
+            public List<System.String> TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier { get; set; }
             public System.String TargetConfiguration_Http_Passthrough_StickinessConfiguration_Identifier { get; set; }
             public System.Int32? TargetConfiguration_Http_Passthrough_StickinessConfiguration_Timeout { get; set; }
             public System.String TargetConfiguration_Inference_Connector_Source_ConnectorId { get; set; }

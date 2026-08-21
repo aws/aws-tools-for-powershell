@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// This is a request for a summary of backup jobs created or running within the most
-    /// recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory,
+    /// recent 14 days. You can include parameters AccountID, State, ResourceType, MessageCategory,
     /// AggregationPeriod, MaxResults, or NextToken to filter results.
     /// 
     ///  

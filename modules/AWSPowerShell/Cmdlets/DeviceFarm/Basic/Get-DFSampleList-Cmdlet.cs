@@ -30,7 +30,11 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Gets information about samples, given an AWS Device Farm job ARN.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets information about samples, given an AWS Device Farm job ARN.
+    /// 
+    ///  <important><para>
+    /// Device Farm does not support performance data samples during test executions.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DFSampleList")]
     [OutputType("Amazon.DeviceFarm.Model.Sample")]

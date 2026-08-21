@@ -155,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointSelection_SelectionWindowDay
         /// <summary>
         /// <para>
-        /// <para>Accepted values are integers from 1 to 365.</para>
+        /// <para>Accepted values are integers from 1 to 365. If not included, the value defaults to
+        /// 30. The selection window is calculated from the actual job execution time, not the
+        /// plan's scheduled start time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

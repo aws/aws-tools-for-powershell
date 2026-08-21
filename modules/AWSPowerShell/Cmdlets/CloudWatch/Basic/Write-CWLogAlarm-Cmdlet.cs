@@ -249,6 +249,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String[] OKAction { get; set; }
         #endregion
         
+        #region Parameter WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the alarm waits for the full warm-up period before it starts to
+        /// evaluate. The default is <c>false</c>. If <c>true</c>, the alarm waits the entire
+        /// <c>WarmUpPeriodDurationInMinutes</c> before it starts to evaluate, even if metric
+        /// data arrives earlier. If <c>false</c>, the alarm ends the warm-up period early. Evaluation
+        /// begins as soon as the alarm has enough metric data to fill its evaluation window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnds")]
+        public System.Boolean? WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd { get; set; }
+        #endregion
+        
         #region Parameter ScheduledQueryConfiguration_QueryARN
         /// <summary>
         /// <para>
@@ -426,6 +441,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String TreatMissingData { get; set; }
         #endregion
         
+        #region Parameter WarmUpConfiguration_WarmUpPeriodDurationInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The length of the warm-up period, in minutes. After you create or update the alarm,
+        /// the alarm stays in <c>INSUFFICIENT_DATA</c> for this duration. During this time, the
+        /// alarm does not perform alarm actions.</para><para>You can change this value at any time, including after the warm-up period ends. If
+        /// you change it after the warm-up period ends, the new value does not restart the warm-up
+        /// period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmUpConfiguration_WarmUpPeriodDurationInMinutes")]
+        public System.Int32? WarmUpConfiguration_WarmUpPeriodDurationInMinute { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -572,6 +602,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.TreatMissingData = this.TreatMissingData;
+            context.WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd = this.WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd;
+            context.WarmUpConfiguration_WarmUpPeriodDurationInMinute = this.WarmUpConfiguration_WarmUpPeriodDurationInMinute;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -759,6 +791,35 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 request.TreatMissingData = cmdletContext.TreatMissingData;
             }
             
+             // populate WarmUpConfiguration
+            var requestWarmUpConfigurationIsNull = true;
+            request.WarmUpConfiguration = new Amazon.CloudWatch.Model.WarmUpConfiguration();
+            System.Boolean? requestWarmUpConfiguration_warmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd = null;
+            if (cmdletContext.WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd != null)
+            {
+                requestWarmUpConfiguration_warmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd = cmdletContext.WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd.Value;
+            }
+            if (requestWarmUpConfiguration_warmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd != null)
+            {
+                request.WarmUpConfiguration.OnlyStartEvaluatingAfterWarmUpPeriodEnds = requestWarmUpConfiguration_warmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd.Value;
+                requestWarmUpConfigurationIsNull = false;
+            }
+            System.Int32? requestWarmUpConfiguration_warmUpConfiguration_WarmUpPeriodDurationInMinute = null;
+            if (cmdletContext.WarmUpConfiguration_WarmUpPeriodDurationInMinute != null)
+            {
+                requestWarmUpConfiguration_warmUpConfiguration_WarmUpPeriodDurationInMinute = cmdletContext.WarmUpConfiguration_WarmUpPeriodDurationInMinute.Value;
+            }
+            if (requestWarmUpConfiguration_warmUpConfiguration_WarmUpPeriodDurationInMinute != null)
+            {
+                request.WarmUpConfiguration.WarmUpPeriodDurationInMinutes = requestWarmUpConfiguration_warmUpConfiguration_WarmUpPeriodDurationInMinute.Value;
+                requestWarmUpConfigurationIsNull = false;
+            }
+             // determine if request.WarmUpConfiguration should be set to null
+            if (requestWarmUpConfigurationIsNull)
+            {
+                request.WarmUpConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -836,6 +897,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public List<Amazon.CloudWatch.Model.Tag> Tag { get; set; }
             public System.Double? Threshold { get; set; }
             public System.String TreatMissingData { get; set; }
+            public System.Boolean? WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd { get; set; }
+            public System.Int32? WarmUpConfiguration_WarmUpPeriodDurationInMinute { get; set; }
             public System.Func<Amazon.CloudWatch.Model.PutLogAlarmResponse, WriteCWLogAlarmCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

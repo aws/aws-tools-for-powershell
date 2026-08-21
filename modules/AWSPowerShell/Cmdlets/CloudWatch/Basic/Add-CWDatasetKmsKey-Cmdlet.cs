@@ -42,10 +42,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// operation.
     /// </para><para>
     /// You can call <c>AssociateDatasetKmsKey</c> on a dataset that is already associated
-    /// with a KMS key to replace the existing key with a different one. To replace a key,
-    /// the caller must have <c>kms:Decrypt</c> permission on both the current key and the
-    /// new key.
-    /// </para><para>
+    /// with a KMS key to replace the existing key with a different one. The caller must have
+    /// <c>kms:Decrypt</c> permission on both the current key and the new key.
+    /// </para><note><para>
+    /// If the currently associated key has been deleted, is scheduled for deletion, is pending
+    /// import, is unavailable, or has been disabled, Amazon CloudWatch does not require <c>kms:Decrypt</c>
+    /// permission on the current key and the rotation proceeds. If the key was only disabled,
+    /// consider re-enabling it instead of rotating, because re-enabling allows Amazon CloudWatch
+    /// to resume decrypting your existing metric data encrypted with that key.
+    /// </para></note><para>
     /// The KMS key that you specify must meet all of the following requirements:
     /// </para><ul><li><para>
     /// It must be a symmetric encryption KMS key (key spec <c>SYMMETRIC_DEFAULT</c>, key
@@ -71,14 +76,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// the key policy grants the required access to Amazon CloudWatch. These checks include
     /// <c>kms:DescribeKey</c>, <c>kms:GenerateDataKey</c>, <c>kms:Encrypt</c>, <c>kms:Decrypt</c>,
     /// and <c>kms:ReEncrypt*</c>. After those succeed, a <c>kms:Decrypt</c> dry-run is run
-    /// with the caller's credentials to verify that the calling principal can use the key.
-    /// When you are replacing an existing key, the caller's <c>kms:Decrypt</c> dry-run is
-    /// run on the current key first, and only then on the new key.
+    /// with the caller's credentials to verify that the calling principal can use the new
+    /// key. When you are replacing an existing key, the caller's <c>kms:Decrypt</c> dry-run
+    /// is also run on the current key.
     /// </para><para>
-    /// If any of these checks fails, the operation fails and the existing key association
-    /// (if any) remains unchanged. Common failure causes include the key being disabled,
-    /// the key policy not granting the required permissions to Amazon CloudWatch, or the
-    /// caller lacking <c>kms:Decrypt</c> permission on the key.
+    /// If any of these checks on the new key fails, the operation fails and the existing
+    /// key association (if any) remains unchanged. Common failure causes include the new
+    /// key being disabled, the key policy not granting the required permissions to Amazon
+    /// CloudWatch, or the caller lacking <c>kms:Decrypt</c> permission on the new key.
     /// </para><para>
     /// For more information about using customer managed keys with Amazon CloudWatch, see
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html">Encryption

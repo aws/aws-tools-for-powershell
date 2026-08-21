@@ -1,4 +1,17 @@
-﻿### 5.0.281 (2026-08-20 19:12Z)
+﻿### 5.0.282 (2026-08-21 19:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.317.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSAccountUXSetting
+    * [Breaking Change] Modified cmdlet Get-UXCServiceList: removed parameter MaxResult; added parameter MaxResult.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameters TargetConfiguration_Http_Passthrough_StaticQueryParameter, TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution and TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters TargetConfiguration_Http_Passthrough_StaticQueryParameter, TargetConfiguration_Http_Passthrough_StaticQueryParameterConflictResolution and TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWLogAlarm: added parameters WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd and WarmUpConfiguration_WarmUpPeriodDurationInMinute.
+    * Modified cmdlet Write-CWMetricAlarm: added parameters WarmUpConfiguration_OnlyStartEvaluatingAfterWarmUpPeriodEnd and WarmUpConfiguration_WarmUpPeriodDurationInMinute.
+  * Amazon Device Farm
+    * Modified cmdlet New-DFRemoteAccessSession: added parameter Configuration_Parameter.
+
+### 5.0.281 (2026-08-20 19:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.316.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet New-BATComputeEnvironment: added parameters ComputeResources_CapacityTag, ComputeResources_ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter, ComputeResources_ManagedInstancesProvider_InfrastructureRoleArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityOptionType, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationGroupArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_CapacityReservations_ReservationPreference, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Ec2InstanceProfileArn, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_FipsEnabled, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceMetadataTagsPropagation, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_InstanceRequirements_AllowedInstanceType, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_LocalStorageConfiguration_UseLocalStorage, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_Monitoring, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_SecurityGroup, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_NetworkConfiguration_Subnet, ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB and ComputeResources_ManagedInstancesProvider_PropagateTag.

@@ -31,9 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Updates the warm throughput configuration for the specified Amazon Kinesis Data Streams
-    /// on-demand data stream. This operation allows you to proactively scale your on-demand
-    /// data stream to a specified throughput level, enabling better performance for sudden
-    /// traffic spikes. 
+    /// on-demand data stream. Updates the warm throughput configuration for the specified
+    /// on-demand data stream. Use this operation to scale your stream to a specified throughput
+    /// level before anticipated traffic spikes, or to release excess capacity after traffic
+    /// has decreased. 
     /// 
     ///  <note><para>
     /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
@@ -50,6 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// This operation is only supported for data streams with the on-demand capacity mode
     /// in accounts that have <c>MinimumThroughputBillingCommitment</c> enabled. Provisioned
     /// capacity mode streams do not support warm throughput configuration.
+    /// </para><para>
+    /// To release excess capacity, call the API again and set the warm throughput to the
+    /// same or a lower value.
     /// </para><para>
     /// This operation has the following default limits. By default, you cannot do the following:
     /// </para><ul><li><para>

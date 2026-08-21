@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// This request obtains a summary of restore jobs created or running within the the most
-    /// recent 30 days. You can include parameters AccountID, State, ResourceType, AggregationPeriod,
+    /// recent 14 days. You can include parameters AccountID, State, ResourceType, AggregationPeriod,
     /// MaxResults, or NextToken to filter results.
     /// 
     ///  

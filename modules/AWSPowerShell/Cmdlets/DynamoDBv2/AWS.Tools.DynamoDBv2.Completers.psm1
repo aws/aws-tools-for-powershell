@@ -464,12 +464,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "Add-DDBKeySchema",
-               "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem",
-               "New-DDBTable")
+               "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
+               "New-DDBTable",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap

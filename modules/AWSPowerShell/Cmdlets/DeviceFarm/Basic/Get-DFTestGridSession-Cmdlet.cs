@@ -31,14 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
     /// A session is an instance of a browser created through a <c>RemoteWebDriver</c> with
-    /// the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look
-    /// up sessions:
+    /// the URL from <c> CreateTestGridUrlResult</c>. You can use the following to look up
+    /// sessions:
     /// 
     ///  <ul><li><para>
-    /// The session ARN (<a>GetTestGridSessionRequest$sessionArn</a>).
+    /// The session ARN.
     /// </para></li><li><para>
-    /// The project ARN and a session ID (<a>GetTestGridSessionRequest$projectArn</a> and
-    /// <a>GetTestGridSessionRequest$sessionId</a>).
+    /// The project ARN and a session ID.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "DFTestGridSession")]

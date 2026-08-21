@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// This is a request for a summary of scan jobs created or running within the most recent
-    /// 30 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// 14 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKScanJobSummaryList")]
     [OutputType("Amazon.Backup.Model.ListScanJobSummariesResponse")]

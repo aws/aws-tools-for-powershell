@@ -131,6 +131,24 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Configuration_Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The name-value string pairs that specify additional settings for the remote access
+        /// session.</para><ul><li><para><c>appium:version</c>: The major version of the Appium server to use for the session
+        /// (for example, 2 or 3). The service may reject the selected version if it is not available
+        /// for the selected device.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Parameters")]
+        public System.Collections.Hashtable Configuration_Parameter { get; set; }
+        #endregion
+        
         #region Parameter DeviceProxy_Port
         /// <summary>
         /// <para>
@@ -254,6 +272,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.DeviceProxy_Host = this.DeviceProxy_Host;
             context.DeviceProxy_Port = this.DeviceProxy_Port;
+            if (this.Configuration_Parameter != null)
+            {
+                context.Configuration_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Configuration_Parameter.Keys)
+                {
+                    context.Configuration_Parameter.Add((String)hashKey, (System.String)(this.Configuration_Parameter[hashKey]));
+                }
+            }
             if (this.Configuration_VpceConfigurationArn != null)
             {
                 context.Configuration_VpceConfigurationArn = new List<System.String>(this.Configuration_VpceConfigurationArn);
@@ -318,6 +344,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_BillingMethod != null)
             {
                 request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
+                requestConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestConfiguration_configuration_Parameter = null;
+            if (cmdletContext.Configuration_Parameter != null)
+            {
+                requestConfiguration_configuration_Parameter = cmdletContext.Configuration_Parameter;
+            }
+            if (requestConfiguration_configuration_Parameter != null)
+            {
+                request.Configuration.Parameters = requestConfiguration_configuration_Parameter;
                 requestConfigurationIsNull = false;
             }
             List<System.String> requestConfiguration_configuration_VpceConfigurationArn = null;
@@ -454,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
             public System.String DeviceProxy_Host { get; set; }
             public System.Int32? DeviceProxy_Port { get; set; }
+            public Dictionary<System.String, System.String> Configuration_Parameter { get; set; }
             public List<System.String> Configuration_VpceConfigurationArn { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String InstanceArn { get; set; }

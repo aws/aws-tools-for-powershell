@@ -41,17 +41,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// must currently have a customer managed KMS key associated with it. If the dataset
     /// has no associated KMS key, the operation fails with <c>ResourceNotFoundException</c>.
     /// </para><para>
-    /// Amazon CloudWatch performs a dry-run <c>kms:Decrypt</c> call on the key as part of
-    /// this operation. This verifies that the caller is authorized to use the currently associated
-    /// key. The caller must have <c>kms:Decrypt</c> permission on the currently associated
-    /// key, and the key must be enabled and accessible. If the key has been disabled or scheduled
-    /// for deletion, you must first re-enable or restore it before you can disassociate it
-    /// from the dataset.
-    /// </para><important><para>
+    /// Amazon CloudWatch performs a dry-run <c>kms:Decrypt</c> call on the currently associated
+    /// key as part of this operation. The caller must have <c>kms:Decrypt</c> permission
+    /// on the currently associated key. If the key is accessible but the caller lacks <c>kms:Decrypt</c>
+    /// permission, the operation fails with <c>AccessDeniedException</c>.
+    /// </para><note><para>
+    /// If the currently associated key has been deleted, is scheduled for deletion, is pending
+    /// import, is unavailable, or has been disabled, Amazon CloudWatch does not require <c>kms:Decrypt</c>
+    /// permission on that key and the disassociation proceeds. If the key was only disabled,
+    /// consider re-enabling it instead of disassociating, because re-enabling allows Amazon
+    /// CloudWatch to resume decrypting your existing metric data.
+    /// </para></note><important><para>
     /// Disassociating a KMS key from a dataset does not immediately remove the <c>kms:Decrypt</c>
     /// requirement on data plane operations. For up to three hours after disassociation,
     /// callers must continue to have <c>kms:Decrypt</c> permission on the previously associated
-    /// key. Some data may still be encrypted with that key during this window. After this
+    /// key. Some data might still be encrypted with that key during this window. After this
     /// enforcement window elapses, the <c>kms:Decrypt</c> requirement is lifted.
     /// </para></important><para>
     /// For more information about using customer managed keys with Amazon CloudWatch, see

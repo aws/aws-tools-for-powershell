@@ -82,9 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.MR
         /// URL that is then embedded. You can list up to two domains or subdomains in each API
         /// call. To include all subdomains under a specific domain, use <c>*</c>. For example,
         /// <c>https://*.amazon.com</c> includes all subdomains under <c>https://aws.amazon.com</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
