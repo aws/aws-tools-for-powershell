@@ -83,6 +83,25 @@ namespace Amazon.PowerShell.Common
                 return Credentials != null ? Credentials.ToString() : base.ToString();
         }
 
+        /// <summary>
+        /// Returns the non-secret profile provenance carried by these credentials. Session consumers
+        /// use this to preserve profile identity across shared-credentials-file key rotation without
+        /// exposing the wrapped credentials.
+        /// </summary>
+        public bool TryGetSourceProfile(out string profileName, out string profileLocation)
+        {
+            if (Source == CredentialsSource.Profile && !string.IsNullOrEmpty(Name))
+            {
+                profileName = Name;
+                profileLocation = ProfileLocation;
+                return true;
+            }
+
+            profileName = null;
+            profileLocation = null;
+            return false;
+        }
+
         internal AWSPSCredentials(AWSCredentials credentials, string name, CredentialsSource source)
             : this(credentials, name, source, null, null)
         {
@@ -812,6 +831,33 @@ namespace Amazon.PowerShell.Common
         public static bool TryGetProfile(string name, string profileLocation, out CredentialProfile profile)
         {
             return new CredentialProfileStoreChain(profileLocation).TryGetProfile(name, out profile);
+        }
+
+        /// <summary>
+        /// If <paramref name="credentials"/> are SSO credentials whose cached token has expired and
+        /// cannot be refreshed without an interactive login, throws an
+        /// <see cref="UnauthorizedAccessException"/> carrying the same guided message the service
+        /// cmdlets use ("SSO Token has expired. Please login by running Invoke-AWSSSOLogin."). A no-op
+        /// for any other credential type. SupportsGettingNewToken is forced off first so this only
+        /// validates the cached token and never starts an interactive login flow.
+        ///
+        /// Mirrors ServiceCmdlet.ValidateSSOToken so callers outside the cmdlet base classes - notably
+        /// the S3 PSDrive provider, which lives in a separate assembly (AWS.Tools.S3) and cannot reach
+        /// the internal SSOUtils - surface the same actionable error instead of a raw SDK failure.
+        /// </summary>
+        public static void ThrowIfSsoLoginRequired(AWSCredentials credentials)
+        {
+            if (!(credentials is SSOAWSCredentials ssoCredentials))
+                return;
+
+            // Never initiate the interactive login flow from here; only validate the cached token.
+            ssoCredentials.Options.SupportsGettingNewToken = false;
+
+            var options = Internal.SSOUtils.BuildSSOTokenManagerGetTokenOptions(
+                ssoCredentials, supportsGettingNewToken: false, ssoVerificationCallback: null);
+            if (Internal.SSOUtils.IsSsoLoginRequiredAsync(options).GetAwaiter().GetResult())
+                throw new UnauthorizedAccessException(
+                    "SSO Token has expired. Please login by running Invoke-AWSSSOLogin.");
         }
 
         public static IEnumerable<CredentialProfile> ListProfiles(string profileLocation)
