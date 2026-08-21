@@ -53,8 +53,12 @@
     
     Otherwise, by default, other versions are preserved. 
     
-    Please note that ALL AWS Tools modules (except installer) will be uninstalled even when 
-    only specific modules were updated. 
+    Please note that ALL AWS Tools modules (except installer) will be uninstalled even when
+    only specific modules were updated.
+
+    Note: cleanup runs only as part of an installation. If the update is skipped because the
+    requested version is already installed, cleanup is skipped as well and a warning is emitted.
+    Use -Force to reinstall and clean up other installed versions.
 
 .Parameter CleanUpLegacyModuleScope
     Runs a separate cleanup of all instances of AWSPowerShell and AWSPowerShell.NetCore 

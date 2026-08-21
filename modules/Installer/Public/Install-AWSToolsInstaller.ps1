@@ -17,6 +17,10 @@
     Removes previous versions of the installer after successful installation.
     By default, previous versions are preserved.
 
+    Note: cleanup runs only as part of an installation. If installation is skipped because the
+    requested version is already installed, cleanup is skipped as well and a warning is emitted.
+    Use -Force to reinstall and clean up other installed versions.
+
 .Parameter Scope
     Specifies the installation scope of the module as well as scope for module cleanup.
     The acceptable values for this parameter are AllUsers and CurrentUser.
@@ -296,6 +300,9 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                         if ($installedVersionString -eq $targetVersionString) {
                             Write-Verbose ("[$($MyInvocation.MyCommand)] AWS.Tools.Installer version $targetVersionString already installed, skipping installation")
                             Write-Host "Skipped installation: AWS.Tools.Installer version $targetVersionToInstall already installed in $targetPath"
+                            if ($Cleanup) {
+                                Write-Warning ("Cleanup was skipped because installation was skipped (AWS.Tools.Installer is already at version $targetVersionToInstall). Cleanup runs only as part of an installation; re-run with -Force to reinstall and remove other installed versions.")
+                            }
                             return
                         }
                     }

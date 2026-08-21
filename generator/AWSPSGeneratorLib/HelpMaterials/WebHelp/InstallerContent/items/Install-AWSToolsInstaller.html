@@ -140,7 +140,10 @@
                     <div class="parameter">
                         <div class="parameterName">-Cleanup &lt;SwitchParameter&gt;</div>
                         <div class="parameterDescription">Removes previous versions of the installer after successful
-                            installation. By default, previous versions are preserved.</div>
+                            installation. By default, previous versions are preserved.<br /><br />
+                            Note: cleanup runs only as part of an installation. If installation is skipped because the
+                            requested version is already installed, cleanup is skipped as well and a warning is emitted.
+                            Use -Force to reinstall and clean up other installed versions.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>
