@@ -217,6 +217,23 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Title { get; set; }
         #endregion
         
+        #region Parameter Assets_TrustedCaCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The trust anchors used to validate target endpoint TLS certificates. Provide these
+        /// for endpoints served by a private or internal certificate authority (CA), an intermediate
+        /// CA, or a self-signed certificate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Assets_TrustedCaCertificates")]
+        public Amazon.SecurityAgent.Model.TrustedCaCertificate[] Assets_TrustedCaCertificate { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -289,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (this.Assets_SourceCode != null)
             {
                 context.Assets_SourceCode = new List<Amazon.SecurityAgent.Model.SourceCodeRepository>(this.Assets_SourceCode);
+            }
+            if (this.Assets_TrustedCaCertificate != null)
+            {
+                context.Assets_TrustedCaCertificate = new List<Amazon.SecurityAgent.Model.TrustedCaCertificate>(this.Assets_TrustedCaCertificate);
             }
             context.Description = this.Description;
             context.LogConfig_LogGroup = this.LogConfig_LogGroup;
@@ -378,6 +399,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             if (requestAssets_assets_SourceCode != null)
             {
                 request.Assets.SourceCode = requestAssets_assets_SourceCode;
+                requestAssetsIsNull = false;
+            }
+            List<Amazon.SecurityAgent.Model.TrustedCaCertificate> requestAssets_assets_TrustedCaCertificate = null;
+            if (cmdletContext.Assets_TrustedCaCertificate != null)
+            {
+                requestAssets_assets_TrustedCaCertificate = cmdletContext.Assets_TrustedCaCertificate;
+            }
+            if (requestAssets_assets_TrustedCaCertificate != null)
+            {
+                request.Assets.TrustedCaCertificates = requestAssets_assets_TrustedCaCertificate;
                 requestAssetsIsNull = false;
             }
              // determine if request.Assets should be set to null
@@ -495,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public List<Amazon.SecurityAgent.Model.Endpoint> Assets_Endpoint { get; set; }
             public List<Amazon.SecurityAgent.Model.IntegratedRepository> Assets_IntegratedRepository { get; set; }
             public List<Amazon.SecurityAgent.Model.SourceCodeRepository> Assets_SourceCode { get; set; }
+            public List<Amazon.SecurityAgent.Model.TrustedCaCertificate> Assets_TrustedCaCertificate { get; set; }
             public System.String Description { get; set; }
             public System.String LogConfig_LogGroup { get; set; }
             public System.String LogConfig_LogStream { get; set; }

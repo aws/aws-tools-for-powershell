@@ -30,7 +30,11 @@ using Amazon.ConnectContactLens.Model;
 namespace Amazon.PowerShell.Cmdlets.CCL
 {
     /// <summary>
-    /// Provides a list of analysis segments for a real-time analysis session.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of analysis segments for a real-time analysis session for voice.
+    /// 
+    ///  <note><para>
+    /// Voice data is retained for 24 hours. You must invoke this API during that time.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCLRealtimeContactAnalysisSegmentList")]
     [OutputType("Amazon.ConnectContactLens.Model.RealtimeContactAnalysisSegment")]

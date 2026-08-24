@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMIDictionaryList', 
         'Get-EMIFeed', 
         'Get-EMIFeedList', 
+        'Get-EMIFixture', 
         'Get-EMIResourceTag', 
         'New-EMIDictionary', 
         'New-EMIFeed', 

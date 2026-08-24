@@ -169,6 +169,7 @@ $EMI_SelectMap = @{
                "Export-EMIDictionaryEntry",
                "Get-EMIDictionary",
                "Get-EMIFeed",
+               "Get-EMIFixture",
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
                "Get-EMIResourceTag",

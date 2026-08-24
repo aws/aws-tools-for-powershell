@@ -14076,6 +14076,7 @@ Set-Alias -Name Export-EMIDictionaryEntries -Value Export-EMIDictionaryEntry
 Set-Alias -Name EMI-ExportDictionaryEntries -Value Export-EMIDictionaryEntry
 Set-Alias -Name EMI-GetDictionary -Value Get-EMIDictionary
 Set-Alias -Name EMI-GetFeed -Value Get-EMIFeed
+Set-Alias -Name EMI-GetFixture -Value Get-EMIFixture
 Set-Alias -Name List-EMIDictionaries -Value Get-EMIDictionaryList
 Set-Alias -Name List-EMIDictionaryList -Value Get-EMIDictionaryList
 Set-Alias -Name EMI-ListDictionaries -Value Get-EMIDictionaryList

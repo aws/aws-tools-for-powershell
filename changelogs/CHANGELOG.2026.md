@@ -1,4 +1,16 @@
-﻿### 5.0.282 (2026-08-21 19:24Z)
+﻿### 5.0.283 (2026-08-24 19:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.318.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental Inference
+    * Added cmdlet Get-EMIFixture leveraging the GetFixture service API.
+  * Amazon Security Agent
+    * Modified cmdlet New-SECAGCodeReview: added parameter Assets_TrustedCaCertificate.
+    * Modified cmdlet New-SECAGPentest: added parameter Assets_TrustedCaCertificate.
+    * Modified cmdlet New-SECAGThreatModel: added parameter Assets_TrustedCaCertificate.
+    * Modified cmdlet Update-SECAGCodeReview: added parameter Assets_TrustedCaCertificate.
+    * Modified cmdlet Update-SECAGPentest: added parameter Assets_TrustedCaCertificate.
+    * Modified cmdlet Update-SECAGThreatModel: added parameter Assets_TrustedCaCertificate.
+
+### 5.0.282 (2026-08-21 19:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.317.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSAccountUXSetting
     * [Breaking Change] Modified cmdlet Get-UXCServiceList: removed parameter MaxResult; added parameter MaxResult.
