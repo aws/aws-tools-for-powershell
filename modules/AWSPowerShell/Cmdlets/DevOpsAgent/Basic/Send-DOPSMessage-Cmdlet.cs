@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Context_ApprovalAction_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action taken on the approval request — APPROVED or REJECTED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.ApprovalActionType")]
+        public Amazon.DevOpsAgent.ApprovalActionType Context_ApprovalAction_Action { get; set; }
+        #endregion
+        
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
@@ -62,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter Context_ApprovalAction_ApprovalId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier of the approval request being resolved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context_ApprovalAction_ApprovalId { get; set; }
+        #endregion
+        
         #region Parameter AssetId
         /// <summary>
         /// <para>
@@ -75,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AssetIds")]
         public System.String[] AssetId { get; set; }
+        #endregion
+        
+        #region Parameter Context_ApprovalAction_ButtonText
+        /// <summary>
+        /// <para>
+        /// <para>Optional display text of the UI control the user chose (for example, "Approve Exact",
+        /// "Approve Broader", or "Reject"), provided as auxiliary decision context.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context_ApprovalAction_ButtonText { get; set; }
         #endregion
         
         #region Parameter Content
@@ -121,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String ExecutionId { get; set; }
         #endregion
         
+        #region Parameter Context_ApprovalAction_InterruptId
+        /// <summary>
+        /// <para>
+        /// <para>An opaque resume identifier issued by the service when an agent execution pauses for
+        /// approval. Provide it when resuming so the service can resume the correct paused execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context_ApprovalAction_InterruptId { get; set; }
+        #endregion
+        
         #region Parameter Context_LastMessage
         /// <summary>
         /// <para>
@@ -131,16 +174,37 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Context_LastMessage { get; set; }
         #endregion
         
+        #region Parameter ModelTier
+        /// <summary>
+        /// <para>
+        /// <para>Optional model tier selection. Valid values: smart, balanced, fast. Absent or unrecognized
+        /// values default to balanced.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelTier { get; set; }
+        #endregion
+        
+        #region Parameter Context_ApprovalAction_ToolUseId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier of the specific paused tool invocation that requested approval. Correlates
+        /// the approval decision back to the paused invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context_ApprovalAction_ToolUseId { get; set; }
+        #endregion
+        
         #region Parameter Context_UserActionResponse
         /// <summary>
         /// <para>
-        /// <para>Response to a UI prompt (not a text conversation message). Operator App SDK clients
-        /// set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming
-        /// a paused tool call after an operator approval decision; in that case the structured
-        /// decision context lives on the sibling `approvalAction` member and the chat agent reads
-        /// from there. Preserved as a String for back-compat: pre-typed-approval clients still
-        /// encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses
-        /// them out during the transition.</para>
+        /// <para>Response to a UI prompt (not a text conversation message). Set this to the sentinel
+        /// value `"APPROVAL_ACTION"` when the request is resuming a paused execution after an
+        /// approval decision; in that case the structured decision is provided on the sibling
+        /// `approvalAction` member. Preserved as a String for backward compatibility: clients
+        /// that predate the typed approval field may still encode UI-prompt responses as JSON
+        /// in this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,6 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Context_ApprovalAction_Action = this.Context_ApprovalAction_Action;
+            context.Context_ApprovalAction_ApprovalId = this.Context_ApprovalAction_ApprovalId;
+            context.Context_ApprovalAction_ButtonText = this.Context_ApprovalAction_ButtonText;
+            context.Context_ApprovalAction_InterruptId = this.Context_ApprovalAction_InterruptId;
+            context.Context_ApprovalAction_ToolUseId = this.Context_ApprovalAction_ToolUseId;
             context.Context_CurrentPage = this.Context_CurrentPage;
             context.Context_LastMessage = this.Context_LastMessage;
             context.Context_UserActionResponse = this.Context_UserActionResponse;
@@ -240,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter ExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModelTier = this.ModelTier;
             context.UserId = this.UserId;
             
             // allow further manipulation of loaded context prior to processing
@@ -303,6 +373,71 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Context.UserActionResponse = requestContext_context_UserActionResponse;
                 requestContextIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.ApprovalAction requestContext_context_ApprovalAction = null;
+            
+             // populate ApprovalAction
+            var requestContext_context_ApprovalActionIsNull = true;
+            requestContext_context_ApprovalAction = new Amazon.DevOpsAgent.Model.ApprovalAction();
+            Amazon.DevOpsAgent.ApprovalActionType requestContext_context_ApprovalAction_context_ApprovalAction_Action = null;
+            if (cmdletContext.Context_ApprovalAction_Action != null)
+            {
+                requestContext_context_ApprovalAction_context_ApprovalAction_Action = cmdletContext.Context_ApprovalAction_Action;
+            }
+            if (requestContext_context_ApprovalAction_context_ApprovalAction_Action != null)
+            {
+                requestContext_context_ApprovalAction.Action = requestContext_context_ApprovalAction_context_ApprovalAction_Action;
+                requestContext_context_ApprovalActionIsNull = false;
+            }
+            System.String requestContext_context_ApprovalAction_context_ApprovalAction_ApprovalId = null;
+            if (cmdletContext.Context_ApprovalAction_ApprovalId != null)
+            {
+                requestContext_context_ApprovalAction_context_ApprovalAction_ApprovalId = cmdletContext.Context_ApprovalAction_ApprovalId;
+            }
+            if (requestContext_context_ApprovalAction_context_ApprovalAction_ApprovalId != null)
+            {
+                requestContext_context_ApprovalAction.ApprovalId = requestContext_context_ApprovalAction_context_ApprovalAction_ApprovalId;
+                requestContext_context_ApprovalActionIsNull = false;
+            }
+            System.String requestContext_context_ApprovalAction_context_ApprovalAction_ButtonText = null;
+            if (cmdletContext.Context_ApprovalAction_ButtonText != null)
+            {
+                requestContext_context_ApprovalAction_context_ApprovalAction_ButtonText = cmdletContext.Context_ApprovalAction_ButtonText;
+            }
+            if (requestContext_context_ApprovalAction_context_ApprovalAction_ButtonText != null)
+            {
+                requestContext_context_ApprovalAction.ButtonText = requestContext_context_ApprovalAction_context_ApprovalAction_ButtonText;
+                requestContext_context_ApprovalActionIsNull = false;
+            }
+            System.String requestContext_context_ApprovalAction_context_ApprovalAction_InterruptId = null;
+            if (cmdletContext.Context_ApprovalAction_InterruptId != null)
+            {
+                requestContext_context_ApprovalAction_context_ApprovalAction_InterruptId = cmdletContext.Context_ApprovalAction_InterruptId;
+            }
+            if (requestContext_context_ApprovalAction_context_ApprovalAction_InterruptId != null)
+            {
+                requestContext_context_ApprovalAction.InterruptId = requestContext_context_ApprovalAction_context_ApprovalAction_InterruptId;
+                requestContext_context_ApprovalActionIsNull = false;
+            }
+            System.String requestContext_context_ApprovalAction_context_ApprovalAction_ToolUseId = null;
+            if (cmdletContext.Context_ApprovalAction_ToolUseId != null)
+            {
+                requestContext_context_ApprovalAction_context_ApprovalAction_ToolUseId = cmdletContext.Context_ApprovalAction_ToolUseId;
+            }
+            if (requestContext_context_ApprovalAction_context_ApprovalAction_ToolUseId != null)
+            {
+                requestContext_context_ApprovalAction.ToolUseId = requestContext_context_ApprovalAction_context_ApprovalAction_ToolUseId;
+                requestContext_context_ApprovalActionIsNull = false;
+            }
+             // determine if requestContext_context_ApprovalAction should be set to null
+            if (requestContext_context_ApprovalActionIsNull)
+            {
+                requestContext_context_ApprovalAction = null;
+            }
+            if (requestContext_context_ApprovalAction != null)
+            {
+                request.Context.ApprovalAction = requestContext_context_ApprovalAction;
+                requestContextIsNull = false;
+            }
              // determine if request.Context should be set to null
             if (requestContextIsNull)
             {
@@ -311,6 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.ExecutionId != null)
             {
                 request.ExecutionId = cmdletContext.ExecutionId;
+            }
+            if (cmdletContext.ModelTier != null)
+            {
+                request.ModelTier = cmdletContext.ModelTier;
             }
             if (cmdletContext.UserId != null)
             {
@@ -374,10 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String AgentSpaceId { get; set; }
             public List<System.String> AssetId { get; set; }
             public System.String Content { get; set; }
+            public Amazon.DevOpsAgent.ApprovalActionType Context_ApprovalAction_Action { get; set; }
+            public System.String Context_ApprovalAction_ApprovalId { get; set; }
+            public System.String Context_ApprovalAction_ButtonText { get; set; }
+            public System.String Context_ApprovalAction_InterruptId { get; set; }
+            public System.String Context_ApprovalAction_ToolUseId { get; set; }
             public System.String Context_CurrentPage { get; set; }
             public System.String Context_LastMessage { get; set; }
             public System.String Context_UserActionResponse { get; set; }
             public System.String ExecutionId { get; set; }
+            public System.String ModelTier { get; set; }
             [System.ObsoleteAttribute]
             public System.String UserId { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.SendMessageResponse, SendDOPSMessageCmdlet, object> Select { get; set; } =

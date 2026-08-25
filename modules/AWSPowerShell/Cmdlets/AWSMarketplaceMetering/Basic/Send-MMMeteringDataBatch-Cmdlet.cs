@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// <c>LicenseArn</c> (instead of <c>ProductCode</c>) to support this feature. <c>BatchMeterUsage</c>
     /// does not support <c>CustomerIdentifier</c> for new integrations. Existing integrations
     /// continue to work. Review the new integration for Concurrent Agreements <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>.
+    /// For additional implementation details, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-licensearn-example">BatchMeterUsage
+    /// code example with LicenseArn</a> in the <i>Amazon Web Services Marketplace Seller
+    /// Guide</i>.
     /// </para></important><para>
     /// To post metering records for customers, SaaS applications call <c>BatchMeterUsage</c>,
     /// which is used for metering SaaS flexible consumption pricing (FCP). Identical requests
@@ -48,8 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// Usage records aren't accepted 24 hours or more after an event. At the end of each
     /// billing cycle, a 6-hour grace period applies. We accept usage records for the previous
     /// billing month until 06:00 UTC on the first day of the next month. For example, you
-    /// must submit March usage records before 06:00 UTC on April 1. After this grace period,
-    /// we return a <c>TimestampOutOfBoundsException</c> error.
+    /// must submit March usage records before 06:00 UTC on April 1. On April 1 at 05:00 UTC,
+    /// you can still submit records for March 31 (within the 6-hour grace period). After
+    /// 06:00 UTC on April 1, March records are rejected regardless of the normal 24-hour
+    /// submission window. After this grace period, we return a <c>TimestampOutOfBoundsException</c>
+    /// error.
     /// </para><para><c>BatchMeterUsage</c> can process up to 25 <c>UsageRecords</c> at a time, and each
     /// request must be less than 1 MB in size. Optionally, you can have multiple usage allocations
     /// for usage data that's split into buckets according to predefined tags.
@@ -82,7 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <para>
         /// <para>Product code is used to uniquely identify a product in Amazon Web Services Marketplace.
         /// The product code should be the same as the one used during the publishing of a new
-        /// product.</para>
+        /// product.</para><important><para><c>ProductCode</c> is required only for legacy integrations that use <c>CustomerIdentifier</c>.
+        /// For new integrations using <c>LicenseArn</c> (Concurrent Agreements), do NOT include
+        /// <c>ProductCode</c> at the request level. The <c>LicenseArn</c> in each <c>UsageRecord</c>
+        /// identifies both the product and the specific agreement.</para><para>Sending metering records with both <c>ProductCode</c> and <c>LicenseArn</c> for the
+        /// same customer within the same hour will result in duplicate billing. If you are migrating
+        /// from product-based metering to license-based metering, stop sending <c>ProductCode</c>
+        /// before you start sending <c>LicenseArn</c>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

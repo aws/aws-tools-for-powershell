@@ -140,6 +140,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-DOPSAwsAssociation', 
         'Unregister-DOPSService', 
         'Update-DOPSAgentSpace', 
+        'Update-DOPSApprovalAction', 
         'Update-DOPSAsset', 
         'Update-DOPSAssetFile', 
         'Update-DOPSAssociation', 

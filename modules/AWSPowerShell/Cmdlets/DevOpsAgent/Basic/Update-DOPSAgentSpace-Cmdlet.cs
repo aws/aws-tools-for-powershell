@@ -93,6 +93,23 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Preference
+        /// <summary>
+        /// <para>
+        /// <para>The preferences to configure on the agent space. When provided, this replaces the
+        /// full set of configured preferences; preferences not included revert to their default
+        /// values. When omitted, the current preferences are left unchanged.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences")]
+        public System.Collections.Hashtable Preference { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AgentSpace'.
@@ -149,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Description = this.Description;
             context.Locale = this.Locale;
             context.Name = this.Name;
+            if (this.Preference != null)
+            {
+                context.Preference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Preference.Keys)
+                {
+                    context.Preference.Add((String)hashKey, (System.Boolean)(this.Preference[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Preference != null)
+            {
+                request.Preferences = cmdletContext.Preference;
             }
             
             CmdletOutput output;
@@ -240,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Description { get; set; }
             public System.String Locale { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.Boolean> Preference { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.UpdateAgentSpaceResponse, UpdateDOPSAgentSpaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AgentSpace;
         }

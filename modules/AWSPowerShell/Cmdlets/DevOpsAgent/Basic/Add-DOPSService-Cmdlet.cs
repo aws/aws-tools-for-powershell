@@ -97,6 +97,59 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public Amazon.DevOpsAgent.SourceAccountType Configuration_SourceAws_AccountType { get; set; }
         #endregion
         
+        #region Parameter Configuration_Aws_AgentElevatedRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional IAM role ARN to be assumed by AIDevOps for elevated directed actions on behalf
+        /// of the customer. Used for mutating operations gated by elevatedActionsEnabled on the
+        /// AgentSpace. When not provided, only non-elevated directed actions are available for
+        /// this AWS account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Aws_AgentElevatedRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_SourceAws_AgentElevatedRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional IAM role ARN to be assumed by AIDevOps for elevated directed actions on behalf
+        /// of the customer. Used for mutating operations gated by elevatedActionsEnabled on the
+        /// AgentSpace. When not provided, only non-elevated directed actions are available for
+        /// this AWS account. Setting this role is subject to the same minimum iam:PassRole requirement
+        /// described on assumableRoleArn.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_SourceAws_AgentElevatedRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Aws_AgentElevatedRoleArnStatus
+        /// <summary>
+        /// <para>
+        /// <para>Validation status of the agentElevatedRoleArn. Updated asynchronously after the customer
+        /// registers an elevated role. Possible values: PENDING_CONFIRMATION (validation in progress),
+        /// VALID (role validated), INVALID (validation failed).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.ValidationStatus")]
+        public Amazon.DevOpsAgent.ValidationStatus Configuration_Aws_AgentElevatedRoleArnStatus { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_SourceAws_AgentElevatedRoleArnStatus
+        /// <summary>
+        /// <para>
+        /// <para>Validation status of the agentElevatedRoleArn. Updated asynchronously after the customer
+        /// registers an elevated role. Possible values: PENDING_CONFIRMATION (validation in progress),
+        /// VALID (role validated), INVALID (validation failed).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.ValidationStatus")]
+        public Amazon.DevOpsAgent.ValidationStatus Configuration_SourceAws_AgentElevatedRoleArnStatus { get; set; }
+        #endregion
+        
         #region Parameter AgentSpaceId
         /// <summary>
         /// <para>
@@ -127,7 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter Configuration_SourceAws_AssumableRoleArn
         /// <summary>
         /// <para>
-        /// <para>Role ARN to be assumed by AIDevOps to operate on behalf of customer.</para>
+        /// <para>Role ARN to be assumed by AIDevOps to operate on behalf of customer. To set this role
+        /// ARN on AssociateService or UpdateAssociation, the caller must have at least the iam:PassRole
+        /// permission on arn:aws:iam::&lt;account-id&gt;:role/* in the caller's own account,
+        /// with the condition iam:PassedToService set to aidevops.amazonaws.com. A broader iam:PassRole
+        /// grant also satisfies this requirement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,6 +271,36 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
         #endregion
         
+        #region Parameter Configuration_Mcpserverdatadog_EnabledElevatedTool
+        /// <summary>
+        /// <para>
+        /// <para>The subset of elevated-access tools enabled for this integration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpserverdatadog_EnabledElevatedTools")]
+        public Amazon.DevOpsAgent.Model.MCPToolDetail[] Configuration_Mcpserverdatadog_EnabledElevatedTool { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Mcpservergrafana_EnabledElevatedTool
+        /// <summary>
+        /// <para>
+        /// <para>The subset of elevated-access tools enabled for this integration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpservergrafana_EnabledElevatedTools")]
+        public Amazon.DevOpsAgent.Model.MCPToolDetail[] Configuration_Mcpservergrafana_EnabledElevatedTool { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpservergrafana_Endpoint
         /// <summary>
         /// <para>
@@ -293,16 +380,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Mcpserverdatadog
-        /// <summary>
-        /// <para>
-        /// <para>Datadog MCP server integration configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration Configuration_Mcpserverdatadog { get; set; }
         #endregion
         
         #region Parameter Configuration_Mcpserversplunk
@@ -451,28 +528,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String[] Configuration_Dynatrace_Resource { get; set; }
         #endregion
         
-        #region Parameter Configuration_Github_RuntimeRoleArn
-        /// <summary>
-        /// <para>
-        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
-        /// and VPC connectivity on this association.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Github_RuntimeRoleArn { get; set; }
-        #endregion
-        
-        #region Parameter Configuration_Gitlab_RuntimeRoleArn
-        /// <summary>
-        /// <para>
-        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
-        /// and VPC connectivity on this association.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
-        #endregion
-        
         #region Parameter ServiceId
         /// <summary>
         /// <para>
@@ -513,6 +568,38 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Azure_SubscriptionId { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Mcpserver_ToolDetail
+        /// <summary>
+        /// <para>
+        /// <para>List of MCP tools with their access categorization. When provided, the tool names
+        /// must match those in the tools member.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpserver_ToolDetails")]
+        public Amazon.DevOpsAgent.Model.MCPToolDetail[] Configuration_Mcpserver_ToolDetail { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Mcpserversigv4_ToolDetail
+        /// <summary>
+        /// <para>
+        /// <para>List of MCP tools with their access categorization. When provided, the tool names
+        /// must match those in the tools member.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Mcpserversigv4_ToolDetails")]
+        public Amazon.DevOpsAgent.Model.MCPToolDetail[] Configuration_Mcpserversigv4_ToolDetail { get; set; }
         #endregion
         
         #region Parameter Configuration_Mcpserver_Tool
@@ -580,6 +667,32 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Slack_WorkspaceName { get; set; }
         #endregion
         
+        #region Parameter Configuration_Github_RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
+        /// and VPC connectivity on this association.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Superseded by the ReleaseManagement association. Configure the runtime role on the ReleaseManagement association and reference it via releaseManagementAssociationId.")]
+        public System.String Configuration_Github_RuntimeRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Gitlab_RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing
+        /// and VPC connectivity on this association.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Superseded by the ReleaseManagement association. Configure the runtime role on the ReleaseManagement association and reference it via releaseManagementAssociationId.")]
+        public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -643,6 +756,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             }
             context.Configuration_Aws_AccountId = this.Configuration_Aws_AccountId;
             context.Configuration_Aws_AccountType = this.Configuration_Aws_AccountType;
+            context.Configuration_Aws_AgentElevatedRoleArn = this.Configuration_Aws_AgentElevatedRoleArn;
+            context.Configuration_Aws_AgentElevatedRoleArnStatus = this.Configuration_Aws_AgentElevatedRoleArnStatus;
             context.Configuration_Aws_AssumableRoleArn = this.Configuration_Aws_AssumableRoleArn;
             context.Configuration_Azure_SubscriptionId = this.Configuration_Azure_SubscriptionId;
             context.Configuration_Azuredevops_OrganizationName = this.Configuration_Azuredevops_OrganizationName;
@@ -664,11 +779,22 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Gitlab_ProjectId = this.Configuration_Gitlab_ProjectId;
             context.Configuration_Gitlab_ProjectPath = this.Configuration_Gitlab_ProjectPath;
             context.Configuration_Gitlab_RuntimeRoleArn = this.Configuration_Gitlab_RuntimeRoleArn;
+            if (this.Configuration_Mcpserver_ToolDetail != null)
+            {
+                context.Configuration_Mcpserver_ToolDetail = new List<Amazon.DevOpsAgent.Model.MCPToolDetail>(this.Configuration_Mcpserver_ToolDetail);
+            }
             if (this.Configuration_Mcpserver_Tool != null)
             {
                 context.Configuration_Mcpserver_Tool = new List<System.String>(this.Configuration_Mcpserver_Tool);
             }
-            context.Configuration_Mcpserverdatadog = this.Configuration_Mcpserverdatadog;
+            if (this.Configuration_Mcpserverdatadog_EnabledElevatedTool != null)
+            {
+                context.Configuration_Mcpserverdatadog_EnabledElevatedTool = new List<Amazon.DevOpsAgent.Model.MCPToolDetail>(this.Configuration_Mcpserverdatadog_EnabledElevatedTool);
+            }
+            if (this.Configuration_Mcpservergrafana_EnabledElevatedTool != null)
+            {
+                context.Configuration_Mcpservergrafana_EnabledElevatedTool = new List<Amazon.DevOpsAgent.Model.MCPToolDetail>(this.Configuration_Mcpservergrafana_EnabledElevatedTool);
+            }
             context.Configuration_Mcpservergrafana_Endpoint = this.Configuration_Mcpservergrafana_Endpoint;
             context.Configuration_Mcpservergrafana_OrganizationId = this.Configuration_Mcpservergrafana_OrganizationId;
             if (this.Configuration_Mcpservergrafana_Tool != null)
@@ -677,6 +803,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             }
             context.Configuration_Mcpservernewrelic_AccountId = this.Configuration_Mcpservernewrelic_AccountId;
             context.Configuration_Mcpservernewrelic_Endpoint = this.Configuration_Mcpservernewrelic_Endpoint;
+            if (this.Configuration_Mcpserversigv4_ToolDetail != null)
+            {
+                context.Configuration_Mcpserversigv4_ToolDetail = new List<Amazon.DevOpsAgent.Model.MCPToolDetail>(this.Configuration_Mcpserversigv4_ToolDetail);
+            }
             if (this.Configuration_Mcpserversigv4_Tool != null)
             {
                 context.Configuration_Mcpserversigv4_Tool = new List<System.String>(this.Configuration_Mcpserversigv4_Tool);
@@ -702,6 +832,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Slack_WorkspaceName = this.Configuration_Slack_WorkspaceName;
             context.Configuration_SourceAws_AccountId = this.Configuration_SourceAws_AccountId;
             context.Configuration_SourceAws_AccountType = this.Configuration_SourceAws_AccountType;
+            context.Configuration_SourceAws_AgentElevatedRoleArn = this.Configuration_SourceAws_AgentElevatedRoleArn;
+            context.Configuration_SourceAws_AgentElevatedRoleArnStatus = this.Configuration_SourceAws_AgentElevatedRoleArnStatus;
             context.Configuration_SourceAws_AssumableRoleArn = this.Configuration_SourceAws_AssumableRoleArn;
             context.Configuration_SourceAws_ExternalId = this.Configuration_SourceAws_ExternalId;
             context.ServiceId = this.ServiceId;
@@ -747,16 +879,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_EventChannel != null)
             {
                 request.Configuration.EventChannel = requestConfiguration_configuration_EventChannel;
-                requestConfigurationIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration requestConfiguration_configuration_Mcpserverdatadog = null;
-            if (cmdletContext.Configuration_Mcpserverdatadog != null)
-            {
-                requestConfiguration_configuration_Mcpserverdatadog = cmdletContext.Configuration_Mcpserverdatadog;
-            }
-            if (requestConfiguration_configuration_Mcpserverdatadog != null)
-            {
-                request.Configuration.Mcpserverdatadog = requestConfiguration_configuration_Mcpserverdatadog;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration requestConfiguration_configuration_Mcpserversplunk = null;
@@ -814,54 +936,29 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Azure = requestConfiguration_configuration_Azure;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.MCPServerConfiguration requestConfiguration_configuration_Mcpserver = null;
+            Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration requestConfiguration_configuration_Mcpserverdatadog = null;
             
-             // populate Mcpserver
-            var requestConfiguration_configuration_McpserverIsNull = true;
-            requestConfiguration_configuration_Mcpserver = new Amazon.DevOpsAgent.Model.MCPServerConfiguration();
-            List<System.String> requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = null;
-            if (cmdletContext.Configuration_Mcpserver_Tool != null)
+             // populate Mcpserverdatadog
+            var requestConfiguration_configuration_McpserverdatadogIsNull = true;
+            requestConfiguration_configuration_Mcpserverdatadog = new Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration();
+            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpserverdatadog_configuration_Mcpserverdatadog_EnabledElevatedTool = null;
+            if (cmdletContext.Configuration_Mcpserverdatadog_EnabledElevatedTool != null)
             {
-                requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = cmdletContext.Configuration_Mcpserver_Tool;
+                requestConfiguration_configuration_Mcpserverdatadog_configuration_Mcpserverdatadog_EnabledElevatedTool = cmdletContext.Configuration_Mcpserverdatadog_EnabledElevatedTool;
             }
-            if (requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool != null)
+            if (requestConfiguration_configuration_Mcpserverdatadog_configuration_Mcpserverdatadog_EnabledElevatedTool != null)
             {
-                requestConfiguration_configuration_Mcpserver.Tools = requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool;
-                requestConfiguration_configuration_McpserverIsNull = false;
+                requestConfiguration_configuration_Mcpserverdatadog.EnabledElevatedTools = requestConfiguration_configuration_Mcpserverdatadog_configuration_Mcpserverdatadog_EnabledElevatedTool;
+                requestConfiguration_configuration_McpserverdatadogIsNull = false;
             }
-             // determine if requestConfiguration_configuration_Mcpserver should be set to null
-            if (requestConfiguration_configuration_McpserverIsNull)
+             // determine if requestConfiguration_configuration_Mcpserverdatadog should be set to null
+            if (requestConfiguration_configuration_McpserverdatadogIsNull)
             {
-                requestConfiguration_configuration_Mcpserver = null;
+                requestConfiguration_configuration_Mcpserverdatadog = null;
             }
-            if (requestConfiguration_configuration_Mcpserver != null)
+            if (requestConfiguration_configuration_Mcpserverdatadog != null)
             {
-                request.Configuration.Mcpserver = requestConfiguration_configuration_Mcpserver;
-                requestConfigurationIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration requestConfiguration_configuration_Mcpserversigv4 = null;
-            
-             // populate Mcpserversigv4
-            var requestConfiguration_configuration_Mcpserversigv4IsNull = true;
-            requestConfiguration_configuration_Mcpserversigv4 = new Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration();
-            List<System.String> requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = null;
-            if (cmdletContext.Configuration_Mcpserversigv4_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = cmdletContext.Configuration_Mcpserversigv4_Tool;
-            }
-            if (requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpserversigv4.Tools = requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool;
-                requestConfiguration_configuration_Mcpserversigv4IsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Mcpserversigv4 should be set to null
-            if (requestConfiguration_configuration_Mcpserversigv4IsNull)
-            {
-                requestConfiguration_configuration_Mcpserversigv4 = null;
-            }
-            if (requestConfiguration_configuration_Mcpserversigv4 != null)
-            {
-                request.Configuration.Mcpserversigv4 = requestConfiguration_configuration_Mcpserversigv4;
+                request.Configuration.Mcpserverdatadog = requestConfiguration_configuration_Mcpserverdatadog;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.DynatraceConfiguration requestConfiguration_configuration_Dynatrace = null;
@@ -899,6 +996,41 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Dynatrace = requestConfiguration_configuration_Dynatrace;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.MCPServerConfiguration requestConfiguration_configuration_Mcpserver = null;
+            
+             // populate Mcpserver
+            var requestConfiguration_configuration_McpserverIsNull = true;
+            requestConfiguration_configuration_Mcpserver = new Amazon.DevOpsAgent.Model.MCPServerConfiguration();
+            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_ToolDetail = null;
+            if (cmdletContext.Configuration_Mcpserver_ToolDetail != null)
+            {
+                requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_ToolDetail = cmdletContext.Configuration_Mcpserver_ToolDetail;
+            }
+            if (requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_ToolDetail != null)
+            {
+                requestConfiguration_configuration_Mcpserver.ToolDetails = requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_ToolDetail;
+                requestConfiguration_configuration_McpserverIsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = null;
+            if (cmdletContext.Configuration_Mcpserver_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool = cmdletContext.Configuration_Mcpserver_Tool;
+            }
+            if (requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserver.Tools = requestConfiguration_configuration_Mcpserver_configuration_Mcpserver_Tool;
+                requestConfiguration_configuration_McpserverIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Mcpserver should be set to null
+            if (requestConfiguration_configuration_McpserverIsNull)
+            {
+                requestConfiguration_configuration_Mcpserver = null;
+            }
+            if (requestConfiguration_configuration_Mcpserver != null)
+            {
+                request.Configuration.Mcpserver = requestConfiguration_configuration_Mcpserver;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.MCPServerNewRelicConfiguration requestConfiguration_configuration_Mcpservernewrelic = null;
             
              // populate Mcpservernewrelic
@@ -932,6 +1064,41 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Mcpservernewrelic != null)
             {
                 request.Configuration.Mcpservernewrelic = requestConfiguration_configuration_Mcpservernewrelic;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration requestConfiguration_configuration_Mcpserversigv4 = null;
+            
+             // populate Mcpserversigv4
+            var requestConfiguration_configuration_Mcpserversigv4IsNull = true;
+            requestConfiguration_configuration_Mcpserversigv4 = new Amazon.DevOpsAgent.Model.MCPServerSigV4Configuration();
+            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_ToolDetail = null;
+            if (cmdletContext.Configuration_Mcpserversigv4_ToolDetail != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_ToolDetail = cmdletContext.Configuration_Mcpserversigv4_ToolDetail;
+            }
+            if (requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_ToolDetail != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4.ToolDetails = requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_ToolDetail;
+                requestConfiguration_configuration_Mcpserversigv4IsNull = false;
+            }
+            List<System.String> requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = null;
+            if (cmdletContext.Configuration_Mcpserversigv4_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool = cmdletContext.Configuration_Mcpserversigv4_Tool;
+            }
+            if (requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool != null)
+            {
+                requestConfiguration_configuration_Mcpserversigv4.Tools = requestConfiguration_configuration_Mcpserversigv4_configuration_Mcpserversigv4_Tool;
+                requestConfiguration_configuration_Mcpserversigv4IsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Mcpserversigv4 should be set to null
+            if (requestConfiguration_configuration_Mcpserversigv4IsNull)
+            {
+                requestConfiguration_configuration_Mcpserversigv4 = null;
+            }
+            if (requestConfiguration_configuration_Mcpserversigv4 != null)
+            {
+                request.Configuration.Mcpserversigv4 = requestConfiguration_configuration_Mcpserversigv4;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.PagerDutyConfiguration requestConfiguration_configuration_Pagerduty = null;
@@ -1004,51 +1171,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Servicenow = requestConfiguration_configuration_Servicenow;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.AWSConfiguration requestConfiguration_configuration_Aws = null;
-            
-             // populate Aws
-            var requestConfiguration_configuration_AwsIsNull = true;
-            requestConfiguration_configuration_Aws = new Amazon.DevOpsAgent.Model.AWSConfiguration();
-            System.String requestConfiguration_configuration_Aws_configuration_Aws_AccountId = null;
-            if (cmdletContext.Configuration_Aws_AccountId != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AccountId = cmdletContext.Configuration_Aws_AccountId;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountId != null)
-            {
-                requestConfiguration_configuration_Aws.AccountId = requestConfiguration_configuration_Aws_configuration_Aws_AccountId;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            Amazon.DevOpsAgent.MonitorAccountType requestConfiguration_configuration_Aws_configuration_Aws_AccountType = null;
-            if (cmdletContext.Configuration_Aws_AccountType != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AccountType = cmdletContext.Configuration_Aws_AccountType;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountType != null)
-            {
-                requestConfiguration_configuration_Aws.AccountType = requestConfiguration_configuration_Aws_configuration_Aws_AccountType;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = null;
-            if (cmdletContext.Configuration_Aws_AssumableRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = cmdletContext.Configuration_Aws_AssumableRoleArn;
-            }
-            if (requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn != null)
-            {
-                requestConfiguration_configuration_Aws.AssumableRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn;
-                requestConfiguration_configuration_AwsIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Aws should be set to null
-            if (requestConfiguration_configuration_AwsIsNull)
-            {
-                requestConfiguration_configuration_Aws = null;
-            }
-            if (requestConfiguration_configuration_Aws != null)
-            {
-                request.Configuration.Aws = requestConfiguration_configuration_Aws;
-                requestConfigurationIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.AzureDevOpsConfiguration requestConfiguration_configuration_Azuredevops = null;
             
              // populate Azuredevops
@@ -1092,51 +1214,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Azuredevops != null)
             {
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
-                requestConfigurationIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
-            
-             // populate Mcpservergrafana
-            var requestConfiguration_configuration_McpservergrafanaIsNull = true;
-            requestConfiguration_configuration_Mcpservergrafana = new Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration();
-            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_Endpoint != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = cmdletContext.Configuration_Mcpservergrafana_Endpoint;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.Endpoint = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_OrganizationId != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = cmdletContext.Configuration_Mcpservergrafana_OrganizationId;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.OrganizationId = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-            List<System.String> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = null;
-            if (cmdletContext.Configuration_Mcpservergrafana_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = cmdletContext.Configuration_Mcpservergrafana_Tool;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool != null)
-            {
-                requestConfiguration_configuration_Mcpservergrafana.Tools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool;
-                requestConfiguration_configuration_McpservergrafanaIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Mcpservergrafana should be set to null
-            if (requestConfiguration_configuration_McpservergrafanaIsNull)
-            {
-                requestConfiguration_configuration_Mcpservergrafana = null;
-            }
-            if (requestConfiguration_configuration_Mcpservergrafana != null)
-            {
-                request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.SlackConfiguration requestConfiguration_configuration_Slack = null;
@@ -1314,59 +1391,124 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.SourceAwsConfiguration requestConfiguration_configuration_SourceAws = null;
+            Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
             
-             // populate SourceAws
-            var requestConfiguration_configuration_SourceAwsIsNull = true;
-            requestConfiguration_configuration_SourceAws = new Amazon.DevOpsAgent.Model.SourceAwsConfiguration();
-            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId = null;
-            if (cmdletContext.Configuration_SourceAws_AccountId != null)
+             // populate Mcpservergrafana
+            var requestConfiguration_configuration_McpservergrafanaIsNull = true;
+            requestConfiguration_configuration_Mcpservergrafana = new Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration();
+            List<Amazon.DevOpsAgent.Model.MCPToolDetail> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool != null)
             {
-                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId = cmdletContext.Configuration_SourceAws_AccountId;
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool = cmdletContext.Configuration_Mcpservergrafana_EnabledElevatedTool;
             }
-            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId != null)
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool != null)
             {
-                requestConfiguration_configuration_SourceAws.AccountId = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId;
-                requestConfiguration_configuration_SourceAwsIsNull = false;
+                requestConfiguration_configuration_Mcpservergrafana.EnabledElevatedTools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_EnabledElevatedTool;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
             }
-            Amazon.DevOpsAgent.SourceAccountType requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType = null;
-            if (cmdletContext.Configuration_SourceAws_AccountType != null)
+            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_Endpoint != null)
             {
-                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType = cmdletContext.Configuration_SourceAws_AccountType;
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint = cmdletContext.Configuration_Mcpservergrafana_Endpoint;
             }
-            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType != null)
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint != null)
             {
-                requestConfiguration_configuration_SourceAws.AccountType = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType;
-                requestConfiguration_configuration_SourceAwsIsNull = false;
+                requestConfiguration_configuration_Mcpservergrafana.Endpoint = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Endpoint;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
             }
-            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn = null;
-            if (cmdletContext.Configuration_SourceAws_AssumableRoleArn != null)
+            System.String requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_OrganizationId != null)
             {
-                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn = cmdletContext.Configuration_SourceAws_AssumableRoleArn;
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId = cmdletContext.Configuration_Mcpservergrafana_OrganizationId;
             }
-            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn != null)
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId != null)
             {
-                requestConfiguration_configuration_SourceAws.AssumableRoleArn = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn;
-                requestConfiguration_configuration_SourceAwsIsNull = false;
+                requestConfiguration_configuration_Mcpservergrafana.OrganizationId = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_OrganizationId;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
             }
-            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId = null;
-            if (cmdletContext.Configuration_SourceAws_ExternalId != null)
+            List<System.String> requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = null;
+            if (cmdletContext.Configuration_Mcpservergrafana_Tool != null)
             {
-                requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId = cmdletContext.Configuration_SourceAws_ExternalId;
+                requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool = cmdletContext.Configuration_Mcpservergrafana_Tool;
             }
-            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId != null)
+            if (requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool != null)
             {
-                requestConfiguration_configuration_SourceAws.ExternalId = requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId;
-                requestConfiguration_configuration_SourceAwsIsNull = false;
+                requestConfiguration_configuration_Mcpservergrafana.Tools = requestConfiguration_configuration_Mcpservergrafana_configuration_Mcpservergrafana_Tool;
+                requestConfiguration_configuration_McpservergrafanaIsNull = false;
             }
-             // determine if requestConfiguration_configuration_SourceAws should be set to null
-            if (requestConfiguration_configuration_SourceAwsIsNull)
+             // determine if requestConfiguration_configuration_Mcpservergrafana should be set to null
+            if (requestConfiguration_configuration_McpservergrafanaIsNull)
             {
-                requestConfiguration_configuration_SourceAws = null;
+                requestConfiguration_configuration_Mcpservergrafana = null;
             }
-            if (requestConfiguration_configuration_SourceAws != null)
+            if (requestConfiguration_configuration_Mcpservergrafana != null)
             {
-                request.Configuration.SourceAws = requestConfiguration_configuration_SourceAws;
+                request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.AWSConfiguration requestConfiguration_configuration_Aws = null;
+            
+             // populate Aws
+            var requestConfiguration_configuration_AwsIsNull = true;
+            requestConfiguration_configuration_Aws = new Amazon.DevOpsAgent.Model.AWSConfiguration();
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AccountId = null;
+            if (cmdletContext.Configuration_Aws_AccountId != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AccountId = cmdletContext.Configuration_Aws_AccountId;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountId != null)
+            {
+                requestConfiguration_configuration_Aws.AccountId = requestConfiguration_configuration_Aws_configuration_Aws_AccountId;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.MonitorAccountType requestConfiguration_configuration_Aws_configuration_Aws_AccountType = null;
+            if (cmdletContext.Configuration_Aws_AccountType != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AccountType = cmdletContext.Configuration_Aws_AccountType;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AccountType != null)
+            {
+                requestConfiguration_configuration_Aws.AccountType = requestConfiguration_configuration_Aws_configuration_Aws_AccountType;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = null;
+            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn = cmdletContext.Configuration_Aws_AgentElevatedRoleArn;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws.AgentElevatedRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArn;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.ValidationStatus requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = null;
+            if (cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus = cmdletContext.Configuration_Aws_AgentElevatedRoleArnStatus;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_Aws.AgentElevatedRoleArnStatus = requestConfiguration_configuration_Aws_configuration_Aws_AgentElevatedRoleArnStatus;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = null;
+            if (cmdletContext.Configuration_Aws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn = cmdletContext.Configuration_Aws_AssumableRoleArn;
+            }
+            if (requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_Aws.AssumableRoleArn = requestConfiguration_configuration_Aws_configuration_Aws_AssumableRoleArn;
+                requestConfiguration_configuration_AwsIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Aws should be set to null
+            if (requestConfiguration_configuration_AwsIsNull)
+            {
+                requestConfiguration_configuration_Aws = null;
+            }
+            if (requestConfiguration_configuration_Aws != null)
+            {
+                request.Configuration.Aws = requestConfiguration_configuration_Aws;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.GitHubConfiguration requestConfiguration_configuration_Github = null;
@@ -1444,6 +1586,81 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Github = requestConfiguration_configuration_Github;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.SourceAwsConfiguration requestConfiguration_configuration_SourceAws = null;
+            
+             // populate SourceAws
+            var requestConfiguration_configuration_SourceAwsIsNull = true;
+            requestConfiguration_configuration_SourceAws = new Amazon.DevOpsAgent.Model.SourceAwsConfiguration();
+            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId = null;
+            if (cmdletContext.Configuration_SourceAws_AccountId != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId = cmdletContext.Configuration_SourceAws_AccountId;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId != null)
+            {
+                requestConfiguration_configuration_SourceAws.AccountId = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountId;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.SourceAccountType requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType = null;
+            if (cmdletContext.Configuration_SourceAws_AccountType != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType = cmdletContext.Configuration_SourceAws_AccountType;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType != null)
+            {
+                requestConfiguration_configuration_SourceAws.AccountType = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AccountType;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArn = null;
+            if (cmdletContext.Configuration_SourceAws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArn = cmdletContext.Configuration_SourceAws_AgentElevatedRoleArn;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArn != null)
+            {
+                requestConfiguration_configuration_SourceAws.AgentElevatedRoleArn = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArn;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+            Amazon.DevOpsAgent.ValidationStatus requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArnStatus = null;
+            if (cmdletContext.Configuration_SourceAws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArnStatus = cmdletContext.Configuration_SourceAws_AgentElevatedRoleArnStatus;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArnStatus != null)
+            {
+                requestConfiguration_configuration_SourceAws.AgentElevatedRoleArnStatus = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AgentElevatedRoleArnStatus;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn = null;
+            if (cmdletContext.Configuration_SourceAws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn = cmdletContext.Configuration_SourceAws_AssumableRoleArn;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn != null)
+            {
+                requestConfiguration_configuration_SourceAws.AssumableRoleArn = requestConfiguration_configuration_SourceAws_configuration_SourceAws_AssumableRoleArn;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId = null;
+            if (cmdletContext.Configuration_SourceAws_ExternalId != null)
+            {
+                requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId = cmdletContext.Configuration_SourceAws_ExternalId;
+            }
+            if (requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId != null)
+            {
+                requestConfiguration_configuration_SourceAws.ExternalId = requestConfiguration_configuration_SourceAws_configuration_SourceAws_ExternalId;
+                requestConfiguration_configuration_SourceAwsIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SourceAws should be set to null
+            if (requestConfiguration_configuration_SourceAwsIsNull)
+            {
+                requestConfiguration_configuration_SourceAws = null;
+            }
+            if (requestConfiguration_configuration_SourceAws != null)
+            {
+                request.Configuration.SourceAws = requestConfiguration_configuration_SourceAws;
+                requestConfigurationIsNull = false;
+            }
              // determine if request.Configuration should be set to null
             if (requestConfigurationIsNull)
             {
@@ -1512,6 +1729,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Dictionary<System.String, Amazon.DevOpsAgent.Model.CapabilityConfiguration> Capability { get; set; }
             public System.String Configuration_Aws_AccountId { get; set; }
             public Amazon.DevOpsAgent.MonitorAccountType Configuration_Aws_AccountType { get; set; }
+            public System.String Configuration_Aws_AgentElevatedRoleArn { get; set; }
+            public Amazon.DevOpsAgent.ValidationStatus Configuration_Aws_AgentElevatedRoleArnStatus { get; set; }
             public System.String Configuration_Aws_AssumableRoleArn { get; set; }
             public System.String Configuration_Azure_SubscriptionId { get; set; }
             public System.String Configuration_Azuredevops_OrganizationName { get; set; }
@@ -1525,18 +1744,23 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.GithubRepoOwnerType Configuration_Github_OwnerType { get; set; }
             public System.String Configuration_Github_RepoId { get; set; }
             public System.String Configuration_Github_RepoName { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Configuration_Github_RuntimeRoleArn { get; set; }
             public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
             public System.String Configuration_Gitlab_ProjectId { get; set; }
             public System.String Configuration_Gitlab_ProjectPath { get; set; }
+            [System.ObsoleteAttribute]
             public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
+            public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpserver_ToolDetail { get; set; }
             public List<System.String> Configuration_Mcpserver_Tool { get; set; }
-            public Amazon.DevOpsAgent.Model.MCPServerDatadogConfiguration Configuration_Mcpserverdatadog { get; set; }
+            public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpserverdatadog_EnabledElevatedTool { get; set; }
+            public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpservergrafana_EnabledElevatedTool { get; set; }
             public System.String Configuration_Mcpservergrafana_Endpoint { get; set; }
             public System.String Configuration_Mcpservergrafana_OrganizationId { get; set; }
             public List<System.String> Configuration_Mcpservergrafana_Tool { get; set; }
             public System.String Configuration_Mcpservernewrelic_AccountId { get; set; }
             public System.String Configuration_Mcpservernewrelic_Endpoint { get; set; }
+            public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpserversigv4_ToolDetail { get; set; }
             public List<System.String> Configuration_Mcpserversigv4_Tool { get; set; }
             public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
@@ -1553,6 +1777,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Configuration_Slack_WorkspaceName { get; set; }
             public System.String Configuration_SourceAws_AccountId { get; set; }
             public Amazon.DevOpsAgent.SourceAccountType Configuration_SourceAws_AccountType { get; set; }
+            public System.String Configuration_SourceAws_AgentElevatedRoleArn { get; set; }
+            public Amazon.DevOpsAgent.ValidationStatus Configuration_SourceAws_AgentElevatedRoleArnStatus { get; set; }
             public System.String Configuration_SourceAws_AssumableRoleArn { get; set; }
             public System.String Configuration_SourceAws_ExternalId { get; set; }
             public System.String ServiceId { get; set; }

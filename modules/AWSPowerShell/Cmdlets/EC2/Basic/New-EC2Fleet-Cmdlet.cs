@@ -68,6 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
         #endregion
         
+        #region Parameter ReservedCapacityOptions_AllocationStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The strategy that determines the order in which EC2 Fleet launches instances across
+        /// the reservation types that you specify. The only supported value is <c>prioritized</c>,
+        /// which launches instances in the priority order that you specify in your launch template
+        /// overrides. If you don't specify an allocation strategy, instances are launched in
+        /// a random order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ReservedCapacityAllocationStrategy")]
+        public Amazon.EC2.ReservedCapacityAllocationStrategy ReservedCapacityOptions_AllocationStrategy { get; set; }
+        #endregion
+        
         #region Parameter SpotOptions_AllocationStrategy
         /// <summary>
         /// <para>
@@ -100,6 +115,36 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.SpotAllocationStrategy")]
         public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
+        #endregion
+        
+        #region Parameter ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the Capacity Reservations in which to launch the instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationIds")]
+        public System.String[] ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId { get; set; }
+        #endregion
+        
+        #region Parameter ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the Capacity Reservation Resource Groups in which to launch the instances.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArns")]
+        public System.String[] ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
         #endregion
         
         #region Parameter Context
@@ -197,6 +242,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("LaunchTemplateConfigs")]
         public Amazon.EC2.Model.FleetLaunchTemplateConfigRequest[] LaunchTemplateConfig { get; set; }
+        #endregion
+        
+        #region Parameter ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType
+        /// <summary>
+        /// <para>
+        /// <para>The instance purchasing options to fall back to when the reserved capacity is not
+        /// enough to meet the target capacity. The only supported value is <c>on-demand</c>,
+        /// which launches On-Demand Instances to fulfill the remaining target capacity.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketTypes")]
+        public System.String[] ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType { get; set; }
         #endregion
         
         #region Parameter OnDemandOptions_MaxTotalPrice
@@ -299,7 +361,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedCapacityOptions_ReservationType
         /// <summary>
         /// <para>
-        /// <para>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request.</para><para />
+        /// <para>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request. This
+        /// is an ordered list: EC2 Fleet attempts to launch instances into each Capacity Reservation
+        /// type in the order that you specify them before moving on to the next type.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -576,9 +640,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.OnDemandOptions_SingleAvailabilityZone = this.OnDemandOptions_SingleAvailabilityZone;
             context.OnDemandOptions_SingleInstanceType = this.OnDemandOptions_SingleInstanceType;
             context.ReplaceUnhealthyInstance = this.ReplaceUnhealthyInstance;
+            context.ReservedCapacityOptions_AllocationStrategy = this.ReservedCapacityOptions_AllocationStrategy;
+            if (this.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId != null)
+            {
+                context.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId = new List<System.String>(this.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId);
+            }
+            if (this.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                context.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn = new List<System.String>(this.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn);
+            }
             if (this.ReservedCapacityOptions_ReservationType != null)
             {
                 context.ReservedCapacityOptions_ReservationType = new List<System.String>(this.ReservedCapacityOptions_ReservationType);
+            }
+            if (this.ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType != null)
+            {
+                context.ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType = new List<System.String>(this.ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType);
             }
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
@@ -736,6 +813,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate ReservedCapacityOptions
             var requestReservedCapacityOptionsIsNull = true;
             request.ReservedCapacityOptions = new Amazon.EC2.Model.ReservedCapacityOptionsRequest();
+            Amazon.EC2.ReservedCapacityAllocationStrategy requestReservedCapacityOptions_reservedCapacityOptions_AllocationStrategy = null;
+            if (cmdletContext.ReservedCapacityOptions_AllocationStrategy != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_AllocationStrategy = cmdletContext.ReservedCapacityOptions_AllocationStrategy;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_AllocationStrategy != null)
+            {
+                request.ReservedCapacityOptions.AllocationStrategy = requestReservedCapacityOptions_reservedCapacityOptions_AllocationStrategy;
+                requestReservedCapacityOptionsIsNull = false;
+            }
             List<System.String> requestReservedCapacityOptions_reservedCapacityOptions_ReservationType = null;
             if (cmdletContext.ReservedCapacityOptions_ReservationType != null)
             {
@@ -744,6 +831,66 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestReservedCapacityOptions_reservedCapacityOptions_ReservationType != null)
             {
                 request.ReservedCapacityOptions.ReservationTypes = requestReservedCapacityOptions_reservedCapacityOptions_ReservationType;
+                requestReservedCapacityOptionsIsNull = false;
+            }
+            Amazon.EC2.Model.ReservedCapacityFallbackOptionsRequest requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions = null;
+            
+             // populate ReservedCapacityFallbackOptions
+            var requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptionsIsNull = true;
+            requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions = new Amazon.EC2.Model.ReservedCapacityFallbackOptionsRequest();
+            List<System.String> requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType = null;
+            if (cmdletContext.ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType = cmdletContext.ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions.MarketTypes = requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType;
+                requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptionsIsNull = false;
+            }
+             // determine if requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions should be set to null
+            if (requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptionsIsNull)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions = null;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions != null)
+            {
+                request.ReservedCapacityOptions.ReservedCapacityFallbackOptions = requestReservedCapacityOptions_reservedCapacityOptions_ReservedCapacityFallbackOptions;
+                requestReservedCapacityOptionsIsNull = false;
+            }
+            Amazon.EC2.Model.FleetCapacityReservationTargetRequest requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget = null;
+            
+             // populate CapacityReservationTarget
+            var requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTargetIsNull = true;
+            requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget = new Amazon.EC2.Model.FleetCapacityReservationTargetRequest();
+            List<System.String> requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationId = null;
+            if (cmdletContext.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationId = cmdletContext.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationId != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget.CapacityReservationIds = requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationId;
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTargetIsNull = false;
+            }
+            List<System.String> requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn = null;
+            if (cmdletContext.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn = cmdletContext.ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget.CapacityReservationResourceGroupArns = requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget_reservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn;
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTargetIsNull = false;
+            }
+             // determine if requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget should be set to null
+            if (requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTargetIsNull)
+            {
+                requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget = null;
+            }
+            if (requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget != null)
+            {
+                request.ReservedCapacityOptions.CapacityReservationTarget = requestReservedCapacityOptions_reservedCapacityOptions_CapacityReservationTarget;
                 requestReservedCapacityOptionsIsNull = false;
             }
              // determine if request.ReservedCapacityOptions should be set to null
@@ -1026,7 +1173,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? OnDemandOptions_SingleAvailabilityZone { get; set; }
             public System.Boolean? OnDemandOptions_SingleInstanceType { get; set; }
             public System.Boolean? ReplaceUnhealthyInstance { get; set; }
+            public Amazon.EC2.ReservedCapacityAllocationStrategy ReservedCapacityOptions_AllocationStrategy { get; set; }
+            public List<System.String> ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId { get; set; }
+            public List<System.String> ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public List<System.String> ReservedCapacityOptions_ReservationType { get; set; }
+            public List<System.String> ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType { get; set; }
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }

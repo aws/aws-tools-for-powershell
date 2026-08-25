@@ -10081,6 +10081,7 @@ Set-Alias -Name DOPS-SendMessage -Value Send-DOPSMessage
 Set-Alias -Name DOPS-TagResource -Value Add-DOPSResourceTag
 Set-Alias -Name DOPS-UntagResource -Value Remove-DOPSResourceTag
 Set-Alias -Name DOPS-UpdateAgentSpace -Value Update-DOPSAgentSpace
+Set-Alias -Name DOPS-UpdateApprovalAction -Value Update-DOPSApprovalAction
 Set-Alias -Name DOPS-UpdateAsset -Value Update-DOPSAsset
 Set-Alias -Name DOPS-UpdateAssetFile -Value Update-DOPSAssetFile
 Set-Alias -Name DOPS-UpdateAssociation -Value Update-DOPSAssociation
@@ -17070,6 +17071,8 @@ Set-Alias -Name AHL-UntagResource -Value Remove-AHLResourceTag
 Set-Alias -Name AHL-UpdateDataTransformationProfile -Value Update-AHLDataTransformationProfile
 Set-Alias -Name AHL-UpdateFHIRDatastore -Value Update-AHLFHIRDatastore
 Set-Alias -Name AHL-UpdateProfileWithAgent -Value Update-AHLProfileWithAgent
+Set-Alias -Name Get-IAMTBRequestAuthorizationDetails -Value Get-IAMTBRequestAuthorizationDetail
+Set-Alias -Name IAMTB-GetRequestAuthorizationDetails -Value Get-IAMTBRequestAuthorizationDetail
 Set-Alias -Name Accept-IAMDelegationRequest -Value Approve-IAMDelegationRequest
 Set-Alias -Name IAM-AcceptDelegationRequest -Value Approve-IAMDelegationRequest
 Set-Alias -Name Acquire-IAMRole -Value Invoke-IAMAcquireRole

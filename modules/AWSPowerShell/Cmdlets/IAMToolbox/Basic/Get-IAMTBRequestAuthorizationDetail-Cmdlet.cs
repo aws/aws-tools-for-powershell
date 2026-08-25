@@ -23,59 +23,64 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.IAMToolbox;
+using Amazon.IAMToolbox.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.IAMTB
 {
     /// <summary>
-    /// <note><para>
-    /// The IoT Device Defender detect feature will no longer be available to new customers
-    /// starting August 31, 2026. If you would like to use the detect feature, sign up prior
-    /// to August 31, 2026. To learn about alternatives to IoT Device Defender detect, see
-    /// IoT Device Defender detect feature availability change in the IoT Device Defender
-    /// Developer Guide. There is no change to IoT Device Defender audit availability.
-    /// </para></note><para>
-    ///  Lists your Device Defender detect custom metrics. 
+    /// Retrieves the authorization details for a specific access denied request. The details
+    /// include the request context, the evaluations performed, and the policies that were
+    /// evaluated.
+    /// 
+    ///  
+    /// <para>
+    /// Use this operation to understand why a request was denied. Supported services include
+    /// an authorization ID in the access denied error message. Pass that ID to this operation
+    /// to retrieve the details.
     /// </para><para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCustomMetrics</a>
-    /// action.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Authorization details are available for at least 24 hours after the denial.
+    /// </para><para>
+    /// To use this operation, you must have the <c>iam:GetRequestAuthorizationDetails</c>
+    /// permission.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTCustomMetricList")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS IoT ListCustomMetrics API operation.", Operation = new[] {"ListCustomMetrics"}, SelectReturnType = typeof(Amazon.IoT.Model.ListCustomMetricsResponse))]
-    [AWSCmdletOutput("System.String or Amazon.IoT.Model.ListCustomMetricsResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.IoT.Model.ListCustomMetricsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "IAMTBRequestAuthorizationDetail")]
+    [OutputType("Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse")]
+    [AWSCmdlet("Calls the IAM Toolbox (Preview) GetRequestAuthorizationDetails API operation.", Operation = new[] {"GetRequestAuthorizationDetails"}, SelectReturnType = typeof(Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse))]
+    [AWSCmdletOutput("Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse",
+        "This cmdlet returns an Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse object containing multiple properties."
     )]
-    public partial class GetIOTCustomMetricListCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIAMTBRequestAuthorizationDetailCmdlet : AmazonIAMToolboxClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MaxResult
+        #region Parameter AuthorizationId
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return at one time. The default is 25. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// <para>The authorization ID received in the access denied error message. This ID identifies
+        /// the specific request to retrieve details for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AuthorizationId { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token for the next set of results. </para>
+        /// <para>The pagination token from a previous call, used to retrieve the next page of evaluations.
+        /// Omit this value on the first call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -88,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MetricNames'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.ListCustomMetricsResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.ListCustomMetricsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse).
+        /// Specifying the name of a property of type Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MetricNames";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -102,7 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -124,17 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.ListCustomMetricsResponse, GetIOTCustomMetricListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse, GetIAMTBRequestAuthorizationDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            context.AuthorizationId = this.AuthorizationId;
+            #if MODULAR
+            if (this.AuthorizationId == null && ParameterWasBound(nameof(this.AuthorizationId)))
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
-                    " to the service to specify how many items should be returned by each service call.");
+                WriteWarning("You are passing $null as a value for parameter AuthorizationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.NextToken = this.NextToken;
@@ -154,17 +155,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.IoT.Model.ListCustomMetricsRequest();
+            var request = new Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.AuthorizationId != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.AuthorizationId = cmdletContext.AuthorizationId;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -218,12 +218,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.ListCustomMetricsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListCustomMetricsRequest request)
+        private Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse CallAWSServiceOperation(IAmazonIAMToolbox client, Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListCustomMetrics");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "IAM Toolbox (Preview)", "GetRequestAuthorizationDetails");
             try
             {
-                return client.ListCustomMetricsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetRequestAuthorizationDetailsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -240,10 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResult { get; set; }
+            public System.String AuthorizationId { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.IoT.Model.ListCustomMetricsResponse, GetIOTCustomMetricListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MetricNames;
+            public System.Func<Amazon.IAMToolbox.Model.GetRequestAuthorizationDetailsResponse, GetIAMTBRequestAuthorizationDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

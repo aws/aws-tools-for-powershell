@@ -62,6 +62,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String HttpUrlConfiguration_ConfirmationUrl { get; set; }
         #endregion
         
+        #region Parameter DestinationConfiguration_InfluxDBConfiguration_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the InfluxDB instance to write to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_InfluxDBConfiguration_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion
+        /// <summary>
+        /// <para>
+        /// <para>The major version of the InfluxDB instance. Valid values are <c>V2</c> and <c>V3</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.InfluxDBVersion")]
+        public Amazon.IoT.InfluxDBVersion DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion { get; set; }
+        #endregion
+        
         #region Parameter VpcConfiguration_RoleArn
         /// <summary>
         /// <para>
@@ -72,6 +93,40 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DestinationConfiguration_VpcConfiguration_RoleArn")]
         public System.String VpcConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_InfluxDBConfiguration_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ARN or name of the Amazon Web Services Secrets Manager secret that contains the
+        /// InfluxDB API token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_InfluxDBConfiguration_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_InfluxDBConfiguration_SecretKey
+        /// <summary>
+        /// <para>
+        /// <para>The key to read from the secret value when the secret contains a JSON object. If omitted,
+        /// IoT uses the entire secret value as the InfluxDB API token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationConfiguration_InfluxDBConfiguration_SecretKey { get; set; }
+        #endregion
+        
+        #region Parameter DestinationConfiguration_InfluxDBConfiguration_SecretType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the secret that contains the InfluxDB API token. Valid values are <c>SecretString</c>
+        /// and <c>SecretBinary</c>.</para><para>If omitted, IoT reads the secret as a string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.InfluxDBSecretType")]
+        public Amazon.IoT.InfluxDBSecretType DestinationConfiguration_InfluxDBConfiguration_SecretType { get; set; }
         #endregion
         
         #region Parameter VpcConfiguration_SecurityGroup
@@ -162,6 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.HttpUrlConfiguration_ConfirmationUrl = this.HttpUrlConfiguration_ConfirmationUrl;
+            context.DestinationConfiguration_InfluxDBConfiguration_Endpoint = this.DestinationConfiguration_InfluxDBConfiguration_Endpoint;
+            context.DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion = this.DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion;
+            context.DestinationConfiguration_InfluxDBConfiguration_SecretId = this.DestinationConfiguration_InfluxDBConfiguration_SecretId;
+            context.DestinationConfiguration_InfluxDBConfiguration_SecretKey = this.DestinationConfiguration_InfluxDBConfiguration_SecretKey;
+            context.DestinationConfiguration_InfluxDBConfiguration_SecretType = this.DestinationConfiguration_InfluxDBConfiguration_SecretType;
             context.VpcConfiguration_RoleArn = this.VpcConfiguration_RoleArn;
             if (this.VpcConfiguration_SecurityGroup != null)
             {
@@ -272,6 +332,71 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.DestinationConfiguration.VpcConfiguration = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration;
                 requestDestinationConfigurationIsNull = false;
             }
+            Amazon.IoT.Model.InfluxDBDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration = null;
+            
+             // populate InfluxDBConfiguration
+            var requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = true;
+            requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration = new Amazon.IoT.Model.InfluxDBDestinationConfiguration();
+            System.String requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_Endpoint = null;
+            if (cmdletContext.DestinationConfiguration_InfluxDBConfiguration_Endpoint != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_Endpoint = cmdletContext.DestinationConfiguration_InfluxDBConfiguration_Endpoint;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_Endpoint != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration.Endpoint = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_Endpoint;
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = false;
+            }
+            Amazon.IoT.InfluxDBVersion requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_InfluxDBVersion = null;
+            if (cmdletContext.DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_InfluxDBVersion = cmdletContext.DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_InfluxDBVersion != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration.InfluxDBVersion = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_InfluxDBVersion;
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretId = null;
+            if (cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretId = cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretId;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretId != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration.SecretId = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretId;
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = false;
+            }
+            System.String requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretKey = null;
+            if (cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretKey != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretKey = cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretKey;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretKey != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration.SecretKey = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretKey;
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = false;
+            }
+            Amazon.IoT.InfluxDBSecretType requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretType = null;
+            if (cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretType != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretType = cmdletContext.DestinationConfiguration_InfluxDBConfiguration_SecretType;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretType != null)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration.SecretType = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration_destinationConfiguration_InfluxDBConfiguration_SecretType;
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull = false;
+            }
+             // determine if requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration should be set to null
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfigurationIsNull)
+            {
+                requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration = null;
+            }
+            if (requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration != null)
+            {
+                request.DestinationConfiguration.InfluxDBConfiguration = requestDestinationConfiguration_destinationConfiguration_InfluxDBConfiguration;
+                requestDestinationConfigurationIsNull = false;
+            }
              // determine if request.DestinationConfiguration should be set to null
             if (requestDestinationConfigurationIsNull)
             {
@@ -333,6 +458,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String HttpUrlConfiguration_ConfirmationUrl { get; set; }
+            public System.String DestinationConfiguration_InfluxDBConfiguration_Endpoint { get; set; }
+            public Amazon.IoT.InfluxDBVersion DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion { get; set; }
+            public System.String DestinationConfiguration_InfluxDBConfiguration_SecretId { get; set; }
+            public System.String DestinationConfiguration_InfluxDBConfiguration_SecretKey { get; set; }
+            public Amazon.IoT.InfluxDBSecretType DestinationConfiguration_InfluxDBConfiguration_SecretType { get; set; }
             public System.String VpcConfiguration_RoleArn { get; set; }
             public List<System.String> VpcConfiguration_SecurityGroup { get; set; }
             public List<System.String> VpcConfiguration_SubnetId { get; set; }

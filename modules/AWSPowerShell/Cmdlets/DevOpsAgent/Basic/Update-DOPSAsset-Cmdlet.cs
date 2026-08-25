@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         #region Parameter Content_SourceUrl_Url
         /// <summary>
         /// <para>
-        /// <para>The source URL to import asset content from</para>
+        /// <para>The source URL to import asset content from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

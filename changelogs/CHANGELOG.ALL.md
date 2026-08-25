@@ -1,4 +1,24 @@
-﻿### 5.0.283 (2026-08-24 19:21Z)
+﻿### 5.0.284 (2026-08-25 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.319.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DevOps Agent Service
+    * Added cmdlet Update-DOPSApprovalAction leveraging the UpdateApprovalAction service API.
+    * [Breaking Change] Modified cmdlet Add-DOPSService: removed parameter Configuration_Mcpserverdatadog; added parameters Configuration_Aws_AgentElevatedRoleArn, Configuration_Aws_AgentElevatedRoleArnStatus, Configuration_Mcpserver_ToolDetail, Configuration_Mcpserverdatadog_EnabledElevatedTool, Configuration_Mcpservergrafana_EnabledElevatedTool, Configuration_Mcpserversigv4_ToolDetail, Configuration_SourceAws_AgentElevatedRoleArn and Configuration_SourceAws_AgentElevatedRoleArnStatus.
+    * Modified cmdlet New-DOPSAgentSpace: added parameter Preference.
+    * Modified cmdlet Send-DOPSMessage: added parameters Context_ApprovalAction_Action, Context_ApprovalAction_ApprovalId, Context_ApprovalAction_ButtonText, Context_ApprovalAction_InterruptId, Context_ApprovalAction_ToolUseId and ModelTier.
+    * Modified cmdlet Update-DOPSAgentSpace: added parameter Preference.
+    * [Breaking Change] Modified cmdlet Update-DOPSAssociation: removed parameter Configuration_Mcpserverdatadog; added parameters Configuration_Aws_AgentElevatedRoleArn, Configuration_Aws_AgentElevatedRoleArnStatus, Configuration_Mcpserver_ToolDetail, Configuration_Mcpserverdatadog_EnabledElevatedTool, Configuration_Mcpservergrafana_EnabledElevatedTool, Configuration_Mcpserversigv4_ToolDetail, Configuration_SourceAws_AgentElevatedRoleArn and Configuration_SourceAws_AgentElevatedRoleArnStatus.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2Fleet: added parameters ReservedCapacityOptions_AllocationStrategy, ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationId, ReservedCapacityOptions_CapacityReservationTarget_CapacityReservationResourceGroupArn and ReservedCapacityOptions_ReservedCapacityFallbackOptions_MarketType.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold.
+  * Amazon IAM Toolbox (Preview). Added cmdlets to support the service. Cmdlets for the service have the noun prefix IAMTB and can be listed using the command 'Get-AWSCmdletName -Service IAMTB'.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameters TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte, TopicRulePayload_ErrorAction_InfluxDB_DatabaseName, TopicRulePayload_ErrorAction_InfluxDB_DestinationArn, TopicRulePayload_ErrorAction_InfluxDB_Organization, TopicRulePayload_ErrorAction_InfluxDB_RoleArn, TopicRulePayload_ErrorAction_InfluxDB_TableName, TopicRulePayload_ErrorAction_InfluxDB_Tag and TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit.
+    * Modified cmdlet New-IOTTopicRuleDestination: added parameters DestinationConfiguration_InfluxDBConfiguration_Endpoint, DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion, DestinationConfiguration_InfluxDBConfiguration_SecretId, DestinationConfiguration_InfluxDBConfiguration_SecretKey and DestinationConfiguration_InfluxDBConfiguration_SecretType.
+    * Modified cmdlet Set-IOTTopicRule: added parameters TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize, TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte, TopicRulePayload_ErrorAction_InfluxDB_DatabaseName, TopicRulePayload_ErrorAction_InfluxDB_DestinationArn, TopicRulePayload_ErrorAction_InfluxDB_Organization, TopicRulePayload_ErrorAction_InfluxDB_RoleArn, TopicRulePayload_ErrorAction_InfluxDB_TableName, TopicRulePayload_ErrorAction_InfluxDB_Tag and TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit.
+
+### 5.0.283 (2026-08-24 19:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.318.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental Inference
     * Added cmdlet Get-EMIFixture leveraging the GetFixture service API.

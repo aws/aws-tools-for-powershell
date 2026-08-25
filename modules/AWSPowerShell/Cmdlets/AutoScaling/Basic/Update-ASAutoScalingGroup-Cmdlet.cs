@@ -452,7 +452,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto
         /// Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon
-        /// EC2 Auto Scaling User Guide</i>.</para>
+        /// EC2 Auto Scaling User Guide</i>.</para><para>You can remove the Distribution Segments configuration by specifying <c>OnDemandBaseCapacity</c>
+        /// or <c>OnDemandPercentageAboveBaseCapacity</c>. You can also remove it explicitly by
+        /// specifying an empty list for <c>DistributionSegments</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

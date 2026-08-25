@@ -323,6 +323,30 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.InfluxDBSecretType
+        "New-IOTTopicRuleDestination/DestinationConfiguration_InfluxDBConfiguration_SecretType"
+        {
+            $v = "SecretBinary","SecretString"
+            break
+        }
+
+        # Amazon.IoT.InfluxDBTimestampUnit
+        {
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit")
+        }
+        {
+            $v = "ms","ns","s","us"
+            break
+        }
+
+        # Amazon.IoT.InfluxDBVersion
+        "New-IOTTopicRuleDestination/DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion"
+        {
+            $v = "V2","V3"
+            break
+        }
+
         # Amazon.IoT.JobEndBehavior
         "New-IOTJob/SchedulingConfig_EndBehavior"
         {
@@ -561,6 +585,8 @@ $IOT_map = @{
     "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
+    "DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion"=@("New-IOTTopicRuleDestination")
+    "DestinationConfiguration_InfluxDBConfiguration_SecretType"=@("New-IOTTopicRuleDestination")
     "DimensionValueOperator"=@("Get-IOTMetricValueList")
     "DomainConfigurationStatus"=@("Update-IOTDomainConfiguration")
     "DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -595,6 +621,7 @@ $IOT_map = @{
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingPrincipalType"=@("Add-IOTThingPrincipal","Get-IOTPrincipalThingsV2List","Get-IOTThingPrincipalsV2List")
+    "TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")

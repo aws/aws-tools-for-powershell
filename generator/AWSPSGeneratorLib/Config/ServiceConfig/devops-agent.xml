@@ -227,6 +227,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApprovalAction" OutputProperty="*" Verb="Update" Noun="ApprovalAction" ShouldProcessTarget="AgentSpaceId,ApprovalId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAsset" OutputProperty="Asset" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

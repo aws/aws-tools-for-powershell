@@ -80,6 +80,16 @@ $DOPS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DevOpsAgent.ApprovalActionType
+        {
+            ($_ -eq "Update-DOPSApprovalAction/Action") -Or
+            ($_ -eq "Send-DOPSMessage/Context_ApprovalAction_Action")
+        }
+        {
+            $v = "APPROVED","REJECTED"
+            break
+        }
+
         # Amazon.DevOpsAgent.AuthFlow
         {
             ($_ -eq "Disable-DOPSOperatorApp/AuthFlow") -Or
@@ -148,7 +158,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.NewRelicRegion
         "Register-DOPSService/ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region"
         {
-            $v = "EU","US"
+            $v = "EU","JP","US"
             break
         }
 
@@ -238,7 +248,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskStatus
         "Update-DOPSBacklogTask/TaskStatus"
         {
-            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","SKIPPED","TIMED_OUT"
+            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","SKIPPED","TIMED_OUT","WAITING"
             break
         }
 
@@ -256,6 +266,18 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.ValidationStatus
+        {
+            ($_ -eq "Add-DOPSService/Configuration_Aws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_Aws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Add-DOPSService/Configuration_SourceAws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAws_AgentElevatedRoleArnStatus")
+        }
+        {
+            $v = "invalid","pending-confirmation","valid"
+            break
+        }
+
 
     }
 
@@ -265,10 +287,14 @@ $DOPS_Completers = {
 }
 
 $DOPS_map = @{
+    "Action"=@("Update-DOPSApprovalAction")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_Aws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_SourceAws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_SourceAws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Context_ApprovalAction_Action"=@("Send-DOPSMessage")
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")
     "GoalType"=@("Get-DOPSGoalList")
@@ -389,6 +415,7 @@ $DOPS_SelectMap = @{
                "Add-DOPSResourceTag",
                "Remove-DOPSResourceTag",
                "Update-DOPSAgentSpace",
+               "Update-DOPSApprovalAction",
                "Update-DOPSAsset",
                "Update-DOPSAssetFile",
                "Update-DOPSAssociation",

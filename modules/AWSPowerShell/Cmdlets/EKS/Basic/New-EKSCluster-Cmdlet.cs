@@ -571,6 +571,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The number of terminated pods that can exist before the garbage collector starts deleting
+        /// them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold { get; set; }
+        #endregion
+        
         #region Parameter ControlPlaneScalingConfig_Tier
         /// <summary>
         /// <para>
@@ -672,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.KubeApiServerConfig_ServiceNodePortRange_MaxPort = this.KubeApiServerConfig_ServiceNodePortRange_MaxPort;
             context.KubeApiServerConfig_ServiceNodePortRange_MinPort = this.KubeApiServerConfig_ServiceNodePortRange_MinPort;
             context.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod = this.KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod;
+            context.KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold = this.KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold;
             context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
@@ -934,6 +946,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig != null)
             {
                 request.KubeControllerManagerConfig.HorizontalPodAutoscalerControllerConfig = requestKubeControllerManagerConfig_kubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig;
+                requestKubeControllerManagerConfigIsNull = false;
+            }
+            Amazon.EKS.Model.PodGcControllerConfigRequest requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig = null;
+            
+             // populate PodGcControllerConfig
+            var requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfigIsNull = true;
+            requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig = new Amazon.EKS.Model.PodGcControllerConfigRequest();
+            System.Int32? requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig_kubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold = null;
+            if (cmdletContext.KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold != null)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig_kubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold = cmdletContext.KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold.Value;
+            }
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig_kubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold != null)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig.TerminatedPodGcThreshold = requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig_kubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold.Value;
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfigIsNull = false;
+            }
+             // determine if requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig should be set to null
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfigIsNull)
+            {
+                requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig = null;
+            }
+            if (requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig != null)
+            {
+                request.KubeControllerManagerConfig.PodGcControllerConfig = requestKubeControllerManagerConfig_kubeControllerManagerConfig_PodGcControllerConfig;
                 requestKubeControllerManagerConfigIsNull = false;
             }
              // determine if request.KubeControllerManagerConfig should be set to null
@@ -1362,6 +1399,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MaxPort { get; set; }
             public System.Int32? KubeApiServerConfig_ServiceNodePortRange_MinPort { get; set; }
             public System.String KubeControllerManagerConfig_HorizontalPodAutoscalerControllerConfig_HorizontalPodAutoscalerSyncPeriod { get; set; }
+            public System.Int32? KubeControllerManagerConfig_PodGcControllerConfig_TerminatedPodGcThreshold { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }

@@ -1128,6 +1128,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ReservedCapacityAllocationStrategy
+        "New-EC2Fleet/ReservedCapacityOptions_AllocationStrategy"
+        {
+            $v = "prioritized"
+            break
+        }
+
         # Amazon.EC2.ResetFpgaImageAttributeName
         "Reset-EC2FpgaImageAttribute/Attribute"
         {
@@ -1727,6 +1734,7 @@ $EC2_map = @{
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
+    "ReservedCapacityOptions_AllocationStrategy"=@("New-EC2Fleet")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "Rir"=@("New-EC2IpamInternetRegistryAssociation")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")

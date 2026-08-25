@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? TopicRulePayload_ErrorAction_Http_BatchConfig_BatchAcrossTopic { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to collect data points from different topics into the same batch.</para><para>If omitted or <c>false</c>, IoT batches data points for each topic separately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopics")]
+        public System.Boolean? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogs_BatchMode
         /// <summary>
         /// <para>
@@ -268,6 +279,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Headers_CorrelationData { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the InfluxDB database to write to. In InfluxDB 2, this is the name of
+        /// the bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_InfluxDB_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter Timestream_DatabaseName
         /// <summary>
         /// <para>
@@ -298,6 +320,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TopicRulePayload_Description { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_DestinationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the InfluxDB topic rule destination that identifies the InfluxDB instance
+        /// to write to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_InfluxDB_DestinationArn { get; set; }
         #endregion
         
         #region Parameter Kafka_DestinationArn
@@ -583,6 +616,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchOpenMs { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs
+        /// <summary>
+        /// <para>
+        /// <para>The maximum length of time, in milliseconds, to keep a batch open before writing it
+        /// to InfluxDB.</para><para>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+        /// when another configured limit is reached.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize
         /// <summary>
         /// <para>
@@ -591,6 +636,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSize { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of data points to collect in a batch.</para><para>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+        /// when another configured limit is reached.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize { get; set; }
         #endregion
         
         #region Parameter TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte
@@ -602,6 +658,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeBytes")]
         public System.Int32? TopicRulePayload_ErrorAction_Http_BatchConfig_MaxBatchSizeByte { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size of a batch, in bytes, before IoT writes it to InfluxDB.</para><para>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+        /// when another configured limit is reached.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeBytes")]
+        public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte { get; set; }
         #endregion
         
         #region Parameter Headers_MessageExpiry
@@ -719,6 +787,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_DynamoDB_Operation")]
         public System.String DynamoDB_Operation { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_Organization
+        /// <summary>
+        /// <para>
+        /// <para>The name of the InfluxDB organization that owns the database.</para><para>A write to an InfluxDB 2 instance fails if this value isn't set. This value isn't
+        /// used when the destination is an InfluxDB 3 instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_InfluxDB_Organization { get; set; }
         #endregion
         
         #region Parameter Kafka_Partition
@@ -940,6 +1019,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Http_Auth_Sigv4_RoleArn")]
         public System.String Sigv4_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that grants permission to retrieve the InfluxDB API token from
+        /// Amazon Web Services Secrets Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_InfluxDB_RoleArn { get; set; }
         #endregion
         
         #region Parameter IotAnalytics_RoleArn
@@ -1226,6 +1316,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String PutItem_TableName { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table to write the data point to. This is the measurement name of
+        /// the InfluxDB line protocol record.</para><para>Accepts substitution templates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_InfluxDB_TableName { get; set; }
+        #endregion
+        
         #region Parameter Timestream_TableName
         /// <summary>
         /// <para>
@@ -1248,6 +1349,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Tag { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_Tag
+        /// <summary>
+        /// <para>
+        /// <para>The set of tags to write with each data point. Tags are the indexed metadata of an
+        /// InfluxDB data point.</para><para>Tag names and tag values accept substitution templates. A tag name can't use the <c>@{...}</c>
+        /// per-element form. A tag name must resolve to the same value for every element of an
+        /// array payload.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_InfluxDB_Tags")]
+        public System.Collections.Hashtable TopicRulePayload_ErrorAction_InfluxDB_Tag { get; set; }
+        #endregion
+        
         #region Parameter Sns_TargetArn
         /// <summary>
         /// <para>
@@ -1257,6 +1376,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Sns_TargetArn")]
         public System.String Sns_TargetArn { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit
+        /// <summary>
+        /// <para>
+        /// <para>The precision of the timestamp written with each data point. Valid values are <c>s</c>
+        /// (seconds), <c>ms</c> (milliseconds), <c>us</c> (microseconds), and <c>ns</c> (nanoseconds).</para><para>If omitted, the topic rule action uses <c>ms</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.InfluxDBTimestampUnit")]
+        public Amazon.IoT.InfluxDBTimestampUnit TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit { get; set; }
         #endregion
         
         #region Parameter Salesforce_Token
@@ -1537,6 +1668,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Http_Header = new List<Amazon.IoT.Model.HttpActionHeader>(this.Http_Header);
             }
             context.Http_Url = this.Http_Url;
+            context.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic = this.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic;
+            context.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs = this.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs;
+            context.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize = this.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize;
+            context.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte = this.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte;
+            context.TopicRulePayload_ErrorAction_InfluxDB_DatabaseName = this.TopicRulePayload_ErrorAction_InfluxDB_DatabaseName;
+            context.TopicRulePayload_ErrorAction_InfluxDB_DestinationArn = this.TopicRulePayload_ErrorAction_InfluxDB_DestinationArn;
+            context.TopicRulePayload_ErrorAction_InfluxDB_Organization = this.TopicRulePayload_ErrorAction_InfluxDB_Organization;
+            context.TopicRulePayload_ErrorAction_InfluxDB_RoleArn = this.TopicRulePayload_ErrorAction_InfluxDB_RoleArn;
+            context.TopicRulePayload_ErrorAction_InfluxDB_TableName = this.TopicRulePayload_ErrorAction_InfluxDB_TableName;
+            if (this.TopicRulePayload_ErrorAction_InfluxDB_Tag != null)
+            {
+                context.TopicRulePayload_ErrorAction_InfluxDB_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TopicRulePayload_ErrorAction_InfluxDB_Tag.Keys)
+                {
+                    context.TopicRulePayload_ErrorAction_InfluxDB_Tag.Add((String)hashKey, (System.String)(this.TopicRulePayload_ErrorAction_InfluxDB_Tag[hashKey]));
+                }
+            }
+            context.TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit = this.TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit;
             context.IotAnalytics_BatchMode = this.IotAnalytics_BatchMode;
             context.IotAnalytics_ChannelArn = this.IotAnalytics_ChannelArn;
             context.IotAnalytics_ChannelName = this.IotAnalytics_ChannelName;
@@ -3114,6 +3263,146 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Location = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.InfluxDBAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB = null;
+            
+             // populate InfluxDB
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB = new Amazon.IoT.Model.InfluxDBAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DatabaseName = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_DatabaseName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DatabaseName = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_DatabaseName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DatabaseName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.DatabaseName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DatabaseName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DestinationArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_DestinationArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DestinationArn = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_DestinationArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DestinationArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.DestinationArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_DestinationArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Organization = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_Organization != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Organization = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_Organization;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Organization != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.Organization = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Organization;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_RoleArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_RoleArn = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TableName = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_TableName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TableName = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_TableName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TableName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.TableName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TableName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Tag = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_Tag != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Tag = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_Tag;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Tag != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.Tags = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_Tag;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            Amazon.IoT.InfluxDBTimestampUnit requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TimestampUnit = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TimestampUnit = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TimestampUnit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.TimestampUnit = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_TimestampUnit;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+            Amazon.IoT.Model.InfluxDBBatchConfig requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig = null;
+            
+             // populate BatchConfig
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig = new Amazon.IoT.Model.InfluxDBBatchConfig();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig.BatchAcrossTopics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull = false;
+            }
+            System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig.MaxBatchOpenMs = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull = false;
+            }
+            System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig.MaxBatchSize = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull = false;
+            }
+            System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte = cmdletContext.TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig.MaxBatchSizeBytes = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_topicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfigIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB.BatchConfig = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB_topicRulePayload_ErrorAction_InfluxDB_BatchConfig;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDBIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.InfluxDB = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_InfluxDB;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.DynamoDBAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_DynamoDB = null;
             
              // populate DynamoDB
@@ -3349,6 +3638,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.Boolean? TopicRulePayload_ErrorAction_Http_EnableBatching { get; set; }
             public List<Amazon.IoT.Model.HttpActionHeader> Http_Header { get; set; }
             public System.String Http_Url { get; set; }
+            public System.Boolean? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_BatchAcrossTopic { get; set; }
+            public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchOpenMs { get; set; }
+            public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSize { get; set; }
+            public System.Int32? TopicRulePayload_ErrorAction_InfluxDB_BatchConfig_MaxBatchSizeByte { get; set; }
+            public System.String TopicRulePayload_ErrorAction_InfluxDB_DatabaseName { get; set; }
+            public System.String TopicRulePayload_ErrorAction_InfluxDB_DestinationArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_InfluxDB_Organization { get; set; }
+            public System.String TopicRulePayload_ErrorAction_InfluxDB_RoleArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_InfluxDB_TableName { get; set; }
+            public Dictionary<System.String, System.String> TopicRulePayload_ErrorAction_InfluxDB_Tag { get; set; }
+            public Amazon.IoT.InfluxDBTimestampUnit TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit { get; set; }
             public System.Boolean? IotAnalytics_BatchMode { get; set; }
             public System.String IotAnalytics_ChannelArn { get; set; }
             public System.String IotAnalytics_ChannelName { get; set; }

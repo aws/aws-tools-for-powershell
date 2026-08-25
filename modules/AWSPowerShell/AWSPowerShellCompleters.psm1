@@ -16357,9 +16357,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
+    "Select"=@("Search-CSDDocument",
                "Write-CSDDocument",
-               "Search-CSDDocument")
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -26813,6 +26813,16 @@ $DOPS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DevOpsAgent.ApprovalActionType
+        {
+            ($_ -eq "Update-DOPSApprovalAction/Action") -Or
+            ($_ -eq "Send-DOPSMessage/Context_ApprovalAction_Action")
+        }
+        {
+            $v = "APPROVED","REJECTED"
+            break
+        }
+
         # Amazon.DevOpsAgent.AuthFlow
         {
             ($_ -eq "Disable-DOPSOperatorApp/AuthFlow") -Or
@@ -26881,7 +26891,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.NewRelicRegion
         "Register-DOPSService/ServiceDetails_Mcpservernewrelic_AuthorizationConfig_ApiKey_Region"
         {
-            $v = "EU","US"
+            $v = "EU","JP","US"
             break
         }
 
@@ -26971,7 +26981,7 @@ $DOPS_Completers = {
         # Amazon.DevOpsAgent.TaskStatus
         "Update-DOPSBacklogTask/TaskStatus"
         {
-            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","SKIPPED","TIMED_OUT"
+            $v = "CANCELED","COMPLETED","FAILED","IN_PROGRESS","LINKED","PENDING_CUSTOMER_APPROVAL","PENDING_START","PENDING_TRIAGE","SKIPPED","TIMED_OUT","WAITING"
             break
         }
 
@@ -26989,6 +26999,18 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.ValidationStatus
+        {
+            ($_ -eq "Add-DOPSService/Configuration_Aws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_Aws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Add-DOPSService/Configuration_SourceAws_AgentElevatedRoleArnStatus") -Or
+            ($_ -eq "Update-DOPSAssociation/Configuration_SourceAws_AgentElevatedRoleArnStatus")
+        }
+        {
+            $v = "invalid","pending-confirmation","valid"
+            break
+        }
+
 
     }
 
@@ -26998,10 +27020,14 @@ $DOPS_Completers = {
 }
 
 $DOPS_map = @{
+    "Action"=@("Update-DOPSApprovalAction")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_Aws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_SourceAws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Configuration_SourceAws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
+    "Context_ApprovalAction_Action"=@("Send-DOPSMessage")
     "EvaluationSchedule_State"=@("Update-DOPSGoal")
     "FilterServiceType"=@("Get-DOPSServiceList")
     "GoalType"=@("Get-DOPSGoalList")
@@ -27122,6 +27148,7 @@ $DOPS_SelectMap = @{
                "Add-DOPSResourceTag",
                "Remove-DOPSResourceTag",
                "Update-DOPSAgentSpace",
+               "Update-DOPSApprovalAction",
                "Update-DOPSAsset",
                "Update-DOPSAssetFile",
                "Update-DOPSAssociation",
@@ -29913,12 +29940,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
-               "Add-DDBIndexSchema",
+               "New-DDBTable",
                "New-DDBTableSchema",
-               "ConvertFrom-DDBItem")
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31213,6 +31240,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ReservedCapacityAllocationStrategy
+        "New-EC2Fleet/ReservedCapacityOptions_AllocationStrategy"
+        {
+            $v = "prioritized"
+            break
+        }
+
         # Amazon.EC2.ResetFpgaImageAttributeName
         "Reset-EC2FpgaImageAttribute/Attribute"
         {
@@ -31812,6 +31846,7 @@ $EC2_map = @{
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
     "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
+    "ReservedCapacityOptions_AllocationStrategy"=@("New-EC2Fleet")
     "ResourceType"=@("Edit-EC2IpamPolicyAllocationRule","Get-EC2IpamPolicyAllocationRule","Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "Rir"=@("New-EC2IpamInternetRegistryAssociation")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
@@ -36759,7 +36794,7 @@ $EVS_Completers = {
         # Amazon.Evs.InstanceType
         "New-EVSEnvironmentHost/Host_InstanceType"
         {
-            $v = "i4i.metal","i7i.metal-24xl"
+            $v = "i4i.metal","i7i.metal-24xl","i7i.metal-48xl"
             break
         }
 
@@ -42781,6 +42816,61 @@ $AHL_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $AHL_SelectCompleters $AHL_SelectMap
+# Argument completions for service IAM Toolbox (Preview)
+
+
+$IAMTB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IAMTB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IAMTB_SelectMap = @{
+    "Select"=@("Get-IAMTBRequestAuthorizationDetail")
+}
+
+_awsArgumentCompleterRegistration $IAMTB_SelectCompleters $IAMTB_SelectMap
 # Argument completions for service AWS Identity and Access Management
 
 
@@ -45586,6 +45676,30 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.InfluxDBSecretType
+        "New-IOTTopicRuleDestination/DestinationConfiguration_InfluxDBConfiguration_SecretType"
+        {
+            $v = "SecretBinary","SecretString"
+            break
+        }
+
+        # Amazon.IoT.InfluxDBTimestampUnit
+        {
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit")
+        }
+        {
+            $v = "ms","ns","s","us"
+            break
+        }
+
+        # Amazon.IoT.InfluxDBVersion
+        "New-IOTTopicRuleDestination/DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion"
+        {
+            $v = "V2","V3"
+            break
+        }
+
         # Amazon.IoT.JobEndBehavior
         "New-IOTJob/SchedulingConfig_EndBehavior"
         {
@@ -45824,6 +45938,8 @@ $IOT_map = @{
     "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
+    "DestinationConfiguration_InfluxDBConfiguration_InfluxDBVersion"=@("New-IOTTopicRuleDestination")
+    "DestinationConfiguration_InfluxDBConfiguration_SecretType"=@("New-IOTTopicRuleDestination")
     "DimensionValueOperator"=@("Get-IOTMetricValueList")
     "DomainConfigurationStatus"=@("Update-IOTDomainConfiguration")
     "DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -45858,6 +45974,7 @@ $IOT_map = @{
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingPrincipalType"=@("Add-IOTThingPrincipal","Get-IOTPrincipalThingsV2List","Get-IOTThingPrincipalsV2List")
+    "TopicRulePayload_ErrorAction_InfluxDB_TimestampUnit"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -77495,16 +77612,16 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Test-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Write-S3Object",
-               "Remove-S3MultipartUpload",
-               "Copy-S3Object",
-               "Get-S3MultipartUpload",
                "New-S3Bucket",
+               "Copy-S3Object",
+               "Test-S3Bucket",
                "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Get-S3MultipartUpload",
+               "Get-S3PreSignedURL",
                "Remove-S3Object",
-               "Read-S3Object")
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

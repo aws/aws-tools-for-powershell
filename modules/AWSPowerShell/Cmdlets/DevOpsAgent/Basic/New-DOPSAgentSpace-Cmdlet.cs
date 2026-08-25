@@ -93,6 +93,22 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Preference
+        /// <summary>
+        /// <para>
+        /// <para>The preferences to configure on the agent space. Preferences not provided take their
+        /// default values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences")]
+        public System.Collections.Hashtable Preference { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -176,6 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Preference != null)
+            {
+                context.Preference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Preference.Keys)
+                {
+                    context.Preference.Add((String)hashKey, (System.Boolean)(this.Preference[hashKey]));
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -219,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Preference != null)
+            {
+                request.Preferences = cmdletContext.Preference;
             }
             if (cmdletContext.Tag != null)
             {
@@ -284,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String KmsKeyArn { get; set; }
             public System.String Locale { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.Boolean> Preference { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.CreateAgentSpaceResponse, NewDOPSAgentSpaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

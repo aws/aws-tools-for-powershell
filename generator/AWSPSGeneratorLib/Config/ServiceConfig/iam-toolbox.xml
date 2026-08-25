@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iam-toolbox</C2jFilename>
+    <AssemblyName>IAMToolbox</AssemblyName>
+    <ServiceNounPrefix>IAMTB</ServiceNounPrefix>
+    <ServiceName>IAM Toolbox (Preview)</ServiceName>
+    <ServiceId>IAM Toolbox</ServiceId>
+    <ServiceClientInterface>IAmazonIAMToolbox</ServiceClientInterface>
+    <ServiceClient>AmazonIAMToolboxClient</ServiceClient>
+    <ServiceModuleGuid>4464fac5-722a-4d2f-91e7-2119c011e0b5</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRequestAuthorizationDetails" OutputProperty="*" Verb="Get" Noun="RequestAuthorizationDetail" PipelineParameter="AuthorizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
