@@ -1,4 +1,7 @@
-﻿### 5.0.284 (2026-08-25 20:21Z)
+﻿### 5.0.285 (2026-08-26 19:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.320.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.284 (2026-08-25 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.319.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DevOps Agent Service
     * Added cmdlet Update-DOPSApprovalAction leveraging the UpdateApprovalAction service API.
