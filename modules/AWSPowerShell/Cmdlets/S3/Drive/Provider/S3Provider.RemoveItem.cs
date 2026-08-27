@@ -130,20 +130,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 // deletion is visible. Filtered the same way, so a filter can't sweep away the shadowed
                 // object either.
                 var exactKey = key.TrimEnd('/');
+                var shadowQueued = false;
                 if (exactKey.Length > 0 && MatchesFilter(LeafName(exactKey)))
                 {
                     bool? shadowExists;
                     try { shadowExists = ObjectExists(drive, bucket, exactKey); }
                     catch (AmazonS3Exception) { shadowExists = null; }   // can't confirm; delete anyway, real error surfaces
                     if (shadowExists != false)   // exists or unknown: delete (a batched delete no-ops a missing key)
+                    {
                         batch.Add(new KeyVersion { Key = exactKey });
-                    if (shadowExists == true)
-                        WriteWarning(
-                            $"'{displayPath}' matched both a folder and an object with the same name; both were removed.");
+                        shadowQueued = true;
+                    }
                 }
 
                 if (batch.Count > 0)
-                    DeleteBatch(drive, bucket, batch);
+                {
+                    var deleted = DeleteBatch(drive, bucket, batch);
+                    // Warn off what S3 actually deleted, not off the probe above: the probe can fail
+                    // (HEAD denied while DeleteObject is allowed) and would then leave this silent.
+                    if (shadowQueued && deleted.Contains(exactKey))
+                        WriteWarning(
+                            $"'{displayPath}' matched both a folder and an object with the same name; both were removed.");
+                }
             }
             finally
             {
@@ -152,18 +160,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        private void DeleteBatch(S3DriveInfo drive, string bucket, List<KeyVersion> keys)
+        // Returns the keys S3 reported as deleted.
+        private HashSet<string> DeleteBatch(S3DriveInfo drive, string bucket, List<KeyVersion> keys)
         {
+            var deleted = new HashSet<string>(StringComparer.Ordinal);
             try
             {
-                RunSync(ct => ClientForBucket(drive, bucket).DeleteObjectsAsync(new DeleteObjectsRequest
+                var resp = RunSync(ct => ClientForBucket(drive, bucket).DeleteObjectsAsync(new DeleteObjectsRequest
                 {
                     BucketName = bucket,
                     Objects = keys
                 }, ct));
+                foreach (var d in resp.DeletedObjects ?? new List<DeletedObject>())
+                    deleted.Add(d.Key);
             }
             catch (DeleteObjectsException ex)
             {
+                foreach (var d in ex.Response?.DeletedObjects ?? new List<DeletedObject>())
+                    deleted.Add(d.Key);
+
                 // Partial failure: report each failed key with its S3 error rather than aborting, so
                 // the remaining batches still run and the user sees exactly what could not be removed.
                 foreach (var e in ex.Response?.DeleteErrors ?? new List<DeleteError>())
@@ -171,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         new AmazonS3Exception($"Failed to delete '{e.Key}': {e.Code} {e.Message}"),
                         "RemoveFailed", ErrorCategory.WriteError, e.Key));
             }
+            return deleted;
         }
 
 

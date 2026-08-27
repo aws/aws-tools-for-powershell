@@ -27,7 +27,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private bool IsDriveRoot(string path)
         {
             if (string.IsNullOrEmpty(path)) return true;
-            return path.Trim('\\', '/').Length == 0;
+            return path.Trim(Separators).Length == 0;
         }
 
         // Split a provider path into bucket + S3 key ("my-bucket\2026\q2" -> "my-bucket", "2026/q2").
@@ -38,10 +38,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             bucket = "";
             key = "";
-            if (string.IsNullOrEmpty(path)) return;
+
+            var norm = ApplyDriveRoot(StripQualifiers(path, out var driveQualifier), driveQualifier);
+            if (norm.Length == 0) return;
+
+            var idx = norm.IndexOf('/');
+            if (idx < 0) { bucket = norm; }
+            else { bucket = norm.Substring(0, idx); key = norm.Substring(idx + 1); }
+        }
+
+        // Drop the qualifiers and fold accepted separators to '/', yielding a bucket/key string.
+        private string StripQualifiers(string path, out string driveQualifier)
+        {
+            driveQualifier = null;
+            if (string.IsNullOrEmpty(path)) return "";
 
             var p = path;
-            string driveQualifier = null;
 
             // Strip a provider-qualified prefix "Module\Provider::" if present. A key may contain
             // "::", so only treat it as a qualifier when the left side names this provider.
@@ -52,20 +64,50 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // Strip a leading drive qualifier "name:" (e.g. "S3:"). A key may contain ':', so the
             // colon is a qualifier only when it appears before the first path separator.
             var colon = p.IndexOf(':');
-            var firstSeparator = p.IndexOfAny(new[] { '\\', '/' });
+            var firstSeparator = p.IndexOfAny(Separators);
             if (colon >= 0 && (firstSeparator < 0 || colon < firstSeparator))
             {
                 driveQualifier = p.Substring(0, colon);
                 p = p.Substring(colon + 1);
             }
 
-            var norm = p.Replace('\\', '/').Trim('/');
-            norm = ApplyDriveRoot(norm, driveQualifier);
-            if (norm.Length == 0) return;
+            return ToKeySeparators(p).Trim('/');
+        }
 
-            var idx = norm.IndexOf('/');
-            if (idx < 0) { bucket = norm; }
-            else { bucket = norm.Substring(0, idx); key = norm.Substring(idx + 1); }
+        // On a -Root drive the leading root segment of an incoming path is either the root the engine
+        // prepended (strip it) or a real folder that happens to share the root's name (keep it). The text
+        // is identical either way, so both readings are possible whenever such a folder exists. If BOTH
+        // name an existing object, refuse: picking one silently targets the wrong object. Account-root
+        // drives strip nothing and never reach this.
+        private bool RootReadingIsAmbiguous(string path, string bucket, string key)
+        {
+            var root = NormalizeRoot(PSDriveInfo?.Root);
+            if (root.Length == 0 || string.IsNullOrEmpty(key)) return false;
+
+            var raw = StripQualifiers(path, out _);
+            if (!raw.StartsWith(root + "/", StringComparison.Ordinal)) return false;
+
+            // The "leading segment was NOT the root" reading.
+            var full = root + "/" + raw;
+            var idx = full.IndexOf('/');
+            var altBucket = idx < 0 ? full : full.Substring(0, idx);
+            var altKey = idx < 0 ? "" : full.Substring(idx + 1);
+            if (altKey.Length == 0
+                || (string.Equals(altBucket, bucket, StringComparison.Ordinal)
+                    && string.Equals(altKey, key, StringComparison.Ordinal)))
+                return false;
+
+            try
+            {
+                var drive = DriveForPath(path);
+                if (drive == null) return false;
+                return ObjectExists(drive, bucket, key) == true
+                    && ObjectExists(drive, altBucket, altKey) == true;
+            }
+            catch (Amazon.S3.AmazonS3Exception)
+            {
+                return false;   // can't tell; let the operation itself surface the real error
+            }
         }
 
         // For a rooted drive (Root = "bucket/prefix"), the engine sometimes hands a root-relative child
@@ -78,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var root = ResolveDriveRoot(driveQualifier);
             if (string.IsNullOrWhiteSpace(root)) return normalizedPath;
 
-            var normalizedRoot = root.Replace('\\', '/').Trim('/');
+            var normalizedRoot = ToKeySeparators(root).Trim('/');
             if (normalizedRoot.Length == 0) return normalizedPath;
 
             var relative = normalizedPath;
@@ -154,6 +196,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     new ArgumentException(message), errorId, ErrorCategory.InvalidArgument, path));
                 return false;
             }
+
+            if (RootReadingIsAmbiguous(path, bucket, key))
+            {
+                var root = NormalizeRoot(PSDriveInfo?.Root);
+                var conflicting = root;
+                var lastSlash = root.LastIndexOf('/');
+                if (lastSlash >= 0) conflicting = root.Substring(lastSlash + 1);
+
+                WriteError(new ErrorRecord(
+                    new InvalidOperationException(
+                        $"Cannot resolve '{path}': this drive is rooted at '{root}', which also contains a folder " +
+                        $"named '{conflicting}'. The path therefore matches two different objects and the provider " +
+                        "cannot tell which was meant. Navigating into the folder does not help, because the drive " +
+                        "root is applied to every path. Mount a drive without -Root and address the object by its " +
+                        "full bucket and key instead."),
+                    "AmbiguousDriveRoot", ErrorCategory.InvalidArgument, path));
+                return false;
+            }
             return true;
         }
 
@@ -185,11 +245,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        // Separator to EMIT in paths handed back to the engine: OS-native ('\' on Windows, '/' else).
-        // ParsePath accepts both on input, so only path-building is OS-aware.
-        private static readonly char Sep =
+        private static readonly bool WindowsPaths =
             System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(
-                System.Runtime.InteropServices.OSPlatform.Windows) ? '\\' : '/';
+                System.Runtime.InteropServices.OSPlatform.Windows);
+
+        // Separator to EMIT in paths handed back to the engine: OS-native ('\' on Windows, '/' else).
+        private static readonly char Sep = WindowsPaths ? '\\' : '/';
+
+        // Separators accepted on INPUT. Only Windows treats '\' as one, because it is the OS separator
+        // there; elsewhere '\' stays an ordinary character, so keys containing it resolve correctly.
+        private static readonly char[] Separators = WindowsPaths ? new[] { '\\', '/' } : new[] { '/' };
+
+        private static string ToKeySeparators(string s) => WindowsPaths ? s.Replace('\\', '/') : s;
 
         // Emit the provider-internal, drive-INDEPENDENT path (bucket + key), not "S3:\...". The engine
         // wraps it as "Module\Provider::<path>" and, when that is piped back, re-resolves the remainder
@@ -228,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // as FileSystem's -Filter -Recurse does.
         private static string LeafName(string name)
         {
-            var n = name.Replace('\\', '/').TrimEnd('/');
+            var n = ToKeySeparators(name).TrimEnd('/');
             var i = n.LastIndexOf('/');
             return i < 0 ? n : n.Substring(i + 1);
         }
