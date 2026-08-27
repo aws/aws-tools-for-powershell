@@ -204,7 +204,10 @@
                                 target="_blank" rel="noopener noreferrer">String</a>&gt;</div>
                         <div class="parameterDescription">Runs a separate cleanup of all instances of AWSPowerShell and
                             AWSPowerShell.NetCore found in the specified scope. Warns on failure. The acceptable values
-                            for this parameter are AllUsers and CurrentUser.</div>
+                            for this parameter are AllUsers and CurrentUser.<br /><br />
+                            Note: like -Cleanup, this runs only as part of an installation. If installation is skipped
+                            because the requested version is already installed, legacy cleanup is skipped as well and a
+                            warning is emitted. Use -Force to reinstall and run the legacy cleanup.</div>
                         <div class="parameterAttributes">
                             <table>
                                 <tr>

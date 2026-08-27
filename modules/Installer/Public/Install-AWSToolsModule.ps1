@@ -81,9 +81,13 @@
     Use -Force to reinstall and clean up other installed versions.
 
 .Parameter CleanUpLegacyModuleScope
-    Runs a separate cleanup of all instances of AWSPowerShell and AWSPowerShell.NetCore 
-    found in the specified scope. Warns on failure. The acceptable values for this 
+    Runs a separate cleanup of all instances of AWSPowerShell and AWSPowerShell.NetCore
+    found in the specified scope. Warns on failure. The acceptable values for this
     parameter are AllUsers and CurrentUser.
+
+    Note: like -Cleanup, this runs only as part of an installation. If installation is skipped
+    because the requested version is already installed, legacy cleanup is skipped as well and a
+    warning is emitted. Use -Force to reinstall and run the legacy cleanup.
 
 .Parameter Scope
     Specifies the installation scope of the module as well as scope for module cleanup.
@@ -655,6 +659,9 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                             if ($Cleanup) {
                                 Write-Warning ("Cleanup was skipped because installation was skipped (the requested AWS.Tools modules are already at version $targetVersionToInstall). Cleanup runs only as part of an installation; re-run with -Force to reinstall and remove other installed versions.")
                             }
+                            if ($CleanUpLegacyModuleScope) {
+                                Write-Warning ("Legacy module cleanup (-CleanUpLegacyModuleScope) was skipped because installation was skipped. Re-run with -Force to reinstall and clean up legacy AWSPowerShell modules.")
+                            }
                             return
                         }
                     }
@@ -671,6 +678,9 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                             Write-Host "Skipped installation: AWS.Tools.Common version $targetVersionToInstall already installed in $targetPath. Use -Force to overwrite or add missing modules."
                             if ($Cleanup) {
                                 Write-Warning ("Cleanup was skipped because installation was skipped (AWS.Tools is already at version $targetVersionToInstall). Cleanup runs only as part of an installation; re-run with -Force to reinstall and remove other installed versions.")
+                            }
+                            if ($CleanUpLegacyModuleScope) {
+                                Write-Warning ("Legacy module cleanup (-CleanUpLegacyModuleScope) was skipped because installation was skipped. Re-run with -Force to reinstall and clean up legacy AWSPowerShell modules.")
                             }
                             return
                         }

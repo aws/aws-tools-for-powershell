@@ -407,6 +407,25 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             ($cleanupWarn -join "`n") | Should -Not -Match 'Cleanup was skipped'
         }
 
+        It "Should warn that legacy module cleanup was skipped when -CleanUpLegacyModuleScope is specified but installation is skipped" {
+            # Like -Cleanup, -CleanUpLegacyModuleScope is dropped on the skip path; warn and point at -Force.
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.276" }
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                return @([PSCustomObject]@{ Name = 'AWS.Tools.Common'; Version = [Version]"5.0.276" })
+            }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Version "5.0.276" -CleanUpLegacyModuleScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue -WarningVariable legacyWarn @script:InformationActionSplat
+
+            # Assert - install and legacy cleanup both skipped; a warning points the user at -Force
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule
+            ($legacyWarn -join "`n") | Should -Match 'Legacy module cleanup'
+            ($legacyWarn -join "`n") | Should -Match '-Force'
+        }
+
         It "Should install a named module that is missing even when AWS.Tools.Common is already present at the target version" {
             # Arrange: Common is installed at the target version but the requested
             # service module (AWS.Tools.S3) is not. The skip must NOT fire — Common
