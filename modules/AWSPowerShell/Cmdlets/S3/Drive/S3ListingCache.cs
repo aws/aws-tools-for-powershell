@@ -51,6 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         private readonly TimeSpan _ttl;
+
+        // Flush-on-full, as _children and _existsProbes do: the TTL only gates reads, so without a cap
+        // a read-heavy session that lists many prefixes never frees an entry. Small because a complete
+        // entry can hold up to ListingCacheMaxItems children.
+        private const int EntryCacheCap = 512;
         private readonly ConcurrentDictionary<string, Entry> _entries =
             new ConcurrentDictionary<string, Entry>();
 
@@ -81,8 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static string Key(string bucket, string prefix) => bucket + "\0" + prefix;
 
-        // Canonical key form: forward slashes, no surrounding slashes (so "a/b/" and "a/b" agree).
-        private static string NormKey(string k) => (k ?? "").Replace('\\', '/').Trim('/');
+        // Canonical key form: no surrounding slashes (so "a/b/" and "a/b" agree). Backslashes are left
+        // alone - they are ordinary key characters, and folding them would make "a\b" and "a/b" collide.
+        private static string NormKey(string k) => (k ?? "").Trim('/');
 
         private bool Fresh(Entry e) => e != null && (DateTime.UtcNow - e.FetchedUtc) < _ttl;
 
@@ -120,6 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var key = Key(bucket, prefix);
             if (_entries.TryGetValue(key, out var existing) && Fresh(existing) && existing.Complete)
                 return; // keep the richer complete entry
+            if (_entries.Count >= EntryCacheCap)
+                _entries.Clear();
             _entries[key] = new Entry { HasChildren = hasChildren, Complete = false, FetchedUtc = DateTime.UtcNow };
         }
 
@@ -127,6 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// (harmless: each is a consistent snapshot).</summary>
         internal void PutComplete(string bucket, string prefix, List<ChildEntry> items, bool prefixExists = false)
         {
+            if (_entries.Count >= EntryCacheCap)
+                _entries.Clear();
             _entries[Key(bucket, prefix)] = new Entry
             {
                 HasChildren = prefixExists || items.Count > 0,

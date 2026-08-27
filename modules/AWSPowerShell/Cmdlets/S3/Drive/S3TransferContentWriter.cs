@@ -183,11 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (Exception ex)
             {
+                // A cancel raised by the bridge masks the upload's real failure; prefer the latter.
+                var fault = (ex is OperationCanceledException && _uploadFault != null) ? _uploadFault : ex;
+
                 // The engine swallows exceptions thrown from Close(), so a fault here would never reach
                 // the pipeline. Report it via WriteError AND rethrow: whichever the caller observes, the
                 // other is harmless.
-                _onFault?.Invoke(ex);
-                throw;
+                _onFault?.Invoke(fault);
+                if (ReferenceEquals(fault, ex)) throw;
+                ExceptionDispatchInfo.Capture(fault).Throw();
             }
             finally
             {
