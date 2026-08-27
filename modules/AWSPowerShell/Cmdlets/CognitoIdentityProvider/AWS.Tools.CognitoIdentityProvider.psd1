@@ -160,6 +160,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CGIPUserPoolDomain', 
         'New-CGIPUserPoolReplica', 
         'Register-CGIPUserInPool', 
+        'Remove-CGIPAdminSoftwareToken', 
         'Remove-CGIPGroup', 
         'Remove-CGIPIdentityProvider', 
         'Remove-CGIPManagedLoginBranding', 

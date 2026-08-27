@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.320.0",
+    "ProductVersion"    : "4.0.321.0",
     "CoreVersion"       : "4.0.102.1",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "4.0.103.4",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -96,7 +96,7 @@
             "InPreview"               : false
         },
         "CodeDeploy"        : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.113.0",
+            "Version" : "4.0.114.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -268,7 +268,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.104.4",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -532,7 +532,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.103.5",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1260,7 +1260,7 @@
             "InPreview"               : false
         },
         "ApiGatewayManagementApi"         : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.100.12",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2060,7 +2060,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.0.102.9",
+            "Version" : "4.0.102.10",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2644,7 +2644,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.104.3",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3412,7 +3412,7 @@
             "InPreview"               : false
         },
         "LambdaMicrovms"                      : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"

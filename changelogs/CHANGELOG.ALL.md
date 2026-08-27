@@ -1,4 +1,15 @@
-﻿### 5.0.285 (2026-08-26 19:30Z)
+﻿### 5.0.286 (2026-08-27 19:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.321.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeDeploy
+    * Modified cmdlet New-CDDeployment: added parameter DeploymentMode.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Remove-CGIPAdminSoftwareToken leveraging the AdminDeleteSoftwareToken service API.
+  * Amazon DataZone
+    * Modified cmdlet Remove-DZDomain: added parameter CascadeDelete.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Set-EC2ImageInstanceTypeSpecification leveraging the ReplaceImageInstanceTypeSpecification service API.
+
+### 5.0.285 (2026-08-26 19:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.320.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.284 (2026-08-25 20:21Z)

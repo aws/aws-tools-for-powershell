@@ -6748,6 +6748,9 @@ Set-Alias -Name CGIP-AdminConfirmSignUp -Value Confirm-CGIPUserRegistrationAdmin
 Set-Alias -Name Create-CGIPUser -Value New-CGIPUserAdmin
 Set-Alias -Name Create-CGIPUserAdmin -Value New-CGIPUserAdmin
 Set-Alias -Name CGIP-AdminCreateUser -Value New-CGIPUserAdmin
+Set-Alias -Name Delete-CGIPSoftwareToken -Value Remove-CGIPAdminSoftwareToken
+Set-Alias -Name Delete-CGIPAdminSoftwareToken -Value Remove-CGIPAdminSoftwareToken
+Set-Alias -Name CGIP-AdminDeleteSoftwareToken -Value Remove-CGIPAdminSoftwareToken
 Set-Alias -Name Delete-CGIPUser -Value Remove-CGIPUserAdmin
 Set-Alias -Name Delete-CGIPUserAdmin -Value Remove-CGIPUserAdmin
 Set-Alias -Name CGIP-AdminDeleteUser -Value Remove-CGIPUserAdmin
@@ -12868,6 +12871,8 @@ Set-Alias -Name EC2-ReplaceIamInstanceProfileAssociation -Value Set-EC2IamInstan
 Set-Alias -Name Replace-EC2ImageCriteriaInAllowedImagesSettings -Value Set-EC2ImageCriteriaInAllowedImagesSetting
 Set-Alias -Name Replace-EC2ImageCriteriaInAllowedImagesSetting -Value Set-EC2ImageCriteriaInAllowedImagesSetting
 Set-Alias -Name EC2-ReplaceImageCriteriaInAllowedImagesSettings -Value Set-EC2ImageCriteriaInAllowedImagesSetting
+Set-Alias -Name Replace-EC2ImageInstanceTypeSpecification -Value Set-EC2ImageInstanceTypeSpecification
+Set-Alias -Name EC2-ReplaceImageInstanceTypeSpecification -Value Set-EC2ImageInstanceTypeSpecification
 Set-Alias -Name Replace-EC2NetworkAclAssociation -Value Set-EC2NetworkAclAssociation
 Set-Alias -Name EC2-ReplaceNetworkAclAssociation -Value Set-EC2NetworkAclAssociation
 Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry

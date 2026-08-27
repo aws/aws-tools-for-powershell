@@ -108,6 +108,13 @@ $CD_Completers = {
             break
         }
 
+        # Amazon.CodeDeploy.DeploymentMode
+        "New-CDDeployment/DeploymentMode"
+        {
+            $v = "RESTART","STANDARD"
+            break
+        }
+
         # Amazon.CodeDeploy.DeploymentOption
         {
             ($_ -eq "New-CDDeploymentGroup/DeploymentStyleOption") -Or
@@ -253,6 +260,7 @@ $CD_Completers = {
 $CD_map = @{
     "ComputePlatform"=@("New-CDApplication","New-CDDeploymentConfig")
     "Deployed"=@("Get-CDApplicationRevisionList")
+    "DeploymentMode"=@("New-CDDeployment")
     "DeploymentReadyOptionTimeoutAction"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyleOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyleType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")

@@ -3229,6 +3229,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceImageInstanceTypeSpecification" OutputProperty="ReturnValue" Verb="Set" Noun="ImageInstanceTypeSpecification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReplaceNetworkAclAssociation" OutputProperty="NewAssociationId" Verb="Set" Noun="NetworkAclAssociation" ShouldProcessTarget="AssociationId" PositionalParameters="NetworkAclId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

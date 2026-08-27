@@ -487,6 +487,7 @@ $CGIP_SelectMap = @{
                "Add-CGIPUserToGroupAdmin",
                "Confirm-CGIPUserRegistrationAdmin",
                "New-CGIPUserAdmin",
+               "Remove-CGIPAdminSoftwareToken",
                "Remove-CGIPUserAdmin",
                "Remove-CGIPUserAttributeAdmin",
                "Disable-CGIPProviderForUserAdmin",

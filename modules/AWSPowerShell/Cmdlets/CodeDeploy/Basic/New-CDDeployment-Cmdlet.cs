@@ -182,6 +182,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String DeploymentGroupName { get; set; }
         #endregion
         
+        #region Parameter DeploymentMode
+        /// <summary>
+        /// <para>
+        /// The deployment mode to use for the deployment.
+        /// When set to STANDARD (the default), the deployment runs the standard set of deployment
+        /// lifecycle events. When set to RESTART, an EC2/On-premises in-place deployment runs
+        /// a shortened set of lifecycle events to quickly restart the application on the target
+        /// instances.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentMode")]
+        public Amazon.CodeDeploy.DeploymentMode DeploymentMode { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -469,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             }
             context.DeploymentConfigName = this.DeploymentConfigName;
             context.DeploymentGroupName = this.DeploymentGroupName;
+            context.DeploymentMode = this.DeploymentMode;
             context.Description = this.Description;
             context.FileExistsBehavior = this.FileExistsBehavior;
             context.IgnoreApplicationStopFailure = this.IgnoreApplicationStopFailure;
@@ -563,6 +579,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.DeploymentGroupName != null)
             {
                 request.DeploymentGroupName = cmdletContext.DeploymentGroupName;
+            }
+            if (cmdletContext.DeploymentMode != null)
+            {
+                request.DeploymentMode = cmdletContext.DeploymentMode;
             }
             if (cmdletContext.Description != null)
             {
@@ -922,6 +942,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public List<System.String> AutoRollbackConfiguration_Event { get; set; }
             public System.String DeploymentConfigName { get; set; }
             public System.String DeploymentGroupName { get; set; }
+            public Amazon.CodeDeploy.DeploymentMode DeploymentMode { get; set; }
             public System.String Description { get; set; }
             public Amazon.CodeDeploy.FileExistsBehavior FileExistsBehavior { get; set; }
             public System.Boolean? IgnoreApplicationStopFailure { get; set; }

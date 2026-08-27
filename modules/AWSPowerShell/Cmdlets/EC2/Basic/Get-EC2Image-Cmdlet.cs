@@ -120,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// EBS volume.</para></li><li><para><c>block-device-mapping.volume-size</c> - The volume size of the Amazon EBS volume,
         /// in GiB.</para></li><li><para><c>block-device-mapping.volume-type</c> - The volume type of the Amazon EBS volume
         /// (<c>io1</c> | <c>io2</c> | <c>gp2</c> | <c>gp3</c> | <c>sc1 </c>| <c>st1</c> | <c>standard</c>).</para></li><li><para><c>block-device-mapping.encrypted</c> - A Boolean that indicates whether the Amazon
-        /// EBS volume is encrypted.</para></li><li><para><c>creation-date</c> - The time when the image was created, in the ISO 8601 format
+        /// EBS volume is encrypted.</para></li><li><para><c>boot-mode</c> – The boot mode of the image (<c>legacy-bios</c> | <c>uefi</c> |
+        /// <c>uefi-preferred</c>).</para></li><li><para><c>creation-date</c> - The time when the image was created, in the ISO 8601 format
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2021-09-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2021-09-29T*</c>, which matches
         /// an entire day.</para></li><li><para><c>description</c> - The description of the image (provided during image creation).</para></li><li><para><c>ena-support</c> - A Boolean that indicates whether enhanced networking with ENA
@@ -133,7 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// attached.</para></li><li><para><c>image-watermark.watermark-creation-time</c> - The date and time the watermark
         /// was attached to the AMI, in the ISO 8601 format in the UTC time zone (<c><i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i></c>). You can use a wildcard (<c>*</c>), for example, <c>2021-09-29T*</c>, which
         /// matches an entire day.</para></li><li><para><c>image-watermark.watermark-key</c> - The watermark identifier, in <c>accountId:watermarkName</c>
-        /// format (for example, <c>123456789012:approvedAmi</c>).</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-backup-vault</c> | <c>aws-marketplace</c>).
+        /// format (for example, <c>123456789012:approvedAmi</c>).</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>instance-type-specification.supported-instance-type</c> – The instance types that
+        /// are compatible with the AMI, as specified by the AMI owner. Values can be individual
+        /// instance types (for example, <c>t3.micro</c>) or wildcard patterns that match multiple
+        /// instance types (for example, <c>t3.*</c>).</para></li><li><para><c>instance-type-specification.unsupported-instance-type</c> – The instance types
+        /// that are not compatible with the AMI, as specified by the AMI owner. Values can be
+        /// individual instance types (for example, <c>t3.micro</c>) or wildcard patterns that
+        /// match multiple instance types (for example, <c>t3.*</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-backup-vault</c> | <c>aws-marketplace</c>).
         /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon
         /// Web Services account alias that can be set using the IAM console. We recommend that
         /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner. We recommend that

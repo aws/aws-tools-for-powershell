@@ -33,6 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Given a user pool domain name, returns information about the domain configuration.
     /// 
     ///  <note><para>
+    /// This operation doesn't return results when you query a prefix domain in a secondary
+    /// Region. Prefix domains are Region-specific and can only be described in the Region
+    /// where they were created. To describe a prefix domain for a replica user pool, make
+    /// the request to the primary Region's endpoint.
+    /// </para></note><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.

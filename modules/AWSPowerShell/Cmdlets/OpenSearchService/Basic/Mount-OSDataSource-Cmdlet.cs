@@ -30,15 +30,13 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Attaches a data source to an OpenSearch application. The data source can be an Amazon
-    /// OpenSearch Service domain or an Amazon OpenSearch Serverless collection. If both the
-    /// application and data source are in the <c>ACTIVE</c> state, the attachment completes
-    /// immediately and returns a status of <c>ATTACHED</c>. If either resource is not yet
-    /// active, the operation stores the request and returns a status of <c>PENDING</c>. A
-    /// background process then completes the attachment when both resources become active.
-    /// Pending attachments that are not completed within 24 hours are marked as <c>FAILED</c>.
-    /// This operation is idempotent. If a data source is already attached or pending for
-    /// the same application, the existing attachment is returned.
+    /// Attaches a data source to an OpenSearch application. The data source must be an Amazon
+    /// OpenSearch Service domain. If both the application and the data source are active,
+    /// the attachment completes immediately with a status of <c>ATTACHED</c>. Otherwise,
+    /// the operation returns <c>PENDING</c> and completes the attachment automatically once
+    /// both become active. If the attachment cannot be completed, its status becomes <c>FAILED</c>.
+    /// This operation is idempotent: If the data source is already attached or pending, the
+    /// operation returns the existing attachment.
     /// </summary>
     [Cmdlet("Mount", "OSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.AttachDataSourceResponse")]

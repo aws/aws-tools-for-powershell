@@ -15896,8 +15896,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16357,9 +16357,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -18047,6 +18047,13 @@ $CD_Completers = {
             break
         }
 
+        # Amazon.CodeDeploy.DeploymentMode
+        "New-CDDeployment/DeploymentMode"
+        {
+            $v = "RESTART","STANDARD"
+            break
+        }
+
         # Amazon.CodeDeploy.DeploymentOption
         {
             ($_ -eq "New-CDDeploymentGroup/DeploymentStyleOption") -Or
@@ -18192,6 +18199,7 @@ $CD_Completers = {
 $CD_map = @{
     "ComputePlatform"=@("New-CDApplication","New-CDDeploymentConfig")
     "Deployed"=@("Get-CDApplicationRevisionList")
+    "DeploymentMode"=@("New-CDDeployment")
     "DeploymentReadyOptionTimeoutAction"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyleOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyleType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
@@ -19652,6 +19660,7 @@ $CGIP_SelectMap = @{
                "Add-CGIPUserToGroupAdmin",
                "Confirm-CGIPUserRegistrationAdmin",
                "New-CGIPUserAdmin",
+               "Remove-CGIPAdminSoftwareToken",
                "Remove-CGIPUserAdmin",
                "Remove-CGIPUserAttributeAdmin",
                "Disable-CGIPProviderForUserAdmin",
@@ -29940,12 +29949,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
-               "Add-DDBKeySchema",
                "ConvertFrom-DDBItem",
-               "New-DDBTable",
+               "Add-DDBKeySchema",
+               "Add-DDBIndexSchema",
                "New-DDBTableSchema",
-               "Add-DDBIndexSchema")
+               "ConvertTo-DDBItem",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32701,6 +32710,7 @@ $EC2_SelectMap = @{
                "Remove-EC2IpamPoolAllocation",
                "Set-EC2IamInstanceProfileAssociation",
                "Set-EC2ImageCriteriaInAllowedImagesSetting",
+               "Set-EC2ImageInstanceTypeSpecification",
                "Set-EC2NetworkAclAssociation",
                "Set-EC2NetworkAclEntry",
                "Set-EC2Route",
@@ -32751,8 +32761,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -77613,15 +77623,15 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
-               "Remove-S3Object",
-               "Remove-S3MultipartUpload",
-               "New-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Remove-S3Bucket",
-               "Test-S3Bucket",
-               "Write-S3Object",
                "Read-S3Object",
-               "Get-S3MultipartUpload")
+               "Remove-S3Object",
+               "Get-S3PreSignedURL",
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Write-S3Object",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87360,8 +87370,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

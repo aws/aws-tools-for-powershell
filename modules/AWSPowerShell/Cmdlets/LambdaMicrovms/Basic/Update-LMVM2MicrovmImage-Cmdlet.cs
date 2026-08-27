@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.LMVM2
         #region Parameter CodeArtifact_Uri
         /// <summary>
         /// <para>
-        /// <para>The URI of the code artifact, such as an Amazon S3 path or Amazon ECR image URI.</para>
+        /// <para>The URI of the code artifact in Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

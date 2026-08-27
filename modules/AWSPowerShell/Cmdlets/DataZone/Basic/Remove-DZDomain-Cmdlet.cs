@@ -45,6 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CascadeDelete
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to delete the domain along with all of its associated resources.
+        /// When you use this parameter, Amazon DataZone deletes the domain and cleanly removes
+        /// its associated resources without leaving orphaned resources behind. Amazon DataZone
+        /// reports deletion progress in the <c>deleteProgress</c> field. Amazon DataZone reports
+        /// any resources that it can't delete in the <c>failureReasons</c> field of the <c>GetDomain</c>
+        /// response. You can't use this parameter together with <c>skipDeletionCheck</c>. If
+        /// you don't specify a value, the default is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CascadeDelete { get; set; }
+        #endregion
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>
@@ -65,7 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SkipDeletionCheck
         /// <summary>
         /// <para>
-        /// <para>Specifies the optional flag to delete all child entities within the domain.</para>
+        /// <para>Specifies whether to skip the check that prevents deletion of a domain that still
+        /// contains resources. When you use this parameter, Amazon DataZone deletes the domain
+        /// but might not remove its associated resources, which can leave orphaned resources
+        /// behind. To delete a domain and fully clean up its associated resources, use <c>cascadeDelete</c>
+        /// instead. You can't use this parameter together with <c>cascadeDelete</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDomainResponse, RemoveDZDomainCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CascadeDelete = this.CascadeDelete;
             context.ClientToken = this.ClientToken;
             context.Identifier = this.Identifier;
             #if MODULAR
@@ -154,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.DeleteDomainRequest();
             
+            if (cmdletContext.CascadeDelete != null)
+            {
+                request.CascadeDelete = cmdletContext.CascadeDelete.Value;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -221,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CascadeDelete { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Identifier { get; set; }
             public System.Boolean? SkipDeletionCheck { get; set; }

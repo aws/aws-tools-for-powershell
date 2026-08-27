@@ -2589,6 +2589,7 @@ $EC2_SelectMap = @{
                "Remove-EC2IpamPoolAllocation",
                "Set-EC2IamInstanceProfileAssociation",
                "Set-EC2ImageCriteriaInAllowedImagesSetting",
+               "Set-EC2ImageInstanceTypeSpecification",
                "Set-EC2NetworkAclAssociation",
                "Set-EC2NetworkAclEntry",
                "Set-EC2Route",
@@ -2639,8 +2640,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

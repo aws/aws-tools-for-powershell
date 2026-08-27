@@ -824,6 +824,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-EC2InstanceStatus', 
         'Set-EC2IamInstanceProfileAssociation', 
         'Set-EC2ImageCriteriaInAllowedImagesSetting', 
+        'Set-EC2ImageInstanceTypeSpecification', 
         'Set-EC2NetworkAclAssociation', 
         'Set-EC2NetworkAclEntry', 
         'Set-EC2Route', 
