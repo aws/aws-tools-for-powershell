@@ -458,5 +458,50 @@ InModuleScope AWS.Tools.Installer {
                 $script:processedModules[0].ModuleBase | Should -Not -BeLike "*OtherPath*"
             }
         }
+
+        Context "Removal Summary" {
+            It "Should report the actual version removed (not 'all versions') when a version filter is given" {
+                # Arrange - one installed installer version, removed successfully
+                $mockModule = New-MockModule -Name "AWS.Tools.Installer" -Version ([Version]"2.0.1") -ModuleBase ([System.IO.Path]::Combine($TestDrive, "TestPath", "AWS.Tools.Installer", "2.0.1"))
+                Mock -ModuleName AWS.Tools.Installer Get-PSModulePath { return (Join-Path -Path $TestDrive -ChildPath "TestPath") }
+                Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule { return @($mockModule) }
+                Mock -ModuleName AWS.Tools.Installer Format-ModuleTarget { return "test target" }
+                Mock -ModuleName AWS.Tools.Installer Remove-ModuleItem {
+                    return @{ SuccessCount = 1; FailureCount = 0; RemovedModules = @("AWS.Tools.Installer (2.0.1)"); FailedModules = @() }
+                }
+                Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+                # Act - -Version filter means this is not a genuine uninstall-all
+                Uninstall-AWSToolsInstaller -Version "2.0.1" -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+                # Assert - reports the real version removed, not a static "(all versions)"
+                Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                    $Object -like "Removed 1 AWS.Tools.Installer modules (version 2.0.1) from *"
+                }
+                Should -Not -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter {
+                    $Object -like "*all versions*"
+                }
+            }
+
+            It "Should still report 'all versions' for a genuine unfiltered uninstall-all" {
+                # Arrange - no version filter of any kind
+                $mockModule = New-MockModule -Name "AWS.Tools.Installer" -Version ([Version]"2.0.1") -ModuleBase ([System.IO.Path]::Combine($TestDrive, "TestPath", "AWS.Tools.Installer", "2.0.1"))
+                Mock -ModuleName AWS.Tools.Installer Get-PSModulePath { return (Join-Path -Path $TestDrive -ChildPath "TestPath") }
+                Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule { return @($mockModule) }
+                Mock -ModuleName AWS.Tools.Installer Format-ModuleTarget { return "test target" }
+                Mock -ModuleName AWS.Tools.Installer Remove-ModuleItem {
+                    return @{ SuccessCount = 1; FailureCount = 0; RemovedModules = @("AWS.Tools.Installer (2.0.1)"); FailedModules = @() }
+                }
+                Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+                # Act
+                Uninstall-AWSToolsInstaller -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+                # Assert
+                Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                    $Object -like "Removed 1 AWS.Tools.Installer modules (all versions) from *"
+                }
+            }
+        }
     }
 }

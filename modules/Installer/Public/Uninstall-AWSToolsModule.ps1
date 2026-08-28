@@ -556,7 +556,36 @@ function Uninstall-AWSToolsModule {
                         
                         # Provide removal summary via Write-Host
                         if ($result.SuccessCount -gt 0) {
-                            $versionInfo = if ($Version) { "version $Version" } elseif ($ExceptVersion) { "all versions except $ExceptVersion" } else { "all versions" }
+                            # A genuine unfiltered uninstall-all (no name/version filter of any
+                            # kind) legitimately removes every version, so keep "all versions".
+                            $isUninstallAll = -not $Name -and -not $Version -and -not $ExceptVersion -and `
+                                -not $ExceptModules -and -not $MinimumVersion -and -not $MaximumVersion
+                            if ($isUninstallAll) {
+                                $versionInfo = "all versions"
+                            }
+                            else {
+                                # Report the versions actually removed (excluding failures). On the
+                                # -Name path, $result.RemovedModules lists the "Name (version)"
+                                # entries that succeeded; on the bulk path, everything in $modules
+                                # whose path is not in $failedPaths was removed.
+                                if ($Name) {
+                                    $removedModules = @($modules | Where-Object {
+                                        $result.RemovedModules -contains "$($_.Name) ($(Get-ModuleVersionString -Module $_))"
+                                    })
+                                }
+                                else {
+                                    $removedModules = @($modules | Where-Object { $failedPaths -notcontains $_.ModuleBase })
+                                }
+
+                                if ($removedModules) {
+                                    $versionSummary = Get-ModuleVersionSummary -Modules $removedModules
+                                    $versionLabel = if ($versionSummary.DistinctCount -eq 1) { "version" } else { "versions" }
+                                    $versionInfo = "$versionLabel $($versionSummary.VersionList)"
+                                }
+                                else {
+                                    $versionInfo = "all versions"
+                                }
+                            }
                             Write-Host "Removed $($result.SuccessCount) AWS Tools modules ($versionInfo) from $targetPath"
                         }
                     }

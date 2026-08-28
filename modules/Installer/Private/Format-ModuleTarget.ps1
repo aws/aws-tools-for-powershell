@@ -60,30 +60,10 @@ function Format-ModuleTarget {
             }
             $target = "$moduleCount $ModuleType modules ($($legacyNames -join ', ')) from $TargetPath"
         } else {
-            # For AWS.Tools modules, group by version (including prerelease tag)
-            $modulesByVersion = $Modules | Group-Object { 
-                if ($_.Version) {
-                    Get-ModuleVersionString -Module $_
-                } else { 
-                    "Unknown" 
-                }
-            }
-            
-            # Get distinct versions (defensive: ensure we're working with an array)
-            $distinctVersions = @($modulesByVersion | ForEach-Object { $_.Name })
-            $distinctVersionCount = $distinctVersions.Count
-            
-            # Limit version display to avoid noise when many versions exist
-            $maxVersionsToShow = $script:Config.general.MaxVersionsToShow
-            
-            if ($distinctVersionCount -le $maxVersionsToShow) {
-                $versionList = $distinctVersions -join ', '
-            } else {
-                $displayedVersions = $distinctVersions | Select-Object -First $maxVersionsToShow
-                $remainingCount = $distinctVersionCount - $maxVersionsToShow
-                $versionList = "$($displayedVersions -join ', ') and $remainingCount more"
-            }
-            
+            # For AWS.Tools modules, summarize the distinct versions (respecting
+            # MaxVersionsToShow) using the shared helper.
+            $versionList = (Get-ModuleVersionSummary -Modules $Modules).VersionList
+
             $target = "$moduleCount $ModuleType modules (versions: $versionList) from $TargetPath"
         }
         

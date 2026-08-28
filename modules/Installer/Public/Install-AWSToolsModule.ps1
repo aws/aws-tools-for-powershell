@@ -774,8 +774,10 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     Write-Verbose ("[$($MyInvocation.MyCommand)] AWS Tools modules installation " +
                         "completed successfully")
                     
-                    # Provide installation summary via Write-Host
-                    Write-Host "Installed AWS Tools version $installedVersionString to $targetPath"
+                    # Provide installation summary via Write-Host, including how many modules
+                    # were installed (correct for both full-set and -Name subset installs).
+                    $installedModuleCount = @($installedModules).Count
+                    Write-Host "Installed $installedModuleCount AWS Tools modules (version $installedVersionString) to $targetPath"
                     
                     # Update progress - installation complete, preparing for cleanup
                     Write-Progress -Id 1 -Activity "Install-AWSToolsModule" -Status "Installation complete, cleaning up previous versions..." -PercentComplete 70
