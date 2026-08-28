@@ -100,10 +100,11 @@
     This example uninstalls only version 4.1.754 of all AWS.Tools modules.
 
 .Example
-    Uninstall-AWSToolsModule -Name EC2,S3 -Confirm:$false
+    Uninstall-AWSToolsModule -Name Common,EC2,S3 -Confirm:$false
 
-    This example uninstalls all versions of only the EC2 and S3 modules, with individual
-    confirmation prompts for each module.
+    This example uninstalls all versions of the Common, EC2, and S3 modules, with individual
+    confirmation prompts for each module. AWS.Tools.Common is a shared dependency, so removing it
+    will prevent any other installed AWS.Tools modules from loading until it is reinstalled.
 
 .Example
     Uninstall-AWSToolsModule -CleanUpLegacyScope CurrentUser -Confirm:$false

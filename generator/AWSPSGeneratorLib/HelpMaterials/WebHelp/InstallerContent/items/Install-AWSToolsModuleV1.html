@@ -422,7 +422,7 @@
                 </div>
                 <div class="sectionbody">
                     <div class="examples">
-                        <h4>Example 1</h4><pre class="example"><div class="code">Install-AWSToolsModuleV1 EC2,S3 -RequiredVersion 4.0.0.0</div><div class="description">This example installs version 4.0.0.0 of AWS.Tools.EC2, AWS.Tools.S3 and their dependencies from PowerShell Gallery.</div></pre>
+                        <h4>Example 1</h4><pre class="example"><div class="code">Install-AWSToolsModuleV1 Common,EC2,S3 -RequiredVersion 4.0.0.0</div><div class="description">This example installs version 4.0.0.0 of AWS.Tools.Common, AWS.Tools.EC2, and AWS.Tools.S3 from PowerShell Gallery. AWS.Tools.Common is listed first because every AWS.Tools module depends on it.</div></pre>
                         <h4>Example 2</h4><pre class="example"><div class="code">Get-AWSService -Service EFS | Install-AWSToolsModuleV1 -RequiredVersion 4.1.463</div><div class="description">This example installs version 4.1.463 of AWS.Tools.ElasticFileSystem and its dependencies from PowerShell Gallery.</div></pre>
                     </div>
                 </div>

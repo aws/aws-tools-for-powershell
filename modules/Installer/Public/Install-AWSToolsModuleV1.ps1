@@ -15,9 +15,9 @@
     This cmdlet downloads all modules from https://www.powershellgallery.com/api/v2/package/ and considers it a trusted source.
 
 .Example
-    Install-AWSToolsModuleV1 EC2,S3 -RequiredVersion 4.0.0.0
+    Install-AWSToolsModuleV1 Common,EC2,S3 -RequiredVersion 4.0.0.0
 
-    This example installs version 4.0.0.0 of AWS.Tools.EC2, AWS.Tools.S3 and their dependencies from PowerShell Gallery.
+    This example installs version 4.0.0.0 of AWS.Tools.Common, AWS.Tools.EC2, and AWS.Tools.S3 from PowerShell Gallery. AWS.Tools.Common is listed first because every AWS.Tools module depends on it.
 
 .Example
     Get-AWSService -Service EFS | Install-AWSToolsModuleV1 -RequiredVersion 4.1.463

@@ -76,6 +76,11 @@
     When the Name parameter is specified, cleanup only affects the named modules. When Name is not
     specified, all AWS Tools modules (except installer) are cleaned up.
 
+    AWS.Tools.Common is installed automatically as a shared dependency of any named module, but
+    named cleanup removes older AWS.Tools.Common versions only if AWS.Tools.Common is itself named.
+    Include AWS.Tools.Common in Name to remove its old versions too; be aware that any other
+    installed AWS.Tools module pinned to a removed AWS.Tools.Common version will no longer load.
+
     Note: cleanup runs only as part of an installation. If installation is skipped because the
     requested version is already installed, cleanup is skipped as well and a warning is emitted.
     Use -Force to reinstall and clean up other installed versions.
@@ -174,15 +179,17 @@
     Note: Installing without a version constraint may introduce unexpected changes in production workloads.
 
 .Example
-    Install-AWSToolsModule -Name EC2,S3
+    Install-AWSToolsModule -Name Common,EC2,S3
 
-    This example installs only the EC2 and S3 modules (and their dependencies).
+    This example installs the Common, EC2, and S3 modules. AWS.Tools.Common is listed first
+    because every AWS.Tools module depends on it; it is installed automatically even if omitted.
 
 .Example
-    Install-AWSToolsModule -Name EC2,S3 -Cleanup
+    Install-AWSToolsModule -Name Common,EC2,S3 -Cleanup
 
-    This example installs only the EC2 and S3 modules (and their dependencies) and removes 
-    all other versions of EC2 and S3 only, leaving other AWS Tools modules untouched.
+    This example installs the Common, EC2, and S3 modules and removes all other versions of those
+    three (including older AWS.Tools.Common), leaving other AWS Tools modules untouched. Naming
+    AWS.Tools.Common opts its old versions into cleanup; omit it to preserve them.
 
 .Example
     Install-AWSToolsModule -Timeout 600
