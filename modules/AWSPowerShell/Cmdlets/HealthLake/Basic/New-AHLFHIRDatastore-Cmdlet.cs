@@ -49,13 +49,34 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         /// <para>
         /// <para>The authorization strategy selected when the HealthLake data store is created.</para><note><para>HealthLake provides support for both SMART on FHIR V1 and V2 as described below.</para><ul><li><para><c>SMART_ON_FHIR_V1</c> – Support for only SMART on FHIR V1, which includes <c>read</c>
         /// (read/search) and <c>write</c> (create/update/delete) permissions.</para></li><li><para><c>SMART_ON_FHIR</c> – Support for both SMART on FHIR V1 and V2, which includes <c>create</c>,
-        /// <c>read</c>, <c>update</c>, <c>delete</c>, and <c>search</c> permissions.</para></li><li><para><c>AWS_AUTH</c> – The default HealthLake authorization strategy; not affiliated with
-        /// SMART on FHIR.</para></li></ul></note>
+        /// <c>read</c>, <c>update</c>, <c>delete</c>, and <c>search</c> permissions.</para></li><li><para><c>Amazon Web Services_AUTH</c> – The default HealthLake authorization strategy;
+        /// not affiliated with SMART on FHIR.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.HealthLake.AuthorizationStrategy")]
         public Amazon.HealthLake.AuthorizationStrategy IdentityProviderConfiguration_AuthorizationStrategy { get; set; }
+        #endregion
+        
+        #region Parameter BackupConfiguration_BackupTagsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether tags are included in backups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BackupConfiguration_BackupTagsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter BackupConfiguration_BackupType
+        /// <summary>
+        /// <para>
+        /// <para>The type of backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.BackupType")]
+        public Amazon.HealthLake.BackupType BackupConfiguration_BackupType { get; set; }
         #endregion
         
         #region Parameter KmsEncryptionConfig_CmkType
@@ -175,6 +196,17 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.PreloadDataType PreloadDataConfig_PreloadDataType { get; set; }
         #endregion
         
+        #region Parameter BackupConfiguration_RetentionPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days backup data is retained.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupConfiguration_RetentionPeriodInDays")]
+        public System.Int32? BackupConfiguration_RetentionPeriodInDay { get; set; }
+        #endregion
+        
         #region Parameter AnalyticsConfiguration_Status
         /// <summary>
         /// <para>
@@ -184,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.HealthLake.AnalyticsStatus")]
         public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter BackupConfiguration_Status
+        /// <summary>
+        /// <para>
+        /// <para>The backup status of the data store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.BackupStatus")]
+        public Amazon.HealthLake.BackupStatus BackupConfiguration_Status { get; set; }
         #endregion
         
         #region Parameter NlpConfiguration_Status
@@ -269,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AnalyticsConfiguration_Status = this.AnalyticsConfiguration_Status;
+            context.BackupConfiguration_BackupTagsEnabled = this.BackupConfiguration_BackupTagsEnabled;
+            context.BackupConfiguration_BackupType = this.BackupConfiguration_BackupType;
+            context.BackupConfiguration_RetentionPeriodInDay = this.BackupConfiguration_RetentionPeriodInDay;
+            context.BackupConfiguration_Status = this.BackupConfiguration_Status;
             context.ClientToken = this.ClientToken;
             context.DatastoreName = this.DatastoreName;
             context.DatastoreTypeVersion = this.DatastoreTypeVersion;
@@ -328,6 +375,55 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestAnalyticsConfigurationIsNull)
             {
                 request.AnalyticsConfiguration = null;
+            }
+            
+             // populate BackupConfiguration
+            var requestBackupConfigurationIsNull = true;
+            request.BackupConfiguration = new Amazon.HealthLake.Model.BackupConfiguration();
+            System.Boolean? requestBackupConfiguration_backupConfiguration_BackupTagsEnabled = null;
+            if (cmdletContext.BackupConfiguration_BackupTagsEnabled != null)
+            {
+                requestBackupConfiguration_backupConfiguration_BackupTagsEnabled = cmdletContext.BackupConfiguration_BackupTagsEnabled.Value;
+            }
+            if (requestBackupConfiguration_backupConfiguration_BackupTagsEnabled != null)
+            {
+                request.BackupConfiguration.BackupTagsEnabled = requestBackupConfiguration_backupConfiguration_BackupTagsEnabled.Value;
+                requestBackupConfigurationIsNull = false;
+            }
+            Amazon.HealthLake.BackupType requestBackupConfiguration_backupConfiguration_BackupType = null;
+            if (cmdletContext.BackupConfiguration_BackupType != null)
+            {
+                requestBackupConfiguration_backupConfiguration_BackupType = cmdletContext.BackupConfiguration_BackupType;
+            }
+            if (requestBackupConfiguration_backupConfiguration_BackupType != null)
+            {
+                request.BackupConfiguration.BackupType = requestBackupConfiguration_backupConfiguration_BackupType;
+                requestBackupConfigurationIsNull = false;
+            }
+            System.Int32? requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay = null;
+            if (cmdletContext.BackupConfiguration_RetentionPeriodInDay != null)
+            {
+                requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay = cmdletContext.BackupConfiguration_RetentionPeriodInDay.Value;
+            }
+            if (requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay != null)
+            {
+                request.BackupConfiguration.RetentionPeriodInDays = requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay.Value;
+                requestBackupConfigurationIsNull = false;
+            }
+            Amazon.HealthLake.BackupStatus requestBackupConfiguration_backupConfiguration_Status = null;
+            if (cmdletContext.BackupConfiguration_Status != null)
+            {
+                requestBackupConfiguration_backupConfiguration_Status = cmdletContext.BackupConfiguration_Status;
+            }
+            if (requestBackupConfiguration_backupConfiguration_Status != null)
+            {
+                request.BackupConfiguration.Status = requestBackupConfiguration_backupConfiguration_Status;
+                requestBackupConfigurationIsNull = false;
+            }
+             // determine if request.BackupConfiguration should be set to null
+            if (requestBackupConfigurationIsNull)
+            {
+                request.BackupConfiguration = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -551,6 +647,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
+            public System.Boolean? BackupConfiguration_BackupTagsEnabled { get; set; }
+            public Amazon.HealthLake.BackupType BackupConfiguration_BackupType { get; set; }
+            public System.Int32? BackupConfiguration_RetentionPeriodInDay { get; set; }
+            public Amazon.HealthLake.BackupStatus BackupConfiguration_Status { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DatastoreName { get; set; }
             public Amazon.HealthLake.FHIRVersion DatastoreTypeVersion { get; set; }

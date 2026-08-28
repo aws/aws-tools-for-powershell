@@ -3438,6 +3438,9 @@ Set-Alias -Name BAC-GetResourcePaymentToken -Value Get-BACResourcePaymentToken
 Set-Alias -Name BAC-GetWorkloadAccessToken -Value Get-BACWorkloadAccessToken
 Set-Alias -Name BAC-GetWorkloadAccessTokenForJWT -Value Get-BACWorkloadAccessTokenForJWT
 Set-Alias -Name BAC-GetWorkloadAccessTokenForUserId -Value Get-BACWorkloadAccessTokenForUserId
+Set-Alias -Name Ingest-BACData -Value Start-BACIngestion
+Set-Alias -Name Ingest-BACIngestion -Value Start-BACIngestion
+Set-Alias -Name BAC-IngestData -Value Start-BACIngestion
 Set-Alias -Name BAC-InvokeAgentRuntime -Value Invoke-BACAgentRuntime
 Set-Alias -Name BAC-InvokeAgentRuntimeCommand -Value Invoke-BACAgentRuntimeCommand
 Set-Alias -Name BAC-InvokeBrowser -Value Invoke-BACBrowser
@@ -6882,6 +6885,9 @@ Set-Alias -Name CGIP-DescribeRiskConfiguration -Value Get-CGIPRiskConfiguration
 Set-Alias -Name Describe-CGIPTerms -Value Get-CGIPTerm
 Set-Alias -Name Describe-CGIPTerm -Value Get-CGIPTerm
 Set-Alias -Name CGIP-DescribeTerms -Value Get-CGIPTerm
+Set-Alias -Name Describe-CGIPTermsByClient -Value Get-CGIPTermsByClientDetail
+Set-Alias -Name Describe-CGIPTermsByClientDetail -Value Get-CGIPTermsByClientDetail
+Set-Alias -Name CGIP-DescribeTermsByClient -Value Get-CGIPTermsByClientDetail
 Set-Alias -Name Describe-CGIPUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name CGIP-DescribeUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
@@ -6896,6 +6902,7 @@ Set-Alias -Name CGIP-ForgetDevice -Value Stop-CGIPDeviceTracking
 Set-Alias -Name Forgot-CGIPPassword -Value Reset-CGIPForgottenPassword
 Set-Alias -Name Forgot-CGIPForgottenPassword -Value Reset-CGIPForgottenPassword
 Set-Alias -Name CGIP-ForgotPassword -Value Reset-CGIPForgottenPassword
+Set-Alias -Name CGIP-GetClientToken -Value Get-CGIPClientToken
 Set-Alias -Name CGIP-GetCSVHeader -Value Get-CGIPCSVHeader
 Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
 Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
@@ -17068,6 +17075,7 @@ Set-Alias -Name List-AHLFHIRImportJobList -Value Get-AHLFHIRImportJobList
 Set-Alias -Name AHL-ListFHIRImportJobs -Value Get-AHLFHIRImportJobList
 Set-Alias -Name AHL-ListTagsForResource -Value Get-AHLResourceTag
 Set-Alias -Name AHL-PublishDataTransformationProfile -Value Publish-AHLDataTransformationProfile
+Set-Alias -Name AHL-RestoreFHIRDatastore -Value Restore-AHLFHIRDatastore
 Set-Alias -Name AHL-StartDataTransformationJob -Value Start-AHLDataTransformationJob
 Set-Alias -Name AHL-StartFHIRExportJob -Value Start-AHLFHIRExportJob
 Set-Alias -Name AHL-StartFHIRImportJob -Value Start-AHLFHIRImportJob

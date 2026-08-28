@@ -93,6 +93,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RestoreFHIRDatastore" OutputProperty="*" Verb="Restore" Noun="FHIRDatastore" ShouldProcessTarget="SourceDatastoreId" PipelineParameter="SourceDatastoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDataTransformationJob" OutputProperty="*" Verb="Start" Noun="DataTransformationJob" ShouldProcessTarget="ProfileId,DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

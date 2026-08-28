@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
     /// Starts an asynchronous data transformation job that converts source files from Amazon
-    /// Simple Storage Service (Amazon S3) and writes the output to Amazon S3 or AWS HealthLake.
+    /// Simple Storage Service (Amazon S3) and writes the output to Amazon S3 or HealthLake.
     /// </summary>
     [Cmdlet("Start", "AHLDataTransformationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.HealthLake.Model.StartDataTransformationJobResponse")]
@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that AWS HealthLake assumes to read from and write to the specified Amazon S3 locations.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+        /// (IAM) role that HealthLake assumes to read from and write to the specified Amazon
+        /// S3 locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DriftDetectionEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether drift detection is enabled for this job. When enabled, AWS HealthLake
+        /// <para>Specifies whether drift detection is enabled for this job. When enabled, HealthLake
         /// writes a drift report to the output Amazon S3 location alongside the converted files.</para>
         /// </para>
         /// </summary>
@@ -87,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter OutputDataConfig_S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key identifier used to encrypt the transformation
-        /// job output written to Amazon S3.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key identifier
+        /// used to encrypt the transformation job output written to Amazon S3.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter OutputDataConfig_S3Configuration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URI where AWS HealthLake writes the converted output files.</para>
+        /// <para>The Amazon S3 URI where HealthLake writes the converted output files.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

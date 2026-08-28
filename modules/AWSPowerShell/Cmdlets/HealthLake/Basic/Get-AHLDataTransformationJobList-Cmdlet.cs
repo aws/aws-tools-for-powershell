@@ -30,9 +30,9 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Lists data transformation jobs for your AWS account. Results can be filtered by status,
-    /// job name, and submit time window. Results are paginated. Use the <c>NextToken</c>
-    /// parameter to retrieve additional results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists data transformation jobs for your Amazon Web Services account. Results can be
+    /// filtered by status, job name, and submit time window. Results are paginated. Use the
+    /// <c>NextToken</c> parameter to retrieve additional results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AHLDataTransformationJobList")]
     [OutputType("Amazon.HealthLake.Model.TransformationJobSummary")]

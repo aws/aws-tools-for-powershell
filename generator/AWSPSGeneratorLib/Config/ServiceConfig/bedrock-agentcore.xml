@@ -155,6 +155,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="IngestData" OutputProperty="SessionId" Verb="Start" Noun="Ingestion" ShouldProcessTarget="ActorId,MemoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InvokeAgentRuntime" OutputProperty="*" Verb="Invoke" Noun="AgentRuntime" ShouldProcessTarget="AgentRuntimeArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

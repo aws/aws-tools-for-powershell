@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para> The AWS-generated identifier for the data store to be deleted.</para>
+        /// <para> The Amazon Web Services-generated identifier for the data store to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -144,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-BACBatchEvaluation', 
         'Start-BACBrowserSession', 
         'Start-BACCodeInterpreterSession', 
+        'Start-BACIngestion', 
         'Start-BACMemoryExtractionJob', 
         'Start-BACRecommendation', 
         'Stop-BACBatchEvaluation', 

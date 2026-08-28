@@ -1,4 +1,22 @@
-﻿### 5.0.286 (2026-08-27 19:54Z)
+﻿### 5.0.287 (2026-08-28 19:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.322.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameters DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth and DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek.
+    * Modified cmdlet Update-AABDataSource: added parameters DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth and DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Start-BACIngestion leveraging the IngestData service API.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPClientToken leveraging the GetClientToken service API.
+    * Added cmdlet Get-CGIPTermsByClientDetail leveraging the DescribeTermsByClient service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters DeploymentConfiguration_EarlySuccessCriteria_Enable, DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent and DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup.
+    * Modified cmdlet Update-ECSService: added parameters DeploymentConfiguration_EarlySuccessCriteria_Enable, DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent and DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup.
+  * Amazon HealthLake
+    * Added cmdlet Restore-AHLFHIRDatastore leveraging the RestoreFHIRDatastore service API.
+    * Modified cmdlet New-AHLFHIRDatastore: added parameters BackupConfiguration_BackupTagsEnabled, BackupConfiguration_BackupType, BackupConfiguration_RetentionPeriodInDay and BackupConfiguration_Status.
+    * Modified cmdlet Update-AHLFHIRDatastore: added parameters BackupConfiguration_BackupTagsEnabled, BackupConfiguration_BackupType, BackupConfiguration_RetentionPeriodInDay and BackupConfiguration_Status.
+
+### 5.0.286 (2026-08-27 19:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.321.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeDeploy
     * Modified cmdlet New-CDDeployment: added parameter DeploymentMode.

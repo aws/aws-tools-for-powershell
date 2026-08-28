@@ -307,6 +307,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTermsByClient" OutputProperty="Terms" Verb="Get" Noun="TermsByClientDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeUserImportJob" OutputProperty="UserImportJob" Verb="Get" Noun="UserImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -328,6 +332,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ForgotPassword" OutputProperty="CodeDeliveryDetails" Verb="Reset" Noun="ForgottenPassword" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClientToken" OutputProperty="ClientAuthenticationResult" Verb="Get" Noun="ClientToken" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

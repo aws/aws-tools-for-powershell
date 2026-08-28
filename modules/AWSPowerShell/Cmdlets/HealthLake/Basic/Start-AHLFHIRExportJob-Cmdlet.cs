@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key ID used to access the S3 bucket. </para>
+        /// <para>The Key Management Service (KMS) key ID used to access the Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
-        /// into AWS HealthLake.</para>
+        /// <para>The <c>S3Uri</c> is the user-specified Amazon S3 location of the FHIR data to be imported
+        /// into HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

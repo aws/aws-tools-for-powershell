@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that grants access permission to AWS HealthLake.</para>
+        /// <para>The Amazon Resource Name (ARN) that grants access permission to HealthLake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DriftDetectionEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether to enable drift detection for the import job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter InputFormat
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The input format of the data to be imported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key ID used to access the S3 bucket. </para>
+        /// <para>The Key Management Service (KMS) key ID used to access the Amazon S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The data transformation profile identifier to use for the import job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
-        /// into AWS HealthLake.</para>
+        /// <para>The <c>S3Uri</c> is the user-specified Amazon S3 location of the FHIR data to be imported
+        /// into HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
-        /// into AWS HealthLake.</para>
+        /// <para>The <c>S3Uri</c> is the user-specified Amazon S3 location of the FHIR data to be imported
+        /// into HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

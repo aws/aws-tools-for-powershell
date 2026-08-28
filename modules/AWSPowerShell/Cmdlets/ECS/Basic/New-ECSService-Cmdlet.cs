@@ -358,6 +358,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_EarlySuccessCriteria_Enable
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use the early success criteria for the service deployment. When
+        /// set to <c>false</c>, the deployment uses the default behavior, where Amazon ECS considers
+        /// the deployment successful when the target service revision fully stabilizes and the
+        /// previous tasks are removed. The default value is <c>false</c>.</para><para>When set to <c>true</c>, Amazon ECS monitors the deployment to meet early success
+        /// criteria. You must also specify <c>healthyPercent</c> and <c>sourceServiceRevisionCleanup</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeploymentConfiguration_EarlySuccessCriteria_Enable { get; set; }
+        #endregion
+        
         #region Parameter ServiceConnectConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -422,6 +436,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HealthCheckGracePeriodSeconds")]
         public System.Int32? HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of healthy tasks that the target service revision must reach before
+        /// Amazon ECS considers the deployment successful. This percentage is relative to the
+        /// service's <c>desiredCount</c> and must be an integer between <c>0</c> and <c>100</c>.
+        /// This value must be greater than or equal to the <c>minimumHealthyPercent</c> value.</para><para>After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes
+        /// the deployment. Amazon ECS continues to scale the target service revision to 100 percent
+        /// in the background.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent { get; set; }
         #endregion
         
         #region Parameter AccessLogConfiguration_IncludeQueryParameter
@@ -974,6 +1003,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceConnectService[] ServiceConnectConfiguration_Service { get; set; }
         #endregion
         
+        #region Parameter DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup
+        /// <summary>
+        /// <para>
+        /// <para>The time when Amazon ECS removes the source revisions' tasks relative to deployment
+        /// completion. The valid values are:</para><ul><li><para><c>BLOCKING</c>—Amazon ECS removes the previous tasks before it marks the deployment
+        /// as successful.</para></li><li><para><c>DEFERRED</c>—Amazon ECS marks the deployment successful, and then removes the
+        /// previous tasks in the background.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.ServiceRevisionCleanup")]
+        public Amazon.ECS.ServiceRevisionCleanup DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup { get; set; }
+        #endregion
+        
         #region Parameter LinearConfiguration_StepBakeTimeInMinute
         /// <summary>
         /// <para>
@@ -1253,6 +1296,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
             context.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type = this.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type;
             context.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value = this.DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value;
+            context.DeploymentConfiguration_EarlySuccessCriteria_Enable = this.DeploymentConfiguration_EarlySuccessCriteria_Enable;
+            context.DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent = this.DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent;
+            context.DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup = this.DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup;
             if (this.DeploymentConfiguration_LifecycleHook != null)
             {
                 context.DeploymentConfiguration_LifecycleHook = new List<Amazon.ECS.Model.DeploymentLifecycleHook>(this.DeploymentConfiguration_LifecycleHook);
@@ -1541,6 +1587,51 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_Alarms != null)
             {
                 request.DeploymentConfiguration.Alarms = requestDeploymentConfiguration_deploymentConfiguration_Alarms;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.DeploymentEarlySuccessCriteria requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria = null;
+            
+             // populate EarlySuccessCriteria
+            var requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteriaIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria = new Amazon.ECS.Model.DeploymentEarlySuccessCriteria();
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_Enable = null;
+            if (cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_Enable = cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_Enable.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria.Enable = requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_Enable.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteriaIsNull = false;
+            }
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_HealthyPercent = null;
+            if (cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_HealthyPercent = cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_HealthyPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria.HealthyPercent = requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_HealthyPercent.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteriaIsNull = false;
+            }
+            Amazon.ECS.ServiceRevisionCleanup requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup = null;
+            if (cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup = cmdletContext.DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria.SourceServiceRevisionCleanup = requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria_deploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup;
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteriaIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteriaIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria != null)
+            {
+                request.DeploymentConfiguration.EarlySuccessCriteria = requestDeploymentConfiguration_deploymentConfiguration_EarlySuccessCriteria;
                 requestDeploymentConfigurationIsNull = false;
             }
             Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
@@ -1981,6 +2072,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
             public Amazon.ECS.ThresholdType DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type { get; set; }
             public System.Int32? DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Value { get; set; }
+            public System.Boolean? DeploymentConfiguration_EarlySuccessCriteria_Enable { get; set; }
+            public System.Int32? DeploymentConfiguration_EarlySuccessCriteria_HealthyPercent { get; set; }
+            public Amazon.ECS.ServiceRevisionCleanup DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup { get; set; }
             public List<Amazon.ECS.Model.DeploymentLifecycleHook> DeploymentConfiguration_LifecycleHook { get; set; }
             public System.Int32? LinearConfiguration_StepBakeTimeInMinute { get; set; }
             public System.Double? LinearConfiguration_StepPercent { get; set; }

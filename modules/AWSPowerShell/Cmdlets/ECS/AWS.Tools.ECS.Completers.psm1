@@ -436,6 +436,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ServiceRevisionCleanup
+        {
+            ($_ -eq "New-ECSService/DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup") -Or
+            ($_ -eq "Update-ECSService/DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup")
+        }
+        {
+            $v = "BLOCKING","DEFERRED"
+            break
+        }
+
         # Amazon.ECS.SettingName
         {
             ($_ -eq "Get-ECSAccountSetting/Name") -Or
@@ -513,6 +523,7 @@ $ECS_map = @{
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "DeploymentConfiguration_DeploymentCircuitBreaker_ThresholdConfiguration_Type"=@("New-ECSService","Update-ECSService")
+    "DeploymentConfiguration_EarlySuccessCriteria_SourceServiceRevisionCleanup"=@("New-ECSService","Update-ECSService")
     "DeploymentConfiguration_Strategy"=@("New-ECSService","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")

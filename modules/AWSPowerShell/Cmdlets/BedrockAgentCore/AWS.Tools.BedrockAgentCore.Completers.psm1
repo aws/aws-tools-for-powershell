@@ -370,6 +370,7 @@ $BAC_SelectMap = @{
                "Get-BACWorkloadAccessToken",
                "Get-BACWorkloadAccessTokenForJWT",
                "Get-BACWorkloadAccessTokenForUserId",
+               "Start-BACIngestion",
                "Invoke-BACAgentRuntime",
                "Invoke-BACAgentRuntimeCommand",
                "Invoke-BACBrowser",

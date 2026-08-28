@@ -211,6 +211,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.DayOfWeek
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.BedrockAgent.EmbeddingDataType
         {
             ($_ -eq "New-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
@@ -465,6 +475,7 @@ $AAB_map = @{
     "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")

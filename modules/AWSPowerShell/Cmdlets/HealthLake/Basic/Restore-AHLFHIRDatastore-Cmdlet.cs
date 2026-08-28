@@ -30,16 +30,16 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Update the properties of a FHIR-enabled data store.
+    /// Restore a backup-enabled data store to a point in time. Creates a new data store from
+    /// the backup.
     /// </summary>
-    [Cmdlet("Update", "AHLFHIRDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.HealthLake.Model.DatastoreProperties")]
-    [AWSCmdlet("Calls the Amazon HealthLake UpdateFHIRDatastore API operation.", Operation = new[] {"UpdateFHIRDatastore"}, SelectReturnType = typeof(Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse))]
-    [AWSCmdletOutput("Amazon.HealthLake.Model.DatastoreProperties or Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse",
-        "This cmdlet returns an Amazon.HealthLake.Model.DatastoreProperties object.",
-        "The service call response (type Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Restore", "AHLFHIRDatastore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse")]
+    [AWSCmdlet("Calls the Amazon HealthLake RestoreFHIRDatastore API operation.", Operation = new[] {"RestoreFHIRDatastore"}, SelectReturnType = typeof(Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse))]
+    [AWSCmdletOutput("Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse",
+        "This cmdlet returns an Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse object containing multiple properties."
     )]
-    public partial class UpdateAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
+    public partial class RestoreAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -59,48 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.AuthorizationStrategy IdentityProviderConfiguration_AuthorizationStrategy { get; set; }
         #endregion
         
-        #region Parameter BackupConfiguration_BackupTagsEnabled
+        #region Parameter SseConfiguration_KmsEncryptionConfig_CmkType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether tags are included in backups.</para>
+        /// <para>The type of customer-managed-key (CMK) used for encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? BackupConfiguration_BackupTagsEnabled { get; set; }
-        #endregion
-        
-        #region Parameter BackupConfiguration_BackupType
-        /// <summary>
-        /// <para>
-        /// <para>The type of backup.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.HealthLake.BackupType")]
-        public Amazon.HealthLake.BackupType BackupConfiguration_BackupType { get; set; }
-        #endregion
-        
-        #region Parameter DatastoreId
-        /// <summary>
-        /// <para>
-        /// <para>The data store identifier.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatastoreId { get; set; }
+        [AWSConstantClassSource("Amazon.HealthLake.CmkType")]
+        public Amazon.HealthLake.CmkType SseConfiguration_KmsEncryptionConfig_CmkType { get; set; }
         #endregion
         
         #region Parameter DatastoreName
         /// <summary>
         /// <para>
-        /// <para>The data store name.</para>
+        /// <para>The name for the restored data store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String IdentityProviderConfiguration_IdpLambdaArn { get; set; }
         #endregion
         
+        #region Parameter SseConfiguration_KmsEncryptionConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Key Management Service (KMS) encryption key id/alias used to encrypt the data
+        /// store contents at rest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SseConfiguration_KmsEncryptionConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter IdentityProviderConfiguration_Metadata
         /// <summary>
         /// <para>
@@ -161,15 +145,31 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String IdentityProviderConfiguration_Metadata { get; set; }
         #endregion
         
-        #region Parameter BackupConfiguration_RetentionPeriodInDay
+        #region Parameter RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime
         /// <summary>
         /// <para>
-        /// <para>The number of days backup data is retained.</para>
+        /// <para>The point in time to restore the data store to, specified as a UTC timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("BackupConfiguration_RetentionPeriodInDays")]
-        public System.Int32? BackupConfiguration_RetentionPeriodInDay { get; set; }
+        public System.DateTime? RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime { get; set; }
+        #endregion
+        
+        #region Parameter SourceDatastoreId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the source data store to restore from.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SourceDatastoreId { get; set; }
         #endregion
         
         #region Parameter AnalyticsConfiguration_Status
@@ -183,17 +183,6 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
         #endregion
         
-        #region Parameter BackupConfiguration_Status
-        /// <summary>
-        /// <para>
-        /// <para>The backup status of the data store.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.HealthLake.BackupStatus")]
-        public Amazon.HealthLake.BackupStatus BackupConfiguration_Status { get; set; }
-        #endregion
-        
         #region Parameter NlpConfiguration_Status
         /// <summary>
         /// <para>
@@ -205,15 +194,40 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public Amazon.HealthLake.NlpStatus NlpConfiguration_Status { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The resource tags applied to the restored data store.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.HealthLake.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>An optional user-provided token to ensure API idempotency of the restore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatastoreProperties'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse).
-        /// Specifying the name of a property of type Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse).
+        /// Specifying the name of a property of type Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DatastoreProperties";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -235,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatastoreId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AHLFHIRDatastore (UpdateFHIRDatastore)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceDatastoreId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-AHLFHIRDatastore (RestoreFHIRDatastore)"))
             {
                 return;
             }
@@ -248,21 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse, UpdateAHLFHIRDatastoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse, RestoreAHLFHIRDatastoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AnalyticsConfiguration_Status = this.AnalyticsConfiguration_Status;
-            context.BackupConfiguration_BackupTagsEnabled = this.BackupConfiguration_BackupTagsEnabled;
-            context.BackupConfiguration_BackupType = this.BackupConfiguration_BackupType;
-            context.BackupConfiguration_RetentionPeriodInDay = this.BackupConfiguration_RetentionPeriodInDay;
-            context.BackupConfiguration_Status = this.BackupConfiguration_Status;
-            context.DatastoreId = this.DatastoreId;
-            #if MODULAR
-            if (this.DatastoreId == null && ParameterWasBound(nameof(this.DatastoreId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ClientToken = this.ClientToken;
             context.DatastoreName = this.DatastoreName;
             context.IdentityProviderConfiguration_AuthorizationStrategy = this.IdentityProviderConfiguration_AuthorizationStrategy;
             context.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled = this.IdentityProviderConfiguration_FineGrainedAuthorizationEnabled;
@@ -272,6 +276,20 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (this.ProfileConfiguration_DefaultProfile != null)
             {
                 context.ProfileConfiguration_DefaultProfile = new List<System.String>(this.ProfileConfiguration_DefaultProfile);
+            }
+            context.RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime = this.RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime;
+            context.SourceDatastoreId = this.SourceDatastoreId;
+            #if MODULAR
+            if (this.SourceDatastoreId == null && ParameterWasBound(nameof(this.SourceDatastoreId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceDatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SseConfiguration_KmsEncryptionConfig_CmkType = this.SseConfiguration_KmsEncryptionConfig_CmkType;
+            context.SseConfiguration_KmsEncryptionConfig_KmsKeyId = this.SseConfiguration_KmsEncryptionConfig_KmsKeyId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.HealthLake.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -287,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.HealthLake.Model.UpdateFHIRDatastoreRequest();
+            var request = new Amazon.HealthLake.Model.RestoreFHIRDatastoreRequest();
             
             
              // populate AnalyticsConfiguration
@@ -308,58 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             {
                 request.AnalyticsConfiguration = null;
             }
-            
-             // populate BackupConfiguration
-            var requestBackupConfigurationIsNull = true;
-            request.BackupConfiguration = new Amazon.HealthLake.Model.BackupConfiguration();
-            System.Boolean? requestBackupConfiguration_backupConfiguration_BackupTagsEnabled = null;
-            if (cmdletContext.BackupConfiguration_BackupTagsEnabled != null)
+            if (cmdletContext.ClientToken != null)
             {
-                requestBackupConfiguration_backupConfiguration_BackupTagsEnabled = cmdletContext.BackupConfiguration_BackupTagsEnabled.Value;
-            }
-            if (requestBackupConfiguration_backupConfiguration_BackupTagsEnabled != null)
-            {
-                request.BackupConfiguration.BackupTagsEnabled = requestBackupConfiguration_backupConfiguration_BackupTagsEnabled.Value;
-                requestBackupConfigurationIsNull = false;
-            }
-            Amazon.HealthLake.BackupType requestBackupConfiguration_backupConfiguration_BackupType = null;
-            if (cmdletContext.BackupConfiguration_BackupType != null)
-            {
-                requestBackupConfiguration_backupConfiguration_BackupType = cmdletContext.BackupConfiguration_BackupType;
-            }
-            if (requestBackupConfiguration_backupConfiguration_BackupType != null)
-            {
-                request.BackupConfiguration.BackupType = requestBackupConfiguration_backupConfiguration_BackupType;
-                requestBackupConfigurationIsNull = false;
-            }
-            System.Int32? requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay = null;
-            if (cmdletContext.BackupConfiguration_RetentionPeriodInDay != null)
-            {
-                requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay = cmdletContext.BackupConfiguration_RetentionPeriodInDay.Value;
-            }
-            if (requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay != null)
-            {
-                request.BackupConfiguration.RetentionPeriodInDays = requestBackupConfiguration_backupConfiguration_RetentionPeriodInDay.Value;
-                requestBackupConfigurationIsNull = false;
-            }
-            Amazon.HealthLake.BackupStatus requestBackupConfiguration_backupConfiguration_Status = null;
-            if (cmdletContext.BackupConfiguration_Status != null)
-            {
-                requestBackupConfiguration_backupConfiguration_Status = cmdletContext.BackupConfiguration_Status;
-            }
-            if (requestBackupConfiguration_backupConfiguration_Status != null)
-            {
-                request.BackupConfiguration.Status = requestBackupConfiguration_backupConfiguration_Status;
-                requestBackupConfigurationIsNull = false;
-            }
-             // determine if request.BackupConfiguration should be set to null
-            if (requestBackupConfigurationIsNull)
-            {
-                request.BackupConfiguration = null;
-            }
-            if (cmdletContext.DatastoreId != null)
-            {
-                request.DatastoreId = cmdletContext.DatastoreId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.DatastoreName != null)
             {
@@ -453,6 +422,92 @@ namespace Amazon.PowerShell.Cmdlets.AHL
                 request.ProfileConfiguration = null;
             }
             
+             // populate RestoreConfiguration
+            var requestRestoreConfigurationIsNull = true;
+            request.RestoreConfiguration = new Amazon.HealthLake.Model.RestoreConfiguration();
+            Amazon.HealthLake.Model.ContinuousBackupRestoreConfiguration requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration = null;
+            
+             // populate ContinuousBackupRestoreConfiguration
+            var requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfigurationIsNull = true;
+            requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration = new Amazon.HealthLake.Model.ContinuousBackupRestoreConfiguration();
+            System.DateTime? requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime = null;
+            if (cmdletContext.RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime != null)
+            {
+                requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime = cmdletContext.RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime.Value;
+            }
+            if (requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime != null)
+            {
+                requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration.RestorePointTime = requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime.Value;
+                requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfigurationIsNull = false;
+            }
+             // determine if requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration should be set to null
+            if (requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfigurationIsNull)
+            {
+                requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration = null;
+            }
+            if (requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration != null)
+            {
+                request.RestoreConfiguration.ContinuousBackupRestoreConfiguration = requestRestoreConfiguration_restoreConfiguration_ContinuousBackupRestoreConfiguration;
+                requestRestoreConfigurationIsNull = false;
+            }
+             // determine if request.RestoreConfiguration should be set to null
+            if (requestRestoreConfigurationIsNull)
+            {
+                request.RestoreConfiguration = null;
+            }
+            if (cmdletContext.SourceDatastoreId != null)
+            {
+                request.SourceDatastoreId = cmdletContext.SourceDatastoreId;
+            }
+            
+             // populate SseConfiguration
+            var requestSseConfigurationIsNull = true;
+            request.SseConfiguration = new Amazon.HealthLake.Model.SseConfiguration();
+            Amazon.HealthLake.Model.KmsEncryptionConfig requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = null;
+            
+             // populate KmsEncryptionConfig
+            var requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = true;
+            requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = new Amazon.HealthLake.Model.KmsEncryptionConfig();
+            Amazon.HealthLake.CmkType requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_CmkType = null;
+            if (cmdletContext.SseConfiguration_KmsEncryptionConfig_CmkType != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_CmkType = cmdletContext.SseConfiguration_KmsEncryptionConfig_CmkType;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_CmkType != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig.CmkType = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_CmkType;
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = false;
+            }
+            System.String requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_KmsKeyId = null;
+            if (cmdletContext.SseConfiguration_KmsEncryptionConfig_KmsKeyId != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_KmsKeyId = cmdletContext.SseConfiguration_KmsEncryptionConfig_KmsKeyId;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_KmsKeyId != null)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig.KmsKeyId = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig_sseConfiguration_KmsEncryptionConfig_KmsKeyId;
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull = false;
+            }
+             // determine if requestSseConfiguration_sseConfiguration_KmsEncryptionConfig should be set to null
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfigIsNull)
+            {
+                requestSseConfiguration_sseConfiguration_KmsEncryptionConfig = null;
+            }
+            if (requestSseConfiguration_sseConfiguration_KmsEncryptionConfig != null)
+            {
+                request.SseConfiguration.KmsEncryptionConfig = requestSseConfiguration_sseConfiguration_KmsEncryptionConfig;
+                requestSseConfigurationIsNull = false;
+            }
+             // determine if request.SseConfiguration should be set to null
+            if (requestSseConfigurationIsNull)
+            {
+                request.SseConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -485,12 +540,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         
         #region AWS Service Operation Call
         
-        private Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse CallAWSServiceOperation(IAmazonHealthLake client, Amazon.HealthLake.Model.UpdateFHIRDatastoreRequest request)
+        private Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse CallAWSServiceOperation(IAmazonHealthLake client, Amazon.HealthLake.Model.RestoreFHIRDatastoreRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon HealthLake", "UpdateFHIRDatastore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon HealthLake", "RestoreFHIRDatastore");
             try
             {
-                return client.UpdateFHIRDatastoreAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.RestoreFHIRDatastoreAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -508,11 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.HealthLake.AnalyticsStatus AnalyticsConfiguration_Status { get; set; }
-            public System.Boolean? BackupConfiguration_BackupTagsEnabled { get; set; }
-            public Amazon.HealthLake.BackupType BackupConfiguration_BackupType { get; set; }
-            public System.Int32? BackupConfiguration_RetentionPeriodInDay { get; set; }
-            public Amazon.HealthLake.BackupStatus BackupConfiguration_Status { get; set; }
-            public System.String DatastoreId { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String DatastoreName { get; set; }
             public Amazon.HealthLake.AuthorizationStrategy IdentityProviderConfiguration_AuthorizationStrategy { get; set; }
             public System.Boolean? IdentityProviderConfiguration_FineGrainedAuthorizationEnabled { get; set; }
@@ -520,8 +571,13 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String IdentityProviderConfiguration_Metadata { get; set; }
             public Amazon.HealthLake.NlpStatus NlpConfiguration_Status { get; set; }
             public List<System.String> ProfileConfiguration_DefaultProfile { get; set; }
-            public System.Func<Amazon.HealthLake.Model.UpdateFHIRDatastoreResponse, UpdateAHLFHIRDatastoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DatastoreProperties;
+            public System.DateTime? RestoreConfiguration_ContinuousBackupRestoreConfiguration_RestorePointTime { get; set; }
+            public System.String SourceDatastoreId { get; set; }
+            public Amazon.HealthLake.CmkType SseConfiguration_KmsEncryptionConfig_CmkType { get; set; }
+            public System.String SseConfiguration_KmsEncryptionConfig_KmsKeyId { get; set; }
+            public List<Amazon.HealthLake.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.HealthLake.Model.RestoreFHIRDatastoreResponse, RestoreAHLFHIRDatastoreCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

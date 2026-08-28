@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key identifier used to encrypt the profile
-        /// content at rest.</para>
+        /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key identifier
+        /// used to encrypt the profile content at rest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

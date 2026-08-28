@@ -214,6 +214,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_CredentialsSecretArn { get; set; }
         #endregion
         
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily
+        /// <summary>
+        /// <para>
+        /// <para>A daily sync that runs once a day at a system-chosen off-peak time. The run time is
+        /// not configurable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgent.Model.DailySchedule DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily { get; set; }
+        #endregion
+        
         #region Parameter DataDeletionPolicy
         /// <summary>
         /// <para>
@@ -229,6 +240,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockAgent.DataDeletionPolicy")]
         public Amazon.BedrockAgent.DataDeletionPolicy DataDeletionPolicy { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber
+        /// <summary>
+        /// <para>
+        /// <para>A specific day of the month, from 1 to 28. Values are capped at 28, so a monthly sync
+        /// runs in every month, including February.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek
+        /// <summary>
+        /// <para>
+        /// <para>The day of the week on which the weekly sync runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.DayOfWeek")]
+        public Amazon.BedrockAgent.DayOfWeek DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek { get; set; }
         #endregion
         
         #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_DeletionProtectionConfiguration_DeletionProtectionStatus
@@ -449,6 +482,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KnowledgeBaseId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth
+        /// <summary>
+        /// <para>
+        /// <para>Set this option to run the monthly sync on the last calendar day of each month.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgent.Model.LastDayOfMonth DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth { get; set; }
         #endregion
         
         #region Parameter HierarchicalChunkingConfiguration_LevelConfiguration
@@ -900,6 +943,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus;
             context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus;
             context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth;
+            context.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek = this.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek;
             context.S3Configuration_BucketArn = this.S3Configuration_BucketArn;
             context.S3Configuration_BucketOwnerAccountId = this.S3Configuration_BucketOwnerAccountId;
             if (this.S3Configuration_InclusionPrefix != null)
@@ -1600,6 +1647,51 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.DataSourceConfiguration.WebConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration;
                 requestDataSourceConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.S3DataSourceConfiguration requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = null;
+            
+             // populate S3Configuration
+            var requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = new Amazon.BedrockAgent.Model.S3DataSourceConfiguration();
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn = null;
+            if (cmdletContext.S3Configuration_BucketArn != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn = cmdletContext.S3Configuration_BucketArn;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketArn = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn;
+                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
+            }
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = null;
+            if (cmdletContext.S3Configuration_BucketOwnerAccountId != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = cmdletContext.S3Configuration_BucketOwnerAccountId;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketOwnerAccountId = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId;
+                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
+            }
+            List<System.String> requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix = null;
+            if (cmdletContext.S3Configuration_InclusionPrefix != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix = cmdletContext.S3Configuration_InclusionPrefix;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.InclusionPrefixes = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix;
+                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration != null)
+            {
+                request.DataSourceConfiguration.S3Configuration = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration;
+                requestDataSourceConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.ManagedKnowledgeBaseConnectorConfiguration requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration = null;
             
              // populate ManagedKnowledgeBaseConnectorConfiguration
@@ -1740,6 +1832,106 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration.MediaExtractionConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration;
                 requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.SyncSchedule requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule = null;
+            
+             // populate SyncSchedule
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncScheduleIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule = new Amazon.BedrockAgent.Model.SyncSchedule();
+            Amazon.BedrockAgent.Model.DailySchedule requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule.Daily = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncScheduleIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.MonthlySchedule requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly = null;
+            
+             // populate Monthly
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_MonthlyIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly = new Amazon.BedrockAgent.Model.MonthlySchedule();
+            Amazon.BedrockAgent.Model.DayOfMonth requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth = null;
+            
+             // populate DayOfMonth
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonthIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth = new Amazon.BedrockAgent.Model.DayOfMonth();
+            System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber.Value;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth.DayNumber = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber.Value;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonthIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.LastDayOfMonth requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth.LastDayOfMonth = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonthIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonthIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly.DayOfMonth = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_MonthlyIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_MonthlyIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule.Monthly = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncScheduleIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.WeeklySchedule requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly = null;
+            
+             // populate Weekly
+            var requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_WeeklyIsNull = true;
+            requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly = new Amazon.BedrockAgent.Model.WeeklySchedule();
+            Amazon.BedrockAgent.DayOfWeek requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek = null;
+            if (cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek = cmdletContext.DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly.DayOfWeek = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_WeeklyIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_WeeklyIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule.Weekly = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncScheduleIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncScheduleIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule = null;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration.SyncSchedule = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule;
+                requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull = false;
+            }
              // determine if requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration should be set to null
             if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfigurationIsNull)
             {
@@ -1748,51 +1940,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration != null)
             {
                 request.DataSourceConfiguration.ManagedKnowledgeBaseConnectorConfiguration = requestDataSourceConfiguration_dataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration;
-                requestDataSourceConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgent.Model.S3DataSourceConfiguration requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = null;
-            
-             // populate S3Configuration
-            var requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = true;
-            requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = new Amazon.BedrockAgent.Model.S3DataSourceConfiguration();
-            System.String requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn = null;
-            if (cmdletContext.S3Configuration_BucketArn != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn = cmdletContext.S3Configuration_BucketArn;
-            }
-            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketArn = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn;
-                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
-            }
-            System.String requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = null;
-            if (cmdletContext.S3Configuration_BucketOwnerAccountId != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = cmdletContext.S3Configuration_BucketOwnerAccountId;
-            }
-            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketOwnerAccountId = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId;
-                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
-            }
-            List<System.String> requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix = null;
-            if (cmdletContext.S3Configuration_InclusionPrefix != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix = cmdletContext.S3Configuration_InclusionPrefix;
-            }
-            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix != null)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.InclusionPrefixes = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix;
-                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
-            }
-             // determine if requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration should be set to null
-            if (requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull)
-            {
-                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration = null;
-            }
-            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration != null)
-            {
-                request.DataSourceConfiguration.S3Configuration = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration;
                 requestDataSourceConfigurationIsNull = false;
             }
              // determine if request.DataSourceConfiguration should be set to null
@@ -2299,6 +2446,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus { get; set; }
             public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
             public Amazon.BedrockAgent.EnabledOrDisabledState DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus { get; set; }
+            public Amazon.BedrockAgent.Model.DailySchedule DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily { get; set; }
+            public System.Int32? DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber { get; set; }
+            public Amazon.BedrockAgent.Model.LastDayOfMonth DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth { get; set; }
+            public Amazon.BedrockAgent.DayOfWeek DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek { get; set; }
             public System.String S3Configuration_BucketArn { get; set; }
             public System.String S3Configuration_BucketOwnerAccountId { get; set; }
             public List<System.String> S3Configuration_InclusionPrefix { get; set; }

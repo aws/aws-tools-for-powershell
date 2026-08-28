@@ -90,6 +90,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.AnalyticsStatus
         {
             ($_ -eq "New-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
+            ($_ -eq "Restore-AHLFHIRDatastore/AnalyticsConfiguration_Status") -Or
             ($_ -eq "Update-AHLFHIRDatastore/AnalyticsConfiguration_Status")
         }
         {
@@ -100,6 +101,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.AuthorizationStrategy
         {
             ($_ -eq "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy") -Or
+            ($_ -eq "Restore-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy") -Or
             ($_ -eq "Update-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy")
         }
         {
@@ -107,8 +109,31 @@ $AHL_Completers = {
             break
         }
 
+        # Amazon.HealthLake.BackupStatus
+        {
+            ($_ -eq "New-AHLFHIRDatastore/BackupConfiguration_Status") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/BackupConfiguration_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.HealthLake.BackupType
+        {
+            ($_ -eq "New-AHLFHIRDatastore/BackupConfiguration_BackupType") -Or
+            ($_ -eq "Update-AHLFHIRDatastore/BackupConfiguration_BackupType")
+        }
+        {
+            $v = "CONTINUOUS"
+            break
+        }
+
         # Amazon.HealthLake.CmkType
-        "New-AHLFHIRDatastore/KmsEncryptionConfig_CmkType"
+        {
+            ($_ -eq "New-AHLFHIRDatastore/KmsEncryptionConfig_CmkType") -Or
+            ($_ -eq "Restore-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType")
+        }
         {
             $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
             break
@@ -141,6 +166,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.NlpStatus
         {
             ($_ -eq "New-AHLFHIRDatastore/NlpConfiguration_Status") -Or
+            ($_ -eq "Restore-AHLFHIRDatastore/NlpConfiguration_Status") -Or
             ($_ -eq "Update-AHLFHIRDatastore/NlpConfiguration_Status")
         }
         {
@@ -191,17 +217,20 @@ $AHL_Completers = {
 }
 
 $AHL_map = @{
-    "AnalyticsConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
+    "AnalyticsConfiguration_Status"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
+    "BackupConfiguration_BackupType"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
+    "BackupConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "DatastoreTypeVersion"=@("New-AHLFHIRDatastore")
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
-    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
+    "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "InputDataConfig_SourceFormat"=@("Start-AHLDataTransformationJob")
     "InputMessage_Type"=@("Update-AHLProfileWithAgent")
     "JobStatus"=@("Get-AHLDataTransformationJobList","Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
-    "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Update-AHLFHIRDatastore")
+    "NlpConfiguration_Status"=@("New-AHLFHIRDatastore","Restore-AHLFHIRDatastore","Update-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
     "SourceFormat"=@("Get-AHLDataTransformationProfileList","New-AHLDataTransformationProfile","Publish-AHLDataTransformationProfile","Update-AHLProfileWithAgent")
+    "SseConfiguration_KmsEncryptionConfig_CmkType"=@("Restore-AHLFHIRDatastore")
     "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
 
@@ -272,6 +301,7 @@ $AHL_SelectMap = @{
                "Get-AHLFHIRImportJobList",
                "Get-AHLResourceTag",
                "Publish-AHLDataTransformationProfile",
+               "Restore-AHLFHIRDatastore",
                "Start-AHLDataTransformationJob",
                "Start-AHLFHIRExportJob",
                "Start-AHLFHIRImportJob",
