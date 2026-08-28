@@ -178,6 +178,10 @@ function Uninstall-AWSToolsModule {
 
         [Parameter()]
         [switch]
+        $LegacyOnly,
+
+        [Parameter()]
+        [switch]
         $Force,
 
         [Parameter(ParameterSetName = 'Version')]
@@ -442,7 +446,12 @@ function Uninstall-AWSToolsModule {
             Write-Verbose "[$($MyInvocation.MyCommand)] Using $Scope scope path: $scopePath"
             $scopePath
         }
-        
+
+        # -LegacyOnly: skip all AWS.Tools module discovery/removal and run only the
+        # legacy AWSPowerShell cleanup below. Used by Install-AWSToolsModule's
+        # legacy-only path so it never uninstalls AWS.Tools modules.
+        if (-not $LegacyOnly) {
+
         Write-Progress -Activity "Uninstalling AWS.Tools modules" -Status "Searching for installed modules..." -PercentComplete 30
         
         # Get and filter modules (AWS.Tools.Installer is automatically excluded). This call
@@ -604,7 +613,8 @@ function Uninstall-AWSToolsModule {
                 Write-Host "Skipped uninstallation: No AWS.Tools modules found ($versionInfo) in $targetPath"
             }
         }
-        
+        } # end if (-not $LegacyOnly)
+
         # Handle legacy module cleanup if requested
         if ($CleanUpLegacyScope) {
             Write-Verbose ("[$($MyInvocation.MyCommand)] Cleaning up legacy AWSPowerShell modules " +

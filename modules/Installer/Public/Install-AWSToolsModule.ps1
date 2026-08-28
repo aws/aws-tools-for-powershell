@@ -889,9 +889,13 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
             }
             elseif ($CleanUpLegacyModuleScope) {
                 try {
-                    # If skipping AWS Tools cleanup but still need to clean up legacy modules
+                    # If skipping AWS Tools cleanup but still need to clean up legacy modules.
+                    # LegacyOnly ensures Uninstall-AWSToolsModule removes ONLY legacy AWSPowerShell
+                    # modules and never uninstalls AWS.Tools modules (see PowerShell installer bug:
+                    # an unscoped Uninstall-AWSToolsModule would otherwise remove all AWS.Tools modules).
                     $uninstallParams = @{
                         CleanUpLegacyScope = $CleanUpLegacyModuleScope
+                        LegacyOnly         = $true
                     }
                     
                     # Pass WhatIf preference if it's set
