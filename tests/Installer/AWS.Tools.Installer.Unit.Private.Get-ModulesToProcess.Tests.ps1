@@ -169,10 +169,44 @@ InModuleScope AWS.Tools.Installer {
             It "Should handle non-existent version" {
                 # Act
                 $result = Get-ModulesToProcess -TargetPath $script:testModulePath -Version ([Version]"9.9.9.9")
-                
+
                 # Assert
                 $result.Regular | Should -HaveCount 0
                 $result.Installer | Should -HaveCount 0
+            }
+        }
+
+        Context "Prerelease ExceptModules" {
+            BeforeEach {
+                # A prerelease module installs to a base-version folder (5.0.0) with the prerelease
+                # tag only in the manifest. Build a mock with that shape.
+                $preBase = Join-Path $script:testModulePath "AWS.Tools.S3/5.0.0"
+                $pre = New-MockModule -Name "AWS.Tools.S3" -Version ([Version]"5.0.0") -ModuleBase $preBase
+                $pre.PrivateData.PSData.Prerelease = "preview003"
+                Mock Get-InstalledAWSToolsModule { return @($pre) }
+            }
+
+            It "Should not throw when ExceptModules contains a prerelease version" {
+                # Regression: Get-CleanVersion is [Version]-typed and cannot parse '5.0.0-preview003'.
+                { Get-ModulesToProcess -TargetPath $script:testModulePath -ExceptModules @(@{ Name = 'AWS.Tools.S3'; Version = '5.0.0-preview003' }) } |
+                    Should -Not -Throw
+            }
+
+            It "Should exclude the prerelease module that matches the ExceptModules entry" {
+                # Act
+                $result = Get-ModulesToProcess -TargetPath $script:testModulePath -ExceptModules @(@{ Name = 'AWS.Tools.S3'; Version = '5.0.0-preview003' })
+
+                # Assert - the just-installed prerelease is excluded from removal
+                $result.Regular | Should -HaveCount 0
+            }
+
+            It "Should NOT exclude a different prerelease version of the same module" {
+                # Act - except a different preview tag; the installed preview003 should remain
+                $result = Get-ModulesToProcess -TargetPath $script:testModulePath -ExceptModules @(@{ Name = 'AWS.Tools.S3'; Version = '5.0.0-preview001' })
+
+                # Assert
+                $result.Regular | Should -HaveCount 1
+                $result.Regular[0].Name | Should -Be "AWS.Tools.S3"
             }
         }
     }

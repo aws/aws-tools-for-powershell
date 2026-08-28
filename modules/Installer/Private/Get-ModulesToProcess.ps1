@@ -156,25 +156,38 @@ function Get-ModulesToProcess {
             Write-Verbose ("[$($MyInvocation.MyCommand)] Filtering by except modules: " +
                 "$($ExceptModules.Count) module-version pairs")
             
-            # Build a hashtable for fast lookups: Key = "ModuleName|Version", Value = $true
+            # Build a hashtable for fast lookups: Key = "ModuleName|Version", Value = $true.
+            # Preserve prerelease tags (e.g. 5.0.0-preview003) rather than forcing them through
+            # [Version] via Get-CleanVersion, which cannot represent a prerelease suffix and would
+            # throw. Mirrors the prerelease handling used by the -Version/-ExceptVersion paths above.
             $exceptLookup = @{}
             foreach ($moduleInfo in $ExceptModules) {
                 $moduleName = $moduleInfo.Name
-                $moduleVersion = $moduleInfo.Version
-                # Use Get-CleanVersion for consistent version normalization
-                $normalizedVersion = (Get-CleanVersion $moduleVersion).ToString()
+                $rawVersion = [string]$moduleInfo.Version
+                $normalizedVersion = if ($rawVersion -match '^\d+\.\d+\.\d+-.+$') {
+                    $rawVersion
+                } else {
+                    (Get-CleanVersion $rawVersion).ToString()
+                }
                 $lookupKey = "$moduleName|$normalizedVersion"
                 $exceptLookup[$lookupKey] = $true
                 Write-Verbose ("[$($MyInvocation.MyCommand)] Excluding: $moduleName " +
                     "version $normalizedVersion")
             }
-            
+
             # Filter out modules that match name and version in ExceptModules
             $installedModules = $installedModules | Where-Object {
                 $module = $_
-                $moduleVersion = (Get-CleanVersion $module.Version).ToString()
+                # Include the prerelease tag from the manifest so prerelease modules match the
+                # corresponding ExceptModules entry (and never hit the [Version] conversion).
+                $moduleVersionString = Get-ModuleVersionString -Module $module
+                $moduleVersion = if ($moduleVersionString -match '^\d+\.\d+\.\d+-.+$') {
+                    $moduleVersionString
+                } else {
+                    (Get-CleanVersion $module.Version).ToString()
+                }
                 $lookupKey = "$($module.Name)|$moduleVersion"
-                
+
                 # Keep module if it's NOT in the except list
                 $shouldKeep = -not $exceptLookup.ContainsKey($lookupKey)
                 if (-not $shouldKeep) {
