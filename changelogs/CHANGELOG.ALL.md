@@ -1,4 +1,7 @@
-﻿### 5.0.288 (2026-08-31 19:13Z)
+﻿### 5.0.289 (2026-08-31 23:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.324.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.288 (2026-08-31 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.323.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Added cmdlet Dismount-S3PSDrive.
