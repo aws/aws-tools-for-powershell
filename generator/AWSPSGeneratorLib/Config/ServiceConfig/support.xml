@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CompleteAttachmentUpload" OutputProperty="UploadStatus" Verb="Complete" Noun="AttachmentUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="AttachmentSetId" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" PipelineParameter="Subject" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -37,11 +41,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACases" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAttachmentUploadStatus" OutputProperty="*" Verb="Get" Noun="AttachmentUploadStatusDetail" PipelineParameter="UploadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACommunications" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACases">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACommunications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -49,11 +57,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyAlias="Get-ASAServices" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASAServices">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASASeverityLevels" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASASeverityLevels">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" OutputProperty="Statuses" Verb="Get" Noun="TrustedAdvisorCheckRefreshStatus" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" OutputProperty="Statuses" Verb="Get" Noun="TrustedAdvisorCheckRefreshStatus" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -69,11 +77,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" OutputProperty="Checks" Verb="Get" Noun="TrustedAdvisorCheck" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorChecks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" OutputProperty="Checks" Verb="Get" Noun="TrustedAdvisorCheck" PipelineParameter="Language" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASATrustedAdvisorChecks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" OutputProperty="Summaries" Verb="Get" Noun="TrustedAdvisorCheckSummary" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" OutputProperty="Summaries" Verb="Get" Noun="TrustedAdvisorCheckSummary" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttachmentDownloadLink" OutputProperty="*" Verb="Get" Noun="AttachmentDownloadLink" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttachmentUploadLinks" OutputProperty="*" Verb="Get" Noun="AttachmentUploadLink" PipelineParameter="FileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,4 +1,62 @@
-﻿### 5.0.287 (2026-08-28 19:17Z)
+﻿### 5.0.288 (2026-08-31 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.323.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Added cmdlet Dismount-S3PSDrive.
+    * Added cmdlet Mount-S3PSDrive.
+  * Amazon Agent Registry Control
+    * Modified cmdlet New-AGRCRegistry: added parameters AutoDetectionConfiguration_Enabled, AutoDetectionConfiguration_Scope and EncryptionConfiguration_KmsKeyArn.
+    * Modified cmdlet New-AGRCRegistryRecord: added parameters Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration, Descriptors_Agui_Source_FromUrl_Url, Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration, Descriptors_Http_Source_FromUrl_Url and Provenance.
+    * Modified cmdlet Update-AGRCRegistry: added parameters AutoDetectionConfiguration_OptionalValue_Enabled and AutoDetectionConfiguration_OptionalValue_Scope.
+    * Modified cmdlet Update-AGRCRegistryRecord: added parameters Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration, Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url, Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration, Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url and Provenance.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Add-CPFStreamForSegment leveraging the AssociateStreamForSegments service API.
+    * Added cmdlet Get-CPFSegmentSubscription leveraging the GetSegmentSubscription service API.
+    * Added cmdlet Get-CPFSegmentSubscriptionEventList leveraging the ListSegmentSubscriptionEvents service API.
+    * Added cmdlet Get-CPFStreamForSegment leveraging the GetStreamForSegments service API.
+    * Added cmdlet Remove-CPFSegmentSubscription leveraging the DeleteSegmentSubscription service API.
+    * Added cmdlet Remove-CPFStreamForSegment leveraging the DisassociateStreamForSegments service API.
+    * Added cmdlet Write-CPFSegmentSubscription leveraging the PutSegmentSubscription service API.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNCrossRegionRouting leveraging the GetCrossRegionRouting service API.
+    * Added cmdlet Update-CONNCrossRegionRouting leveraging the UpdateCrossRegionRouting service API.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Slack_Bidirectional_Enabled and Configuration_Slack_Bidirectional_RoleArn.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Slack_Bidirectional_Enabled and Configuration_Slack_Bidirectional_RoleArn.
+  * Amazon Kinesis
+    * Added cmdlet Get-KINChannelDetail leveraging the DescribeChannel service API.
+    * Added cmdlet Get-KINChannelList leveraging the ListChannels service API.
+    * Added cmdlet New-KINChannel leveraging the CreateChannel service API.
+    * Added cmdlet Remove-KINChannel leveraging the DeleteChannel service API.
+    * Added cmdlet Update-KINChannel leveraging the UpdateChannel service API.
+  * Amazon Managed Streaming for Kafka Connect
+    * Added cmdlet Restart-MSKCConnector leveraging the RestartConnector service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAppDetail leveraging the DescribeApp service API.
+    * Added cmdlet Get-QSAppList leveraging the ListApps service API.
+    * Added cmdlet Get-QSAppPermissionDetail leveraging the DescribeAppPermissions service API.
+    * Added cmdlet Remove-QSApp leveraging the DeleteApp service API.
+    * Added cmdlet Search-QSApp leveraging the SearchApps service API.
+    * Added cmdlet Update-QSAppPermission leveraging the UpdateAppPermissions service API.
+  * Amazon Support
+    * Added cmdlet Complete-ASAAttachmentUpload leveraging the CompleteAttachmentUpload service API.
+    * Added cmdlet Get-ASAAttachmentDownloadLink leveraging the GetAttachmentDownloadLink service API.
+    * Added cmdlet Get-ASAAttachmentUploadLink leveraging the GetAttachmentUploadLinks service API.
+    * Added cmdlet Get-ASAAttachmentUploadStatusDetail leveraging the DescribeAttachmentUploadStatus service API.
+    * Modified cmdlet Add-ASAAttachmentsToSet: added parameter DryRun.
+    * Modified cmdlet Add-ASACommunicationToCase: added parameters DryRun and UploadId.
+    * Modified cmdlet Get-ASAAttachment: added parameter DryRun.
+    * Modified cmdlet Get-ASACase: added parameter DryRun.
+    * Modified cmdlet Get-ASACommunication: added parameter DryRun.
+    * Modified cmdlet Get-ASACreateCaseOption: added parameter DryRun.
+    * Modified cmdlet Get-ASAService: added parameter DryRun.
+    * Modified cmdlet Get-ASASeverityLevel: added parameter DryRun.
+    * Modified cmdlet Get-ASASupportedLanguage: added parameter DryRun.
+    * Modified cmdlet New-ASACase: added parameters DryRun and UploadId.
+    * Modified cmdlet Resolve-ASACase: added parameter DryRun.
+  * Amazon Workspaces Instances
+    * Modified cmdlet New-WKSIWorkspaceInstance: added parameter ManagedInstance_CpuOptions_NestedVirtualization.
+
+### 5.0.287 (2026-08-28 19:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.322.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABDataSource: added parameters DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Daily, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_DayNumber, DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Monthly_DayOfMonth_LastDayOfMonth and DataSourceConfiguration_ManagedKnowledgeBaseConnectorConfiguration_SyncSchedule_Weekly_DayOfWeek.

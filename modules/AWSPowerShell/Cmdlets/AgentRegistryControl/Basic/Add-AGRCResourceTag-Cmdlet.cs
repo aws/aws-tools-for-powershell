@@ -30,7 +30,10 @@ using Amazon.AgentRegistryControl.Model;
 namespace Amazon.PowerShell.Cmdlets.AGRC
 {
     /// <summary>
-    /// Tag a resource with key-value pairs
+    /// Adds or overwrites one or more tags for the specified Amazon Web Services Agent Registry
+    /// resource. Tags are key-value pairs that you can use to categorize and manage Amazon
+    /// Web Services resources. If a tag with the same key already exists on the resource,
+    /// the service replaces its value with the value you specify.
     /// </summary>
     [Cmdlet("Add", "AGRCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the resource to tag. Supported resources include
+        /// registries and registry records.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The tags to apply to the resource, as a map of tag keys to tag values. Tag keys must
+        /// be unique within the request.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

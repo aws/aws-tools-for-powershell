@@ -30,7 +30,9 @@ using Amazon.AgentRegistryControl.Model;
 namespace Amazon.PowerShell.Cmdlets.AGRC
 {
     /// <summary>
-    /// Remove tags from a resource by key
+    /// Removes one or more tags from the specified Amazon Web Services Agent Registry resource.
+    /// The operation removes only the tags whose keys you supply; other tags on the resource
+    /// remain unchanged.
     /// </summary>
     [Cmdlet("Remove", "AGRCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the resource to remove tags from. Supported resources
+        /// include registries and registry records.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The keys of the tags to remove from the resource. Tags with keys not included in this
+        /// list remain on the resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

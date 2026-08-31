@@ -45,17 +45,33 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// One or more <c>nextToken</c> values, which specify where to paginate the returned
     /// records represented by the <c>CaseDetails</c> objects.
     /// </para></li></ul><para>
-    /// Case data is available for 12 months after creation. If a case was created more than
-    /// 12 months ago, a request might return an error.
+    /// Case data is available for 24 months after creation. If a case was created more than
+    /// 24 months ago, a request might return an error.
     /// </para><note><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
-    /// Amazon Web Services Support API. 
+    /// You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services
+    /// Support API. If you're in an Amazon Web Services Region that doesn't offer one of
+    /// these Amazon Web Services Support plans, or if you haven't transitioned to one of
+    /// these plans, you can use the Amazon Web Services Support API with a Business, Enterprise
+    /// On-Ramp, or Enterprise Support plan.
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
+    /// an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support,
+    /// or Amazon Web Services Unified Operations plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
-    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul></note><important><para>
+    /// Each <a>Communication</a> returned by this operation includes attachment information
+    /// in two fields:
+    /// </para><ul><li><para><c>attachmentSet</c>: returns only attachments that are 5 MB or smaller. Attachments
+    /// larger than 5 MB are not included in this field.
+    /// </para></li><li><para><c>attachments</c>: returns all attachments regardless of size.
+    /// </para></li></ul><para>
+    /// Amazon Web Services recommends that you use the <c>attachments</c> field and download
+    /// each attachment with <a>GetAttachmentDownloadLink</a>, which supports attachments
+    /// of any size. The <c>attachmentSet</c> field and <a>DescribeAttachment</a> return only
+    /// attachments that are 5 MB or smaller.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASACase")]
     [OutputType("Amazon.AWSSupport.Model.CaseDetails")]
@@ -74,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The start date for a filtered date search on support case communications. Case communications
-        /// are available for 12 months after creation.</para>
+        /// are available for 24 months after creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The end date for a filtered date search on support case communications. Case communications
-        /// are available for 12 months after creation.</para>
+        /// are available for 24 months after creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,6 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         public System.String DisplayId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to validate the request without actually returning case data. When
+        /// set to <c>true</c>, the request is validated but no cases are returned, and the operation
+        /// returns a <c>DryRunOperationException</c>. When omitted or set to <c>false</c>, the
+        /// request runs normally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IncludeCommunication
         /// <summary>
         /// <para>
@@ -145,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
-        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
-        /// (“ko”). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
+        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese
+        /// ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish
+        /// ("tr"). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
         /// want support in that language.</para>
         /// </para>
         /// </summary>
@@ -231,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 context.CaseIdList = new List<System.String>(this.CaseIdList);
             }
             context.DisplayId = this.DisplayId;
+            context.DryRun = this.DryRun;
             context.IncludeCommunication = this.IncludeCommunication;
             context.IncludeResolvedCase = this.IncludeResolvedCase;
             context.Language = this.Language;
@@ -279,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             if (cmdletContext.DisplayId != null)
             {
                 request.DisplayId = cmdletContext.DisplayId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IncludeCommunication != null)
             {
@@ -366,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             if (cmdletContext.DisplayId != null)
             {
                 request.DisplayId = cmdletContext.DisplayId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IncludeCommunication != null)
             {
@@ -496,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             public System.String BeforeTime { get; set; }
             public List<System.String> CaseIdList { get; set; }
             public System.String DisplayId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? IncludeCommunication { get; set; }
             public System.Boolean? IncludeResolvedCase { get; set; }
             public System.String Language { get; set; }

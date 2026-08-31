@@ -188,6 +188,13 @@ $WKSI_Completers = {
             break
         }
 
+        # Amazon.WorkspacesInstances.NestedVirtualizationEnum
+        "New-WKSIWorkspaceInstance/ManagedInstance_CpuOptions_NestedVirtualization"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.WorkspacesInstances.PlatformTypeEnum
         "Get-WKSIInstanceTypeList/InstanceConfigurationFilter_PlatformType"
         {
@@ -235,6 +242,7 @@ $WKSI_map = @{
     "InstanceConfigurationFilter_Tenancy"=@("Get-WKSIInstanceTypeList")
     "InstanceMarketOptions_MarketType"=@("New-WKSIWorkspaceInstance")
     "MaintenanceOptions_AutoRecovery"=@("New-WKSIWorkspaceInstance")
+    "ManagedInstance_CpuOptions_NestedVirtualization"=@("New-WKSIWorkspaceInstance")
     "MetadataOptions_HttpEndpoint"=@("New-WKSIWorkspaceInstance")
     "MetadataOptions_HttpProtocolIpv6"=@("New-WKSIWorkspaceInstance")
     "MetadataOptions_HttpToken"=@("New-WKSIWorkspaceInstance")

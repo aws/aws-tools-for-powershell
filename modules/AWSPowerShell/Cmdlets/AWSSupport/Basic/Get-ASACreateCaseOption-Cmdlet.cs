@@ -35,11 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// <c>issueType</c> and <c>serviceCode</c> used to retrieve the CreateCaseOptions.
     /// 
     ///  <note><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
-    /// Amazon Web Services Support API. 
+    /// You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services
+    /// Support API. If you're in an Amazon Web Services Region that doesn't offer one of
+    /// these Amazon Web Services Support plans, or if you haven't transitioned to one of
+    /// these plans, you can use the Amazon Web Services Support API with a Business, Enterprise
+    /// On-Ramp, or Enterprise Support plan.
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
+    /// an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support,
+    /// or Amazon Web Services Unified Operations plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>
@@ -75,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         public System.String CategoryCode { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to validate the request without actually returning case option data.
+        /// When set to <c>true</c>, the request is validated but no options are returned, and
+        /// the operation returns a <c>DryRunOperationException</c>. When omitted or set to <c>false</c>,
+        /// the request runs normally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IssueType
         /// <summary>
         /// <para>
@@ -97,8 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
-        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
-        /// (“ko”). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
+        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese
+        /// ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish
+        /// ("tr"). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
         /// want support in that language.</para>
         /// </para>
         /// </summary>
@@ -168,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 WriteWarning("You are passing $null as a value for parameter CategoryCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.IssueType = this.IssueType;
             #if MODULAR
             if (this.IssueType == null && ParameterWasBound(nameof(this.IssueType)))
@@ -208,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             if (cmdletContext.CategoryCode != null)
             {
                 request.CategoryCode = cmdletContext.CategoryCode;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IssueType != null)
             {
@@ -277,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CategoryCode { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IssueType { get; set; }
             public System.String Language { get; set; }
             public System.String ServiceCode { get; set; }

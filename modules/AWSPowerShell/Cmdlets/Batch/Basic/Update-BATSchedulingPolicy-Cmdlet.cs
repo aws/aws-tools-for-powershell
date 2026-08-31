@@ -113,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>An array of <c>SharedIdentifier</c> objects that contain the weights for the share
         /// identifiers for the fair-share policy. Share identifiers that aren't included have
         /// a default weight of <c>1.0</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

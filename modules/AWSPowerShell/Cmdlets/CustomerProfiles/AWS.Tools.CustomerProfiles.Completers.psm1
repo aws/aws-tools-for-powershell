@@ -232,6 +232,13 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.ScheduleConfigurationUnit
+        "Write-CPFSegmentSubscription/ScheduleConfiguration_Unit"
+        {
+            $v = "HOURLY"
+            break
+        }
+
         # Amazon.CustomerProfiles.Scope
         "Write-CPFIntegration/Scope"
         {
@@ -252,7 +259,7 @@ $CPF_Completers = {
         # Amazon.CustomerProfiles.Statistic
         "New-CPFCalculatedAttributeDefinition/Statistic"
         {
-            $v = "AVERAGE","COUNT","FIRST_OCCURRENCE","LAST_OCCURRENCE","MAXIMUM","MAX_OCCURRENCE","MINIMUM","SUM"
+            $v = "AVERAGE","COUNT","FIRST_OCCURRENCE","LAST_OCCURRENCE","MAXIMUM","MAX_OCCURRENCE","MINIMUM","RECENT_OCCURRENCES","SUM"
             break
         }
 
@@ -317,6 +324,7 @@ $CPF_map = @{
     "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "RecommenderRecipeName"=@("New-CPFRecommender")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "ScheduleConfiguration_Unit"=@("Write-CPFSegmentSubscription")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
     "Scope"=@("Write-CPFIntegration")
     "SegmentGroups_Include"=@("New-CPFSegmentDefinition")
@@ -380,6 +388,7 @@ $CPF_SelectCompleters = {
 
 $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
+               "Add-CPFStreamForSegment",
                "Get-CPFGetCalculatedAttributeForProfile",
                "Get-CPFGetProfile",
                "Write-CPFProfileObjectBatch",
@@ -412,8 +421,10 @@ $CPF_SelectMap = @{
                "Remove-CPFRecommenderFilter",
                "Remove-CPFRecommenderSchema",
                "Remove-CPFSegmentDefinition",
+               "Remove-CPFSegmentSubscription",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
+               "Remove-CPFStreamForSegment",
                "Get-CPFAutoMergingPreview",
                "Get-CPFCalculatedAttributeDefinition",
                "Get-CPFCalculatedAttributeForProfile",
@@ -437,7 +448,9 @@ $CPF_SelectMap = @{
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
                "Get-CPFSegmentSnapshot",
+               "Get-CPFSegmentSubscription",
                "Get-CPFSimilarProfile",
+               "Get-CPFStreamForSegment",
                "Get-CPFUploadJob",
                "Get-CPFUploadJobPath",
                "Get-CPFWorkflow",
@@ -465,6 +478,7 @@ $CPF_SelectMap = @{
                "Get-CPFRecommenderSchemaList",
                "Get-CPFRuleBasedMatchList",
                "Get-CPFSegmentDefinitionList",
+               "Get-CPFSegmentSubscriptionEventList",
                "Get-CPFResourceTag",
                "Get-CPFUploadJobList",
                "Get-CPFWorkflowList",
@@ -473,6 +487,7 @@ $CPF_SelectMap = @{
                "Write-CPFIntegration",
                "Write-CPFProfileObject",
                "Write-CPFProfileObjectType",
+               "Write-CPFSegmentSubscription",
                "Search-CPFProfile",
                "Start-CPFRecommender",
                "Start-CPFUploadJob",

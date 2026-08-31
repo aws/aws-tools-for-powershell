@@ -125,8 +125,10 @@ $ASA_SelectCompleters = {
 $ASA_SelectMap = @{
     "Select"=@("Add-ASAAttachmentsToSet",
                "Add-ASACommunicationToCase",
+               "Complete-ASAAttachmentUpload",
                "New-ASACase",
                "Get-ASAAttachment",
+               "Get-ASAAttachmentUploadStatusDetail",
                "Get-ASACase",
                "Get-ASACommunication",
                "Get-ASACreateCaseOption",
@@ -137,6 +139,8 @@ $ASA_SelectMap = @{
                "Get-ASATrustedAdvisorCheckResult",
                "Get-ASATrustedAdvisorCheck",
                "Get-ASATrustedAdvisorCheckSummary",
+               "Get-ASAAttachmentDownloadLink",
+               "Get-ASAAttachmentUploadLink",
                "Request-ASATrustedAdvisorCheckRefresh",
                "Resolve-ASACase")
 }

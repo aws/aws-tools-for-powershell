@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MSKCCustomPlugin', 
         'Remove-MSKCResourceTag', 
         'Remove-MSKCWorkerConfiguration', 
+        'Restart-MSKCConnector', 
         'Update-MSKCConnector')
 
     # Variables to export from this module

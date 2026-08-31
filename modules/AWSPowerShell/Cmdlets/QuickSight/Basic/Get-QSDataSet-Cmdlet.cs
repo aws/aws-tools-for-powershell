@@ -30,8 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes a dataset. This operation doesn't support datasets that include uploaded
-    /// files as a source.
+    /// Describes a dataset.
     /// </summary>
     [Cmdlet("Get", "QSDataSet")]
     [OutputType("Amazon.QuickSight.Model.DataSet")]

@@ -350,6 +350,7 @@ $S3_Completers = {
         # Amazon.S3.S3StorageClass
         {
             ($_ -eq "Restore-S3Object/S3_StorageClass") -Or
+            ($_ -eq "Mount-S3PSDrive/StorageClass") -Or
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
@@ -483,7 +484,7 @@ $S3_map = @{
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
     "SessionMode"=@("New-S3Session")
     "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
-    "StorageClass"=@("Write-S3GetObjectResponse")
+    "StorageClass"=@("Mount-S3PSDrive","Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
     "TransitionDefaultMinimumObjectSize"=@("Write-S3LifecycleConfiguration")
     "VersioningConfig_Status"=@("Write-S3BucketVersioning")
@@ -638,16 +639,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Get-S3MultipartUpload",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Copy-S3Object",
-               "Get-S3PreSignedURL",
                "New-S3Bucket",
-               "Write-S3Object",
+               "Get-S3PreSignedURL",
+               "Dismount-S3PSDrive",
+               "Copy-S3Object",
                "Remove-S3MultipartUpload",
+               "Read-S3Object",
                "Remove-S3Bucket",
-               "Read-S3Object")
+               "Mount-S3PSDrive",
+               "Remove-S3Object",
+               "Get-S3MultipartUpload",
+               "Write-S3Object",
+               "Test-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

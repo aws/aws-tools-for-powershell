@@ -537,6 +537,17 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
         public System.String IamInstanceProfile_Name { get; set; }
         #endregion
         
+        #region Parameter ManagedInstance_CpuOptions_NestedVirtualization
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable or disable nested virtualization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkspacesInstances.NestedVirtualizationEnum")]
+        public Amazon.WorkspacesInstances.NestedVirtualizationEnum ManagedInstance_CpuOptions_NestedVirtualization { get; set; }
+        #endregion
+        
         #region Parameter ManagedInstance_NetworkInterface
         /// <summary>
         /// <para>
@@ -777,6 +788,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             context.CapacityReservationTarget_CapacityReservationResourceGroupArn = this.CapacityReservationTarget_CapacityReservationResourceGroupArn;
             context.CpuOptions_AmdSevSnp = this.CpuOptions_AmdSevSnp;
             context.CpuOptions_CoreCount = this.CpuOptions_CoreCount;
+            context.ManagedInstance_CpuOptions_NestedVirtualization = this.ManagedInstance_CpuOptions_NestedVirtualization;
             context.CpuOptions_ThreadsPerCore = this.CpuOptions_ThreadsPerCore;
             context.CreditSpecification_CpuCredit = this.CreditSpecification_CpuCredit;
             context.ManagedInstance_DisableApiStop = this.ManagedInstance_DisableApiStop;
@@ -1416,51 +1428,6 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
                 request.ManagedInstance.InstanceMarketOptions = requestManagedInstance_managedInstance_InstanceMarketOptions;
                 requestManagedInstanceIsNull = false;
             }
-            Amazon.WorkspacesInstances.Model.CpuOptionsRequest requestManagedInstance_managedInstance_CpuOptions = null;
-            
-             // populate CpuOptions
-            var requestManagedInstance_managedInstance_CpuOptionsIsNull = true;
-            requestManagedInstance_managedInstance_CpuOptions = new Amazon.WorkspacesInstances.Model.CpuOptionsRequest();
-            Amazon.WorkspacesInstances.AmdSevSnpEnum requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp = null;
-            if (cmdletContext.CpuOptions_AmdSevSnp != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp = cmdletContext.CpuOptions_AmdSevSnp;
-            }
-            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions.AmdSevSnp = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp;
-                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
-            }
-            System.Int32? requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount = null;
-            if (cmdletContext.CpuOptions_CoreCount != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount = cmdletContext.CpuOptions_CoreCount.Value;
-            }
-            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions.CoreCount = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount.Value;
-                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
-            }
-            System.Int32? requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore = null;
-            if (cmdletContext.CpuOptions_ThreadsPerCore != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore = cmdletContext.CpuOptions_ThreadsPerCore.Value;
-            }
-            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore != null)
-            {
-                requestManagedInstance_managedInstance_CpuOptions.ThreadsPerCore = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore.Value;
-                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
-            }
-             // determine if requestManagedInstance_managedInstance_CpuOptions should be set to null
-            if (requestManagedInstance_managedInstance_CpuOptionsIsNull)
-            {
-                requestManagedInstance_managedInstance_CpuOptions = null;
-            }
-            if (requestManagedInstance_managedInstance_CpuOptions != null)
-            {
-                request.ManagedInstance.CpuOptions = requestManagedInstance_managedInstance_CpuOptions;
-                requestManagedInstanceIsNull = false;
-            }
             Amazon.WorkspacesInstances.Model.PrivateDnsNameOptionsRequest requestManagedInstance_managedInstance_PrivateDnsNameOptions = null;
             
              // populate PrivateDnsNameOptions
@@ -1504,6 +1471,61 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_PrivateDnsNameOptions != null)
             {
                 request.ManagedInstance.PrivateDnsNameOptions = requestManagedInstance_managedInstance_PrivateDnsNameOptions;
+                requestManagedInstanceIsNull = false;
+            }
+            Amazon.WorkspacesInstances.Model.CpuOptionsRequest requestManagedInstance_managedInstance_CpuOptions = null;
+            
+             // populate CpuOptions
+            var requestManagedInstance_managedInstance_CpuOptionsIsNull = true;
+            requestManagedInstance_managedInstance_CpuOptions = new Amazon.WorkspacesInstances.Model.CpuOptionsRequest();
+            Amazon.WorkspacesInstances.AmdSevSnpEnum requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp = null;
+            if (cmdletContext.CpuOptions_AmdSevSnp != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp = cmdletContext.CpuOptions_AmdSevSnp;
+            }
+            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions.AmdSevSnp = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_AmdSevSnp;
+                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
+            }
+            System.Int32? requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount = null;
+            if (cmdletContext.CpuOptions_CoreCount != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount = cmdletContext.CpuOptions_CoreCount.Value;
+            }
+            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions.CoreCount = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_CoreCount.Value;
+                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
+            }
+            Amazon.WorkspacesInstances.NestedVirtualizationEnum requestManagedInstance_managedInstance_CpuOptions_managedInstance_CpuOptions_NestedVirtualization = null;
+            if (cmdletContext.ManagedInstance_CpuOptions_NestedVirtualization != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions_managedInstance_CpuOptions_NestedVirtualization = cmdletContext.ManagedInstance_CpuOptions_NestedVirtualization;
+            }
+            if (requestManagedInstance_managedInstance_CpuOptions_managedInstance_CpuOptions_NestedVirtualization != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions.NestedVirtualization = requestManagedInstance_managedInstance_CpuOptions_managedInstance_CpuOptions_NestedVirtualization;
+                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
+            }
+            System.Int32? requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore = null;
+            if (cmdletContext.CpuOptions_ThreadsPerCore != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore = cmdletContext.CpuOptions_ThreadsPerCore.Value;
+            }
+            if (requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore != null)
+            {
+                requestManagedInstance_managedInstance_CpuOptions.ThreadsPerCore = requestManagedInstance_managedInstance_CpuOptions_cpuOptions_ThreadsPerCore.Value;
+                requestManagedInstance_managedInstance_CpuOptionsIsNull = false;
+            }
+             // determine if requestManagedInstance_managedInstance_CpuOptions should be set to null
+            if (requestManagedInstance_managedInstance_CpuOptionsIsNull)
+            {
+                requestManagedInstance_managedInstance_CpuOptions = null;
+            }
+            if (requestManagedInstance_managedInstance_CpuOptions != null)
+            {
+                request.ManagedInstance.CpuOptions = requestManagedInstance_managedInstance_CpuOptions;
                 requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.InstanceMetadataOptionsRequest requestManagedInstance_managedInstance_MetadataOptions = null;
@@ -1738,6 +1760,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public Amazon.WorkspacesInstances.AmdSevSnpEnum CpuOptions_AmdSevSnp { get; set; }
             public System.Int32? CpuOptions_CoreCount { get; set; }
+            public Amazon.WorkspacesInstances.NestedVirtualizationEnum ManagedInstance_CpuOptions_NestedVirtualization { get; set; }
             public System.Int32? CpuOptions_ThreadsPerCore { get; set; }
             public Amazon.WorkspacesInstances.CpuCreditsEnum CreditSpecification_CpuCredit { get; set; }
             public System.Boolean? ManagedInstance_DisableApiStop { get; set; }

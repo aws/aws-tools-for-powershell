@@ -30,7 +30,8 @@ using Amazon.AgentRegistryControl.Model;
 namespace Amazon.PowerShell.Cmdlets.AGRC
 {
     /// <summary>
-    /// List the tags on a resource
+    /// Lists the tags associated with the specified Amazon Web Services Agent Registry resource.
+    /// Returns the current tag key-value pairs on the resource.
     /// </summary>
     [Cmdlet("Get", "AGRCResourceTag")]
     [OutputType("System.String")]
@@ -48,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the resource to list tags for. Supported resources
+        /// include registries and registry records.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -921,8 +921,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter S3KnowledgeBaseParameters_MetadataFilesLocation
         /// <summary>
         /// <para>
-        /// <para>The location of metadata files within the S3 bucket that describe the structure and
-        /// content of the knowledge base.</para>
+        /// <para>The Amazon S3 location (prefix) of per-document metadata files. Each metadata file
+        /// describes a single source document and its indexable attributes, such as title, category,
+        /// and version. This is not the global ACL configuration file. To apply a single global
+        /// ACL file to the entire knowledge base, use the access control configuration instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

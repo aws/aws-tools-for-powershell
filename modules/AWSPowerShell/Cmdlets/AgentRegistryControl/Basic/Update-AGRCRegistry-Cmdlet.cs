@@ -136,6 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
         #endregion
         
+        #region Parameter AutoDetectionConfiguration_OptionalValue_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether auto-detection is requested for the registry. Setting this to <c>true</c>
+        /// is necessary but not sufficient for auto-detection to become active; the preconditions
+        /// of the configured scope must also be met.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoDetectionConfiguration_OptionalValue_Enabled { get; set; }
+        #endregion
+        
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
         /// <summary>
         /// <para>
@@ -160,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Description_OptionalValue
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +233,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
         #endregion
         
+        #region Parameter AutoDetectionConfiguration_OptionalValue_Scope
+        /// <summary>
+        /// <para>
+        /// <para>The source from which resources are detected. For example, <c>ORGANIZATION</c> sources
+        /// resources from all member accounts of an Amazon Web Services organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AgentRegistryControl.AutoDetectionScope")]
+        public Amazon.AgentRegistryControl.AutoDetectionScope AutoDetectionConfiguration_OptionalValue_Scope { get; set; }
+        #endregion
+        
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
         /// <summary>
         /// <para>
@@ -256,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The tags applied to the service-managed VPC resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -328,6 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             {
                 context.ApprovalConfiguration_OptionalValue_AutoApprovalRule = new List<System.String>(this.ApprovalConfiguration_OptionalValue_AutoApprovalRule);
             }
+            context.AutoDetectionConfiguration_OptionalValue_Enabled = this.AutoDetectionConfiguration_OptionalValue_Enabled;
+            context.AutoDetectionConfiguration_OptionalValue_Scope = this.AutoDetectionConfiguration_OptionalValue_Scope;
             context.Description_OptionalValue = this.Description_OptionalValue;
             if (this.DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience != null)
             {
@@ -427,6 +453,50 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (requestApprovalConfigurationIsNull)
             {
                 request.ApprovalConfiguration = null;
+            }
+            
+             // populate AutoDetectionConfiguration
+            var requestAutoDetectionConfigurationIsNull = true;
+            request.AutoDetectionConfiguration = new Amazon.AgentRegistryControl.Model.UpdatedAutoDetectionConfiguration();
+            Amazon.AgentRegistryControl.Model.AutoDetectionConfiguration requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValueIsNull = true;
+            requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue = new Amazon.AgentRegistryControl.Model.AutoDetectionConfiguration();
+            System.Boolean? requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Enabled = null;
+            if (cmdletContext.AutoDetectionConfiguration_OptionalValue_Enabled != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Enabled = cmdletContext.AutoDetectionConfiguration_OptionalValue_Enabled.Value;
+            }
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Enabled != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue.Enabled = requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Enabled.Value;
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValueIsNull = false;
+            }
+            Amazon.AgentRegistryControl.AutoDetectionScope requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Scope = null;
+            if (cmdletContext.AutoDetectionConfiguration_OptionalValue_Scope != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Scope = cmdletContext.AutoDetectionConfiguration_OptionalValue_Scope;
+            }
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Scope != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue.Scope = requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue_autoDetectionConfiguration_OptionalValue_Scope;
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValueIsNull = false;
+            }
+             // determine if requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue should be set to null
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValueIsNull)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue = null;
+            }
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue != null)
+            {
+                request.AutoDetectionConfiguration.OptionalValue = requestAutoDetectionConfiguration_autoDetectionConfiguration_OptionalValue;
+                requestAutoDetectionConfigurationIsNull = false;
+            }
+             // determine if request.AutoDetectionConfiguration should be set to null
+            if (requestAutoDetectionConfigurationIsNull)
+            {
+                request.AutoDetectionConfiguration = null;
             }
             
              // populate Description
@@ -740,6 +810,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ApprovalConfiguration_OptionalValue_AutoApprovalRule { get; set; }
+            public System.Boolean? AutoDetectionConfiguration_OptionalValue_Enabled { get; set; }
+            public Amazon.AgentRegistryControl.AutoDetectionScope AutoDetectionConfiguration_OptionalValue_Scope { get; set; }
             public System.String Description_OptionalValue { get; set; }
             public List<System.String> DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedClient { get; set; }

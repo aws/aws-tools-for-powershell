@@ -188,6 +188,7 @@ $MSKC_SelectMap = @{
                "Get-MSKCCustomPluginList",
                "Get-MSKCResourceTag",
                "Get-MSKCWorkerConfigurationList",
+               "Restart-MSKCConnector",
                "Add-MSKCResourceTag",
                "Remove-MSKCResourceTag",
                "Update-MSKCConnector")

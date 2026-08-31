@@ -44,8 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </para></li><li><para>
     /// Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a>
     /// operation.
-    /// </para></li></ul><para>
-    /// A successful <c>CreateCase</c> request returns an Amazon Web Services Support case
+    /// </para></li></ul><important><para>
+    /// Amazon Web Services Support automatically redacts sensitive information from support
+    /// cases to protect your data. The following information is replaced with <c>[REDACTED_BY_Amazon
+    /// Web Services]</c> and is not stored:
+    /// </para><ul><li><para>
+    /// Amazon Web Services secret keys - The complete key is replaced. Example: <c>[REDACTED_BY_Amazon
+    /// Web Services]</c></para></li><li><para>
+    /// Private keys - The complete key is replaced. Example: <c>[REDACTED_BY_Amazon Web Services]</c></para></li><li><para>
+    /// Credit card numbers - The number is redacted, but the last 4 digits remain. Example:
+    /// <c>[REDACTED_BY_Amazon Web Services]-7016</c></para></li></ul><para>
+    /// This sensitive information is never required by Amazon Web Services Support.
+    /// </para></important><para>
+    /// A successful <c>CreateCase</c> request returns a Amazon Web Services Support case
     /// number. You can use the <a>DescribeCases</a> operation and specify the case number
     /// to get existing Amazon Web Services Support cases. After you create a case, use the
     /// <a>AddCommunicationToCase</a> operation to add additional communication or attachments
@@ -55,11 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Web Services Support Center</a>. Use the <a>DescribeCases</a> operation to get the
     /// <c>displayId</c>.
     /// </para><note><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
-    /// Amazon Web Services Support API. 
+    /// You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services
+    /// Support API. If you're in an Amazon Web Services Region that doesn't offer one of
+    /// these Amazon Web Services Support plans, or if you haven't transitioned to one of
+    /// these plans, you can use the Amazon Web Services Support API with a Business, Enterprise
+    /// On-Ramp, or Enterprise Support plan.
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
+    /// an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support,
+    /// or Amazon Web Services Unified Operations plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li></ul></note>
@@ -81,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The ID of a set of one or more attachments for the case. Create the set by using the
-        /// <a>AddAttachmentsToSet</a> operation.</para>
+        /// <a>AddAttachmentsToSet</a> operation. Each attachment in the set must be 5 MB or smaller.
+        /// To attach files larger than 5 MB, use <c>uploadIds</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,6 +153,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         public System.String CommunicationBody { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to validate the request without actually creating the case. When
+        /// set to <c>true</c>, the request is validated but no case is created, and the operation
+        /// returns a <c>DryRunOperationException</c>. When omitted or set to <c>false</c>, the
+        /// request runs normally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IssueType
         /// <summary>
         /// <para>
@@ -151,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
-        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
-        /// (“ko”). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
+        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese
+        /// ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish
+        /// ("tr"). You must specify the ISO 639-1 code for the <c>language</c> parameter if you
         /// want support in that language.</para>
         /// </para>
         /// </summary>
@@ -203,6 +234,25 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Subject { get; set; }
+        #endregion
+        
+        #region Parameter UploadId
+        /// <summary>
+        /// <para>
+        /// <para>A list of upload IDs that identify attachments to add to the case. Each <c>uploadId</c>
+        /// is returned by the <a>GetAttachmentUploadLinks</a> operation. The upload must reach
+        /// the <c>attachment-ready</c> state by calling <a>CompleteAttachmentUpload</a> before
+        /// it can be passed here. Use <c>uploadIds</c> to attach files of any supported size,
+        /// including files larger than 5 MB.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UploadIds")]
+        public System.String[] UploadId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -264,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 WriteWarning("You are passing $null as a value for parameter CommunicationBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.IssueType = this.IssueType;
             context.Language = this.Language;
             context.ServiceCode = this.ServiceCode;
@@ -275,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 WriteWarning("You are passing $null as a value for parameter Subject which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.UploadId != null)
+            {
+                context.UploadId = new List<System.String>(this.UploadId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -307,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             {
                 request.CommunicationBody = cmdletContext.CommunicationBody;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.IssueType != null)
             {
                 request.IssueType = cmdletContext.IssueType;
@@ -326,6 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             if (cmdletContext.Subject != null)
             {
                 request.Subject = cmdletContext.Subject;
+            }
+            if (cmdletContext.UploadId != null)
+            {
+                request.UploadIds = cmdletContext.UploadId;
             }
             
             CmdletOutput output;
@@ -386,11 +449,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             public System.String CategoryCode { get; set; }
             public List<System.String> CcEmailAddress { get; set; }
             public System.String CommunicationBody { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IssueType { get; set; }
             public System.String Language { get; set; }
             public System.String ServiceCode { get; set; }
             public System.String SeverityCode { get; set; }
             public System.String Subject { get; set; }
+            public List<System.String> UploadId { get; set; }
             public System.Func<Amazon.AWSSupport.Model.CreateCaseResponse, NewASACaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CaseId;
         }

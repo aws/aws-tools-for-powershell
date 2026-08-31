@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateStreamForSegments" Verb="Add" Noun="StreamForSegment" ShouldProcessTarget="DomainName,DestinationArn,DestinationRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetCalculatedAttributeForProfile" OutputProperty="*" Verb="Get" Noun="GetCalculatedAttributeForProfile" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ConditionOverrides_Range_End" NewName="Range_End" />
@@ -209,11 +213,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSegmentSubscription" OutputProperty="Message" Verb="Remove" Noun="SegmentSubscription" ShouldProcessTarget="DomainName,SegmentDefinitionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectProfileObjectType" OutputProperty="DetectedProfileObjectTypes" Verb="Find" Noun="ProfileObjectType" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateStreamForSegments" OutputProperty="Message" Verb="Remove" Noun="StreamForSegment" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,7 +321,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSegmentSubscription" OutputProperty="*" Verb="Get" Noun="SegmentSubscription" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSimilarProfiles" OutputProperty="*" Verb="Get" Noun="SimilarProfile" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamForSegments" OutputProperty="*" Verb="Get" Noun="StreamForSegment" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -421,6 +441,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSegmentSubscriptionEvents" OutputProperty="Events" Verb="Get" Noun="SegmentSubscriptionEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -471,6 +495,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutProfileObjectType" OutputProperty="*" Verb="Write" Noun="ProfileObjectType" ShouldProcessTarget="ObjectTypeName" PipelineParameter="ObjectTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSegmentSubscription" OutputProperty="*" Verb="Write" Noun="SegmentSubscription" ShouldProcessTarget="DomainName,SegmentDefinitionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

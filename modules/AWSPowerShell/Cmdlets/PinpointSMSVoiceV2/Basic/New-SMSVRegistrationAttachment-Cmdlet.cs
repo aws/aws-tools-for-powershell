@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Create a new registration attachment to use for uploading a file or a URL to a file.
-    /// The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG. For
+    /// The maximum file size is 5MB and valid file extensions are PDF, JPEG and PNG. For
     /// example, many sender ID registrations require a signed “letter of authorization” (LOA)
     /// to be submitted.
     /// 
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter AttachmentBody
         /// <summary>
         /// <para>
-        /// <para>The registration file to upload. The maximum file size is 500KB and valid file extensions
+        /// <para>The registration file to upload. The maximum file size is 5MB and valid file extensions
         /// are PDF, JPEG and PNG.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

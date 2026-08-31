@@ -89,7 +89,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-ASAAttachmentsToSet', 
         'Add-ASACommunicationToCase', 
+        'Complete-ASAAttachmentUpload', 
         'Get-ASAAttachment', 
+        'Get-ASAAttachmentDownloadLink', 
+        'Get-ASAAttachmentUploadLink', 
+        'Get-ASAAttachmentUploadStatusDetail', 
         'Get-ASACase', 
         'Get-ASACommunication', 
         'Get-ASACreateCaseOption', 

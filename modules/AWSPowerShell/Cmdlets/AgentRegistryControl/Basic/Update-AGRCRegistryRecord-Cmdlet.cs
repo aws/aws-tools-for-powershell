@@ -78,6 +78,38 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillMd_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
         #endregion
         
+        #region Parameter Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration
         /// <summary>
         /// <para>
@@ -107,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Description_OptionalValue
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,6 +266,20 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String DisplayName_OptionalValue { get; set; }
         #endregion
         
+        #region Parameter Provenance
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.AgentRegistryControl.Model.Provenance[] Provenance { get; set; }
+        #endregion
+        
         #region Parameter RecordId
         /// <summary>
         /// <para>
@@ -319,6 +365,26 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillMd_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
         #endregion
         
+        #region Parameter Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
+        #endregion
+        
         #region Parameter Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url
         /// <summary>
         /// <para>
@@ -397,7 +463,17 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             context.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillMd_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillMd_OptionalValue_Source_OptionalValue_FromUrl_Url;
             context.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_Data_OptionalValue;
             context.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_DataSchemaVersion_OptionalValue = this.Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_DataSchemaVersion_OptionalValue;
+            if (this.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url;
             context.Descriptors_OptionalValue_Custom_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_Custom_OptionalValue_Data_OptionalValue;
+            if (this.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url;
             context.Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_Data_OptionalValue;
             context.Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_DataSchemaVersion_OptionalValue = this.Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_DataSchemaVersion_OptionalValue;
             context.Descriptors_OptionalValue_McpServer_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_McpServer_OptionalValue_Data_OptionalValue;
@@ -409,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             context.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url = this.Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url;
             context.DisplayName_OptionalValue = this.DisplayName_OptionalValue;
             context.Name = this.Name;
+            if (this.Provenance != null)
+            {
+                context.Provenance = new List<Amazon.AgentRegistryControl.Model.Provenance>(this.Provenance);
+            }
             context.RecordId = this.RecordId;
             #if MODULAR
             if (this.RecordId == null && ParameterWasBound(nameof(this.RecordId)))
@@ -870,6 +950,101 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 requestDescriptors_descriptors_OptionalValue.AgentSkillsDefinition = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_AgentSkillsDefinition;
                 requestDescriptors_descriptors_OptionalValueIsNull = false;
             }
+            Amazon.AgentRegistryControl.Model.UpdatedAgUiDescriptor requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui = null;
+            
+             // populate Agui
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_AguiIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui = new Amazon.AgentRegistryControl.Model.UpdatedAgUiDescriptor();
+            Amazon.AgentRegistryControl.Model.UpdatedAgUiDescriptorFields requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValueIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue = new Amazon.AgentRegistryControl.Model.UpdatedAgUiDescriptorFields();
+            Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source = null;
+            
+             // populate Source
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_SourceIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source = new Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValueIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl = null;
+            
+             // populate FromUrl
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrlIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+            List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = null;
+            if (cmdletContext.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+            }
+            System.String requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url = null;
+            if (cmdletContext.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url = cmdletContext.Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl.Url = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrlIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue.FromUrl = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValueIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValueIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source_descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_SourceIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_SourceIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue.Source = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue_descriptors_OptionalValue_Agui_OptionalValue_Source;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValueIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValueIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui_descriptors_OptionalValue_Agui_OptionalValue;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_AguiIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_AguiIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui != null)
+            {
+                requestDescriptors_descriptors_OptionalValue.Agui = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Agui;
+                requestDescriptors_descriptors_OptionalValueIsNull = false;
+            }
             Amazon.AgentRegistryControl.Model.UpdatedCustomDescriptor requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Custom = null;
             
              // populate Custom
@@ -923,6 +1098,101 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Custom != null)
             {
                 requestDescriptors_descriptors_OptionalValue.Custom = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Custom;
+                requestDescriptors_descriptors_OptionalValueIsNull = false;
+            }
+            Amazon.AgentRegistryControl.Model.UpdatedHttpDescriptor requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http = null;
+            
+             // populate Http
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_HttpIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http = new Amazon.AgentRegistryControl.Model.UpdatedHttpDescriptor();
+            Amazon.AgentRegistryControl.Model.UpdatedHttpDescriptorFields requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValueIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue = new Amazon.AgentRegistryControl.Model.UpdatedHttpDescriptorFields();
+            Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source = null;
+            
+             // populate Source
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_SourceIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source = new Amazon.AgentRegistryControl.Model.UpdatedDescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue = null;
+            
+             // populate OptionalValue
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValueIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl = null;
+            
+             // populate FromUrl
+            var requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrlIsNull = true;
+            requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+            List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = null;
+            if (cmdletContext.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+            }
+            System.String requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url = null;
+            if (cmdletContext.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url = cmdletContext.Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl.Url = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrlIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrlIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue.FromUrl = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValueIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValueIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source_descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_SourceIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_SourceIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue.Source = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue_descriptors_OptionalValue_Http_OptionalValue_Source;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValueIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValueIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue != null)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http.OptionalValue = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http_descriptors_OptionalValue_Http_OptionalValue;
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_HttpIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http should be set to null
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_HttpIsNull)
+            {
+                requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http = null;
+            }
+            if (requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http != null)
+            {
+                requestDescriptors_descriptors_OptionalValue.Http = requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_Http;
                 requestDescriptors_descriptors_OptionalValueIsNull = false;
             }
             Amazon.AgentRegistryControl.Model.UpdatedMcpServerDescriptor requestDescriptors_descriptors_OptionalValue_descriptors_OptionalValue_McpServer = null;
@@ -1218,6 +1488,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Provenance != null)
+            {
+                request.Provenance = cmdletContext.Provenance;
+            }
             if (cmdletContext.RecordId != null)
             {
                 request.RecordId = cmdletContext.RecordId;
@@ -1304,7 +1578,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_AdditionalData_OptionalValue_SkillMd_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
             public System.String Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_Data_OptionalValue { get; set; }
             public System.String Descriptors_OptionalValue_AgentSkillsDefinition_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_OptionalValue_Agui_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
             public System.String Descriptors_OptionalValue_Custom_OptionalValue_Data_OptionalValue { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_OptionalValue_Http_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_Data_OptionalValue { get; set; }
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_AdditionalData_OptionalValue_Tools_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_Data_OptionalValue { get; set; }
@@ -1313,6 +1591,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_OptionalValue_McpServer_OptionalValue_Source_OptionalValue_FromUrl_Url { get; set; }
             public System.String DisplayName_OptionalValue { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.Provenance> Provenance { get; set; }
             public System.String RecordId { get; set; }
             public Amazon.AgentRegistryControl.RecordType RecordType { get; set; }
             public System.String RecordVersion { get; set; }

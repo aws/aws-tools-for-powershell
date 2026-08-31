@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The identifier of the registry whose discoverable records are listed. You can provide
+        /// either the full Amazon Resource Name (ARN) or the registry ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

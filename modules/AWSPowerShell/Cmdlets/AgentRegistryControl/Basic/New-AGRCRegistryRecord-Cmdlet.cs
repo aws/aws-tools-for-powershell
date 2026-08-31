@@ -78,6 +78,38 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_AgentSkillsDefinition_AdditionalData_SkillMd_Source_FromUrl_CredentialProviderConfiguration { get; set; }
         #endregion
         
+        #region Parameter Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_Agui_Source_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The credential providers used to authenticate when fetching descriptor content from
+        /// the source URL.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Descriptors_Http_Source_FromUrl_CredentialProviderConfigurations")]
+        public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration
         /// <summary>
         /// <para>
@@ -127,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Descriptors_Custom_Data
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The custom descriptor content, serialized as descriptor payload data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Descriptors_McpServer_AdditionalData_Tools_Data
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The MCP tools descriptor content, serialized as descriptor payload data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Descriptors_McpServer_AdditionalData_Tools_DataSchemaVersion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The schema version of the descriptor payload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,6 +271,20 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Provenance
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.AgentRegistryControl.Model.Provenance[] Provenance { get; set; }
         #endregion
         
         #region Parameter RecordType
@@ -318,6 +364,26 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Descriptors_AgentSkillsDefinition_AdditionalData_SkillMd_Source_FromUrl_Url { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_Agui_Source_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_Agui_Source_FromUrl_Url { get; set; }
+        #endregion
+        
+        #region Parameter Descriptors_Http_Source_FromUrl_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL from which the descriptor content is retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptors_Http_Source_FromUrl_Url { get; set; }
         #endregion
         
         #region Parameter Descriptors_McpServer_Source_FromUrl_Url
@@ -409,7 +475,17 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             context.Descriptors_AgentSkillsDefinition_AdditionalData_SkillMd_Source_FromUrl_Url = this.Descriptors_AgentSkillsDefinition_AdditionalData_SkillMd_Source_FromUrl_Url;
             context.Descriptors_AgentSkillsDefinition_Data = this.Descriptors_AgentSkillsDefinition_Data;
             context.Descriptors_AgentSkillsDefinition_DataSchemaVersion = this.Descriptors_AgentSkillsDefinition_DataSchemaVersion;
+            if (this.Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_Agui_Source_FromUrl_Url = this.Descriptors_Agui_Source_FromUrl_Url;
             context.Descriptors_Custom_Data = this.Descriptors_Custom_Data;
+            if (this.Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                context.Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration = new List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration>(this.Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration);
+            }
+            context.Descriptors_Http_Source_FromUrl_Url = this.Descriptors_Http_Source_FromUrl_Url;
             context.Descriptors_McpServer_AdditionalData_Tools_Data = this.Descriptors_McpServer_AdditionalData_Tools_Data;
             context.Descriptors_McpServer_AdditionalData_Tools_DataSchemaVersion = this.Descriptors_McpServer_AdditionalData_Tools_DataSchemaVersion;
             context.Descriptors_McpServer_Data = this.Descriptors_McpServer_Data;
@@ -427,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Provenance != null)
+            {
+                context.Provenance = new List<Amazon.AgentRegistryControl.Model.Provenance>(this.Provenance);
+            }
             context.RecordType = this.RecordType;
             #if MODULAR
             if (this.RecordType == null && ParameterWasBound(nameof(this.RecordType)))
@@ -478,6 +558,71 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
              // populate Descriptors
             var requestDescriptorsIsNull = true;
             request.Descriptors = new Amazon.AgentRegistryControl.Model.Descriptors();
+            Amazon.AgentRegistryControl.Model.AgUiDescriptor requestDescriptors_descriptors_Agui = null;
+            
+             // populate Agui
+            var requestDescriptors_descriptors_AguiIsNull = true;
+            requestDescriptors_descriptors_Agui = new Amazon.AgentRegistryControl.Model.AgUiDescriptor();
+            Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_Agui_descriptors_Agui_Source = null;
+            
+             // populate Source
+            var requestDescriptors_descriptors_Agui_descriptors_Agui_SourceIsNull = true;
+            requestDescriptors_descriptors_Agui_descriptors_Agui_Source = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl = null;
+            
+             // populate FromUrl
+            var requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrlIsNull = true;
+            requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+            List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration = null;
+            if (cmdletContext.Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration;
+            }
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration;
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrlIsNull = false;
+            }
+            System.String requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_Url = null;
+            if (cmdletContext.Descriptors_Agui_Source_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_Url = cmdletContext.Descriptors_Agui_Source_FromUrl_Url;
+            }
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl.Url = requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl_descriptors_Agui_Source_FromUrl_Url;
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrlIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl should be set to null
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrlIsNull)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl = null;
+            }
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl != null)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source.FromUrl = requestDescriptors_descriptors_Agui_descriptors_Agui_Source_descriptors_Agui_Source_FromUrl;
+                requestDescriptors_descriptors_Agui_descriptors_Agui_SourceIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Agui_descriptors_Agui_Source should be set to null
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_SourceIsNull)
+            {
+                requestDescriptors_descriptors_Agui_descriptors_Agui_Source = null;
+            }
+            if (requestDescriptors_descriptors_Agui_descriptors_Agui_Source != null)
+            {
+                requestDescriptors_descriptors_Agui.Source = requestDescriptors_descriptors_Agui_descriptors_Agui_Source;
+                requestDescriptors_descriptors_AguiIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Agui should be set to null
+            if (requestDescriptors_descriptors_AguiIsNull)
+            {
+                requestDescriptors_descriptors_Agui = null;
+            }
+            if (requestDescriptors_descriptors_Agui != null)
+            {
+                request.Descriptors.Agui = requestDescriptors_descriptors_Agui;
+                requestDescriptorsIsNull = false;
+            }
             Amazon.AgentRegistryControl.Model.CustomDescriptor requestDescriptors_descriptors_Custom = null;
             
              // populate Custom
@@ -501,6 +646,71 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (requestDescriptors_descriptors_Custom != null)
             {
                 request.Descriptors.Custom = requestDescriptors_descriptors_Custom;
+                requestDescriptorsIsNull = false;
+            }
+            Amazon.AgentRegistryControl.Model.HttpDescriptor requestDescriptors_descriptors_Http = null;
+            
+             // populate Http
+            var requestDescriptors_descriptors_HttpIsNull = true;
+            requestDescriptors_descriptors_Http = new Amazon.AgentRegistryControl.Model.HttpDescriptor();
+            Amazon.AgentRegistryControl.Model.DescriptorSource requestDescriptors_descriptors_Http_descriptors_Http_Source = null;
+            
+             // populate Source
+            var requestDescriptors_descriptors_Http_descriptors_Http_SourceIsNull = true;
+            requestDescriptors_descriptors_Http_descriptors_Http_Source = new Amazon.AgentRegistryControl.Model.DescriptorSource();
+            Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl = null;
+            
+             // populate FromUrl
+            var requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrlIsNull = true;
+            requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl = new Amazon.AgentRegistryControl.Model.DescriptorSourceFromUrl();
+            List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_CredentialProviderConfiguration = null;
+            if (cmdletContext.Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_CredentialProviderConfiguration = cmdletContext.Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration;
+            }
+            if (requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_CredentialProviderConfiguration != null)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl.CredentialProviderConfigurations = requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_CredentialProviderConfiguration;
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrlIsNull = false;
+            }
+            System.String requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_Url = null;
+            if (cmdletContext.Descriptors_Http_Source_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_Url = cmdletContext.Descriptors_Http_Source_FromUrl_Url;
+            }
+            if (requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_Url != null)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl.Url = requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl_descriptors_Http_Source_FromUrl_Url;
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrlIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl should be set to null
+            if (requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrlIsNull)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl = null;
+            }
+            if (requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl != null)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source.FromUrl = requestDescriptors_descriptors_Http_descriptors_Http_Source_descriptors_Http_Source_FromUrl;
+                requestDescriptors_descriptors_Http_descriptors_Http_SourceIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Http_descriptors_Http_Source should be set to null
+            if (requestDescriptors_descriptors_Http_descriptors_Http_SourceIsNull)
+            {
+                requestDescriptors_descriptors_Http_descriptors_Http_Source = null;
+            }
+            if (requestDescriptors_descriptors_Http_descriptors_Http_Source != null)
+            {
+                requestDescriptors_descriptors_Http.Source = requestDescriptors_descriptors_Http_descriptors_Http_Source;
+                requestDescriptors_descriptors_HttpIsNull = false;
+            }
+             // determine if requestDescriptors_descriptors_Http should be set to null
+            if (requestDescriptors_descriptors_HttpIsNull)
+            {
+                requestDescriptors_descriptors_Http = null;
+            }
+            if (requestDescriptors_descriptors_Http != null)
+            {
+                request.Descriptors.Http = requestDescriptors_descriptors_Http;
                 requestDescriptorsIsNull = false;
             }
             Amazon.AgentRegistryControl.Model.A2aAgentCardDescriptor requestDescriptors_descriptors_A2aAgentCard = null;
@@ -871,6 +1081,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Provenance != null)
+            {
+                request.Provenance = cmdletContext.Provenance;
+            }
             if (cmdletContext.RecordType != null)
             {
                 request.RecordType = cmdletContext.RecordType;
@@ -954,7 +1168,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_AgentSkillsDefinition_AdditionalData_SkillMd_Source_FromUrl_Url { get; set; }
             public System.String Descriptors_AgentSkillsDefinition_Data { get; set; }
             public System.String Descriptors_AgentSkillsDefinition_DataSchemaVersion { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_Agui_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_Agui_Source_FromUrl_Url { get; set; }
             public System.String Descriptors_Custom_Data { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration> Descriptors_Http_Source_FromUrl_CredentialProviderConfiguration { get; set; }
+            public System.String Descriptors_Http_Source_FromUrl_Url { get; set; }
             public System.String Descriptors_McpServer_AdditionalData_Tools_Data { get; set; }
             public System.String Descriptors_McpServer_AdditionalData_Tools_DataSchemaVersion { get; set; }
             public System.String Descriptors_McpServer_Data { get; set; }
@@ -963,6 +1181,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String Descriptors_McpServer_Source_FromUrl_Url { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.Provenance> Provenance { get; set; }
             public Amazon.AgentRegistryControl.RecordType RecordType { get; set; }
             public System.String RecordVersion { get; set; }
             public System.String RegistryId { get; set; }

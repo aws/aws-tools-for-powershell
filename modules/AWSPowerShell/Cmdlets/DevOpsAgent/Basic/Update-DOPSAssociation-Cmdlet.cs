@@ -289,6 +289,19 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
         #endregion
         
+        #region Parameter Configuration_Slack_Bidirectional_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether bidirectional communication is enabled for this association. When you set
+        /// this value to true, you can mention the agent in a configured Slack channel and it
+        /// responds in that channel. When you omit this value or set it to false, the agent ignores
+        /// mentions and only sends notifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_Slack_Bidirectional_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpserverdatadog_EnabledElevatedTool
         /// <summary>
         /// <para>
@@ -544,6 +557,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Dynatrace_Resources")]
         public System.String[] Configuration_Dynatrace_Resource { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Slack_Bidirectional_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace
+        /// on behalf of this association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Slack_Bidirectional_RoleArn { get; set; }
         #endregion
         
         #region Parameter Configuration_Pagerduty_Service
@@ -832,6 +856,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 context.Configuration_Servicenow_AuthScope = new List<System.String>(this.Configuration_Servicenow_AuthScope);
             }
             context.Configuration_Servicenow_InstanceId = this.Configuration_Servicenow_InstanceId;
+            context.Configuration_Slack_Bidirectional_Enabled = this.Configuration_Slack_Bidirectional_Enabled;
+            context.Configuration_Slack_Bidirectional_RoleArn = this.Configuration_Slack_Bidirectional_RoleArn;
             context.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId = this.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId;
             context.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName = this.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName;
             context.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId = this.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId;
@@ -1221,126 +1247,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.SlackConfiguration requestConfiguration_configuration_Slack = null;
-            
-             // populate Slack
-            var requestConfiguration_configuration_SlackIsNull = true;
-            requestConfiguration_configuration_Slack = new Amazon.DevOpsAgent.Model.SlackConfiguration();
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId = null;
-            if (cmdletContext.Configuration_Slack_WorkspaceId != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId = cmdletContext.Configuration_Slack_WorkspaceId;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId != null)
-            {
-                requestConfiguration_configuration_Slack.WorkspaceId = requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId;
-                requestConfiguration_configuration_SlackIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName = null;
-            if (cmdletContext.Configuration_Slack_WorkspaceName != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName = cmdletContext.Configuration_Slack_WorkspaceName;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName != null)
-            {
-                requestConfiguration_configuration_Slack.WorkspaceName = requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName;
-                requestConfiguration_configuration_SlackIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.SlackTransmissionTarget requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = null;
-            
-             // populate TransmissionTarget
-            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = true;
-            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = new Amazon.DevOpsAgent.Model.SlackTransmissionTarget();
-            Amazon.DevOpsAgent.Model.SlackChannel requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = null;
-            
-             // populate OpsOncallTarget
-            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = true;
-            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = new Amazon.DevOpsAgent.Model.SlackChannel();
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId = null;
-            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId = cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget.ChannelId = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName = null;
-            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName = cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget.ChannelName = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget should be set to null
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = null;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget.OpsOncallTarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.SlackChannel requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = null;
-            
-             // populate OpsSRETarget
-            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = true;
-            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = new Amazon.DevOpsAgent.Model.SlackChannel();
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId = null;
-            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId = cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget.ChannelId = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName = null;
-            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName = cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget.ChannelName = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget should be set to null
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = null;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget != null)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget.OpsSRETarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget;
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget should be set to null
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull)
-            {
-                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = null;
-            }
-            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget != null)
-            {
-                requestConfiguration_configuration_Slack.TransmissionTarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget;
-                requestConfiguration_configuration_SlackIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Slack should be set to null
-            if (requestConfiguration_configuration_SlackIsNull)
-            {
-                requestConfiguration_configuration_Slack = null;
-            }
-            if (requestConfiguration_configuration_Slack != null)
-            {
-                request.Configuration.Slack = requestConfiguration_configuration_Slack;
-                requestConfigurationIsNull = false;
-            }
             Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
             
              // populate Gitlab
@@ -1449,6 +1355,161 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Mcpservergrafana != null)
             {
                 request.Configuration.Mcpservergrafana = requestConfiguration_configuration_Mcpservergrafana;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.SlackConfiguration requestConfiguration_configuration_Slack = null;
+            
+             // populate Slack
+            var requestConfiguration_configuration_SlackIsNull = true;
+            requestConfiguration_configuration_Slack = new Amazon.DevOpsAgent.Model.SlackConfiguration();
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId = null;
+            if (cmdletContext.Configuration_Slack_WorkspaceId != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId = cmdletContext.Configuration_Slack_WorkspaceId;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId != null)
+            {
+                requestConfiguration_configuration_Slack.WorkspaceId = requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceId;
+                requestConfiguration_configuration_SlackIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName = null;
+            if (cmdletContext.Configuration_Slack_WorkspaceName != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName = cmdletContext.Configuration_Slack_WorkspaceName;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName != null)
+            {
+                requestConfiguration_configuration_Slack.WorkspaceName = requestConfiguration_configuration_Slack_configuration_Slack_WorkspaceName;
+                requestConfiguration_configuration_SlackIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.SlackBidirectionalConfiguration requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional = null;
+            
+             // populate Bidirectional
+            var requestConfiguration_configuration_Slack_configuration_Slack_BidirectionalIsNull = true;
+            requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional = new Amazon.DevOpsAgent.Model.SlackBidirectionalConfiguration();
+            System.Boolean? requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_Enabled = null;
+            if (cmdletContext.Configuration_Slack_Bidirectional_Enabled != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_Enabled = cmdletContext.Configuration_Slack_Bidirectional_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_Enabled != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional.Enabled = requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_Enabled.Value;
+                requestConfiguration_configuration_Slack_configuration_Slack_BidirectionalIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_RoleArn = null;
+            if (cmdletContext.Configuration_Slack_Bidirectional_RoleArn != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_RoleArn = cmdletContext.Configuration_Slack_Bidirectional_RoleArn;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_RoleArn != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional.RoleArn = requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional_configuration_Slack_Bidirectional_RoleArn;
+                requestConfiguration_configuration_Slack_configuration_Slack_BidirectionalIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional should be set to null
+            if (requestConfiguration_configuration_Slack_configuration_Slack_BidirectionalIsNull)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional = null;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional != null)
+            {
+                requestConfiguration_configuration_Slack.Bidirectional = requestConfiguration_configuration_Slack_configuration_Slack_Bidirectional;
+                requestConfiguration_configuration_SlackIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.SlackTransmissionTarget requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = null;
+            
+             // populate TransmissionTarget
+            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = true;
+            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = new Amazon.DevOpsAgent.Model.SlackTransmissionTarget();
+            Amazon.DevOpsAgent.Model.SlackChannel requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = null;
+            
+             // populate OpsOncallTarget
+            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = true;
+            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = new Amazon.DevOpsAgent.Model.SlackChannel();
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId = null;
+            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId = cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget.ChannelId = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName = null;
+            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName = cmdletContext.Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget.ChannelName = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget should be set to null
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTargetIsNull)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget = null;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget.OpsOncallTarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsOncallTarget;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.SlackChannel requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = null;
+            
+             // populate OpsSRETarget
+            var requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = true;
+            requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = new Amazon.DevOpsAgent.Model.SlackChannel();
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId = null;
+            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId = cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget.ChannelId = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName = null;
+            if (cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName = cmdletContext.Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget.ChannelName = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget_configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelName;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget should be set to null
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETargetIsNull)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget = null;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget != null)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget.OpsSRETarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget_configuration_Slack_TransmissionTarget_OpsSRETarget;
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget should be set to null
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTargetIsNull)
+            {
+                requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget = null;
+            }
+            if (requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget != null)
+            {
+                requestConfiguration_configuration_Slack.TransmissionTarget = requestConfiguration_configuration_Slack_configuration_Slack_TransmissionTarget;
+                requestConfiguration_configuration_SlackIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Slack should be set to null
+            if (requestConfiguration_configuration_SlackIsNull)
+            {
+                requestConfiguration_configuration_Slack = null;
+            }
+            if (requestConfiguration_configuration_Slack != null)
+            {
+                request.Configuration.Slack = requestConfiguration_configuration_Slack;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.AWSConfiguration requestConfiguration_configuration_Aws = null;
@@ -1771,6 +1832,8 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.Model.RemoteAgentSigV4Configuration Configuration_Remoteagentsigv4 { get; set; }
             public List<System.String> Configuration_Servicenow_AuthScope { get; set; }
             public System.String Configuration_Servicenow_InstanceId { get; set; }
+            public System.Boolean? Configuration_Slack_Bidirectional_Enabled { get; set; }
+            public System.String Configuration_Slack_Bidirectional_RoleArn { get; set; }
             public System.String Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelId { get; set; }
             public System.String Configuration_Slack_TransmissionTarget_OpsOncallTarget_ChannelName { get; set; }
             public System.String Configuration_Slack_TransmissionTarget_OpsSRETarget_ChannelId { get; set; }

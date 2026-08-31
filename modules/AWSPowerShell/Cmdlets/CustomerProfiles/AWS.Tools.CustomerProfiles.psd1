@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CPFProfileKey', 
         'Add-CPFResourceTag', 
+        'Add-CPFStreamForSegment', 
         'Find-CPFProfileObjectType', 
         'Get-CPFAccountIntegrationList', 
         'Get-CPFAutoMergingPreview', 
@@ -139,7 +140,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CPFSegmentEstimate', 
         'Get-CPFSegmentMembership', 
         'Get-CPFSegmentSnapshot', 
+        'Get-CPFSegmentSubscription', 
+        'Get-CPFSegmentSubscriptionEventList', 
         'Get-CPFSimilarProfile', 
+        'Get-CPFStreamForSegment', 
         'Get-CPFUploadJob', 
         'Get-CPFUploadJobList', 
         'Get-CPFUploadJobPath', 
@@ -177,6 +181,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CPFRecommenderSchema', 
         'Remove-CPFResourceTag', 
         'Remove-CPFSegmentDefinition', 
+        'Remove-CPFSegmentSubscription', 
+        'Remove-CPFStreamForSegment', 
         'Remove-CPFWorkflow', 
         'Search-CPFProfile', 
         'Start-CPFRecommender', 
@@ -193,7 +199,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CPFIntegration', 
         'Write-CPFProfileObject', 
         'Write-CPFProfileObjectBatch', 
-        'Write-CPFProfileObjectType')
+        'Write-CPFProfileObjectType', 
+        'Write-CPFSegmentSubscription')
 
     # Variables to export from this module
     VariablesToExport = '*'

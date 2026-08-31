@@ -38,11 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// The response contains a <a>TrustedAdvisorCheckDescription</a> object for each check.
     /// You must set the Amazon Web Services Region to us-east-1.
     /// </para><note><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
-    /// Amazon Web Services Support API. 
+    /// You must have a Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services
+    /// Support API. 
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
+    /// a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or
+    /// Amazon Web Services Unified Operations plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
     /// </para></li><li><para>

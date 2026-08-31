@@ -104,6 +104,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AppVisibility
+        "Update-QSAppPermission/Visibility"
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
         # Amazon.QuickSight.AssetBundleExportFormat
         "Start-QSAssetBundleExportJob/ExportFormat"
         {
@@ -1905,6 +1912,7 @@ $QS_map = @{
     "UseAs"=@("New-QSDataSet")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Visibility"=@("Update-QSAppPermission")
     "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "VisualSubtitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
@@ -2009,6 +2017,7 @@ $QS_SelectMap = @{
                "Remove-QSActionConnector",
                "Remove-QSAgent",
                "Remove-QSAnalysis",
+               "Remove-QSApp",
                "Remove-QSApprovalPolicy",
                "Remove-QSBrand",
                "Remove-QSBrandAssignment",
@@ -2056,6 +2065,8 @@ $QS_SelectMap = @{
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
+               "Get-QSAppDetail",
+               "Get-QSAppPermissionDetail",
                "Get-QSApprovalPolicyDetail",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
@@ -2126,6 +2137,7 @@ $QS_SelectMap = @{
                "Get-QSAgentList",
                "Get-QSAnalysisList",
                "Get-QSApprovalPolicyList",
+               "Get-QSAppList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
                "Get-QSBrandList",
@@ -2176,6 +2188,7 @@ $QS_SelectMap = @{
                "Search-QSActionConnector",
                "Search-QSAgent",
                "Search-QSAnalysis",
+               "Search-QSApp",
                "Search-QSDashboard",
                "Search-QSDataSet",
                "Search-QSDataSource",
@@ -2203,6 +2216,7 @@ $QS_SelectMap = @{
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
                "Update-QSApplicationWithTokenExchangeGrant",
+               "Update-QSAppPermission",
                "Update-QSApprovalPolicy",
                "Update-QSBrand",
                "Update-QSBrandAssignment",

@@ -158,6 +158,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl { get; set; }
         #endregion
         
+        #region Parameter AutoDetectionConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether auto-detection is requested for the registry. Setting this to <c>true</c>
+        /// is necessary but not sufficient for auto-detection to become active; the preconditions
+        /// of the configured scope must also be met.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoDetectionConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType
         /// <summary>
         /// <para>
@@ -167,6 +179,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AgentRegistryControl.EndpointIpAddressType")]
         public Amazon.AgentRegistryControl.EndpointIpAddressType DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key
+        /// used to encrypt the registry's content. The key must be a symmetric encryption key
+        /// in the same Amazon Web Services account and Region as the registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter Name
@@ -223,6 +247,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_RoutingDomain { get; set; }
         #endregion
         
+        #region Parameter AutoDetectionConfiguration_Scope
+        /// <summary>
+        /// <para>
+        /// <para>The source from which resources are detected. For example, <c>ORGANIZATION</c> sources
+        /// resources from all member accounts of an Amazon Web Services organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AgentRegistryControl.AutoDetectionScope")]
+        public Amazon.AgentRegistryControl.AutoDetectionScope AutoDetectionConfiguration_Scope { get; set; }
+        #endregion
+        
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_SecurityGroupId
         /// <summary>
         /// <para>
@@ -258,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_Tag
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The tags applied to the service-managed VPC resource.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -298,7 +334,9 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Client token for idempotency</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
+        /// than one time. If this token matches a previous request, the service ignores the request,
+        /// but does not return an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,6 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             {
                 context.ApprovalConfiguration_AutoApprovalRule = new List<System.String>(this.ApprovalConfiguration_AutoApprovalRule);
             }
+            context.AutoDetectionConfiguration_Enabled = this.AutoDetectionConfiguration_Enabled;
+            context.AutoDetectionConfiguration_Scope = this.AutoDetectionConfiguration_Scope;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
@@ -399,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 context.DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride = new List<Amazon.AgentRegistryControl.Model.PrivateEndpointOverride>(this.DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride);
             }
             context.DiscoveryConfiguration_AuthorizerType = this.DiscoveryConfiguration_AuthorizerType;
+            context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -448,6 +489,35 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (requestApprovalConfigurationIsNull)
             {
                 request.ApprovalConfiguration = null;
+            }
+            
+             // populate AutoDetectionConfiguration
+            var requestAutoDetectionConfigurationIsNull = true;
+            request.AutoDetectionConfiguration = new Amazon.AgentRegistryControl.Model.AutoDetectionConfiguration();
+            System.Boolean? requestAutoDetectionConfiguration_autoDetectionConfiguration_Enabled = null;
+            if (cmdletContext.AutoDetectionConfiguration_Enabled != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_Enabled = cmdletContext.AutoDetectionConfiguration_Enabled.Value;
+            }
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_Enabled != null)
+            {
+                request.AutoDetectionConfiguration.Enabled = requestAutoDetectionConfiguration_autoDetectionConfiguration_Enabled.Value;
+                requestAutoDetectionConfigurationIsNull = false;
+            }
+            Amazon.AgentRegistryControl.AutoDetectionScope requestAutoDetectionConfiguration_autoDetectionConfiguration_Scope = null;
+            if (cmdletContext.AutoDetectionConfiguration_Scope != null)
+            {
+                requestAutoDetectionConfiguration_autoDetectionConfiguration_Scope = cmdletContext.AutoDetectionConfiguration_Scope;
+            }
+            if (requestAutoDetectionConfiguration_autoDetectionConfiguration_Scope != null)
+            {
+                request.AutoDetectionConfiguration.Scope = requestAutoDetectionConfiguration_autoDetectionConfiguration_Scope;
+                requestAutoDetectionConfigurationIsNull = false;
+            }
+             // determine if request.AutoDetectionConfiguration should be set to null
+            if (requestAutoDetectionConfigurationIsNull)
+            {
+                request.AutoDetectionConfiguration = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -681,6 +751,25 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             {
                 request.DiscoveryConfiguration = null;
             }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.AgentRegistryControl.Model.EncryptionConfiguration();
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            {
+                request.EncryptionConfiguration.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -745,6 +834,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ApprovalConfiguration_AutoApprovalRule { get; set; }
+            public System.Boolean? AutoDetectionConfiguration_Enabled { get; set; }
+            public Amazon.AgentRegistryControl.AutoDetectionScope AutoDetectionConfiguration_Scope { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<System.String> DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
@@ -761,6 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.String DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier { get; set; }
             public List<Amazon.AgentRegistryControl.Model.PrivateEndpointOverride> DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
             public Amazon.AgentRegistryControl.RegistryAuthorizerType DiscoveryConfiguration_AuthorizerType { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.AgentRegistryControl.Model.CreateRegistryResponse, NewAGRCRegistryCmdlet, object> Select { get; set; } =

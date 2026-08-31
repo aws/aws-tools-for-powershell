@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.322.0",
+    "ProductVersion"    : "4.0.323.0",
     "CoreVersion"       : "4.0.102.1",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -24,7 +24,7 @@
             "InPreview"               : false
         },
         "AWSSupport"  : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -228,7 +228,7 @@
             "InPreview"               : false
         },
         "Kinesis"              : {
-            "Version" : "4.0.101.1",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -684,7 +684,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.102.1",
+            "Version" : "4.0.102.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.111.0",
+            "Version" : "4.0.112.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.112.0",
+            "Version" : "4.0.113.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.107.3",
+            "Version" : "4.0.108.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1212,7 +1212,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "4.0.101.3",
+            "Version" : "4.0.101.4",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1820,7 +1820,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "4.0.101.9",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2068,7 +2068,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2236,7 +2236,7 @@
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2316,7 +2316,7 @@
             "InPreview"               : false
         },
         "ControlTower"                        : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.100.12",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3156,7 +3156,7 @@
             "InPreview"               : false
         },
         "WorkspacesInstances"                 : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3348,7 +3348,7 @@
             "InPreview"               : false
         },
         "DevOpsAgent"                         : {
-            "Version" : "4.0.102.0",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3452,7 +3452,7 @@
             "InPreview"               : false
         },
         "AgentRegistry"                       : {
-            "Version" : "4.0.100.4",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3460,7 +3460,7 @@
             "InPreview"               : false
         },
         "AgentRegistryControl"                : {
-            "Version" : "4.0.100.4",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"

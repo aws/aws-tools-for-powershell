@@ -80,6 +80,16 @@ $AGRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AgentRegistryControl.AutoDetectionScope
+        {
+            ($_ -eq "Update-AGRCRegistry/AutoDetectionConfiguration_OptionalValue_Scope") -Or
+            ($_ -eq "New-AGRCRegistry/AutoDetectionConfiguration_Scope")
+        }
+        {
+            $v = "ORGANIZATION"
+            break
+        }
+
         # Amazon.AgentRegistryControl.EndpointIpAddressType
         {
             ($_ -eq "New-AGRCRegistry/DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType") -Or
@@ -96,7 +106,7 @@ $AGRC_Completers = {
             ($_ -eq "Update-AGRCRegistryRecord/RecordType")
         }
         {
-            $v = "AGENT","CUSTOM","MCP","SKILL"
+            $v = "AGENT","CUSTOM","GATEWAY","MCP","SKILL"
             break
         }
 
@@ -123,6 +133,8 @@ $AGRC_Completers = {
 }
 
 $AGRC_map = @{
+    "AutoDetectionConfiguration_OptionalValue_Scope"=@("Update-AGRCRegistry")
+    "AutoDetectionConfiguration_Scope"=@("New-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("Update-AGRCRegistry")
     "DiscoveryConfiguration_AuthorizerType"=@("New-AGRCRegistry")

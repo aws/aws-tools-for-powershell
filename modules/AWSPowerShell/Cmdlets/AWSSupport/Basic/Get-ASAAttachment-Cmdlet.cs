@@ -37,14 +37,26 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// by the <a>DescribeCommunications</a> operation.
     /// 
     ///  <note><ul><li><para>
-    /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
-    /// Amazon Web Services Support API. 
+    /// You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise
+    /// Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services
+    /// Support API. If you're in an Amazon Web Services Region that doesn't offer one of
+    /// these Amazon Web Services Support plans, or if you haven't transitioned to one of
+    /// these plans, you can use the Amazon Web Services Support API with a Business, Enterprise
+    /// On-Ramp, or Enterprise Support plan.
     /// </para></li><li><para>
     /// If you call the Amazon Web Services Support API from an account that doesn't have
-    /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <c>SubscriptionRequiredException</c>
+    /// an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support,
+    /// or Amazon Web Services Unified Operations plan, the <c>SubscriptionRequiredException</c>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
-    /// </para></li></ul></note>
+    /// </para></li></ul></note><important><para><c>DescribeAttachment</c> can't return attachments larger than 5 MB. If the specified
+    /// <c>attachmentId</c> refers to an attachment larger than 5 MB, the request fails with
+    /// <c>InvalidParameterValueException</c>.
+    /// </para><para>
+    /// To download an attachment of any size, including attachments larger than 5 MB, use
+    /// <a>GetAttachmentDownloadLink</a>. <c>GetAttachmentDownloadLink</c> returns an Amazon
+    /// S3 presigned URL that you can use to download the attachment directly.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "ASAAttachment")]
     [OutputType("Amazon.AWSSupport.Model.Attachment")]
@@ -63,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a>
-        /// operation.</para>
+        /// operation.</para><para>If the specified attachment is larger than 5 MB, this operation returns <c>InvalidParameterValueException</c>.
+        /// To download attachments larger than 5 MB, use <a>GetAttachmentDownloadLink</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AttachmentId { get; set; }
+        #endregion
+        
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to validate the request without actually retrieving the attachment.
+        /// When set to <c>true</c>, the request is validated but no attachment content is returned,
+        /// and the operation returns a <c>DryRunOperationException</c>. When omitted or set to
+        /// <c>false</c>, the request runs normally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
         #region Parameter Select
@@ -114,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 WriteWarning("You are passing $null as a value for parameter AttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             if (cmdletContext.AttachmentId != null)
             {
                 request.AttachmentId = cmdletContext.AttachmentId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
             CmdletOutput output;
@@ -190,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AttachmentId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Func<Amazon.AWSSupport.Model.DescribeAttachmentResponse, GetASAAttachmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Attachment;
         }
