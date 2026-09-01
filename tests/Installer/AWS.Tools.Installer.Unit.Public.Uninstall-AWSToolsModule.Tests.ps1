@@ -574,45 +574,33 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
         }
     }
 
-    Context "LegacyOnly" {
-        It "Should NOT discover or uninstall any AWS.Tools modules when -LegacyOnly is specified" {
-            # Arrange - Get-ModulesToProcess would find modules if it were called
-            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
-            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess {
-                @{ Regular = @((New-MockModule -Name "AWS.Tools.S3" -Version ([Version]"5.0.10"))); Installer = @() }
-            }
-            Mock -ModuleName AWS.Tools.Installer Get-LegacyModules { @() }
-
-            # Act
-            Uninstall-AWSToolsModule -LegacyOnly -CleanUpLegacyScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
-
-            # Assert - AWS.Tools discovery/removal path is skipped entirely
-            Should -Not -Invoke -ModuleName AWS.Tools.Installer Get-ModulesToProcess
-        }
-
-        It "Should still run legacy cleanup when -LegacyOnly is specified" {
-            # Arrange - one legacy module present
-            $legacyBase = Join-Path -Path $TestDrive -ChildPath "Legacy/AWSPowerShell/4.1.999"
-            New-Item -ItemType Directory -Path $legacyBase -Force | Out-Null
-            $legacy = New-MockModule -Name "AWSPowerShell" -Version ([Version]"4.1.999") -ModuleBase $legacyBase
+    Context "Legacy cleanup delegation" {
+        It "Should delegate legacy cleanup to Remove-LegacyModule when -CleanUpLegacyScope is specified" {
+            # Arrange
             Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
             Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = @(); Installer = @() } }
-            Mock -ModuleName AWS.Tools.Installer Get-LegacyModules { @($legacy) }
-            $script:legacyRemoved = @()
-            Mock -ModuleName AWS.Tools.Installer Remove-ModuleItem {
-                param($Module, $Reason)
-                $script:legacyRemoved += $Module
-                @{ SuccessCount = 1; FailureCount = 0; RemovedModules = @("AWSPowerShell (4.1.999)"); FailedModules = @() }
-            }
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule { }
 
             # Act
-            $script:legacyRemoved = @()
-            Uninstall-AWSToolsModule -LegacyOnly -CleanUpLegacyScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+            Uninstall-AWSToolsModule -CleanUpLegacyScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
 
-            # Assert - legacy cleanup happened, AWS.Tools discovery did not
-            Should -Not -Invoke -ModuleName AWS.Tools.Installer Get-ModulesToProcess
-            $script:legacyRemoved.Count | Should -Be 1
-            $script:legacyRemoved[0].Name | Should -Be "AWSPowerShell"
+            # Assert - legacy cleanup is delegated to the shared helper with the requested scope
+            Should -Invoke -ModuleName AWS.Tools.Installer Remove-LegacyModule -Times 1 -ParameterFilter {
+                $Scope -eq 'CurrentUser'
+            }
+        }
+
+        It "Should NOT call Remove-LegacyModule when -CleanUpLegacyScope is not specified" {
+            # Arrange
+            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = @(); Installer = @() } }
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule { }
+
+            # Act
+            Uninstall-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Remove-LegacyModule
         }
     }
 }
