@@ -15920,8 +15920,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16381,9 +16381,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29992,12 +29992,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "New-DDBTable",
+               "New-DDBTableSchema",
+               "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
                "ConvertTo-DDBItem",
-               "New-DDBTable",
-               "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem",
-               "New-DDBTableSchema")
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32804,8 +32804,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -42283,6 +42283,21 @@ $GD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GuardDuty.AssociationMode
+        {
+            ($_ -eq "Get-GDCustomDetectionRuleAssociationList/Mode") -Or
+            ($_ -eq "Get-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "New-GDCustomDetectionRuleAssociation/Mode") -Or
+            ($_ -eq "New-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "Remove-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "Update-GDCustomDetectionRuleAssociation/Mode") -Or
+            ($_ -eq "Update-GDCustomDetectionRuleOrgConfiguration/Mode")
+        }
+        {
+            $v = "DRY_RUN","LIVE"
+            break
+        }
+
         # Amazon.GuardDuty.AutoEnableMembers
         "Update-GDOrganizationConfiguration/AutoEnableOrganizationMember"
         {
@@ -42301,6 +42316,13 @@ $GD_Completers = {
         "New-GDPublishingDestination/DestinationType"
         {
             $v = "S3"
+            break
+        }
+
+        # Amazon.GuardDuty.DetectionRuleConfigurationStatus
+        "Get-GDCustomDetectionRuleOrgConfigurationList/Status"
+        {
+            $v = "ACTIVE","FAILED","PROCESSING"
             break
         }
 
@@ -42425,9 +42447,11 @@ $GD_map = @{
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
+    "Mode"=@("Get-GDCustomDetectionRuleAssociationList","Get-GDCustomDetectionRuleOrgConfiguration","New-GDCustomDetectionRuleAssociation","New-GDCustomDetectionRuleOrgConfiguration","Remove-GDCustomDetectionRuleOrgConfiguration","Update-GDCustomDetectionRuleAssociation","Update-GDCustomDetectionRuleOrgConfiguration")
     "OrderBy"=@("Get-GDFindingStatistic")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
+    "Status"=@("Get-GDCustomDetectionRuleOrgConfigurationList")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -42485,6 +42509,8 @@ $GD_SelectMap = @{
     "Select"=@("Receive-GDAdministratorInvitation",
                "Confirm-GDInvitation",
                "Backup-GDFinding",
+               "New-GDCustomDetectionRuleAssociation",
+               "New-GDCustomDetectionRuleOrgConfiguration",
                "New-GDDetector",
                "New-GDFilter",
                "New-GDInvestigation",
@@ -42497,6 +42523,8 @@ $GD_SelectMap = @{
                "New-GDThreatIntelSet",
                "New-GDTrustedEntitySet",
                "Deny-GDInvitation",
+               "Remove-GDCustomDetectionRuleAssociation",
+               "Remove-GDCustomDetectionRuleOrgConfiguration",
                "Remove-GDDetector",
                "Remove-GDFilter",
                "Remove-GDInvitation",
@@ -42517,6 +42545,9 @@ $GD_SelectMap = @{
                "Enable-GDOrganizationAdminAccount",
                "Get-GDAdministratorAccount",
                "Get-GDCoverageStatistic",
+               "Get-GDCustomDetectionRule",
+               "Get-GDCustomDetectionRuleAssociation",
+               "Get-GDCustomDetectionRuleOrgConfiguration",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -42538,6 +42569,9 @@ $GD_SelectMap = @{
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
                "Get-GDCoverageList",
+               "Get-GDCustomDetectionRuleAssociationList",
+               "Get-GDCustomDetectionRuleOrgConfigurationList",
+               "Get-GDCustomDetectionRuleList",
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
@@ -42560,6 +42594,8 @@ $GD_SelectMap = @{
                "Add-GDResourceTag",
                "Restore-GDFinding",
                "Remove-GDResourceTag",
+               "Update-GDCustomDetectionRuleAssociation",
+               "Update-GDCustomDetectionRuleOrgConfiguration",
                "Update-GDDetector",
                "Update-GDFilter",
                "Update-GDFindingFeedback",
@@ -47105,6 +47141,16 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.StorageClass
+        {
+            ($_ -eq "New-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass") -Or
+            ($_ -eq "Update-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass")
+        }
+        {
+            $v = "STANDARD_1","STANDARD_2","THROUGHPUT_1","THROUGHPUT_2"
+            break
+        }
+
         # Amazon.IoTSiteWise.StorageType
         "Write-IOTSWStorageConfiguration/StorageType"
         {
@@ -47191,6 +47237,7 @@ $IOTSW_map = @{
     "Status"=@("Get-IOTSWEnrichmentJobList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TargetResourceType"=@("Get-IOTSWActionList","Get-IOTSWExecutionList")
+    "TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass"=@("New-IOTSWTask","Update-IOTSWTask")
     "TaskConfiguration_ContainerTaskConfiguration_ProcessingType"=@("New-IOTSWTask","Update-IOTSWTask")
     "TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit"=@("New-IOTSWTask","Update-IOTSWTask")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
@@ -52614,7 +52661,7 @@ $LS_Completers = {
         # Amazon.Lightsail.MetricName
         "Add-LSAlarm/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","UnhealthyHostCount"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
             break
         }
 
@@ -52675,7 +52722,7 @@ $LS_Completers = {
         # Amazon.Lightsail.RelationalDatabaseMetricName
         "Get-LSRelationalDatabaseMetricData/MetricName"
         {
-            $v = "CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","NetworkReceiveThroughput","NetworkTransmitThroughput"
+            $v = "CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","NetworkReceiveThroughput","NetworkTransmitThroughput","SwapUsage"
             break
         }
 
@@ -52917,6 +52964,7 @@ $LS_SelectMap = @{
                "Get-LSOperation",
                "Get-LSOperationList",
                "Get-LSOperationListForResource",
+               "Get-LSProfile",
                "Get-LSRegionList",
                "Get-LSRelationalDatabase",
                "Get-LSRelationalDatabaseBlueprint",
@@ -77751,18 +77799,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "Copy-S3Object",
-               "Get-S3MultipartUpload",
-               "Get-S3PreSignedURL",
-               "Dismount-S3PSDrive",
-               "New-S3Bucket",
-               "Write-S3Object",
-               "Read-S3Object",
-               "Test-S3Bucket",
                "Remove-S3Bucket",
                "Remove-S3MultipartUpload",
-               "Mount-S3PSDrive")
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Remove-S3Object",
+               "Read-S3Object",
+               "Test-S3Bucket",
+               "Copy-S3Object",
+               "Mount-S3PSDrive",
+               "Dismount-S3PSDrive",
+               "Write-S3Object",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -84285,6 +84333,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SignatureFormat
+        {
+            ($_ -eq "New-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat") -Or
+            ($_ -eq "Update-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat")
+        }
+        {
+            $v = "DETACHED"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SubscriptionStatus
         "Get-SES2ContactCollection/Filter_FilteredStatus"
         {
@@ -84368,6 +84426,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
+    "MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat"=@("New-SES2ConfigurationSet","Update-SES2ConfigurationSet")
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "Plan"=@("Write-SES2AccountPricingAttribute")
     "Reason"=@("Write-SES2SuppressedDestination")
@@ -84442,7 +84501,8 @@ $SES2_SelectCompleters = {
 }
 
 $SES2_SelectMap = @{
-    "Select"=@("Get-SES2BatchMetricData",
+    "Select"=@("Add-SES2EmailIdentityCertificate",
+               "Get-SES2BatchMetricData",
                "Stop-SES2ExportJob",
                "New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
@@ -84472,6 +84532,7 @@ $SES2_SelectMap = @{
                "Remove-SES2SuppressedDestination",
                "Remove-SES2Tenant",
                "Remove-SES2TenantResourceAssociation",
+               "Remove-SES2EmailIdentityCertificate",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
@@ -84505,6 +84566,7 @@ $SES2_SelectMap = @{
                "Get-SES2DeliverabilityTestReportList",
                "Get-SES2DomainDeliverabilityCampaignList",
                "Get-SES2EmailIdentityList",
+               "Get-SES2EmailIdentityCertificateList",
                "Get-SES2EmailTemplateList",
                "Get-SES2ExportJobList",
                "Get-SES2ImportJobList",
@@ -84546,6 +84608,7 @@ $SES2_SelectMap = @{
                "Add-SES2ResourceTag",
                "Test-SES2RenderEmailTemplate",
                "Remove-SES2ResourceTag",
+               "Update-SES2ConfigurationSet",
                "Update-SES2ConfigurationSetEventDestination",
                "Update-SES2Contact",
                "Update-SES2ContactList",
@@ -94383,44 +94446,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94460,3 +94485,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

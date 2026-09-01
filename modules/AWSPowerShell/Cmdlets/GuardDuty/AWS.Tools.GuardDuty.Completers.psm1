@@ -80,6 +80,21 @@ $GD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GuardDuty.AssociationMode
+        {
+            ($_ -eq "Get-GDCustomDetectionRuleAssociationList/Mode") -Or
+            ($_ -eq "Get-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "New-GDCustomDetectionRuleAssociation/Mode") -Or
+            ($_ -eq "New-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "Remove-GDCustomDetectionRuleOrgConfiguration/Mode") -Or
+            ($_ -eq "Update-GDCustomDetectionRuleAssociation/Mode") -Or
+            ($_ -eq "Update-GDCustomDetectionRuleOrgConfiguration/Mode")
+        }
+        {
+            $v = "DRY_RUN","LIVE"
+            break
+        }
+
         # Amazon.GuardDuty.AutoEnableMembers
         "Update-GDOrganizationConfiguration/AutoEnableOrganizationMember"
         {
@@ -98,6 +113,13 @@ $GD_Completers = {
         "New-GDPublishingDestination/DestinationType"
         {
             $v = "S3"
+            break
+        }
+
+        # Amazon.GuardDuty.DetectionRuleConfigurationStatus
+        "Get-GDCustomDetectionRuleOrgConfigurationList/Status"
+        {
+            $v = "ACTIVE","FAILED","PROCESSING"
             break
         }
 
@@ -222,9 +244,11 @@ $GD_map = @{
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
+    "Mode"=@("Get-GDCustomDetectionRuleAssociationList","Get-GDCustomDetectionRuleOrgConfiguration","New-GDCustomDetectionRuleAssociation","New-GDCustomDetectionRuleOrgConfiguration","Remove-GDCustomDetectionRuleOrgConfiguration","Update-GDCustomDetectionRuleAssociation","Update-GDCustomDetectionRuleOrgConfiguration")
     "OrderBy"=@("Get-GDFindingStatistic")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList","Get-GDInvestigationList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList","Get-GDInvestigationList")
+    "Status"=@("Get-GDCustomDetectionRuleOrgConfigurationList")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
@@ -282,6 +306,8 @@ $GD_SelectMap = @{
     "Select"=@("Receive-GDAdministratorInvitation",
                "Confirm-GDInvitation",
                "Backup-GDFinding",
+               "New-GDCustomDetectionRuleAssociation",
+               "New-GDCustomDetectionRuleOrgConfiguration",
                "New-GDDetector",
                "New-GDFilter",
                "New-GDInvestigation",
@@ -294,6 +320,8 @@ $GD_SelectMap = @{
                "New-GDThreatIntelSet",
                "New-GDTrustedEntitySet",
                "Deny-GDInvitation",
+               "Remove-GDCustomDetectionRuleAssociation",
+               "Remove-GDCustomDetectionRuleOrgConfiguration",
                "Remove-GDDetector",
                "Remove-GDFilter",
                "Remove-GDInvitation",
@@ -314,6 +342,9 @@ $GD_SelectMap = @{
                "Enable-GDOrganizationAdminAccount",
                "Get-GDAdministratorAccount",
                "Get-GDCoverageStatistic",
+               "Get-GDCustomDetectionRule",
+               "Get-GDCustomDetectionRuleAssociation",
+               "Get-GDCustomDetectionRuleOrgConfiguration",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -335,6 +366,9 @@ $GD_SelectMap = @{
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
                "Get-GDCoverageList",
+               "Get-GDCustomDetectionRuleAssociationList",
+               "Get-GDCustomDetectionRuleOrgConfigurationList",
+               "Get-GDCustomDetectionRuleList",
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
@@ -357,6 +391,8 @@ $GD_SelectMap = @{
                "Add-GDResourceTag",
                "Restore-GDFinding",
                "Remove-GDResourceTag",
+               "Update-GDCustomDetectionRuleAssociation",
+               "Update-GDCustomDetectionRuleOrgConfiguration",
                "Update-GDDetector",
                "Update-GDFilter",
                "Update-GDFindingFeedback",

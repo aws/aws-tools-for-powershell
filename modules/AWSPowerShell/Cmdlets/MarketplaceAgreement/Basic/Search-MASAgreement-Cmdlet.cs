@@ -31,20 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
     /// Searches across all agreements that a proposer or an acceptor has in AWS Marketplace.
-    /// The search returns a list of agreements with basic agreement information.
-    /// 
-    ///  
-    /// <para>
-    /// The following filter combinations are supported when the <c>PartyType</c> is <c>Proposer</c>:
-    /// </para><ul><li><para><c>AgreementType</c></para></li><li><para><c>AgreementType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>Status</c>
-    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceIdentifier</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceIdentifier</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceIdentifier</c> + <c>Status</c>
-    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>Status</c>
-    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c> + <c>EndTime</c></para></li></ul><note><para>
-    ///  To filter by <c>EndTime</c>, you can use <c>BeforeEndTime</c> and/or <c>AfterEndTime</c>.
-    /// Only <c>EndTime</c> is supported for sorting.
-    /// </para></note><para>
-    /// The following filter combinations are supported when the <c>PartyType</c> is <c>Acceptor</c>:
-    /// </para><ul><li><para><c>AgreementType</c></para></li><li><para><c>AgreementType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c> + <c>EndTime</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// The search returns a list of agreements with basic agreement information.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Search", "MASAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse")]
@@ -76,11 +63,22 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <c>MachineLearningProduct</c>).</para></li><li><para><c>PartyType</c> – The party type of the caller. Use <c>Proposer</c> or <c>Acceptor</c>.</para></li><li><para><c>AcceptorAccountId</c> – The AWS account ID of the party accepting the agreement
         /// terms.</para></li><li><para><c>OfferId</c> – The unique identifier of the offer in which the terms are registered
         /// in the agreement token.</para></li><li><para><c>Status</c> – The current status of the agreement. Values include <c>ACTIVE</c>,
-        /// <c>ARCHIVED</c>, <c>CANCELLED</c>, <c>EXPIRED</c>, <c>RENEWED</c>, <c>REPLACED</c>,
-        /// and <c>TERMINATED</c>.</para></li><li><para><c>BeforeEndTime</c> – A date used to filter agreements with a date before the <c>endTime</c>
+        /// <c>CANCELLED</c>, <c>EXPIRED</c>, <c>RENEWED</c>, <c>REPLACED</c>, and <c>TERMINATED</c>.</para></li><li><para><c>BeforeEndTime</c> – A date used to filter agreements with a date before the <c>endTime</c>
         /// of an agreement.</para></li><li><para><c>AfterEndTime</c> – A date used to filter agreements with a date after the <c>endTime</c>
-        /// of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Supported value includes <c>PurchaseAgreement</c>.</para></li><li><para><c>OfferSetId</c> – A unique identifier for the offer set containing this offer.
-        /// All agreements created from offers in this set include this identifier as context.</para></li></ul><para />
+        /// of an agreement.</para></li><li><para><c>BeforeStartTime</c> – A date used to filter agreements with a date before the
+        /// <c>startTime</c> of an agreement.</para></li><li><para><c>AfterStartTime</c> – A date used to filter agreements with a date after the <c>startTime</c>
+        /// of an agreement.</para></li><li><para><c>BeforeLastUpdateTime</c> – A date used to filter agreements with a date before
+        /// the <c>lastUpdateTime</c> of an agreement.</para></li><li><para><c>AfterLastUpdateTime</c> – A date used to filter agreements with a date after the
+        /// <c>lastUpdateTime</c> of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Supported value includes <c>PurchaseAgreement</c>.</para></li><li><para><c>OfferSetId</c> – A unique identifier for the offer set containing this offer.
+        /// All agreements created from offers in this set include this identifier as context.</para></li><li><para><c>EndTimeBehaviorType</c> – What happens to the agreement when it reaches its end
+        /// date. Values include <c>RENEW</c>, <c>REPLACE</c>, and <c>EXPIRE</c>.</para></li><li><para><c>EndTimeBehaviorReasonCode</c> – The reason why the agreement doesn't renew at
+        /// its end date. Values include <c>PROPOSER_RENEW_OPTED_OUT</c>, <c>ACCEPTOR_RENEW_OPTED_OUT</c>,
+        /// <c>NO_RENEWAL_TERM</c>, and <c>RENEWAL_LIMIT_EXHAUSTED</c>.</para></li><li><para><c>InitialAgreementId</c> – The unique identifier of the very first agreement in
+        /// a chain of related agreements. Use this filter to return every agreement in the same
+        /// chain.</para></li><li><para><c>LicenseArn</c> – The Amazon Resource Name (ARN) of the AWS License Manager license
+        /// associated with an entitlement granted by the agreement.</para></li></ul><para>A proposer can use any combination of the preceding filters along with <c>AgreementType</c>,
+        /// which is required.</para><para>The following filter combinations are supported when the <c>PartyType</c> is <c>Acceptor</c>:</para><ul><li><para><c>AgreementType</c></para></li><li><para><c>AgreementType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceIdentifier</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c> + <c>EndTime</c></para></li></ul><note><para>To filter by <c>EndTime</c>, you can use <c>BeforeEndTime</c>, <c>AfterEndTime</c>,
+        /// or both.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -95,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>The attribute on which the data is grouped, which can be by <c>StartTime</c> and <c>EndTime</c>.
-        /// The default value is <c>EndTime</c>.</para>
+        /// <para>The attribute on which the data is grouped, which can be <c>EndTime</c>, <c>StartTime</c>,
+        /// or <c>LastUpdateTime</c>. <c>StartTime</c> and <c>LastUpdateTime</c> are supported
+        /// only when <c>PartyType</c> is <c>Proposer</c>. The default value is <c>EndTime</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <summary>
         /// <para>
         /// <para>The sorting order, which can be <c>ASCENDING</c> or <c>DESCENDING</c>. The default
-        /// value is <c>DESCENDING</c>.</para>
+        /// value is <c>ASCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

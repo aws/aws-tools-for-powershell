@@ -23,63 +23,38 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.Lightsail;
+using Amazon.Lightsail.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Describes the specified channel, including its configuration and current status.
-    /// 
-    ///  
-    /// <para>
-    /// Use this operation to verify that a channel reached the <c>ACTIVE</c> state after
-    /// creation, or to diagnose a channel in the <c>FAILED</c> state by reading the <c>ChannelStatusReason</c>.
-    /// </para><para>
-    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
-    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
-    /// </para>
+    /// Returns information about the profile of the Amazon Lightsail account that makes the
+    /// request. The response includes the profile type and, for accounts enrolled in the
+    /// Lightsail partner program, the partner membership details.
     /// </summary>
-    [Cmdlet("Get", "KINChannelDetail")]
-    [OutputType("Amazon.Kinesis.Model.ChannelDescription")]
-    [AWSCmdlet("Calls the Amazon Kinesis DescribeChannel API operation.", Operation = new[] {"DescribeChannel"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DescribeChannelResponse))]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.ChannelDescription or Amazon.Kinesis.Model.DescribeChannelResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.ChannelDescription object.",
-        "The service call response (type Amazon.Kinesis.Model.DescribeChannelResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "LSProfile")]
+    [OutputType("Amazon.Lightsail.Model.GetProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Lightsail GetProfile API operation.", Operation = new[] {"GetProfile"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetProfileResponse))]
+    [AWSCmdletOutput("Amazon.Lightsail.Model.GetProfileResponse",
+        "This cmdlet returns an Amazon.Lightsail.Model.GetProfileResponse object containing multiple properties."
     )]
-    public partial class GetKINChannelDetailCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class GetLSProfileCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelARN
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the channel to describe.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelARN { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelDescription'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DescribeChannelResponse).
-        /// Specifying the name of a property of type Amazon.Kinesis.Model.DescribeChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.GetProfileResponse).
+        /// Specifying the name of a property of type Amazon.Lightsail.Model.GetProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelDescription";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -98,16 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DescribeChannelResponse, GetKINChannelDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.GetProfileResponse, GetLSProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelARN = this.ChannelARN;
-            #if MODULAR
-            if (this.ChannelARN == null && ParameterWasBound(nameof(this.ChannelARN)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ChannelARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,12 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.DescribeChannelRequest();
+            var request = new Amazon.Lightsail.Model.GetProfileRequest();
             
-            if (cmdletContext.ChannelARN != null)
-            {
-                request.ChannelARN = cmdletContext.ChannelARN;
-            }
             
             CmdletOutput output;
             
@@ -161,12 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.DescribeChannelResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeChannelRequest request)
+        private Amazon.Lightsail.Model.GetProfileResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DescribeChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetProfile");
             try
             {
-                return client.DescribeChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -183,9 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelARN { get; set; }
-            public System.Func<Amazon.Kinesis.Model.DescribeChannelResponse, GetKINChannelDetailCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelDescription;
+            public System.Func<Amazon.Lightsail.Model.GetProfileResponse, GetLSProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

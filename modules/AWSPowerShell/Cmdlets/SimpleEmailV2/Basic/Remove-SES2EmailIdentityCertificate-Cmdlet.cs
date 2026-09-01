@@ -23,43 +23,45 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.SimpleEmailV2;
+using Amazon.SimpleEmailV2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Deletes the specified channel. Deleting a channel stops delivery from the source stream
-    /// to the destination. Data already delivered to the destination is not deleted.
+    /// Removes the association between an S/MIME certificate and an email identity. After
+    /// the association is removed, Amazon SES API v2 stops adding an S/MIME signature to
+    /// messages sent from that address.
     /// 
     ///  
     /// <para>
-    /// A stream cannot be deleted while it has active channels. To delete the stream, first
-    /// delete all channels attached to it. To find them, use <a>ListChannels</a> with a stream
-    /// filter.
+    /// If the email identity is a domain, specify the <c>FromAddress</c> whose certificate
+    /// association you want to remove.
     /// </para><para>
-    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
-    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
+    /// This operation is idempotent. If the specified email identity exists but there's no
+    /// matching certificate association, the operation succeeds without making any changes.
+    /// Amazon SES API v2 returns a <c>NotFoundException</c> only when the specified email
+    /// identity doesn't exist.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "KINChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SES2EmailIdentityCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DeleteChannelResponse))]
-    [AWSCmdletOutput("None or Amazon.Kinesis.Model.DeleteChannelResponse",
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DisassociateEmailIdentityCertificate API operation.", Operation = new[] {"DisassociateEmailIdentityCertificate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.DeleteChannelResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveKINChannelCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class RemoveSES2EmailIdentityCertificateCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelARN
+        #region Parameter EmailIdentity
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the channel to delete.</para>
+        /// <para>The email identity whose certificate association you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,13 +72,25 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelARN { get; set; }
+        public System.String EmailIdentity { get; set; }
+        #endregion
+        
+        #region Parameter FromAddress
+        /// <summary>
+        /// <para>
+        /// <para>The email address whose certificate association you want to remove. This value is
+        /// required when the email identity is a domain. When the email identity is an email
+        /// address, this value is optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FromAddress { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DeleteChannelResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINChannel (DeleteChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EmailIdentity), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SES2EmailIdentityCertificate (DisassociateEmailIdentityCertificate)"))
             {
                 return;
             }
@@ -115,16 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DeleteChannelResponse, RemoveKINChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse, RemoveSES2EmailIdentityCertificateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelARN = this.ChannelARN;
+            context.EmailIdentity = this.EmailIdentity;
             #if MODULAR
-            if (this.ChannelARN == null && ParameterWasBound(nameof(this.ChannelARN)))
+            if (this.EmailIdentity == null && ParameterWasBound(nameof(this.EmailIdentity)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EmailIdentity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FromAddress = this.FromAddress;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,11 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.DeleteChannelRequest();
+            var request = new Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateRequest();
             
-            if (cmdletContext.ChannelARN != null)
+            if (cmdletContext.EmailIdentity != null)
             {
-                request.ChannelARN = cmdletContext.ChannelARN;
+                request.EmailIdentity = cmdletContext.EmailIdentity;
+            }
+            if (cmdletContext.FromAddress != null)
+            {
+                request.FromAddress = cmdletContext.FromAddress;
             }
             
             CmdletOutput output;
@@ -178,12 +197,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.DeleteChannelResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DeleteChannelRequest request)
+        private Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DeleteChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DisassociateEmailIdentityCertificate");
             try
             {
-                return client.DeleteChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DisassociateEmailIdentityCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -200,8 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelARN { get; set; }
-            public System.Func<Amazon.Kinesis.Model.DeleteChannelResponse, RemoveKINChannelCmdlet, object> Select { get; set; } =
+            public System.String EmailIdentity { get; set; }
+            public System.String FromAddress { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.DisassociateEmailIdentityCertificateResponse, RemoveSES2EmailIdentityCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

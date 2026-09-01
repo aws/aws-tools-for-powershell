@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter MessageInsightsDataSource_MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results.</para>
+        /// <para>The maximum number of results.</para><note><para>If you don't specify <c>MaxResults</c>, the export returns a maximum of 1,000 results.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

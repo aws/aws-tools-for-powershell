@@ -20,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateEmailIdentityCertificate" Verb="Add" Noun="EmailIdentityCertificate" ShouldProcessTarget="CertificateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetMetricData" OutputProperty="*" Verb="Get" Noun="BatchMetricData" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -193,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateEmailIdentityCertificate" Verb="Remove" Noun="EmailIdentityCertificate" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -325,6 +333,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEmailIdentityCertificates" OutputProperty="Certificates" Verb="Get" Noun="EmailIdentityCertificateList" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -522,6 +534,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSet" Verb="Update" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

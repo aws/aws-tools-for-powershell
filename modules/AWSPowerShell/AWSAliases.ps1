@@ -16851,6 +16851,10 @@ Set-Alias -Name GD-AcceptInvitation -Value Confirm-GDInvitation
 Set-Alias -Name Archive-GDFindings -Value Backup-GDFinding
 Set-Alias -Name Archive-GDFinding -Value Backup-GDFinding
 Set-Alias -Name GD-ArchiveFindings -Value Backup-GDFinding
+Set-Alias -Name Create-GDCustomDetectionRuleAssociation -Value New-GDCustomDetectionRuleAssociation
+Set-Alias -Name GD-CreateCustomDetectionRuleAssociation -Value New-GDCustomDetectionRuleAssociation
+Set-Alias -Name Create-GDCustomDetectionRuleOrgConfiguration -Value New-GDCustomDetectionRuleOrgConfiguration
+Set-Alias -Name GD-CreateCustomDetectionRuleOrgConfiguration -Value New-GDCustomDetectionRuleOrgConfiguration
 Set-Alias -Name Create-GDDetector -Value New-GDDetector
 Set-Alias -Name GD-CreateDetector -Value New-GDDetector
 Set-Alias -Name Create-GDFilter -Value New-GDFilter
@@ -16878,6 +16882,10 @@ Set-Alias -Name GD-CreateTrustedEntitySet -Value New-GDTrustedEntitySet
 Set-Alias -Name Decline-GDInvitations -Value Deny-GDInvitation
 Set-Alias -Name Decline-GDInvitation -Value Deny-GDInvitation
 Set-Alias -Name GD-DeclineInvitations -Value Deny-GDInvitation
+Set-Alias -Name Delete-GDCustomDetectionRuleAssociation -Value Remove-GDCustomDetectionRuleAssociation
+Set-Alias -Name GD-DeleteCustomDetectionRuleAssociation -Value Remove-GDCustomDetectionRuleAssociation
+Set-Alias -Name Delete-GDCustomDetectionRuleOrgConfiguration -Value Remove-GDCustomDetectionRuleOrgConfiguration
+Set-Alias -Name GD-DeleteCustomDetectionRuleOrgConfiguration -Value Remove-GDCustomDetectionRuleOrgConfiguration
 Set-Alias -Name Delete-GDDetector -Value Remove-GDDetector
 Set-Alias -Name GD-DeleteDetector -Value Remove-GDDetector
 Set-Alias -Name Delete-GDFilter -Value Remove-GDFilter
@@ -16919,6 +16927,9 @@ Set-Alias -Name GD-EnableOrganizationAdminAccount -Value Enable-GDOrganizationAd
 Set-Alias -Name GD-GetAdministratorAccount -Value Get-GDAdministratorAccount
 Set-Alias -Name Get-GDCoverageStatistics -Value Get-GDCoverageStatistic
 Set-Alias -Name GD-GetCoverageStatistics -Value Get-GDCoverageStatistic
+Set-Alias -Name GD-GetCustomDetectionRuleAssociation -Value Get-GDCustomDetectionRuleAssociation
+Set-Alias -Name GD-GetCustomDetectionRule -Value Get-GDCustomDetectionRule
+Set-Alias -Name GD-GetCustomDetectionRuleOrgConfiguration -Value Get-GDCustomDetectionRuleOrgConfiguration
 Set-Alias -Name GD-GetDetector -Value Get-GDDetector
 Set-Alias -Name GD-GetFilter -Value Get-GDFilter
 Set-Alias -Name Get-GDFindings -Value Get-GDFinding
@@ -16954,6 +16965,15 @@ Set-Alias -Name GD-InviteMembers -Value Send-GDMemberInvitation
 Set-Alias -Name List-GDCoverage -Value Get-GDCoverageList
 Set-Alias -Name List-GDCoverageList -Value Get-GDCoverageList
 Set-Alias -Name GD-ListCoverage -Value Get-GDCoverageList
+Set-Alias -Name List-GDCustomDetectionRuleAssociations -Value Get-GDCustomDetectionRuleAssociationList
+Set-Alias -Name List-GDCustomDetectionRuleAssociationList -Value Get-GDCustomDetectionRuleAssociationList
+Set-Alias -Name GD-ListCustomDetectionRuleAssociations -Value Get-GDCustomDetectionRuleAssociationList
+Set-Alias -Name List-GDCustomDetectionRuleOrgConfigurations -Value Get-GDCustomDetectionRuleOrgConfigurationList
+Set-Alias -Name List-GDCustomDetectionRuleOrgConfigurationList -Value Get-GDCustomDetectionRuleOrgConfigurationList
+Set-Alias -Name GD-ListCustomDetectionRuleOrgConfigurations -Value Get-GDCustomDetectionRuleOrgConfigurationList
+Set-Alias -Name List-GDCustomDetectionRules -Value Get-GDCustomDetectionRuleList
+Set-Alias -Name List-GDCustomDetectionRuleList -Value Get-GDCustomDetectionRuleList
+Set-Alias -Name GD-ListCustomDetectionRules -Value Get-GDCustomDetectionRuleList
 Set-Alias -Name List-GDDetectors -Value Get-GDDetectorList
 Set-Alias -Name List-GDDetectorList -Value Get-GDDetectorList
 Set-Alias -Name GD-ListDetectors -Value Get-GDDetectorList
@@ -17008,6 +17028,8 @@ Set-Alias -Name Unarchive-GDFindings -Value Restore-GDFinding
 Set-Alias -Name Unarchive-GDFinding -Value Restore-GDFinding
 Set-Alias -Name GD-UnarchiveFindings -Value Restore-GDFinding
 Set-Alias -Name GD-UntagResource -Value Remove-GDResourceTag
+Set-Alias -Name GD-UpdateCustomDetectionRuleAssociation -Value Update-GDCustomDetectionRuleAssociation
+Set-Alias -Name GD-UpdateCustomDetectionRuleOrgConfiguration -Value Update-GDCustomDetectionRuleOrgConfiguration
 Set-Alias -Name GD-UpdateDetector -Value Update-GDDetector
 Set-Alias -Name GD-UpdateFilter -Value Update-GDFilter
 Set-Alias -Name Update-GDFindingsFeedback -Value Update-GDFindingFeedback
@@ -21109,6 +21131,7 @@ Set-Alias -Name Get-LSOperations -Value Get-LSOperationList
 Set-Alias -Name LS-GetOperations -Value Get-LSOperationList
 Set-Alias -Name Get-LSOperationsForResource -Value Get-LSOperationListForResource
 Set-Alias -Name LS-GetOperationsForResource -Value Get-LSOperationListForResource
+Set-Alias -Name LS-GetProfile -Value Get-LSProfile
 Set-Alias -Name Get-LSRegions -Value Get-LSRegionList
 Set-Alias -Name LS-GetRegions -Value Get-LSRegionList
 Set-Alias -Name LS-GetRelationalDatabase -Value Get-LSRelationalDatabase
@@ -32691,6 +32714,8 @@ Set-Alias -Name SD-UpdatePublicDnsNamespace -Value Update-SDPublicDnsNamespace
 Set-Alias -Name SD-UpdateService -Value Update-SDService
 Set-Alias -Name Update-SDServiceAttributes -Value Update-SDServiceAttribute
 Set-Alias -Name SD-UpdateServiceAttributes -Value Update-SDServiceAttribute
+Set-Alias -Name Associate-SES2EmailIdentityCertificate -Value Add-SES2EmailIdentityCertificate
+Set-Alias -Name SES2-AssociateEmailIdentityCertificate -Value Add-SES2EmailIdentityCertificate
 Set-Alias -Name Get-SES2MetricData -Value Get-SES2BatchMetricData
 Set-Alias -Name SES2-BatchGetMetricData -Value Get-SES2BatchMetricData
 Set-Alias -Name Cancel-SES2ExportJob -Value Stop-SES2ExportJob
@@ -32751,6 +32776,8 @@ Set-Alias -Name Delete-SES2Tenant -Value Remove-SES2Tenant
 Set-Alias -Name SES2-DeleteTenant -Value Remove-SES2Tenant
 Set-Alias -Name Delete-SES2TenantResourceAssociation -Value Remove-SES2TenantResourceAssociation
 Set-Alias -Name SES2-DeleteTenantResourceAssociation -Value Remove-SES2TenantResourceAssociation
+Set-Alias -Name Disassociate-SES2EmailIdentityCertificate -Value Remove-SES2EmailIdentityCertificate
+Set-Alias -Name SES2-DisassociateEmailIdentityCertificate -Value Remove-SES2EmailIdentityCertificate
 Set-Alias -Name SES2-GetAccount -Value Get-SES2Account
 Set-Alias -Name Get-SES2BlacklistReports -Value Get-SES2BlacklistReport
 Set-Alias -Name SES2-GetBlacklistReports -Value Get-SES2BlacklistReport
@@ -32807,6 +32834,9 @@ Set-Alias -Name SES2-ListDomainDeliverabilityCampaigns -Value Get-SES2DomainDeli
 Set-Alias -Name List-SES2EmailIdentities -Value Get-SES2EmailIdentityList
 Set-Alias -Name List-SES2EmailIdentityList -Value Get-SES2EmailIdentityList
 Set-Alias -Name SES2-ListEmailIdentities -Value Get-SES2EmailIdentityList
+Set-Alias -Name List-SES2EmailIdentityCertificates -Value Get-SES2EmailIdentityCertificateList
+Set-Alias -Name List-SES2EmailIdentityCertificateList -Value Get-SES2EmailIdentityCertificateList
+Set-Alias -Name SES2-ListEmailIdentityCertificates -Value Get-SES2EmailIdentityCertificateList
 Set-Alias -Name List-SES2EmailTemplates -Value Get-SES2EmailTemplateList
 Set-Alias -Name List-SES2EmailTemplateList -Value Get-SES2EmailTemplateList
 Set-Alias -Name SES2-ListEmailTemplates -Value Get-SES2EmailTemplateList
@@ -32913,6 +32943,7 @@ Set-Alias -Name SES2-SendEmail -Value Send-SES2Email
 Set-Alias -Name SES2-TagResource -Value Add-SES2ResourceTag
 Set-Alias -Name SES2-TestRenderEmailTemplate -Value Test-SES2RenderEmailTemplate
 Set-Alias -Name SES2-UntagResource -Value Remove-SES2ResourceTag
+Set-Alias -Name SES2-UpdateConfigurationSet -Value Update-SES2ConfigurationSet
 Set-Alias -Name SES2-UpdateConfigurationSetEventDestination -Value Update-SES2ConfigurationSetEventDestination
 Set-Alias -Name SES2-UpdateContact -Value Update-SES2Contact
 Set-Alias -Name SES2-UpdateContactList -Value Update-SES2ContactList

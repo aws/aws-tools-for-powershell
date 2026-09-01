@@ -106,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public byte[] Data { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ExplicitHashKey
         /// <summary>
         /// <para>
@@ -237,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter Data which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.ExplicitHashKey = this.ExplicitHashKey;
             context.PartitionKey = this.PartitionKey;
             #if MODULAR
@@ -273,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 {
                     _DataStream = new System.IO.MemoryStream(cmdletContext.Data);
                     request.Data = _DataStream;
+                }
+                if (cmdletContext.DryRun != null)
+                {
+                    request.DryRun = cmdletContext.DryRun.Value;
                 }
                 if (cmdletContext.ExplicitHashKey != null)
                 {
@@ -362,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public byte[] Data { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String ExplicitHashKey { get; set; }
             public System.String PartitionKey { get; set; }
             public System.String SequenceNumberForOrdering { get; set; }

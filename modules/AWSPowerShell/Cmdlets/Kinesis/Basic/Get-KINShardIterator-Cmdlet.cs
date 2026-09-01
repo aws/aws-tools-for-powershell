@@ -86,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ShardId
         /// <summary>
         /// <para>
@@ -211,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.GetShardIteratorResponse, GetKINShardIteratorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.ShardId = this.ShardId;
             #if MODULAR
             if (this.ShardId == null && ParameterWasBound(nameof(this.ShardId)))
@@ -246,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.GetShardIteratorRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.ShardId != null)
             {
                 request.ShardId = cmdletContext.ShardId;
@@ -329,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.String ShardId { get; set; }
             public Amazon.Kinesis.ShardIteratorType ShardIteratorType { get; set; }
             public System.String StartingSequenceNumber { get; set; }

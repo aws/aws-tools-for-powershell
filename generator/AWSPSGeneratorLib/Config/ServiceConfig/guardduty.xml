@@ -32,6 +32,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomDetectionRuleAssociation" OutputProperty="RuleAssociation" Verb="New" Noun="CustomDetectionRuleAssociation" ShouldProcessTarget="RuleId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomDetectionRuleOrgConfiguration" Verb="New" Noun="CustomDetectionRuleOrgConfiguration" ShouldProcessTarget="RuleId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDetector" OutputProperty="DetectorId" Verb="New" Noun="Detector" ShouldProcessTarget="Enable" PipelineParameter="Enable" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSources_Kubernetes_AuditLogs_Enable" NewName="AuditLogs_Enable" />
@@ -85,6 +93,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeclineInvitations" OutputProperty="UnprocessedAccounts" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomDetectionRuleAssociation" Verb="Remove" Noun="CustomDetectionRuleAssociation" ShouldProcessTarget="AssociationId,RuleId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomDetectionRuleOrgConfiguration" Verb="Remove" Noun="CustomDetectionRuleOrgConfiguration" ShouldProcessTarget="RuleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,6 +181,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCoverageStatistics" OutputProperty="CoverageStatistics" Verb="Get" Noun="CoverageStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomDetectionRule" OutputProperty="Rule" Verb="Get" Noun="CustomDetectionRule" PipelineParameter="RuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomDetectionRuleAssociation" OutputProperty="*" Verb="Get" Noun="CustomDetectionRuleAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomDetectionRuleOrgConfiguration" OutputProperty="Configuration" Verb="Get" Noun="CustomDetectionRuleOrgConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -249,6 +277,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCoverage" OutputProperty="Resources" Verb="Get" Noun="CoverageList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomDetectionRuleAssociations" OutputProperty="RuleAssociations" Verb="Get" Noun="CustomDetectionRuleAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomDetectionRuleOrgConfigurations" OutputProperty="Configurations" Verb="Get" Noun="CustomDetectionRuleOrgConfigurationList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomDetectionRules" OutputProperty="Rules" Verb="Get" Noun="CustomDetectionRuleList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -340,6 +380,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomDetectionRuleAssociation" Verb="Update" Noun="CustomDetectionRuleAssociation" ShouldProcessTarget="AssociationId,RuleId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomDetectionRuleOrgConfiguration" Verb="Update" Noun="CustomDetectionRuleOrgConfiguration" ShouldProcessTarget="RuleId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

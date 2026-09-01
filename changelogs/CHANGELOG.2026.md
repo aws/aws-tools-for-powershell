@@ -1,4 +1,40 @@
-﻿### 5.0.289 (2026-08-31 23:09Z)
+﻿### 5.0.290 (2026-09-01 19:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.325.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDCustomDetectionRule leveraging the GetCustomDetectionRule service API.
+    * Added cmdlet Get-GDCustomDetectionRuleAssociation leveraging the GetCustomDetectionRuleAssociation service API.
+    * Added cmdlet Get-GDCustomDetectionRuleAssociationList leveraging the ListCustomDetectionRuleAssociations service API.
+    * Added cmdlet Get-GDCustomDetectionRuleList leveraging the ListCustomDetectionRules service API.
+    * Added cmdlet Get-GDCustomDetectionRuleOrgConfiguration leveraging the GetCustomDetectionRuleOrgConfiguration service API.
+    * Added cmdlet Get-GDCustomDetectionRuleOrgConfigurationList leveraging the ListCustomDetectionRuleOrgConfigurations service API.
+    * Added cmdlet New-GDCustomDetectionRuleAssociation leveraging the CreateCustomDetectionRuleAssociation service API.
+    * Added cmdlet New-GDCustomDetectionRuleOrgConfiguration leveraging the CreateCustomDetectionRuleOrgConfiguration service API.
+    * Added cmdlet Remove-GDCustomDetectionRuleAssociation leveraging the DeleteCustomDetectionRuleAssociation service API.
+    * Added cmdlet Remove-GDCustomDetectionRuleOrgConfiguration leveraging the DeleteCustomDetectionRuleOrgConfiguration service API.
+    * Added cmdlet Update-GDCustomDetectionRuleAssociation leveraging the UpdateCustomDetectionRuleAssociation service API.
+    * Added cmdlet Update-GDCustomDetectionRuleOrgConfiguration leveraging the UpdateCustomDetectionRuleOrgConfiguration service API.
+  * Amazon IoT SiteWise
+    * Modified cmdlet New-IOTSWTask: added parameters TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass, TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB and TaskConfiguration_ContainerTaskConfiguration_Mount.
+    * Modified cmdlet Start-IOTSWPipelineExecution: added parameter ExecutionMountOverrides_ComputeNode.
+    * Modified cmdlet Update-IOTSWTask: added parameters TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass, TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB and TaskConfiguration_ContainerTaskConfiguration_Mount.
+  * Amazon Kinesis
+    * Modified cmdlet Write-KINRecord: added parameter DryRun.
+    * Modified cmdlet Get-KINRecord: added parameter DryRun.
+    * Modified cmdlet Get-KINShardIterator: added parameter DryRun.
+    * Modified cmdlet Write-KINMultipleRecord: added parameter DryRun.
+  * Amazon Lightsail
+    * Added cmdlet Get-LSProfile leveraging the GetProfile service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Add-SES2EmailIdentityCertificate leveraging the AssociateEmailIdentityCertificate service API.
+    * Added cmdlet Get-SES2EmailIdentityCertificateList leveraging the ListEmailIdentityCertificates service API.
+    * Added cmdlet Remove-SES2EmailIdentityCertificate leveraging the DisassociateEmailIdentityCertificate service API.
+    * Added cmdlet Update-SES2ConfigurationSet leveraging the UpdateConfigurationSet service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameters MessageSecurityOptions_SigningScheme_DefaultScheme and MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode and TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters TaxRegistrationEntry_AdditionalTaxInformation_FranceAdditionalInfo_EInvoiceRoutingCode and TaxRegistrationEntry_AdditionalTaxInformation_MonacoAdditionalInfo_BusinessNumber.
+
+### 5.0.289 (2026-08-31 23:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.324.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.288 (2026-08-31 19:13Z)

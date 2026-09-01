@@ -336,6 +336,16 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.StorageClass
+        {
+            ($_ -eq "New-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass") -Or
+            ($_ -eq "Update-IOTSWTask/TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass")
+        }
+        {
+            $v = "STANDARD_1","STANDARD_2","THROUGHPUT_1","THROUGHPUT_2"
+            break
+        }
+
         # Amazon.IoTSiteWise.StorageType
         "Write-IOTSWStorageConfiguration/StorageType"
         {
@@ -422,6 +432,7 @@ $IOTSW_map = @{
     "Status"=@("Get-IOTSWEnrichmentJobList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TargetResourceType"=@("Get-IOTSWActionList","Get-IOTSWExecutionList")
+    "TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass"=@("New-IOTSWTask","Update-IOTSWTask")
     "TaskConfiguration_ContainerTaskConfiguration_ProcessingType"=@("New-IOTSWTask","Update-IOTSWTask")
     "TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit"=@("New-IOTSWTask","Update-IOTSWTask")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")

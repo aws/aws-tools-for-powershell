@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// You must specify either <c>S3DestinationConfiguration</c> or <c>S3TablesDestinationConfiguration</c>,
     /// but not both.
     /// </para><para>
+    /// To use this operation, you must have permission to pass the specified service execution
+    /// IAM role to Amazon Kinesis Data Streams (the <c>iam:PassRole</c> permission on that
+    /// role).
+    /// </para><para>
     /// Creating a channel is an asynchronous operation. Upon receiving the request, Amazon
     /// Kinesis Data Streams returns immediately with the channel in the <c>CREATING</c> state.
     /// After provisioning is complete, Amazon Kinesis Data Streams sets the state to <c>ACTIVE</c>.
@@ -46,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// This operation is only supported for data streams with the on-demand capacity mode.
     /// </para><para>
-    /// This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services
-    /// account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
+    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
+    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KINChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -298,7 +302,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3DestinationConfiguration_StorageConfiguration_StorageClass
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 storage class for delivered objects. Valid values:</para><ul><li><para><c>STANDARD</c> (default)</para></li><li><para><c>INTELLIGENT_TIERING</c></para></li><li><para><c>GLACIER_IR</c></para></li></ul>
+        /// <para>The Amazon S3 storage class for delivered objects. Valid values:</para><ul><li><para><c>STANDARD</c> - Default storage class for frequently accessed data. (default)</para></li><li><para><c>INTELLIGENT_TIERING</c> - Automatically moves objects to the most cost-effective
+        /// access tier based on usage patterns.</para></li><li><para><c>GLACIER_IR</c> - Low-cost storage for rarely accessed data that requires millisecond
+        /// retrieval.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

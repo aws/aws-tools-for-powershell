@@ -23,53 +23,50 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.GuardDuty;
+using Amazon.GuardDuty.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Retrieves information about a policy generation request within the AgentCore Policy
-    /// system. Policy generation converts natural language descriptions into Dogwood policy
-    /// statements using AI-powered translation, enabling non-technical users to create policies.
+    /// Returns the organization-level configuration for a custom detection rule.
     /// </summary>
-    [Cmdlet("Get", "BACCPolicyGeneration")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetPolicyGeneration API operation.", Operation = new[] {"GetPolicyGeneration"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse object containing multiple properties."
+    [Cmdlet("Get", "GDCustomDetectionRuleOrgConfiguration")]
+    [OutputType("Amazon.GuardDuty.Model.DetectionRuleOrgConfiguration")]
+    [AWSCmdlet("Calls the Amazon GuardDuty GetCustomDetectionRuleOrgConfiguration API operation.", Operation = new[] {"GetCustomDetectionRuleOrgConfiguration"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.GuardDuty.Model.DetectionRuleOrgConfiguration or Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse",
+        "This cmdlet returns an Amazon.GuardDuty.Model.DetectionRuleOrgConfiguration object.",
+        "The service call response (type Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBACCPolicyGenerationCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class GetGDCustomDetectionRuleOrgConfigurationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PolicyEngineId
+        #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The identifier of the policy engine associated with the policy generation request.
-        /// This provides the context for the generation operation and schema validation.</para>
+        /// <para>The execution mode of the organization configuration to retrieve. Valid values: <c>LIVE</c>
+        /// | <c>DRY_RUN</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyEngineId { get; set; }
+        [AWSConstantClassSource("Amazon.GuardDuty.AssociationMode")]
+        public Amazon.GuardDuty.AssociationMode Mode { get; set; }
         #endregion
         
-        #region Parameter PolicyGenerationId
+        #region Parameter RuleId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the policy generation request to be retrieved. This must
-        /// be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a>
-        /// call.</para>
+        /// <para>The unique identifier for the custom detection rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,18 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyGenerationId { get; set; }
+        public System.String RuleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Configuration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Configuration";
         #endregion
         
         protected override void StopProcessing()
@@ -110,21 +107,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse, GetBACCPolicyGenerationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse, GetGDCustomDetectionRuleOrgConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.PolicyEngineId = this.PolicyEngineId;
+            context.Mode = this.Mode;
             #if MODULAR
-            if (this.PolicyEngineId == null && ParameterWasBound(nameof(this.PolicyEngineId)))
+            if (this.Mode == null && ParameterWasBound(nameof(this.Mode)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyEngineId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Mode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyGenerationId = this.PolicyGenerationId;
+            context.RuleId = this.RuleId;
             #if MODULAR
-            if (this.PolicyGenerationId == null && ParameterWasBound(nameof(this.PolicyGenerationId)))
+            if (this.RuleId == null && ParameterWasBound(nameof(this.RuleId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyGenerationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RuleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,15 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationRequest();
+            var request = new Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationRequest();
             
-            if (cmdletContext.PolicyEngineId != null)
+            if (cmdletContext.Mode != null)
             {
-                request.PolicyEngineId = cmdletContext.PolicyEngineId;
+                request.Mode = cmdletContext.Mode;
             }
-            if (cmdletContext.PolicyGenerationId != null)
+            if (cmdletContext.RuleId != null)
             {
-                request.PolicyGenerationId = cmdletContext.PolicyGenerationId;
+                request.RuleId = cmdletContext.RuleId;
             }
             
             CmdletOutput output;
@@ -184,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationRequest request)
+        private Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetPolicyGeneration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetCustomDetectionRuleOrgConfiguration");
             try
             {
-                return client.GetPolicyGenerationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetCustomDetectionRuleOrgConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -206,10 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyEngineId { get; set; }
-            public System.String PolicyGenerationId { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.GetPolicyGenerationResponse, GetBACCPolicyGenerationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.GuardDuty.AssociationMode Mode { get; set; }
+            public System.String RuleId { get; set; }
+            public System.Func<Amazon.GuardDuty.Model.GetCustomDetectionRuleOrgConfigurationResponse, GetGDCustomDetectionRuleOrgConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Configuration;
         }
         
     }

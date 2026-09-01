@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Creates a policy within the AgentCore Policy system. Policies provide real-time, deterministic
-    /// control over agentic interactions with AgentCore Gateway. Using the Cedar policy language,
+    /// control over agentic interactions with AgentCore Gateway. Using Cedar or Dogwood,
     /// you can define fine-grained policies that specify which interactions with Gateway
     /// tools are permitted based on input parameters and OAuth claims, ensuring agents operate
     /// within defined boundaries and business rules. The policy is validated during creation
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Definition_Policy_Statement
         /// <summary>
         /// <para>
-        /// <para>The body of the AgentCore policy statement. Contains the policy logic, which can be
-        /// a Cedar policy or a guardrails definition.</para>
+        /// <para>The body of the AgentCore Cedar or Dogwood policy statement. Contains the policy logic,
+        /// which can be a Cedar policy, a temporal policy, or a guardrails definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

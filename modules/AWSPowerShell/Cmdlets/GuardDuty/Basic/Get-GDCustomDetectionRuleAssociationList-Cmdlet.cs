@@ -23,58 +23,55 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.GuardDuty;
+using Amazon.GuardDuty.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Lists the channels in your account. You can filter the results by source stream. The
-    /// results are paginated. Use the <c>NextToken</c> value returned in the response to
-    /// retrieve additional results.
-    /// 
-    ///  
-    /// <para>
-    /// Use this operation to find channels before deleting a stream, or to audit the channels
-    /// configured in an Amazon Web Services Region.
-    /// </para><para>
-    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
-    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all custom detection rule associations for your account. You can filter by
+    /// rule ID and mode.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KINChannelList")]
-    [OutputType("Amazon.Kinesis.Model.ChannelSummary")]
-    [AWSCmdlet("Calls the Amazon Kinesis ListChannels API operation.", Operation = new[] {"ListChannels"}, SelectReturnType = typeof(Amazon.Kinesis.Model.ListChannelsResponse))]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.ChannelSummary or Amazon.Kinesis.Model.ListChannelsResponse",
-        "This cmdlet returns a collection of Amazon.Kinesis.Model.ChannelSummary objects.",
-        "The service call response (type Amazon.Kinesis.Model.ListChannelsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GDCustomDetectionRuleAssociationList")]
+    [OutputType("Amazon.GuardDuty.Model.AssociationSummary")]
+    [AWSCmdlet("Calls the Amazon GuardDuty ListCustomDetectionRuleAssociations API operation.", Operation = new[] {"ListCustomDetectionRuleAssociations"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.GuardDuty.Model.AssociationSummary or Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.GuardDuty.Model.AssociationSummary objects.",
+        "The service call response (type Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetKINChannelListCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class GetGDCustomDetectionRuleAssociationListCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter StreamFilter
+        #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>Filters the results to channels associated with the specified streams.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The rule execution mode to filter associations by.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.Kinesis.Model.StreamFilter[] StreamFilter { get; set; }
+        [AWSConstantClassSource("Amazon.GuardDuty.AssociationMode")]
+        public Amazon.GuardDuty.AssociationMode Mode { get; set; }
+        #endregion
+        
+        #region Parameter RuleId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the custom detection rule to filter associations by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RuleId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of channels to return in a single call. The default value is 100.
-        /// If you specify a value greater than 100, at most 100 results are returned.</para>
+        /// <para>The maximum number of results to return in a single page. Minimum value of 1, maximum
+        /// value of 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -90,9 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token returned by a previous call. Specify this token to retrieve the
-        /// next page of results. This value is <c>null</c> when there are no more results to
-        /// return.</para>
+        /// <para>A pagination token from a previous response. Use this token to retrieve the next page
+        /// of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -105,13 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.ListChannelsResponse).
-        /// Specifying the name of a property of type Amazon.Kinesis.Model.ListChannelsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RuleAssociations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelSummaries";
+        public string Select { get; set; } = "RuleAssociations";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -140,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.ListChannelsResponse, GetKINChannelListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse, GetGDCustomDetectionRuleAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -153,11 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.Mode = this.Mode;
             context.NextToken = this.NextToken;
-            if (this.StreamFilter != null)
-            {
-                context.StreamFilter = new List<Amazon.Kinesis.Model.StreamFilter>(this.StreamFilter);
-            }
+            context.RuleId = this.RuleId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -174,15 +168,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Kinesis.Model.ListChannelsRequest();
+            var request = new Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.StreamFilter != null)
+            if (cmdletContext.Mode != null)
             {
-                request.StreamFilter = cmdletContext.StreamFilter;
+                request.Mode = cmdletContext.Mode;
+            }
+            if (cmdletContext.RuleId != null)
+            {
+                request.RuleId = cmdletContext.RuleId;
             }
             
             // Initialize loop variant and commence piping
@@ -241,12 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.ListChannelsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.ListChannelsRequest request)
+        private Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "ListChannels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "ListCustomDetectionRuleAssociations");
             try
             {
-                return client.ListChannelsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListCustomDetectionRuleAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -264,10 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public int? MaxResult { get; set; }
+            public Amazon.GuardDuty.AssociationMode Mode { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.Kinesis.Model.StreamFilter> StreamFilter { get; set; }
-            public System.Func<Amazon.Kinesis.Model.ListChannelsResponse, GetKINChannelListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelSummaries;
+            public System.String RuleId { get; set; }
+            public System.Func<Amazon.GuardDuty.Model.ListCustomDetectionRuleAssociationsResponse, GetGDCustomDetectionRuleAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RuleAssociations;
         }
         
     }

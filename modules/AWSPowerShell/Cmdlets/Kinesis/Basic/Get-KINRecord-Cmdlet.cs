@@ -108,6 +108,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ShardIterator
         /// <summary>
         /// <para>
@@ -189,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.GetRecordsResponse, GetKINRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.Limit = this.Limit;
             context.ShardIterator = this.ShardIterator;
             #if MODULAR
@@ -215,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.GetRecordsRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
@@ -286,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String ShardIterator { get; set; }
             public System.String StreamARN { get; set; }

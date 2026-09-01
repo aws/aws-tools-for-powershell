@@ -101,6 +101,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.Collections.Hashtable TaskConfiguration_ContainerTaskConfiguration_EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter TaskConfiguration_ContainerTaskConfiguration_Mount
+        /// <summary>
+        /// <para>
+        /// <para>Mounts attached to the container filesystem. Each mount exposes an external data source
+        /// as a local directory inside the container. The service assigns each mount a container
+        /// path based on the mount name. The container reads files through that path as if the
+        /// data were on the local filesystem.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaskConfiguration_ContainerTaskConfiguration_Mounts")]
+        public Amazon.IoTSiteWise.Model.Mount[] TaskConfiguration_ContainerTaskConfiguration_Mount { get; set; }
+        #endregion
+        
         #region Parameter TaskConfiguration_ContainerTaskConfiguration_ProcessingType
         /// <summary>
         /// <para>
@@ -121,6 +139,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.IoTSiteWise.ProcessingUnit")]
         public Amazon.IoTSiteWise.ProcessingUnit TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit { get; set; }
+        #endregion
+        
+        #region Parameter TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass
+        /// <summary>
+        /// <para>
+        /// <para>Storage type that determines I/O performance family and level.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.StorageClass")]
+        public Amazon.IoTSiteWise.StorageClass TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass { get; set; }
+        #endregion
+        
+        #region Parameter TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB
+        /// <summary>
+        /// <para>
+        /// <para>Storage volume size in GiB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -278,6 +317,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                     context.TaskConfiguration_ContainerTaskConfiguration_EnvironmentVariable.Add((String)hashKey, (System.String)(this.TaskConfiguration_ContainerTaskConfiguration_EnvironmentVariable[hashKey]));
                 }
             }
+            context.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass = this.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass;
+            context.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB = this.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB;
+            if (this.TaskConfiguration_ContainerTaskConfiguration_Mount != null)
+            {
+                context.TaskConfiguration_ContainerTaskConfiguration_Mount = new List<Amazon.IoTSiteWise.Model.Mount>(this.TaskConfiguration_ContainerTaskConfiguration_Mount);
+            }
             context.TaskConfiguration_ContainerTaskConfiguration_ProcessingType = this.TaskConfiguration_ContainerTaskConfiguration_ProcessingType;
             context.TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit = this.TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit;
             context.TaskConfiguration_ContainerTaskConfiguration_TaskExecutionRole = this.TaskConfiguration_ContainerTaskConfiguration_TaskExecutionRole;
@@ -363,6 +408,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration.EnvironmentVariables = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EnvironmentVariable;
                 requestTaskConfiguration_taskConfiguration_ContainerTaskConfigurationIsNull = false;
             }
+            List<Amazon.IoTSiteWise.Model.Mount> requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_Mount = null;
+            if (cmdletContext.TaskConfiguration_ContainerTaskConfiguration_Mount != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_Mount = cmdletContext.TaskConfiguration_ContainerTaskConfiguration_Mount;
+            }
+            if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_Mount != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration.Mounts = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_Mount;
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfigurationIsNull = false;
+            }
             Amazon.IoTSiteWise.ProcessingType requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_ProcessingType = null;
             if (cmdletContext.TaskConfiguration_ContainerTaskConfiguration_ProcessingType != null)
             {
@@ -401,6 +456,41 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_TimeoutSecond != null)
             {
                 requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration.TimeoutSeconds = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_TimeoutSecond.Value;
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfigurationIsNull = false;
+            }
+            Amazon.IoTSiteWise.Model.EphemeralStorageConfiguration requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration = null;
+            
+             // populate EphemeralStorageConfiguration
+            var requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfigurationIsNull = true;
+            requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration = new Amazon.IoTSiteWise.Model.EphemeralStorageConfiguration();
+            Amazon.IoTSiteWise.StorageClass requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass = null;
+            if (cmdletContext.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass = cmdletContext.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass;
+            }
+            if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration.StorageClass = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass;
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfigurationIsNull = false;
+            }
+            System.Int32? requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB = null;
+            if (cmdletContext.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB = cmdletContext.TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB.Value;
+            }
+            if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration.StorageSizeInGiB = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB.Value;
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfigurationIsNull = false;
+            }
+             // determine if requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration should be set to null
+            if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfigurationIsNull)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration = null;
+            }
+            if (requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration != null)
+            {
+                requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration.EphemeralStorageConfiguration = requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_taskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration;
                 requestTaskConfiguration_taskConfiguration_ContainerTaskConfigurationIsNull = false;
             }
              // determine if requestTaskConfiguration_taskConfiguration_ContainerTaskConfiguration should be set to null
@@ -487,6 +577,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public List<System.String> TaskConfiguration_ContainerTaskConfiguration_Command { get; set; }
             public System.String TaskConfiguration_ContainerTaskConfiguration_EcrUri { get; set; }
             public Dictionary<System.String, System.String> TaskConfiguration_ContainerTaskConfiguration_EnvironmentVariable { get; set; }
+            public Amazon.IoTSiteWise.StorageClass TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageClass { get; set; }
+            public System.Int32? TaskConfiguration_ContainerTaskConfiguration_EphemeralStorageConfiguration_StorageSizeInGiB { get; set; }
+            public List<Amazon.IoTSiteWise.Model.Mount> TaskConfiguration_ContainerTaskConfiguration_Mount { get; set; }
             public Amazon.IoTSiteWise.ProcessingType TaskConfiguration_ContainerTaskConfiguration_ProcessingType { get; set; }
             public Amazon.IoTSiteWise.ProcessingUnit TaskConfiguration_ContainerTaskConfiguration_ProcessingUnit { get; set; }
             public System.String TaskConfiguration_ContainerTaskConfiguration_TaskExecutionRole { get; set; }

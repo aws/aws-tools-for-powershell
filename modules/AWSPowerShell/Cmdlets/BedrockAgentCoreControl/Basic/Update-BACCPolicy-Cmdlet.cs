@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Definition_Policy_Statement
         /// <summary>
         /// <para>
-        /// <para>The body of the AgentCore policy statement. Contains the policy logic, which can be
-        /// a Cedar policy or a guardrails definition.</para>
+        /// <para>The body of the AgentCore Cedar or Dogwood policy statement. Contains the policy logic,
+        /// which can be a Cedar policy, a temporal policy, or a guardrails definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

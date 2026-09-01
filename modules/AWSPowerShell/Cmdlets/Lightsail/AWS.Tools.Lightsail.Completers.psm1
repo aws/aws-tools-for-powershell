@@ -263,7 +263,7 @@ $LS_Completers = {
         # Amazon.Lightsail.MetricName
         "Add-LSAlarm/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","UnhealthyHostCount"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","SwapUsage","UnhealthyHostCount"
             break
         }
 
@@ -324,7 +324,7 @@ $LS_Completers = {
         # Amazon.Lightsail.RelationalDatabaseMetricName
         "Get-LSRelationalDatabaseMetricData/MetricName"
         {
-            $v = "CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","NetworkReceiveThroughput","NetworkTransmitThroughput"
+            $v = "CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeableMemory","FreeStorageSpace","NetworkReceiveThroughput","NetworkTransmitThroughput","SwapUsage"
             break
         }
 
@@ -566,6 +566,7 @@ $LS_SelectMap = @{
                "Get-LSOperation",
                "Get-LSOperationList",
                "Get-LSOperationListForResource",
+               "Get-LSProfile",
                "Get-LSRegionList",
                "Get-LSRelationalDatabase",
                "Get-LSRelationalDatabaseBlueprint",

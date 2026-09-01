@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String TrackingOptions_CustomRedirectDomain { get; set; }
         #endregion
         
+        #region Parameter MessageSecurityOptions_SigningScheme_DefaultScheme
+        /// <summary>
+        /// <para>
+        /// <para>Use the default signing behavior. When you select this option, Amazon SES API v2 doesn't
+        /// add an S/MIME signature to messages sent with the configuration set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SimpleEmailV2.Model.DefaultSigningScheme MessageSecurityOptions_SigningScheme_DefaultScheme { get; set; }
+        #endregion
+        
         #region Parameter DashboardOptions_EngagementMetric
         /// <summary>
         /// <para>
@@ -205,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DeliveryOptions_SendingPoolName { get; set; }
+        #endregion
+        
+        #region Parameter MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the S/MIME signature that Amazon SES API v2 applies to messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.SignatureFormat")]
+        public Amazon.SimpleEmailV2.SignatureFormat MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat { get; set; }
         #endregion
         
         #region Parameter SuppressionOptions_SuppressedReason
@@ -327,6 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             context.DeliveryOptions_MaxDeliverySecond = this.DeliveryOptions_MaxDeliverySecond;
             context.DeliveryOptions_SendingPoolName = this.DeliveryOptions_SendingPoolName;
             context.DeliveryOptions_TlsPolicy = this.DeliveryOptions_TlsPolicy;
+            context.MessageSecurityOptions_SigningScheme_DefaultScheme = this.MessageSecurityOptions_SigningScheme_DefaultScheme;
+            context.MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat = this.MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat;
             context.ReputationOptions_LastFreshStart = this.ReputationOptions_LastFreshStart;
             context.ReputationOptions_ReputationMetricsEnabled = this.ReputationOptions_ReputationMetricsEnabled;
             context.SendingOptions_SendingEnabled = this.SendingOptions_SendingEnabled;
@@ -422,6 +446,65 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestDeliveryOptionsIsNull)
             {
                 request.DeliveryOptions = null;
+            }
+            
+             // populate MessageSecurityOptions
+            var requestMessageSecurityOptionsIsNull = true;
+            request.MessageSecurityOptions = new Amazon.SimpleEmailV2.Model.MessageSecurityOptions();
+            Amazon.SimpleEmailV2.Model.SigningScheme requestMessageSecurityOptions_messageSecurityOptions_SigningScheme = null;
+            
+             // populate SigningScheme
+            var requestMessageSecurityOptions_messageSecurityOptions_SigningSchemeIsNull = true;
+            requestMessageSecurityOptions_messageSecurityOptions_SigningScheme = new Amazon.SimpleEmailV2.Model.SigningScheme();
+            Amazon.SimpleEmailV2.Model.DefaultSigningScheme requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_DefaultScheme = null;
+            if (cmdletContext.MessageSecurityOptions_SigningScheme_DefaultScheme != null)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_DefaultScheme = cmdletContext.MessageSecurityOptions_SigningScheme_DefaultScheme;
+            }
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_DefaultScheme != null)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme.DefaultScheme = requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_DefaultScheme;
+                requestMessageSecurityOptions_messageSecurityOptions_SigningSchemeIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.SmimeSigningScheme requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme = null;
+            
+             // populate SmimeScheme
+            var requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeSchemeIsNull = true;
+            requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme = new Amazon.SimpleEmailV2.Model.SmimeSigningScheme();
+            Amazon.SimpleEmailV2.SignatureFormat requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme_messageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat = null;
+            if (cmdletContext.MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat != null)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme_messageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat = cmdletContext.MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat;
+            }
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme_messageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat != null)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme.SignatureFormat = requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme_messageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat;
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeSchemeIsNull = false;
+            }
+             // determine if requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme should be set to null
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeSchemeIsNull)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme = null;
+            }
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme != null)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme.SmimeScheme = requestMessageSecurityOptions_messageSecurityOptions_SigningScheme_messageSecurityOptions_SigningScheme_SmimeScheme;
+                requestMessageSecurityOptions_messageSecurityOptions_SigningSchemeIsNull = false;
+            }
+             // determine if requestMessageSecurityOptions_messageSecurityOptions_SigningScheme should be set to null
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningSchemeIsNull)
+            {
+                requestMessageSecurityOptions_messageSecurityOptions_SigningScheme = null;
+            }
+            if (requestMessageSecurityOptions_messageSecurityOptions_SigningScheme != null)
+            {
+                request.MessageSecurityOptions.SigningScheme = requestMessageSecurityOptions_messageSecurityOptions_SigningScheme;
+                requestMessageSecurityOptionsIsNull = false;
+            }
+             // determine if request.MessageSecurityOptions should be set to null
+            if (requestMessageSecurityOptionsIsNull)
+            {
+                request.MessageSecurityOptions = null;
             }
             
              // populate ReputationOptions
@@ -717,6 +800,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.Int64? DeliveryOptions_MaxDeliverySecond { get; set; }
             public System.String DeliveryOptions_SendingPoolName { get; set; }
             public Amazon.SimpleEmailV2.TlsPolicy DeliveryOptions_TlsPolicy { get; set; }
+            public Amazon.SimpleEmailV2.Model.DefaultSigningScheme MessageSecurityOptions_SigningScheme_DefaultScheme { get; set; }
+            public Amazon.SimpleEmailV2.SignatureFormat MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat { get; set; }
             public System.DateTime? ReputationOptions_LastFreshStart { get; set; }
             public System.Boolean? ReputationOptions_ReputationMetricsEnabled { get; set; }
             public System.Boolean? SendingOptions_SendingEnabled { get; set; }

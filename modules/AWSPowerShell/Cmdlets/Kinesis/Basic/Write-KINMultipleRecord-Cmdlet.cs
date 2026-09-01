@@ -114,6 +114,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks if your request will succeed. <c>DryRun</c> is an optional parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Record
         /// <summary>
         /// <para>
@@ -212,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.PutRecordsResponse, WriteKINMultipleRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             if (this.Record != null)
             {
                 context.Record = new List<Amazon.Kinesis.Model.PutRecordsRequestEntry>(this.Record);
@@ -241,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.PutRecordsRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Record != null)
             {
                 request.Records = cmdletContext.Record;
@@ -312,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.Kinesis.Model.PutRecordsRequestEntry> Record { get; set; }
             public System.String StreamARN { get; set; }
             public System.String StreamId { get; set; }

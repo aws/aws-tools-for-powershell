@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// After the change is applied, Amazon Kinesis Data Streams sets the channel back to
     /// the <c>ACTIVE</c> state.
     /// </para><para>
-    /// This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services
-    /// account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
+    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
+    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KINChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

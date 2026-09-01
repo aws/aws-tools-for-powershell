@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SES2EmailIdentityCertificate', 
         'Add-SES2ResourceTag', 
         'Get-SES2Account', 
         'Get-SES2BatchMetricData', 
@@ -112,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SES2DomainStatisticsReport', 
         'Get-SES2EmailAddressInsight', 
         'Get-SES2EmailIdentity', 
+        'Get-SES2EmailIdentityCertificateList', 
         'Get-SES2EmailIdentityList', 
         'Get-SES2EmailIdentityPolicy', 
         'Get-SES2EmailTemplate', 
@@ -155,6 +157,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SES2CustomVerificationEmailTemplate', 
         'Remove-SES2DedicatedIpPool', 
         'Remove-SES2EmailIdentity', 
+        'Remove-SES2EmailIdentityCertificate', 
         'Remove-SES2EmailIdentityPolicy', 
         'Remove-SES2EmailTemplate', 
         'Remove-SES2MultiRegionEndpoint', 
@@ -167,6 +170,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SES2Email', 
         'Stop-SES2ExportJob', 
         'Test-SES2RenderEmailTemplate', 
+        'Update-SES2ConfigurationSet', 
         'Update-SES2ConfigurationSetEventDestination', 
         'Update-SES2Contact', 
         'Update-SES2ContactList', 

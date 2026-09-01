@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter PolicyEngineConfiguration_Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the policy engine. The policy engine contains Cedar policies that define
-        /// fine-grained authorization rules specifying who can perform what actions on which
-        /// resources as agents interact through the gateway.</para>
+        /// <para>The ARN of the policy engine. The policy engine contains Cedar or Dogwood policies
+        /// that define fine-grained authorization rules specifying who can perform what actions
+        /// on which resources as agents interact through the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

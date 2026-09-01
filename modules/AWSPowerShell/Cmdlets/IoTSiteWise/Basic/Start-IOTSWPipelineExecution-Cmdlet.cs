@@ -69,6 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.Collections.Hashtable ExecutionEnvironmentVariableOverrides_ComputeNode { get; set; }
         #endregion
         
+        #region Parameter ExecutionMountOverrides_ComputeNode
+        /// <summary>
+        /// <para>
+        /// <para>The mount overrides for each compute node, keyed by compute node name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExecutionMountOverrides_ComputeNodes")]
+        public System.Collections.Hashtable ExecutionMountOverrides_ComputeNode { get; set; }
+        #endregion
+        
         #region Parameter ExecutionPriority
         /// <summary>
         /// <para>
@@ -209,6 +224,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                     context.ExecutionEnvironmentVariableOverrides_Global.Add((String)hashKey, (System.String)(this.ExecutionEnvironmentVariableOverrides_Global[hashKey]));
                 }
             }
+            if (this.ExecutionMountOverrides_ComputeNode != null)
+            {
+                context.ExecutionMountOverrides_ComputeNode = new Dictionary<System.String, List<Amazon.IoTSiteWise.Model.Mount>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ExecutionMountOverrides_ComputeNode.Keys)
+                {
+                    object hashValue = this.ExecutionMountOverrides_ComputeNode[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.ExecutionMountOverrides_ComputeNode.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.IoTSiteWise.Model.Mount>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.IoTSiteWise.Model.Mount)s);
+                    }
+                    context.ExecutionMountOverrides_ComputeNode.Add((String)hashKey, valueSet);
+                }
+            }
             context.ExecutionPriority = this.ExecutionPriority;
             context.PipelineName = this.PipelineName;
             #if MODULAR
@@ -272,6 +307,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestExecutionEnvironmentVariableOverridesIsNull)
             {
                 request.ExecutionEnvironmentVariableOverrides = null;
+            }
+            
+             // populate ExecutionMountOverrides
+            var requestExecutionMountOverridesIsNull = true;
+            request.ExecutionMountOverrides = new Amazon.IoTSiteWise.Model.MountOverrides();
+            Dictionary<System.String, List<Amazon.IoTSiteWise.Model.Mount>> requestExecutionMountOverrides_executionMountOverrides_ComputeNode = null;
+            if (cmdletContext.ExecutionMountOverrides_ComputeNode != null)
+            {
+                requestExecutionMountOverrides_executionMountOverrides_ComputeNode = cmdletContext.ExecutionMountOverrides_ComputeNode;
+            }
+            if (requestExecutionMountOverrides_executionMountOverrides_ComputeNode != null)
+            {
+                request.ExecutionMountOverrides.ComputeNodes = requestExecutionMountOverrides_executionMountOverrides_ComputeNode;
+                requestExecutionMountOverridesIsNull = false;
+            }
+             // determine if request.ExecutionMountOverrides should be set to null
+            if (requestExecutionMountOverridesIsNull)
+            {
+                request.ExecutionMountOverrides = null;
             }
             if (cmdletContext.ExecutionPriority != null)
             {
@@ -343,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> ExecutionEnvironmentVariableOverrides_ComputeNode { get; set; }
             public Dictionary<System.String, System.String> ExecutionEnvironmentVariableOverrides_Global { get; set; }
+            public Dictionary<System.String, List<Amazon.IoTSiteWise.Model.Mount>> ExecutionMountOverrides_ComputeNode { get; set; }
             public System.Int32? ExecutionPriority { get; set; }
             public System.String PipelineName { get; set; }
             public System.String WorkspaceName { get; set; }

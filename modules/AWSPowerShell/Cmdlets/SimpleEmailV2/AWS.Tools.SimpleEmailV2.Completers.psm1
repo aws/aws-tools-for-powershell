@@ -234,6 +234,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SignatureFormat
+        {
+            ($_ -eq "New-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat") -Or
+            ($_ -eq "Update-SES2ConfigurationSet/MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat")
+        }
+        {
+            $v = "DETACHED"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SubscriptionStatus
         "Get-SES2ContactCollection/Filter_FilteredStatus"
         {
@@ -317,6 +327,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
+    "MessageSecurityOptions_SigningScheme_SmimeScheme_SignatureFormat"=@("New-SES2ConfigurationSet","Update-SES2ConfigurationSet")
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "Plan"=@("Write-SES2AccountPricingAttribute")
     "Reason"=@("Write-SES2SuppressedDestination")
@@ -391,7 +402,8 @@ $SES2_SelectCompleters = {
 }
 
 $SES2_SelectMap = @{
-    "Select"=@("Get-SES2BatchMetricData",
+    "Select"=@("Add-SES2EmailIdentityCertificate",
+               "Get-SES2BatchMetricData",
                "Stop-SES2ExportJob",
                "New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
@@ -421,6 +433,7 @@ $SES2_SelectMap = @{
                "Remove-SES2SuppressedDestination",
                "Remove-SES2Tenant",
                "Remove-SES2TenantResourceAssociation",
+               "Remove-SES2EmailIdentityCertificate",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
@@ -454,6 +467,7 @@ $SES2_SelectMap = @{
                "Get-SES2DeliverabilityTestReportList",
                "Get-SES2DomainDeliverabilityCampaignList",
                "Get-SES2EmailIdentityList",
+               "Get-SES2EmailIdentityCertificateList",
                "Get-SES2EmailTemplateList",
                "Get-SES2ExportJobList",
                "Get-SES2ImportJobList",
@@ -495,6 +509,7 @@ $SES2_SelectMap = @{
                "Add-SES2ResourceTag",
                "Test-SES2RenderEmailTemplate",
                "Remove-SES2ResourceTag",
+               "Update-SES2ConfigurationSet",
                "Update-SES2ConfigurationSetEventDestination",
                "Update-SES2Contact",
                "Update-SES2ContactList",

@@ -23,63 +23,70 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.GuardDuty;
+using Amazon.GuardDuty.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Describes the specified channel, including its configuration and current status.
-    /// 
-    ///  
-    /// <para>
-    /// Use this operation to verify that a channel reached the <c>ACTIVE</c> state after
-    /// creation, or to diagnose a channel in the <c>FAILED</c> state by reading the <c>ChannelStatusReason</c>.
-    /// </para><para>
-    /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
-    /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.
-    /// </para>
+    /// Returns details for a custom detection rule association.
     /// </summary>
-    [Cmdlet("Get", "KINChannelDetail")]
-    [OutputType("Amazon.Kinesis.Model.ChannelDescription")]
-    [AWSCmdlet("Calls the Amazon Kinesis DescribeChannel API operation.", Operation = new[] {"DescribeChannel"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DescribeChannelResponse))]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.ChannelDescription or Amazon.Kinesis.Model.DescribeChannelResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.ChannelDescription object.",
-        "The service call response (type Amazon.Kinesis.Model.DescribeChannelResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GDCustomDetectionRuleAssociation")]
+    [OutputType("Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse")]
+    [AWSCmdlet("Calls the Amazon GuardDuty GetCustomDetectionRuleAssociation API operation.", Operation = new[] {"GetCustomDetectionRuleAssociation"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse))]
+    [AWSCmdletOutput("Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse",
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse object containing multiple properties."
     )]
-    public partial class GetKINChannelDetailCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class GetGDCustomDetectionRuleAssociationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelARN
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the channel to describe.</para>
+        /// <para>The unique identifier for the association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelARN { get; set; }
+        public System.String AssociationId { get; set; }
+        #endregion
+        
+        #region Parameter RuleId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the custom detection rule.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RuleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelDescription'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.DescribeChannelResponse).
-        /// Specifying the name of a property of type Amazon.Kinesis.Model.DescribeChannelResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse).
+        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelDescription";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -98,14 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.DescribeChannelResponse, GetKINChannelDetailCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse, GetGDCustomDetectionRuleAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelARN = this.ChannelARN;
+            context.AssociationId = this.AssociationId;
             #if MODULAR
-            if (this.ChannelARN == null && ParameterWasBound(nameof(this.ChannelARN)))
+            if (this.AssociationId == null && ParameterWasBound(nameof(this.AssociationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RuleId = this.RuleId;
+            #if MODULAR
+            if (this.RuleId == null && ParameterWasBound(nameof(this.RuleId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RuleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -122,11 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.DescribeChannelRequest();
+            var request = new Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationRequest();
             
-            if (cmdletContext.ChannelARN != null)
+            if (cmdletContext.AssociationId != null)
             {
-                request.ChannelARN = cmdletContext.ChannelARN;
+                request.AssociationId = cmdletContext.AssociationId;
+            }
+            if (cmdletContext.RuleId != null)
+            {
+                request.RuleId = cmdletContext.RuleId;
             }
             
             CmdletOutput output;
@@ -161,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.DescribeChannelResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeChannelRequest request)
+        private Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DescribeChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetCustomDetectionRuleAssociation");
             try
             {
-                return client.DescribeChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetCustomDetectionRuleAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -183,9 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelARN { get; set; }
-            public System.Func<Amazon.Kinesis.Model.DescribeChannelResponse, GetKINChannelDetailCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelDescription;
+            public System.String AssociationId { get; set; }
+            public System.String RuleId { get; set; }
+            public System.Func<Amazon.GuardDuty.Model.GetCustomDetectionRuleAssociationResponse, GetGDCustomDetectionRuleAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

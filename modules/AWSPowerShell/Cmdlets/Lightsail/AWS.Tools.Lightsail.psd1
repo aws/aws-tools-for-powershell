@@ -151,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LSOperation', 
         'Get-LSOperationList', 
         'Get-LSOperationListForResource', 
+        'Get-LSProfile', 
         'Get-LSRegionList', 
         'Get-LSRelationalDatabase', 
         'Get-LSRelationalDatabaseBlueprint', 
