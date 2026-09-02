@@ -516,4 +516,91 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             }
         }
     }
+
+    Context "Removal Summary" {
+        BeforeEach {
+            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+            Mock -ModuleName AWS.Tools.Installer Write-Progress { }
+        }
+
+        It "Should report the actual version removed (not 'all versions') on the -ExceptModules path" {
+            # Arrange - two modules on the same version, backed by real directories so
+            # the bulk parallel delete succeeds and reports no failures. -ExceptModules
+            # takes the bulk path (no -Name), which previously always printed "(all versions)".
+            $modBase1 = Join-Path -Path $TestDrive -ChildPath "Modules/AWS.Tools.EC2/5.0.10"
+            $modBase2 = Join-Path -Path $TestDrive -ChildPath "Modules/AWS.Tools.S3/5.0.10"
+            New-Item -ItemType Directory -Path $modBase1 -Force | Out-Null
+            New-Item -ItemType Directory -Path $modBase2 -Force | Out-Null
+
+            $mockModules = @(
+                (New-MockModule -Name "AWS.Tools.EC2" -Version ([Version]"5.0.10") -ModuleBase $modBase1),
+                (New-MockModule -Name "AWS.Tools.S3" -Version ([Version]"5.0.10") -ModuleBase $modBase2)
+            )
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = $mockModules; Installer = @() } }
+
+            # Act
+            Uninstall-AWSToolsModule -ExceptModules @(@{ Name = 'AWS.Tools.Common'; Version = '5.0.11' }) -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert - reports the real version removed, singular label, not "all versions"
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Removed 2 AWS Tools modules (version 5.0.10) from *"
+            }
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter {
+                $Object -like "*all versions*"
+            }
+        }
+
+        It "Should still report 'all versions' for a genuine unfiltered uninstall-all" {
+            # Arrange - no name/version filter of any kind
+            $modBase1 = Join-Path -Path $TestDrive -ChildPath "ModulesAll/AWS.Tools.EC2/5.0.10"
+            $modBase2 = Join-Path -Path $TestDrive -ChildPath "ModulesAll/AWS.Tools.S3/5.0.11"
+            New-Item -ItemType Directory -Path $modBase1 -Force | Out-Null
+            New-Item -ItemType Directory -Path $modBase2 -Force | Out-Null
+
+            $mockModules = @(
+                (New-MockModule -Name "AWS.Tools.EC2" -Version ([Version]"5.0.10") -ModuleBase $modBase1),
+                (New-MockModule -Name "AWS.Tools.S3" -Version ([Version]"5.0.11") -ModuleBase $modBase2)
+            )
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = $mockModules; Installer = @() } }
+
+            # Act
+            Uninstall-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Removed 2 AWS Tools modules (all versions) from *"
+            }
+        }
+    }
+
+    Context "Legacy cleanup delegation" {
+        It "Should delegate legacy cleanup to Remove-LegacyModule when -CleanUpLegacyScope is specified" {
+            # Arrange
+            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = @(); Installer = @() } }
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule { }
+
+            # Act
+            Uninstall-AWSToolsModule -CleanUpLegacyScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert - legacy cleanup is delegated to the shared helper with the requested scope
+            Should -Invoke -ModuleName AWS.Tools.Installer Remove-LegacyModule -Times 1 -ParameterFilter {
+                $Scope -eq 'CurrentUser'
+            }
+        }
+
+        It "Should NOT call Remove-LegacyModule when -CleanUpLegacyScope is not specified" {
+            # Arrange
+            Mock -ModuleName AWS.Tools.Installer Get-Module { @() }
+            Mock -ModuleName AWS.Tools.Installer Get-ModulesToProcess { @{ Regular = @(); Installer = @() } }
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule { }
+
+            # Act
+            Uninstall-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Remove-LegacyModule
+        }
+    }
 }

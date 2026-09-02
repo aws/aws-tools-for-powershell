@@ -293,7 +293,26 @@ function Uninstall-AWSToolsInstaller {
                     
                     # Provide removal summary via Write-Host
                     if ($result.SuccessCount -gt 0) {
-                        $versionInfo = if ($Version) { "version $Version" } elseif ($ExceptVersion) { "all versions except $ExceptVersion" } else { "all versions" }
+                        # A genuine unfiltered uninstall-all (no version filter) legitimately
+                        # removes every version, so keep "all versions". Otherwise report the
+                        # versions actually removed (excluding failures) via $result.RemovedModules.
+                        if (-not $Version -and -not $ExceptVersion) {
+                            $versionInfo = "all versions"
+                        }
+                        else {
+                            $removedModules = @($installedModules | Where-Object {
+                                $result.RemovedModules -contains "$($_.Name) ($(Get-ModuleVersionString -Module $_))"
+                            })
+
+                            if ($removedModules) {
+                                $versionSummary = Get-ModuleVersionSummary -Modules $removedModules
+                                $versionLabel = if ($versionSummary.DistinctCount -eq 1) { "version" } else { "versions" }
+                                $versionInfo = "$versionLabel $($versionSummary.VersionList)"
+                            }
+                            else {
+                                $versionInfo = "all versions"
+                            }
+                        }
                         Write-Host "Removed $($result.SuccessCount) AWS.Tools.Installer modules ($versionInfo) from $targetPath"
                     }
                 }

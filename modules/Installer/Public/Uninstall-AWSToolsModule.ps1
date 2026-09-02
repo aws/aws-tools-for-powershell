@@ -100,10 +100,11 @@
     This example uninstalls only version 4.1.754 of all AWS.Tools modules.
 
 .Example
-    Uninstall-AWSToolsModule -Name EC2,S3 -Confirm:$false
+    Uninstall-AWSToolsModule -Name Common,EC2,S3 -Confirm:$false
 
-    This example uninstalls all versions of only the EC2 and S3 modules, with individual
-    confirmation prompts for each module.
+    This example uninstalls all versions of the Common, EC2, and S3 modules, with individual
+    confirmation prompts for each module. AWS.Tools.Common is a shared dependency, so removing it
+    will prevent any other installed AWS.Tools modules from loading until it is reinstalled.
 
 .Example
     Uninstall-AWSToolsModule -CleanUpLegacyScope CurrentUser -Confirm:$false
@@ -382,9 +383,6 @@ function Uninstall-AWSToolsModule {
         }
         
         if ($allImportedModules.Count -gt 0) {
-            $moduleDetails = $allImportedModules | ForEach-Object { "$($_.Name) version $($_.Version)" }
-            $errorMessage = "Cannot uninstall module(s): $($moduleDetails -join ', ') because they are currently imported in this PowerShell session. The module's DLL files are locked and cannot be removed. Close this PowerShell session and start a new PowerShell session to uninstall these modules"
-            
             # If -WhatIf is specified, set a flag to show a warning after ShouldProcess
             if ($WhatIfPreference) {
                 # Don't return early - allow the ShouldProcess messages to be displayed
@@ -392,15 +390,8 @@ function Uninstall-AWSToolsModule {
                 $skipUninstallation = $true
                 $showWarningAfterShouldProcess = $true
             } else {
-        $PSCmdlet.ThrowTerminatingError(
-            [System.Management.Automation.ErrorRecord]::new(
-                ([System.InvalidOperationException]$errorMessage),
-                'ModuleInUse',
-                [System.Management.Automation.ErrorCategory]::InvalidOperation,
-                $allImportedModules
-            )
-        )
-    }
+                $PSCmdlet.ThrowTerminatingError((Get-ModuleInUseErrorRecord -Modules $allImportedModules))
+            }
         }
 
         # Validate that AWS.Tools.Installer is not specified
@@ -441,7 +432,7 @@ function Uninstall-AWSToolsModule {
             Write-Verbose "[$($MyInvocation.MyCommand)] Using $Scope scope path: $scopePath"
             $scopePath
         }
-        
+
         Write-Progress -Activity "Uninstalling AWS.Tools modules" -Status "Searching for installed modules..." -PercentComplete 30
         
         # Get and filter modules (AWS.Tools.Installer is automatically excluded). This call
@@ -556,7 +547,36 @@ function Uninstall-AWSToolsModule {
                         
                         # Provide removal summary via Write-Host
                         if ($result.SuccessCount -gt 0) {
-                            $versionInfo = if ($Version) { "version $Version" } elseif ($ExceptVersion) { "all versions except $ExceptVersion" } else { "all versions" }
+                            # A genuine unfiltered uninstall-all (no name/version filter of any
+                            # kind) legitimately removes every version, so keep "all versions".
+                            $isUninstallAll = -not $Name -and -not $Version -and -not $ExceptVersion -and `
+                                -not $ExceptModules -and -not $MinimumVersion -and -not $MaximumVersion
+                            if ($isUninstallAll) {
+                                $versionInfo = "all versions"
+                            }
+                            else {
+                                # Report the versions actually removed (excluding failures). On the
+                                # -Name path, $result.RemovedModules lists the "Name (version)"
+                                # entries that succeeded; on the bulk path, everything in $modules
+                                # whose path is not in $failedPaths was removed.
+                                if ($Name) {
+                                    $removedModules = @($modules | Where-Object {
+                                        $result.RemovedModules -contains "$($_.Name) ($(Get-ModuleVersionString -Module $_))"
+                                    })
+                                }
+                                else {
+                                    $removedModules = @($modules | Where-Object { $failedPaths -notcontains $_.ModuleBase })
+                                }
+
+                                if ($removedModules) {
+                                    $versionSummary = Get-ModuleVersionSummary -Modules $removedModules
+                                    $versionLabel = if ($versionSummary.DistinctCount -eq 1) { "version" } else { "versions" }
+                                    $versionInfo = "$versionLabel $($versionSummary.VersionList)"
+                                }
+                                else {
+                                    $versionInfo = "all versions"
+                                }
+                            }
                             Write-Host "Removed $($result.SuccessCount) AWS Tools modules ($versionInfo) from $targetPath"
                         }
                     }
@@ -574,87 +594,19 @@ function Uninstall-AWSToolsModule {
                 Write-Host "Skipped uninstallation: No AWS.Tools modules found ($versionInfo) in $targetPath"
             }
         }
-        
-        # Handle legacy module cleanup if requested
+
+        # Handle legacy module cleanup if requested. Delegated to the private
+        # Remove-LegacyModule helper (shared with Install-AWSToolsModule) so the legacy
+        # cleanup logic lives in one place and never touches AWS.Tools modules.
         if ($CleanUpLegacyScope) {
-            Write-Verbose ("[$($MyInvocation.MyCommand)] Cleaning up legacy AWSPowerShell modules " +
-                "in $CleanUpLegacyScope scope")
-            
-            $legacyPath = Get-PSModulePath -Scope $CleanUpLegacyScope
-            # @(...) because return unrolls a one-element array to a scalar (no .Count on 5.1).
-            $legacyModules = @(Get-LegacyModules -TargetPath $legacyPath)
-            
-            if ($legacyModules) {
-                $legacyTarget = Format-ModuleTarget -Modules $legacyModules -TargetPath $legacyPath -ModuleType "Legacy AWSPowerShell"
-                
-                # Add WhatIf information message for legacy modules
-                if ($WhatIfPreference) {
-                    $legacyModuleCount = $legacyModules.Count
-                    Write-Host "What if: Would remove $legacyModuleCount legacy AWSPowerShell modules from $legacyPath"
-                }
-                
-                if ($PSCmdlet.ShouldProcess($legacyTarget, "Clean up legacy AWSPowerShell modules")) {
-                    # Skip actual uninstallation if modules are imported and WhatIf is specified
-                    if (-not $skipUninstallation -or -not $WhatIfPreference) {
-                        # Initialize result tracking for legacy modules
-                        $legacyResult = [PSCustomObject]@{
-                            SuccessCount = 0
-                            FailureCount = 0
-                            RemovedModules = @()
-                            FailedModules = @()
-                        }
-                        
-                        $totalLegacyModules = $legacyModules.Count
-                        $currentLegacyModule = 0
-
-                        # Process each legacy module with progress reporting
-                        foreach ($module in $legacyModules) {
-                            $currentLegacyModule++
-                            $percentComplete = [Math]::Min([Math]::Round(($currentLegacyModule / $totalLegacyModules) * 100), 100)
-                            $moduleName = $module.Name
-                            $moduleVersion = $module.Version.ToString()
-                            
-                            # Update progress bar with current module name and progress
-                            Write-Progress -Activity "Cleaning up legacy AWSPowerShell modules" -Status "Processing $moduleName ($moduleVersion) - Module $currentLegacyModule of $totalLegacyModules" -PercentComplete $percentComplete
-                            
-                            Write-Verbose ("[$($MyInvocation.MyCommand)] Removing legacy module: $moduleName " +
-                                "version $moduleVersion")
-                            
-                            # Use Remove-ModuleItem for actual removal
-                            $moduleResult = Remove-ModuleItem -Module $module -Reason "Clean up legacy AWSPowerShell modules"
-                            
-                            # Consolidate results
-                            $legacyResult.SuccessCount += $moduleResult.SuccessCount
-                            $legacyResult.FailureCount += $moduleResult.FailureCount
-                            $legacyResult.RemovedModules += $moduleResult.RemovedModules
-                            $legacyResult.FailedModules += $moduleResult.FailedModules
-                        }
-
-                        if ($legacyResult.FailureCount -gt 0) {
-                            Write-Warning ("Failed to remove $($legacyResult.FailureCount) legacy modules: " +
-                                "$($legacyResult.FailedModules -join ', ')")
-                        }
-                        elseif ($legacyResult.SuccessCount -gt 0) {
-                            # Provide legacy removal summary via Write-Host
-                            Write-Host "Removed $($legacyResult.SuccessCount) legacy AWSPowerShell modules from $legacyPath"
-                        }
-                    }
-                }
-            }
-            else {
-                Write-Verbose ("[$($MyInvocation.MyCommand)] No legacy AWSPowerShell modules found " +
-                    "in $CleanUpLegacyScope scope")
-                Write-Host "Skipped legacy cleanup: No AWSPowerShell modules found in $legacyPath"
-            }
+            Remove-LegacyModule -Scope $CleanUpLegacyScope
         }
     }
 
     End {
         # Show the warning after all ShouldProcess messages
         if ($showWarningAfterShouldProcess -and $WhatIfPreference) {
-            $moduleDetails = $allImportedModules | ForEach-Object { "$($_.Name) version $($_.Version)" }
-            $errorMessage = "Cannot uninstall module(s): $($moduleDetails -join ', ') because they are currently imported in this PowerShell session. The module's DLL files are locked and cannot be removed. Close this PowerShell session and start a new PowerShell session to uninstall these modules"
-            Write-Warning $errorMessage
+            Write-Warning (Get-ModuleInUseErrorRecord -Modules $allImportedModules).Exception.Message
         }
         
         # Complete all progress bars

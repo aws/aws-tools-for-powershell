@@ -208,17 +208,18 @@ InModuleScope AWS.Tools.Installer {
                 $result.ToString() | Should -Be "4.1.754"
             }
             
-            It "Should return null when wildcard resolution fails" {
-                # Arrange - Mock failure
-                Mock Invoke-WithRetry { 
-                    throw "Network error"
+            It "Should throw (not fall back to latest) when a wildcard major cannot be resolved" {
+                # Arrange - a nonexistent major (e.g. 6.*) makes the HEAD fail. A wildcard names a
+                # specific major, so resolution must fail loudly. Returning $null here previously
+                # made the caller fall back to the latest-overall endpoint, so `6.*` silently
+                # installed the latest v5.
+                Mock Invoke-WithRetry {
+                    throw "Version pattern 6.* not found. The major version may not be available."
                 }
-                
-                # Act
-                $result = Resolve-AWSToolsVersion -Version "4.*"
-                
-                # Assert
-                $result | Should -BeNullOrEmpty
+
+                # Act & Assert - it re-throws instead of returning $null
+                { Resolve-AWSToolsVersion -Version "6.*" } |
+                    Should -Throw "*The major version may not be available*"
             }
             
             It "Should handle array Content-Disposition headers" {

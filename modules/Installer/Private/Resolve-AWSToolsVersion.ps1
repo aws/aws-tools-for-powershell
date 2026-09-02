@@ -228,12 +228,17 @@ function Resolve-AWSToolsVersion {
                 return $resolvedVersion
             }
             catch {
+                # A wildcard names a specific major version, so a failed resolution (e.g. the major
+                # does not exist -> 404) must fail loudly. Returning $null here made the caller fall
+                # back to the latest-overall endpoint, so `6.*` silently installed the latest v5.
+                # Re-throw the already-worded error (e.g. "Version pattern 6.* not found. The major
+                # version may not be available."), matching the exact-version path below.
                 Write-Verbose ("[$($MyInvocation.MyCommand)] Failed to resolve $Version " +
-                    "to actual version: $($_.Exception.Message). Will use latest endpoint")
-                return $null
+                    "to actual version: $($_.Exception.Message)")
+                throw
             }
         }
-        
+
         # Check if this is a preview/prerelease version (contains a hyphen followed by prerelease tag)
         if ($Version -match '^(\d+\.\d+\.\d+)-(.+)$') {
             Write-Verbose ("[$($MyInvocation.MyCommand)] Detected preview/prerelease version: $Version")

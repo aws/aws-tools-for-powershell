@@ -612,7 +612,7 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
             Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
             Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip { @{ Version = "4.1.853"; Modules = @() } }
-            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { 
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule {
                 # Always throw to simulate legacy cleanup failure
                 throw "Access denied during legacy cleanup"
             }
@@ -960,6 +960,59 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             
             # Act & Assert - Should not throw parameter validation errors
             { Install-AWSToolsModule -MaximumVersion ([Version]"5.0.0") -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat } | Should -Not -Throw
+        }
+    }
+
+    Context "Installation Summary" {
+        It "Should report the installed module count and version in the summary" {
+            # Arrange - a full-set install that returns 3 modules from the zip
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.233" }
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.233"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.233" }
+                        @{ Name = "AWS.Tools.EC2"; Version = "5.0.233" }
+                        @{ Name = "AWS.Tools.S3"; Version = "5.0.233" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act
+            Install-AWSToolsModule -Force -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert - summary includes the module count and version
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -Times 1 -ParameterFilter {
+                $Object -like "Installed 3 AWS Tools modules (version 5.0.233) to *"
+            }
+        }
+    }
+
+    Context "CleanUpLegacyModuleScope (without -Cleanup)" {
+        It "Should invoke Remove-LegacyModule directly so no AWS.Tools modules are removed" {
+            # Arrange - install proceeds; legacy scope cleanup requested WITHOUT -Cleanup
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"5.0.233" }
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{ Version = "5.0.233"; Modules = @(@{ Name = "AWS.Tools.Common"; Version = "5.0.233" }, @{ Name = "AWS.Tools.RDS"; Version = "5.0.233" }) }
+            }
+            Mock -ModuleName AWS.Tools.Installer Remove-LegacyModule { }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name RDS -CleanUpLegacyModuleScope CurrentUser -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert - legacy cleanup delegated straight to the shared helper (which never
+            # touches AWS.Tools modules); Uninstall-AWSToolsModule is not involved on this path.
+            Should -Invoke -ModuleName AWS.Tools.Installer Remove-LegacyModule -Times 1 -ParameterFilter {
+                $Scope -eq 'CurrentUser'
+            }
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule
         }
     }
 }
