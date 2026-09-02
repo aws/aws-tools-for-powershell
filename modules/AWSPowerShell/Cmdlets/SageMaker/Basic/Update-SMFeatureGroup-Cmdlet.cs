@@ -119,6 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ThroughputConfig_ProvisionedWriteCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter OnlineStoreConfig_StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The online store storage type to migrate the feature group to. Use this parameter
+        /// to migrate an existing feature group from <c>Standard</c> to <c>Standard_V2</c> storage
+        /// format, enabling support for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_UpdateRecord.html">UpdateRecord</a>
+        /// operation. Migration is a one-way operation and cannot be reversed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.StorageType")]
+        public Amazon.SageMaker.StorageType OnlineStoreConfig_StorageType { get; set; }
+        #endregion
+        
         #region Parameter ThroughputConfig_ThroughputMode
         /// <summary>
         /// <para>
@@ -213,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter FeatureGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OnlineStoreConfig_StorageType = this.OnlineStoreConfig_StorageType;
             context.TtlDuration_Unit = this.TtlDuration_Unit;
             context.TtlDuration_Value = this.TtlDuration_Value;
             context.ThroughputConfig_ProvisionedReadCapacityUnit = this.ThroughputConfig_ProvisionedReadCapacityUnit;
@@ -246,6 +261,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate OnlineStoreConfig
             var requestOnlineStoreConfigIsNull = true;
             request.OnlineStoreConfig = new Amazon.SageMaker.Model.OnlineStoreConfigUpdate();
+            Amazon.SageMaker.StorageType requestOnlineStoreConfig_onlineStoreConfig_StorageType = null;
+            if (cmdletContext.OnlineStoreConfig_StorageType != null)
+            {
+                requestOnlineStoreConfig_onlineStoreConfig_StorageType = cmdletContext.OnlineStoreConfig_StorageType;
+            }
+            if (requestOnlineStoreConfig_onlineStoreConfig_StorageType != null)
+            {
+                request.OnlineStoreConfig.StorageType = requestOnlineStoreConfig_onlineStoreConfig_StorageType;
+                requestOnlineStoreConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.TtlDuration requestOnlineStoreConfig_onlineStoreConfig_TtlDuration = null;
             
              // populate TtlDuration
@@ -382,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public List<Amazon.SageMaker.Model.FeatureDefinition> FeatureAddition { get; set; }
             public System.String FeatureGroupName { get; set; }
+            public Amazon.SageMaker.StorageType OnlineStoreConfig_StorageType { get; set; }
             public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
             public System.Int32? TtlDuration_Value { get; set; }
             public System.Int32? ThroughputConfig_ProvisionedReadCapacityUnit { get; set; }

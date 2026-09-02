@@ -1795,9 +1795,12 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.StorageType
-        "New-SMFeatureGroup/OnlineStoreConfig_StorageType"
         {
-            $v = "InMemory","Standard"
+            ($_ -eq "New-SMFeatureGroup/OnlineStoreConfig_StorageType") -Or
+            ($_ -eq "Update-SMFeatureGroup/OnlineStoreConfig_StorageType")
+        }
+        {
+            $v = "InMemory","Standard","Standard_V2"
             break
         }
 
@@ -2117,7 +2120,7 @@ $SM_map = @{
     "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
-    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
+    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "Orchestrator_Slurm_SlurmConfigStrategy"=@("New-SMCluster","Update-SMCluster")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")

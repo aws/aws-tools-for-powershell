@@ -82,14 +82,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? TargetInstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter ZeroSizePreference
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the updated behavior for the interruptible Capacity Reservation when you
+        /// reduce its allocation to zero instances. Specify <c>retain</c> to keep the interruptible
+        /// Capacity Reservation active at zero capacity so that you can allocate instances to
+        /// it again later. Specify <c>default</c> to cancel the interruptible Capacity Reservation
+        /// and return the capacity to your source Capacity Reservation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ZeroSizePreference")]
+        public Amazon.EC2.ZeroSizePreference ZeroSizePreference { get; set; }
         #endregion
         
         #region Parameter Select
@@ -147,12 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.DryRun = this.DryRun;
             context.TargetInstanceCount = this.TargetInstanceCount;
-            #if MODULAR
-            if (this.TargetInstanceCount == null && ParameterWasBound(nameof(this.TargetInstanceCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetInstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ZeroSizePreference = this.ZeroSizePreference;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TargetInstanceCount != null)
             {
                 request.TargetInstanceCount = cmdletContext.TargetInstanceCount.Value;
+            }
+            if (cmdletContext.ZeroSizePreference != null)
+            {
+                request.ZeroSizePreference = cmdletContext.ZeroSizePreference;
             }
             
             CmdletOutput output;
@@ -239,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CapacityReservationId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.Int32? TargetInstanceCount { get; set; }
+            public Amazon.EC2.ZeroSizePreference ZeroSizePreference { get; set; }
             public System.Func<Amazon.EC2.Model.UpdateInterruptibleCapacityReservationAllocationResponse, UpdateEC2InterruptibleCapacityReservationAllocationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

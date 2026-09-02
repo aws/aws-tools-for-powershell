@@ -109,6 +109,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter ZeroSizePreference
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the behavior for the interruptible Capacity Reservation when you reduce
+        /// its allocation to zero instances. Specify <c>retain</c> to keep the interruptible
+        /// Capacity Reservation active at zero capacity so that you can allocate instances to
+        /// it again later. Specify <c>default</c> to cancel the interruptible Capacity Reservation
+        /// and return the capacity to your source Capacity Reservation. The default value is
+        /// <c>default</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ZeroSizePreference")]
+        public Amazon.EC2.ZeroSizePreference ZeroSizePreference { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -186,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.ZeroSizePreference = this.ZeroSizePreference;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.ZeroSizePreference != null)
+            {
+                request.ZeroSizePreference = cmdletContext.ZeroSizePreference;
             }
             
             CmdletOutput output;
@@ -282,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DryRun { get; set; }
             public System.Int32? InstanceCount { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public Amazon.EC2.ZeroSizePreference ZeroSizePreference { get; set; }
             public System.Func<Amazon.EC2.Model.CreateInterruptibleCapacityReservationAllocationResponse, NewEC2InterruptibleCapacityReservationAllocationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

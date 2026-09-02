@@ -239,6 +239,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFlexComponents" OutputProperty="FlexComponents" Verb="Get" Noun="FlexComponentList" PipelineParameter="Shape" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGiMinorVersions" OutputProperty="GiMinorVersions" Verb="Get" Noun="GiMinorVersionList" PipelineParameter="GiVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

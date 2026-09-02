@@ -479,6 +479,7 @@ $ODB_SelectMap = @{
                "Get-ODBDbSystemShapeList",
                "Get-ODBExadbVmClusterList",
                "Get-ODBExascaleDbStorageVaultList",
+               "Get-ODBFlexComponentList",
                "Get-ODBGiMinorVersionList",
                "Get-ODBGiVersionList",
                "Get-ODBOdbNetworkList",

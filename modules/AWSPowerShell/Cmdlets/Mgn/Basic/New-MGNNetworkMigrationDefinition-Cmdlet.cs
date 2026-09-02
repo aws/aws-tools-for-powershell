@@ -45,6 +45,23 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CidrMapping
+        /// <summary>
+        /// <para>
+        /// <para>A list of CIDR mappings that map original source CIDR ranges to updated target CIDR
+        /// ranges. CIDR mappings can be provided only when <c>vpcProvisioningStrategy</c> is
+        /// set to <c>USE_EXISTING</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CidrMappings")]
+        public Amazon.Mgn.Model.CidrMapping[] CidrMapping { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -209,6 +226,19 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public Amazon.Mgn.TargetNetworkTopology TargetNetwork_Topology { get; set; }
         #endregion
         
+        #region Parameter VpcProvisioningStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to create new target VPCs or use existing ones. Set to <c>CREATE_NEW</c>
+        /// to provision new target VPCs as part of the migration, or <c>USE_EXISTING</c> to migrate
+        /// into existing VPCs in the target account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.VpcProvisioningStrategy")]
+        public Amazon.Mgn.VpcProvisioningStrategy VpcProvisioningStrategy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -254,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.Select = CreateSelectDelegate<Amazon.Mgn.Model.CreateNetworkMigrationDefinitionResponse, NewMGNNetworkMigrationDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.CidrMapping != null)
+            {
+                context.CidrMapping = new List<Amazon.Mgn.Model.CidrMapping>(this.CidrMapping);
             }
             context.Description = this.Description;
             context.Name = this.Name;
@@ -308,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 WriteWarning("You are passing $null as a value for parameter TargetS3Configuration_S3BucketOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpcProvisioningStrategy = this.VpcProvisioningStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -324,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             // create request
             var request = new Amazon.Mgn.Model.CreateNetworkMigrationDefinitionRequest();
             
+            if (cmdletContext.CidrMapping != null)
+            {
+                request.CidrMappings = cmdletContext.CidrMapping;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -426,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.TargetS3Configuration = null;
             }
+            if (cmdletContext.VpcProvisioningStrategy != null)
+            {
+                request.VpcProvisioningStrategy = cmdletContext.VpcProvisioningStrategy;
+            }
             
             CmdletOutput output;
             
@@ -481,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Mgn.Model.CidrMapping> CidrMapping { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> ScopeTag { get; set; }
@@ -493,6 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.TargetNetworkTopology TargetNetwork_Topology { get; set; }
             public System.String TargetS3Configuration_S3Bucket { get; set; }
             public System.String TargetS3Configuration_S3BucketOwner { get; set; }
+            public Amazon.Mgn.VpcProvisioningStrategy VpcProvisioningStrategy { get; set; }
             public System.Func<Amazon.Mgn.Model.CreateNetworkMigrationDefinitionResponse, NewMGNNetworkMigrationDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

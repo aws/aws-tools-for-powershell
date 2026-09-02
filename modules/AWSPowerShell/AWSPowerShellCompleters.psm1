@@ -15920,8 +15920,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16382,8 +16382,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+               "Search-CSDDocument",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29993,11 +29993,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "New-DDBTable",
-               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
                "Add-DDBKeySchema",
-               "ConvertTo-DDBItem",
-               "ConvertFrom-DDBItem")
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31748,6 +31748,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ZeroSizePreference
+        {
+            ($_ -eq "New-EC2InterruptibleCapacityReservationAllocation/ZeroSizePreference") -Or
+            ($_ -eq "Update-EC2InterruptibleCapacityReservationAllocation/ZeroSizePreference")
+        }
+        {
+            $v = "default","retain"
+            break
+        }
+
 
     }
 
@@ -31956,6 +31966,7 @@ $EC2_map = @{
     "VpcLatticeExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VpcPeering"=@("Edit-EC2AccountVpcEncryptionControl")
     "VpcPeeringExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "ZeroSizePreference"=@("New-EC2InterruptibleCapacityReservationAllocation","Update-EC2InterruptibleCapacityReservationAllocation")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map
@@ -58429,6 +58440,16 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.VpcProvisioningStrategy
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/VpcProvisioningStrategy") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/VpcProvisioningStrategy")
+        }
+        {
+            $v = "CREATE_NEW","USE_EXISTING"
+            break
+        }
+
 
     }
 
@@ -58456,6 +58477,7 @@ $MGN_map = @{
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "TargetNetwork_Topology"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
+    "VpcProvisioningStrategy"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
 }
 
 _awsArgumentCompleterRegistration $MGN_Completers $MGN_map
@@ -63194,6 +63216,7 @@ $ODB_SelectMap = @{
                "Get-ODBDbSystemShapeList",
                "Get-ODBExadbVmClusterList",
                "Get-ODBExascaleDbStorageVaultList",
+               "Get-ODBFlexComponentList",
                "Get-ODBGiMinorVersionList",
                "Get-ODBGiVersionList",
                "Get-ODBOdbNetworkList",
@@ -77799,18 +77822,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Get-S3MultipartUpload",
-               "New-S3Bucket",
-               "Remove-S3Object",
-               "Read-S3Object",
-               "Test-S3Bucket",
                "Copy-S3Object",
-               "Mount-S3PSDrive",
+               "Get-S3PreSignedURL",
+               "Get-S3MultipartUpload",
+               "Read-S3Object",
                "Dismount-S3PSDrive",
+               "Remove-S3Object",
                "Write-S3Object",
-               "Get-S3PreSignedURL")
+               "Mount-S3PSDrive",
+               "New-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Test-S3Bucket",
+               "Remove-S3Bucket")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -78901,6 +78924,7 @@ $SMFS_Completers = {
 
         # Amazon.SageMakerFeatureStoreRuntime.TtlDurationUnit
         {
+            ($_ -eq "Update-SMFSRecord/TtlDuration_Unit") -Or
             ($_ -eq "Write-SMFSRecord/TtlDuration_Unit") -Or
             ($_ -eq "Write-SMFSRecordBatch/TtlDuration_Unit")
         }
@@ -78920,7 +78944,7 @@ $SMFS_Completers = {
 $SMFS_map = @{
     "DeletionMode"=@("Remove-SMFSRecord")
     "ExpirationTimeResponse"=@("Get-SMFSRecord","Get-SMFSRecordBatch")
-    "TtlDuration_Unit"=@("Write-SMFSRecord","Write-SMFSRecordBatch")
+    "TtlDuration_Unit"=@("Update-SMFSRecord","Write-SMFSRecord","Write-SMFSRecordBatch")
 }
 
 _awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map
@@ -78978,7 +79002,8 @@ $SMFS_SelectMap = @{
                "Remove-SMFSRecord",
                "Get-SMFSRecord",
                "Get-SMFSRecordList",
-               "Write-SMFSRecord")
+               "Write-SMFSRecord",
+               "Update-SMFSRecord")
 }
 
 _awsArgumentCompleterRegistration $SMFS_SelectCompleters $SMFS_SelectMap
@@ -80958,9 +80983,12 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.StorageType
-        "New-SMFeatureGroup/OnlineStoreConfig_StorageType"
         {
-            $v = "InMemory","Standard"
+            ($_ -eq "New-SMFeatureGroup/OnlineStoreConfig_StorageType") -Or
+            ($_ -eq "Update-SMFeatureGroup/OnlineStoreConfig_StorageType")
+        }
+        {
+            $v = "InMemory","Standard","Standard_V2"
             break
         }
 
@@ -81280,7 +81308,7 @@ $SM_map = @{
     "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
-    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
+    "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "Orchestrator_Slurm_SlurmConfigStrategy"=@("New-SMCluster","Update-SMCluster")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
@@ -87564,8 +87592,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

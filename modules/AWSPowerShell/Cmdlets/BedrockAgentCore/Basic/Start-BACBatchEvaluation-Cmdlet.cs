@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter DataSourceConfig_CloudWatchLogs_LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The list of CloudWatch log group names to read agent traces from. Maximum of 5 log
+        /// <para>The list of CloudWatch log group names to read agent traces from. Maximum of 10 log
         /// groups.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

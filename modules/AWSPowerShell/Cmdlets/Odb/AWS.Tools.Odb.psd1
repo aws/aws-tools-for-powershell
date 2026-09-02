@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ODBExadbVmClusterList', 
         'Get-ODBExascaleDbStorageVault', 
         'Get-ODBExascaleDbStorageVaultList', 
+        'Get-ODBFlexComponentList', 
         'Get-ODBGiMinorVersionList', 
         'Get-ODBGiVersionList', 
         'Get-ODBOciOnboardingStatus', 

@@ -30,8 +30,9 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// Deletes the Application. Only Applications that don't have any Application Associations
-    /// can be deleted.
+    /// Deletes an application. If the application has associations, you must delete them
+    /// first. Alternatively, use the <c>force</c> option to delete the application and remove
+    /// its associations.
     /// </summary>
     [Cmdlet("Remove", "AISApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -61,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Arn { get; set; }
+        #endregion
+        
+        #region Parameter ForceRemove
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to delete the application even if it still has application associations.
+        /// If <c>true</c>, the operation removes the application and its associations. If <c>false</c>
+        /// or absent, the delete fails when associations exist.</para><important><para>Setting this parameter to <c>true</c> permanently removes all of the application's
+        /// associations. Doing so might impact other resources that rely on and reference the
+        /// application. This action can't be undone.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceRemove { get; set; }
         #endregion
         
         #region Parameter Select
@@ -115,6 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceRemove = this.ForceRemove;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.ForceRemove != null)
+            {
+                request.Force = cmdletContext.ForceRemove.Value;
             }
             
             CmdletOutput output;
@@ -191,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? ForceRemove { get; set; }
             public System.Func<Amazon.AppIntegrationsService.Model.DeleteApplicationResponse, RemoveAISApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

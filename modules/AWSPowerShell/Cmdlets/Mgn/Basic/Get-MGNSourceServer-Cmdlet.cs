@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter AccountID
         /// <summary>
         /// <para>
-        /// <para>Request to filter Source Servers list by Accoun ID.</para>
+        /// <para>Request to filter Source Servers list by Account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

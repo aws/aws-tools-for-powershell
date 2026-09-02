@@ -249,6 +249,16 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.VpcProvisioningStrategy
+        {
+            ($_ -eq "New-MGNNetworkMigrationDefinition/VpcProvisioningStrategy") -Or
+            ($_ -eq "Update-MGNNetworkMigrationDefinition/VpcProvisioningStrategy")
+        }
+        {
+            $v = "CREATE_NEW","USE_EXISTING"
+            break
+        }
+
 
     }
 
@@ -276,6 +286,7 @@ $MGN_map = @{
     "TargetDeployment"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
     "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "TargetNetwork_Topology"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
+    "VpcProvisioningStrategy"=@("New-MGNNetworkMigrationDefinition","Update-MGNNetworkMigrationDefinition")
 }
 
 _awsArgumentCompleterRegistration $MGN_Completers $MGN_map

@@ -1,4 +1,21 @@
-﻿### 5.0.290 (2026-09-01 19:09Z)
+﻿### 5.0.291 (2026-09-02 19:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.326.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet Remove-AISApplication: added parameter ForceRemove.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNNetworkMigrationDefinition: added parameters CidrMapping and VpcProvisioningStrategy.
+    * Modified cmdlet Update-MGNNetworkMigrationDefinition: added parameters CidrMapping and VpcProvisioningStrategy.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2InterruptibleCapacityReservationAllocation: added parameter ZeroSizePreference.
+    * Modified cmdlet Update-EC2InterruptibleCapacityReservationAllocation: added parameter ZeroSizePreference.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Get-ODBFlexComponentList leveraging the ListFlexComponents service API.
+  * Amazon SageMaker Feature Store Runtime
+    * Added cmdlet Update-SMFSRecord leveraging the UpdateRecord service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMFeatureGroup: added parameter OnlineStoreConfig_StorageType.
+
+### 5.0.290 (2026-09-01 19:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.325.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GuardDuty
     * Added cmdlet Get-GDCustomDetectionRule leveraging the GetCustomDetectionRule service API.

@@ -30,7 +30,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Updates multiple ReplicationConfigurationTemplates by ID.
+    /// Updates a ReplicationConfigurationTemplate by ID.
     /// </summary>
     [Cmdlet("Update", "MGNReplicationConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.UpdateReplicationConfigurationTemplateResponse")]

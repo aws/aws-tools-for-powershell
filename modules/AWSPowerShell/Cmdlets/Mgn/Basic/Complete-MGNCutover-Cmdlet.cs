@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     /// itself (within 10 minutes). The following properties of the SourceServer will be changed
     /// immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED;
     /// The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes
-    /// property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration
+    /// property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration
     /// and dataReplicationInfo.lagDuration will be nullified.
     /// </summary>
     [Cmdlet("Complete", "MGNCutover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

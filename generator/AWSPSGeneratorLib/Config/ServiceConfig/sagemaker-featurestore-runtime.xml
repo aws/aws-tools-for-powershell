@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecord" Verb="Update" Noun="Record" ShouldProcessTarget="FeatureGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

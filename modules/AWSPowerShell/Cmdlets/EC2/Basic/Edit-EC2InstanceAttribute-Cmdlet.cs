@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserData_Value
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The attribute value.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -1584,6 +1584,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ZeroSizePreference
+        {
+            ($_ -eq "New-EC2InterruptibleCapacityReservationAllocation/ZeroSizePreference") -Or
+            ($_ -eq "Update-EC2InterruptibleCapacityReservationAllocation/ZeroSizePreference")
+        }
+        {
+            $v = "default","retain"
+            break
+        }
+
 
     }
 
@@ -1792,6 +1802,7 @@ $EC2_map = @{
     "VpcLatticeExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VpcPeering"=@("Edit-EC2AccountVpcEncryptionControl")
     "VpcPeeringExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "ZeroSizePreference"=@("New-EC2InterruptibleCapacityReservationAllocation","Update-EC2InterruptibleCapacityReservationAllocation")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map

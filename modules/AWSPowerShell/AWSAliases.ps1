@@ -24966,6 +24966,9 @@ Set-Alias -Name ODB-ListExadbVmClusters -Value Get-ODBExadbVmClusterList
 Set-Alias -Name List-ODBExascaleDbStorageVaults -Value Get-ODBExascaleDbStorageVaultList
 Set-Alias -Name List-ODBExascaleDbStorageVaultList -Value Get-ODBExascaleDbStorageVaultList
 Set-Alias -Name ODB-ListExascaleDbStorageVaults -Value Get-ODBExascaleDbStorageVaultList
+Set-Alias -Name List-ODBFlexComponents -Value Get-ODBFlexComponentList
+Set-Alias -Name List-ODBFlexComponentList -Value Get-ODBFlexComponentList
+Set-Alias -Name ODB-ListFlexComponents -Value Get-ODBFlexComponentList
 Set-Alias -Name List-ODBGiMinorVersions -Value Get-ODBGiMinorVersionList
 Set-Alias -Name List-ODBGiMinorVersionList -Value Get-ODBGiMinorVersionList
 Set-Alias -Name ODB-ListGiMinorVersions -Value Get-ODBGiMinorVersionList
@@ -30844,6 +30847,7 @@ Set-Alias -Name List-SMFSRecordList -Value Get-SMFSRecordList
 Set-Alias -Name SMFS-ListRecords -Value Get-SMFSRecordList
 Set-Alias -Name Put-SMFSRecord -Value Write-SMFSRecord
 Set-Alias -Name SMFS-PutRecord -Value Write-SMFSRecord
+Set-Alias -Name SMFS-UpdateRecord -Value Update-SMFSRecord
 Set-Alias -Name Delete-SMGSEarthObservationJob -Value Remove-SMGSEarthObservationJob
 Set-Alias -Name SMGS-DeleteEarthObservationJob -Value Remove-SMGSEarthObservationJob
 Set-Alias -Name Delete-SMGSVectorEnrichmentJob -Value Remove-SMGSVectorEnrichmentJob

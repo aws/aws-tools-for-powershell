@@ -23,47 +23,44 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Mgn;
-using Amazon.Mgn.Model;
+using Amazon.Odb;
+using Amazon.Odb.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.MGN
+namespace Amazon.PowerShell.Cmdlets.ODB
 {
     /// <summary>
-    /// Lists all ReplicationConfigurationTemplates, filtered by replication configuration
-    /// template IDs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns information about the flex components that are available for an Exadata infrastructure.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "MGNReplicationConfigurationTemplate")]
-    [OutputType("Amazon.Mgn.Model.ReplicationConfigurationTemplate")]
-    [AWSCmdlet("Calls the Application Migration Service DescribeReplicationConfigurationTemplates API operation.", Operation = new[] {"DescribeReplicationConfigurationTemplates"}, SelectReturnType = typeof(Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse))]
-    [AWSCmdletOutput("Amazon.Mgn.Model.ReplicationConfigurationTemplate or Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse",
-        "This cmdlet returns a collection of Amazon.Mgn.Model.ReplicationConfigurationTemplate objects.",
-        "The service call response (type Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "ODBFlexComponentList")]
+    [OutputType("Amazon.Odb.Model.FlexComponentSummary")]
+    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services ListFlexComponents API operation.", Operation = new[] {"ListFlexComponents"}, SelectReturnType = typeof(Amazon.Odb.Model.ListFlexComponentsResponse))]
+    [AWSCmdletOutput("Amazon.Odb.Model.FlexComponentSummary or Amazon.Odb.Model.ListFlexComponentsResponse",
+        "This cmdlet returns a collection of Amazon.Odb.Model.FlexComponentSummary objects.",
+        "The service call response (type Amazon.Odb.Model.ListFlexComponentsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetMGNReplicationConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class GetODBFlexComponentListCmdlet : AmazonOdbClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ReplicationConfigurationTemplateIDs
+        #region Parameter Shape
         /// <summary>
         /// <para>
-        /// <para>Request to describe Replication Configuration template by template IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The shape to return flex components for. For a list of valid shapes, use the <c>ListDbSystemShapes</c>
+        /// operation.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] ReplicationConfigurationTemplateIDs { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Shape { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Request to describe Replication Configuration template by max results.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -79,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Request to describe Replication Configuration template by next token.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -92,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse).
-        /// Specifying the name of a property of type Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'FlexComponents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Odb.Model.ListFlexComponentsResponse).
+        /// Specifying the name of a property of type Amazon.Odb.Model.ListFlexComponentsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "FlexComponents";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -106,7 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -128,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse, GetMGNReplicationConfigurationTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Odb.Model.ListFlexComponentsResponse, GetODBFlexComponentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -142,10 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             #endif
             context.NextToken = this.NextToken;
-            if (this.ReplicationConfigurationTemplateIDs != null)
-            {
-                context.ReplicationConfigurationTemplateIDs = new List<System.String>(this.ReplicationConfigurationTemplateIDs);
-            }
+            context.Shape = this.Shape;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,21 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesRequest();
+            var request = new Amazon.Odb.Model.ListFlexComponentsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.ReplicationConfigurationTemplateIDs != null)
+            if (cmdletContext.Shape != null)
             {
-                request.ReplicationConfigurationTemplateIDs = cmdletContext.ReplicationConfigurationTemplateIDs;
+                request.Shape = cmdletContext.Shape;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -210,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -230,12 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesRequest request)
+        private Amazon.Odb.Model.ListFlexComponentsResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.ListFlexComponentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "DescribeReplicationConfigurationTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "ListFlexComponents");
             try
             {
-                return client.DescribeReplicationConfigurationTemplatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListFlexComponentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -254,9 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ReplicationConfigurationTemplateIDs { get; set; }
-            public System.Func<Amazon.Mgn.Model.DescribeReplicationConfigurationTemplatesResponse, GetMGNReplicationConfigurationTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.String Shape { get; set; }
+            public System.Func<Amazon.Odb.Model.ListFlexComponentsResponse, GetODBFlexComponentListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.FlexComponents;
         }
         
     }

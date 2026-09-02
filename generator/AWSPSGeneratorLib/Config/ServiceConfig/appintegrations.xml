@@ -46,7 +46,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceRemove" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataIntegration" Verb="Remove" Noun="DataIntegration" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
