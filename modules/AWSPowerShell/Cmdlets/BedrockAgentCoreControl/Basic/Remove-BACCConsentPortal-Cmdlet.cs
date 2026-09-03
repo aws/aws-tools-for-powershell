@@ -23,46 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.StepFunctions;
-using Amazon.StepFunctions.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SFN
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Used by workers to retrieve a task (with the specified activity ARN) which has been
-    /// scheduled for execution by a running state machine. This initiates a long poll, where
-    /// the service holds the HTTP connection open and responds as soon as a task becomes
-    /// available (i.e. an execution of a task of this type is needed.) The maximum time the
-    /// service holds on to the request before responding is 60 seconds. If no task is available
-    /// within 60 seconds, the poll returns a <c>taskToken</c> with a null string.
-    /// 
-    ///  <important><para>
-    /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
-    /// higher than the maximum time the service may hold the poll request).
-    /// </para><para>
-    /// Polling with <c>GetActivityTask</c> can cause latency in some implementations. See
-    /// <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
-    /// Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.
-    /// </para></important>
+    /// Deletes a consent portal.
     /// </summary>
-    [Cmdlet("Get", "SFNActivityTask")]
-    [OutputType("Amazon.StepFunctions.Model.GetActivityTaskResponse")]
-    [AWSCmdlet("Calls the AWS Step Functions GetActivityTask API operation.", Operation = new[] {"GetActivityTask"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.GetActivityTaskResponse))]
-    [AWSCmdletOutput("Amazon.StepFunctions.Model.GetActivityTaskResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.GetActivityTaskResponse object containing multiple properties."
+    [Cmdlet("Remove", "BACCConsentPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteConsentPortal API operation.", Operation = new[] {"DeleteConsentPortal"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse))]
+    [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetSFNActivityTaskCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
+    public partial class RemoveBACCConsentPortalCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ActivityArn
+        #region Parameter ConsentPortalIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when
-        /// you create the task using <a>CreateActivity</a>.)</para>
+        /// <para>The identifier of the consent portal. You can specify either the consent portal ID
+        /// or its Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,29 +60,27 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ActivityArn { get; set; }
-        #endregion
-        
-        #region Parameter WorkerName
-        /// <summary>
-        /// <para>
-        /// <para>You can provide an arbitrary name in order to identify the worker that the task is
-        /// assigned to. This name is used when it is logged in the execution history.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String WorkerName { get; set; }
+        public System.String ConsentPortalIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.GetActivityTaskResponse).
-        /// Specifying the name of a property of type Amazon.StepFunctions.Model.GetActivityTaskResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -107,6 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConsentPortalIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCConsentPortal (DeleteConsentPortal)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -114,17 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.GetActivityTaskResponse, GetSFNActivityTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse, RemoveBACCConsentPortalCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ActivityArn = this.ActivityArn;
+            context.ConsentPortalIdentifier = this.ConsentPortalIdentifier;
             #if MODULAR
-            if (this.ActivityArn == null && ParameterWasBound(nameof(this.ActivityArn)))
+            if (this.ConsentPortalIdentifier == null && ParameterWasBound(nameof(this.ConsentPortalIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ActivityArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsentPortalIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.WorkerName = this.WorkerName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,15 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StepFunctions.Model.GetActivityTaskRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalRequest();
             
-            if (cmdletContext.ActivityArn != null)
+            if (cmdletContext.ConsentPortalIdentifier != null)
             {
-                request.ActivityArn = cmdletContext.ActivityArn;
-            }
-            if (cmdletContext.WorkerName != null)
-            {
-                request.WorkerName = cmdletContext.WorkerName;
+                request.ConsentPortalIdentifier = cmdletContext.ConsentPortalIdentifier;
             }
             
             CmdletOutput output;
@@ -182,12 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private Amazon.StepFunctions.Model.GetActivityTaskResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.GetActivityTaskRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "GetActivityTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteConsentPortal");
             try
             {
-                return client.GetActivityTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteConsentPortalAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,10 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ActivityArn { get; set; }
-            public System.String WorkerName { get; set; }
-            public System.Func<Amazon.StepFunctions.Model.GetActivityTaskResponse, GetSFNActivityTaskCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ConsentPortalIdentifier { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteConsentPortalResponse, RemoveBACCConsentPortalCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

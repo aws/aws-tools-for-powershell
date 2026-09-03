@@ -82,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConsentPortal" OutputProperty="*" Verb="New" Noun="ConsentPortal" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataset" OutputProperty="*" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -265,6 +269,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConsentPortal" Verb="Remove" Noun="ConsentPortal" ShouldProcessTarget="ConsentPortalIdentifier" PipelineParameter="ConsentPortalIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataset" OutputProperty="*" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetId" PipelineParameter="DatasetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -382,6 +390,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConfigurationBundleVersion" OutputProperty="*" Verb="Get" Noun="ConfigurationBundleVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsentPortal" OutputProperty="*" Verb="Get" Noun="ConsentPortal" PipelineParameter="ConsentPortalIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -526,6 +538,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListConfigurationBundleVersions" OutputProperty="Versions" Verb="Get" Noun="ConfigurationBundleVersionList" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConsentPortals" OutputProperty="ConsentPortals" Verb="Get" Noun="ConsentPortalList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -700,6 +716,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfigurationBundle" OutputProperty="*" Verb="Update" Noun="ConfigurationBundle" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConsentPortal" OutputProperty="*" Verb="Update" Noun="ConsentPortal" ShouldProcessTarget="ConsentPortalIdentifier" PipelineParameter="ConsentPortalIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

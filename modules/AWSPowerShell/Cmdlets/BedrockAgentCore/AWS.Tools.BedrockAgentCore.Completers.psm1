@@ -237,6 +237,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ResultDestination
+        "Start-BACBatchEvaluation/OutputConfig_CloudWatchConfig_ResultDestination"
+        {
+            $v = "DEDICATED_LOG_GROUP","SOURCE_LOG_GROUP"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -276,6 +283,7 @@ $BAC_map = @{
     "Model_OpenAiModelConfig_ApiFormat"=@("Invoke-BACHarness")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
+    "OutputConfig_CloudWatchConfig_ResultDestination"=@("Start-BACBatchEvaluation")
     "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")
     "PaymentInstrumentType"=@("New-BACPaymentInstrument")
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")

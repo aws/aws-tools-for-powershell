@@ -38,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// Error codes are reserved for errors that prevent your execution from running, such
     /// as permissions errors, limit errors, or issues with your state machine code and configuration.
     /// 
-    /// </para></note><note><para>
-    /// This API action isn't logged in CloudTrail.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SFNSyncExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

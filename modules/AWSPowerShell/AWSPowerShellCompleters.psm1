@@ -9384,6 +9384,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.ResultDestination
+        {
+            ($_ -eq "New-BACCOnlineEvaluationConfig/OutputConfig_CloudWatchConfig_ResultDestination") -Or
+            ($_ -eq "Update-BACCOnlineEvaluationConfig/OutputConfig_CloudWatchConfig_ResultDestination")
+        }
+        {
+            $v = "DEDICATED_LOG_GROUP","SOURCE_LOG_GROUP"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SearchType
         {
             ($_ -eq "New-BACCGateway/Mcp_SearchType") -Or
@@ -9522,6 +9532,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "OutputConfig_CloudWatchConfig_ResultDestination"=@("New-BACCOnlineEvaluationConfig","Update-BACCOnlineEvaluationConfig")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
@@ -9605,6 +9616,7 @@ $BACC_SelectMap = @{
                "New-BACCCapacityProvider",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
+               "New-BACCConsentPortal",
                "New-BACCDataset",
                "New-BACCDatasetVersion",
                "New-BACCEvaluator",
@@ -9633,6 +9645,7 @@ $BACC_SelectMap = @{
                "Remove-BACCCapacityProvider",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
+               "Remove-BACCConsentPortal",
                "Remove-BACCDataset",
                "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
@@ -9663,6 +9676,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
+               "Get-BACCConsentPortal",
                "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
@@ -9699,6 +9713,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
+               "Get-BACCConsentPortalList",
                "Get-BACCDatasetExampleList",
                "Get-BACCDatasetList",
                "Get-BACCDatasetVersionList",
@@ -9739,6 +9754,7 @@ $BACC_SelectMap = @{
                "Update-BACCApiKeyCredentialProvider",
                "Update-BACCCapacityProvider",
                "Update-BACCConfigurationBundle",
+               "Update-BACCConsentPortal",
                "Update-BACCDataset",
                "Update-BACCDatasetExample",
                "Update-BACCEvaluator",
@@ -9928,6 +9944,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ResultDestination
+        "Start-BACBatchEvaluation/OutputConfig_CloudWatchConfig_ResultDestination"
+        {
+            $v = "DEDICATED_LOG_GROUP","SOURCE_LOG_GROUP"
+            break
+        }
+
         # Amazon.BedrockAgentCore.ScreenshotFormat
         "Invoke-BACBrowser/Action_Screenshot_Format"
         {
@@ -9967,6 +9990,7 @@ $BAC_map = @{
     "Model_OpenAiModelConfig_ApiFormat"=@("Invoke-BACHarness")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
+    "OutputConfig_CloudWatchConfig_ResultDestination"=@("Start-BACBatchEvaluation")
     "PaymentInstrumentDetails_EmbeddedCryptoWallet_Network"=@("New-BACPaymentInstrument")
     "PaymentInstrumentType"=@("New-BACPaymentInstrument")
     "PaymentTokenRequest_CoinbaseCdpTokenRequest_RequestMethod"=@("Get-BACResourcePaymentToken")
@@ -15237,8 +15261,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15920,8 +15944,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16381,9 +16405,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Search-CSDDocument",
-               "Write-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Get-CSDSuggestion",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -29992,12 +30016,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
+               "ConvertTo-DDBItem",
                "New-DDBTable",
-               "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema",
-               "New-DDBTableSchema",
                "Add-DDBKeySchema",
-               "ConvertTo-DDBItem")
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32815,8 +32839,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -36955,6 +36979,7 @@ $EVS_SelectMap = @{
                "Remove-EVSEnvironmentConnector",
                "Remove-EVSEnvironmentHost",
                "Unregister-EVSEipFromVlan",
+               "Get-EVSAccountSetting",
                "Get-EVSDepotUrl",
                "Get-EVSEnvironment",
                "Get-EVSVersion",
@@ -36964,6 +36989,7 @@ $EVS_SelectMap = @{
                "Get-EVSEnvironmentVlanList",
                "Get-EVSResourceTag",
                "Get-EVSVmEntitlementList",
+               "Write-EVSAccountSetting",
                "Add-EVSResourceTag",
                "Remove-EVSResourceTag",
                "Update-EVSEnvironmentConnector")
@@ -40349,8 +40375,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -77823,17 +77849,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
-               "Get-S3PreSignedURL",
-               "Get-S3MultipartUpload",
-               "Read-S3Object",
-               "Dismount-S3PSDrive",
-               "Remove-S3Object",
-               "Write-S3Object",
-               "Mount-S3PSDrive",
-               "New-S3Bucket",
+               "Remove-S3Bucket",
                "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Write-S3Object",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
                "Test-S3Bucket",
-               "Remove-S3Bucket")
+               "Dismount-S3PSDrive",
+               "Get-S3PreSignedURL",
+               "Mount-S3PSDrive",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85508,6 +85534,7 @@ $SOCIAL_SelectMap = @{
                "Disconnect-SOCIALWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
+               "Get-SOCIALWhatsAppBusinessPublicKey",
                "Get-SOCIALWhatsAppFlow",
                "Get-SOCIALWhatsAppFlowPreview",
                "Get-SOCIALWhatsAppMessageMedia",
@@ -85521,6 +85548,7 @@ $SOCIAL_SelectMap = @{
                "Send-SOCIALWhatsAppMessageMedia",
                "Publish-SOCIALWhatsAppFlow",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
+               "Write-SOCIALWhatsAppBusinessPublicKey",
                "Send-SOCIALWhatsAppConversionEvent",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
@@ -87592,8 +87620,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

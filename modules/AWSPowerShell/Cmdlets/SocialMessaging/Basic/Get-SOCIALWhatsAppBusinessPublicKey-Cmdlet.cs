@@ -23,46 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.StepFunctions;
-using Amazon.StepFunctions.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SFN
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Used by workers to retrieve a task (with the specified activity ARN) which has been
-    /// scheduled for execution by a running state machine. This initiates a long poll, where
-    /// the service holds the HTTP connection open and responds as soon as a task becomes
-    /// available (i.e. an execution of a task of this type is needed.) The maximum time the
-    /// service holds on to the request before responding is 60 seconds. If no task is available
-    /// within 60 seconds, the poll returns a <c>taskToken</c> with a null string.
-    /// 
-    ///  <important><para>
-    /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
-    /// higher than the maximum time the service may hold the poll request).
-    /// </para><para>
-    /// Polling with <c>GetActivityTask</c> can cause latency in some implementations. See
-    /// <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
-    /// Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.
-    /// </para></important>
+    /// Retrieves the business public key for a phone number and its signature status.
     /// </summary>
-    [Cmdlet("Get", "SFNActivityTask")]
-    [OutputType("Amazon.StepFunctions.Model.GetActivityTaskResponse")]
-    [AWSCmdlet("Calls the AWS Step Functions GetActivityTask API operation.", Operation = new[] {"GetActivityTask"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.GetActivityTaskResponse))]
-    [AWSCmdletOutput("Amazon.StepFunctions.Model.GetActivityTaskResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.GetActivityTaskResponse object containing multiple properties."
+    [Cmdlet("Get", "SOCIALWhatsAppBusinessPublicKey")]
+    [OutputType("Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse")]
+    [AWSCmdlet("Calls the AWS End User Messaging Social GetWhatsAppBusinessPublicKey API operation.", Operation = new[] {"GetWhatsAppBusinessPublicKey"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse))]
+    [AWSCmdletOutput("Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse",
+        "This cmdlet returns an Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse object containing multiple properties."
     )]
-    public partial class GetSFNActivityTaskCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
+    public partial class GetSOCIALWhatsAppBusinessPublicKeyCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ActivityArn
+        #region Parameter OriginationPhoneNumberId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when
-        /// you create the task using <a>CreateActivity</a>.)</para>
+        /// <para>The unique identifier of the phone number whose business public key to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,25 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ActivityArn { get; set; }
-        #endregion
-        
-        #region Parameter WorkerName
-        /// <summary>
-        /// <para>
-        /// <para>You can provide an arbitrary name in order to identify the worker that the task is
-        /// assigned to. This name is used when it is logged in the execution history.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String WorkerName { get; set; }
+        public System.String OriginationPhoneNumberId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.GetActivityTaskResponse).
-        /// Specifying the name of a property of type Amazon.StepFunctions.Model.GetActivityTaskResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse).
+        /// Specifying the name of a property of type Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,17 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.GetActivityTaskResponse, GetSFNActivityTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse, GetSOCIALWhatsAppBusinessPublicKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ActivityArn = this.ActivityArn;
+            context.OriginationPhoneNumberId = this.OriginationPhoneNumberId;
             #if MODULAR
-            if (this.ActivityArn == null && ParameterWasBound(nameof(this.ActivityArn)))
+            if (this.OriginationPhoneNumberId == null && ParameterWasBound(nameof(this.OriginationPhoneNumberId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ActivityArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OriginationPhoneNumberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.WorkerName = this.WorkerName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,15 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StepFunctions.Model.GetActivityTaskRequest();
+            var request = new Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyRequest();
             
-            if (cmdletContext.ActivityArn != null)
+            if (cmdletContext.OriginationPhoneNumberId != null)
             {
-                request.ActivityArn = cmdletContext.ActivityArn;
-            }
-            if (cmdletContext.WorkerName != null)
-            {
-                request.WorkerName = cmdletContext.WorkerName;
+                request.OriginationPhoneNumberId = cmdletContext.OriginationPhoneNumberId;
             }
             
             CmdletOutput output;
@@ -182,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private Amazon.StepFunctions.Model.GetActivityTaskResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.GetActivityTaskRequest request)
+        private Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "GetActivityTask");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "GetWhatsAppBusinessPublicKey");
             try
             {
-                return client.GetActivityTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetWhatsAppBusinessPublicKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ActivityArn { get; set; }
-            public System.String WorkerName { get; set; }
-            public System.Func<Amazon.StepFunctions.Model.GetActivityTaskResponse, GetSFNActivityTaskCmdlet, object> Select { get; set; } =
+            public System.String OriginationPhoneNumberId { get; set; }
+            public System.Func<Amazon.SocialMessaging.Model.GetWhatsAppBusinessPublicKeyResponse, GetSOCIALWhatsAppBusinessPublicKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

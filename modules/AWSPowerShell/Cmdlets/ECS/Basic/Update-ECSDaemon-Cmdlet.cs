@@ -108,6 +108,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] CapacityProviderArn { get; set; }
         #endregion
         
+        #region Parameter Critical
+        /// <summary>
+        /// <para>
+        /// <para>If the <c>critical</c> parameter of a daemon is <c>true</c>, and the daemon task fails,
+        /// stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the
+        /// other tasks running on it. If the <c>critical</c> parameter is <c>false</c>, the daemon
+        /// task failure doesn't affect the other tasks on the instance. The default value is
+        /// <c>true</c>.</para><para>A non-critical daemon doesn't block instance registration. The container instance
+        /// becomes active and continues to run your other tasks, whether the daemon task fails
+        /// during scale-out or during a deployment.</para><para>Amazon ECS emits an EventBridge event when a daemon task fails to start, for both
+        /// critical and non-critical daemons.</para><para>Daemon task launch failures during a deployment are still counted by the deployment
+        /// circuit breaker. The circuit breaker can roll back an unstable target revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Critical { get; set; }
+        #endregion
+        
         #region Parameter DaemonArn
         /// <summary>
         /// <para>
@@ -260,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter CapacityProviderArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Critical = this.Critical;
             context.DaemonArn = this.DaemonArn;
             #if MODULAR
             if (this.DaemonArn == null && ParameterWasBound(nameof(this.DaemonArn)))
@@ -303,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.CapacityProviderArn != null)
             {
                 request.CapacityProviderArns = cmdletContext.CapacityProviderArn;
+            }
+            if (cmdletContext.Critical != null)
+            {
+                request.Critical = cmdletContext.Critical.Value;
             }
             if (cmdletContext.DaemonArn != null)
             {
@@ -444,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CapacityProviderArn { get; set; }
+            public System.Boolean? Critical { get; set; }
             public System.String DaemonArn { get; set; }
             public System.String DaemonTaskDefinitionArn { get; set; }
             public List<System.String> DeploymentConfiguration_Alarms_AlarmName { get; set; }

@@ -222,6 +222,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String As2Config_MessageSubject { get; set; }
         #endregion
         
+        #region Parameter SftpConfig_OrderedUserSecretVersionStage
+        /// <summary>
+        /// <para>
+        /// <para>An ordered list of Amazon Web Services Secrets Manager version stages (staging labels,
+        /// such as <c>AWSCURRENT</c> and <c>AWSPREVIOUS</c>) for the secret identified by <c>UserSecretId</c>.
+        /// When establishing a connection, the connector attempts to retrieve the SFTP user's
+        /// credentials from each version stage in the order listed, and uses the first version
+        /// it can successfully retrieve. This lets you rotate the user secret without interrupting
+        /// connector operations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SftpConfig_OrderedUserSecretVersionStages")]
+        public System.String[] SftpConfig_OrderedUserSecretVersionStage { get; set; }
+        #endregion
+        
         #region Parameter As2Config_PartnerProfileId
         /// <summary>
         /// <para>
@@ -446,6 +466,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.LoggingRole = this.LoggingRole;
             context.SecurityPolicyName = this.SecurityPolicyName;
             context.SftpConfig_MaxConcurrentConnection = this.SftpConfig_MaxConcurrentConnection;
+            if (this.SftpConfig_OrderedUserSecretVersionStage != null)
+            {
+                context.SftpConfig_OrderedUserSecretVersionStage = new List<System.String>(this.SftpConfig_OrderedUserSecretVersionStage);
+            }
             if (this.SftpConfig_TrustedHostKey != null)
             {
                 context.SftpConfig_TrustedHostKey = new List<System.String>(this.SftpConfig_TrustedHostKey);
@@ -690,6 +714,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.SftpConfig.MaxConcurrentConnections = requestSftpConfig_sftpConfig_MaxConcurrentConnection.Value;
                 requestSftpConfigIsNull = false;
             }
+            List<System.String> requestSftpConfig_sftpConfig_OrderedUserSecretVersionStage = null;
+            if (cmdletContext.SftpConfig_OrderedUserSecretVersionStage != null)
+            {
+                requestSftpConfig_sftpConfig_OrderedUserSecretVersionStage = cmdletContext.SftpConfig_OrderedUserSecretVersionStage;
+            }
+            if (requestSftpConfig_sftpConfig_OrderedUserSecretVersionStage != null)
+            {
+                request.SftpConfig.OrderedUserSecretVersionStages = requestSftpConfig_sftpConfig_OrderedUserSecretVersionStage;
+                requestSftpConfigIsNull = false;
+            }
             List<System.String> requestSftpConfig_sftpConfig_TrustedHostKey = null;
             if (cmdletContext.SftpConfig_TrustedHostKey != null)
             {
@@ -794,6 +828,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String LoggingRole { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.Int32? SftpConfig_MaxConcurrentConnection { get; set; }
+            public List<System.String> SftpConfig_OrderedUserSecretVersionStage { get; set; }
             public List<System.String> SftpConfig_TrustedHostKey { get; set; }
             public System.String SftpConfig_UserSecretId { get; set; }
             public System.String Url { get; set; }

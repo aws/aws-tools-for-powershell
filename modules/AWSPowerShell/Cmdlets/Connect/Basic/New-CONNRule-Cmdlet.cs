@@ -72,6 +72,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.RuleAction[] Action { get; set; }
         #endregion
         
+        #region Parameter PreEvaluationFilters_AndCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions that the rule evaluates together using AND logic. All conditions
+        /// must be met for the event to be evaluated by the rule.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PreEvaluationFilters_AndConditions")]
+        public Amazon.Connect.Model.PreEvaluationFilter[] PreEvaluationFilters_AndCondition { get; set; }
+        #endregion
+        
         #region Parameter TriggerEventSource_EventSourceName
         /// <summary>
         /// <para>
@@ -168,6 +184,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.RulePublishStatus PublishStatus { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -259,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PreEvaluationFilters_AndCondition != null)
+            {
+                context.PreEvaluationFilters_AndCondition = new List<Amazon.Connect.Model.PreEvaluationFilter>(this.PreEvaluationFilters_AndCondition);
+            }
             context.PublishStatus = this.PublishStatus;
             #if MODULAR
             if (this.PublishStatus == null && ParameterWasBound(nameof(this.PublishStatus)))
@@ -266,6 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter PublishStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.TriggerEventSource_EventSourceName = this.TriggerEventSource_EventSourceName;
             #if MODULAR
             if (this.TriggerEventSource_EventSourceName == null && ParameterWasBound(nameof(this.TriggerEventSource_EventSourceName)))
@@ -310,9 +354,32 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate PreEvaluationFilters
+            var requestPreEvaluationFiltersIsNull = true;
+            request.PreEvaluationFilters = new Amazon.Connect.Model.PreEvaluationFilters();
+            List<Amazon.Connect.Model.PreEvaluationFilter> requestPreEvaluationFilters_preEvaluationFilters_AndCondition = null;
+            if (cmdletContext.PreEvaluationFilters_AndCondition != null)
+            {
+                requestPreEvaluationFilters_preEvaluationFilters_AndCondition = cmdletContext.PreEvaluationFilters_AndCondition;
+            }
+            if (requestPreEvaluationFilters_preEvaluationFilters_AndCondition != null)
+            {
+                request.PreEvaluationFilters.AndConditions = requestPreEvaluationFilters_preEvaluationFilters_AndCondition;
+                requestPreEvaluationFiltersIsNull = false;
+            }
+             // determine if request.PreEvaluationFilters should be set to null
+            if (requestPreEvaluationFiltersIsNull)
+            {
+                request.PreEvaluationFilters = null;
+            }
             if (cmdletContext.PublishStatus != null)
             {
                 request.PublishStatus = cmdletContext.PublishStatus;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate TriggerEventSource
@@ -403,7 +470,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Function { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Connect.Model.PreEvaluationFilter> PreEvaluationFilters_AndCondition { get; set; }
             public Amazon.Connect.RulePublishStatus PublishStatus { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Connect.EventSourceName TriggerEventSource_EventSourceName { get; set; }
             public System.String TriggerEventSource_IntegrationAssociationId { get; set; }
             public System.Func<Amazon.Connect.Model.CreateRuleResponse, NewCONNRuleCmdlet, object> Select { get; set; } =

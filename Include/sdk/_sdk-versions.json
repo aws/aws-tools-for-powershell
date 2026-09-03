@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.326.0",
-    "CoreVersion"       : "4.0.102.1",
+    "ProductVersion"    : "4.0.327.0",
+    "CoreVersion"       : "4.0.102.2",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : "",
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "4.0.103.0",
+            "Version" : "4.0.104.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -564,7 +564,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "4.0.101.7",
+            "Version" : "4.0.101.8",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -620,7 +620,7 @@
             "InPreview"               : false
         },
         "StepFunctions"                   : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.100.12",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.104.0",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.113.0",
+            "Version" : "4.0.114.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.104.0",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -1180,7 +1180,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "4.0.100.11",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2140,7 +2140,7 @@
             "InPreview"               : false
         },
         "Drs"                                 : {
-            "Version" : "4.0.102.3",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -2956,7 +2956,7 @@
             "InPreview"               : false
         },
         "SocialMessaging"                     : {
-            "Version" : "4.0.101.4",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3132,7 +3132,7 @@
             "InPreview"               : false
         },
         "Evs"                                 : {
-            "Version" : "4.0.101.0",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.109.0",
+            "Version" : "4.0.110.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.113.0",
+            "Version" : "4.0.114.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.1"

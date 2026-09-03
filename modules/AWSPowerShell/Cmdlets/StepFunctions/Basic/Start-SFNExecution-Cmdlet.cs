@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// workflow, if you call <c>StartExecution</c> with the same name and input as a running
     /// execution, the call succeeds and return the same response as the original request.
     /// If the execution is closed or if the input is different, it returns a <c>400 ExecutionAlreadyExists</c>
-    /// error. You can reuse names after 90 days. 
+    /// error. You can reuse the name 90 days after it closes. 
     /// </para><para><c>StartExecution</c> isn't idempotent for <c>EXPRESS</c> workflows. 
     /// </para></note>
     /// </summary>
@@ -93,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Optional name of the execution. This name must be unique for your Amazon Web Services
-        /// account, Region, and state machine for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// <para>Optional name of the execution. For STANDARD workflows, this name must be unique for
+        /// your Amazon Web Services account, region, and state machine. If a previous execution
+        /// with the same name exists, you can reuse the name 90 days after it closes. For EXPRESS
+        /// workflows, execution names can be reused immediately. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
         /// Limits Related to State Machine Executions</a> in the <i>Step Functions Developer
         /// Guide</i>.</para><para>If you don't provide a name for the execution, Step Functions automatically generates
         /// a universally unique identifier (UUID) as the execution name.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <c>&lt; &gt; { } [ ]</c></para></li><li><para>wildcard characters <c>? *</c></para></li><li><para>special characters <c>" # % \ ^ | ~ ` $ &amp; , ; : /</c></para></li><li><para>control characters (<c>U+0000-001F</c>, <c>U+007F-009F</c>, <c>U+FFFE-FFFF</c>)</para></li><li><para>surrogates (<c>U+D800-DFFF</c>)</para></li><li><para>invalid characters (<c> U+10FFFF</c>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,

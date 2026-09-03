@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         public System.String CloneFlowId { get; set; }
         #endregion
         
+        #region Parameter EndpointUri
+        /// <summary>
+        /// <para>
+        /// <para>Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the Flow's endpoint_uri
+        /// and called by Meta directly. When omitted, the Flow has no endpoint (static Flow).
+        /// Meta only calls the endpoint when the Flow JSON also declares data_api_version. To
+        /// verify that requests originate from Meta, attach your own Meta app via UpdateWhatsAppFlow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointUri { get; set; }
+        #endregion
+        
         #region Parameter FlowJson
         /// <summary>
         /// <para>
@@ -200,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             }
             #endif
             context.CloneFlowId = this.CloneFlowId;
+            context.EndpointUri = this.EndpointUri;
             context.FlowJson = this.FlowJson;
             context.FlowName = this.FlowName;
             #if MODULAR
@@ -243,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 if (cmdletContext.CloneFlowId != null)
                 {
                     request.CloneFlowId = cmdletContext.CloneFlowId;
+                }
+                if (cmdletContext.EndpointUri != null)
+                {
+                    request.EndpointUri = cmdletContext.EndpointUri;
                 }
                 if (cmdletContext.FlowJson != null)
                 {
@@ -326,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         {
             public List<System.String> Category { get; set; }
             public System.String CloneFlowId { get; set; }
+            public System.String EndpointUri { get; set; }
             public byte[] FlowJson { get; set; }
             public System.String FlowName { get; set; }
             public System.String Id { get; set; }

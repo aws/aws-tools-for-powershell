@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-EVSResourceTag', 
+        'Get-EVSAccountSetting', 
         'Get-EVSDepotUrl', 
         'Get-EVSEnvironment', 
         'Get-EVSEnvironmentConnectorList', 
@@ -108,7 +109,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EVSEnvironmentHost', 
         'Remove-EVSResourceTag', 
         'Unregister-EVSEipFromVlan', 
-        'Update-EVSEnvironmentConnector')
+        'Update-EVSEnvironmentConnector', 
+        'Write-EVSAccountSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         public System.String[] Category { get; set; }
         #endregion
         
+        #region Parameter EndpointUri
+        /// <summary>
+        /// <para>
+        /// <para>Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the Flow's endpoint_uri
+        /// and called by Meta directly. When omitted, the Flow's endpoint is unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointUri { get; set; }
+        #endregion
+        
         #region Parameter FlowId
         /// <summary>
         /// <para>
@@ -104,6 +115,21 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter MetaAppId
+        /// <summary>
+        /// <para>
+        /// <para>Optional Meta app ID to attach to the Flow. Meta signs data-exchange requests with
+        /// the attached app's secret, so attaching your own app is what enables X-Hub-Signature-256
+        /// and flow_token_signature verification at your endpoint. Meta requires the app to be
+        /// owned by the same business that owns the WABA. Attaching your own app is one-way:
+        /// the service's app cannot be re-attached afterwards. When omitted, the attached app
+        /// is unchanged. (Set via update because Meta ignores application_id at creation time.)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetaAppId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -160,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             {
                 context.Category = new List<System.String>(this.Category);
             }
+            context.EndpointUri = this.EndpointUri;
             context.FlowId = this.FlowId;
             #if MODULAR
             if (this.FlowId == null && ParameterWasBound(nameof(this.FlowId)))
@@ -175,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MetaAppId = this.MetaAppId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             {
                 request.Categories = cmdletContext.Category;
             }
+            if (cmdletContext.EndpointUri != null)
+            {
+                request.EndpointUri = cmdletContext.EndpointUri;
+            }
             if (cmdletContext.FlowId != null)
             {
                 request.FlowId = cmdletContext.FlowId;
@@ -206,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.MetaAppId != null)
+            {
+                request.MetaAppId = cmdletContext.MetaAppId;
             }
             
             CmdletOutput output;
@@ -263,9 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Category { get; set; }
+            public System.String EndpointUri { get; set; }
             public System.String FlowId { get; set; }
             public System.String FlowName { get; set; }
             public System.String Id { get; set; }
+            public System.String MetaAppId { get; set; }
             public System.Func<Amazon.SocialMessaging.Model.UpdateWhatsAppFlowResponse, UpdateSOCIALWhatsAppFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

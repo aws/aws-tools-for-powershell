@@ -1,4 +1,34 @@
-﻿### 5.0.291 (2026-09-02 19:05Z)
+﻿### 5.0.292 (2026-09-03 19:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.327.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCConsentPortal leveraging the GetConsentPortal service API.
+    * Added cmdlet Get-BACCConsentPortalList leveraging the ListConsentPortals service API.
+    * Added cmdlet New-BACCConsentPortal leveraging the CreateConsentPortal service API.
+    * Added cmdlet Remove-BACCConsentPortal leveraging the DeleteConsentPortal service API.
+    * Added cmdlet Update-BACCConsentPortal leveraging the UpdateConsentPortal service API.
+    * Modified cmdlet New-BACCOnlineEvaluationConfig: added parameters DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix, OutputConfig_CloudWatchConfig_LogGroupName, OutputConfig_CloudWatchConfig_MetricsNamespace and OutputConfig_CloudWatchConfig_ResultDestination.
+    * Modified cmdlet Update-BACCOnlineEvaluationConfig: added parameters DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix, OutputConfig_CloudWatchConfig_LogGroupName, OutputConfig_CloudWatchConfig_MetricsNamespace and OutputConfig_CloudWatchConfig_ResultDestination.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACBatchEvaluation: added parameters DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix, OutputConfig_CloudWatchConfig_LogGroupName, OutputConfig_CloudWatchConfig_LogStreamName, OutputConfig_CloudWatchConfig_MetricsNamespace and OutputConfig_CloudWatchConfig_ResultDestination.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNRule: added parameters PreEvaluationFilters_AndCondition and Tag.
+    * Modified cmdlet Update-CONNRule: added parameter PreEvaluationFilters_AndCondition.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSDaemon: added parameter Critical.
+    * Modified cmdlet Update-ECSDaemon: added parameter Critical.
+  * Amazon Elastic VMware Service
+    * Added cmdlet Get-EVSAccountSetting leveraging the GetAccountSettings service API.
+    * Added cmdlet Write-EVSAccountSetting leveraging the PutAccountSettings service API.
+  * Amazon End User Messaging Social
+    * Added cmdlet Get-SOCIALWhatsAppBusinessPublicKey leveraging the GetWhatsAppBusinessPublicKey service API.
+    * Added cmdlet Write-SOCIALWhatsAppBusinessPublicKey leveraging the PutWhatsAppBusinessPublicKey service API.
+    * Modified cmdlet New-SOCIALWhatsAppFlow: added parameter EndpointUri.
+    * Modified cmdlet Update-SOCIALWhatsAppFlow: added parameters EndpointUri and MetaAppId.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameter SftpConfig_OrderedUserSecretVersionStage.
+    * Modified cmdlet Update-TFRConnector: added parameter SftpConfig_OrderedUserSecretVersionStage.
+
+### 5.0.291 (2026-09-02 19:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.326.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet Remove-AISApplication: added parameter ForceRemove.

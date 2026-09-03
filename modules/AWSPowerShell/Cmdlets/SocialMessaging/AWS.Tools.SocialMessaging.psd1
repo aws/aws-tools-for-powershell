@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SOCIALLinkedWhatsAppBusinessAccountList', 
         'Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber', 
         'Get-SOCIALResourceTag', 
+        'Get-SOCIALWhatsAppBusinessPublicKey', 
         'Get-SOCIALWhatsAppFlow', 
         'Get-SOCIALWhatsAppFlowAssetList', 
         'Get-SOCIALWhatsAppFlowList', 
@@ -119,7 +120,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SOCIALWhatsAppFlow', 
         'Update-SOCIALWhatsAppFlowAsset', 
         'Update-SOCIALWhatsAppMessageTemplate', 
-        'Write-SOCIALWhatsAppBusinessAccountEventDestination')
+        'Write-SOCIALWhatsAppBusinessAccountEventDestination', 
+        'Write-SOCIALWhatsAppBusinessPublicKey')
 
     # Variables to export from this module
     VariablesToExport = '*'

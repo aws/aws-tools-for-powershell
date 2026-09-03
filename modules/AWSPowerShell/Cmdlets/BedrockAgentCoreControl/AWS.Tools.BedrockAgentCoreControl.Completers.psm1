@@ -446,6 +446,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.ResultDestination
+        {
+            ($_ -eq "New-BACCOnlineEvaluationConfig/OutputConfig_CloudWatchConfig_ResultDestination") -Or
+            ($_ -eq "Update-BACCOnlineEvaluationConfig/OutputConfig_CloudWatchConfig_ResultDestination")
+        }
+        {
+            $v = "DEDICATED_LOG_GROUP","SOURCE_LOG_GROUP"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.SearchType
         {
             ($_ -eq "New-BACCGateway/Mcp_SearchType") -Or
@@ -584,6 +594,7 @@ $BACC_map = @{
     "Oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "Oauth2ProviderConfigInput_SlackOauth2ProviderConfig_ClientSecretSource"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
+    "OutputConfig_CloudWatchConfig_ResultDestination"=@("New-BACCOnlineEvaluationConfig","Update-BACCOnlineEvaluationConfig")
     "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "PrivateEndpoint_ManagedVpcResource_EndpointIpAddressType"=@("New-BACCGatewayTarget","Update-BACCGatewayTarget")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
@@ -667,6 +678,7 @@ $BACC_SelectMap = @{
                "New-BACCCapacityProvider",
                "New-BACCCodeInterpreter",
                "New-BACCConfigurationBundle",
+               "New-BACCConsentPortal",
                "New-BACCDataset",
                "New-BACCDatasetVersion",
                "New-BACCEvaluator",
@@ -695,6 +707,7 @@ $BACC_SelectMap = @{
                "Remove-BACCCapacityProvider",
                "Remove-BACCCodeInterpreter",
                "Remove-BACCConfigurationBundle",
+               "Remove-BACCConsentPortal",
                "Remove-BACCDataset",
                "Remove-BACCDatasetExample",
                "Remove-BACCEvaluator",
@@ -725,6 +738,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreter",
                "Get-BACCConfigurationBundle",
                "Get-BACCConfigurationBundleVersion",
+               "Get-BACCConsentPortal",
                "Get-BACCDataset",
                "Get-BACCEvaluator",
                "Get-BACCGateway",
@@ -761,6 +775,7 @@ $BACC_SelectMap = @{
                "Get-BACCCodeInterpreterList",
                "Get-BACCConfigurationBundleList",
                "Get-BACCConfigurationBundleVersionList",
+               "Get-BACCConsentPortalList",
                "Get-BACCDatasetExampleList",
                "Get-BACCDatasetList",
                "Get-BACCDatasetVersionList",
@@ -801,6 +816,7 @@ $BACC_SelectMap = @{
                "Update-BACCApiKeyCredentialProvider",
                "Update-BACCCapacityProvider",
                "Update-BACCConfigurationBundle",
+               "Update-BACCConsentPortal",
                "Update-BACCDataset",
                "Update-BACCDatasetExample",
                "Update-BACCEvaluator",

@@ -138,6 +138,38 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_CloudWatchConfig_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log group where evaluation results will be written. This
+        /// value doesn't apply when <c>resultDestination</c> is <c>SOURCE_LOG_GROUP</c>, because
+        /// results are written back to the trace source log group. The name can't be under the
+        /// service-reserved <c>/aws/bedrock-agentcore/evaluations/</c> namespace, apart from
+        /// the service-managed default group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_CloudWatchConfig_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>The list of CloudWatch log group name prefixes to read agent traces from. Specify
+        /// this instead of <c>logGroupNames</c> to match log groups by prefix. Maximum of 5 prefixes.
+        /// Specify either <c>logGroupNames</c> or <c>logGroupNamePrefixes</c>, not both. One
+        /// of the two is required.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfig_CloudWatchLogs_LogGroupNamePrefixes")]
+        public System.String[] DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfig_CloudWatchLogs_LogGroupName
         /// <summary>
         /// <para>
@@ -154,6 +186,28 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String[] DataSourceConfig_CloudWatchLogs_LogGroupName { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_CloudWatchConfig_LogStreamName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log stream where evaluation results will be written.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_CloudWatchConfig_LogStreamName { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_CloudWatchConfig_MetricsNamespace
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch metrics namespace where evaluation result metrics are published. If
+        /// you omit this value, the service publishes metrics to <c>Bedrock-AgentCore/Evaluations</c>.
+        /// This value can't begin with <c>AWS/</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_CloudWatchConfig_MetricsNamespace { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn
         /// <summary>
         /// <para>
@@ -163,6 +217,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_CloudWatchConfig_ResultDestination
+        /// <summary>
+        /// <para>
+        /// <para>The destination where evaluation results are written. Valid values:</para><ul><li><para><c>DEDICATED_LOG_GROUP</c> (default) – Writes results to a dedicated result log group.</para></li><li><para><c>SOURCE_LOG_GROUP</c> – Writes results back to the log group that the agent traces
+        /// were read from. If you use this value, don't specify <c>logGroupName</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCore.ResultDestination")]
+        public Amazon.BedrockAgentCore.ResultDestination OutputConfig_CloudWatchConfig_ResultDestination { get; set; }
         #endregion
         
         #region Parameter DataSourceConfig_CloudWatchLogs_ServiceName
@@ -320,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             context.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime = this.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime;
             context.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime = this.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime;
+            if (this.DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix != null)
+            {
+                context.DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix = new List<System.String>(this.DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix);
+            }
             if (this.DataSourceConfig_CloudWatchLogs_LogGroupName != null)
             {
                 context.DataSourceConfig_CloudWatchLogs_LogGroupName = new List<System.String>(this.DataSourceConfig_CloudWatchLogs_LogGroupName);
@@ -345,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 context.Insight = new List<Amazon.BedrockAgentCore.Model.Insight>(this.Insight);
             }
             context.KmsKeyArn = this.KmsKeyArn;
+            context.OutputConfig_CloudWatchConfig_LogGroupName = this.OutputConfig_CloudWatchConfig_LogGroupName;
+            context.OutputConfig_CloudWatchConfig_LogStreamName = this.OutputConfig_CloudWatchConfig_LogStreamName;
+            context.OutputConfig_CloudWatchConfig_MetricsNamespace = this.OutputConfig_CloudWatchConfig_MetricsNamespace;
+            context.OutputConfig_CloudWatchConfig_ResultDestination = this.OutputConfig_CloudWatchConfig_ResultDestination;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -446,6 +520,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate CloudWatchLogs
             var requestDataSourceConfig_dataSourceConfig_CloudWatchLogsIsNull = true;
             requestDataSourceConfig_dataSourceConfig_CloudWatchLogs = new Amazon.BedrockAgentCore.Model.CloudWatchLogsSource();
+            List<System.String> requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_LogGroupNamePrefix = null;
+            if (cmdletContext.DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_LogGroupNamePrefix = cmdletContext.DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_LogGroupNamePrefix != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogs.LogGroupNamePrefixes = requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_LogGroupNamePrefix;
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogsIsNull = false;
+            }
             List<System.String> requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_LogGroupName = null;
             if (cmdletContext.DataSourceConfig_CloudWatchLogs_LogGroupName != null)
             {
@@ -576,6 +660,70 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.KmsKeyArn = cmdletContext.KmsKeyArn;
             }
+            
+             // populate OutputConfig
+            var requestOutputConfigIsNull = true;
+            request.OutputConfig = new Amazon.BedrockAgentCore.Model.OutputConfig();
+            Amazon.BedrockAgentCore.Model.CloudWatchOutputConfig requestOutputConfig_outputConfig_CloudWatchConfig = null;
+            
+             // populate CloudWatchConfig
+            var requestOutputConfig_outputConfig_CloudWatchConfigIsNull = true;
+            requestOutputConfig_outputConfig_CloudWatchConfig = new Amazon.BedrockAgentCore.Model.CloudWatchOutputConfig();
+            System.String requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogGroupName = null;
+            if (cmdletContext.OutputConfig_CloudWatchConfig_LogGroupName != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogGroupName = cmdletContext.OutputConfig_CloudWatchConfig_LogGroupName;
+            }
+            if (requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogGroupName != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig.LogGroupName = requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogGroupName;
+                requestOutputConfig_outputConfig_CloudWatchConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogStreamName = null;
+            if (cmdletContext.OutputConfig_CloudWatchConfig_LogStreamName != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogStreamName = cmdletContext.OutputConfig_CloudWatchConfig_LogStreamName;
+            }
+            if (requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogStreamName != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig.LogStreamName = requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_LogStreamName;
+                requestOutputConfig_outputConfig_CloudWatchConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_MetricsNamespace = null;
+            if (cmdletContext.OutputConfig_CloudWatchConfig_MetricsNamespace != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_MetricsNamespace = cmdletContext.OutputConfig_CloudWatchConfig_MetricsNamespace;
+            }
+            if (requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_MetricsNamespace != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig.MetricsNamespace = requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_MetricsNamespace;
+                requestOutputConfig_outputConfig_CloudWatchConfigIsNull = false;
+            }
+            Amazon.BedrockAgentCore.ResultDestination requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_ResultDestination = null;
+            if (cmdletContext.OutputConfig_CloudWatchConfig_ResultDestination != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_ResultDestination = cmdletContext.OutputConfig_CloudWatchConfig_ResultDestination;
+            }
+            if (requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_ResultDestination != null)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig.ResultDestination = requestOutputConfig_outputConfig_CloudWatchConfig_outputConfig_CloudWatchConfig_ResultDestination;
+                requestOutputConfig_outputConfig_CloudWatchConfigIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_CloudWatchConfig should be set to null
+            if (requestOutputConfig_outputConfig_CloudWatchConfigIsNull)
+            {
+                requestOutputConfig_outputConfig_CloudWatchConfig = null;
+            }
+            if (requestOutputConfig_outputConfig_CloudWatchConfig != null)
+            {
+                request.OutputConfig.CloudWatchConfig = requestOutputConfig_outputConfig_CloudWatchConfig;
+                requestOutputConfigIsNull = false;
+            }
+             // determine if request.OutputConfig should be set to null
+            if (requestOutputConfigIsNull)
+            {
+                request.OutputConfig = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -640,6 +788,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<System.String> DataSourceConfig_CloudWatchLogs_FilterConfig_SessionId { get; set; }
             public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime { get; set; }
             public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime { get; set; }
+            public List<System.String> DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_LogGroupName { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_ServiceName { get; set; }
             public System.String DataSourceConfig_OnlineEvaluationConfigSource_OnlineEvaluationConfigArn { get; set; }
@@ -650,6 +799,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public List<Amazon.BedrockAgentCore.Model.Evaluator> Evaluator { get; set; }
             public List<Amazon.BedrockAgentCore.Model.Insight> Insight { get; set; }
             public System.String KmsKeyArn { get; set; }
+            public System.String OutputConfig_CloudWatchConfig_LogGroupName { get; set; }
+            public System.String OutputConfig_CloudWatchConfig_LogStreamName { get; set; }
+            public System.String OutputConfig_CloudWatchConfig_MetricsNamespace { get; set; }
+            public Amazon.BedrockAgentCore.ResultDestination OutputConfig_CloudWatchConfig_ResultDestination { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.StartBatchEvaluationResponse, StartBACBatchEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

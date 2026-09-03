@@ -3100,6 +3100,8 @@ Set-Alias -Name Create-BACCCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name BACC-CreateCodeInterpreter -Value New-BACCCodeInterpreter
 Set-Alias -Name Create-BACCConfigurationBundle -Value New-BACCConfigurationBundle
 Set-Alias -Name BACC-CreateConfigurationBundle -Value New-BACCConfigurationBundle
+Set-Alias -Name Create-BACCConsentPortal -Value New-BACCConsentPortal
+Set-Alias -Name BACC-CreateConsentPortal -Value New-BACCConsentPortal
 Set-Alias -Name Create-BACCDataset -Value New-BACCDataset
 Set-Alias -Name BACC-CreateDataset -Value New-BACCDataset
 Set-Alias -Name Create-BACCDatasetVersion -Value New-BACCDatasetVersion
@@ -3156,6 +3158,8 @@ Set-Alias -Name Delete-BACCCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name BACC-DeleteCodeInterpreter -Value Remove-BACCCodeInterpreter
 Set-Alias -Name Delete-BACCConfigurationBundle -Value Remove-BACCConfigurationBundle
 Set-Alias -Name BACC-DeleteConfigurationBundle -Value Remove-BACCConfigurationBundle
+Set-Alias -Name Delete-BACCConsentPortal -Value Remove-BACCConsentPortal
+Set-Alias -Name BACC-DeleteConsentPortal -Value Remove-BACCConsentPortal
 Set-Alias -Name Delete-BACCDataset -Value Remove-BACCDataset
 Set-Alias -Name BACC-DeleteDataset -Value Remove-BACCDataset
 Set-Alias -Name Delete-BACCDatasetExamples -Value Remove-BACCDatasetExample
@@ -3208,6 +3212,7 @@ Set-Alias -Name BACC-GetCapacityProvider -Value Get-BACCCapacityProvider
 Set-Alias -Name BACC-GetCodeInterpreter -Value Get-BACCCodeInterpreter
 Set-Alias -Name BACC-GetConfigurationBundle -Value Get-BACCConfigurationBundle
 Set-Alias -Name BACC-GetConfigurationBundleVersion -Value Get-BACCConfigurationBundleVersion
+Set-Alias -Name BACC-GetConsentPortal -Value Get-BACCConsentPortal
 Set-Alias -Name BACC-GetDataset -Value Get-BACCDataset
 Set-Alias -Name BACC-GetEvaluator -Value Get-BACCEvaluator
 Set-Alias -Name BACC-GetGateway -Value Get-BACCGateway
@@ -3266,6 +3271,9 @@ Set-Alias -Name BACC-ListConfigurationBundles -Value Get-BACCConfigurationBundle
 Set-Alias -Name List-BACCConfigurationBundleVersions -Value Get-BACCConfigurationBundleVersionList
 Set-Alias -Name List-BACCConfigurationBundleVersionList -Value Get-BACCConfigurationBundleVersionList
 Set-Alias -Name BACC-ListConfigurationBundleVersions -Value Get-BACCConfigurationBundleVersionList
+Set-Alias -Name List-BACCConsentPortals -Value Get-BACCConsentPortalList
+Set-Alias -Name List-BACCConsentPortalList -Value Get-BACCConsentPortalList
+Set-Alias -Name BACC-ListConsentPortals -Value Get-BACCConsentPortalList
 Set-Alias -Name List-BACCDatasetExamples -Value Get-BACCDatasetExampleList
 Set-Alias -Name List-BACCDatasetExampleList -Value Get-BACCDatasetExampleList
 Set-Alias -Name BACC-ListDatasetExamples -Value Get-BACCDatasetExampleList
@@ -3363,6 +3371,7 @@ Set-Alias -Name BACC-UpdateAgentRuntimeEndpoint -Value Update-BACCAgentRuntimeEn
 Set-Alias -Name BACC-UpdateApiKeyCredentialProvider -Value Update-BACCApiKeyCredentialProvider
 Set-Alias -Name BACC-UpdateCapacityProvider -Value Update-BACCCapacityProvider
 Set-Alias -Name BACC-UpdateConfigurationBundle -Value Update-BACCConfigurationBundle
+Set-Alias -Name BACC-UpdateConsentPortal -Value Update-BACCConsentPortal
 Set-Alias -Name BACC-UpdateDataset -Value Update-BACCDataset
 Set-Alias -Name Update-BACCDatasetExamples -Value Update-BACCDatasetExample
 Set-Alias -Name BACC-UpdateDatasetExamples -Value Update-BACCDatasetExample
@@ -14759,6 +14768,8 @@ Set-Alias -Name Delete-EVSEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name EVS-DeleteEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name Disassociate-EVSEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-DisassociateEipFromVlan -Value Unregister-EVSEipFromVlan
+Set-Alias -Name Get-EVSAccountSettings -Value Get-EVSAccountSetting
+Set-Alias -Name EVS-GetAccountSettings -Value Get-EVSAccountSetting
 Set-Alias -Name EVS-GetDepotUrl -Value Get-EVSDepotUrl
 Set-Alias -Name EVS-GetEnvironment -Value Get-EVSEnvironment
 Set-Alias -Name Get-EVSVersions -Value Get-EVSVersion
@@ -14779,6 +14790,9 @@ Set-Alias -Name EVS-ListTagsForResource -Value Get-EVSResourceTag
 Set-Alias -Name List-EVSVmEntitlements -Value Get-EVSVmEntitlementList
 Set-Alias -Name List-EVSVmEntitlementList -Value Get-EVSVmEntitlementList
 Set-Alias -Name EVS-ListVmEntitlements -Value Get-EVSVmEntitlementList
+Set-Alias -Name Put-EVSAccountSettings -Value Write-EVSAccountSetting
+Set-Alias -Name Put-EVSAccountSetting -Value Write-EVSAccountSetting
+Set-Alias -Name EVS-PutAccountSettings -Value Write-EVSAccountSetting
 Set-Alias -Name EVS-TagResource -Value Add-EVSResourceTag
 Set-Alias -Name EVS-UntagResource -Value Remove-EVSResourceTag
 Set-Alias -Name EVS-UpdateEnvironmentConnector -Value Update-EVSEnvironmentConnector
@@ -33245,6 +33259,7 @@ Set-Alias -Name Disassociate-SOCIALWhatsAppBusinessAccount -Value Disconnect-SOC
 Set-Alias -Name SOCIAL-DisassociateWhatsAppBusinessAccount -Value Disconnect-SOCIALWhatsAppBusinessAccount
 Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccount -Value Get-SOCIALLinkedWhatsAppBusinessAccount
 Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccountPhoneNumber -Value Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber
+Set-Alias -Name SOCIAL-GetWhatsAppBusinessPublicKey -Value Get-SOCIALWhatsAppBusinessPublicKey
 Set-Alias -Name SOCIAL-GetWhatsAppFlow -Value Get-SOCIALWhatsAppFlow
 Set-Alias -Name SOCIAL-GetWhatsAppFlowPreview -Value Get-SOCIALWhatsAppFlowPreview
 Set-Alias -Name SOCIAL-GetWhatsAppMessageMedia -Value Get-SOCIALWhatsAppMessageMedia
@@ -33271,6 +33286,8 @@ Set-Alias -Name SOCIAL-PublishWhatsAppFlow -Value Publish-SOCIALWhatsAppFlow
 Set-Alias -Name Put-SOCIALWhatsAppBusinessAccountEventDestinations -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
 Set-Alias -Name Put-SOCIALWhatsAppBusinessAccountEventDestination -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
 Set-Alias -Name SOCIAL-PutWhatsAppBusinessAccountEventDestinations -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
+Set-Alias -Name Put-SOCIALWhatsAppBusinessPublicKey -Value Write-SOCIALWhatsAppBusinessPublicKey
+Set-Alias -Name SOCIAL-PutWhatsAppBusinessPublicKey -Value Write-SOCIALWhatsAppBusinessPublicKey
 Set-Alias -Name SOCIAL-SendWhatsAppConversionEvent -Value Send-SOCIALWhatsAppConversionEvent
 Set-Alias -Name SOCIAL-SendWhatsAppMessage -Value Send-SOCIALWhatsAppMessage
 Set-Alias -Name SOCIAL-TagResource -Value Add-SOCIALResourceTag

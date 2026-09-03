@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>
     /// ARN to list the executions associated with a specific alias or version.
     /// </para><para>
-    /// Results are sorted by time, with the most recent execution first.
+    /// Results are sorted by time, with the most recent execution first. Running executions
+    /// are sorted by their <c>startDate</c> or <c>redriveDate</c>, and other executions are
+    /// sorted by their <c>stopDate</c>.
     /// </para><para>
     /// If <c>nextToken</c> is returned, there are more results available. The value of <c>nextToken</c>
     /// is a unique pagination token for each page. Make the call again using the returned
@@ -53,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
     /// </para></note><para>
-    /// This API action is not supported by <c>EXPRESS</c> state machines.
+    /// This API action is not supported by <c>EXPRESS</c> state machines. However, you may
+    /// list <c>EXPRESS</c> children started by a map run using the <c>mapRunArn</c> parameter.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionList")]

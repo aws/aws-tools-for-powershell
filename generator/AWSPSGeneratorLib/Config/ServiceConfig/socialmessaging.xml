@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppBusinessPublicKey" OutputProperty="*" Verb="Get" Noun="WhatsAppBusinessPublicKey" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWhatsAppFlow" OutputProperty="*" Verb="Get" Noun="WhatsAppFlow" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutWhatsAppBusinessAccountEventDestinations" Verb="Write" Noun="WhatsAppBusinessAccountEventDestination" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutWhatsAppBusinessPublicKey" Verb="Write" Noun="WhatsAppBusinessPublicKey" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
