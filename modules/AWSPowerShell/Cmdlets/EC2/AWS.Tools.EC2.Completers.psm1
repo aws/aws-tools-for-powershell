@@ -2650,6 +2650,7 @@ $EC2_SelectMap = @{
                "Update-EC2InterruptibleCapacityReservationAllocation",
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
+               "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
                "Get-EC2InstanceMetadata",
                "Get-EC2PasswordData")

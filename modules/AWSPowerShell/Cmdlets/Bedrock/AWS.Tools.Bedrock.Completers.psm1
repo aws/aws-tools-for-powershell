@@ -138,7 +138,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.DataRetentionMode
         "Write-BDRAccountDataRetention/Mode"
         {
-            $v = "default","inherit","none","provider_data_share"
+            $v = "aws_review","default","inherit","none","provider_data_share"
             break
         }
 

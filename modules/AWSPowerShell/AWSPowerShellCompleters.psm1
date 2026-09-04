@@ -10797,7 +10797,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.DataRetentionMode
         "Write-BDRAccountDataRetention/Mode"
         {
-            $v = "default","inherit","none","provider_data_share"
+            $v = "aws_review","default","inherit","none","provider_data_share"
             break
         }
 
@@ -15944,8 +15944,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16405,9 +16405,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Get-CSDSuggestion",
-               "Search-CSDDocument")
+    "Select"=@("Search-CSDDocument",
+               "Write-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30017,11 +30017,11 @@ $DDB_SelectMap = @{
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "ConvertTo-DDBItem",
-               "New-DDBTable",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
+               "New-DDBTable",
+               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
-               "New-DDBTableSchema")
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -32838,6 +32838,7 @@ $EC2_SelectMap = @{
                "Update-EC2InterruptibleCapacityReservationAllocation",
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
+               "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
                "Get-EC2InstanceMetadata",
                "Get-EC2PasswordData")
@@ -40375,8 +40376,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -57685,6 +57686,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.ApsRegion
+        "Set-EMTPlaybackConfiguration/YieldOptimizationConfiguration_Region"
+        {
+            $v = "AMERICAS","ASIA_PACIFIC","EUROPE"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -57702,7 +57710,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -57728,7 +57736,10 @@ $EMT_Completers = {
         }
 
         # Amazon.MediaTailor.MethodType
-        "Write-EMTFunction/HttpRequestConfiguration_MethodType"
+        {
+            ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_MethodType") -Or
+            ($_ -eq "Write-EMTFunction/VastRequestConfiguration_MethodType")
+        }
         {
             $v = "GET","POST"
             break
@@ -57774,7 +57785,8 @@ $EMT_Completers = {
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
-            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
+            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/VastRequestConfiguration_Runtime")
         }
         {
             $v = "JSONATA"
@@ -57835,6 +57847,9 @@ $EMT_map = @{
     "SequentialExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")
+    "VastRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "VastRequestConfiguration_Runtime"=@("Write-EMTFunction")
+    "YieldOptimizationConfiguration_Region"=@("Set-EMTPlaybackConfiguration")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map
@@ -77848,18 +77863,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
                "Read-S3Object",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
                "New-S3Bucket",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Get-S3PreSignedURL",
                "Mount-S3PSDrive",
-               "Remove-S3Object")
+               "Test-S3Bucket",
+               "Remove-S3Object",
+               "Dismount-S3PSDrive",
+               "Remove-S3MultipartUpload",
+               "Copy-S3Object",
+               "Get-S3PreSignedURL",
+               "Remove-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -87620,8 +87635,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

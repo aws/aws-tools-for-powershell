@@ -851,6 +851,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EC2ReservedInstancesListing', 
         'Stop-EC2SpotFleetRequest', 
         'Stop-EC2SpotInstanceRequest', 
+        'Test-EC2SecurityGroupQuotasForInterface', 
         'Unlock-EC2Snapshot', 
         'Unregister-EC2Address', 
         'Unregister-EC2ApplicationStatusCheck', 

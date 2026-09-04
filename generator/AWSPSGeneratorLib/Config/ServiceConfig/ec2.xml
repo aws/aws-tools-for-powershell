@@ -3478,6 +3478,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ValidateSecurityGroupQuotasForInterface" OutputProperty="Valid" Verb="Test" Noun="SecurityGroupQuotasForInterface" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="WithdrawByoipCidr" OutputProperty="ByoipCidr" Verb="Stop" Noun="ByoipCidrAdvertisement" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

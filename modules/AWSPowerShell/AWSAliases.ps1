@@ -12988,6 +12988,8 @@ Set-Alias -Name Update-EC2SecurityGroupRuleDescriptionsEgress -Value Update-EC2S
 Set-Alias -Name EC2-UpdateSecurityGroupRuleDescriptionsEgress -Value Update-EC2SecurityGroupRuleEgressDescription
 Set-Alias -Name Update-EC2SecurityGroupRuleDescriptionsIngress -Value Update-EC2SecurityGroupRuleIngressDescription
 Set-Alias -Name EC2-UpdateSecurityGroupRuleDescriptionsIngress -Value Update-EC2SecurityGroupRuleIngressDescription
+Set-Alias -Name Validate-EC2SecurityGroupQuotasForInterface -Value Test-EC2SecurityGroupQuotasForInterface
+Set-Alias -Name EC2-ValidateSecurityGroupQuotasForInterface -Value Test-EC2SecurityGroupQuotasForInterface
 Set-Alias -Name Withdraw-EC2ByoipCidr -Value Stop-EC2ByoipCidrAdvertisement
 Set-Alias -Name Withdraw-EC2ByoipCidrAdvertisement -Value Stop-EC2ByoipCidrAdvertisement
 Set-Alias -Name EC2-WithdrawByoipCidr -Value Stop-EC2ByoipCidrAdvertisement

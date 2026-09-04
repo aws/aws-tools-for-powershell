@@ -97,6 +97,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.ApsRegion
+        "Set-EMTPlaybackConfiguration/YieldOptimizationConfiguration_Region"
+        {
+            $v = "AMERICAS","ASIA_PACIFIC","EUROPE"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -114,7 +121,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR"
+            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -140,7 +147,10 @@ $EMT_Completers = {
         }
 
         # Amazon.MediaTailor.MethodType
-        "Write-EMTFunction/HttpRequestConfiguration_MethodType"
+        {
+            ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_MethodType") -Or
+            ($_ -eq "Write-EMTFunction/VastRequestConfiguration_MethodType")
+        }
         {
             $v = "GET","POST"
             break
@@ -186,7 +196,8 @@ $EMT_Completers = {
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
-            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime")
+            ($_ -eq "Write-EMTFunction/SequentialExecutorConfiguration_Runtime") -Or
+            ($_ -eq "Write-EMTFunction/VastRequestConfiguration_Runtime")
         }
         {
             $v = "JSONATA"
@@ -247,6 +258,9 @@ $EMT_map = @{
     "SequentialExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")
+    "VastRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "VastRequestConfiguration_Runtime"=@("Write-EMTFunction")
+    "YieldOptimizationConfiguration_Region"=@("Set-EMTPlaybackConfiguration")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map

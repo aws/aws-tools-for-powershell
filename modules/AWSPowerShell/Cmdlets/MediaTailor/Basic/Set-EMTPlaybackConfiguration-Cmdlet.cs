@@ -230,8 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>
         /// <para>A map of lifecycle hook event names to function identifiers. The function mapping
         /// specifies which function MediaTailor executes at each lifecycle hook during ad insertion.
-        /// Valid keys are <c>PRE_SESSION_INITIALIZATION</c> and <c>PRE_ADS_REQUEST</c>. For more
-        /// information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
+        /// Valid keys are <c>PRE_SESSION_INITIALIZATION</c>, <c>PRE_ADS_REQUEST</c>, <c>POST_ADS_RESPONSE</c>,
+        /// and <c>PRE_MANIFEST_INSERTION</c>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions
         /// lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -325,6 +325,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.Method HttpRequest_Method { get; set; }
         #endregion
         
+        #region Parameter YieldOptimizationConfiguration_MinimumUnfilledDuration
+        /// <summary>
+        /// <para>
+        /// <para>The minimum unfilled duration, in seconds, that must remain in an ad break before
+        /// MediaTailor requests additional ads from Amazon Publisher Services (APS). For example,
+        /// if set to 6 seconds, yield optimization triggers only when at least 6 seconds of unfilled
+        /// time remains after the primary ad server response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? YieldOptimizationConfiguration_MinimumUnfilledDuration { get; set; }
+        #endregion
+        
         #region Parameter AvailSuppression_Mode
         /// <summary>
         /// <para>
@@ -356,6 +369,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter YieldOptimizationConfiguration_OpenRtbTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The OpenRTB bid request template, in JSON, that MediaTailor sends to Amazon Publisher
+        /// Services (APS). The template must include an <c>imp</c> array with one impression
+        /// specifying <c>bidfloor</c>, an <c>app</c> object specifying <c>bundle</c> and <c>storeurl</c>,
+        /// and a <c>device</c> object specifying <c>ua</c> and <c>ip</c>. Use double curly braces
+        /// (for example, <c>{{player_params.user_agent}}</c>) to insert session variables and
+        /// player parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String YieldOptimizationConfiguration_OpenRtbTemplate { get; set; }
         #endregion
         
         #region Parameter PersonalizationThresholdSecond
@@ -399,6 +427,34 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMilliseconds")]
         public System.Int32? AdsPersonalizationTimeouts_PrefetchMaximumAdsPersonalizationTimeMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter YieldOptimizationConfiguration_PublisherId
+        /// <summary>
+        /// <para>
+        /// <para>Publisher ID for an existing Amazon Publisher Services configuration. This ID must
+        /// be obtained by registering with APS prior to using the Yield Optimization feature.
+        /// The Publisher ID identifies your account in the APS system and is required for all
+        /// bid requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String YieldOptimizationConfiguration_PublisherId { get; set; }
+        #endregion
+        
+        #region Parameter YieldOptimizationConfiguration_Region
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Publisher Services (APS) region that MediaTailor sends bid requests to.
+        /// Choose the region closest to your primary audience, because the selection affects
+        /// both latency and the ad inventory available to you. This setting applies to the entire
+        /// playback configuration, not to individual viewers. If you serve traffic across multiple
+        /// regions, create a separate playback configuration for each APS region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.ApsRegion")]
+        public Amazon.MediaTailor.ApsRegion YieldOptimizationConfiguration_Region { get; set; }
         #endregion
         
         #region Parameter SlateAdUrl
@@ -627,6 +683,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             context.TranscodeProfileName = this.TranscodeProfileName;
             context.VideoContentSourceUrl = this.VideoContentSourceUrl;
+            context.YieldOptimizationConfiguration_MinimumUnfilledDuration = this.YieldOptimizationConfiguration_MinimumUnfilledDuration;
+            context.YieldOptimizationConfiguration_OpenRtbTemplate = this.YieldOptimizationConfiguration_OpenRtbTemplate;
+            context.YieldOptimizationConfiguration_PublisherId = this.YieldOptimizationConfiguration_PublisherId;
+            context.YieldOptimizationConfiguration_Region = this.YieldOptimizationConfiguration_Region;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1059,6 +1119,55 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.VideoContentSourceUrl = cmdletContext.VideoContentSourceUrl;
             }
             
+             // populate YieldOptimizationConfiguration
+            var requestYieldOptimizationConfigurationIsNull = true;
+            request.YieldOptimizationConfiguration = new Amazon.MediaTailor.Model.YieldOptimizationConfiguration();
+            System.Int32? requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_MinimumUnfilledDuration = null;
+            if (cmdletContext.YieldOptimizationConfiguration_MinimumUnfilledDuration != null)
+            {
+                requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_MinimumUnfilledDuration = cmdletContext.YieldOptimizationConfiguration_MinimumUnfilledDuration.Value;
+            }
+            if (requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_MinimumUnfilledDuration != null)
+            {
+                request.YieldOptimizationConfiguration.MinimumUnfilledDuration = requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_MinimumUnfilledDuration.Value;
+                requestYieldOptimizationConfigurationIsNull = false;
+            }
+            System.String requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_OpenRtbTemplate = null;
+            if (cmdletContext.YieldOptimizationConfiguration_OpenRtbTemplate != null)
+            {
+                requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_OpenRtbTemplate = cmdletContext.YieldOptimizationConfiguration_OpenRtbTemplate;
+            }
+            if (requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_OpenRtbTemplate != null)
+            {
+                request.YieldOptimizationConfiguration.OpenRtbTemplate = requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_OpenRtbTemplate;
+                requestYieldOptimizationConfigurationIsNull = false;
+            }
+            System.String requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_PublisherId = null;
+            if (cmdletContext.YieldOptimizationConfiguration_PublisherId != null)
+            {
+                requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_PublisherId = cmdletContext.YieldOptimizationConfiguration_PublisherId;
+            }
+            if (requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_PublisherId != null)
+            {
+                request.YieldOptimizationConfiguration.PublisherId = requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_PublisherId;
+                requestYieldOptimizationConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.ApsRegion requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_Region = null;
+            if (cmdletContext.YieldOptimizationConfiguration_Region != null)
+            {
+                requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_Region = cmdletContext.YieldOptimizationConfiguration_Region;
+            }
+            if (requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_Region != null)
+            {
+                request.YieldOptimizationConfiguration.Region = requestYieldOptimizationConfiguration_yieldOptimizationConfiguration_Region;
+                requestYieldOptimizationConfigurationIsNull = false;
+            }
+             // determine if request.YieldOptimizationConfiguration should be set to null
+            if (requestYieldOptimizationConfigurationIsNull)
+            {
+                request.YieldOptimizationConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -1147,6 +1256,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TranscodeProfileName { get; set; }
             public System.String VideoContentSourceUrl { get; set; }
+            public System.Int32? YieldOptimizationConfiguration_MinimumUnfilledDuration { get; set; }
+            public System.String YieldOptimizationConfiguration_OpenRtbTemplate { get; set; }
+            public System.String YieldOptimizationConfiguration_PublisherId { get; set; }
+            public Amazon.MediaTailor.ApsRegion YieldOptimizationConfiguration_Region { get; set; }
             public System.Func<Amazon.MediaTailor.Model.PutPlaybackConfigurationResponse, SetEMTPlaybackConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

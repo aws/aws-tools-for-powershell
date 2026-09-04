@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String HttpRequestConfiguration_Body { get; set; }
         #endregion
         
+        #region Parameter VastRequestConfiguration_Body
+        /// <summary>
+        /// <para>
+        /// <para>An expression that evaluates to the request body. Used with <c>POST</c> requests,
+        /// for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VastRequestConfiguration_Body { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -123,9 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The type of the function. The function type determines what the function can do at
         /// runtime. Valid values: <c>CUSTOM_OUTPUT</c> evaluates expressions and produces output
         /// bindings with no external calls. <c>HTTP_REQUEST</c> makes an HTTP call to an external
-        /// service and evaluates output expressions that can reference the response. <c>SEQUENTIAL_EXECUTOR</c>
-        /// runs a sequence of child functions in order, passing data between steps through temporary
-        /// data. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function
+        /// service and evaluates output expressions that can reference the response. <c>VAST_REQUEST</c>
+        /// calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available
+        /// to output expressions. <c>SEQUENTIAL_EXECUTOR</c> runs a sequence of child functions
+        /// in order, passing data between steps through temporary data. <c>CONCURRENT_EXECUTOR</c>
+        /// runs a set of child functions in parallel, up to a maximum concurrency, and combines
+        /// their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function
         /// types and composition</a> in the <i>MediaTailor User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -157,6 +171,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable HttpRequestConfiguration_Header { get; set; }
         #endregion
         
+        #region Parameter VastRequestConfiguration_Header
+        /// <summary>
+        /// <para>
+        /// <para>A map of HTTP header names to expression values. MediaTailor evaluates each header
+        /// value expression at runtime and includes the result in the outbound request. Headers
+        /// beginning with <c>X-Amz-</c> are reserved by the service, and method override headers
+        /// are not allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VastRequestConfiguration_Headers")]
+        public System.Collections.Hashtable VastRequestConfiguration_Header { get; set; }
+        #endregion
+        
         #region Parameter ConcurrentExecutorConfiguration_MaxConcurrency
         /// <summary>
         /// <para>
@@ -179,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.MethodType")]
         public Amazon.MediaTailor.MethodType HttpRequestConfiguration_MethodType { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_MethodType
+        /// <summary>
+        /// <para>
+        /// <para>The HTTP method for the request to the VAST endpoint. Valid values: <c>GET</c> and
+        /// <c>POST</c>. Use <c>POST</c> to send a bid request body, such as an OpenRTB payload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.MethodType")]
+        public Amazon.MediaTailor.MethodType VastRequestConfiguration_MethodType { get; set; }
         #endregion
         
         #region Parameter ConcurrentExecutorConfiguration_Output
@@ -251,6 +295,26 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable SequentialExecutorConfiguration_Output { get; set; }
         #endregion
         
+        #region Parameter VastRequestConfiguration_Output
+        /// <summary>
+        /// <para>
+        /// <para>A map of output bindings. Each key is a namespaced output path (such as <c>temp.wrappedAds</c>),
+        /// and each value is an expression that MediaTailor evaluates at runtime. Output expressions
+        /// in a <c>VAST_REQUEST</c> function can reference the <c>response</c> object, which
+        /// exposes <c>response.parsedAds</c> — the ads parsed from the VAST response after schema
+        /// validation and wrapper resolution — and <c>response.statusCode</c>. For more information
+        /// about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata
+        /// expression reference</a> in the <i>MediaTailor User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable VastRequestConfiguration_Output { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_RequestTimeoutMillisecond
         /// <summary>
         /// <para>
@@ -263,6 +327,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HttpRequestConfiguration_RequestTimeoutMilliseconds")]
         public System.Int32? HttpRequestConfiguration_RequestTimeoutMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_RequestTimeoutMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, that MediaTailor waits for a response from the
+        /// VAST endpoint. The timeout covers the entire response, including any wrapper redirects
+        /// that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with
+        /// an empty ad list and continues output expression evaluation. Valid values: <c>100</c>
+        /// to <c>2000</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VastRequestConfiguration_RequestTimeoutMilliseconds")]
+        public System.Int32? VastRequestConfiguration_RequestTimeoutMillisecond { get; set; }
         #endregion
         
         #region Parameter ConcurrentExecutorConfiguration_Runtime
@@ -311,6 +390,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
         public Amazon.MediaTailor.RuntimeType SequentialExecutorConfiguration_Runtime { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The expression language used to evaluate expressions in the function configuration.
+        /// Set this to <c>JSONata</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
+        public Amazon.MediaTailor.RuntimeType VastRequestConfiguration_Runtime { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -368,6 +459,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HttpRequestConfiguration_Url { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_Url
+        /// <summary>
+        /// <para>
+        /// <para>An expression that evaluates to the VAST endpoint URL. Use <c>{%...%}</c> delimiters
+        /// for dynamic expressions. A literal value must be an <c>https://</c> URL. The maximum
+        /// length is 25,000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VastRequestConfiguration_Url { get; set; }
         #endregion
         
         #region Parameter Select
@@ -498,6 +601,27 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.VastRequestConfiguration_Body = this.VastRequestConfiguration_Body;
+            if (this.VastRequestConfiguration_Header != null)
+            {
+                context.VastRequestConfiguration_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.VastRequestConfiguration_Header.Keys)
+                {
+                    context.VastRequestConfiguration_Header.Add((String)hashKey, (System.String)(this.VastRequestConfiguration_Header[hashKey]));
+                }
+            }
+            context.VastRequestConfiguration_MethodType = this.VastRequestConfiguration_MethodType;
+            if (this.VastRequestConfiguration_Output != null)
+            {
+                context.VastRequestConfiguration_Output = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.VastRequestConfiguration_Output.Keys)
+                {
+                    context.VastRequestConfiguration_Output.Add((String)hashKey, (System.String)(this.VastRequestConfiguration_Output[hashKey]));
+                }
+            }
+            context.VastRequestConfiguration_RequestTimeoutMillisecond = this.VastRequestConfiguration_RequestTimeoutMillisecond;
+            context.VastRequestConfiguration_Runtime = this.VastRequestConfiguration_Runtime;
+            context.VastRequestConfiguration_Url = this.VastRequestConfiguration_Url;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -747,6 +871,85 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate VastRequestConfiguration
+            var requestVastRequestConfigurationIsNull = true;
+            request.VastRequestConfiguration = new Amazon.MediaTailor.Model.VastRequestConfiguration();
+            System.String requestVastRequestConfiguration_vastRequestConfiguration_Body = null;
+            if (cmdletContext.VastRequestConfiguration_Body != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Body = cmdletContext.VastRequestConfiguration_Body;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Body != null)
+            {
+                request.VastRequestConfiguration.Body = requestVastRequestConfiguration_vastRequestConfiguration_Body;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestVastRequestConfiguration_vastRequestConfiguration_Header = null;
+            if (cmdletContext.VastRequestConfiguration_Header != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Header = cmdletContext.VastRequestConfiguration_Header;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Header != null)
+            {
+                request.VastRequestConfiguration.Headers = requestVastRequestConfiguration_vastRequestConfiguration_Header;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.MethodType requestVastRequestConfiguration_vastRequestConfiguration_MethodType = null;
+            if (cmdletContext.VastRequestConfiguration_MethodType != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_MethodType = cmdletContext.VastRequestConfiguration_MethodType;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_MethodType != null)
+            {
+                request.VastRequestConfiguration.MethodType = requestVastRequestConfiguration_vastRequestConfiguration_MethodType;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestVastRequestConfiguration_vastRequestConfiguration_Output = null;
+            if (cmdletContext.VastRequestConfiguration_Output != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Output = cmdletContext.VastRequestConfiguration_Output;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Output != null)
+            {
+                request.VastRequestConfiguration.Output = requestVastRequestConfiguration_vastRequestConfiguration_Output;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            System.Int32? requestVastRequestConfiguration_vastRequestConfiguration_RequestTimeoutMillisecond = null;
+            if (cmdletContext.VastRequestConfiguration_RequestTimeoutMillisecond != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_RequestTimeoutMillisecond = cmdletContext.VastRequestConfiguration_RequestTimeoutMillisecond.Value;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_RequestTimeoutMillisecond != null)
+            {
+                request.VastRequestConfiguration.RequestTimeoutMilliseconds = requestVastRequestConfiguration_vastRequestConfiguration_RequestTimeoutMillisecond.Value;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.RuntimeType requestVastRequestConfiguration_vastRequestConfiguration_Runtime = null;
+            if (cmdletContext.VastRequestConfiguration_Runtime != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Runtime = cmdletContext.VastRequestConfiguration_Runtime;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Runtime != null)
+            {
+                request.VastRequestConfiguration.Runtime = requestVastRequestConfiguration_vastRequestConfiguration_Runtime;
+                requestVastRequestConfigurationIsNull = false;
+            }
+            System.String requestVastRequestConfiguration_vastRequestConfiguration_Url = null;
+            if (cmdletContext.VastRequestConfiguration_Url != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Url = cmdletContext.VastRequestConfiguration_Url;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Url != null)
+            {
+                request.VastRequestConfiguration.Url = requestVastRequestConfiguration_vastRequestConfiguration_Url;
+                requestVastRequestConfigurationIsNull = false;
+            }
+             // determine if request.VastRequestConfiguration should be set to null
+            if (requestVastRequestConfigurationIsNull)
+            {
+                request.VastRequestConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -823,6 +1026,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.RuntimeType SequentialExecutorConfiguration_Runtime { get; set; }
             public System.Int32? SequentialExecutorConfiguration_TimeoutMillisecond { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String VastRequestConfiguration_Body { get; set; }
+            public Dictionary<System.String, System.String> VastRequestConfiguration_Header { get; set; }
+            public Amazon.MediaTailor.MethodType VastRequestConfiguration_MethodType { get; set; }
+            public Dictionary<System.String, System.String> VastRequestConfiguration_Output { get; set; }
+            public System.Int32? VastRequestConfiguration_RequestTimeoutMillisecond { get; set; }
+            public Amazon.MediaTailor.RuntimeType VastRequestConfiguration_Runtime { get; set; }
+            public System.String VastRequestConfiguration_Url { get; set; }
             public System.Func<Amazon.MediaTailor.Model.PutFunctionResponse, WriteEMTFunctionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

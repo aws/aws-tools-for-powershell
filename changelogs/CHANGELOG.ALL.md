@@ -1,4 +1,12 @@
-﻿### 5.0.292 (2026-09-03 19:11Z)
+﻿### 5.0.293 (2026-09-04 19:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.328.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Test-EC2SecurityGroupQuotasForInterface leveraging the ValidateSecurityGroupQuotasForInterface service API.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameters YieldOptimizationConfiguration_MinimumUnfilledDuration, YieldOptimizationConfiguration_OpenRtbTemplate, YieldOptimizationConfiguration_PublisherId and YieldOptimizationConfiguration_Region.
+    * Modified cmdlet Write-EMTFunction: added parameters VastRequestConfiguration_Body, VastRequestConfiguration_Header, VastRequestConfiguration_MethodType, VastRequestConfiguration_Output, VastRequestConfiguration_RequestTimeoutMillisecond, VastRequestConfiguration_Runtime and VastRequestConfiguration_Url.
+
+### 5.0.292 (2026-09-03 19:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.327.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Get-BACCConsentPortal leveraging the GetConsentPortal service API.
