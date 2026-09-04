@@ -251,10 +251,7 @@ function Update-AWSToolsModule {
         
         # Parameter validation for version constraints
         if ($PSCmdlet.ParameterSetName -eq 'ManagedCloudFront' -or $PSCmdlet.ParameterSetName -eq 'Legacy') {
-            # Deprecation warning for restored parameter
-            if ($MaximumVersion) {
-                Write-Warning "The MaximumVersion parameter is deprecated and should no longer be used as it will be removed in the next major version."
-            }
+            # MaximumVersion deprecation warning is emitted by the delegated Install-AWSToolsModule; do not duplicate here.
             
             # Deprecation warnings for ignored legacy parameters
             if ($SkipPublisherCheck) {
