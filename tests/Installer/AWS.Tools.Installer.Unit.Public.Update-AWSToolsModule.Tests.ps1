@@ -221,7 +221,7 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
                 $Name -contains "AWS.Tools.S3"
             } -Times 1
             Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter { 
-                $Object -like "Updating 2 installed AWS.Tools modules*" 
+                $Object -like "Updating 2 AWS.Tools modules*"
             } -Times 1
         }
     }
