@@ -241,6 +241,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ObjectLockEventHold
+        "Write-S3ObjectRetention/Retention_EventHold"
+        {
+            $v = "OFF","ON"
+            break
+        }
+
         # Amazon.S3.ObjectLockLegalHoldStatus
         {
             ($_ -eq "Write-S3ObjectLegalHold/LegalHold_Status") -Or
@@ -472,6 +479,7 @@ $S3_map = @{
     "RequestCharged"=@("Write-S3GetObjectResponse")
     "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAnnotation","Get-S3ObjectAnnotationList","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Remove-S3ObjectAnnotation","Restore-S3Object","Set-S3ObjectACL","Update-S3ObjectEncryption","Write-S3Object","Write-S3ObjectAnnotation","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
+    "Retention_EventHold"=@("Write-S3ObjectRetention")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
     "S3_CannedACL"=@("Restore-S3Object")
@@ -639,18 +647,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
-               "New-S3Bucket",
                "Mount-S3PSDrive",
-               "Test-S3Bucket",
-               "Remove-S3Object",
-               "Dismount-S3PSDrive",
-               "Remove-S3MultipartUpload",
-               "Copy-S3Object",
+               "New-S3Bucket",
                "Get-S3PreSignedURL",
+               "Test-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
                "Remove-S3Bucket",
                "Get-S3MultipartUpload",
-               "Write-S3Object")
+               "Copy-S3Object",
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

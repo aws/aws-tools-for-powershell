@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// If you specify one or more instance IDs, Amazon EC2 returns the credit option (<c>standard</c>
     /// or <c>unlimited</c>) of those instances. If you specify an instance ID that is not
-    /// valid, such as an instance that is not a burstable performance instance, an error
-    /// is returned.
+    /// a burstable performance instance, Amazon EC2 returns the <c>standard</c> credit option.
     /// </para><para>
     /// Recently terminated instances might appear in the returned results. This interval
     /// is usually less than one hour.

@@ -30,11 +30,18 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
     /// Cancels a query if the query is not in a terminated state, such as <c>CANCELLED</c>,
     /// <c>FAILED</c>, <c>TIMED_OUT</c>, or <c>FINISHED</c>. You must specify an ARN value
     /// for <c>EventDataStore</c>. The ID of the query that you want to cancel is also required.
     /// When you run <c>CancelQuery</c>, the query status might show as <c>CANCELLED</c> even
     /// if the operation is not yet finished.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.CancelQueryResponse")]

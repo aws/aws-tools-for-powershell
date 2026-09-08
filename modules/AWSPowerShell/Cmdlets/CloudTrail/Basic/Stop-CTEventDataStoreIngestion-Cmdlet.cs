@@ -30,10 +30,17 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
     /// Stops the ingestion of live events on an event data store specified as either an ARN
     /// or the ID portion of the ARN. To stop ingestion, the event data store <c>Status</c>
     /// must be <c>ENABLED</c> and the <c>eventCategory</c> must be <c>Management</c>, <c>Data</c>,
     /// <c>NetworkActivity</c>, or <c>ConfigurationItem</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "CTEventDataStoreIngestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

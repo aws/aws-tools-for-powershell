@@ -125,6 +125,23 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String[] NumberCapability { get; set; }
         #endregion
         
+        #region Parameter NumberPreference
+        /// <summary>
+        /// <para>
+        /// <para>An optional selection preference used to request a specific phone number, such as
+        /// a number that starts with, ends with, or contains a particular digit pattern. You
+        /// can specify at most one preference. Number preferences apply only to <c>TEN_DLC</c>
+        /// requests in the <c>US</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem[] NumberPreference { get; set; }
+        #endregion
+        
         #region Parameter NumberType
         /// <summary>
         /// <para>
@@ -277,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 WriteWarning("You are passing $null as a value for parameter NumberCapability which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NumberPreference != null)
+            {
+                context.NumberPreference = new List<Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem>(this.NumberPreference);
+            }
             context.NumberType = this.NumberType;
             #if MODULAR
             if (this.NumberType == null && ParameterWasBound(nameof(this.NumberType)))
@@ -330,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.NumberCapability != null)
             {
                 request.NumberCapabilities = cmdletContext.NumberCapability;
+            }
+            if (cmdletContext.NumberPreference != null)
+            {
+                request.NumberPreference = cmdletContext.NumberPreference;
             }
             if (cmdletContext.NumberType != null)
             {
@@ -412,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String IsoCountryCode { get; set; }
             public Amazon.PinpointSMSVoiceV2.MessageType MessageType { get; set; }
             public List<System.String> NumberCapability { get; set; }
+            public List<Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem> NumberPreference { get; set; }
             public Amazon.PinpointSMSVoiceV2.RequestableNumberType NumberType { get; set; }
             public System.String OptOutListName { get; set; }
             public System.String PoolId { get; set; }

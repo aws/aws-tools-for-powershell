@@ -30,16 +30,20 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts an import of logged trail events from a source S3 bucket to a destination
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
+    ///  Starts an import of logged trail events from a source S3 bucket to a destination
     /// event data store. By default, CloudTrail only imports events contained in the S3 bucket's
     /// <c>CloudTrail</c> prefix and the prefixes inside the <c>CloudTrail</c> prefix, and
     /// does not check prefixes for other Amazon Web Services services. If you want to import
     /// CloudTrail events contained in another prefix, you must include the prefix in the
     /// <c>S3LocationUri</c>. For more considerations about importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations
     /// for copying trail events</a> in the <i>CloudTrail User Guide</i>. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     ///  When you start a new import, the <c>Destinations</c> and <c>ImportSource</c> parameters
     /// are required. Before starting a new import, disable any access control lists (ACLs)
     /// attached to the source S3 bucket. For more information about disabling ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling

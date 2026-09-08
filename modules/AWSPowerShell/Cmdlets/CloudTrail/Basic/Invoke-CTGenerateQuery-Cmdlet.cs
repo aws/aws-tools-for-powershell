@@ -30,12 +30,16 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Generates a query from a natural language prompt. This operation uses generative
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
+    ///  Generates a query from a natural language prompt. This operation uses generative
     /// artificial intelligence (generative AI) to produce a ready-to-use SQL query from the
     /// prompt. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// The prompt can be a question or a statement about the event data in your event data
     /// store. For example, you can enter prompts like "What are my top errors in the past
     /// month?" and “Give me a list of users that used SNS.”

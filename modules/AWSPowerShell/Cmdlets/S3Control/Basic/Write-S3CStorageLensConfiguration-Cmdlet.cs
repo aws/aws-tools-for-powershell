@@ -498,7 +498,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter SelectionCriteria_MinStorageBytesPercentage
         /// <summary>
         /// <para>
-        /// <para>The minimum number of storage bytes percentage whose metrics will be selected.</para><note><para>You must choose a value greater than or equal to <c>1.0</c>.</para></note>
+        /// <para>The minimum percentage of total bucket storage that a prefix must hold for its metrics
+        /// to be included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

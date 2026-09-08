@@ -103,7 +103,7 @@ $OMICS_Completers = {
         # Amazon.Omics.BatchStatus
         "Get-OMICSBatchList/Status"
         {
-            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
+            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETE_FAILED","RUNS_DELETING","STOPPING","SUBMITTING"
             break
         }
 

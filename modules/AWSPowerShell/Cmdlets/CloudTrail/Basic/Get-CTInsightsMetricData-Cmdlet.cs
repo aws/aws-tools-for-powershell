@@ -59,7 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// to the <c>ListInsightsMetricData</c> API operation is linked to the <c>cloudtrail:LookupEvents</c>
     /// action only. To use this operation, you must have permissions to perform the <c>cloudtrail:LookupEvents</c>
     /// action.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul><note><para>
+    /// For data event Insights on organization trails, only the management account and delegated
+    /// administrator accounts can call <c>ListInsightsMetricData</c>. For these callers,
+    /// the API returns Insights metrics only for the caller's own account. Member accounts
+    /// cannot call this API on organization trails.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTInsightsMetricData")]
     [OutputType("Amazon.CloudTrail.Model.ListInsightsMetricDataResponse")]

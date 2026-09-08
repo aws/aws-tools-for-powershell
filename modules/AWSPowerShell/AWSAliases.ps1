@@ -26606,6 +26606,9 @@ Set-Alias -Name Discard-SMSVRegistrationVersion -Value Close-SMSVRegistrationVer
 Set-Alias -Name SMSV-DiscardRegistrationVersion -Value Close-SMSVRegistrationVersion
 Set-Alias -Name SMSV-GetProtectConfigurationCountryRuleSet -Value Get-SMSVProtectConfigurationCountryRuleSet
 Set-Alias -Name SMSV-GetResourcePolicy -Value Get-SMSVResourcePolicy
+Set-Alias -Name List-SMSVAvailablePhoneNumbers -Value Get-SMSVAvailablePhoneNumberList
+Set-Alias -Name List-SMSVAvailablePhoneNumberList -Value Get-SMSVAvailablePhoneNumberList
+Set-Alias -Name SMSV-ListAvailablePhoneNumbers -Value Get-SMSVAvailablePhoneNumberList
 Set-Alias -Name List-SMSVNotifyCountries -Value Get-SMSVNotifyCountryList
 Set-Alias -Name List-SMSVNotifyCountryList -Value Get-SMSVNotifyCountryList
 Set-Alias -Name SMSV-ListNotifyCountries -Value Get-SMSVNotifyCountryList

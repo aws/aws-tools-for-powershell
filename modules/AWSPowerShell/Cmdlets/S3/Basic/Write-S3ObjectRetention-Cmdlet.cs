@@ -123,6 +123,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ContentMD5 { get; set; }
         #endregion
         
+        #region Parameter Retention_EventHoldDuration_Day
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 36,500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Retention_EventHoldDuration_Days")]
+        public System.Int32? Retention_EventHoldDuration_Day { get; set; }
+        #endregion
+        
+        #region Parameter Retention_EventHold
+        /// <summary>
+        /// <para>
+        /// <para>The event hold status for the object. Set to <c>ON</c> to enable an event hold or
+        /// <c>OFF</c> to disable it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.ObjectLockEventHold")]
+        public Amazon.S3.ObjectLockEventHold Retention_EventHold { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -196,6 +220,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String VersionId { get; set; }
         #endregion
         
+        #region Parameter Retention_EventHoldDuration_Year
+        /// <summary>
+        /// <para>
+        /// <para>The number of years for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Retention_EventHoldDuration_Years")]
+        public System.Int32? Retention_EventHoldDuration_Year { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RequestCharged'.
@@ -261,6 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             #endif
             context.RequestPayer = this.RequestPayer;
+            context.Retention_EventHold = this.Retention_EventHold;
+            context.Retention_EventHoldDuration_Day = this.Retention_EventHoldDuration_Day;
+            context.Retention_EventHoldDuration_Year = this.Retention_EventHoldDuration_Year;
             context.Retention_Mode = this.Retention_Mode;
             context.Retention_RetainUntilDate = this.Retention_RetainUntilDate;
             context.VersionId = this.VersionId;
@@ -312,6 +351,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
              // populate Retention
             var requestRetentionIsNull = true;
             request.Retention = new Amazon.S3.Model.ObjectLockRetention();
+            Amazon.S3.ObjectLockEventHold requestRetention_retention_EventHold = null;
+            if (cmdletContext.Retention_EventHold != null)
+            {
+                requestRetention_retention_EventHold = cmdletContext.Retention_EventHold;
+            }
+            if (requestRetention_retention_EventHold != null)
+            {
+                request.Retention.EventHold = requestRetention_retention_EventHold;
+                requestRetentionIsNull = false;
+            }
             Amazon.S3.ObjectLockRetentionMode requestRetention_retention_Mode = null;
             if (cmdletContext.Retention_Mode != null)
             {
@@ -330,6 +379,41 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestRetention_retention_RetainUntilDate != null)
             {
                 request.Retention.RetainUntilDate = requestRetention_retention_RetainUntilDate.Value;
+                requestRetentionIsNull = false;
+            }
+            Amazon.S3.Model.EventHoldDuration requestRetention_retention_EventHoldDuration = null;
+            
+             // populate EventHoldDuration
+            var requestRetention_retention_EventHoldDurationIsNull = true;
+            requestRetention_retention_EventHoldDuration = new Amazon.S3.Model.EventHoldDuration();
+            System.Int32? requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Day = null;
+            if (cmdletContext.Retention_EventHoldDuration_Day != null)
+            {
+                requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Day = cmdletContext.Retention_EventHoldDuration_Day.Value;
+            }
+            if (requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Day != null)
+            {
+                requestRetention_retention_EventHoldDuration.Days = requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Day.Value;
+                requestRetention_retention_EventHoldDurationIsNull = false;
+            }
+            System.Int32? requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Year = null;
+            if (cmdletContext.Retention_EventHoldDuration_Year != null)
+            {
+                requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Year = cmdletContext.Retention_EventHoldDuration_Year.Value;
+            }
+            if (requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Year != null)
+            {
+                requestRetention_retention_EventHoldDuration.Years = requestRetention_retention_EventHoldDuration_retention_EventHoldDuration_Year.Value;
+                requestRetention_retention_EventHoldDurationIsNull = false;
+            }
+             // determine if requestRetention_retention_EventHoldDuration should be set to null
+            if (requestRetention_retention_EventHoldDurationIsNull)
+            {
+                requestRetention_retention_EventHoldDuration = null;
+            }
+            if (requestRetention_retention_EventHoldDuration != null)
+            {
+                request.Retention.EventHoldDuration = requestRetention_retention_EventHoldDuration;
                 requestRetentionIsNull = false;
             }
              // determine if request.Retention should be set to null
@@ -403,6 +487,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public Amazon.S3.ObjectLockEventHold Retention_EventHold { get; set; }
+            public System.Int32? Retention_EventHoldDuration_Day { get; set; }
+            public System.Int32? Retention_EventHoldDuration_Year { get; set; }
             public Amazon.S3.ObjectLockRetentionMode Retention_Mode { get; set; }
             public System.DateTime? Retention_RetainUntilDate { get; set; }
             public System.String VersionId { get; set; }

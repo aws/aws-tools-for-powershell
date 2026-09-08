@@ -259,7 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>
         /// <para>A service role for the run. The <c>roleArn</c> requires access to Amazon Web Services
         /// HealthOmics, S3, Cloudwatch logs, and EC2. An example <c>roleArn</c> is <c>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</c>.
-        /// In this example, the AWS account ID is <c>123456789012</c> and the role name is <c>omics-service-role-serviceRole-W8O1XMPL7QZ</c>.</para>
+        /// In this example, the Amazon Web Services account ID is <c>123456789012</c> and the
+        /// role name is <c>omics-service-role-serviceRole-W8O1XMPL7QZ</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -305,6 +306,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Omics.ScratchStorageMode")]
         public Amazon.Omics.ScratchStorageMode ScratchStorageMode { get; set; }
+        #endregion
+        
+        #region Parameter SessionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Optional inline policy json for scoping down permissions via a session policy on the
+        /// IAM role provided in the roleArn parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionPolicy { get; set; }
         #endregion
         
         #region Parameter StorageCapacity
@@ -476,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.RunGroupId = this.RunGroupId;
             context.RunId = this.RunId;
             context.ScratchStorageMode = this.ScratchStorageMode;
+            context.SessionPolicy = this.SessionPolicy;
             context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
@@ -569,6 +582,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.ScratchStorageMode != null)
             {
                 request.ScratchStorageMode = cmdletContext.ScratchStorageMode;
+            }
+            if (cmdletContext.SessionPolicy != null)
+            {
+                request.SessionPolicy = cmdletContext.SessionPolicy;
             }
             if (cmdletContext.StorageCapacity != null)
             {
@@ -669,6 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String RunGroupId { get; set; }
             public System.String RunId { get; set; }
             public Amazon.Omics.ScratchStorageMode ScratchStorageMode { get; set; }
+            public System.String SessionPolicy { get; set; }
             public System.Int32? StorageCapacity { get; set; }
             public Amazon.Omics.StorageType StorageType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

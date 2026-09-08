@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_OutputBucketOwnerId
         /// <summary>
         /// <para>
-        /// <para>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden
-        /// per run.</para>
+        /// <para>The expected Amazon Web Services account ID of the owner of the output S3 bucket.
+        /// Can be overridden per run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,9 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role ARN that grants HealthOmics permissions to access required AWS resources
-        /// such as Amazon S3 and CloudWatch. The role must have the same permissions required
-        /// for individual <c>StartRun</c> calls.</para>
+        /// <para>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web
+        /// Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions
+        /// required for individual <c>StartRun</c> calls.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -257,8 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_RunTag
         /// <summary>
         /// <para>
-        /// <para>AWS tags to associate with each workflow run. Merged with per-run <c>runTags</c>;
-        /// run-specific values take precedence when keys overlap.</para><para />
+        /// <para>Amazon Web Services tags to associate with each workflow run. Merged with per-run
+        /// <c>runTags</c>; run-specific values take precedence when keys overlap.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -298,6 +298,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public Amazon.Omics.ScratchStorageMode DefaultRunSetting_ScratchStorageMode { get; set; }
         #endregion
         
+        #region Parameter DefaultRunSetting_SessionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Optional inline policy json for scoping down permissions via a session policy on the
+        /// IAM role provided in the roleArn parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultRunSetting_SessionPolicy { get; set; }
+        #endregion
+        
         #region Parameter DefaultRunSetting_StorageCapacity
         /// <summary>
         /// <para>
@@ -323,8 +334,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>AWS tags to associate with the batch resource. These tags are not inherited by individual
-        /// runs. To tag individual runs, use <c>defaultRunSetting.runTags</c>.</para><para />
+        /// <para>Amazon Web Services tags to associate with the batch resource. These tags are not
+        /// inherited by individual runs. To tag individual runs, use <c>defaultRunSetting.runTags</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -356,7 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_WorkflowOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</para>
+        /// <para>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow
+        /// sharing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 }
             }
             context.DefaultRunSetting_ScratchStorageMode = this.DefaultRunSetting_ScratchStorageMode;
+            context.DefaultRunSetting_SessionPolicy = this.DefaultRunSetting_SessionPolicy;
             context.DefaultRunSetting_StorageCapacity = this.DefaultRunSetting_StorageCapacity;
             context.DefaultRunSetting_StorageType = this.DefaultRunSetting_StorageType;
             context.DefaultRunSetting_WorkflowId = this.DefaultRunSetting_WorkflowId;
@@ -700,6 +713,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 request.DefaultRunSetting.ScratchStorageMode = requestDefaultRunSetting_defaultRunSetting_ScratchStorageMode;
                 requestDefaultRunSettingIsNull = false;
             }
+            System.String requestDefaultRunSetting_defaultRunSetting_SessionPolicy = null;
+            if (cmdletContext.DefaultRunSetting_SessionPolicy != null)
+            {
+                requestDefaultRunSetting_defaultRunSetting_SessionPolicy = cmdletContext.DefaultRunSetting_SessionPolicy;
+            }
+            if (requestDefaultRunSetting_defaultRunSetting_SessionPolicy != null)
+            {
+                request.DefaultRunSetting.SessionPolicy = requestDefaultRunSetting_defaultRunSetting_SessionPolicy;
+                requestDefaultRunSettingIsNull = false;
+            }
             System.Int32? requestDefaultRunSetting_defaultRunSetting_StorageCapacity = null;
             if (cmdletContext.DefaultRunSetting_StorageCapacity != null)
             {
@@ -847,6 +870,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String DefaultRunSetting_RunGroupId { get; set; }
             public Dictionary<System.String, System.String> DefaultRunSetting_RunTag { get; set; }
             public Amazon.Omics.ScratchStorageMode DefaultRunSetting_ScratchStorageMode { get; set; }
+            public System.String DefaultRunSetting_SessionPolicy { get; set; }
             public System.Int32? DefaultRunSetting_StorageCapacity { get; set; }
             public Amazon.Omics.StorageType DefaultRunSetting_StorageType { get; set; }
             public System.String DefaultRunSetting_WorkflowId { get; set; }

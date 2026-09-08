@@ -90,6 +90,19 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String AccountId { get; set; }
         #endregion
         
+        #region Parameter Operation_S3PutObjectCopy_AnnotationDirective
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the Batch Operations copy job copies object annotations from the
+        /// source object or skips them. If this property isn't specified, <c>COPY</c> is the
+        /// default behavior.</para><para>Valid Values: <c>COPY | EXCLUDE</c></para><note><para>This functionality is not supported by directory buckets.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Control.S3AnnotationDirective")]
+        public Amazon.S3Control.S3AnnotationDirective Operation_S3PutObjectCopy_AnnotationDirective { get; set; }
+        #endregion
+        
         #region Parameter ManifestOutputLocation_Bucket
         /// <summary>
         /// <para>
@@ -347,6 +360,30 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.DateTime? Filter_CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 36,500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Days")]
+        public System.Int32? Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day { get; set; }
+        #endregion
+        
+        #region Parameter Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 36,500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectRetention_Retention_EventHoldDuration_Days")]
+        public System.Int32? Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -419,12 +456,24 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String Location_ETag { get; set; }
         #endregion
         
+        #region Parameter Operation_S3PutObjectRetention_Retention_EventHold
+        /// <summary>
+        /// <para>
+        /// <para>The event hold status to be applied to all objects in the Batch Operations job. Set
+        /// to <c>ON</c> to enable an event hold or <c>OFF</c> to disable it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Control.S3ObjectLockRetentionEventHold")]
+        public Amazon.S3Control.S3ObjectLockRetentionEventHold Operation_S3PutObjectRetention_Retention_EventHold { get; set; }
+        #endregion
+        
         #region Parameter S3JobManifestGenerator_ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID that owns the bucket the generated manifest is
-        /// written to. If provided the generated manifest bucket's owner Amazon Web Services
-        /// account ID must match this value, else the job fails.</para>
+        /// <para>The Amazon Web Services account ID that owns the source bucket specified in <c>SourceBucket</c>.
+        /// If provided, the manifest source bucket owner's Amazon Web Services account ID must
+        /// match this value, else the job fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -794,6 +843,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Manifest_Location_ObjectArn")]
         public System.String Location_ObjectArn { get; set; }
+        #endregion
+        
+        #region Parameter Operation_S3PutObjectCopy_ObjectLockEventHold
+        /// <summary>
+        /// <para>
+        /// <para>The event hold status to be applied to all objects in the Batch Operations copy job.
+        /// Set to <c>ON</c> to enable an event hold or <c>OFF</c> to disable it.</para><note><para>This functionality is not supported by directory buckets.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Control.S3ObjectLockEventHold")]
+        public Amazon.S3Control.S3ObjectLockEventHold Operation_S3PutObjectCopy_ObjectLockEventHold { get; set; }
         #endregion
         
         #region Parameter S3PutObjectCopy_ObjectLockLegalHoldStatus
@@ -1212,6 +1273,30 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Collections.Hashtable NewObjectMetadata_UserMetadata { get; set; }
         #endregion
         
+        #region Parameter Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year
+        /// <summary>
+        /// <para>
+        /// <para>The number of years for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Years")]
+        public System.Int32? Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year { get; set; }
+        #endregion
+        
+        #region Parameter Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year
+        /// <summary>
+        /// <para>
+        /// <para>The number of years for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3PutObjectRetention_Retention_EventHoldDuration_Years")]
+        public System.Int32? Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'JobId'.
@@ -1340,6 +1425,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.S3PutObjectCopy_AccessControlGrant = new List<Amazon.S3Control.Model.S3Grant>(this.S3PutObjectCopy_AccessControlGrant);
             }
+            context.Operation_S3PutObjectCopy_AnnotationDirective = this.Operation_S3PutObjectCopy_AnnotationDirective;
             context.S3PutObjectCopy_BucketKeyEnabled = this.S3PutObjectCopy_BucketKeyEnabled;
             context.S3PutObjectCopy_CannedAccessControlList = this.S3PutObjectCopy_CannedAccessControlList;
             context.S3PutObjectCopy_ChecksumAlgorithm = this.S3PutObjectCopy_ChecksumAlgorithm;
@@ -1367,6 +1453,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.S3PutObjectCopy_NewObjectTagging = new List<Amazon.S3Control.Model.S3Tag>(this.S3PutObjectCopy_NewObjectTagging);
             }
+            context.Operation_S3PutObjectCopy_ObjectLockEventHold = this.Operation_S3PutObjectCopy_ObjectLockEventHold;
+            context.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day = this.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day;
+            context.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year = this.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year;
             context.S3PutObjectCopy_ObjectLockLegalHoldStatus = this.S3PutObjectCopy_ObjectLockLegalHoldStatus;
             context.S3PutObjectCopy_ObjectLockMode = this.S3PutObjectCopy_ObjectLockMode;
             context.S3PutObjectCopy_ObjectLockRetainUntilDate = this.S3PutObjectCopy_ObjectLockRetainUntilDate;
@@ -1379,6 +1468,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             context.S3PutObjectCopy_UnModifiedSinceConstraint = this.S3PutObjectCopy_UnModifiedSinceConstraint;
             context.LegalHold_Status = this.LegalHold_Status;
             context.S3PutObjectRetention_BypassGovernanceRetention = this.S3PutObjectRetention_BypassGovernanceRetention;
+            context.Operation_S3PutObjectRetention_Retention_EventHold = this.Operation_S3PutObjectRetention_Retention_EventHold;
+            context.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day = this.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day;
+            context.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year = this.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year;
             context.Retention_Mode = this.Retention_Mode;
             context.Retention_RetainUntilDate = this.Retention_RetainUntilDate;
             if (this.S3PutObjectTagging_TagSet != null)
@@ -2182,6 +2274,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
              // populate Retention
             var requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = true;
             requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention = new Amazon.S3Control.Model.S3Retention();
+            Amazon.S3Control.S3ObjectLockRetentionEventHold requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHold = null;
+            if (cmdletContext.Operation_S3PutObjectRetention_Retention_EventHold != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHold = cmdletContext.Operation_S3PutObjectRetention_Retention_EventHold;
+            }
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHold != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention.EventHold = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHold;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = false;
+            }
             Amazon.S3Control.S3ObjectLockRetentionMode requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_Mode = null;
             if (cmdletContext.Retention_Mode != null)
             {
@@ -2200,6 +2302,41 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_RetainUntilDate != null)
             {
                 requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention.RetainUntilDate = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_RetainUntilDate.Value;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = false;
+            }
+            Amazon.S3Control.Model.S3ObjectLockRetentionEventHoldDuration requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration = null;
+            
+             // populate EventHoldDuration
+            var requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDurationIsNull = true;
+            requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration = new Amazon.S3Control.Model.S3ObjectLockRetentionEventHoldDuration();
+            System.Int32? requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Day = null;
+            if (cmdletContext.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Day = cmdletContext.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day.Value;
+            }
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Day != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration.Days = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Day.Value;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDurationIsNull = false;
+            }
+            System.Int32? requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Year = null;
+            if (cmdletContext.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Year = cmdletContext.Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year.Value;
+            }
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Year != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration.Years = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration_operation_S3PutObjectRetention_Retention_EventHoldDuration_Year.Value;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDurationIsNull = false;
+            }
+             // determine if requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration should be set to null
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDurationIsNull)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration = null;
+            }
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration != null)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention.EventHoldDuration = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_operation_S3PutObjectRetention_Retention_EventHoldDuration;
                 requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = false;
             }
              // determine if requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention should be set to null
@@ -2282,6 +2419,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 requestOperation_operation_S3PutObjectCopy.AccessControlGrants = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_AccessControlGrant;
                 requestOperation_operation_S3PutObjectCopyIsNull = false;
             }
+            Amazon.S3Control.S3AnnotationDirective requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_AnnotationDirective = null;
+            if (cmdletContext.Operation_S3PutObjectCopy_AnnotationDirective != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_AnnotationDirective = cmdletContext.Operation_S3PutObjectCopy_AnnotationDirective;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_AnnotationDirective != null)
+            {
+                requestOperation_operation_S3PutObjectCopy.AnnotationDirective = requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_AnnotationDirective;
+                requestOperation_operation_S3PutObjectCopyIsNull = false;
+            }
             System.Boolean? requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_BucketKeyEnabled = null;
             if (cmdletContext.S3PutObjectCopy_BucketKeyEnabled != null)
             {
@@ -2340,6 +2487,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_NewObjectTagging != null)
             {
                 requestOperation_operation_S3PutObjectCopy.NewObjectTagging = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_NewObjectTagging;
+                requestOperation_operation_S3PutObjectCopyIsNull = false;
+            }
+            Amazon.S3Control.S3ObjectLockEventHold requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHold = null;
+            if (cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHold != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHold = cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHold;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHold != null)
+            {
+                requestOperation_operation_S3PutObjectCopy.ObjectLockEventHold = requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHold;
                 requestOperation_operation_S3PutObjectCopyIsNull = false;
             }
             Amazon.S3Control.S3ObjectLockLegalHoldStatus requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_ObjectLockLegalHoldStatus = null;
@@ -2440,6 +2597,41 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_UnModifiedSinceConstraint != null)
             {
                 requestOperation_operation_S3PutObjectCopy.UnModifiedSinceConstraint = requestOperation_operation_S3PutObjectCopy_s3PutObjectCopy_UnModifiedSinceConstraint.Value;
+                requestOperation_operation_S3PutObjectCopyIsNull = false;
+            }
+            Amazon.S3Control.Model.S3ObjectLockEventHoldDuration requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration = null;
+            
+             // populate ObjectLockEventHoldDuration
+            var requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDurationIsNull = true;
+            requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration = new Amazon.S3Control.Model.S3ObjectLockEventHoldDuration();
+            System.Int32? requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day = null;
+            if (cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day = cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day.Value;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration.Days = requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day.Value;
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDurationIsNull = false;
+            }
+            System.Int32? requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year = null;
+            if (cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year = cmdletContext.Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year.Value;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year != null)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration.Years = requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year.Value;
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDurationIsNull = false;
+            }
+             // determine if requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration should be set to null
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDurationIsNull)
+            {
+                requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration = null;
+            }
+            if (requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration != null)
+            {
+                requestOperation_operation_S3PutObjectCopy.ObjectLockEventHoldDuration = requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_ObjectLockEventHoldDuration;
                 requestOperation_operation_S3PutObjectCopyIsNull = false;
             }
             Amazon.S3Control.Model.S3ObjectMetadata requestOperation_operation_S3PutObjectCopy_operation_S3PutObjectCopy_NewObjectMetadata = null;
@@ -2760,6 +2952,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String Owner_ID { get; set; }
             public Amazon.S3Control.S3CannedAccessControlList AccessControlPolicy_CannedAccessControlList { get; set; }
             public List<Amazon.S3Control.Model.S3Grant> S3PutObjectCopy_AccessControlGrant { get; set; }
+            public Amazon.S3Control.S3AnnotationDirective Operation_S3PutObjectCopy_AnnotationDirective { get; set; }
             public System.Boolean? S3PutObjectCopy_BucketKeyEnabled { get; set; }
             public Amazon.S3Control.S3CannedAccessControlList S3PutObjectCopy_CannedAccessControlList { get; set; }
             public Amazon.S3Control.S3ChecksumAlgorithm S3PutObjectCopy_ChecksumAlgorithm { get; set; }
@@ -2777,6 +2970,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public Amazon.S3Control.S3SSEAlgorithm NewObjectMetadata_SSEAlgorithm { get; set; }
             public Dictionary<System.String, System.String> NewObjectMetadata_UserMetadata { get; set; }
             public List<Amazon.S3Control.Model.S3Tag> S3PutObjectCopy_NewObjectTagging { get; set; }
+            public Amazon.S3Control.S3ObjectLockEventHold Operation_S3PutObjectCopy_ObjectLockEventHold { get; set; }
+            public System.Int32? Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day { get; set; }
+            public System.Int32? Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year { get; set; }
             public Amazon.S3Control.S3ObjectLockLegalHoldStatus S3PutObjectCopy_ObjectLockLegalHoldStatus { get; set; }
             public Amazon.S3Control.S3ObjectLockMode S3PutObjectCopy_ObjectLockMode { get; set; }
             public System.DateTime? S3PutObjectCopy_ObjectLockRetainUntilDate { get; set; }
@@ -2789,6 +2985,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.DateTime? S3PutObjectCopy_UnModifiedSinceConstraint { get; set; }
             public Amazon.S3Control.S3ObjectLockLegalHoldStatus LegalHold_Status { get; set; }
             public System.Boolean? S3PutObjectRetention_BypassGovernanceRetention { get; set; }
+            public Amazon.S3Control.S3ObjectLockRetentionEventHold Operation_S3PutObjectRetention_Retention_EventHold { get; set; }
+            public System.Int32? Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day { get; set; }
+            public System.Int32? Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year { get; set; }
             public Amazon.S3Control.S3ObjectLockRetentionMode Retention_Mode { get; set; }
             public System.DateTime? Retention_RetainUntilDate { get; set; }
             public List<Amazon.S3Control.Model.S3Tag> S3PutObjectTagging_TagSet { get; set; }

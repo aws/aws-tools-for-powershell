@@ -155,6 +155,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ClusterConfig_InstanceCount { get; set; }
         #endregion
         
+        #region Parameter ProcessingResources_ClusterConfig_InstancePreference
+        /// <summary>
+        /// <para>
+        /// <para>An ordered list of ML compute instance types for the processing job, in priority order.
+        /// Amazon SageMaker launches the job on the first instance type in the list that has
+        /// available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next
+        /// instance type in the list. Exactly one instance type is selected for the job.</para><para><c>InstancePreferences</c> is mutually exclusive with <c>InstanceType</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProcessingResources_ClusterConfig_InstancePreferences")]
+        public Amazon.SageMaker.Model.ProcessingInstancePreference[] ProcessingResources_ClusterConfig_InstancePreference { get; set; }
+        #endregion
+        
         #region Parameter ClusterConfig_InstanceType
         /// <summary>
         /// <para>
@@ -281,6 +299,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfig_VpcConfig_SecurityGroupIds")]
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ProcessingResources_ClusterConfig_SelectedInstanceCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of instances of <c>SelectedInstanceType</c> that the job launched with.
+        /// The job is billed for this instance type and count. Returned by <c>DescribeProcessingJob</c>
+        /// after an instance type is selected. This field is read-only and isn't accepted in
+        /// <c>CreateProcessingJob</c> requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ProcessingResources_ClusterConfig_SelectedInstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter ProcessingResources_ClusterConfig_SelectedInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type that Amazon SageMaker selected for the job from <c>InstancePreferences</c>.
+        /// Returned by <c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a></c> after an instance type is selected. This field is read-only and isn't accepted
+        /// in <c>CreateProcessingJob</c> requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ProcessingInstanceType")]
+        public Amazon.SageMaker.ProcessingInstanceType ProcessingResources_ClusterConfig_SelectedInstanceType { get; set; }
         #endregion
         
         #region Parameter VpcConfig_Subnet
@@ -483,7 +527,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ProcessingOutputConfig_Output = new List<Amazon.SageMaker.Model.ProcessingOutput>(this.ProcessingOutputConfig_Output);
             }
             context.ClusterConfig_InstanceCount = this.ClusterConfig_InstanceCount;
+            if (this.ProcessingResources_ClusterConfig_InstancePreference != null)
+            {
+                context.ProcessingResources_ClusterConfig_InstancePreference = new List<Amazon.SageMaker.Model.ProcessingInstancePreference>(this.ProcessingResources_ClusterConfig_InstancePreference);
+            }
             context.ClusterConfig_InstanceType = this.ClusterConfig_InstanceType;
+            context.ProcessingResources_ClusterConfig_SelectedInstanceCount = this.ProcessingResources_ClusterConfig_SelectedInstanceCount;
+            context.ProcessingResources_ClusterConfig_SelectedInstanceType = this.ProcessingResources_ClusterConfig_SelectedInstanceType;
             context.ClusterConfig_VolumeKmsKeyId = this.ClusterConfig_VolumeKmsKeyId;
             context.ClusterConfig_VolumeSizeInGB = this.ClusterConfig_VolumeSizeInGB;
             #if MODULAR
@@ -732,6 +782,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestProcessingResources_processingResources_ClusterConfig.InstanceCount = requestProcessingResources_processingResources_ClusterConfig_clusterConfig_InstanceCount.Value;
                 requestProcessingResources_processingResources_ClusterConfigIsNull = false;
             }
+            List<Amazon.SageMaker.Model.ProcessingInstancePreference> requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_InstancePreference = null;
+            if (cmdletContext.ProcessingResources_ClusterConfig_InstancePreference != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_InstancePreference = cmdletContext.ProcessingResources_ClusterConfig_InstancePreference;
+            }
+            if (requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_InstancePreference != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig.InstancePreferences = requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_InstancePreference;
+                requestProcessingResources_processingResources_ClusterConfigIsNull = false;
+            }
             Amazon.SageMaker.ProcessingInstanceType requestProcessingResources_processingResources_ClusterConfig_clusterConfig_InstanceType = null;
             if (cmdletContext.ClusterConfig_InstanceType != null)
             {
@@ -740,6 +800,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestProcessingResources_processingResources_ClusterConfig_clusterConfig_InstanceType != null)
             {
                 requestProcessingResources_processingResources_ClusterConfig.InstanceType = requestProcessingResources_processingResources_ClusterConfig_clusterConfig_InstanceType;
+                requestProcessingResources_processingResources_ClusterConfigIsNull = false;
+            }
+            System.Int32? requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceCount = null;
+            if (cmdletContext.ProcessingResources_ClusterConfig_SelectedInstanceCount != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceCount = cmdletContext.ProcessingResources_ClusterConfig_SelectedInstanceCount.Value;
+            }
+            if (requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceCount != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig.SelectedInstanceCount = requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceCount.Value;
+                requestProcessingResources_processingResources_ClusterConfigIsNull = false;
+            }
+            Amazon.SageMaker.ProcessingInstanceType requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceType = null;
+            if (cmdletContext.ProcessingResources_ClusterConfig_SelectedInstanceType != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceType = cmdletContext.ProcessingResources_ClusterConfig_SelectedInstanceType;
+            }
+            if (requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceType != null)
+            {
+                requestProcessingResources_processingResources_ClusterConfig.SelectedInstanceType = requestProcessingResources_processingResources_ClusterConfig_processingResources_ClusterConfig_SelectedInstanceType;
                 requestProcessingResources_processingResources_ClusterConfigIsNull = false;
             }
             System.String requestProcessingResources_processingResources_ClusterConfig_clusterConfig_VolumeKmsKeyId = null;
@@ -876,7 +956,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ProcessingOutputConfig_KmsKeyId { get; set; }
             public List<Amazon.SageMaker.Model.ProcessingOutput> ProcessingOutputConfig_Output { get; set; }
             public System.Int32? ClusterConfig_InstanceCount { get; set; }
+            public List<Amazon.SageMaker.Model.ProcessingInstancePreference> ProcessingResources_ClusterConfig_InstancePreference { get; set; }
             public Amazon.SageMaker.ProcessingInstanceType ClusterConfig_InstanceType { get; set; }
+            public System.Int32? ProcessingResources_ClusterConfig_SelectedInstanceCount { get; set; }
+            public Amazon.SageMaker.ProcessingInstanceType ProcessingResources_ClusterConfig_SelectedInstanceType { get; set; }
             public System.String ClusterConfig_VolumeKmsKeyId { get; set; }
             public System.Int32? ClusterConfig_VolumeSizeInGB { get; set; }
             public System.String RoleArn { get; set; }

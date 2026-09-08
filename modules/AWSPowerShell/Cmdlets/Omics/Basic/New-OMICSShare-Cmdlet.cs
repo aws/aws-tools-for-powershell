@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
     /// Creates a cross-account shared resource. The resource owner makes an offer to share
-    /// the resource with the principal subscriber (an AWS user with a different account than
-    /// the resource owner).
+    /// the resource with the principal subscriber (an Amazon Web Services user with a different
+    /// account than the resource owner).
     /// 
     ///  
     /// <para>

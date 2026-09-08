@@ -23,101 +23,37 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CloudTrail;
-using Amazon.CloudTrail.Model;
+using Amazon.PinpointSMSVoiceV2;
+using Amazon.PinpointSMSVoiceV2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CT
+namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Returns Insights events generated on a trail that logs data events. You can list Insights
-    /// events that occurred in a Region within the last 90 days.
-    /// 
-    ///  
-    /// <para>
-    /// ListInsightsData supports the following Dimensions for Insights events:
-    /// </para><ul><li><para>
-    /// Event ID
-    /// </para></li><li><para>
-    /// Event name
-    /// </para></li><li><para>
-    /// Event source
-    /// </para></li></ul><para>
-    /// All dimensions are optional. The default number of results returned is 50, with a
-    /// maximum of 50 possible. The response includes a token that you can use to get the
-    /// next page of results.
-    /// </para><para>
-    /// The rate of ListInsightsData requests is limited to two per second, per account, per
-    /// Region. If this limit is exceeded, a throttling error occurs.
-    /// </para><note><para>
-    /// For data event Insights on organization trails, only the management account and delegated
-    /// administrator accounts can call <c>ListInsightsData</c>. For these callers, the API
-    /// returns Insights events only for the caller's own account. Member accounts cannot
-    /// call this API on organization trails.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Search available phone numbers from aggregator inventory, optionally filtered by pattern.
+    /// If NumberPreference is omitted, returns unfiltered available numbers. Returns empty
+    /// list (not an exception) when no numbers match. ResourceNotFoundException is thrown
+    /// only for invalid RegistrationId (campaign not found).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CTInsightsData")]
-    [OutputType("Amazon.CloudTrail.Model.Event")]
-    [AWSCmdlet("Calls the AWS CloudTrail ListInsightsData API operation.", Operation = new[] {"ListInsightsData"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.ListInsightsDataResponse))]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.Event or Amazon.CloudTrail.Model.ListInsightsDataResponse",
-        "This cmdlet returns a collection of Amazon.CloudTrail.Model.Event objects.",
-        "The service call response (type Amazon.CloudTrail.Model.ListInsightsDataResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMSVAvailablePhoneNumberList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 ListAvailablePhoneNumbers API operation.", Operation = new[] {"ListAvailablePhoneNumbers"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse))]
+    [AWSCmdletOutput("System.String or Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCTInsightsDataCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class GetSMSVAvailablePhoneNumberListCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DataType
+        #region Parameter IsoCountryCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the category of events returned. To fetch Insights events, specify <c>InsightsEvents</c>
-        /// as the value of <c>DataType</c></para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CloudTrail.ListInsightsDataType")]
-        public Amazon.CloudTrail.ListInsightsDataType DataType { get; set; }
-        #endregion
-        
-        #region Parameter Dimension
-        /// <summary>
-        /// <para>
-        /// <para>Contains a map of dimensions. Currently the map can contain only one item.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Dimensions")]
-        public System.Collections.Hashtable Dimension { get; set; }
-        #endregion
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>Specifies that only events that occur before or at the specified time are returned.
-        /// If the specified end time is before the specified start time, an error is returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter InsightSource
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name(ARN) of the trail for which you want to retrieve Insights
-        /// events.</para>
+        /// <para>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region in
+        /// which to search for available phone numbers. This operation currently supports only
+        /// <c>US</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,24 +64,80 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InsightSource { get; set; }
+        public System.String IsoCountryCode { get; set; }
         #endregion
         
-        #region Parameter StartTime
+        #region Parameter NumberCapability
         /// <summary>
         /// <para>
-        /// <para>Specifies that only events that occur after or at the specified time are returned.
-        /// If the specified start time is after the specified end time, an error is returned.</para>
+        /// <para>The capabilities to filter by, such as SMS. Only phone numbers that support all of
+        /// the specified capabilities are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("NumberCapabilities")]
+        public System.String[] NumberCapability { get; set; }
+        #endregion
+        
+        #region Parameter NumberPreference
+        /// <summary>
+        /// <para>
+        /// <para>Optional. If omitted, returns unfiltered available numbers. Max 1 element for List
+        /// API.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? StartTime { get; set; }
+        public Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem[] NumberPreference { get; set; }
+        #endregion
+        
+        #region Parameter NumberType
+        /// <summary>
+        /// <para>
+        /// <para>The type of phone number to search for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.PinpointSMSVoiceV2.SearchableNumberType")]
+        public Amazon.PinpointSMSVoiceV2.SearchableNumberType NumberType { get; set; }
+        #endregion
+        
+        #region Parameter RegistrationId
+        /// <summary>
+        /// <para>
+        /// <para>The registration associated with the request. A registration is required for regulated
+        /// number types. You can specify either:</para><ul><li><para>The unique identifier of the registration.</para></li><li><para>The Amazon Resource Name (ARN) of the registration.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RegistrationId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of events to return. Possible values are 1 through 50. The default is 50.</para>
+        /// <para>The maximum number of results to return per page. If you don't specify a value, the
+        /// default is 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -161,10 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to use to get the next page of results after a previous API call. This token
-        /// must be passed in with the same parameters that were specified in the original call.
-        /// For example, if the original call specified a EventName as a dimension with <c>PutObject</c>
-        /// as a value, the call with NextToken should include those same parameters. </para>
+        /// <para>The token returned from a previous request to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -177,13 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Events'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.ListInsightsDataResponse).
-        /// Specifying the name of a property of type Amazon.CloudTrail.Model.ListInsightsDataResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AvailablePhoneNumbers'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Events";
+        public string Select { get; set; } = "AvailablePhoneNumbers";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -212,30 +201,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.ListInsightsDataResponse, GetCTInsightsDataCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse, GetSMSVAvailablePhoneNumberListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DataType = this.DataType;
+            context.IsoCountryCode = this.IsoCountryCode;
             #if MODULAR
-            if (this.DataType == null && ParameterWasBound(nameof(this.DataType)))
+            if (this.IsoCountryCode == null && ParameterWasBound(nameof(this.IsoCountryCode)))
             {
-                WriteWarning("You are passing $null as a value for parameter DataType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Dimension != null)
-            {
-                context.Dimension = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Dimension.Keys)
-                {
-                    context.Dimension.Add((String)hashKey, (System.String)(this.Dimension[hashKey]));
-                }
-            }
-            context.EndTime = this.EndTime;
-            context.InsightSource = this.InsightSource;
-            #if MODULAR
-            if (this.InsightSource == null && ParameterWasBound(nameof(this.InsightSource)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InsightSource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IsoCountryCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -249,7 +222,28 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             #endif
             context.NextToken = this.NextToken;
-            context.StartTime = this.StartTime;
+            if (this.NumberCapability != null)
+            {
+                context.NumberCapability = new List<System.String>(this.NumberCapability);
+            }
+            #if MODULAR
+            if (this.NumberCapability == null && ParameterWasBound(nameof(this.NumberCapability)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NumberCapability which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.NumberPreference != null)
+            {
+                context.NumberPreference = new List<Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem>(this.NumberPreference);
+            }
+            context.NumberType = this.NumberType;
+            #if MODULAR
+            if (this.NumberType == null && ParameterWasBound(nameof(this.NumberType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NumberType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RegistrationId = this.RegistrationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,31 +260,31 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudTrail.Model.ListInsightsDataRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersRequest();
             
-            if (cmdletContext.DataType != null)
+            if (cmdletContext.IsoCountryCode != null)
             {
-                request.DataType = cmdletContext.DataType;
-            }
-            if (cmdletContext.Dimension != null)
-            {
-                request.Dimensions = cmdletContext.Dimension;
-            }
-            if (cmdletContext.EndTime != null)
-            {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.InsightSource != null)
-            {
-                request.InsightSource = cmdletContext.InsightSource;
+                request.IsoCountryCode = cmdletContext.IsoCountryCode;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.StartTime != null)
+            if (cmdletContext.NumberCapability != null)
             {
-                request.StartTime = cmdletContext.StartTime.Value;
+                request.NumberCapabilities = cmdletContext.NumberCapability;
+            }
+            if (cmdletContext.NumberPreference != null)
+            {
+                request.NumberPreference = cmdletContext.NumberPreference;
+            }
+            if (cmdletContext.NumberType != null)
+            {
+                request.NumberType = cmdletContext.NumberType;
+            }
+            if (cmdletContext.RegistrationId != null)
+            {
+                request.RegistrationId = cmdletContext.RegistrationId;
             }
             
             // Initialize loop variant and commence piping
@@ -349,12 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.ListInsightsDataResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListInsightsDataRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "ListInsightsData");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "ListAvailablePhoneNumbers");
             try
             {
-                return client.ListInsightsDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAvailablePhoneNumbersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -371,15 +365,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.CloudTrail.ListInsightsDataType DataType { get; set; }
-            public Dictionary<System.String, System.String> Dimension { get; set; }
-            public System.DateTime? EndTime { get; set; }
-            public System.String InsightSource { get; set; }
+            public System.String IsoCountryCode { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.ListInsightsDataResponse, GetCTInsightsDataCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Events;
+            public List<System.String> NumberCapability { get; set; }
+            public List<Amazon.PinpointSMSVoiceV2.Model.NumberPreferenceItem> NumberPreference { get; set; }
+            public Amazon.PinpointSMSVoiceV2.SearchableNumberType NumberType { get; set; }
+            public System.String RegistrationId { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.ListAvailablePhoneNumbersResponse, GetSMSVAvailablePhoneNumberListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AvailablePhoneNumbers;
         }
         
     }

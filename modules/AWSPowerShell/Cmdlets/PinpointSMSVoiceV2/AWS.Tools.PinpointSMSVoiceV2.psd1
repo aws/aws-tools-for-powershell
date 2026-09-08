@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Confirm-SMSVDestinationNumber', 
         'Get-SMSVAccountAttribute', 
         'Get-SMSVAccountLimit', 
+        'Get-SMSVAvailablePhoneNumberList', 
         'Get-SMSVConfigurationSet', 
         'Get-SMSVKeyword', 
         'Get-SMSVNotifyConfiguration', 

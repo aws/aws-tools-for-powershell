@@ -1,4 +1,26 @@
-﻿### 5.0.293 (2026-09-04 19:14Z)
+﻿### 5.0.294 (2026-09-08 19:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.329.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNLaunchConfigurationTemplate: added parameters LargeVolumeConf_DeleteOnTermination, LargeVolumeConf_VolumeInitializationRate, SmallVolumeConf_DeleteOnTermination and SmallVolumeConf_VolumeInitializationRate.
+    * Modified cmdlet Update-MGNLaunchConfigurationTemplate: added parameters LargeVolumeConf_DeleteOnTermination, LargeVolumeConf_VolumeInitializationRate, SmallVolumeConf_DeleteOnTermination and SmallVolumeConf_VolumeInitializationRate.
+  * Amazon CloudTrail
+    * Modified cmdlet New-CTTrail: added parameter RecursiveLogging.
+    * Modified cmdlet Update-CTTrail: added parameter RecursiveLogging.
+  * Amazon Omics
+    * Modified cmdlet Start-OMICSRun: added parameter SessionPolicy.
+    * Modified cmdlet Start-OMICSRunBatch: added parameter DefaultRunSetting_SessionPolicy.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Get-SMSVAvailablePhoneNumberList leveraging the ListAvailablePhoneNumbers service API.
+    * Modified cmdlet New-SMSVPhoneNumber: added parameter NumberPreference.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters Operation_S3PutObjectCopy_AnnotationDirective, Operation_S3PutObjectCopy_ObjectLockEventHold, Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Day, Operation_S3PutObjectCopy_ObjectLockEventHoldDuration_Year, Operation_S3PutObjectRetention_Retention_EventHold, Operation_S3PutObjectRetention_Retention_EventHoldDuration_Day and Operation_S3PutObjectRetention_Retention_EventHoldDuration_Year.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMProcessingJob: added parameters ProcessingResources_ClusterConfig_InstancePreference, ProcessingResources_ClusterConfig_SelectedInstanceCount and ProcessingResources_ClusterConfig_SelectedInstanceType.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3ObjectLockConfiguration: added parameters ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day and ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year.
+    * Modified cmdlet Write-S3ObjectRetention: added parameters Retention_EventHold, Retention_EventHoldDuration_Day and Retention_EventHoldDuration_Year.
+
+### 5.0.293 (2026-09-04 19:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.328.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Added cmdlet Test-EC2SecurityGroupQuotasForInterface leveraging the ValidateSecurityGroupQuotasForInterface service API.

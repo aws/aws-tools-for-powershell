@@ -30,9 +30,14 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Creates a custom dashboard or the Highlights dashboard. 
-    /// 
-    ///  <ul><li><para><b>Custom dashboards</b> - Custom dashboards allow you to query events in any event
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
+    ///  Creates a custom dashboard or the Highlights dashboard. 
+    /// </para><ul><li><para><b>Custom dashboards</b> - Custom dashboards allow you to query events in any event
     /// data store type. You can add up to 10 widgets to a custom dashboard. You can manually
     /// refresh a custom dashboard, or you can set a refresh schedule.
     /// </para></li><li><para><b>Highlights dashboard</b> - You can create the Highlights dashboard to see a summary

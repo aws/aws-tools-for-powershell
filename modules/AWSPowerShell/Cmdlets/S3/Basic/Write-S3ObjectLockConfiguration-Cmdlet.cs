@@ -122,6 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int32? DefaultRetention_Day { get; set; }
         #endregion
         
+        #region Parameter ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 36,500.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Days")]
+        public System.Int32? ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -178,6 +190,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year
+        /// <summary>
+        /// <para>
+        /// <para>The number of years for the event hold duration. The minimum value is 1 and the maximum
+        /// value is 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Years")]
+        public System.Int32? ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year { get; set; }
         #endregion
         
         #region Parameter DefaultRetention_Year
@@ -250,6 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.ObjectLockConfiguration_ObjectLockEnabled = this.ObjectLockConfiguration_ObjectLockEnabled;
             context.DefaultRetention_Day = this.DefaultRetention_Day;
+            context.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day = this.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day;
+            context.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year = this.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year;
             context.DefaultRetention_Mode = this.DefaultRetention_Mode;
             context.DefaultRetention_Year = this.DefaultRetention_Year;
             context.RequestPayer = this.RequestPayer;
@@ -338,6 +364,41 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_defaultRetention_Year != null)
             {
                 requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention.Years = requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_defaultRetention_Year.Value;
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetentionIsNull = false;
+            }
+            Amazon.S3.Model.EventHoldDuration requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold = null;
+            
+             // populate DefaultEventHold
+            var requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHoldIsNull = true;
+            requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold = new Amazon.S3.Model.EventHoldDuration();
+            System.Int32? requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day = null;
+            if (cmdletContext.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day != null)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day = cmdletContext.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day.Value;
+            }
+            if (requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day != null)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold.Days = requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day.Value;
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHoldIsNull = false;
+            }
+            System.Int32? requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year = null;
+            if (cmdletContext.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year != null)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year = cmdletContext.ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year.Value;
+            }
+            if (requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year != null)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold.Years = requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year.Value;
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHoldIsNull = false;
+            }
+             // determine if requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold should be set to null
+            if (requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHoldIsNull)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold = null;
+            }
+            if (requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold != null)
+            {
+                requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention.DefaultEventHold = requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention_objectLockConfiguration_Rule_DefaultRetention_DefaultEventHold;
                 requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetentionIsNull = false;
             }
              // determine if requestObjectLockConfiguration_objectLockConfiguration_Rule_objectLockConfiguration_Rule_DefaultRetention should be set to null
@@ -434,6 +495,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ExpectedBucketOwner { get; set; }
             public Amazon.S3.ObjectLockEnabled ObjectLockConfiguration_ObjectLockEnabled { get; set; }
             public System.Int32? DefaultRetention_Day { get; set; }
+            public System.Int32? ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Day { get; set; }
+            public System.Int32? ObjectLockConfiguration_Rule_DefaultRetention_DefaultEventHold_Year { get; set; }
             public Amazon.S3.ObjectLockRetentionMode DefaultRetention_Mode { get; set; }
             public System.Int32? DefaultRetention_Year { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }

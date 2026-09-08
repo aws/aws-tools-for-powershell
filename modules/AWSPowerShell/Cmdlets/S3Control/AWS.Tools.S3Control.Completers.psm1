@@ -205,6 +205,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3AnnotationDirective
+        "New-S3CJob/Operation_S3PutObjectCopy_AnnotationDirective"
+        {
+            $v = "COPY","EXCLUDE"
+            break
+        }
+
         # Amazon.S3Control.S3CannedAccessControlList
         {
             ($_ -eq "New-S3CJob/AccessControlPolicy_CannedAccessControlList") -Or
@@ -236,6 +243,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3ObjectLockEventHold
+        "New-S3CJob/Operation_S3PutObjectCopy_ObjectLockEventHold"
+        {
+            $v = "OFF","ON"
+            break
+        }
+
         # Amazon.S3Control.S3ObjectLockLegalHoldStatus
         {
             ($_ -eq "New-S3CJob/LegalHold_Status") -Or
@@ -250,6 +264,13 @@ $S3C_Completers = {
         "New-S3CJob/S3PutObjectCopy_ObjectLockMode"
         {
             $v = "COMPLIANCE","GOVERNANCE"
+            break
+        }
+
+        # Amazon.S3Control.S3ObjectLockRetentionEventHold
+        "New-S3CJob/Operation_S3PutObjectRetention_Retention_EventHold"
+        {
+            $v = "OFF","ON"
             break
         }
 
@@ -305,6 +326,9 @@ $S3C_map = @{
     "LegalHold_Status"=@("New-S3CJob")
     "ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "NewObjectMetadata_SSEAlgorithm"=@("New-S3CJob")
+    "Operation_S3PutObjectCopy_AnnotationDirective"=@("New-S3CJob")
+    "Operation_S3PutObjectCopy_ObjectLockEventHold"=@("New-S3CJob")
+    "Operation_S3PutObjectRetention_Retention_EventHold"=@("New-S3CJob")
     "Permission"=@("Get-S3CAccessGrantList","Get-S3CDataAccess","New-S3CAccessGrant")
     "Privilege"=@("Get-S3CDataAccess")
     "Report_Format"=@("New-S3CJob")

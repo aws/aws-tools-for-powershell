@@ -15261,8 +15261,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15944,8 +15944,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16405,8 +16405,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -30016,12 +30016,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
-               "Add-DDBIndexSchema",
-               "New-DDBTable",
-               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema")
+               "ConvertTo-DDBItem",
+               "Add-DDBKeySchema",
+               "Add-DDBIndexSchema",
+               "New-DDBTableSchema",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -40376,8 +40376,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -63316,7 +63316,7 @@ $OMICS_Completers = {
         # Amazon.Omics.BatchStatus
         "Get-OMICSBatchList/Status"
         {
-            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETING","STOPPING","SUBMITTING"
+            $v = "CANCELLED","CREATING","FAILED","INPROGRESS","PENDING","PROCESSED","RUNS_DELETED","RUNS_DELETE_FAILED","RUNS_DELETING","STOPPING","SUBMITTING"
             break
         }
 
@@ -68059,6 +68059,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.SearchableNumberType
+        "Get-SMSVAvailablePhoneNumberList/NumberType"
+        {
+            $v = "TEN_DLC"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.VerificationChannel
         "Send-SMSVDestinationNumberVerificationCode/VerificationChannel"
         {
@@ -68100,7 +68107,7 @@ $SMSV_map = @{
     "MessageFeedbackStatus"=@("Write-SMSVMessageFeedback")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
-    "NumberType"=@("New-SMSVPhoneNumber")
+    "NumberType"=@("Get-SMSVAvailablePhoneNumberList","New-SMSVPhoneNumber")
     "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVRcsAgent","Get-SMSVSenderId")
     "Tier"=@("Get-SMSVNotifyCountryList")
     "UseCase"=@("New-SMSVNotifyConfiguration")
@@ -68224,6 +68231,7 @@ $SMSV_SelectMap = @{
                "Close-SMSVRegistrationVersion",
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
+               "Get-SMSVAvailablePhoneNumberList",
                "Get-SMSVNotifyCountryList",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",
@@ -77465,6 +77473,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.ObjectLockEventHold
+        "Write-S3ObjectRetention/Retention_EventHold"
+        {
+            $v = "OFF","ON"
+            break
+        }
+
         # Amazon.S3.ObjectLockLegalHoldStatus
         {
             ($_ -eq "Write-S3ObjectLegalHold/LegalHold_Status") -Or
@@ -77696,6 +77711,7 @@ $S3_map = @{
     "RequestCharged"=@("Write-S3GetObjectResponse")
     "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAnnotation","Get-S3ObjectAnnotationList","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Remove-S3ObjectAnnotation","Restore-S3Object","Set-S3ObjectACL","Update-S3ObjectEncryption","Write-S3Object","Write-S3ObjectAnnotation","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
+    "Retention_EventHold"=@("Write-S3ObjectRetention")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
     "S3_CannedACL"=@("Restore-S3Object")
@@ -77863,18 +77879,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
-               "New-S3Bucket",
                "Mount-S3PSDrive",
-               "Test-S3Bucket",
-               "Remove-S3Object",
-               "Dismount-S3PSDrive",
-               "Remove-S3MultipartUpload",
-               "Copy-S3Object",
+               "New-S3Bucket",
                "Get-S3PreSignedURL",
+               "Test-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
                "Remove-S3Bucket",
                "Get-S3MultipartUpload",
-               "Write-S3Object")
+               "Copy-S3Object",
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -78011,6 +78027,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3AnnotationDirective
+        "New-S3CJob/Operation_S3PutObjectCopy_AnnotationDirective"
+        {
+            $v = "COPY","EXCLUDE"
+            break
+        }
+
         # Amazon.S3Control.S3CannedAccessControlList
         {
             ($_ -eq "New-S3CJob/AccessControlPolicy_CannedAccessControlList") -Or
@@ -78042,6 +78065,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.S3ObjectLockEventHold
+        "New-S3CJob/Operation_S3PutObjectCopy_ObjectLockEventHold"
+        {
+            $v = "OFF","ON"
+            break
+        }
+
         # Amazon.S3Control.S3ObjectLockLegalHoldStatus
         {
             ($_ -eq "New-S3CJob/LegalHold_Status") -Or
@@ -78056,6 +78086,13 @@ $S3C_Completers = {
         "New-S3CJob/S3PutObjectCopy_ObjectLockMode"
         {
             $v = "COMPLIANCE","GOVERNANCE"
+            break
+        }
+
+        # Amazon.S3Control.S3ObjectLockRetentionEventHold
+        "New-S3CJob/Operation_S3PutObjectRetention_Retention_EventHold"
+        {
+            $v = "OFF","ON"
             break
         }
 
@@ -78111,6 +78148,9 @@ $S3C_map = @{
     "LegalHold_Status"=@("New-S3CJob")
     "ManifestOutputLocation_ManifestFormat"=@("New-S3CJob")
     "NewObjectMetadata_SSEAlgorithm"=@("New-S3CJob")
+    "Operation_S3PutObjectCopy_AnnotationDirective"=@("New-S3CJob")
+    "Operation_S3PutObjectCopy_ObjectLockEventHold"=@("New-S3CJob")
+    "Operation_S3PutObjectRetention_Retention_EventHold"=@("New-S3CJob")
     "Permission"=@("Get-S3CAccessGrantList","Get-S3CDataAccess","New-S3CAccessGrant")
     "Privilege"=@("Get-S3CDataAccess")
     "Report_Format"=@("New-S3CJob")
@@ -80603,7 +80643,8 @@ $SM_Completers = {
             ($_ -eq "New-SMModelBiasJobDefinition/ClusterConfig_InstanceType") -Or
             ($_ -eq "New-SMModelExplainabilityJobDefinition/ClusterConfig_InstanceType") -Or
             ($_ -eq "New-SMModelQualityJobDefinition/ClusterConfig_InstanceType") -Or
-            ($_ -eq "New-SMProcessingJob/ClusterConfig_InstanceType")
+            ($_ -eq "New-SMProcessingJob/ClusterConfig_InstanceType") -Or
+            ($_ -eq "New-SMProcessingJob/ProcessingResources_ClusterConfig_SelectedInstanceType")
         }
         {
             $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p5.4xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
@@ -81354,6 +81395,7 @@ $SM_map = @{
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
     "ProblemType"=@("New-SMAutoMLJob")
+    "ProcessingResources_ClusterConfig_SelectedInstanceType"=@("New-SMProcessingJob")
     "Processor"=@("New-SMImageVersion","Update-SMImageVersion")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
     "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
@@ -87635,8 +87677,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

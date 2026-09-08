@@ -171,6 +171,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.SearchableNumberType
+        "Get-SMSVAvailablePhoneNumberList/NumberType"
+        {
+            $v = "TEN_DLC"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.VerificationChannel
         "Send-SMSVDestinationNumberVerificationCode/VerificationChannel"
         {
@@ -212,7 +219,7 @@ $SMSV_map = @{
     "MessageFeedbackStatus"=@("Write-SMSVMessageFeedback")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
-    "NumberType"=@("New-SMSVPhoneNumber")
+    "NumberType"=@("Get-SMSVAvailablePhoneNumberList","New-SMSVPhoneNumber")
     "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVRcsAgent","Get-SMSVSenderId")
     "Tier"=@("Get-SMSVNotifyCountryList")
     "UseCase"=@("New-SMSVNotifyConfiguration")
@@ -336,6 +343,7 @@ $SMSV_SelectMap = @{
                "Close-SMSVRegistrationVersion",
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
+               "Get-SMSVAvailablePhoneNumberList",
                "Get-SMSVNotifyCountryList",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",

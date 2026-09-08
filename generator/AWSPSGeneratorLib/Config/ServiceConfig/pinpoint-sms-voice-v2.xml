@@ -284,6 +284,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailablePhoneNumbers" OutputProperty="AvailablePhoneNumbers" Verb="Get" Noun="AvailablePhoneNumberList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNotifyCountries" OutputProperty="NotifyCountries" Verb="Get" Noun="NotifyCountryList" PipelineParameter="Tier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -96,6 +96,26 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? CopyTag { get; set; }
         #endregion
         
+        #region Parameter LargeVolumeConf_DeleteOnTermination
+        /// <summary>
+        /// <para>
+        /// <para>Launch template disk delete on termination configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LargeVolumeConf_DeleteOnTermination { get; set; }
+        #endregion
+        
+        #region Parameter SmallVolumeConf_DeleteOnTermination
+        /// <summary>
+        /// <para>
+        /// <para>Launch template disk delete on termination configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SmallVolumeConf_DeleteOnTermination { get; set; }
+        #endregion
+        
         #region Parameter PostLaunchActions_Deployment
         /// <summary>
         /// <para>
@@ -281,6 +301,26 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Int64? SmallVolumeConf_Throughput { get; set; }
         #endregion
         
+        #region Parameter LargeVolumeConf_VolumeInitializationRate
+        /// <summary>
+        /// <para>
+        /// <para>Launch template disk volume initialization rate configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? LargeVolumeConf_VolumeInitializationRate { get; set; }
+        #endregion
+        
+        #region Parameter SmallVolumeConf_VolumeInitializationRate
+        /// <summary>
+        /// <para>
+        /// <para>Launch template disk volume initialization rate configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? SmallVolumeConf_VolumeInitializationRate { get; set; }
+        #endregion
+        
         #region Parameter LargeVolumeConf_VolumeType
         /// <summary>
         /// <para>
@@ -355,8 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.CopyTag = this.CopyTag;
             context.EnableMapAutoTagging = this.EnableMapAutoTagging;
             context.EnableParametersEncryption = this.EnableParametersEncryption;
+            context.LargeVolumeConf_DeleteOnTermination = this.LargeVolumeConf_DeleteOnTermination;
             context.LargeVolumeConf_Iops = this.LargeVolumeConf_Iops;
             context.LargeVolumeConf_Throughput = this.LargeVolumeConf_Throughput;
+            context.LargeVolumeConf_VolumeInitializationRate = this.LargeVolumeConf_VolumeInitializationRate;
             context.LargeVolumeConf_VolumeType = this.LargeVolumeConf_VolumeType;
             context.LaunchConfigurationTemplateID = this.LaunchConfigurationTemplateID;
             #if MODULAR
@@ -377,8 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 context.PostLaunchActions_SsmDocument = new List<Amazon.Mgn.Model.SsmDocument>(this.PostLaunchActions_SsmDocument);
             }
+            context.SmallVolumeConf_DeleteOnTermination = this.SmallVolumeConf_DeleteOnTermination;
             context.SmallVolumeConf_Iops = this.SmallVolumeConf_Iops;
             context.SmallVolumeConf_Throughput = this.SmallVolumeConf_Throughput;
+            context.SmallVolumeConf_VolumeInitializationRate = this.SmallVolumeConf_VolumeInitializationRate;
             context.SmallVolumeConf_VolumeType = this.SmallVolumeConf_VolumeType;
             context.SmallVolumeMaxSize = this.SmallVolumeMaxSize;
             context.TargetInstanceTypeRightSizingMethod = this.TargetInstanceTypeRightSizingMethod;
@@ -426,6 +470,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
              // populate LargeVolumeConf
             var requestLargeVolumeConfIsNull = true;
             request.LargeVolumeConf = new Amazon.Mgn.Model.LaunchTemplateDiskConf();
+            System.Boolean? requestLargeVolumeConf_largeVolumeConf_DeleteOnTermination = null;
+            if (cmdletContext.LargeVolumeConf_DeleteOnTermination != null)
+            {
+                requestLargeVolumeConf_largeVolumeConf_DeleteOnTermination = cmdletContext.LargeVolumeConf_DeleteOnTermination.Value;
+            }
+            if (requestLargeVolumeConf_largeVolumeConf_DeleteOnTermination != null)
+            {
+                request.LargeVolumeConf.DeleteOnTermination = requestLargeVolumeConf_largeVolumeConf_DeleteOnTermination.Value;
+                requestLargeVolumeConfIsNull = false;
+            }
             System.Int64? requestLargeVolumeConf_largeVolumeConf_Iops = null;
             if (cmdletContext.LargeVolumeConf_Iops != null)
             {
@@ -444,6 +498,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestLargeVolumeConf_largeVolumeConf_Throughput != null)
             {
                 request.LargeVolumeConf.Throughput = requestLargeVolumeConf_largeVolumeConf_Throughput.Value;
+                requestLargeVolumeConfIsNull = false;
+            }
+            System.Int64? requestLargeVolumeConf_largeVolumeConf_VolumeInitializationRate = null;
+            if (cmdletContext.LargeVolumeConf_VolumeInitializationRate != null)
+            {
+                requestLargeVolumeConf_largeVolumeConf_VolumeInitializationRate = cmdletContext.LargeVolumeConf_VolumeInitializationRate.Value;
+            }
+            if (requestLargeVolumeConf_largeVolumeConf_VolumeInitializationRate != null)
+            {
+                request.LargeVolumeConf.VolumeInitializationRate = requestLargeVolumeConf_largeVolumeConf_VolumeInitializationRate.Value;
                 requestLargeVolumeConfIsNull = false;
             }
             Amazon.Mgn.VolumeType requestLargeVolumeConf_largeVolumeConf_VolumeType = null;
@@ -559,6 +623,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
              // populate SmallVolumeConf
             var requestSmallVolumeConfIsNull = true;
             request.SmallVolumeConf = new Amazon.Mgn.Model.LaunchTemplateDiskConf();
+            System.Boolean? requestSmallVolumeConf_smallVolumeConf_DeleteOnTermination = null;
+            if (cmdletContext.SmallVolumeConf_DeleteOnTermination != null)
+            {
+                requestSmallVolumeConf_smallVolumeConf_DeleteOnTermination = cmdletContext.SmallVolumeConf_DeleteOnTermination.Value;
+            }
+            if (requestSmallVolumeConf_smallVolumeConf_DeleteOnTermination != null)
+            {
+                request.SmallVolumeConf.DeleteOnTermination = requestSmallVolumeConf_smallVolumeConf_DeleteOnTermination.Value;
+                requestSmallVolumeConfIsNull = false;
+            }
             System.Int64? requestSmallVolumeConf_smallVolumeConf_Iops = null;
             if (cmdletContext.SmallVolumeConf_Iops != null)
             {
@@ -577,6 +651,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestSmallVolumeConf_smallVolumeConf_Throughput != null)
             {
                 request.SmallVolumeConf.Throughput = requestSmallVolumeConf_smallVolumeConf_Throughput.Value;
+                requestSmallVolumeConfIsNull = false;
+            }
+            System.Int64? requestSmallVolumeConf_smallVolumeConf_VolumeInitializationRate = null;
+            if (cmdletContext.SmallVolumeConf_VolumeInitializationRate != null)
+            {
+                requestSmallVolumeConf_smallVolumeConf_VolumeInitializationRate = cmdletContext.SmallVolumeConf_VolumeInitializationRate.Value;
+            }
+            if (requestSmallVolumeConf_smallVolumeConf_VolumeInitializationRate != null)
+            {
+                request.SmallVolumeConf.VolumeInitializationRate = requestSmallVolumeConf_smallVolumeConf_VolumeInitializationRate.Value;
                 requestSmallVolumeConfIsNull = false;
             }
             Amazon.Mgn.VolumeType requestSmallVolumeConf_smallVolumeConf_VolumeType = null;
@@ -663,8 +747,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.Boolean? CopyTag { get; set; }
             public System.Boolean? EnableMapAutoTagging { get; set; }
             public System.Boolean? EnableParametersEncryption { get; set; }
+            public System.Boolean? LargeVolumeConf_DeleteOnTermination { get; set; }
             public System.Int64? LargeVolumeConf_Iops { get; set; }
             public System.Int64? LargeVolumeConf_Throughput { get; set; }
+            public System.Int64? LargeVolumeConf_VolumeInitializationRate { get; set; }
             public Amazon.Mgn.VolumeType LargeVolumeConf_VolumeType { get; set; }
             public System.String LaunchConfigurationTemplateID { get; set; }
             public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
@@ -676,8 +762,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String PostLaunchActions_S3LogBucket { get; set; }
             public System.String PostLaunchActions_S3OutputKeyPrefix { get; set; }
             public List<Amazon.Mgn.Model.SsmDocument> PostLaunchActions_SsmDocument { get; set; }
+            public System.Boolean? SmallVolumeConf_DeleteOnTermination { get; set; }
             public System.Int64? SmallVolumeConf_Iops { get; set; }
             public System.Int64? SmallVolumeConf_Throughput { get; set; }
+            public System.Int64? SmallVolumeConf_VolumeInitializationRate { get; set; }
             public Amazon.Mgn.VolumeType SmallVolumeConf_VolumeType { get; set; }
             public System.Int64? SmallVolumeMaxSize { get; set; }
             public Amazon.Mgn.TargetInstanceTypeRightSizingMethod TargetInstanceTypeRightSizingMethod { get; set; }

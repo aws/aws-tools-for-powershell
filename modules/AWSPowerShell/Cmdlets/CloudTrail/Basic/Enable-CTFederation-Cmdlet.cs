@@ -30,15 +30,19 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Enables Lake query federation on the specified event data store. Federating an event
+    /// <important><para>
+    /// CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If
+    /// you would like to use CloudTrail Lake, sign up prior to that date. Existing customers
+    /// can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail
+    /// Lake availability change</a>.
+    /// </para></important><para>
+    ///  Enables Lake query federation on the specified event data store. Federating an event
     /// data store lets you view the metadata associated with the event data store in the
     /// Glue <a href="https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro">Data
     /// Catalog</a> and run SQL queries against your event data using Amazon Athena. The table
     /// metadata stored in the Glue Data Catalog lets the Athena query engine know how to
     /// find, read, and process the data that you want to query.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// When you enable Lake query federation, CloudTrail creates a managed database named
     /// <c>aws:cloudtrail</c> (if the database doesn't already exist) and a managed federated
     /// table in the Glue Data Catalog. The event data store ID is used for the table name.

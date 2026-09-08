@@ -120,7 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// counter:</para><ul><li><para>The plan is in a <c>Scheduled</c> state: Jobs queued (in <c>Pending</c> status) before
         /// a plan's start date (waiting for scheduled start time)</para></li><li><para>Between capacity reservations: Jobs temporarily back to <c>Pending</c> status between
         /// two capacity reservation periods</para></li></ul><para><c>MaxPendingTimeInSeconds</c> only increments when jobs are actively waiting for
-        /// capacity in an <c>Active</c> plan.</para></note>
+        /// capacity in an <c>Active</c> plan.</para></note><note><ul><li><para><c>MaxPendingTimeInSeconds</c> takes effect only for jobs that request accelerated
+        /// computing instance types, such as instances in the <c>ml.p</c>, <c>ml.g</c>, and <c>ml.trn</c>
+        /// families. It has no effect on jobs that request CPU-only instance types.</para></li><li><para>If the job specifies <c>InstancePreferences</c>, <c>MaxPendingTimeInSeconds</c> bounds
+        /// the total time SageMaker spends working through your list of instance types. It is
+        /// not applied per instance type preference, and takes effect only when the list includes
+        /// at least one accelerated computing instance type.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
