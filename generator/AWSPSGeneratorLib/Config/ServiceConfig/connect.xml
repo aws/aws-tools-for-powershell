@@ -929,6 +929,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEvaluationFormAIVersions" OutputProperty="AIVersionSummaries" Verb="Get" Noun="EvaluationFormAIVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEvaluationForms" OutputProperty="EvaluationFormSummaryList" Verb="Get" Noun="EvaluationFormList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

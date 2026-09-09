@@ -121,7 +121,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
+            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -148,6 +148,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.MethodType
         {
+            ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_MethodType") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_MethodType") -Or
             ($_ -eq "Write-EMTFunction/VastRequestConfiguration_MethodType")
         }
@@ -193,6 +194,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.RuntimeType
         {
+            ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
@@ -242,6 +244,8 @@ $EMT_map = @{
     "AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "AwsServiceRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "AwsServiceRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")

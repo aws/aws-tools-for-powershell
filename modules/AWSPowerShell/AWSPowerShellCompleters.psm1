@@ -21364,6 +21364,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.ContactInteractionType
         {
+            ($_ -eq "Get-CONNEvaluationFormAIVersionList/ContactInteractionType") -Or
             ($_ -eq "New-CONNEvaluationForm/TargetConfiguration_ContactInteractionType") -Or
             ($_ -eq "Update-CONNEvaluationForm/TargetConfiguration_ContactInteractionType")
         }
@@ -22118,6 +22119,7 @@ $CONN_map = @{
     "ContactConfiguration_ParticipantRole"=@("New-CONNPushNotificationRegistration")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "ContactInteractionType"=@("Get-CONNEvaluationFormAIVersionList")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
     "Content_Type"=@("Send-CONNOutboundWebNotification")
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
@@ -22475,6 +22477,7 @@ $CONN_SelectMap = @{
                "Get-CONNDataTableValueList",
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEntitySecurityProfileList",
+               "Get-CONNEvaluationFormAIVersionList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNExtractionDefinitionList",
@@ -30016,10 +30019,10 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem",
                "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
                "New-DDBTable")
 }
@@ -32840,8 +32843,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -35457,14 +35460,17 @@ $EMI_SelectMap = @{
                "New-EMIFeed",
                "Remove-EMIDictionary",
                "Remove-EMIFeed",
+               "Remove-EMIFeedPolicy",
                "Unregister-EMIFeed",
                "Export-EMIDictionaryEntry",
                "Get-EMIDictionary",
                "Get-EMIFeed",
+               "Get-EMIFeedPolicy",
                "Get-EMIFixture",
                "Get-EMIDictionaryList",
                "Get-EMIFeedList",
                "Get-EMIResourceTag",
+               "Write-EMIFeedPolicy",
                "Search-EMIFixture",
                "Add-EMIResourceTag",
                "Remove-EMIResourceTag",
@@ -57269,7 +57275,7 @@ $MPV2_Completers = {
         # Amazon.MediaPackageV2.InputType
         "New-MPV2Channel/InputType"
         {
-            $v = "CMAF","HLS"
+            $v = "CMAF","HLS","MULTIVIEW"
             break
         }
 
@@ -57710,7 +57716,7 @@ $EMT_Completers = {
         # Amazon.MediaTailor.FunctionType
         "Write-EMTFunction/FunctionType"
         {
-            $v = "CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
+            $v = "AWS_SERVICE_REQUEST","CONCURRENT_EXECUTOR","CUSTOM_OUTPUT","HTTP_REQUEST","SEQUENTIAL_EXECUTOR","VAST_REQUEST"
             break
         }
 
@@ -57737,6 +57743,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.MethodType
         {
+            ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_MethodType") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_MethodType") -Or
             ($_ -eq "Write-EMTFunction/VastRequestConfiguration_MethodType")
         }
@@ -57782,6 +57789,7 @@ $EMT_Completers = {
 
         # Amazon.MediaTailor.RuntimeType
         {
+            ($_ -eq "Write-EMTFunction/AwsServiceRequestConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/ConcurrentExecutorConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/CustomOutputConfiguration_Runtime") -Or
             ($_ -eq "Write-EMTFunction/HttpRequestConfiguration_Runtime") -Or
@@ -57831,6 +57839,8 @@ $EMT_map = @{
     "AdDecisionServerConfiguration_VastResponse_AdSequencingMode"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "AwsServiceRequestConfiguration_MethodType"=@("Write-EMTFunction")
+    "AwsServiceRequestConfiguration_Runtime"=@("Write-EMTFunction")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
@@ -77879,18 +77889,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Mount-S3PSDrive",
-               "New-S3Bucket",
-               "Get-S3PreSignedURL",
-               "Test-S3Bucket",
                "Remove-S3MultipartUpload",
-               "Read-S3Object",
-               "Remove-S3Bucket",
                "Get-S3MultipartUpload",
                "Copy-S3Object",
-               "Write-S3Object",
+               "Test-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Dismount-S3PSDrive",
+               "New-S3Bucket",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket",
+               "Read-S3Object",
                "Remove-S3Object",
-               "Dismount-S3PSDrive")
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -94559,6 +94569,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94598,41 +94646,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

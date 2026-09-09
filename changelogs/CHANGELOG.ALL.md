@@ -1,4 +1,28 @@
-﻿### 5.0.294 (2026-09-08 19:16Z)
+﻿### 5.0.295 (2026-09-09 19:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.330.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNEvaluationFormAIVersionList leveraging the ListEvaluationFormAIVersions service API.
+    * Modified cmdlet New-CONNEvaluationForm: added parameter AIVersion.
+    * Modified cmdlet Update-CONNEvaluationForm: added parameter AIVersion.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Copy-EC2Volume: added parameters Encrypted and KmsKeyId.
+  * Amazon Elemental Inference
+    * Added cmdlet Get-EMIFeedPolicy leveraging the GetFeedPolicy service API.
+    * Added cmdlet Remove-EMIFeedPolicy leveraging the DeleteFeedPolicy service API.
+    * Added cmdlet Write-EMIFeedPolicy leveraging the PutFeedPolicy service API.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLChannel: added parameter InferenceSettings_EnrichmentMethod.
+    * Modified cmdlet Update-EMLChannel: added parameter InferenceSettings_EnrichmentMethod.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2Channel: added parameters MultiviewConfiguration_AvailableLayout and MultiviewConfiguration_AvailableSource.
+    * Modified cmdlet Update-MPV2Channel: added parameters MultiviewConfiguration_AvailableLayout and MultiviewConfiguration_AvailableSource.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Write-EMTFunction: added parameters AwsServiceRequestConfiguration_Body, AwsServiceRequestConfiguration_Header, AwsServiceRequestConfiguration_MethodType, AwsServiceRequestConfiguration_Output, AwsServiceRequestConfiguration_RequestTimeoutMillisecond, AwsServiceRequestConfiguration_Runtime, AwsServiceRequestConfiguration_TargetRegion, AwsServiceRequestConfiguration_TargetService and AwsServiceRequestConfiguration_Url.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSComputeNodeGroup: added parameter SlurmConfiguration_GresCustomSetting.
+    * Modified cmdlet Update-PCSComputeNodeGroup: added parameter SlurmConfiguration_GresCustomSetting.
+
+### 5.0.294 (2026-09-08 19:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.329.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Migration Service
     * Modified cmdlet New-MGNLaunchConfigurationTemplate: added parameters LargeVolumeConf_DeleteOnTermination, LargeVolumeConf_VolumeInitializationRate, SmallVolumeConf_DeleteOnTermination and SmallVolumeConf_VolumeInitializationRate.

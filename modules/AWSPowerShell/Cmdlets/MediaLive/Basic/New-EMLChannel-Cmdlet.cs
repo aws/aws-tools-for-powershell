@@ -159,6 +159,26 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
         #endregion
         
+        #region Parameter InferenceSettings_EnrichmentMethod
+        /// <summary>
+        /// <para>
+        /// The set of Contextual Metadata Enrichment
+        /// methods enabled for this channel. Each method represents a specific way the channel
+        /// will use the inference feed to augment its output with contextual metadata. An empty
+        /// array (or omitting the field) disables enrichment. Order is not significant; duplicate
+        /// values are not permitted.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSettings_EnrichmentMethods")]
+        public System.String[] InferenceSettings_EnrichmentMethod { get; set; }
+        #endregion
+        
         #region Parameter InferenceSettings_FeedArn
         /// <summary>
         /// <para>
@@ -475,6 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.InferenceSettings_AudioFeedInput = new List<Amazon.MediaLive.Model.AudioFeedInput>(this.InferenceSettings_AudioFeedInput);
             }
+            if (this.InferenceSettings_EnrichmentMethod != null)
+            {
+                context.InferenceSettings_EnrichmentMethod = new List<System.String>(this.InferenceSettings_EnrichmentMethod);
+            }
             context.InferenceSettings_FeedArn = this.InferenceSettings_FeedArn;
             if (this.InputAttachment != null)
             {
@@ -628,6 +652,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestInferenceSettings_inferenceSettings_AudioFeedInput != null)
             {
                 request.InferenceSettings.AudioFeedInputs = requestInferenceSettings_inferenceSettings_AudioFeedInput;
+                requestInferenceSettingsIsNull = false;
+            }
+            List<System.String> requestInferenceSettings_inferenceSettings_EnrichmentMethod = null;
+            if (cmdletContext.InferenceSettings_EnrichmentMethod != null)
+            {
+                requestInferenceSettings_inferenceSettings_EnrichmentMethod = cmdletContext.InferenceSettings_EnrichmentMethod;
+            }
+            if (requestInferenceSettings_inferenceSettings_EnrichmentMethod != null)
+            {
+                request.InferenceSettings.EnrichmentMethods = requestInferenceSettings_inferenceSettings_EnrichmentMethod;
                 requestInferenceSettingsIsNull = false;
             }
             System.String requestInferenceSettings_inferenceSettings_FeedArn = null;
@@ -914,6 +948,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.Boolean? DryRun { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
             public List<Amazon.MediaLive.Model.AudioFeedInput> InferenceSettings_AudioFeedInput { get; set; }
+            public List<System.String> InferenceSettings_EnrichmentMethod { get; set; }
             public System.String InferenceSettings_FeedArn { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachment { get; set; }
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }

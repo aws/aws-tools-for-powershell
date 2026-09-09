@@ -50,6 +50,41 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MultiviewConfiguration_AvailableLayout
+        /// <summary>
+        /// <para>
+        /// <para>The tile layouts that players can request from this multiview channel's origin endpoints.
+        /// Only the layouts that you list here are available. Each layout must appear at most
+        /// once.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultiviewConfiguration_AvailableLayouts")]
+        public System.String[] MultiviewConfiguration_AvailableLayout { get; set; }
+        #endregion
+        
+        #region Parameter MultiviewConfiguration_AvailableSource
+        /// <summary>
+        /// <para>
+        /// <para>The channels that players can use as tiles in this multiview channel's output. Each
+        /// source channel must be in the same channel group as the multiview channel, and must
+        /// have an <c>InputType</c> of <c>CMAF</c>. Only the channels that you list here are
+        /// available as tiles.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultiviewConfiguration_AvailableSources")]
+        public System.String[] MultiviewConfiguration_AvailableSource { get; set; }
+        #endregion
+        
         #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
@@ -100,11 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         #region Parameter InputType
         /// <summary>
         /// <para>
-        /// <para>The input type will be an immutable field which will be used to define whether the
-        /// channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS
-        /// to preserve current behavior.</para><para>The allowed values are:</para><ul><li><para><c>HLS</c> - The HLS streaming specification (which defines M3U8 manifests and TS
+        /// <para>The input type is an immutable field. It defines whether the channel allows CMAF ingest,
+        /// HLS ingest, or server-side multiview output. Multiview channels receive no ingest
+        /// of their own. If unprovided, the value defaults to HLS.</para><para>The allowed values are:</para><ul><li><para><c>HLS</c> - The HLS streaming specification (which defines M3U8 manifests and TS
         /// segments).</para></li><li><para><c>CMAF</c> - The DASH-IF CMAF Ingest specification (which defines CMAF segments
-        /// with optional DASH manifests).</para></li></ul>
+        /// with optional DASH manifests).</para></li><li><para><c>MULTIVIEW</c> – Server-side multiview. The channel receives no ingest of its own.
+        /// Instead, it composites video from the source channels in its <c>MultiviewConfiguration</c>
+        /// into a single tiled output stream.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,6 +291,14 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.InputSwitchConfiguration_MQCSInputSwitching = this.InputSwitchConfiguration_MQCSInputSwitching;
             context.InputSwitchConfiguration_PreferredInput = this.InputSwitchConfiguration_PreferredInput;
             context.InputType = this.InputType;
+            if (this.MultiviewConfiguration_AvailableLayout != null)
+            {
+                context.MultiviewConfiguration_AvailableLayout = new List<System.String>(this.MultiviewConfiguration_AvailableLayout);
+            }
+            if (this.MultiviewConfiguration_AvailableSource != null)
+            {
+                context.MultiviewConfiguration_AvailableSource = new List<System.String>(this.MultiviewConfiguration_AvailableSource);
+            }
             context.OutputHeaderConfiguration_PublishMQCS = this.OutputHeaderConfiguration_PublishMQCS;
             context.OutputLockingMode = this.OutputLockingMode;
             if (this.Tag != null)
@@ -328,6 +373,35 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.InputType != null)
             {
                 request.InputType = cmdletContext.InputType;
+            }
+            
+             // populate MultiviewConfiguration
+            var requestMultiviewConfigurationIsNull = true;
+            request.MultiviewConfiguration = new Amazon.MediaPackageV2.Model.MultiviewConfiguration();
+            List<System.String> requestMultiviewConfiguration_multiviewConfiguration_AvailableLayout = null;
+            if (cmdletContext.MultiviewConfiguration_AvailableLayout != null)
+            {
+                requestMultiviewConfiguration_multiviewConfiguration_AvailableLayout = cmdletContext.MultiviewConfiguration_AvailableLayout;
+            }
+            if (requestMultiviewConfiguration_multiviewConfiguration_AvailableLayout != null)
+            {
+                request.MultiviewConfiguration.AvailableLayouts = requestMultiviewConfiguration_multiviewConfiguration_AvailableLayout;
+                requestMultiviewConfigurationIsNull = false;
+            }
+            List<System.String> requestMultiviewConfiguration_multiviewConfiguration_AvailableSource = null;
+            if (cmdletContext.MultiviewConfiguration_AvailableSource != null)
+            {
+                requestMultiviewConfiguration_multiviewConfiguration_AvailableSource = cmdletContext.MultiviewConfiguration_AvailableSource;
+            }
+            if (requestMultiviewConfiguration_multiviewConfiguration_AvailableSource != null)
+            {
+                request.MultiviewConfiguration.AvailableSources = requestMultiviewConfiguration_multiviewConfiguration_AvailableSource;
+                requestMultiviewConfigurationIsNull = false;
+            }
+             // determine if request.MultiviewConfiguration should be set to null
+            if (requestMultiviewConfigurationIsNull)
+            {
+                request.MultiviewConfiguration = null;
             }
             
              // populate OutputHeaderConfiguration
@@ -418,6 +492,8 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
             public System.Int32? InputSwitchConfiguration_PreferredInput { get; set; }
             public Amazon.MediaPackageV2.InputType InputType { get; set; }
+            public List<System.String> MultiviewConfiguration_AvailableLayout { get; set; }
+            public List<System.String> MultiviewConfiguration_AvailableSource { get; set; }
             public System.Boolean? OutputHeaderConfiguration_PublishMQCS { get; set; }
             public Amazon.MediaPackageV2.OutputLockingMode OutputLockingMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

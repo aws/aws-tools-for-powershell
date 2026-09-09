@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AIVersion
+        /// <summary>
+        /// <para>
+        /// <para>The AI version to use for the evaluation form. This specifies which AI model version
+        /// is used for automated evaluations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AIVersion { get; set; }
+        #endregion
+        
         #region Parameter AsDraft
         /// <summary>
         /// <para>
@@ -296,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.CreateEvaluationFormResponse, NewCONNEvaluationFormCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AIVersion = this.AIVersion;
             context.AsDraft = this.AsDraft;
             context.AutoEvaluationConfiguration_Enabled = this.AutoEvaluationConfiguration_Enabled;
             context.ClientToken = this.ClientToken;
@@ -361,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreateEvaluationFormRequest();
             
+            if (cmdletContext.AIVersion != null)
+            {
+                request.AIVersion = cmdletContext.AIVersion;
+            }
             if (cmdletContext.AsDraft != null)
             {
                 request.AsDraft = cmdletContext.AsDraft.Value;
@@ -569,6 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AIVersion { get; set; }
             public System.Boolean? AsDraft { get; set; }
             public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
             public System.String ClientToken { get; set; }

@@ -8042,6 +8042,9 @@ Set-Alias -Name CONN-ListDefaultVocabularies -Value Get-CONNDefaultVocabularyLis
 Set-Alias -Name List-CONNEntitySecurityProfiles -Value Get-CONNEntitySecurityProfileList
 Set-Alias -Name List-CONNEntitySecurityProfileList -Value Get-CONNEntitySecurityProfileList
 Set-Alias -Name CONN-ListEntitySecurityProfiles -Value Get-CONNEntitySecurityProfileList
+Set-Alias -Name List-CONNEvaluationFormAIVersions -Value Get-CONNEvaluationFormAIVersionList
+Set-Alias -Name List-CONNEvaluationFormAIVersionList -Value Get-CONNEvaluationFormAIVersionList
+Set-Alias -Name CONN-ListEvaluationFormAIVersions -Value Get-CONNEvaluationFormAIVersionList
 Set-Alias -Name List-CONNEvaluationForms -Value Get-CONNEvaluationFormList
 Set-Alias -Name List-CONNEvaluationFormList -Value Get-CONNEvaluationFormList
 Set-Alias -Name CONN-ListEvaluationForms -Value Get-CONNEvaluationFormList
@@ -14112,12 +14115,15 @@ Set-Alias -Name Delete-EMIDictionary -Value Remove-EMIDictionary
 Set-Alias -Name EMI-DeleteDictionary -Value Remove-EMIDictionary
 Set-Alias -Name Delete-EMIFeed -Value Remove-EMIFeed
 Set-Alias -Name EMI-DeleteFeed -Value Remove-EMIFeed
+Set-Alias -Name Delete-EMIFeedPolicy -Value Remove-EMIFeedPolicy
+Set-Alias -Name EMI-DeleteFeedPolicy -Value Remove-EMIFeedPolicy
 Set-Alias -Name Disassociate-EMIFeed -Value Unregister-EMIFeed
 Set-Alias -Name EMI-DisassociateFeed -Value Unregister-EMIFeed
 Set-Alias -Name Export-EMIDictionaryEntries -Value Export-EMIDictionaryEntry
 Set-Alias -Name EMI-ExportDictionaryEntries -Value Export-EMIDictionaryEntry
 Set-Alias -Name EMI-GetDictionary -Value Get-EMIDictionary
 Set-Alias -Name EMI-GetFeed -Value Get-EMIFeed
+Set-Alias -Name EMI-GetFeedPolicy -Value Get-EMIFeedPolicy
 Set-Alias -Name EMI-GetFixture -Value Get-EMIFixture
 Set-Alias -Name List-EMIDictionaries -Value Get-EMIDictionaryList
 Set-Alias -Name List-EMIDictionaryList -Value Get-EMIDictionaryList
@@ -14126,6 +14132,8 @@ Set-Alias -Name List-EMIFeeds -Value Get-EMIFeedList
 Set-Alias -Name List-EMIFeedList -Value Get-EMIFeedList
 Set-Alias -Name EMI-ListFeeds -Value Get-EMIFeedList
 Set-Alias -Name EMI-ListTagsForResource -Value Get-EMIResourceTag
+Set-Alias -Name Put-EMIFeedPolicy -Value Write-EMIFeedPolicy
+Set-Alias -Name EMI-PutFeedPolicy -Value Write-EMIFeedPolicy
 Set-Alias -Name Search-EMIFixtures -Value Search-EMIFixture
 Set-Alias -Name EMI-SearchFixtures -Value Search-EMIFixture
 Set-Alias -Name EMI-TagResource -Value Add-EMIResourceTag

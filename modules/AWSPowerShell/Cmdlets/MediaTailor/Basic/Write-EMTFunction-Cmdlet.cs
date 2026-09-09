@@ -47,6 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AwsServiceRequestConfiguration_Body
+        /// <summary>
+        /// <para>
+        /// <para>An expression that evaluates to the request body for the AWS service API call. The
+        /// body must conform to the input format that the target service operation expects. Applies
+        /// only when the target operation accepts a request body. The maximum size after evaluation
+        /// is 64 KB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsServiceRequestConfiguration_Body { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_Body
         /// <summary>
         /// <para>
@@ -61,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter VastRequestConfiguration_Body
         /// <summary>
         /// <para>
-        /// <para>An expression that evaluates to the request body. Used with <c>POST</c> requests,
-        /// for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</para>
+        /// <para>An expression that evaluates to the request body, for example to send an OpenRTB bid
+        /// request. The expression can be up to 100,000 characters, and the body after evaluation
+        /// can be up to 64 KB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,15 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter FunctionType
         /// <summary>
         /// <para>
-        /// <para>The type of the function. The function type determines what the function can do at
-        /// runtime. Valid values: <c>CUSTOM_OUTPUT</c> evaluates expressions and produces output
-        /// bindings with no external calls. <c>HTTP_REQUEST</c> makes an HTTP call to an external
-        /// service and evaluates output expressions that can reference the response. <c>VAST_REQUEST</c>
-        /// calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available
-        /// to output expressions. <c>SEQUENTIAL_EXECUTOR</c> runs a sequence of child functions
-        /// in order, passing data between steps through temporary data. <c>CONCURRENT_EXECUTOR</c>
-        /// runs a set of child functions in parallel, up to a maximum concurrency, and combines
-        /// their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function
+        /// <para>The type of the function, which determines what the function can do at runtime. Valid
+        /// values:</para><ul><li><para><c>CUSTOM_OUTPUT</c> – Evaluates expressions and produces output bindings with no
+        /// external calls.</para></li><li><para><c>HTTP_REQUEST</c> – Makes an HTTP call to an external service and evaluates output
+        /// expressions that can reference the response.</para></li><li><para><c>AWS_SERVICE_REQUEST</c> – Makes an authenticated request to a supported AWS service
+        /// API and evaluates output expressions that can reference the response.</para></li><li><para><c>VAST_REQUEST</c> – Calls a VAST endpoint, parses the response as VAST, and makes
+        /// the parsed ads available to output expressions.</para></li><li><para><c>SEQUENTIAL_EXECUTOR</c> – Runs a sequence of child functions in order, passing
+        /// data between steps through temporary data.</para></li><li><para><c>CONCURRENT_EXECUTOR</c> – Runs a set of child functions in parallel, up to a maximum
+        /// concurrency, and combines their output when all functions complete.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function
         /// types and composition</a> in the <i>MediaTailor User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -152,6 +165,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.MediaTailor.FunctionType")]
         public Amazon.MediaTailor.FunctionType FunctionType { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceRequestConfiguration_Header
+        /// <summary>
+        /// <para>
+        /// <para>A map of HTTP header names to expression values. MediaTailor evaluates each header
+        /// value expression at runtime and includes the result in the outbound request to the
+        /// AWS service. Use this to pass any headers required by the target service operation.
+        /// You can include a maximum of 50 headers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsServiceRequestConfiguration_Headers")]
+        public System.Collections.Hashtable AwsServiceRequestConfiguration_Header { get; set; }
         #endregion
         
         #region Parameter HttpRequestConfiguration_Header
@@ -202,6 +233,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? ConcurrentExecutorConfiguration_MaxConcurrency { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_MethodType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how the function sends the request to the target service. The value must
+        /// match what the target service operation requires. Valid values:</para><ul><li><para><c>GET</c> – Retrieves data from the target service.</para></li><li><para><c>POST</c> – Submits a request body to the target service.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.MethodType")]
+        public Amazon.MediaTailor.MethodType AwsServiceRequestConfiguration_MethodType { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_MethodType
         /// <summary>
         /// <para>
@@ -223,6 +266,23 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.MediaTailor.MethodType")]
         public Amazon.MediaTailor.MethodType VastRequestConfiguration_MethodType { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceRequestConfiguration_Output
+        /// <summary>
+        /// <para>
+        /// <para>A map of output bindings. Each key is a namespaced output path, such as <c>player_params.device_type</c>.
+        /// Each value is an expression that MediaTailor evaluates at runtime and can reference
+        /// the <c>response</c> object from the target service. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata
+        /// expression reference</a> in the <i>MediaTailor User Guide</i>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AwsServiceRequestConfiguration_Output { get; set; }
         #endregion
         
         #region Parameter ConcurrentExecutorConfiguration_Output
@@ -315,6 +375,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable VastRequestConfiguration_Output { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_RequestTimeoutMillisecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time, in milliseconds, that MediaTailor waits for a response from the
+        /// AWS service. If the call exceeds this timeout, MediaTailor sets the response status
+        /// code to <c>null</c> and proceeds with output expression evaluation. Valid values:
+        /// <c>100</c> to <c>2000</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsServiceRequestConfiguration_RequestTimeoutMilliseconds")]
+        public System.Int32? AwsServiceRequestConfiguration_RequestTimeoutMillisecond { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_RequestTimeoutMillisecond
         /// <summary>
         /// <para>
@@ -342,6 +416,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VastRequestConfiguration_RequestTimeoutMilliseconds")]
         public System.Int32? VastRequestConfiguration_RequestTimeoutMillisecond { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceRequestConfiguration_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The expression language used to evaluate expressions in the function configuration.
+        /// The only supported value is <c>JSONata</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.RuntimeType")]
+        public Amazon.MediaTailor.RuntimeType AwsServiceRequestConfiguration_Runtime { get; set; }
         #endregion
         
         #region Parameter ConcurrentExecutorConfiguration_Runtime
@@ -422,6 +508,28 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_TargetRegion
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Region for the target service. Specify a static Region code (for example,
+        /// <c>us-east-1</c>) or a JSONata expression that resolves to a Region code at runtime
+        /// (for example, <c>{%inference.region%}</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsServiceRequestConfiguration_TargetRegion { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceRequestConfiguration_TargetService
+        /// <summary>
+        /// <para>
+        /// <para>The AWS service to call. Valid value: <c>elemental-inference</c> (AWS Elemental Inference).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsServiceRequestConfiguration_TargetService { get; set; }
+        #endregion
+        
         #region Parameter ConcurrentExecutorConfiguration_TimeoutMillisecond
         /// <summary>
         /// <para>
@@ -450,6 +558,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? SequentialExecutorConfiguration_TimeoutMillisecond { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_Url
+        /// <summary>
+        /// <para>
+        /// <para>An expression that evaluates to the endpoint URL for the target AWS service API operation.
+        /// Use <c>{%...%}</c> delimiters for dynamic expressions. The URL must correspond to
+        /// a valid endpoint for the service specified in <c>TargetService</c>. The maximum length
+        /// after evaluation is 2,048 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsServiceRequestConfiguration_Url { get; set; }
+        #endregion
+        
         #region Parameter HttpRequestConfiguration_Url
         /// <summary>
         /// <para>
@@ -465,8 +586,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>An expression that evaluates to the VAST endpoint URL. Use <c>{%...%}</c> delimiters
-        /// for dynamic expressions. A literal value must be an <c>https://</c> URL. The maximum
-        /// length is 25,000 characters.</para>
+        /// for dynamic expressions. A literal value must be an <c>https://</c> URL. The expression
+        /// can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -519,6 +640,29 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.PutFunctionResponse, WriteEMTFunctionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AwsServiceRequestConfiguration_Body = this.AwsServiceRequestConfiguration_Body;
+            if (this.AwsServiceRequestConfiguration_Header != null)
+            {
+                context.AwsServiceRequestConfiguration_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AwsServiceRequestConfiguration_Header.Keys)
+                {
+                    context.AwsServiceRequestConfiguration_Header.Add((String)hashKey, (System.String)(this.AwsServiceRequestConfiguration_Header[hashKey]));
+                }
+            }
+            context.AwsServiceRequestConfiguration_MethodType = this.AwsServiceRequestConfiguration_MethodType;
+            if (this.AwsServiceRequestConfiguration_Output != null)
+            {
+                context.AwsServiceRequestConfiguration_Output = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AwsServiceRequestConfiguration_Output.Keys)
+                {
+                    context.AwsServiceRequestConfiguration_Output.Add((String)hashKey, (System.String)(this.AwsServiceRequestConfiguration_Output[hashKey]));
+                }
+            }
+            context.AwsServiceRequestConfiguration_RequestTimeoutMillisecond = this.AwsServiceRequestConfiguration_RequestTimeoutMillisecond;
+            context.AwsServiceRequestConfiguration_Runtime = this.AwsServiceRequestConfiguration_Runtime;
+            context.AwsServiceRequestConfiguration_TargetRegion = this.AwsServiceRequestConfiguration_TargetRegion;
+            context.AwsServiceRequestConfiguration_TargetService = this.AwsServiceRequestConfiguration_TargetService;
+            context.AwsServiceRequestConfiguration_Url = this.AwsServiceRequestConfiguration_Url;
             if (this.ConcurrentExecutorConfiguration_FunctionList != null)
             {
                 context.ConcurrentExecutorConfiguration_FunctionList = new List<Amazon.MediaTailor.Model.FunctionRef>(this.ConcurrentExecutorConfiguration_FunctionList);
@@ -638,6 +782,105 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.PutFunctionRequest();
             
+            
+             // populate AwsServiceRequestConfiguration
+            var requestAwsServiceRequestConfigurationIsNull = true;
+            request.AwsServiceRequestConfiguration = new Amazon.MediaTailor.Model.AwsServiceRequestConfiguration();
+            System.String requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Body = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Body != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Body = cmdletContext.AwsServiceRequestConfiguration_Body;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Body != null)
+            {
+                request.AwsServiceRequestConfiguration.Body = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Body;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Header = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Header != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Header = cmdletContext.AwsServiceRequestConfiguration_Header;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Header != null)
+            {
+                request.AwsServiceRequestConfiguration.Headers = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Header;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.MethodType requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_MethodType = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_MethodType != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_MethodType = cmdletContext.AwsServiceRequestConfiguration_MethodType;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_MethodType != null)
+            {
+                request.AwsServiceRequestConfiguration.MethodType = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_MethodType;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Output = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Output != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Output = cmdletContext.AwsServiceRequestConfiguration_Output;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Output != null)
+            {
+                request.AwsServiceRequestConfiguration.Output = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Output;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            System.Int32? requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_RequestTimeoutMillisecond = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_RequestTimeoutMillisecond != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_RequestTimeoutMillisecond = cmdletContext.AwsServiceRequestConfiguration_RequestTimeoutMillisecond.Value;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_RequestTimeoutMillisecond != null)
+            {
+                request.AwsServiceRequestConfiguration.RequestTimeoutMilliseconds = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_RequestTimeoutMillisecond.Value;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.RuntimeType requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Runtime = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Runtime != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Runtime = cmdletContext.AwsServiceRequestConfiguration_Runtime;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Runtime != null)
+            {
+                request.AwsServiceRequestConfiguration.Runtime = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Runtime;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            System.String requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetRegion = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_TargetRegion != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetRegion = cmdletContext.AwsServiceRequestConfiguration_TargetRegion;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetRegion != null)
+            {
+                request.AwsServiceRequestConfiguration.TargetRegion = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetRegion;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            System.String requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetService = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_TargetService != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetService = cmdletContext.AwsServiceRequestConfiguration_TargetService;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetService != null)
+            {
+                request.AwsServiceRequestConfiguration.TargetService = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_TargetService;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            System.String requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Url != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url = cmdletContext.AwsServiceRequestConfiguration_Url;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url != null)
+            {
+                request.AwsServiceRequestConfiguration.Url = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+             // determine if request.AwsServiceRequestConfiguration should be set to null
+            if (requestAwsServiceRequestConfigurationIsNull)
+            {
+                request.AwsServiceRequestConfiguration = null;
+            }
             
              // populate ConcurrentExecutorConfiguration
             var requestConcurrentExecutorConfigurationIsNull = true;
@@ -1004,6 +1247,15 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AwsServiceRequestConfiguration_Body { get; set; }
+            public Dictionary<System.String, System.String> AwsServiceRequestConfiguration_Header { get; set; }
+            public Amazon.MediaTailor.MethodType AwsServiceRequestConfiguration_MethodType { get; set; }
+            public Dictionary<System.String, System.String> AwsServiceRequestConfiguration_Output { get; set; }
+            public System.Int32? AwsServiceRequestConfiguration_RequestTimeoutMillisecond { get; set; }
+            public Amazon.MediaTailor.RuntimeType AwsServiceRequestConfiguration_Runtime { get; set; }
+            public System.String AwsServiceRequestConfiguration_TargetRegion { get; set; }
+            public System.String AwsServiceRequestConfiguration_TargetService { get; set; }
+            public System.String AwsServiceRequestConfiguration_Url { get; set; }
             public List<Amazon.MediaTailor.Model.FunctionRef> ConcurrentExecutorConfiguration_FunctionList { get; set; }
             public System.Int32? ConcurrentExecutorConfiguration_MaxConcurrency { get; set; }
             public Dictionary<System.String, System.String> ConcurrentExecutorConfiguration_Output { get; set; }

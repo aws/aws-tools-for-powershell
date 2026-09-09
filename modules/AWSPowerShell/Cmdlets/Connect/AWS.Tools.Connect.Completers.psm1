@@ -233,6 +233,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.ContactInteractionType
         {
+            ($_ -eq "Get-CONNEvaluationFormAIVersionList/ContactInteractionType") -Or
             ($_ -eq "New-CONNEvaluationForm/TargetConfiguration_ContactInteractionType") -Or
             ($_ -eq "Update-CONNEvaluationForm/TargetConfiguration_ContactInteractionType")
         }
@@ -987,6 +988,7 @@ $CONN_map = @{
     "ContactConfiguration_ParticipantRole"=@("New-CONNPushNotificationRegistration")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "ContactInteractionType"=@("Get-CONNEvaluationFormAIVersionList")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
     "Content_Type"=@("Send-CONNOutboundWebNotification")
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
@@ -1344,6 +1346,7 @@ $CONN_SelectMap = @{
                "Get-CONNDataTableValueList",
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEntitySecurityProfileList",
+               "Get-CONNEvaluationFormAIVersionList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNExtractionDefinitionList",

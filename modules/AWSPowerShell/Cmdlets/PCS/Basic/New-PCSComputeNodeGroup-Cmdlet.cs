@@ -116,6 +116,24 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.String ComputeNodeGroupName { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_GresCustomSetting
+        /// <summary>
+        /// <para>
+        /// <para>The additional Slurm <c>gres.conf</c> records for the compute node group. Each item
+        /// is a map of <c>gres.conf</c> attribute names to values that describes one <c>gres.conf</c>
+        /// record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <c>NodeName=</c>
+        /// prefix and merges these records with the GPU record it derives from the instance type.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_GresCustomSettings")]
+        public System.Collections.Hashtable[] SlurmConfiguration_GresCustomSetting { get; set; }
+        #endregion
+        
         #region Parameter IamInstanceProfileArn
         /// <summary>
         /// <para>
@@ -491,6 +509,19 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ScalingConfiguration_MinInstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SlurmConfiguration_GresCustomSetting != null)
+            {
+                context.SlurmConfiguration_GresCustomSetting = new List<Dictionary<System.String, System.String>>();
+                foreach (var hashTable in this.SlurmConfiguration_GresCustomSetting)
+                {
+                    var d = new Dictionary<System.String, System.String>();
+                    foreach (var hashKey in hashTable.Keys)
+                    {
+                        d.Add((String)hashKey, (String)(hashTable[hashKey]));
+                    }
+                    context.SlurmConfiguration_GresCustomSetting.Add(d);
+                }
+            }
             context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
@@ -675,6 +706,16 @@ namespace Amazon.PowerShell.Cmdlets.PCS
              // populate SlurmConfiguration
             var requestSlurmConfigurationIsNull = true;
             request.SlurmConfiguration = new Amazon.PCS.Model.ComputeNodeGroupSlurmConfigurationRequest();
+            List<Dictionary<System.String, System.String>> requestSlurmConfiguration_slurmConfiguration_GresCustomSetting = null;
+            if (cmdletContext.SlurmConfiguration_GresCustomSetting != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_GresCustomSetting = cmdletContext.SlurmConfiguration_GresCustomSetting;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_GresCustomSetting != null)
+            {
+                request.SlurmConfiguration.GresCustomSettings = requestSlurmConfiguration_slurmConfiguration_GresCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
             System.Int32? requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = null;
             if (cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond != null)
             {
@@ -796,6 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public Amazon.PCS.PurchaseOption PurchaseOption { get; set; }
             public System.Int32? ScalingConfiguration_MaxInstanceCount { get; set; }
             public System.Int32? ScalingConfiguration_MinInstanceCount { get; set; }
+            public List<Dictionary<System.String, System.String>> SlurmConfiguration_GresCustomSetting { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Amazon.PCS.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }

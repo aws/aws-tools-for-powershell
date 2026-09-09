@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The scheduler version to update the cluster to. You can only update to a newer version.
         /// For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating
-        /// the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.05 | 24.11 | 25.05 | 25.11</c></para>
+        /// the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>24.05 | 24.11 | 25.05 | 25.11 | 26.05</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

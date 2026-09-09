@@ -110,7 +110,7 @@ $MPV2_Completers = {
         # Amazon.MediaPackageV2.InputType
         "New-MPV2Channel/InputType"
         {
-            $v = "CMAF","HLS"
+            $v = "CMAF","HLS","MULTIVIEW"
             break
         }
 

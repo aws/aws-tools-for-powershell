@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to encrypt the volume copy. If the source volume is encrypted, the
+        /// service always encrypts the copy regardless of this value. Set to <c>true</c> to encrypt
+        /// a copy of an unencrypted source volume during the copy operation. If you set <c>Encrypted</c>
+        /// to <c>true</c> but do not specify <c>KmsKeyId</c>, the service uses the default KMS
+        /// key for EBS encryption in your account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Encrypted { get; set; }
+        #endregion
+        
         #region Parameter Iops
         /// <summary>
         /// <para>
@@ -73,6 +87,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Iops { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS key to use for encryption of the volume copy. Specify a
+        /// symmetric encryption KMS key. You can specify a KMS key using the key ID, key ARN,
+        /// alias name, or alias ARN. If you set <c>Encrypted</c> to <c>true</c> but do not specify
+        /// this parameter, the service uses the default KMS key for EBS encryption in your account.
+        /// For cross-account volume copies, this must be a KMS key in the calling account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter MultiAttachEnabled
@@ -217,7 +245,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
+            context.Encrypted = this.Encrypted;
             context.Iops = this.Iops;
+            context.KmsKeyId = this.KmsKeyId;
             context.MultiAttachEnabled = this.MultiAttachEnabled;
             context.Size = this.Size;
             context.SourceVolumeId = this.SourceVolumeId;
@@ -257,9 +287,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.MultiAttachEnabled != null)
             {
@@ -342,7 +380,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public System.Boolean? Encrypted { get; set; }
             public System.Int32? Iops { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiAttachEnabled { get; set; }
             public System.Int32? Size { get; set; }
             public System.String SourceVolumeId { get; set; }
