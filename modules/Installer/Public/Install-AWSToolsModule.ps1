@@ -16,7 +16,11 @@
     modules are installed by default. The names can be listed either with or without the 
     "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common"). 
     
-    Note: AWS.Tools.Common is automatically included when specific modules are requested,
+    Installing all modules is the recommended default. It keeps every command ready to use,
+    reduces the risk of module import conflicts, and extends cleanup to all AWS Tools modules
+    rather than only those specified.
+
+    Note: AWS.Tools.Common is automatically included when specific modules are specified,
     as it is required for all AWS.Tools modules to function properly.
     
     Note: AWS.Tools.Installer cannot be specified here. Use Install-AWSToolsInstaller 
@@ -73,13 +77,17 @@
     
     Otherwise, by default, other versions remain installed.
     
-    When the Name parameter is specified, cleanup only affects the named modules. When Name is not
+    When the Name parameter is specified, cleanup only affects the specified modules. When Name is not
     specified, all AWS Tools modules (except installer) are cleaned up.
 
-    AWS.Tools.Common is installed automatically as a shared dependency of any named module, but
-    named cleanup removes older AWS.Tools.Common versions only if AWS.Tools.Common is itself named.
-    Include AWS.Tools.Common in Name to remove its old versions too; be aware that any other
+    AWS.Tools.Common is automatically included as a shared dependency when modules are specified, but
+    cleanup removes other AWS.Tools.Common versions only when AWS.Tools.Common is itself specified.
+    Include AWS.Tools.Common in Name to remove its other versions too; be aware that any other
     installed AWS.Tools module pinned to a removed AWS.Tools.Common version will no longer load.
+
+    When Name is specified without AWS.Tools.Common and cleanup runs, a warning notes that
+    AWS.Tools.Common was excluded from cleanup because it was not specified, and recommends
+    installing all modules or including AWS.Tools.Common in Name.
 
     Note: cleanup runs only as part of an installation. If installation is skipped because the
     requested version is already installed, cleanup is skipped as well and a warning is emitted.
@@ -188,8 +196,7 @@
     Install-AWSToolsModule -Name Common,EC2,S3 -Cleanup
 
     This example installs the Common, EC2, and S3 modules and removes all other versions of those
-    three (including older AWS.Tools.Common), leaving other AWS Tools modules untouched. Naming
-    AWS.Tools.Common opts its old versions into cleanup; omit it to preserve them.
+    three, leaving other AWS Tools modules untouched.
 
 .Example
     Install-AWSToolsModule -Timeout 600
@@ -786,6 +793,12 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     $installedModuleCount = @($installedModules).Count
                     Write-Host "Installed $installedModuleCount AWS Tools modules (version $installedVersionString) to $targetPath"
                     
+                    # On a named (subset) install, recommend the default of installing all modules.
+                    # Skip when invoked under Update-AWSToolsModule — it prints its own guidance.
+                    if ($resolvedNames -and (Get-PSCallStack).Command -notcontains 'Update-AWSToolsModule') {
+                        Write-Host "Installation was limited to the modules specified with -Name. Installing all modules is the recommended default. It keeps every command ready to use, reduces the risk of module import conflicts, and extends cleanup to all AWS Tools modules rather than only those specified."
+                    }
+
                     # Update progress - installation complete, preparing for cleanup
                     Write-Progress -Id 1 -Activity "Install-AWSToolsModule" -Status "Installation complete, cleaning up previous versions..." -PercentComplete 70
                 }
@@ -852,10 +865,20 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     
                     # If Name was specified, only clean up those specific modules
                     # This aligns with V1 behavior and avoids surprising destructive cleanup
+                    $commonNotSpecified = $false
                     if ($Name) {
                         $uninstallParams.Name = $Name
                         Write-Verbose ("[$($MyInvocation.MyCommand)] Cleanup constrained to " +
                             "named modules: $($Name -join ', ')")
+
+                        # Named cleanup only removes other versions of the specified modules.
+                        # AWS.Tools.Common is automatically included as a shared dependency but,
+                        # when not specified, is excluded from cleanup. Customers often don't know
+                        # AWS.Tools.Common exists; warn after cleanup runs when it was not specified.
+                        $commonNotSpecified = -not ($Name | Where-Object {
+                            $normalized = if ($_.Contains('.')) { $_ } else { "AWS.Tools.$_" }
+                            $normalized -eq 'AWS.Tools.Common'
+                        })
                     }
                     
                     # Pass WhatIf preference if it's set
@@ -878,6 +901,11 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     
                     # Call Uninstall-AWSToolsModule for cleanup
                     Uninstall-AWSToolsModule @uninstallParams | Out-Null
+
+                    # Warn after cleanup completes so the message follows the removal summary.
+                    if ($commonNotSpecified) {
+                        Write-Warning "AWS.Tools.Common, a shared dependency installed automatically, was excluded from cleanup because it was not specified with -Name. To clean up its other versions, install all modules with Install-AWSToolsModule, or include AWS.Tools.Common in -Name."
+                    }
                 }
                 catch {
                     # Cleanup errors are non-terminating - write error but continue
