@@ -2246,6 +2246,7 @@ $SM_SelectMap = @{
     "Select"=@("Add-SMAssociation",
                "Add-SMResourceTag",
                "Register-SMTrialComponent",
+               "Mount-SMClusterNodeNetworkInterface",
                "Mount-SMClusterNodeVolume",
                "Set-SMAddClusterNode",
                "Set-SMDeleteClusterNode",

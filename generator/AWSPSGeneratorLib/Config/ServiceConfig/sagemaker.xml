@@ -32,6 +32,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachClusterNodeNetworkInterface" OutputProperty="*" Verb="Mount" Noun="ClusterNodeNetworkInterface" ShouldProcessTarget="NetworkInterfaceId,NodeId,ClusterName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachClusterNodeVolume" OutputProperty="*" Verb="Mount" Noun="ClusterNodeVolume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

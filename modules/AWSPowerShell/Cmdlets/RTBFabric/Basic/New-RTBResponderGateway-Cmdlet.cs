@@ -78,6 +78,29 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.String[] TrustStoreConfiguration_CertificateAuthorityCertificate { get; set; }
         #endregion
         
+        #region Parameter ClientRoutingPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The client routing policy of the gateway. This policy controls which Availability
+        /// Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic
+        /// to it. Valid values are the following:</para><ul><li><para><c>AVAILABILITY_ZONE_AFFINITY</c>: RTB Fabric routes each requester's traffic to
+        /// gateway capacity in the requester's own Availability Zone when the gateway has capacity
+        /// available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the
+        /// other Availability Zones of the gateway.</para></li><li><para><c>ANY_AVAILABILITY_ZONE</c>: RTB Fabric routes each requester's traffic to gateway
+        /// capacity in every Availability Zone that the subnets of the gateway span. The Availability
+        /// Zone that the requester is in does not change this.</para></li></ul><para>If you don't specify a value, RTB Fabric uses <c>AVAILABILITY_ZONE_AFFINITY</c>. To
+        /// get the behavior of <c>ANY_AVAILABILITY_ZONE</c>, create the gateway with subnets
+        /// in more than one Availability Zone. RTB Fabric does not support partial Availability
+        /// Zone affinity, so <c>PARTIAL_AVAILABILITY_ZONE_AFFINITY</c> is not a valid value.
+        /// For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring
+        /// Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RTBFabric.ClientRoutingPolicy")]
+        public Amazon.RTBFabric.ClientRoutingPolicy ClientRoutingPolicy { get; set; }
+        #endregion
+        
         #region Parameter EksEndpoints_ClusterApiServerCaCertificateChain
         /// <summary>
         /// <para>
@@ -324,7 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifiers of the subnets.</para><para />
+        /// <para>Unique identifiers of the subnets. A service quota for your account sets the number
+        /// of Availability Zones that your subnets can span. By default, this quota is one Availability
+        /// Zone. To span more Availability Zones, request a quota increase.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -399,7 +424,14 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique client token.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para><para>If you retry the operation with the same <c>clientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -452,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 context.Select = CreateSelectDelegate<Amazon.RTBFabric.Model.CreateResponderGatewayResponse, NewRTBResponderGatewayCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientRoutingPolicy = this.ClientRoutingPolicy;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DomainName = this.DomainName;
@@ -548,6 +581,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             // create request
             var request = new Amazon.RTBFabric.Model.CreateResponderGatewayRequest();
             
+            if (cmdletContext.ClientRoutingPolicy != null)
+            {
+                request.ClientRoutingPolicy = cmdletContext.ClientRoutingPolicy;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -895,6 +932,7 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.RTBFabric.ClientRoutingPolicy ClientRoutingPolicy { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }

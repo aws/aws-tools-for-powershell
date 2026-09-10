@@ -203,11 +203,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTestRunDependencies" OutputProperty="Dependencies" Verb="Get" Noun="TestRunDependencyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTestRunEvents" OutputProperty="Events" Verb="Get" Noun="TestRunEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTestRuns" OutputProperty="TestRuns" Verb="Get" Noun="TestRunList" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestRunSourceEvents" OutputProperty="TestRunSourceEvents" Verb="Get" Noun="TestRunSourceEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

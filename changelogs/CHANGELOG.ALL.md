@@ -1,4 +1,21 @@
-﻿### 5.0.295 (2026-09-09 19:13Z)
+﻿### 5.0.296 (2026-09-10 19:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.331.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration, KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation and KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration, KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation and KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2Image: added parameter BootModeOverride.
+  * Amazon Resilience Hub V2
+    * Added cmdlet Get-RH2TestRunDependencyList leveraging the ListTestRunDependencies service API.
+    * Added cmdlet Get-RH2TestRunSourceEventList leveraging the ListTestRunSourceEvents service API.
+    * Modified cmdlet New-RH2InputSource: added parameters ResourceConfiguration_Eks_LabelSelector_MatchExpression and ResourceConfiguration_Eks_LabelSelector_MatchLabel.
+  * Amazon RTBFabric
+    * Modified cmdlet New-RTBResponderGateway: added parameter ClientRoutingPolicy.
+    * Modified cmdlet Update-RTBResponderGateway: added parameter ClientRoutingPolicy.
+  * Amazon SageMaker Service
+    * Added cmdlet Mount-SMClusterNodeNetworkInterface leveraging the AttachClusterNodeNetworkInterface service API.
+
+### 5.0.295 (2026-09-09 19:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.330.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNEvaluationFormAIVersionList leveraging the ListEvaluationFormAIVersions service API.

@@ -74,6 +74,38 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         public System.String ResourceConfiguration_DesignFileS3Url { get; set; }
         #endregion
         
+        #region Parameter ResourceConfiguration_Eks_LabelSelector_MatchExpression
+        /// <summary>
+        /// <para>
+        /// <para>The label requirements that an object must satisfy. All requirements in the list must
+        /// match for the object to be selected.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfiguration_Eks_LabelSelector_MatchExpressions")]
+        public Amazon.Resiliencehubv2.Model.EksLabelSelectorRequirement[] ResourceConfiguration_Eks_LabelSelector_MatchExpression { get; set; }
+        #endregion
+        
+        #region Parameter ResourceConfiguration_Eks_LabelSelector_MatchLabel
+        /// <summary>
+        /// <para>
+        /// <para>The label key-value pairs that an object must have. All pairs must match for the object
+        /// to be selected.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfiguration_Eks_LabelSelector_MatchLabels")]
+        public System.Collections.Hashtable ResourceConfiguration_Eks_LabelSelector_MatchLabel { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfiguration_Eks_Namespace
         /// <summary>
         /// <para>
@@ -191,6 +223,18 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             context.ResourceConfiguration_CfnStackArn = this.ResourceConfiguration_CfnStackArn;
             context.ResourceConfiguration_DesignFileS3Url = this.ResourceConfiguration_DesignFileS3Url;
             context.ResourceConfiguration_Eks_ClusterArn = this.ResourceConfiguration_Eks_ClusterArn;
+            if (this.ResourceConfiguration_Eks_LabelSelector_MatchExpression != null)
+            {
+                context.ResourceConfiguration_Eks_LabelSelector_MatchExpression = new List<Amazon.Resiliencehubv2.Model.EksLabelSelectorRequirement>(this.ResourceConfiguration_Eks_LabelSelector_MatchExpression);
+            }
+            if (this.ResourceConfiguration_Eks_LabelSelector_MatchLabel != null)
+            {
+                context.ResourceConfiguration_Eks_LabelSelector_MatchLabel = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceConfiguration_Eks_LabelSelector_MatchLabel.Keys)
+                {
+                    context.ResourceConfiguration_Eks_LabelSelector_MatchLabel.Add((String)hashKey, (System.String)(this.ResourceConfiguration_Eks_LabelSelector_MatchLabel[hashKey]));
+                }
+            }
             if (this.ResourceConfiguration_Eks_Namespace != null)
             {
                 context.ResourceConfiguration_Eks_Namespace = new List<System.String>(this.ResourceConfiguration_Eks_Namespace);
@@ -296,6 +340,41 @@ namespace Amazon.PowerShell.Cmdlets.RH2
                 requestResourceConfiguration_resourceConfiguration_Eks.Namespaces = requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_Namespace;
                 requestResourceConfiguration_resourceConfiguration_EksIsNull = false;
             }
+            Amazon.Resiliencehubv2.Model.EksLabelSelector requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector = null;
+            
+             // populate LabelSelector
+            var requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelectorIsNull = true;
+            requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector = new Amazon.Resiliencehubv2.Model.EksLabelSelector();
+            List<Amazon.Resiliencehubv2.Model.EksLabelSelectorRequirement> requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchExpression = null;
+            if (cmdletContext.ResourceConfiguration_Eks_LabelSelector_MatchExpression != null)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchExpression = cmdletContext.ResourceConfiguration_Eks_LabelSelector_MatchExpression;
+            }
+            if (requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchExpression != null)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector.MatchExpressions = requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchExpression;
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelectorIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchLabel = null;
+            if (cmdletContext.ResourceConfiguration_Eks_LabelSelector_MatchLabel != null)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchLabel = cmdletContext.ResourceConfiguration_Eks_LabelSelector_MatchLabel;
+            }
+            if (requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchLabel != null)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector.MatchLabels = requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector_resourceConfiguration_Eks_LabelSelector_MatchLabel;
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelectorIsNull = false;
+            }
+             // determine if requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector should be set to null
+            if (requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelectorIsNull)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector = null;
+            }
+            if (requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector != null)
+            {
+                requestResourceConfiguration_resourceConfiguration_Eks.LabelSelector = requestResourceConfiguration_resourceConfiguration_Eks_resourceConfiguration_Eks_LabelSelector;
+                requestResourceConfiguration_resourceConfiguration_EksIsNull = false;
+            }
              // determine if requestResourceConfiguration_resourceConfiguration_Eks should be set to null
             if (requestResourceConfiguration_resourceConfiguration_EksIsNull)
             {
@@ -374,6 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             public System.String ResourceConfiguration_CfnStackArn { get; set; }
             public System.String ResourceConfiguration_DesignFileS3Url { get; set; }
             public System.String ResourceConfiguration_Eks_ClusterArn { get; set; }
+            public List<Amazon.Resiliencehubv2.Model.EksLabelSelectorRequirement> ResourceConfiguration_Eks_LabelSelector_MatchExpression { get; set; }
+            public Dictionary<System.String, System.String> ResourceConfiguration_Eks_LabelSelector_MatchLabel { get; set; }
             public List<System.String> ResourceConfiguration_Eks_Namespace { get; set; }
             public List<Amazon.Resiliencehubv2.Model.ResourceTag> ResourceConfiguration_ResourceTag { get; set; }
             public System.String ResourceConfiguration_TfStateFileUrl { get; set; }

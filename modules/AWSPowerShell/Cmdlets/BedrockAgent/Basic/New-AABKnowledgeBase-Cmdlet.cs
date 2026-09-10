@@ -87,35 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio
-        /// <summary>
-        /// <para>
-        /// <para>Configuration settings for processing audio content in multimodal knowledge bases.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.BedrockAgent.Model.AudioConfiguration[] KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio { get; set; }
-        #endregion
-        
-        #region Parameter BedrockEmbeddingModelConfiguration_Audio
-        /// <summary>
-        /// <para>
-        /// <para>Configuration settings for processing audio content in multimodal knowledge bases.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio")]
-        public Amazon.BedrockAgent.Model.AudioConfiguration[] BedrockEmbeddingModelConfiguration_Audio { get; set; }
-        #endregion
-        
         #region Parameter ProvisionedConfiguration_ClusterIdentifier
         /// <summary>
         /// <para>
@@ -383,7 +354,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use
+        /// a service-managed embedding model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -563,6 +535,32 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
+        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Model-specific configuration for the embedding model, provided as a JSON object. Use
+        /// this field to specify settings that apply to the embedding model that you selected,
+        /// such as how audio and video files are divided into segments.</para><para>The fields that this object accepts depend on the embedding model. For the settings
+        /// that each model accepts, see the documentation for that model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Model-specific configuration for the embedding model, provided as a JSON object. Use
+        /// this field to specify settings that apply to the embedding model that you selected,
+        /// such as how audio and video files are divided into segments.</para><para>The fields that this object accepts depend on the embedding model. For the settings
+        /// that each model accepts, see the documentation for that model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -644,6 +642,22 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_StorageConfigurations")]
         public Amazon.BedrockAgent.Model.RedshiftQueryEngineStorageConfiguration[] RedshiftConfiguration_StorageConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects specifying storage locations for multimedia content (images, audio,
+        /// and video) extracted from multimodal documents in your data source.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocations")]
+        public Amazon.BedrockAgent.Model.SupplementalDataStorageLocation[] KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation { get; set; }
         #endregion
         
         #region Parameter SupplementalDataStorageConfiguration_StorageLocation
@@ -1003,35 +1017,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RedisEnterpriseCloudConfiguration_VectorIndexName { get; set; }
         #endregion
         
-        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video
-        /// <summary>
-        /// <para>
-        /// <para>Configuration settings for processing video content in multimodal knowledge bases.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.BedrockAgent.Model.VideoConfiguration[] KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video { get; set; }
-        #endregion
-        
-        #region Parameter BedrockEmbeddingModelConfiguration_Video
-        /// <summary>
-        /// <para>
-        /// <para>Configuration settings for processing video content in multimodal knowledge bases.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video")]
-        public Amazon.BedrockAgent.Model.VideoConfiguration[] BedrockEmbeddingModelConfiguration_Video { get; set; }
-        #endregion
-        
         #region Parameter ServerlessConfiguration_WorkgroupArn
         /// <summary>
         /// <para>
@@ -1041,6 +1026,39 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_WorkgroupArn")]
         public System.String ServerlessConfiguration_WorkgroupArn { get; set; }
+        #endregion
+        
+        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing audio content in multimodal knowledge bases.</para><important><para>This field is deprecated. Use <c>modelConfiguration</c> instead.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use Managed Knowledge Base\u0027s modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html")]
+        public Amazon.BedrockAgent.Model.AudioConfiguration[] KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio { get; set; }
+        #endregion
+        
+        #region Parameter BedrockEmbeddingModelConfiguration_Audio
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing audio content in multimodal knowledge bases.</para><important><para>This field is deprecated. Use <c>modelConfiguration</c> instead.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use Managed Knowledge Base\u0027s modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html")]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio")]
+        public Amazon.BedrockAgent.Model.AudioConfiguration[] BedrockEmbeddingModelConfiguration_Audio { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -1054,6 +1072,39 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing video content in multimodal knowledge bases.</para><important><para>This field is deprecated. Use <c>modelConfiguration</c> instead.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use Managed Knowledge Base\u0027s modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html")]
+        public Amazon.BedrockAgent.Model.VideoConfiguration[] KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video { get; set; }
+        #endregion
+        
+        #region Parameter BedrockEmbeddingModelConfiguration_Video
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing video content in multimodal knowledge bases.</para><important><para>This field is deprecated. Use <c>modelConfiguration</c> instead.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use Managed Knowledge Base\u0027s modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html")]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video")]
+        public Amazon.BedrockAgent.Model.VideoConfiguration[] BedrockEmbeddingModelConfiguration_Video { get; set; }
         #endregion
         
         #region Parameter Select
@@ -1112,12 +1163,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimension = this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimension;
             context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType = this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType;
+            context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration;
             if (this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video != null)
             {
                 context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video = new List<Amazon.BedrockAgent.Model.VideoConfiguration>(this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video);
             }
             context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType = this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType;
             context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_ServerSideEncryptionConfiguration_KmsKeyArn = this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_ServerSideEncryptionConfiguration_KmsKeyArn;
+            if (this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                context.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation = new List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation>(this.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation);
+            }
             context.AuthConfiguration_DatabaseUser = this.AuthConfiguration_DatabaseUser;
             context.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type = this.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type;
             context.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn = this.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn;
@@ -1154,6 +1210,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             context.BedrockEmbeddingModelConfiguration_Dimension = this.BedrockEmbeddingModelConfiguration_Dimension;
             context.BedrockEmbeddingModelConfiguration_EmbeddingDataType = this.BedrockEmbeddingModelConfiguration_EmbeddingDataType;
+            context.KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = this.KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration;
             if (this.BedrockEmbeddingModelConfiguration_Video != null)
             {
                 context.BedrockEmbeddingModelConfiguration_Video = new List<Amazon.BedrockAgent.Model.VideoConfiguration>(this.BedrockEmbeddingModelConfiguration_Video);
@@ -1615,6 +1672,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.EmbeddingDataType = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
             }
+            Amazon.Runtime.Documents.Document? requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = null;
+            if (cmdletContext.KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration);
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.ModelConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration.Value;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
+            }
             List<Amazon.BedrockAgent.Model.VideoConfiguration> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Video = null;
             if (cmdletContext.BedrockEmbeddingModelConfiguration_Video != null)
             {
@@ -1745,6 +1812,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.EmbeddingDataType = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
             }
+            Amazon.Runtime.Documents.Document? requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = null;
+            if (cmdletContext.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration);
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.ModelConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration.Value;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
+            }
             List<Amazon.BedrockAgent.Model.VideoConfiguration> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video = null;
             if (cmdletContext.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video != null)
             {
@@ -1798,6 +1875,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_ServerSideEncryptionConfiguration != null)
             {
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration.ServerSideEncryptionConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_ServerSideEncryptionConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.SupplementalDataStorageConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = null;
+            
+             // populate SupplementalDataStorageConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = new Amazon.BedrockAgent.Model.SupplementalDataStorageConfiguration();
+            List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation = null;
+            if (cmdletContext.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation = cmdletContext.KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration.StorageLocations = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration.SupplementalDataStorageConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfigurationIsNull = false;
             }
              // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration should be set to null
@@ -2600,12 +2702,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String Description { get; set; }
             public System.String KendraKnowledgeBaseConfiguration_KendraIndexArn { get; set; }
             public System.String KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.BedrockAgent.Model.AudioConfiguration> KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio { get; set; }
             public System.Int32? KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimension { get; set; }
             public Amazon.BedrockAgent.EmbeddingDataType KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType { get; set; }
+            public System.Management.Automation.PSObject KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.BedrockAgent.Model.VideoConfiguration> KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video { get; set; }
             public Amazon.BedrockAgent.EmbeddingModelType KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelType { get; set; }
             public System.String KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_ServerSideEncryptionConfiguration_KmsKeyArn { get; set; }
+            public List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation { get; set; }
             public System.String AuthConfiguration_DatabaseUser { get; set; }
             public Amazon.BedrockAgent.RedshiftProvisionedAuthType KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type { get; set; }
             public System.String KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn { get; set; }
@@ -2621,9 +2727,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public Amazon.BedrockAgent.QueryEngineType SqlKnowledgeBaseConfiguration_Type { get; set; }
             public Amazon.BedrockAgent.KnowledgeBaseType KnowledgeBaseConfiguration_Type { get; set; }
             public System.String VectorKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.BedrockAgent.Model.AudioConfiguration> BedrockEmbeddingModelConfiguration_Audio { get; set; }
             public System.Int32? BedrockEmbeddingModelConfiguration_Dimension { get; set; }
             public Amazon.BedrockAgent.EmbeddingDataType BedrockEmbeddingModelConfiguration_EmbeddingDataType { get; set; }
+            public System.Management.Automation.PSObject KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.BedrockAgent.Model.VideoConfiguration> BedrockEmbeddingModelConfiguration_Video { get; set; }
             public List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> SupplementalDataStorageConfiguration_StorageLocation { get; set; }
             public System.String Name { get; set; }

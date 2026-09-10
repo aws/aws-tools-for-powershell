@@ -268,6 +268,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SMWorkteamList', 
         'Import-SMHubContent', 
         'Invoke-SMUiTemplateRendering', 
+        'Mount-SMClusterNodeNetworkInterface', 
         'Mount-SMClusterNodeVolume', 
         'New-SMAction', 
         'New-SMAIBenchmarkJob', 

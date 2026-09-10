@@ -8727,7 +8727,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","SMART_PARSING"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","MULTI_MODAL_EMBEDDINGS","SMART_PARSING"
             break
         }
 
@@ -15261,8 +15261,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15944,8 +15944,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16405,9 +16405,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Get-CSDSuggestion",
+               "Write-CSDDocument",
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30019,12 +30019,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
-               "New-DDBTable")
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
+               "New-DDBTable",
+               "ConvertTo-DDBItem",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -30401,6 +30401,13 @@ $EC2_Completers = {
         }
         {
             $v = "excluded","included","required"
+            break
+        }
+
+        # Amazon.EC2.BootModeOverrideValues
+        "New-EC2Image/BootModeOverride"
+        {
+            $v = "uefi"
             break
         }
 
@@ -31809,6 +31816,7 @@ $EC2_map = @{
     "BandwidthWeighting"=@("Edit-EC2InstanceNetworkPerformanceOption")
     "BgpOptions_PeerLivenessDetection"=@("New-EC2RouteServerPeer")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
+    "BootModeOverride"=@("New-EC2Image")
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
@@ -32843,8 +32851,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -40382,8 +40390,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -75084,8 +75092,10 @@ $RH2_SelectMap = @{
                "Get-RH2SystemEventList",
                "Get-RH2SystemList",
                "Get-RH2ResourceTag",
+               "Get-RH2TestRunDependencyList",
                "Get-RH2TestRunEventList",
                "Get-RH2TestRunList",
+               "Get-RH2TestRunSourceEventList",
                "Get-RH2TestRunSourceList",
                "Get-RH2TestList",
                "Get-RH2TestSourceList",
@@ -76776,6 +76786,16 @@ $RTB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RTBFabric.ClientRoutingPolicy
+        {
+            ($_ -eq "New-RTBResponderGateway/ClientRoutingPolicy") -Or
+            ($_ -eq "Update-RTBResponderGateway/ClientRoutingPolicy")
+        }
+        {
+            $v = "ANY_AVAILABILITY_ZONE","AVAILABILITY_ZONE_AFFINITY"
+            break
+        }
+
         # Amazon.RTBFabric.GatewayType
         "New-RTBResponderGateway/GatewayType"
         {
@@ -76804,6 +76824,7 @@ $RTB_Completers = {
 }
 
 $RTB_map = @{
+    "ClientRoutingPolicy"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "GatewayType"=@("New-RTBResponderGateway")
     "ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
@@ -77889,17 +77910,17 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Read-S3Object",
                "Remove-S3MultipartUpload",
-               "Get-S3MultipartUpload",
+               "New-S3Bucket",
                "Copy-S3Object",
+               "Mount-S3PSDrive",
                "Test-S3Bucket",
+               "Remove-S3Bucket",
                "Get-S3PreSignedURL",
                "Dismount-S3PSDrive",
-               "New-S3Bucket",
-               "Mount-S3PSDrive",
-               "Remove-S3Bucket",
-               "Read-S3Object",
                "Remove-S3Object",
+               "Get-S3MultipartUpload",
                "Write-S3Object")
 }
 
@@ -81525,6 +81546,7 @@ $SM_SelectMap = @{
     "Select"=@("Add-SMAssociation",
                "Add-SMResourceTag",
                "Register-SMTrialComponent",
+               "Mount-SMClusterNodeNetworkInterface",
                "Mount-SMClusterNodeVolume",
                "Set-SMAddClusterNode",
                "Set-SMDeleteClusterNode",

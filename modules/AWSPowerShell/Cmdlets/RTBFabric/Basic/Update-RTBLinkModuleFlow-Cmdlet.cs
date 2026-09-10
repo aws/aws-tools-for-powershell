@@ -103,7 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The unique client token.</para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para><para>If you retry the operation with the same <c>clientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

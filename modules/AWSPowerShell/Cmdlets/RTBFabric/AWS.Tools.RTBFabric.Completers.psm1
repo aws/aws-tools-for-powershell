@@ -80,6 +80,16 @@ $RTB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RTBFabric.ClientRoutingPolicy
+        {
+            ($_ -eq "New-RTBResponderGateway/ClientRoutingPolicy") -Or
+            ($_ -eq "Update-RTBResponderGateway/ClientRoutingPolicy")
+        }
+        {
+            $v = "ANY_AVAILABILITY_ZONE","AVAILABILITY_ZONE_AFFINITY"
+            break
+        }
+
         # Amazon.RTBFabric.GatewayType
         "New-RTBResponderGateway/GatewayType"
         {
@@ -108,6 +118,7 @@ $RTB_Completers = {
 }
 
 $RTB_map = @{
+    "ClientRoutingPolicy"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "GatewayType"=@("New-RTBResponderGateway")
     "ManagedEndpointConfiguration_AutoScalingGroups_HealthCheckConfig_Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
     "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")

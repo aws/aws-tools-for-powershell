@@ -213,6 +213,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.BootModeOverrideValues
+        "New-EC2Image/BootModeOverride"
+        {
+            $v = "uefi"
+            break
+        }
+
         # Amazon.EC2.BootModeValues
         {
             ($_ -eq "Import-EC2Image/BootMode") -Or
@@ -1618,6 +1625,7 @@ $EC2_map = @{
     "BandwidthWeighting"=@("Edit-EC2InstanceNetworkPerformanceOption")
     "BgpOptions_PeerLivenessDetection"=@("New-EC2RouteServerPeer")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
+    "BootModeOverride"=@("New-EC2Image")
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
@@ -2652,8 +2660,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

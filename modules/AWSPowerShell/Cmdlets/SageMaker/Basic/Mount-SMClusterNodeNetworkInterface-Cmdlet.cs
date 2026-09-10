@@ -23,31 +23,38 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.RTBFabric;
-using Amazon.RTBFabric.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.RTB
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Associates an ACM certificate with a responder gateway.
+    /// Attaches an elastic network interface (ENI) to a node in a HyperPod cluster. 
+    /// 
+    ///  
+    /// <para>
+    ///  To use this operation, you must have the <c>sagemaker:AttachClusterNodeNetworkInterface</c>
+    /// permission. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Add", "RTBCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RTBFabric.Model.AssociateCertificateResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric AssociateCertificate API operation.", Operation = new[] {"AssociateCertificate"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.AssociateCertificateResponse))]
-    [AWSCmdletOutput("Amazon.RTBFabric.Model.AssociateCertificateResponse",
-        "This cmdlet returns an Amazon.RTBFabric.Model.AssociateCertificateResponse object containing multiple properties."
+    [Cmdlet("Mount", "SMClusterNodeNetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service AttachClusterNodeNetworkInterface API operation.", Operation = new[] {"AttachClusterNodeNetworkInterface"}, SelectReturnType = typeof(Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse object containing multiple properties."
     )]
-    public partial class AddRTBCertificateCmdlet : AmazonRTBFabricClientCmdlet, IExecutor
+    public partial class MountSMClusterNodeNetworkInterfaceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AcmCertificateArn
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the ACM certificate to associate.</para>
+        /// <para> The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster that contains
+        /// the target node. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,13 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AcmCertificateArn { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter GatewayId
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the gateway.</para>
+        /// <para> The unique identifier of the elastic network interface (ENI) to attach. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,31 +82,33 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GatewayId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-        /// of the request. This lets you safely retry the request without accidentally performing
-        /// the same operation a second time. Passing the same value to a later call to an operation
-        /// requires that you also pass the same value for all other parameters. We recommend
-        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
-        /// type of value</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
-        /// you.</para><para>If you retry the operation with the same <c>clientToken</c>, but with different parameters,
-        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
+        /// <para> The unique identifier of the cluster node to which you want to attach the network
+        /// interface. The node must belong to your specified HyperPod cluster and cannot be part
+        /// of a Restricted Instance Group (RIG). </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String NodeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RTBFabric.Model.AssociateCertificateResponse).
-        /// Specifying the name of a property of type Amazon.RTBFabric.Model.AssociateCertificateResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,11 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             
             var targetParameterNames = new string[]
             {
-                nameof(this.GatewayId),
-                nameof(this.AcmCertificateArn)
+                nameof(this.NetworkInterfaceId),
+                nameof(this.NodeId),
+                nameof(this.ClusterName)
             };
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-RTBCertificate (AssociateCertificate)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Mount-SMClusterNodeNetworkInterface (AttachClusterNodeNetworkInterface)"))
             {
                 return;
             }
@@ -143,22 +153,28 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RTBFabric.Model.AssociateCertificateResponse, AddRTBCertificateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse, MountSMClusterNodeNetworkInterfaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AcmCertificateArn = this.AcmCertificateArn;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.AcmCertificateArn == null && ParameterWasBound(nameof(this.AcmCertificateArn)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AcmCertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            context.GatewayId = this.GatewayId;
+            context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
-            if (this.GatewayId == null && ParameterWasBound(nameof(this.GatewayId)))
+            if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter GatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NetworkInterfaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.NodeId = this.NodeId;
+            #if MODULAR
+            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -175,19 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RTBFabric.Model.AssociateCertificateRequest();
+            var request = new Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceRequest();
             
-            if (cmdletContext.AcmCertificateArn != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.AcmCertificateArn = cmdletContext.AcmCertificateArn;
+                request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.NetworkInterfaceId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
             }
-            if (cmdletContext.GatewayId != null)
+            if (cmdletContext.NodeId != null)
             {
-                request.GatewayId = cmdletContext.GatewayId;
+                request.NodeId = cmdletContext.NodeId;
             }
             
             CmdletOutput output;
@@ -222,12 +238,12 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         #region AWS Service Operation Call
         
-        private Amazon.RTBFabric.Model.AssociateCertificateResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.AssociateCertificateRequest request)
+        private Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "AssociateCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "AttachClusterNodeNetworkInterface");
             try
             {
-                return client.AssociateCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AttachClusterNodeNetworkInterfaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -244,10 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AcmCertificateArn { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String GatewayId { get; set; }
-            public System.Func<Amazon.RTBFabric.Model.AssociateCertificateResponse, AddRTBCertificateCmdlet, object> Select { get; set; } =
+            public System.String ClusterName { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String NodeId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.AttachClusterNodeNetworkInterfaceResponse, MountSMClusterNodeNetworkInterfaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

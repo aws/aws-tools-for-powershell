@@ -345,7 +345,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","SMART_PARSING"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL","MULTI_MODAL_EMBEDDINGS","SMART_PARSING"
             break
         }
 

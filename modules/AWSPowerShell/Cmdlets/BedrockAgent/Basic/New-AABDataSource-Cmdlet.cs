@@ -657,8 +657,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ParsingConfiguration_ParsingStrategy
         /// <summary>
         /// <para>
-        /// <para>The parsing strategy for the data source. Only <c>SMART_PARSING</c> can be selected
-        /// for managed knowledge bases. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize
+        /// <para>The parsing strategy for the data source.</para><para>For managed knowledge bases, the strategy that you can select depends on the embedding
+        /// model that your knowledge base uses:</para><ul><li><para>If your knowledge base uses a native multimodal embedding model, specify <c>MULTI_MODAL_EMBEDDINGS</c>.
+        /// With this strategy, files are sent directly to the embedding model instead of being
+        /// parsed into text. This is the only strategy that is supported for these knowledge
+        /// bases.</para></li><li><para>Otherwise, specify <c>SMART_PARSING</c>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize
         /// ingestion for managed knowledge bases</a>.</para>
         /// </para>
         /// </summary>

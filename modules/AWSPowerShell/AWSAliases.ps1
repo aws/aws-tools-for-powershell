@@ -29483,12 +29483,18 @@ Set-Alias -Name List-RH2Systems -Value Get-RH2SystemList
 Set-Alias -Name List-RH2SystemList -Value Get-RH2SystemList
 Set-Alias -Name RH2-ListSystems -Value Get-RH2SystemList
 Set-Alias -Name RH2-ListTagsForResource -Value Get-RH2ResourceTag
+Set-Alias -Name List-RH2TestRunDependencies -Value Get-RH2TestRunDependencyList
+Set-Alias -Name List-RH2TestRunDependencyList -Value Get-RH2TestRunDependencyList
+Set-Alias -Name RH2-ListTestRunDependencies -Value Get-RH2TestRunDependencyList
 Set-Alias -Name List-RH2TestRunEvents -Value Get-RH2TestRunEventList
 Set-Alias -Name List-RH2TestRunEventList -Value Get-RH2TestRunEventList
 Set-Alias -Name RH2-ListTestRunEvents -Value Get-RH2TestRunEventList
 Set-Alias -Name List-RH2TestRuns -Value Get-RH2TestRunList
 Set-Alias -Name List-RH2TestRunList -Value Get-RH2TestRunList
 Set-Alias -Name RH2-ListTestRuns -Value Get-RH2TestRunList
+Set-Alias -Name List-RH2TestRunSourceEvents -Value Get-RH2TestRunSourceEventList
+Set-Alias -Name List-RH2TestRunSourceEventList -Value Get-RH2TestRunSourceEventList
+Set-Alias -Name RH2-ListTestRunSourceEvents -Value Get-RH2TestRunSourceEventList
 Set-Alias -Name List-RH2TestRunSources -Value Get-RH2TestRunSourceList
 Set-Alias -Name List-RH2TestRunSourceList -Value Get-RH2TestRunSourceList
 Set-Alias -Name RH2-ListTestRunSources -Value Get-RH2TestRunSourceList
@@ -30912,6 +30918,8 @@ Set-Alias -Name Add-SMTags -Value Add-SMResourceTag
 Set-Alias -Name SM-AddTags -Value Add-SMResourceTag
 Set-Alias -Name Associate-SMTrialComponent -Value Register-SMTrialComponent
 Set-Alias -Name SM-AssociateTrialComponent -Value Register-SMTrialComponent
+Set-Alias -Name Attach-SMClusterNodeNetworkInterface -Value Mount-SMClusterNodeNetworkInterface
+Set-Alias -Name SM-AttachClusterNodeNetworkInterface -Value Mount-SMClusterNodeNetworkInterface
 Set-Alias -Name Attach-SMClusterNodeVolume -Value Mount-SMClusterNodeVolume
 Set-Alias -Name SM-AttachClusterNodeVolume -Value Mount-SMClusterNodeVolume
 Set-Alias -Name Add-SMClusterNodes -Value Set-SMAddClusterNode

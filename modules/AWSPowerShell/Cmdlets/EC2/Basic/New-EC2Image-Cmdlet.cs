@@ -90,6 +90,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
         #endregion
         
+        #region Parameter BootModeOverride
+        /// <summary>
+        /// <para>
+        /// <para>The boot mode of the new image, which overrides the default boot mode. By default,
+        /// if you do not specify this parameter, the new image inherits the <c>boot-mode</c>
+        /// from the source instance.</para><para>A value of <c>uefi</c> indicates that the image only supports UEFI boot mode. You
+        /// can specify this parameter only if the <c>current-instance-boot-mode</c> of the source
+        /// instance is <c>uefi</c>. To find the <c>boot-mode</c> or <c>current-instance-boot-mode</c>
+        /// of an instance, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a>.</para><note><para>The operating system contained in the AMI must be configured to support the specified
+        /// boot mode.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance
+        /// launch behavior with Amazon EC2 boot modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.BootModeOverrideValues")]
+        public Amazon.EC2.BootModeOverrideValues BootModeOverride { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -251,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.BlockDeviceMapping = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
+            context.BootModeOverride = this.BootModeOverride;
             context.Description = this.Description;
             context.DryRun = this.DryRun;
             context.InstanceId = this.InstanceId;
@@ -292,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
+            }
+            if (cmdletContext.BootModeOverride != null)
+            {
+                request.BootModeOverride = cmdletContext.BootModeOverride;
             }
             if (cmdletContext.Description != null)
             {
@@ -377,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMapping { get; set; }
+            public Amazon.EC2.BootModeOverrideValues BootModeOverride { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.String InstanceId { get; set; }

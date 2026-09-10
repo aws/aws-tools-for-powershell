@@ -112,9 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.PPM
         /// resources.</para><note><para>For subscriptions in the CloudFront plan family, the resources must include exactly
         /// one Amazon CloudFront distribution and exactly one WAF web ACL. You can also include
         /// other supported resources, such as Amazon Route 53 hosted zones and CloudFront KeyValueStores.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -150,8 +150,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap

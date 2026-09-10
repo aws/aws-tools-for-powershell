@@ -30,36 +30,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates an agent that orchestrates interactions between foundation models, data sources,
-    /// software applications, user conversations, and APIs to carry out tasks to help customers.
-    /// 
-    ///  <ul><li><para>
-    /// Specify the following fields for security purposes.
-    /// </para><ul><li><para><c>agentResourceRoleArn</c> – The Amazon Resource Name (ARN) of the role with permissions
-    /// to invoke API operations on an agent.
-    /// </para></li><li><para>
-    /// (Optional) <c>customerEncryptionKeyArn</c> – The Amazon Resource Name (ARN) of a KMS
-    /// key to encrypt the creation of the agent.
-    /// </para></li><li><para>
-    /// (Optional) <c>idleSessionTTLinSeconds</c> – Specify the number of seconds for which
-    /// the agent should maintain session information. After this time expires, the subsequent
-    /// <c>InvokeAgent</c> request begins a new session.
-    /// </para></li></ul></li><li><para>
-    /// To enable your agent to retain conversational context across multiple sessions, include
-    /// a <c>memoryConfiguration</c> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html">Configure
-    /// memory</a>.
-    /// </para></li><li><para>
-    /// To override the default prompt behavior for agent orchestration and to use advanced
-    /// prompts, include a <c>promptOverrideConfiguration</c> object. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
-    /// prompts</a>.
-    /// </para></li><li><para>
-    /// If your agent fails to be created, the response returns a list of <c>failureReasons</c>
-    /// alongside a list of <c>recommendedActions</c> for you to troubleshoot.
-    /// </para></li><li><para>
-    /// The agent instructions will not be honored if your agent has only one knowledge base,
-    /// uses default prompts, has no action group, and user input is disabled.
-    /// </para></li></ul>
+    /// Amazon.BedrockAgent.IAmazonBedrockAgent.CreateAgent
     /// </summary>
     [Cmdlet("New", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.Agent")]
