@@ -34,15 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// or <c>RUNNABLE</c> state are cancelled and the job status is updated to <c>FAILED</c>.
     /// 
     ///  <note><para>
-    /// A <c>PENDING</c> job is canceled after all dependency jobs are completed. Therefore,
-    /// it may take longer than expected to cancel a job in <c>PENDING</c> status.
+    /// A <c>PENDING</c> job is cancelled after all dependency jobs are completed. Therefore,
+    /// it might take longer than expected to cancel a job in <c>PENDING</c> status.
     /// </para><para>
     /// When you try to cancel an array parent job in <c>PENDING</c>, Batch attempts to cancel
-    /// all child jobs. The array parent job is canceled when all child jobs are completed.
+    /// all child jobs. The array parent job is cancelled when all child jobs are completed.
     /// </para></note><para>
-    /// Jobs that progressed to the <c>STARTING</c> or <c>RUNNING</c> state aren't canceled.
-    /// However, the API operation still succeeds, even if no job is canceled. These jobs
-    /// must be terminated with the <a>TerminateJob</a> operation.
+    /// Jobs that progressed to the <c>STARTING</c> or <c>RUNNING</c> state aren't cancelled.
+    /// However, the API operation still succeeds, even if no job is cancelled. These jobs
+    /// must be terminated with the <a>TerminateJob</a> or <a>TerminateJobs</a> operation.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>A message to attach to the job that explains the reason for canceling it. This message
+        /// <para>A message to attach to the job that explains the reason for cancelling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded
-        /// in the Batch activity logs.</para><para>This parameter has as limit of 1024 characters.</para>
+        /// in the Batch activity logs.</para><para>This parameter has a limit of 1024 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

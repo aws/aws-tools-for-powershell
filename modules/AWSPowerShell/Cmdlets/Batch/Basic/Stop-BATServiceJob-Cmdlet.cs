@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>A message to attach to the service job that explains the reason for canceling it.
+        /// <para>A message to attach to the service job that explains the reason for terminating it.
         /// This message is returned by <c>DescribeServiceJob</c> operations on the service job.</para>
         /// </para>
         /// </summary>

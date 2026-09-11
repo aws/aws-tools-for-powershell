@@ -130,6 +130,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cpu { get; set; }
         #endregion
         
+        #region Parameter CpuArchitecture
+        /// <summary>
+        /// <para>
+        /// <para>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies
+        /// this value to the task definition revision that it registers for the service. If you
+        /// don't specify a value, the default is <c>X86_64</c>.</para><para>Valid values:</para><ul><li><para><c>X86_64</c> - The x86 64-bit architecture.</para></li><li><para><c>ARM64</c> - The 64-bit ARM architecture.</para></li></ul><para>Make sure that the container image that you specify supports the architecture that
+        /// you choose. The operating system family for an Express service is always <c>LINUX</c>.</para><para>You can't specify <c>cpuArchitecture</c> when you also specify <c>taskDefinitionArn</c>,
+        /// because this value applies only to a task definition that Amazon ECS registers on
+        /// your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.ExpressCpuArchitecture")]
+        public Amazon.ECS.ExpressCpuArchitecture CpuArchitecture { get; set; }
+        #endregion
+        
         #region Parameter RepositoryCredentials_CredentialsParameter
         /// <summary>
         /// <para>
@@ -363,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// over the service configuration such as adding sidecar containers.</para><para>The task definition must have a container named <c>Main</c> with a single TCP port
         /// mapping that includes a container port and port name. The task definition must also
         /// have <c>FARGATE</c> compatibility.</para><para>If you provide a task definition ARN, you cannot also specify <c>primaryContainer</c>,
-        /// <c>executionRoleArn</c>, <c>taskRoleArn</c>, <c>cpu</c>, or <c>memory</c>.</para>
+        /// <c>executionRoleArn</c>, <c>taskRoleArn</c>, <c>cpu</c>, <c>memory</c>, or <c>cpuArchitecture</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             context.Cluster = this.Cluster;
             context.Cpu = this.Cpu;
+            context.CpuArchitecture = this.CpuArchitecture;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.HealthCheckPath = this.HealthCheckPath;
             context.InfrastructureRoleArn = this.InfrastructureRoleArn;
@@ -507,6 +524,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cpu != null)
             {
                 request.Cpu = cmdletContext.Cpu;
+            }
+            if (cmdletContext.CpuArchitecture != null)
+            {
+                request.CpuArchitecture = cmdletContext.CpuArchitecture;
             }
             if (cmdletContext.ExecutionRoleArn != null)
             {
@@ -794,6 +815,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public System.String Cpu { get; set; }
+            public Amazon.ECS.ExpressCpuArchitecture CpuArchitecture { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String HealthCheckPath { get; set; }
             public System.String InfrastructureRoleArn { get; set; }

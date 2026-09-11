@@ -139,6 +139,36 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String[] ForwardedCookies_CookiesAllowList { get; set; }
         #endregion
         
+        #region Parameter CustomErrorResponse
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that describe the custom error responses for the distribution.
+        /// With a custom error response, you can specify the page to return when the origin responds
+        /// with a given HTTP error code. You can also specify the HTTP status code to send to
+        /// the viewer.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomErrorResponses")]
+        public Amazon.Lightsail.Model.DistributionCustomErrorResponse[] CustomErrorResponse { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRootObject
+        /// <summary>
+        /// <para>
+        /// <para>The object (for example, <c>index.html</c>) that the distribution returns when a viewer
+        /// requests the root URL of the distribution (<c>/</c>) instead of a specific object.
+        /// The object that you specify must be available from the origin.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultRootObject { get; set; }
+        #endregion
+        
         #region Parameter CacheBehaviorSettings_DefaultTTL
         /// <summary>
         /// <para>
@@ -169,6 +199,22 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DistributionName { get; set; }
+        #endregion
+        
+        #region Parameter EnablePrivateOriginAccess
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable private origin access for the distribution. With private
+        /// origin access, the distribution can serve objects that aren't publicly accessible
+        /// from a Lightsail bucket.</para><para>Lightsail grants the distribution permission to read the bucket's objects. Enabling
+        /// private origin access doesn't change the bucket's access settings, and you can still
+        /// retrieve publicly accessible objects directly from the bucket's endpoint.</para><note><para>When you include this parameter, you must also include the <c>origin</c> parameter
+        /// with the resource name, even if the origin is not changing.</para><para>You can enable private origin access only when the distribution's origin is a Lightsail
+        /// bucket. If the origin is another resource type, the request fails.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePrivateOriginAccess { get; set; }
         #endregion
         
         #region Parameter ForwardedHeaders_HeadersAllowList
@@ -429,7 +475,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.CacheBehaviorSettings_MaximumTTL = this.CacheBehaviorSettings_MaximumTTL;
             context.CacheBehaviorSettings_MinimumTTL = this.CacheBehaviorSettings_MinimumTTL;
             context.CertificateName = this.CertificateName;
+            if (this.CustomErrorResponse != null)
+            {
+                context.CustomErrorResponse = new List<Amazon.Lightsail.Model.DistributionCustomErrorResponse>(this.CustomErrorResponse);
+            }
             context.DefaultCacheBehavior_Behavior = this.DefaultCacheBehavior_Behavior;
+            context.DefaultRootObject = this.DefaultRootObject;
             context.DistributionName = this.DistributionName;
             #if MODULAR
             if (this.DistributionName == null && ParameterWasBound(nameof(this.DistributionName)))
@@ -437,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter DistributionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnablePrivateOriginAccess = this.EnablePrivateOriginAccess;
             context.IsEnabled = this.IsEnabled;
             context.Origin_IpAddressType = this.Origin_IpAddressType;
             context.Origin_Name = this.Origin_Name;
@@ -633,6 +685,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.CertificateName = cmdletContext.CertificateName;
             }
+            if (cmdletContext.CustomErrorResponse != null)
+            {
+                request.CustomErrorResponses = cmdletContext.CustomErrorResponse;
+            }
             
              // populate DefaultCacheBehavior
             var requestDefaultCacheBehaviorIsNull = true;
@@ -652,9 +708,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.DefaultCacheBehavior = null;
             }
+            if (cmdletContext.DefaultRootObject != null)
+            {
+                request.DefaultRootObject = cmdletContext.DefaultRootObject;
+            }
             if (cmdletContext.DistributionName != null)
             {
                 request.DistributionName = cmdletContext.DistributionName;
+            }
+            if (cmdletContext.EnablePrivateOriginAccess != null)
+            {
+                request.EnablePrivateOriginAccess = cmdletContext.EnablePrivateOriginAccess.Value;
             }
             if (cmdletContext.IsEnabled != null)
             {
@@ -795,8 +859,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.Int64? CacheBehaviorSettings_MaximumTTL { get; set; }
             public System.Int64? CacheBehaviorSettings_MinimumTTL { get; set; }
             public System.String CertificateName { get; set; }
+            public List<Amazon.Lightsail.Model.DistributionCustomErrorResponse> CustomErrorResponse { get; set; }
             public Amazon.Lightsail.BehaviorEnum DefaultCacheBehavior_Behavior { get; set; }
+            public System.String DefaultRootObject { get; set; }
             public System.String DistributionName { get; set; }
+            public System.Boolean? EnablePrivateOriginAccess { get; set; }
             public System.Boolean? IsEnabled { get; set; }
             public Amazon.Lightsail.OriginIpAddressTypeEnum Origin_IpAddressType { get; set; }
             public System.String Origin_Name { get; set; }

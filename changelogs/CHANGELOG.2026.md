@@ -1,4 +1,20 @@
-﻿### 5.0.296 (2026-09-10 19:09Z)
+﻿### 5.0.297 (2026-09-11 19:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.332.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Added cmdlet Remove-BATJobCollection leveraging the TerminateJobs service API.
+    * Added cmdlet Stop-BATJobCollection leveraging the CancelJobs service API.
+    * Added cmdlet Stop-BATServiceJobCollection leveraging the TerminateServiceJobs service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSExpressGatewayService: added parameter CpuArchitecture.
+    * Modified cmdlet Update-ECSExpressGatewayService: added parameter CpuArchitecture.
+  * Amazon Invoicing
+    * Added cmdlet Get-INVProcurementPortalList leveraging the ListProcurementPortals service API.
+    * Added cmdlet Get-INVProcurementPortalSupplierList leveraging the ListProcurementPortalSuppliers service API.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSDistribution: added parameters CustomErrorResponse, DefaultRootObject and EnablePrivateOriginAccess.
+    * Modified cmdlet Update-LSDistribution: added parameters CustomErrorResponse, DefaultRootObject and EnablePrivateOriginAccess.
+
+### 5.0.296 (2026-09-10 19:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.331.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration, KnowledgeBaseConfiguration_ManagedKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocation and KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_ModelConfiguration.

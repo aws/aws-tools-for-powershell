@@ -334,6 +334,7 @@ $BAT_SelectCompleters = {
 
 $BAT_SelectMap = @{
     "Select"=@("Stop-BATJob",
+               "Stop-BATJobCollection",
                "New-BATComputeEnvironment",
                "New-BATConsumableResource",
                "New-BATJobQueue",
@@ -369,7 +370,9 @@ $BAT_SelectMap = @{
                "Submit-BATServiceJob",
                "Add-BATResourceTag",
                "Remove-BATJob",
+               "Remove-BATJobCollection",
                "Stop-BATServiceJob",
+               "Stop-BATServiceJobCollection",
                "Remove-BATResourceTag",
                "Update-BATComputeEnvironment",
                "Update-BATConsumableResource",

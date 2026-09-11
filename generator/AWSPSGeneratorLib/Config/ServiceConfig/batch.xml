@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelJobs" OutputProperty="*" Verb="Stop" Noun="JobCollection" ShouldProcessTarget="Jobs" PipelineParameter="Jobs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateComputeEnvironment" OutputProperty="*" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ComputeResources_LaunchTemplate_LaunchTemplateId" NewName="LaunchTemplate_LaunchTemplateId" />
@@ -205,7 +209,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TerminateJobs" OutputProperty="*" Verb="Remove" Noun="JobCollection" ShouldProcessTarget="Jobs" PipelineParameter="Jobs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TerminateServiceJob" Verb="Stop" Noun="ServiceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateServiceJobs" OutputProperty="*" Verb="Stop" Noun="ServiceJobCollection" ShouldProcessTarget="Jobs" PipelineParameter="Jobs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

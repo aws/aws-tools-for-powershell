@@ -30,38 +30,53 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Terminates a job in a job queue. Jobs that are in the <c>STARTING</c> or <c>RUNNING</c>
-    /// state are terminated, which causes them to transition to <c>FAILED</c>. Jobs that
-    /// have not progressed to the <c>STARTING</c> state are cancelled.
+    /// Terminates up to 50 jobs in a job queue. This is a bulk version of <a>TerminateJob</a>.
+    /// Jobs that are in the <c>STARTING</c> or <c>RUNNING</c> state are terminated, which
+    /// causes them to transition to <c>FAILED</c>. Jobs that have not progressed to the <c>STARTING</c>
+    /// state are cancelled.
+    /// 
+    ///  
+    /// <para>
+    /// Batch reports the result for each job individually in the response. Jobs that were
+    /// processed successfully are reported in the <c>successful</c> list. Jobs that encountered
+    /// errors are reported in the <c>errors</c> list. The response returns an HTTP status
+    /// code of <c>200</c> even when some jobs encountered errors, so check the <c>errors</c>
+    /// list. Jobs that can't be found are treated as successfully processed.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Batch TerminateJob API operation.", Operation = new[] {"TerminateJob"}, SelectReturnType = typeof(Amazon.Batch.Model.TerminateJobResponse))]
-    [AWSCmdletOutput("None or Amazon.Batch.Model.TerminateJobResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.TerminateJobResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "BATJobCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Batch.Model.TerminateJobsResponse")]
+    [AWSCmdlet("Calls the AWS Batch TerminateJobs API operation.", Operation = new[] {"TerminateJobs"}, SelectReturnType = typeof(Amazon.Batch.Model.TerminateJobsResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.TerminateJobsResponse",
+        "This cmdlet returns an Amazon.Batch.Model.TerminateJobsResponse object containing multiple properties."
     )]
-    public partial class RemoveBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class RemoveBATJobCollectionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobId
+        #region Parameter Job
         /// <summary>
         /// <para>
-        /// <para>The Batch job ID of the job to terminate.</para>
+        /// <para>An array of up to 50 Batch job IDs of the jobs to terminate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
+        [Alias("Jobs")]
+        public System.String[] Job { get; set; }
         #endregion
         
         #region Parameter Reason
@@ -85,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.TerminateJobResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.TerminateJobsResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.TerminateJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATJob (TerminateJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Job), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATJobCollection (TerminateJobs)"))
             {
                 return;
             }
@@ -125,14 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.TerminateJobResponse, RemoveBATJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.TerminateJobsResponse, RemoveBATJobCollectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobId = this.JobId;
-            #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.Job != null)
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Job = new List<System.String>(this.Job);
+            }
+            #if MODULAR
+            if (this.Job == null && ParameterWasBound(nameof(this.Job)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Job which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Reason = this.Reason;
@@ -156,11 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.TerminateJobRequest();
+            var request = new Amazon.Batch.Model.TerminateJobsRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.Job != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.Jobs = cmdletContext.Job;
             }
             if (cmdletContext.Reason != null)
             {
@@ -199,12 +218,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.TerminateJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateJobRequest request)
+        private Amazon.Batch.Model.TerminateJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "TerminateJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "TerminateJobs");
             try
             {
-                return client.TerminateJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.TerminateJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -221,10 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
+            public List<System.String> Job { get; set; }
             public System.String Reason { get; set; }
-            public System.Func<Amazon.Batch.Model.TerminateJobResponse, RemoveBATJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Batch.Model.TerminateJobsResponse, RemoveBATJobCollectionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

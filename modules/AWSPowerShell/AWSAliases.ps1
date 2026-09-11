@@ -2660,6 +2660,9 @@ Set-Alias -Name BAKS-TagResource -Value Add-BAKSResourceTag
 Set-Alias -Name BAKS-UntagResource -Value Remove-BAKSResourceTag
 Set-Alias -Name Cancel-BATJob -Value Stop-BATJob
 Set-Alias -Name BAT-CancelJob -Value Stop-BATJob
+Set-Alias -Name Cancel-BATJobs -Value Stop-BATJobCollection
+Set-Alias -Name Cancel-BATJobCollection -Value Stop-BATJobCollection
+Set-Alias -Name BAT-CancelJobs -Value Stop-BATJobCollection
 Set-Alias -Name Create-BATComputeEnvironment -Value New-BATComputeEnvironment
 Set-Alias -Name BAT-CreateComputeEnvironment -Value New-BATComputeEnvironment
 Set-Alias -Name Create-BATConsumableResource -Value New-BATConsumableResource
@@ -2737,8 +2740,14 @@ Set-Alias -Name BAT-SubmitServiceJob -Value Submit-BATServiceJob
 Set-Alias -Name BAT-TagResource -Value Add-BATResourceTag
 Set-Alias -Name Terminate-BATJob -Value Remove-BATJob
 Set-Alias -Name BAT-TerminateJob -Value Remove-BATJob
+Set-Alias -Name Terminate-BATJobs -Value Remove-BATJobCollection
+Set-Alias -Name Terminate-BATJobCollection -Value Remove-BATJobCollection
+Set-Alias -Name BAT-TerminateJobs -Value Remove-BATJobCollection
 Set-Alias -Name Terminate-BATServiceJob -Value Stop-BATServiceJob
 Set-Alias -Name BAT-TerminateServiceJob -Value Stop-BATServiceJob
+Set-Alias -Name Terminate-BATServiceJobs -Value Stop-BATServiceJobCollection
+Set-Alias -Name Terminate-BATServiceJobCollection -Value Stop-BATServiceJobCollection
+Set-Alias -Name BAT-TerminateServiceJobs -Value Stop-BATServiceJobCollection
 Set-Alias -Name BAT-UntagResource -Value Remove-BATResourceTag
 Set-Alias -Name BAT-UpdateComputeEnvironment -Value Update-BATComputeEnvironment
 Set-Alias -Name BAT-UpdateConsumableResource -Value Update-BATConsumableResource
@@ -18013,6 +18022,12 @@ Set-Alias -Name INV-ListInvoiceUnits -Value Get-INVInvoiceUnitList
 Set-Alias -Name List-INVProcurementPortalPreferences -Value Get-INVProcurementPortalPreferenceList
 Set-Alias -Name List-INVProcurementPortalPreferenceList -Value Get-INVProcurementPortalPreferenceList
 Set-Alias -Name INV-ListProcurementPortalPreferences -Value Get-INVProcurementPortalPreferenceList
+Set-Alias -Name List-INVProcurementPortals -Value Get-INVProcurementPortalList
+Set-Alias -Name List-INVProcurementPortalList -Value Get-INVProcurementPortalList
+Set-Alias -Name INV-ListProcurementPortals -Value Get-INVProcurementPortalList
+Set-Alias -Name List-INVProcurementPortalSuppliers -Value Get-INVProcurementPortalSupplierList
+Set-Alias -Name List-INVProcurementPortalSupplierList -Value Get-INVProcurementPortalSupplierList
+Set-Alias -Name INV-ListProcurementPortalSuppliers -Value Get-INVProcurementPortalSupplierList
 Set-Alias -Name INV-ListTagsForResource -Value Get-INVResourceTag
 Set-Alias -Name Put-INVProcurementPortalPreference -Value Write-INVProcurementPortalPreference
 Set-Alias -Name INV-PutProcurementPortalPreference -Value Write-INVProcurementPortalPreference

@@ -236,6 +236,8 @@ $INV_SelectMap = @{
                "Get-INVInvoiceSummaryList",
                "Get-INVInvoiceUnitList",
                "Get-INVProcurementPortalPreferenceList",
+               "Get-INVProcurementPortalList",
+               "Get-INVProcurementPortalSupplierList",
                "Get-INVResourceTag",
                "Write-INVProcurementPortalPreference",
                "Send-INVProcurementPortalValidation",

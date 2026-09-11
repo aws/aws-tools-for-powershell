@@ -30,44 +30,67 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Terminates a job in a job queue. Jobs that are in the <c>STARTING</c> or <c>RUNNING</c>
-    /// state are terminated, which causes them to transition to <c>FAILED</c>. Jobs that
-    /// have not progressed to the <c>STARTING</c> state are cancelled.
+    /// Cancels up to 50 jobs in an Batch job queue. This is a bulk version of <a>CancelJob</a>.
+    /// Jobs that are in a <c>SUBMITTED</c>, <c>PENDING</c>, or <c>RUNNABLE</c> state are
+    /// cancelled and the job status is updated to <c>FAILED</c>.
+    /// 
+    ///  <note><para>
+    /// A <c>PENDING</c> job is cancelled after all dependency jobs are completed. Therefore,
+    /// it might take longer than expected to cancel a job in <c>PENDING</c> status.
+    /// </para><para>
+    /// When you try to cancel an array parent job in <c>PENDING</c>, Batch attempts to cancel
+    /// all child jobs. The array parent job is cancelled when all child jobs are completed.
+    /// </para></note><para>
+    /// Jobs that progressed to the <c>STARTING</c> or <c>RUNNING</c> state aren't cancelled.
+    /// These jobs must be terminated with the <a>TerminateJob</a> or <a>TerminateJobs</a>
+    /// operation.
+    /// </para><para>
+    /// Batch reports the result for each job individually in the response. Jobs that were
+    /// processed successfully are reported in the <c>successful</c> list. Jobs that encountered
+    /// errors are reported in the <c>errors</c> list. The response returns an HTTP status
+    /// code of <c>200</c> even when some jobs encountered errors, so check the <c>errors</c>
+    /// list. Jobs that can't be found are treated as successfully processed.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Batch TerminateJob API operation.", Operation = new[] {"TerminateJob"}, SelectReturnType = typeof(Amazon.Batch.Model.TerminateJobResponse))]
-    [AWSCmdletOutput("None or Amazon.Batch.Model.TerminateJobResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.TerminateJobResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "BATJobCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.CancelJobsResponse")]
+    [AWSCmdlet("Calls the AWS Batch CancelJobs API operation.", Operation = new[] {"CancelJobs"}, SelectReturnType = typeof(Amazon.Batch.Model.CancelJobsResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.CancelJobsResponse",
+        "This cmdlet returns an Amazon.Batch.Model.CancelJobsResponse object containing multiple properties."
     )]
-    public partial class RemoveBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class StopBATJobCollectionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter JobId
+        #region Parameter Job
         /// <summary>
         /// <para>
-        /// <para>The Batch job ID of the job to terminate.</para>
+        /// <para>An array of up to 50 Batch job IDs of the jobs to cancel.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
+        [Alias("Jobs")]
+        public System.String[] Job { get; set; }
         #endregion
         
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>A message to attach to the job that explains the reason for terminating it. This message
+        /// <para>A message to attach to the job that explains the reason for cancelling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded
         /// in the Batch activity logs.</para><para>This parameter has a limit of 1024 characters.</para>
         /// </para>
@@ -85,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.TerminateJobResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.CancelJobsResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.CancelJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATJob (TerminateJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Job), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BATJobCollection (CancelJobs)"))
             {
                 return;
             }
@@ -125,14 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.TerminateJobResponse, RemoveBATJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.CancelJobsResponse, StopBATJobCollectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.JobId = this.JobId;
-            #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.Job != null)
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Job = new List<System.String>(this.Job);
+            }
+            #if MODULAR
+            if (this.Job == null && ParameterWasBound(nameof(this.Job)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Job which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Reason = this.Reason;
@@ -156,11 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.TerminateJobRequest();
+            var request = new Amazon.Batch.Model.CancelJobsRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.Job != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.Jobs = cmdletContext.Job;
             }
             if (cmdletContext.Reason != null)
             {
@@ -199,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.TerminateJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateJobRequest request)
+        private Amazon.Batch.Model.CancelJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CancelJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "TerminateJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "CancelJobs");
             try
             {
-                return client.TerminateJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CancelJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -221,10 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
+            public List<System.String> Job { get; set; }
             public System.String Reason { get; set; }
-            public System.Func<Amazon.Batch.Model.TerminateJobResponse, RemoveBATJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Batch.Model.CancelJobsResponse, StopBATJobCollectionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
