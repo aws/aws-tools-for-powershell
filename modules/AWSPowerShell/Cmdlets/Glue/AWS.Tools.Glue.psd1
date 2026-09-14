@@ -164,6 +164,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GLUEIntegrationResourceProperty', 
         'Get-GLUEIntegrationResourcePropertyList', 
         'Get-GLUEIntegrationTableProperty', 
+        'Get-GLUEIntegrationTablePropertyList', 
         'Get-GLUEIterableFormBatch', 
         'Get-GLUEIterableFormList', 
         'Get-GLUEJob', 

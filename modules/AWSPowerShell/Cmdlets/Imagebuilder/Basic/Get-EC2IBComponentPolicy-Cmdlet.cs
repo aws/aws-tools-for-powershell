@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Gets a component policy.
+    /// Retrieves a component policy.
     /// </summary>
     [Cmdlet("Get", "EC2IBComponentPolicy")]
     [OutputType("System.String")]

@@ -146,10 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The semantic version of the component. This version follows the semantic version syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
-        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards
-        /// (x) to specify the most recent versions or nodes when selecting the base image or
-        /// components for your recipe. When you use a wildcard in any node, all nodes to the
-        /// right of the first wildcard must also be wildcards.</para></note>
+        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or
+        /// nodes when selecting the base image or components for your recipe. When you use a
+        /// wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -199,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
-        /// to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
+        /// <para>The uri of the component. Must be an Amazon S3 URL and you must have permission to
+        /// access the Amazon S3 bucket. If you use Amazon S3, you can specify component content
         /// up to your service quota. Either <c>data</c> or <c>uri</c> can be used to specify
         /// the data within the component.</para>
         /// </para>
@@ -212,8 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

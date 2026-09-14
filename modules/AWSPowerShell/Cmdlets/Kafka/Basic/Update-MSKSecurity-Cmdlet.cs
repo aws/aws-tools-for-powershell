@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>List of ACM Certificate Authority ARNs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -64,9 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>Indicates the encryption setting for data in transit between clients and brokers.
-        /// The following are the possible values.</para><para>               TLS means that client-broker communication is enabled with TLS only.</para><para>               TLS_PLAINTEXT means that client-broker communication is enabled for
-        /// both TLS-encrypted, as well as plaintext data.</para><para>               PLAINTEXT means that client-broker communication is enabled in plaintext
-        /// only.</para><para>The default value is TLS_PLAINTEXT.</para>
+        /// The following are the possible values.</para><para> TLS means that client-broker communication is enabled with TLS only.</para><para> TLS_PLAINTEXT means that client-broker communication is enabled for both TLS-encrypted,
+        /// as well as plaintext data.</para><para> PLAINTEXT means that client-broker communication is enabled in plaintext only.</para><para>The default value is TLS_PLAINTEXT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -16394,6 +16394,9 @@ Set-Alias -Name GLUE-ListGlossaryTerms -Value Get-GLUEGlossaryTermList
 Set-Alias -Name List-GLUEIntegrationResourceProperties -Value Get-GLUEIntegrationResourcePropertyList
 Set-Alias -Name List-GLUEIntegrationResourcePropertyList -Value Get-GLUEIntegrationResourcePropertyList
 Set-Alias -Name GLUE-ListIntegrationResourceProperties -Value Get-GLUEIntegrationResourcePropertyList
+Set-Alias -Name List-GLUEIntegrationTableProperties -Value Get-GLUEIntegrationTablePropertyList
+Set-Alias -Name List-GLUEIntegrationTablePropertyList -Value Get-GLUEIntegrationTablePropertyList
+Set-Alias -Name GLUE-ListIntegrationTableProperties -Value Get-GLUEIntegrationTablePropertyList
 Set-Alias -Name List-GLUEIterableForms -Value Get-GLUEIterableFormList
 Set-Alias -Name List-GLUEIterableFormList -Value Get-GLUEIterableFormList
 Set-Alias -Name GLUE-ListIterableForms -Value Get-GLUEIterableFormList

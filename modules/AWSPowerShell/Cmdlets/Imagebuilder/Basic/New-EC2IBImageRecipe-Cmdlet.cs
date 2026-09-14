@@ -120,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions and request parameters without making the request.
+        /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -162,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The semantic version of the image recipe. This version follows the semantic version
         /// syntax.</para><note><para>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
-        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Assignment:</b> For the first three nodes you can assign any positive integer
-        /// value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node.
-        /// Image Builder automatically assigns the build number to the fourth node.</para><para><b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
+        /// You can assign values for the first three, and can filter on all of them.</para><para><b>Assignment:</b> For the first three nodes, you can assign any positive integer
+        /// value, including zero. The upper limit is 2^30-1, or 1073741823, for each node. Image
+        /// Builder automatically assigns the build number to the fourth node.</para><para><b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements
         /// for the nodes that you can assign. For example, you might choose a software version
         /// pattern, such as 1.0.0, or a date, such as 2021.01.01.</para></note>
         /// </para>
@@ -238,8 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -317,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Component = new List<Amazon.Imagebuilder.Model.ComponentConfiguration>(this.Component);
             }
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -431,6 +445,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -514,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ClientToken { get; set; }
             public List<Amazon.Imagebuilder.Model.ComponentConfiguration> Component { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String Name { get; set; }
             public System.String ParentImage { get; set; }
             public System.String SemanticVersion { get; set; }

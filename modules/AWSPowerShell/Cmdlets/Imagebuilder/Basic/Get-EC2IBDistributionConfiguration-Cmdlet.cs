@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Gets a distribution configuration.
+    /// Retrieves a distribution configuration.
     /// </summary>
     [Cmdlet("Get", "EC2IBDistributionConfiguration")]
     [OutputType("Amazon.Imagebuilder.Model.DistributionConfiguration")]

@@ -959,6 +959,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrationTableProperties" OutputProperty="IntegrationTablePropertiesList" Verb="Get" Noun="IntegrationTablePropertyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIterableForms" OutputProperty="Items" Verb="Get" Noun="IterableFormList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

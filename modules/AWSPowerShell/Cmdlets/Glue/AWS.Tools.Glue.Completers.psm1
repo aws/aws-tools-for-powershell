@@ -1009,6 +1009,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEGlossaryList",
                "Get-GLUEGlossaryTermList",
                "Get-GLUEIntegrationResourcePropertyList",
+               "Get-GLUEIntegrationTablePropertyList",
                "Get-GLUEIterableFormList",
                "Get-GLUEJobNameList",
                "Get-GLUEMaterializedViewRefreshTaskRunList",

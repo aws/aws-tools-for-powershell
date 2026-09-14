@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// identity. The returned JWT can be used to authenticate with external services that
     /// support OIDC discovery. The token is signed by Amazon Web Services STS and can be
     /// publicly verified using the verification keys published at the issuer's JWKS endpoint.
+    /// 
+    ///  <note><para>
+    /// The <c>GetWebIdentityToken</c> API is not available on the STS Global endpoint.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "STSWebIdentityToken")]
     [OutputType("Amazon.SecurityToken.Model.GetWebIdentityTokenResponse")]

@@ -1,4 +1,26 @@
-﻿### 5.0.297 (2026-09-11 19:08Z)
+﻿### 5.0.298 (2026-09-14 19:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.333.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCPricingRule: added parameter Tiering_CustomTier.
+    * Modified cmdlet Update-ABCPricingRule: added parameter Tiering_CustomTier.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBContainerRecipe: added parameter DryRun.
+    * Modified cmdlet New-EC2IBDistributionConfiguration: added parameter DryRun.
+    * Modified cmdlet New-EC2IBImagePipeline: added parameter DryRun.
+    * Modified cmdlet New-EC2IBImageRecipe: added parameter DryRun.
+    * Modified cmdlet New-EC2IBInfrastructureConfiguration: added parameter DryRun.
+    * Modified cmdlet New-EC2IBLifecyclePolicy: added parameter DryRun.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEIntegrationTablePropertyList leveraging the ListIntegrationTableProperties service API.
+    * Modified cmdlet New-GLUEIntegrationTableProperty: added parameter TargetTableConfig_IntegrationArn.
+    * Modified cmdlet Update-GLUEIntegrationTableProperty: added parameter TargetTableConfig_IntegrationArn.
+  * Amazon Security Token Service
+    * Modified cmdlet Get-STSFederationToken: added parameter MinimumSessionTokenSize.
+    * Modified cmdlet Get-STSSessionToken: added parameter MinimumSessionTokenSize.
+    * Modified cmdlet Use-STSRole: added parameter MinimumSessionTokenSize.
+    * Modified cmdlet Use-STSRoot: added parameter MinimumSessionTokenSize.
+
+### 5.0.297 (2026-09-11 19:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.332.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Added cmdlet Remove-BATJobCollection leveraging the TerminateJobs service API.

@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>The paginated results marker. When the result of the operation is truncated, the call
-        /// returns NextToken in the response.             To get the next batch, provide this
-        /// token in your next request.</para>
+        /// returns NextToken in the response. To get the next batch, provide this token in your
+        /// next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

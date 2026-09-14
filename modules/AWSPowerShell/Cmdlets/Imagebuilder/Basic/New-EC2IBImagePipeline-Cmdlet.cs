@@ -30,8 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Creates a new image pipeline. Image pipelines enable you to automate the creation
-    /// and distribution of images.
+    /// Creates a new image pipeline. Use image pipelines to automate the creation and distribution
+    /// of images.
     /// </summary>
     [Cmdlet("New", "EC2IBImagePipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -86,20 +86,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the distribution configuration that will be used
-        /// to configure and distribute images created by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the distribution configuration that configures and
+        /// distributes images created by this image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DistributionConfigurationArn { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions and request parameters without making the request.
+        /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EnhancedImageMetadataEnabled
         /// <summary>
         /// <para>
-        /// <para>Collects additional information about the image being created, including the operating
-        /// system (OS) version and package list. This information is used to enhance the overall
-        /// experience of using EC2 Image Builder. Enabled by default.</para>
+        /// <para>Specifies whether to collect additional information about the image being created,
+        /// including the operating system (OS) version and package list. Defaults to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
-        /// images created by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image recipe that configures images created
+        /// by this image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines if tests should run after building the image. Image Builder defaults to
-        /// enable tests to run following the image build, before image distribution.</para>
+        /// <para>Specifies whether tests run after building the image. When enabled, tests run after
+        /// the image build and before image distribution. Defaults to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used
-        /// to build images created by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that builds images
+        /// created by this image pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -350,8 +361,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -409,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.ContainerRecipeArn = this.ContainerRecipeArn;
             context.Description = this.Description;
             context.DistributionConfigurationArn = this.DistributionConfigurationArn;
+            context.DryRun = this.DryRun;
             context.EnhancedImageMetadataEnabled = this.EnhancedImageMetadataEnabled;
             context.ExecutionRole = this.ExecutionRole;
             context.ImageRecipeArn = this.ImageRecipeArn;
@@ -492,6 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.DistributionConfigurationArn != null)
             {
                 request.DistributionConfigurationArn = cmdletContext.DistributionConfigurationArn;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.EnhancedImageMetadataEnabled != null)
             {
@@ -764,6 +781,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ContainerRecipeArn { get; set; }
             public System.String Description { get; set; }
             public System.String DistributionConfigurationArn { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
             public System.String ExecutionRole { get; set; }
             public System.String ImageRecipeArn { get; set; }

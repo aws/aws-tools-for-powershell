@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>The versions of Apache Kafka with which you can use this MSK configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -90,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>Contents of the <filename>server.properties</filename> file. When using the API, you
-        /// must ensure that the contents of the file are base64 encoded.                When
-        /// using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename>
+        /// must ensure that the contents of the file are base64 encoded. When using the AWS Management
+        /// Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename>
         /// can be in plaintext.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

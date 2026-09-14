@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para>
         /// <para> The advanced event selectors to use for filtering Amazon Web Services CloudTrail
         /// events. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -158,9 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <summary>
         /// <para>
         /// <para> A list of filter conditions that determine log record handling behavior. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -207,9 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <summary>
         /// <para>
         /// <para>The types of logs to collect from the resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -245,9 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <summary>
         /// <para>
         /// <para> The fields to redact from WAF logs to protect sensitive information. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -262,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para> An optional list of Amazon Web Services Regions where this telemetry rule should
         /// be replicated. When specified, the rule is created in the home region and automatically
         /// replicated to all listed regions. Mutually exclusive with <c>AllRegions</c>. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -342,9 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para>
         /// <para> The key-value pairs to associate with the organization telemetry rule resource for
         /// categorization and management purposes. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -359,9 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         /// <para> The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS
         /// or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource
         /// type. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -444,8 +451,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 context.Select = CreateSelectDelegate<Amazon.ObservabilityAdmin.Model.CreateTelemetryRuleForOrganizationResponse, NewCWOADMNTelemetryRuleForOrganizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Rule_AllowFieldUpdate = this.Rule_AllowFieldUpdate;
             context.Rule_AllRegion = this.Rule_AllRegion;
+            context.Rule_AllowFieldUpdate = this.Rule_AllowFieldUpdate;
             if (this.CloudtrailParameters_AdvancedEventSelector != null)
             {
                 context.CloudtrailParameters_AdvancedEventSelector = new List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector>(this.CloudtrailParameters_AdvancedEventSelector);
@@ -464,12 +471,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             context.VPCFlowLogParameters_LogFormat = this.VPCFlowLogParameters_LogFormat;
             context.VPCFlowLogParameters_MaxAggregationInterval = this.VPCFlowLogParameters_MaxAggregationInterval;
             context.VPCFlowLogParameters_TrafficType = this.VPCFlowLogParameters_TrafficType;
+            context.WAFLoggingParameters_LogType = this.WAFLoggingParameters_LogType;
             context.LoggingFilter_DefaultBehavior = this.LoggingFilter_DefaultBehavior;
             if (this.LoggingFilter_Filter != null)
             {
                 context.LoggingFilter_Filter = new List<Amazon.ObservabilityAdmin.Model.Filter>(this.LoggingFilter_Filter);
             }
-            context.WAFLoggingParameters_LogType = this.WAFLoggingParameters_LogType;
             if (this.WAFLoggingParameters_RedactedField != null)
             {
                 context.WAFLoggingParameters_RedactedField = new List<Amazon.ObservabilityAdmin.Model.FieldToMatch>(this.WAFLoggingParameters_RedactedField);
@@ -527,16 +534,6 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
              // populate Rule
             var requestRuleIsNull = true;
             request.Rule = new Amazon.ObservabilityAdmin.Model.TelemetryRule();
-            System.Boolean? requestRule_rule_AllowFieldUpdate = null;
-            if (cmdletContext.Rule_AllowFieldUpdate != null)
-            {
-                requestRule_rule_AllowFieldUpdate = cmdletContext.Rule_AllowFieldUpdate.Value;
-            }
-            if (requestRule_rule_AllowFieldUpdate != null)
-            {
-                request.Rule.AllowFieldUpdates = requestRule_rule_AllowFieldUpdate.Value;
-                requestRuleIsNull = false;
-            }
             System.Boolean? requestRule_rule_AllRegion = null;
             if (cmdletContext.Rule_AllRegion != null)
             {
@@ -545,6 +542,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_AllRegion != null)
             {
                 request.Rule.AllRegions = requestRule_rule_AllRegion.Value;
+                requestRuleIsNull = false;
+            }
+            System.Boolean? requestRule_rule_AllowFieldUpdate = null;
+            if (cmdletContext.Rule_AllowFieldUpdate != null)
+            {
+                requestRule_rule_AllowFieldUpdate = cmdletContext.Rule_AllowFieldUpdate.Value;
+            }
+            if (requestRule_rule_AllowFieldUpdate != null)
+            {
+                request.Rule.AllowFieldUpdates = requestRule_rule_AllowFieldUpdate.Value;
                 requestRuleIsNull = false;
             }
             List<System.String> requestRule_rule_Region = null;
@@ -955,8 +962,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? Rule_AllowFieldUpdate { get; set; }
             public System.Boolean? Rule_AllRegion { get; set; }
+            public System.Boolean? Rule_AllowFieldUpdate { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector> CloudtrailParameters_AdvancedEventSelector { get; set; }
             public System.String DestinationConfiguration_DestinationPattern { get; set; }
             public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
@@ -969,9 +976,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String VPCFlowLogParameters_LogFormat { get; set; }
             public System.Int32? VPCFlowLogParameters_MaxAggregationInterval { get; set; }
             public System.String VPCFlowLogParameters_TrafficType { get; set; }
+            public Amazon.ObservabilityAdmin.WAFLogType WAFLoggingParameters_LogType { get; set; }
             public Amazon.ObservabilityAdmin.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.Filter> LoggingFilter_Filter { get; set; }
-            public Amazon.ObservabilityAdmin.WAFLogType WAFLoggingParameters_LogType { get; set; }
             public List<Amazon.ObservabilityAdmin.Model.FieldToMatch> WAFLoggingParameters_RedactedField { get; set; }
             public List<System.String> Rule_Region { get; set; }
             public Amazon.ObservabilityAdmin.ResourceType Rule_ResourceType { get; set; }

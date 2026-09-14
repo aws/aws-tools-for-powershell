@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Create a lifecycle policy resource.
+    /// Creates a lifecycle policy resource.
     /// </summary>
     [Cmdlet("New", "EC2IBLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions and request parameters without making the request.
+        /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
         #region Parameter ExecutionRole
@@ -189,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -246,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.ExecutionRole = this.ExecutionRole;
             #if MODULAR
             if (this.ExecutionRole == null && ParameterWasBound(nameof(this.ExecutionRole)))
@@ -321,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ExecutionRole != null)
             {
@@ -432,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String ExecutionRole { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Imagebuilder.Model.LifecyclePolicyDetail> PolicyDetail { get; set; }

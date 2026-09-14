@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Gets an image recipe.
+    /// Retrieves an image recipe.
     /// </summary>
     [Cmdlet("Get", "EC2IBImageRecipe")]
     [OutputType("Amazon.Imagebuilder.Model.ImageRecipe")]

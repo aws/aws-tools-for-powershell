@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
-        /// truncated response.</para>
+        /// <para>A token to specify where to start paginating. Use the <c>nextToken</c> value from
+        /// a previously truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public System.Int32? DurationInSeconds { get; set; }
         #endregion
         
+        #region Parameter MinimumSessionTokenSize
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MinimumSessionTokenSize { get; set; }
+        #endregion
+        
         #region Parameter TargetPrincipal
         /// <summary>
         /// <para>
@@ -158,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DurationInSeconds = this.DurationInSeconds;
+            context.MinimumSessionTokenSize = this.MinimumSessionTokenSize;
             context.TargetPrincipal = this.TargetPrincipal;
             #if MODULAR
             if (this.TargetPrincipal == null && ParameterWasBound(nameof(this.TargetPrincipal)))
@@ -185,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             if (cmdletContext.DurationInSeconds != null)
             {
                 request.DurationSeconds = cmdletContext.DurationInSeconds.Value;
+            }
+            if (cmdletContext.MinimumSessionTokenSize != null)
+            {
+                request.MinimumSessionTokenSize = cmdletContext.MinimumSessionTokenSize.Value;
             }
             if (cmdletContext.TargetPrincipal != null)
             {
@@ -265,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DurationInSeconds { get; set; }
+            public System.Int32? MinimumSessionTokenSize { get; set; }
             public System.String TargetPrincipal { get; set; }
             public System.String TaskPolicyArn_Arn { get; set; }
             public System.Func<Amazon.SecurityToken.Model.AssumeRootResponse, UseSTSRootCmdlet, object> Select { get; set; } =

@@ -30,9 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Updates an image pipeline. Image pipelines enable you to automate the creation and
-    /// distribution of images. You must specify exactly one recipe for your image, using
-    /// either a <c>containerRecipeArn</c> or an <c>imageRecipeArn</c>.
+    /// Updates an image pipeline. Use image pipelines to automate the creation and distribution
+    /// of images. You must specify exactly one recipe for your image, using either a <c>containerRecipeArn</c>
+    /// or an <c>imageRecipeArn</c>.
     /// 
     ///  <note><para>
     /// UpdateImagePipeline does not support selective updates for the pipeline. You must
@@ -103,9 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter EnhancedImageMetadataEnabled
         /// <summary>
         /// <para>
-        /// <para>Collects additional information about the image being created, including the operating
-        /// system (OS) version and package list. This information is used to enhance the overall
-        /// experience of using EC2 Image Builder. Enabled by default.</para>
+        /// <para>Specifies whether to collect additional information about the image being created,
+        /// including the operating system (OS) version and package list. Defaults to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
-        /// images updated by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image recipe that configures images updated
+        /// by this image pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
         /// <summary>
         /// <para>
-        /// <para>Determines if tests should run after building the image. Image Builder defaults to
-        /// enable tests to run following the image build, before image distribution.</para>
+        /// <para>Specifies whether tests run after building the image. When enabled, tests run after
+        /// the image build and before image distribution. Defaults to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,8 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

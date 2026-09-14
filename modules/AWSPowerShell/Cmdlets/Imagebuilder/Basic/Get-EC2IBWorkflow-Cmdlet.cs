@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Get a workflow resource object.
+    /// Retrieves a workflow resource object.
     /// </summary>
     [Cmdlet("Get", "EC2IBWorkflow")]
     [OutputType("Amazon.Imagebuilder.Model.Workflow")]

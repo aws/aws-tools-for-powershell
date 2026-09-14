@@ -30,8 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Verify the subscription and perform resource dependency checks on the requested Amazon
-    /// Web Services Marketplace resource. For Amazon Web Services Marketplace components,
+    /// Verifies the subscription and performs resource dependency checks on the requested
+    /// Amazon Web Services Marketplace resource. For Amazon Web Services Marketplace components,
     /// the response contains fields to download the components and their artifacts.
     /// </summary>
     [Cmdlet("Get", "EC2IBMarketplaceResource")]

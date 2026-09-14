@@ -74,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String SourceTableConfig_FilterPredicate { get; set; }
         #endregion
         
+        #region Parameter TargetTableConfig_IntegrationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the integration that owns this target table configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetTableConfig_IntegrationArn { get; set; }
+        #endregion
+        
         #region Parameter TargetTableConfig_PartitionSpec
         /// <summary>
         /// <para>
@@ -244,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TargetTableConfig_IntegrationArn = this.TargetTableConfig_IntegrationArn;
             if (this.TargetTableConfig_PartitionSpec != null)
             {
                 context.TargetTableConfig_PartitionSpec = new List<Amazon.Glue.Model.IntegrationPartition>(this.TargetTableConfig_PartitionSpec);
@@ -327,6 +338,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate TargetTableConfig
             var requestTargetTableConfigIsNull = true;
             request.TargetTableConfig = new Amazon.Glue.Model.TargetTableConfig();
+            System.String requestTargetTableConfig_targetTableConfig_IntegrationArn = null;
+            if (cmdletContext.TargetTableConfig_IntegrationArn != null)
+            {
+                requestTargetTableConfig_targetTableConfig_IntegrationArn = cmdletContext.TargetTableConfig_IntegrationArn;
+            }
+            if (requestTargetTableConfig_targetTableConfig_IntegrationArn != null)
+            {
+                request.TargetTableConfig.IntegrationArn = requestTargetTableConfig_targetTableConfig_IntegrationArn;
+                requestTargetTableConfigIsNull = false;
+            }
             List<Amazon.Glue.Model.IntegrationPartition> requestTargetTableConfig_targetTableConfig_PartitionSpec = null;
             if (cmdletContext.TargetTableConfig_PartitionSpec != null)
             {
@@ -423,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<System.String> SourceTableConfig_PrimaryKey { get; set; }
             public System.String SourceTableConfig_RecordUpdateField { get; set; }
             public System.String TableName { get; set; }
+            public System.String TargetTableConfig_IntegrationArn { get; set; }
             public List<Amazon.Glue.Model.IntegrationPartition> TargetTableConfig_PartitionSpec { get; set; }
             public System.String TargetTableConfig_TargetTableName { get; set; }
             public Amazon.Glue.UnnestSpec TargetTableConfig_UnnestSpec { get; set; }

@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions and request parameters without making the request.
+        /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Placement_HostId
         /// <summary>
         /// <para>
@@ -140,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The instance types of the infrastructure configuration. You can specify one or more
-        /// instance types to use for this build. The service will pick one of these instance
-        /// types based on availability.</para><para />
+        /// instance types to use for this build. Image Builder picks one of these instance types
+        /// based on availability.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -238,8 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
-        /// notifications.</para><note><para>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted
+        /// <para>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image
+        /// build event notifications.</para><note><para>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted
         /// using keys from other accounts. The key that is used to encrypt the SNS topic must
         /// reside in the account that the Image Builder service runs under.</para></note>
         /// </para>
@@ -293,9 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter TerminateInstanceOnFailure
         /// <summary>
         /// <para>
-        /// <para>The terminate instance on failure setting of the infrastructure configuration. Set
-        /// to false if you want Image Builder to retain the instance used to configure your AMI
-        /// if the build or test phase of your workflow fails.</para>
+        /// <para>Specifies whether to terminate the instance on failure. Set to false if you want Image
+        /// Builder to retain the instance used to configure your AMI if the build or test phase
+        /// of your workflow fails. Defaults to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -305,8 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -362,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.InstanceMetadataOptions_HttpPutResponseHopLimit = this.InstanceMetadataOptions_HttpPutResponseHopLimit;
             context.InstanceMetadataOptions_HttpToken = this.InstanceMetadataOptions_HttpToken;
             context.InstanceProfileName = this.InstanceProfileName;
@@ -435,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate InstanceMetadataOptions
@@ -655,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Int32? InstanceMetadataOptions_HttpPutResponseHopLimit { get; set; }
             public System.String InstanceMetadataOptions_HttpToken { get; set; }
             public System.String InstanceProfileName { get; set; }

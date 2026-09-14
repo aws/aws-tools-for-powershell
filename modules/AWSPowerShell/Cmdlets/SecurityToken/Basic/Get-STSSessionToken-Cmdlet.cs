@@ -111,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public System.Int32? DurationInSeconds { get; set; }
         #endregion
         
+        #region Parameter MinimumSessionTokenSize
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MinimumSessionTokenSize { get; set; }
+        #endregion
+        
         #region Parameter SerialNumber
         /// <summary>
         /// <para>
@@ -175,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DurationInSeconds = this.DurationInSeconds;
+            context.MinimumSessionTokenSize = this.MinimumSessionTokenSize;
             context.SerialNumber = this.SerialNumber;
             context.TokenCode = this.TokenCode;
             
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             if (cmdletContext.DurationInSeconds != null)
             {
                 request.DurationSeconds = cmdletContext.DurationInSeconds.Value;
+            }
+            if (cmdletContext.MinimumSessionTokenSize != null)
+            {
+                request.MinimumSessionTokenSize = cmdletContext.MinimumSessionTokenSize.Value;
             }
             if (cmdletContext.SerialNumber != null)
             {
@@ -261,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DurationInSeconds { get; set; }
+            public System.Int32? MinimumSessionTokenSize { get; set; }
             public System.String SerialNumber { get; set; }
             public System.String TokenCode { get; set; }
             public System.Func<Amazon.SecurityToken.Model.GetSessionTokenResponse, GetSTSSessionTokenCmdlet, object> Select { get; set; } =

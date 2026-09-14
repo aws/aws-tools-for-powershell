@@ -30,8 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// List the Packages that are associated with an Image Build Version, as determined by
-    /// Amazon Web Services Systems Manager Inventory at build time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the packages that are associated with an image build version, as determined
+    /// by Amazon Web Services Systems Manager Inventory at build time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImagePackageList")]
     [OutputType("Amazon.Imagebuilder.Model.ImagePackage")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of items to return in a request.</para>
+        /// <para>The maximum number of items to return in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
-        /// truncated response.</para>
+        /// <para>A token to specify where to start paginating. Use the <c>nextToken</c> value from
+        /// a previously truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

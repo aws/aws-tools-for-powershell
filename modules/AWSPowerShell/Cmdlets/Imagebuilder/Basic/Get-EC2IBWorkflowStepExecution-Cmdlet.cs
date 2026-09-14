@@ -30,8 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Get the runtime information that was logged for a specific runtime instance of the
-    /// workflow step.
+    /// Retrieves runtime information for a specific runtime instance of the workflow step.
     /// </summary>
     [Cmdlet("Get", "EC2IBWorkflowStepExecution")]
     [OutputType("Amazon.Imagebuilder.Model.GetWorkflowStepExecutionResponse")]

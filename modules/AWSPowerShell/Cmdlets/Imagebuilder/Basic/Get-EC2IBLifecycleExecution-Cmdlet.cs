@@ -30,8 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Get the runtime information that was logged for a specific runtime instance of the
-    /// lifecycle policy.
+    /// Retrieves the runtime information for a specific runtime instance of the lifecycle
+    /// policy.
     /// </summary>
     [Cmdlet("Get", "EC2IBLifecycleExecution")]
     [OutputType("Amazon.Imagebuilder.Model.LifecycleExecution")]
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter LifecycleExecutionId
         /// <summary>
         /// <para>
-        /// <para>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime
-        /// details.</para>
+        /// <para>The unique identifier for a runtime instance of the lifecycle policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

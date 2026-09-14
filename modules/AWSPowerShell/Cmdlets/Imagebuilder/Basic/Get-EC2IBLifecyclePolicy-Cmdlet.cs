@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Get details for the specified image lifecycle policy.
+    /// Retrieves details for the specified image lifecycle policy.
     /// </summary>
     [Cmdlet("Get", "EC2IBLifecyclePolicy")]
     [OutputType("Amazon.Imagebuilder.Model.LifecyclePolicy")]

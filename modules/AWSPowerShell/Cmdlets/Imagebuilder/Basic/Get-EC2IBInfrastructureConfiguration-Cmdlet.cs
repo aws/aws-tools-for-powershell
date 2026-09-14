@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Gets an infrastructure configuration.
+    /// Retrieves an infrastructure configuration.
     /// </summary>
     [Cmdlet("Get", "EC2IBInfrastructureConfiguration")]
     [OutputType("Amazon.Imagebuilder.Model.InfrastructureConfiguration")]

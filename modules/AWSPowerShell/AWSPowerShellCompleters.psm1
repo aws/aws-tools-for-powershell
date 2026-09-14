@@ -15264,8 +15264,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Wait-CFNStack",
-               "Test-CFNStack")
+               "Test-CFNStack",
+               "Wait-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15947,8 +15947,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16408,9 +16408,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
-               "Search-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Search-CSDDocument",
+               "Get-CSDSuggestion",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30022,11 +30022,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
-               "New-DDBTableSchema",
                "New-DDBTable",
+               "New-DDBTableSchema",
+               "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
                "ConvertTo-DDBItem")
 }
 
@@ -32854,8 +32854,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -41520,6 +41520,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEGlossaryList",
                "Get-GLUEGlossaryTermList",
                "Get-GLUEIntegrationResourcePropertyList",
+               "Get-GLUEIntegrationTablePropertyList",
                "Get-GLUEIterableFormList",
                "Get-GLUEJobNameList",
                "Get-GLUEMaterializedViewRefreshTaskRunList",
@@ -77926,18 +77927,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
-               "Mount-S3PSDrive",
-               "Get-S3PreSignedURL",
-               "Write-S3Object",
+               "Remove-S3Object",
+               "Test-S3Bucket",
+               "Dismount-S3PSDrive",
                "Copy-S3Object",
                "Remove-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Test-S3Bucket",
-               "New-S3Bucket",
-               "Remove-S3Object",
+               "Get-S3MultipartUpload",
+               "Write-S3Object",
+               "Read-S3Object",
+               "Get-S3PreSignedURL",
                "Remove-S3MultipartUpload",
-               "Get-S3MultipartUpload")
+               "New-S3Bucket",
+               "Mount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

@@ -72,6 +72,21 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter Tiering_CustomTier
+        /// <summary>
+        /// <para>
+        /// <para> The set of custom tiers for the pricing rule. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tiering_CustomTiers")]
+        public Amazon.BillingConductor.Model.CustomTier[] Tiering_CustomTier { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -170,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             context.Description = this.Description;
             context.ModifierPercentage = this.ModifierPercentage;
             context.Name = this.Name;
+            if (this.Tiering_CustomTier != null)
+            {
+                context.Tiering_CustomTier = new List<Amazon.BillingConductor.Model.CustomTier>(this.Tiering_CustomTier);
+            }
             context.FreeTier_Activated = this.FreeTier_Activated;
             context.Type = this.Type;
             
@@ -208,6 +227,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
              // populate Tiering
             var requestTieringIsNull = true;
             request.Tiering = new Amazon.BillingConductor.Model.UpdateTieringInput();
+            List<Amazon.BillingConductor.Model.CustomTier> requestTiering_tiering_CustomTier = null;
+            if (cmdletContext.Tiering_CustomTier != null)
+            {
+                requestTiering_tiering_CustomTier = cmdletContext.Tiering_CustomTier;
+            }
+            if (requestTiering_tiering_CustomTier != null)
+            {
+                request.Tiering.CustomTiers = requestTiering_tiering_CustomTier;
+                requestTieringIsNull = false;
+            }
             Amazon.BillingConductor.Model.UpdateFreeTierConfig requestTiering_tiering_FreeTier = null;
             
              // populate FreeTier
@@ -301,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String Description { get; set; }
             public System.Double? ModifierPercentage { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.BillingConductor.Model.CustomTier> Tiering_CustomTier { get; set; }
             public System.Boolean? FreeTier_Activated { get; set; }
             public Amazon.BillingConductor.PricingRuleType Type { get; set; }
             public System.Func<Amazon.BillingConductor.Model.UpdatePricingRuleResponse, UpdateABCPricingRuleCmdlet, object> Select { get; set; } =

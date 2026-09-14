@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public Amazon.Imagebuilder.Model.Distribution[] Distribution { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions and request parameters without making the request.
+        /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -113,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
+        /// no more than one time. If this token matches a previous request, the service ignores
+        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -180,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Distribution which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -222,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Distribution != null)
             {
                 request.Distributions = cmdletContext.Distribution;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -289,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.Imagebuilder.Model.Distribution> Distribution { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.CreateDistributionConfigurationResponse, NewEC2IBDistributionConfigurationCmdlet, object> Select { get; set; } =

@@ -185,11 +185,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentMode
         /// <summary>
         /// <para>
-        /// The deployment mode to use for the deployment.
-        /// When set to STANDARD (the default), the deployment runs the standard set of deployment
-        /// lifecycle events. When set to RESTART, an EC2/On-premises in-place deployment runs
-        /// a shortened set of lifecycle events to quickly restart the application on the target
-        /// instances.
+        /// <para>The type of deployment to create. Valid values are:</para><ul><li><para><c>STANDARD</c>: Deploys the specified revision. This is the default behavior if
+        /// <c>deploymentMode</c> is not specified.</para></li><li><para><c>RESTART</c>: Restarts the application on the target instances using the revision
+        /// from the deployment group's last successful deployment, without downloading a new
+        /// revision. <c>RESTART</c> is supported only for EC2/On-premises in-place deployments.</para><para>When <c>deploymentMode</c> is <c>RESTART</c>, the following apply:</para><ul><li><para>The call is rejected for Amazon ECS and Lambda deployments.</para></li><li><para>The <c>revision</c> parameter (including its <c>s3Location</c> and <c>gitHubLocation</c>)
+        /// must not be specified, and is rejected if provided. The revision is resolved by the
+        /// service from the deployment group's last successful deployment.</para></li><li><para>The <c>updateOutdatedInstancesOnly</c> parameter must not be set to <c>true</c>, and
+        /// is rejected if provided.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

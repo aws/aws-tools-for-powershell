@@ -30,7 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Delete the specified lifecycle policy resource.
+    /// Deletes the specified lifecycle policy resource.
     /// </summary>
     [Cmdlet("Remove", "EC2IBLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

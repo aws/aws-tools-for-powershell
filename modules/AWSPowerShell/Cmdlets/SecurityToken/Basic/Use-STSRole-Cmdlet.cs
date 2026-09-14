@@ -179,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public System.String ExternalId { get; set; }
         #endregion
         
+        #region Parameter MinimumSessionTokenSize
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MinimumSessionTokenSize { get; set; }
+        #endregion
+        
         #region Parameter Policy
         /// <summary>
         /// <para>
@@ -450,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             }
             context.DurationInSeconds = this.DurationInSeconds;
             context.ExternalId = this.ExternalId;
+            context.MinimumSessionTokenSize = this.MinimumSessionTokenSize;
             context.Policy = this.Policy;
             if (this.PolicyArn != null)
             {
@@ -507,6 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             if (cmdletContext.ExternalId != null)
             {
                 request.ExternalId = cmdletContext.ExternalId;
+            }
+            if (cmdletContext.MinimumSessionTokenSize != null)
+            {
+                request.MinimumSessionTokenSize = cmdletContext.MinimumSessionTokenSize.Value;
             }
             if (cmdletContext.Policy != null)
             {
@@ -605,6 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             public System.Int32? DurationInSeconds { get; set; }
             public System.String ExternalId { get; set; }
+            public System.Int32? MinimumSessionTokenSize { get; set; }
             public System.String Policy { get; set; }
             public List<Amazon.SecurityToken.Model.PolicyDescriptorType> PolicyArn { get; set; }
             public List<Amazon.SecurityToken.Model.ProvidedContext> ProvidedContext { get; set; }

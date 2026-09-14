@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <summary>
         /// <para>
         /// <para>Contents of the <filename>server.properties</filename> file. When using the API, you
-        /// must ensure that the contents of the file are base64 encoded.                When
-        /// using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename>
+        /// must ensure that the contents of the file are base64 encoded. When using the AWS Management
+        /// Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename>
         /// can be in plaintext.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
