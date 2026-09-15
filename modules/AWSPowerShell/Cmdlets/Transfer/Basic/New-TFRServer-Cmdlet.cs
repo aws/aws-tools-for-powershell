@@ -438,6 +438,30 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter ProtocolDetails_ProxyConfig_SftpMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the Transfer Family server requires or ignores a PPv2 header containing
+        /// the original client IP address on incoming SFTP connections. If you don't specify
+        /// a value, the default is <c>NONE</c></para><ul><li><para><c>NONE</c>: the server reads and ignores any PPv2 header on incoming SFTP connections.
+        /// This is the default value. Use this value when your SFTP server is not behind an NLB,
+        /// or when you do not need to preserve client source IP addresses through an NLB.</para></li><li><para><c>PROXY_PROTOCOL_V2_ENFORCED</c>: the server requires a valid PPv2 header on every
+        /// incoming SFTP connection. When a valid header is present, the server applies it and
+        /// uses the client IP address from the header. If a connection arrives without a PPv2
+        /// header, the server refuses the connection and logs an error to Amazon CloudWatch Logs
+        /// indicating that the expected PPv2 header was missing. Use this value when your SFTP
+        /// server is behind an NLB with PPv2 enabled on the target group.</para><important><para>When you enable <c>PROXY_PROTOCOL_V2_ENFORCED</c>, the server trusts the source IP
+        /// address in the PPv2 header. You must configure security groups on your server's VPC
+        /// endpoint to restrict inbound traffic to only the NLB's private IP addresses. For the
+        /// full requirements, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working
+        /// with Network Load Balancers</a>.</para></important></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.ProxyMode")]
+        public Amazon.Transfer.ProxyMode ProtocolDetails_ProxyConfig_SftpMode { get; set; }
+        #endregion
+        
         #region Parameter StructuredLogDestination
         /// <summary>
         /// <para>
@@ -621,6 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 context.ProtocolDetails_As2Transport = new List<System.String>(this.ProtocolDetails_As2Transport);
             }
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
+            context.ProtocolDetails_ProxyConfig_SftpMode = this.ProtocolDetails_ProxyConfig_SftpMode;
             context.ProtocolDetails_SetStatOption = this.ProtocolDetails_SetStatOption;
             context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
             if (this.Protocol != null)
@@ -859,6 +884,31 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.ProtocolDetails.TlsSessionResumptionMode = requestProtocolDetails_protocolDetails_TlsSessionResumptionMode;
                 requestProtocolDetailsIsNull = false;
             }
+            Amazon.Transfer.Model.ProxyConfig requestProtocolDetails_protocolDetails_ProxyConfig = null;
+            
+             // populate ProxyConfig
+            var requestProtocolDetails_protocolDetails_ProxyConfigIsNull = true;
+            requestProtocolDetails_protocolDetails_ProxyConfig = new Amazon.Transfer.Model.ProxyConfig();
+            Amazon.Transfer.ProxyMode requestProtocolDetails_protocolDetails_ProxyConfig_protocolDetails_ProxyConfig_SftpMode = null;
+            if (cmdletContext.ProtocolDetails_ProxyConfig_SftpMode != null)
+            {
+                requestProtocolDetails_protocolDetails_ProxyConfig_protocolDetails_ProxyConfig_SftpMode = cmdletContext.ProtocolDetails_ProxyConfig_SftpMode;
+            }
+            if (requestProtocolDetails_protocolDetails_ProxyConfig_protocolDetails_ProxyConfig_SftpMode != null)
+            {
+                requestProtocolDetails_protocolDetails_ProxyConfig.SftpMode = requestProtocolDetails_protocolDetails_ProxyConfig_protocolDetails_ProxyConfig_SftpMode;
+                requestProtocolDetails_protocolDetails_ProxyConfigIsNull = false;
+            }
+             // determine if requestProtocolDetails_protocolDetails_ProxyConfig should be set to null
+            if (requestProtocolDetails_protocolDetails_ProxyConfigIsNull)
+            {
+                requestProtocolDetails_protocolDetails_ProxyConfig = null;
+            }
+            if (requestProtocolDetails_protocolDetails_ProxyConfig != null)
+            {
+                request.ProtocolDetails.ProxyConfig = requestProtocolDetails_protocolDetails_ProxyConfig;
+                requestProtocolDetailsIsNull = false;
+            }
              // determine if request.ProtocolDetails should be set to null
             if (requestProtocolDetailsIsNull)
             {
@@ -1004,6 +1054,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String PreAuthenticationLoginBanner { get; set; }
             public List<System.String> ProtocolDetails_As2Transport { get; set; }
             public System.String ProtocolDetails_PassiveIp { get; set; }
+            public Amazon.Transfer.ProxyMode ProtocolDetails_ProxyConfig_SftpMode { get; set; }
             public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }

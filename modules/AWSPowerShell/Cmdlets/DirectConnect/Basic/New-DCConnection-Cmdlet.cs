@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.String Bandwidth { get; set; }
         #endregion
         
+        #region Parameter BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>The billing mode for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectConnect.RequestBillingMode")]
+        public Amazon.DirectConnect.RequestBillingMode BillingMode { get; set; }
+        #endregion
+        
         #region Parameter ConnectionName
         /// <summary>
         /// <para>
@@ -209,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 WriteWarning("You are passing $null as a value for parameter Bandwidth which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BillingMode = this.BillingMode;
             context.ConnectionName = this.ConnectionName;
             #if MODULAR
             if (this.ConnectionName == null && ParameterWasBound(nameof(this.ConnectionName)))
@@ -249,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.Bandwidth != null)
             {
                 request.Bandwidth = cmdletContext.Bandwidth;
+            }
+            if (cmdletContext.BillingMode != null)
+            {
+                request.BillingMode = cmdletContext.BillingMode;
             }
             if (cmdletContext.ConnectionName != null)
             {
@@ -330,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Bandwidth { get; set; }
+            public Amazon.DirectConnect.RequestBillingMode BillingMode { get; set; }
             public System.String ConnectionName { get; set; }
             public System.String LagId { get; set; }
             public System.String Location { get; set; }

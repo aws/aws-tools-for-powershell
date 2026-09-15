@@ -10217,6 +10217,8 @@ Set-Alias -Name Allocate-DCPublicVirtualInterface -Value Enable-DCPublicVirtualI
 Set-Alias -Name DC-AllocatePublicVirtualInterface -Value Enable-DCPublicVirtualInterface
 Set-Alias -Name Allocate-DCTransitVirtualInterface -Value Enable-DCTransitVirtualInterface
 Set-Alias -Name DC-AllocateTransitVirtualInterface -Value Enable-DCTransitVirtualInterface
+Set-Alias -Name Associate-DCConnectionsToResiliencyGroup -Value Add-DCConnectionsToResiliencyGroup
+Set-Alias -Name DC-AssociateConnectionsToResiliencyGroup -Value Add-DCConnectionsToResiliencyGroup
 Set-Alias -Name Associate-DCConnectionWithLag -Value Register-DCConnectionWithLag
 Set-Alias -Name DC-AssociateConnectionWithLag -Value Register-DCConnectionWithLag
 Set-Alias -Name Associate-DCHostedConnection -Value Register-DCHostedConnection
@@ -10250,6 +10252,8 @@ Set-Alias -Name Create-DCPrivateVirtualInterface -Value New-DCPrivateVirtualInte
 Set-Alias -Name DC-CreatePrivateVirtualInterface -Value New-DCPrivateVirtualInterface
 Set-Alias -Name Create-DCPublicVirtualInterface -Value New-DCPublicVirtualInterface
 Set-Alias -Name DC-CreatePublicVirtualInterface -Value New-DCPublicVirtualInterface
+Set-Alias -Name Create-DCResiliencyGroup -Value New-DCResiliencyGroup
+Set-Alias -Name DC-CreateResiliencyGroup -Value New-DCResiliencyGroup
 Set-Alias -Name Create-DCTransitVirtualInterface -Value New-DCTransitVirtualInterface
 Set-Alias -Name DC-CreateTransitVirtualInterface -Value New-DCTransitVirtualInterface
 Set-Alias -Name Delete-DCBGPPeer -Value Remove-DCBGPPeer
@@ -10268,6 +10272,8 @@ Set-Alias -Name Delete-DCInterconnect -Value Remove-DCInterconnect
 Set-Alias -Name DC-DeleteInterconnect -Value Remove-DCInterconnect
 Set-Alias -Name Delete-DCLag -Value Remove-DCLag
 Set-Alias -Name DC-DeleteLag -Value Remove-DCLag
+Set-Alias -Name Delete-DCResiliencyGroup -Value Remove-DCResiliencyGroup
+Set-Alias -Name DC-DeleteResiliencyGroup -Value Remove-DCResiliencyGroup
 Set-Alias -Name Delete-DCVirtualInterface -Value Remove-DCVirtualInterface
 Set-Alias -Name DC-DeleteVirtualInterface -Value Remove-DCVirtualInterface
 Set-Alias -Name Describe-DCConnectionLoa -Value Get-DCConnectionLoa
@@ -10320,8 +10326,17 @@ Set-Alias -Name Describe-DCVirtualInterface -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name Disassociate-DCConnectionFromLag -Value Unregister-DCConnectionFromLag
 Set-Alias -Name DC-DisassociateConnectionFromLag -Value Unregister-DCConnectionFromLag
+Set-Alias -Name Disassociate-DCConnectionsFromResiliencyGroup -Value Remove-DCConnectionsFromResiliencyGroup
+Set-Alias -Name DC-DisassociateConnectionsFromResiliencyGroup -Value Remove-DCConnectionsFromResiliencyGroup
 Set-Alias -Name Disassociate-DCMacSecKey -Value Remove-DCMacSecKey
 Set-Alias -Name DC-DisassociateMacSecKey -Value Remove-DCMacSecKey
+Set-Alias -Name DC-GetResiliencyGroup -Value Get-DCResiliencyGroup
+Set-Alias -Name List-DCResiliencyGroupAssociations -Value Get-DCResiliencyGroupAssociationList
+Set-Alias -Name List-DCResiliencyGroupAssociationList -Value Get-DCResiliencyGroupAssociationList
+Set-Alias -Name DC-ListResiliencyGroupAssociations -Value Get-DCResiliencyGroupAssociationList
+Set-Alias -Name List-DCResiliencyGroups -Value Get-DCResiliencyGroupList
+Set-Alias -Name List-DCResiliencyGroupList -Value Get-DCResiliencyGroupList
+Set-Alias -Name DC-ListResiliencyGroups -Value Get-DCResiliencyGroupList
 Set-Alias -Name List-DCVirtualInterfaceRoutes -Value Get-DCVirtualInterfaceRouteList
 Set-Alias -Name List-DCVirtualInterfaceRouteList -Value Get-DCVirtualInterfaceRouteList
 Set-Alias -Name DC-ListVirtualInterfaceRoutes -Value Get-DCVirtualInterfaceRouteList
@@ -10333,9 +10348,11 @@ Set-Alias -Name DC-StopBgpFailoverTest -Value Stop-DCBgpFailoverTest
 Set-Alias -Name DC-TagResource -Value Add-DCResourceTag
 Set-Alias -Name DC-UntagResource -Value Remove-DCResourceTag
 Set-Alias -Name DC-UpdateConnection -Value Update-DCConnection
+Set-Alias -Name DC-UpdateConnectionsBillingMode -Value Update-DCConnectionsBillingMode
 Set-Alias -Name DC-UpdateDirectConnectGatewayAssociation -Value Update-DCDirectConnectGatewayAssociation
 Set-Alias -Name DC-UpdateDirectConnectGateway -Value Update-DCDirectConnectGateway
 Set-Alias -Name DC-UpdateLag -Value Update-DCLag
+Set-Alias -Name DC-UpdateResiliencyGroup -Value Update-DCResiliencyGroup
 Set-Alias -Name Update-DCVirtualInterfaceAttributes -Value Update-DCVirtualInterfaceAttribute
 Set-Alias -Name DC-UpdateVirtualInterfaceAttributes -Value Update-DCVirtualInterfaceAttribute
 Set-Alias -Name DSD-AddGroupMember -Value Add-DSDGroupMember

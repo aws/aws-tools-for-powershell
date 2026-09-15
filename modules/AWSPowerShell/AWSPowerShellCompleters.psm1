@@ -15264,8 +15264,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16408,8 +16408,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
                "Write-CSDDocument")
 }
 
@@ -27486,6 +27486,24 @@ $DC_Completers = {
             break
         }
 
+        # Amazon.DirectConnect.RequestBillingMode
+        {
+            ($_ -eq "New-DCConnection/BillingMode") -Or
+            ($_ -eq "New-DCLag/BillingMode") -Or
+            ($_ -eq "Update-DCConnectionsBillingMode/BillingMode")
+        }
+        {
+            $v = "FlatRateTier1","FlatRateTier2","FlatRateTier3","FlatRateTier4","FlatRateTier5","PayAsYouGo"
+            break
+        }
+
+        # Amazon.DirectConnect.ResiliencyModel
+        "New-DCResiliencyGroup/IntendedResiliencyModel"
+        {
+            $v = "basic-resiliency","high-resiliency","maximum-resiliency"
+            break
+        }
+
         # Amazon.DirectConnect.RouteDirection
         "Get-DCVirtualInterfaceRouteList/Filters_RouteDirection"
         {
@@ -27502,8 +27520,10 @@ $DC_Completers = {
 }
 
 $DC_map = @{
+    "BillingMode"=@("New-DCConnection","New-DCLag","Update-DCConnectionsBillingMode")
     "Filters_AddressFamily"=@("Get-DCVirtualInterfaceRouteList")
     "Filters_RouteDirection"=@("Get-DCVirtualInterfaceRouteList")
+    "IntendedResiliencyModel"=@("New-DCResiliencyGroup")
     "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa","Get-DCLoa")
     "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
     "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
@@ -27570,6 +27590,7 @@ $DC_SelectMap = @{
                "Enable-DCPrivateVirtualInterface",
                "Enable-DCPublicVirtualInterface",
                "Enable-DCTransitVirtualInterface",
+               "Add-DCConnectionsToResiliencyGroup",
                "Register-DCConnectionWithLag",
                "Register-DCHostedConnection",
                "Add-DCMacSecKey",
@@ -27588,6 +27609,7 @@ $DC_SelectMap = @{
                "New-DCLag",
                "New-DCPrivateVirtualInterface",
                "New-DCPublicVirtualInterface",
+               "New-DCResiliencyGroup",
                "New-DCTransitVirtualInterface",
                "Remove-DCBGPPeer",
                "Remove-DCConnection",
@@ -27596,6 +27618,7 @@ $DC_SelectMap = @{
                "Remove-DCDirectConnectGatewayAssociationProposal",
                "Remove-DCInterconnect",
                "Remove-DCLag",
+               "Remove-DCResiliencyGroup",
                "Remove-DCVirtualInterface",
                "Get-DCConnectionLoa",
                "Get-DCConnection",
@@ -27616,7 +27639,11 @@ $DC_SelectMap = @{
                "Get-DCVirtualGateway",
                "Get-DCVirtualInterface",
                "Unregister-DCConnectionFromLag",
+               "Remove-DCConnectionsFromResiliencyGroup",
                "Remove-DCMacSecKey",
+               "Get-DCResiliencyGroup",
+               "Get-DCResiliencyGroupAssociationList",
+               "Get-DCResiliencyGroupList",
                "Get-DCVirtualInterfaceRouteList",
                "Get-DCVirtualInterfaceTestHistoryList",
                "Start-DCBgpFailoverTest",
@@ -27624,9 +27651,11 @@ $DC_SelectMap = @{
                "Add-DCResourceTag",
                "Remove-DCResourceTag",
                "Update-DCConnection",
+               "Update-DCConnectionsBillingMode",
                "Update-DCDirectConnectGateway",
                "Update-DCDirectConnectGatewayAssociation",
                "Update-DCLag",
+               "Update-DCResiliencyGroup",
                "Update-DCVirtualInterfaceAttribute")
 }
 
@@ -30022,12 +30051,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
-               "New-DDBTable",
-               "New-DDBTableSchema",
                "Add-DDBKeySchema",
+               "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem")
+               "Add-DDBIndexSchema",
+               "ConvertTo-DDBItem",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -77927,18 +77956,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Object",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Copy-S3Object",
-               "Remove-S3Bucket",
-               "Get-S3MultipartUpload",
                "Write-S3Object",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
-               "Remove-S3MultipartUpload",
                "New-S3Bucket",
-               "Mount-S3PSDrive")
+               "Dismount-S3PSDrive",
+               "Remove-S3Object",
+               "Mount-S3PSDrive",
+               "Copy-S3Object",
+               "Test-S3Bucket",
+               "Get-S3MultipartUpload",
+               "Read-S3Object",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -90078,6 +90107,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.ProxyMode
+        {
+            ($_ -eq "New-TFRServer/ProtocolDetails_ProxyConfig_SftpMode") -Or
+            ($_ -eq "Update-TFRServer/ProtocolDetails_ProxyConfig_SftpMode")
+        }
+        {
+            $v = "NONE","PROXY_PROTOCOL_V2_ENFORCED"
+            break
+        }
+
         # Amazon.Transfer.SetStatOption
         {
             ($_ -eq "New-TFRServer/ProtocolDetails_SetStatOption") -Or
@@ -90160,6 +90199,7 @@ $TFR_map = @{
     "IpAddressType"=@("New-TFRConnector","New-TFRServer","Update-TFRConnector","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
+    "ProtocolDetails_ProxyConfig_SftpMode"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "S3StorageOptions_DirectoryListingOptimization"=@("New-TFRServer","Update-TFRServer")
@@ -94099,7 +94139,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
         }
         {
-            $v = "GENERALPURPOSE_4XLARGE","GENERALPURPOSE_8XLARGE","GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","GRAPHICS_G6F_2XLARGE","GRAPHICS_G6F_4XLARGE","GRAPHICS_G6F_LARGE","GRAPHICS_G6F_XLARGE","GRAPHICS_G6_16XLARGE","GRAPHICS_G6_2XLARGE","GRAPHICS_G6_4XLARGE","GRAPHICS_G6_8XLARGE","GRAPHICS_G6_XLARGE","GRAPHICS_GR6F_4XLARGE","GRAPHICS_GR6_4XLARGE","GRAPHICS_GR6_8XLARGE","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
+            $v = "GENERALPURPOSE_4XLARGE","GENERALPURPOSE_8XLARGE","GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","GRAPHICS_G6F_2XLARGE","GRAPHICS_G6F_4XLARGE","GRAPHICS_G6F_LARGE","GRAPHICS_G6F_XLARGE","GRAPHICS_G6_16XLARGE","GRAPHICS_G6_2XLARGE","GRAPHICS_G6_4XLARGE","GRAPHICS_G6_8XLARGE","GRAPHICS_G6_XLARGE","GRAPHICS_G7_12XLARGE","GRAPHICS_G7_2XLARGE","GRAPHICS_G7_4XLARGE","GRAPHICS_G7_8XLARGE","GRAPHICS_GR6F_4XLARGE","GRAPHICS_GR6_4XLARGE","GRAPHICS_GR6_8XLARGE","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
 
@@ -94134,7 +94174,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.ImageComputeType
         "Import-WKSCustomWorkspaceImage/ComputeType"
         {
-            $v = "BASE","GRAPHICS_G4DN","GRAPHICS_G6"
+            $v = "BASE","GRAPHICS_G4DN","GRAPHICS_G6","GRAPHICS_G7"
             break
         }
 

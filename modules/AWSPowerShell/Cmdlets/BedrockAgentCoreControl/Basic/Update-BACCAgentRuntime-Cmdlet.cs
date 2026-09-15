@@ -304,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
         
+        #region Parameter PlatformVersion
+        /// <summary>
+        /// <para>
+        /// <para>The updated version of the runtime platform to use for the AgentCore Runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PlatformVersion { get; set; }
+        #endregion
+        
         #region Parameter S3_Prefix
         /// <summary>
         /// <para>
@@ -718,6 +728,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.NetworkModeConfig_Subnet = new List<System.String>(this.NetworkModeConfig_Subnet);
             }
+            context.PlatformVersion = this.PlatformVersion;
             context.ProtocolConfiguration_ServerProtocol = this.ProtocolConfiguration_ServerProtocol;
             if (this.RequestHeaderConfiguration_RequestHeaderAllowlist != null)
             {
@@ -1270,6 +1281,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.NetworkConfiguration = null;
             }
+            if (cmdletContext.PlatformVersion != null)
+            {
+                request.PlatformVersion = cmdletContext.PlatformVersion;
+            }
             
              // populate ProtocolConfiguration
             var requestProtocolConfigurationIsNull = true;
@@ -1402,6 +1417,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Boolean? NetworkConfiguration_NetworkModeConfig_RequireServiceS3Endpoint { get; set; }
             public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> NetworkModeConfig_Subnet { get; set; }
+            public System.String PlatformVersion { get; set; }
             public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }
             public List<System.String> RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
             public System.String RoleArn { get; set; }

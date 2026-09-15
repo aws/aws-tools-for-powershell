@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>The billing mode for the LAG.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectConnect.RequestBillingMode")]
+        public Amazon.DirectConnect.RequestBillingMode BillingMode { get; set; }
+        #endregion
+        
         #region Parameter ChildConnectionTag
         /// <summary>
         /// <para>
@@ -248,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 context.Select = CreateSelectDelegate<Amazon.DirectConnect.Model.CreateLagResponse, NewDCLagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BillingMode = this.BillingMode;
             if (this.ChildConnectionTag != null)
             {
                 context.ChildConnectionTag = new List<Amazon.DirectConnect.Model.Tag>(this.ChildConnectionTag);
@@ -303,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.CreateLagRequest();
             
+            if (cmdletContext.BillingMode != null)
+            {
+                request.BillingMode = cmdletContext.BillingMode;
+            }
             if (cmdletContext.ChildConnectionTag != null)
             {
                 request.ChildConnectionTags = cmdletContext.ChildConnectionTag;
@@ -394,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DirectConnect.RequestBillingMode BillingMode { get; set; }
             public List<Amazon.DirectConnect.Model.Tag> ChildConnectionTag { get; set; }
             public System.String ConnectionId { get; set; }
             public System.String ConnectionsBandwidth { get; set; }

@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateConnectionsToResiliencyGroup" OutputProperty="ResiliencyGroupAssociations" Verb="Add" Noun="ConnectionsToResiliencyGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ResiliencyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateConnectionWithLag" OutputProperty="*" Verb="Register" Noun="ConnectionWithLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -121,6 +125,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResiliencyGroup" OutputProperty="ResiliencyGroup" Verb="New" Noun="ResiliencyGroup" ShouldProcessTarget="ResiliencyGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitVirtualInterface" OutputProperty="VirtualInterface" Verb="New" Noun="TransitVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -150,6 +158,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLag" OutputProperty="*" Verb="Remove" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResiliencyGroup" OutputProperty="ResiliencyGroup" Verb="Remove" Noun="ResiliencyGroup" ShouldProcessTarget="ResiliencyGroupId" PipelineParameter="ResiliencyGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,7 +245,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateConnectionsFromResiliencyGroup" OutputProperty="ResiliencyGroupAssociations" Verb="Remove" Noun="ConnectionsFromResiliencyGroup" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ResiliencyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateMacSecKey" OutputProperty="*" Verb="Remove" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResiliencyGroup" OutputProperty="ResiliencyGroup" Verb="Get" Noun="ResiliencyGroup" PipelineParameter="ResiliencyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResiliencyGroupAssociations" OutputProperty="Items" Verb="Get" Noun="ResiliencyGroupAssociationList" PipelineParameter="ResiliencyGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResiliencyGroups" OutputProperty="Items" Verb="Get" Noun="ResiliencyGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -265,6 +293,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionsBillingMode" OutputProperty="*" Verb="Update" Noun="ConnectionsBillingMode" ShouldProcessTarget="ConnectionIds" PipelineParameter="BillingMode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Update" Noun="DirectConnectGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -274,6 +306,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLag" OutputProperty="*" Verb="Update" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResiliencyGroup" OutputProperty="ResiliencyGroup" Verb="Update" Noun="ResiliencyGroup" ShouldProcessTarget="ResiliencyGroupId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

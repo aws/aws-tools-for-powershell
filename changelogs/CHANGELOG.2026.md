@@ -1,4 +1,25 @@
-﻿### 5.0.298 (2026-09-14 19:56Z)
+﻿### 5.0.299 (2026-09-15 19:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.334.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameter PlatformVersion.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameter PlatformVersion.
+  * Amazon Direct Connect
+    * Added cmdlet Add-DCConnectionsToResiliencyGroup leveraging the AssociateConnectionsToResiliencyGroup service API.
+    * Added cmdlet Get-DCResiliencyGroup leveraging the GetResiliencyGroup service API.
+    * Added cmdlet Get-DCResiliencyGroupAssociationList leveraging the ListResiliencyGroupAssociations service API.
+    * Added cmdlet Get-DCResiliencyGroupList leveraging the ListResiliencyGroups service API.
+    * Added cmdlet New-DCResiliencyGroup leveraging the CreateResiliencyGroup service API.
+    * Added cmdlet Remove-DCConnectionsFromResiliencyGroup leveraging the DisassociateConnectionsFromResiliencyGroup service API.
+    * Added cmdlet Remove-DCResiliencyGroup leveraging the DeleteResiliencyGroup service API.
+    * Added cmdlet Update-DCConnectionsBillingMode leveraging the UpdateConnectionsBillingMode service API.
+    * Added cmdlet Update-DCResiliencyGroup leveraging the UpdateResiliencyGroup service API.
+    * Modified cmdlet New-DCConnection: added parameter BillingMode.
+    * Modified cmdlet New-DCLag: added parameter BillingMode.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter ProtocolDetails_ProxyConfig_SftpMode.
+    * Modified cmdlet Update-TFRServer: added parameter ProtocolDetails_ProxyConfig_SftpMode.
+
+### 5.0.298 (2026-09-14 19:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.333.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet New-ABCPricingRule: added parameter Tiering_CustomTier.

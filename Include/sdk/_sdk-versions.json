@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.333.0",
+    "ProductVersion"    : "4.0.334.0",
     "CoreVersion"       : "4.0.102.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -138,7 +138,7 @@
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "4.0.102.4",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -380,7 +380,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "4.0.102.5",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -1180,7 +1180,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "4.0.101.3",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.114.3",
+            "Version" : "4.0.115.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"

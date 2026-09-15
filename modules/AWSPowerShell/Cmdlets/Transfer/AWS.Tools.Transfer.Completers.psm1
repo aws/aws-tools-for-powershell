@@ -260,6 +260,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.ProxyMode
+        {
+            ($_ -eq "New-TFRServer/ProtocolDetails_ProxyConfig_SftpMode") -Or
+            ($_ -eq "Update-TFRServer/ProtocolDetails_ProxyConfig_SftpMode")
+        }
+        {
+            $v = "NONE","PROXY_PROTOCOL_V2_ENFORCED"
+            break
+        }
+
         # Amazon.Transfer.SetStatOption
         {
             ($_ -eq "New-TFRServer/ProtocolDetails_SetStatOption") -Or
@@ -342,6 +352,7 @@ $TFR_map = @{
     "IpAddressType"=@("New-TFRConnector","New-TFRServer","Update-TFRConnector","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
+    "ProtocolDetails_ProxyConfig_SftpMode"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")
     "S3StorageOptions_DirectoryListingOptimization"=@("New-TFRServer","Update-TFRServer")

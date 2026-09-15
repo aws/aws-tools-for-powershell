@@ -107,6 +107,24 @@ $DC_Completers = {
             break
         }
 
+        # Amazon.DirectConnect.RequestBillingMode
+        {
+            ($_ -eq "New-DCConnection/BillingMode") -Or
+            ($_ -eq "New-DCLag/BillingMode") -Or
+            ($_ -eq "Update-DCConnectionsBillingMode/BillingMode")
+        }
+        {
+            $v = "FlatRateTier1","FlatRateTier2","FlatRateTier3","FlatRateTier4","FlatRateTier5","PayAsYouGo"
+            break
+        }
+
+        # Amazon.DirectConnect.ResiliencyModel
+        "New-DCResiliencyGroup/IntendedResiliencyModel"
+        {
+            $v = "basic-resiliency","high-resiliency","maximum-resiliency"
+            break
+        }
+
         # Amazon.DirectConnect.RouteDirection
         "Get-DCVirtualInterfaceRouteList/Filters_RouteDirection"
         {
@@ -123,8 +141,10 @@ $DC_Completers = {
 }
 
 $DC_map = @{
+    "BillingMode"=@("New-DCConnection","New-DCLag","Update-DCConnectionsBillingMode")
     "Filters_AddressFamily"=@("Get-DCVirtualInterfaceRouteList")
     "Filters_RouteDirection"=@("Get-DCVirtualInterfaceRouteList")
+    "IntendedResiliencyModel"=@("New-DCResiliencyGroup")
     "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa","Get-DCLoa")
     "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
     "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
@@ -191,6 +211,7 @@ $DC_SelectMap = @{
                "Enable-DCPrivateVirtualInterface",
                "Enable-DCPublicVirtualInterface",
                "Enable-DCTransitVirtualInterface",
+               "Add-DCConnectionsToResiliencyGroup",
                "Register-DCConnectionWithLag",
                "Register-DCHostedConnection",
                "Add-DCMacSecKey",
@@ -209,6 +230,7 @@ $DC_SelectMap = @{
                "New-DCLag",
                "New-DCPrivateVirtualInterface",
                "New-DCPublicVirtualInterface",
+               "New-DCResiliencyGroup",
                "New-DCTransitVirtualInterface",
                "Remove-DCBGPPeer",
                "Remove-DCConnection",
@@ -217,6 +239,7 @@ $DC_SelectMap = @{
                "Remove-DCDirectConnectGatewayAssociationProposal",
                "Remove-DCInterconnect",
                "Remove-DCLag",
+               "Remove-DCResiliencyGroup",
                "Remove-DCVirtualInterface",
                "Get-DCConnectionLoa",
                "Get-DCConnection",
@@ -237,7 +260,11 @@ $DC_SelectMap = @{
                "Get-DCVirtualGateway",
                "Get-DCVirtualInterface",
                "Unregister-DCConnectionFromLag",
+               "Remove-DCConnectionsFromResiliencyGroup",
                "Remove-DCMacSecKey",
+               "Get-DCResiliencyGroup",
+               "Get-DCResiliencyGroupAssociationList",
+               "Get-DCResiliencyGroupList",
                "Get-DCVirtualInterfaceRouteList",
                "Get-DCVirtualInterfaceTestHistoryList",
                "Start-DCBgpFailoverTest",
@@ -245,9 +272,11 @@ $DC_SelectMap = @{
                "Add-DCResourceTag",
                "Remove-DCResourceTag",
                "Update-DCConnection",
+               "Update-DCConnectionsBillingMode",
                "Update-DCDirectConnectGateway",
                "Update-DCDirectConnectGatewayAssociation",
                "Update-DCLag",
+               "Update-DCResiliencyGroup",
                "Update-DCVirtualInterfaceAttribute")
 }
 
