@@ -30,8 +30,8 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Launches an AWS Elastic Beanstalk environment for the specified application using
-    /// the specified configuration.
+    /// Launches an Elastic Beanstalk environment for the specified application using the
+    /// specified configuration.
     /// </summary>
     [Cmdlet("New", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResponse")]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Name
         /// <summary>
         /// <para>
-        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>WebServer</c></para></li><li><para>For <i>Worker tier</i> – <c>Worker</c></para></li></ul>
+        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Standard-mode EC2-based web server</i> – <c>WebServer</c></para></li><li><para>For <i>Standard-mode EC2-based backend application with Amazon SQS</i> – <c>Worker</c></para></li><li><para>For <i>Cluster-mode Amazon EKS-based applications</i> – <c>Cluster</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,12 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OperationsRole
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
+        /// <important><para>The operations role feature of Elastic Beanstalk is in beta release and is subject
+        /// to change.</para></important><para>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
         /// operations role. If specified, Elastic Beanstalk uses the operations role for permissions
         /// to downstream services during this call and during subsequent calls acting on this
         /// environment. To specify an operations role, you must have the <c>iam:PassRole</c>
-        /// permission for the role. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations
-        /// roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para>
+        /// permission for the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk sets the specified configuration options to the
-        /// requested value in the configuration set for the new environment. These override the
-        /// values obtained from the solution stack or the configuration template.</para><para />
+        /// <para>If specified, Elastic Beanstalk sets the specified configuration options to the requested
+        /// value in the configuration set for the new environment. These override the values
+        /// obtained from the solution stack or the configuration template.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the custom platform to use with the environment.
         /// For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">Custom
-        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, don't specify <c>SolutionStackName</c>.</para></note>
+        /// Platforms</a> in the <i>Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, don't specify <c>SolutionStackName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// environment. If specified, Elastic Beanstalk sets the configuration values to the
         /// default values associated with the specified solution stack. For a list of current
         /// solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html">Elastic
-        /// Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk Platforms</i> guide.</para><note><para>If you specify <c>SolutionStackName</c>, don't specify <c>PlatformArn</c> or <c>TemplateName</c>.</para></note>
+        /// Beanstalk Supported Platforms</a> in the <i>Elastic Beanstalk Platforms</i> guide.</para><note><para>If you specify <c>SolutionStackName</c>, don't specify <c>PlatformArn</c> or <c>TemplateName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Type
         /// <summary>
         /// <para>
-        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>Standard</c></para></li><li><para>For <i>Worker tier</i> – <c>SQS/HTTP</c></para></li></ul>
+        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>Standard</c></para></li><li><para>For <i>Worker tier</i> – <c>SQS/HTTP</c></para></li><li><para>For <i>Cluster tier</i> – <c>EKS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    ///  Attempting to update both the release and configuration is not allowed and AWS Elastic
+    ///  Attempting to update both the release and configuration is not allowed and Elastic
     /// Beanstalk returns an <c>InvalidParameterCombination</c> error. 
     /// </para><para>
     ///  When updating the configuration settings to a new template or individual settings,
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, AWS Elastic Beanstalk updates the description of this
+        /// <para>If this parameter is specified, Elastic Beanstalk updates the description of this
         /// environment.</para>
         /// </para>
         /// </summary>
@@ -81,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment to update.</para><para>If no environment with this ID exists, AWS Elastic Beanstalk returns an <c>InvalidParameterValue</c>
+        /// <para>The ID of the environment to update.</para><para>If no environment with this ID exists, Elastic Beanstalk returns an <c>InvalidParameterValue</c>
         /// error.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c>
-        /// error. </para>
+        /// not specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -94,10 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the environment to update. If no environment with this name exists, AWS
-        /// Elastic Beanstalk returns an <c>InvalidParameterValue</c> error. </para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
-        /// </para>
+        /// <para>The name of the environment to update. If no environment with this name exists, Elastic
+        /// Beanstalk returns an <c>InvalidParameterValue</c> error. </para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -120,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Name
         /// <summary>
         /// <para>
-        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>WebServer</c></para></li><li><para>For <i>Worker tier</i> – <c>Worker</c></para></li></ul>
+        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Standard-mode EC2-based web server</i> – <c>WebServer</c></para></li><li><para>For <i>Standard-mode EC2-based backend application with Amazon SQS</i> – <c>Worker</c></para></li><li><para>For <i>Cluster-mode Amazon EKS-based applications</i> – <c>Cluster</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk updates the configuration set associated with
-        /// the running environment and sets the specified configuration options to the requested
+        /// <para>If specified, Elastic Beanstalk updates the configuration set associated with the
+        /// running environment and sets the specified configuration options to the requested
         /// value.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -183,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template
-        /// to the environment. If no such configuration template is found, AWS Elastic Beanstalk
+        /// <para>If this parameter is specified, Elastic Beanstalk deploys this configuration template
+        /// to the environment. If no such configuration template is found, Elastic Beanstalk
         /// returns an <c>InvalidParameterValue</c> error. </para>
         /// </para>
         /// </summary>
@@ -195,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Type
         /// <summary>
         /// <para>
-        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>Standard</c></para></li><li><para>For <i>Worker tier</i> – <c>SQS/HTTP</c></para></li></ul>
+        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <c>Standard</c></para></li><li><para>For <i>Worker tier</i> – <c>SQS/HTTP</c></para></li><li><para>For <i>Cluster tier</i> – <c>EKS</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, AWS Elastic Beanstalk deploys the named application
-        /// version to the environment. If no such application version is found, returns an <c>InvalidParameterValue</c>
+        /// <para>If this parameter is specified, Elastic Beanstalk deploys the named application version
+        /// to the environment. If no such application version is found, returns an <c>InvalidParameterValue</c>
         /// error. </para>
         /// </para>
         /// </summary>

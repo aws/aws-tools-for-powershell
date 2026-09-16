@@ -185,6 +185,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CPFStreamForSegment', 
         'Remove-CPFWorkflow', 
         'Search-CPFProfile', 
+        'Search-CPFRecommendation', 
         'Start-CPFRecommender', 
         'Start-CPFUploadJob', 
         'Stop-CPFRecommender', 

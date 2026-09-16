@@ -99,6 +99,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDependencyInsights" OutputProperty="*" Verb="Get" Noun="DependencyInsight" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFailureModeFinding" OutputProperty="Finding" Verb="Get" Noun="FailureModeFinding" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicySummaries" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyEvents" OutputProperty="Events" Verb="Get" Noun="PolicyEventList" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -240,6 +248,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTestSources" Verb="Write" Noun="TestSource" ShouldProcessTarget="TestId,ServiceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDependencyInsights" OutputProperty="Status" Verb="Start" Noun="DependencyInsight" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

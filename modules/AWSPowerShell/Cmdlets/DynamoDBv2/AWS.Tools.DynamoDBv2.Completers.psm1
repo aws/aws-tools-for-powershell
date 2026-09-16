@@ -464,11 +464,11 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
                "New-DDBTableSchema",
                "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
+               "Add-DDBKeySchema",
+               "Add-DDBIndexSchema",
                "New-DDBTable")
 }
 

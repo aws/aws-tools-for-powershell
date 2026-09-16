@@ -23,60 +23,67 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ElasticBeanstalk;
-using Amazon.ElasticBeanstalk.Model;
+using Amazon.Resiliencehubv2;
+using Amazon.Resiliencehubv2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EB
+namespace Amazon.PowerShell.Cmdlets.RH2
 {
     /// <summary>
-    /// Deletes and recreates all of the Amazon Web Services resources (for example: the Auto
-    /// Scaling group, load balancer, etc.) for a specified environment and forces a restart.
+    /// Starts generating dependency insights for a service. Generation runs asynchronously;
+    /// the response returns the initial status, and you retrieve the results with GetDependencyInsights.
+    /// To use this operation, you must have the <c>resiliencehub:StartDependencyInsights</c>
+    /// permission on the service.
     /// </summary>
-    [Cmdlet("Start", "EBEnvironmentRebuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Elastic Beanstalk RebuildEnvironment API operation.", Operation = new[] {"RebuildEnvironment"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse))]
-    [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Start", "RH2DependencyInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Resiliencehubv2.DependencyInsightsStatus")]
+    [AWSCmdlet("Calls the AWS Resilience Hub V2 StartDependencyInsights API operation.", Operation = new[] {"StartDependencyInsights"}, SelectReturnType = typeof(Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse))]
+    [AWSCmdletOutput("Amazon.Resiliencehubv2.DependencyInsightsStatus or Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse",
+        "This cmdlet returns an Amazon.Resiliencehubv2.DependencyInsightsStatus object.",
+        "The service call response (type Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class StartEBEnvironmentRebuildCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class StartRH2DependencyInsightCmdlet : AmazonResiliencehubv2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EnvironmentId
+        #region Parameter ServiceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment to rebuild.</para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
-        /// </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String EnvironmentId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ServiceArn { get; set; }
         #endregion
         
-        #region Parameter EnvironmentName
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The name of the environment to rebuild.</para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error. </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String EnvironmentName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse).
+        /// Specifying the name of a property of type Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter Force
@@ -98,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-EBEnvironmentRebuild (RebuildEnvironment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RH2DependencyInsight (StartDependencyInsights)"))
             {
                 return;
             }
@@ -111,11 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse, StartEBEnvironmentRebuildCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse, StartRH2DependencyInsightCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EnvironmentId = this.EnvironmentId;
-            context.EnvironmentName = this.EnvironmentName;
+            context.ClientToken = this.ClientToken;
+            context.ServiceArn = this.ServiceArn;
+            #if MODULAR
+            if (this.ServiceArn == null && ParameterWasBound(nameof(this.ServiceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,15 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.RebuildEnvironmentRequest();
+            var request = new Amazon.Resiliencehubv2.Model.StartDependencyInsightsRequest();
             
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.EnvironmentName != null)
+            if (cmdletContext.ServiceArn != null)
             {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
+                request.ServiceArn = cmdletContext.ServiceArn;
             }
             
             CmdletOutput output;
@@ -173,12 +186,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.RebuildEnvironmentRequest request)
+        private Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse CallAWSServiceOperation(IAmazonResiliencehubv2 client, Amazon.Resiliencehubv2.Model.StartDependencyInsightsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "RebuildEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub V2", "StartDependencyInsights");
             try
             {
-                return client.RebuildEnvironmentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartDependencyInsightsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -195,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EnvironmentId { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.Func<Amazon.ElasticBeanstalk.Model.RebuildEnvironmentResponse, StartEBEnvironmentRebuildCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClientToken { get; set; }
+            public System.String ServiceArn { get; set; }
+            public System.Func<Amazon.Resiliencehubv2.Model.StartDependencyInsightsResponse, StartRH2DependencyInsightCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

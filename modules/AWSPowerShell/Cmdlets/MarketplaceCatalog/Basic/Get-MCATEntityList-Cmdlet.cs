@@ -1039,6 +1039,21 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList { get; set; }
         #endregion
         
+        #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>IssuerAccountId</c> of a ResaleAuthorization with list
+        /// input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList { get; set; }
+        #endregion
+        
         #region Parameter ManufacturerAccountId_ValueList
         /// <summary>
         /// <para>
@@ -1174,6 +1189,21 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList { get; set; }
+        #endregion
+        
+        #region Parameter EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>SourceAuthorization</c> of a ResaleAuthorization with list
+        /// input.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList { get; set; }
         #endregion
         
         #region Parameter Status_ValueList
@@ -1619,6 +1649,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             {
                 context.EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList = new List<System.String>(this.EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList);
             }
+            if (this.EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList != null)
+            {
+                context.EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList = new List<System.String>(this.EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList);
+            }
             context.EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue = this.EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue;
             context.EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue = this.EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue;
             if (this.ManufacturerAccountId_ValueList != null)
@@ -1663,6 +1697,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (this.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList != null)
             {
                 context.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList = new List<System.String>(this.EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList);
+            }
+            if (this.EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList != null)
+            {
+                context.EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList = new List<System.String>(this.EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList);
             }
             if (this.Status_ValueList != null)
             {
@@ -3208,6 +3246,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.EntityId = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_EntityId;
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
             }
+            Amazon.MarketplaceCatalog.Model.ResaleAuthorizationIssuerAccountIdFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId = null;
+            
+             // populate IssuerAccountId
+            var requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId = new Amazon.MarketplaceCatalog.Model.ResaleAuthorizationIssuerAccountIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList = cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId.ValueList = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.IssuerAccountId = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
+            }
             Amazon.MarketplaceCatalog.Model.ResaleAuthorizationLastModifiedDateFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate = null;
             
              // populate LastModifiedDate
@@ -3306,6 +3369,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole != null)
             {
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.ResellerRole = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_ResellerRole;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.ResaleAuthorizationSourceAuthorizationFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization = null;
+            
+             // populate SourceAuthorization
+            var requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorizationIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization = new Amazon.MarketplaceCatalog.Model.ResaleAuthorizationSourceAuthorizationFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList = null;
+            if (cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList = cmdletContext.EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization.ValueList = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorizationIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorizationIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters.SourceAuthorization = requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization;
                 requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFiltersIsNull = false;
             }
             Amazon.MarketplaceCatalog.Model.ResaleAuthorizationStatusFilter requestEntityTypeFilters_entityTypeFilters_ResaleAuthorizationFilters_entityTypeFilters_ResaleAuthorizationFilters_Status = null;
@@ -4182,6 +4270,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String EntityTypeFilters_ResaleAuthorizationFilters_CreatedDate_DateRange_BeforeValue { get; set; }
             public List<System.String> CreatedDate_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_ResaleAuthorizationFilters_EntityId_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList { get; set; }
             public System.String EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_AfterValue { get; set; }
             public System.String EntityTypeFilters_ResaleAuthorizationFilters_LastModifiedDate_DateRange_BeforeValue { get; set; }
             public List<System.String> ManufacturerAccountId_ValueList { get; set; }
@@ -4200,6 +4289,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<System.String> ResellerLegalName_ValueList { get; set; }
             public System.String ResellerLegalName_WildCardValue { get; set; }
             public List<System.String> EntityTypeFilters_ResaleAuthorizationFilters_ResellerRole_ValueList { get; set; }
+            public List<System.String> EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList { get; set; }
             public List<System.String> Status_ValueList { get; set; }
             public List<System.String> EntityTypeFilters_SaaSProductFilters_EntityId_ValueList { get; set; }
             public System.String EntityTypeFilters_SaaSProductFilters_LastModifiedDate_DateRange_AfterValue { get; set; }

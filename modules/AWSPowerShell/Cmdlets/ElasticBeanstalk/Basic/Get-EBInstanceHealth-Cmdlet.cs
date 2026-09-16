@@ -30,9 +30,27 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk.
-    /// This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
-    /// health reporting</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves detailed information about the health of instances in your Elastic Beanstalk
+    /// environments. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
+    /// health reporting</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This action only returns information about environments that the calling principle
+    /// has IAM permissions to access. For example, consider a case where a user only has
+    /// permission to access one of three environments. When the user calls this action, the
+    /// response will only include the one environment that the user has permission to access
+    /// instead of all three environments. If the user doesn’t have access to any of the environments
+    /// an empty result is returned.
+    /// </para><note><para>
+    /// The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+    /// managed policy allows operators to view information about resources related to Elastic
+    /// Beanstalk environments. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html">
+    /// Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+    /// Guide</i>. For detailed instructions to attach a policy to a user or group, see the
+    /// section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed">
+    /// Controlling access with managed policies</a> in the same topic.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBInstanceHealth")]
     [OutputType("Amazon.ElasticBeanstalk.Model.SingleInstanceHealth")]
@@ -66,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>Specify the AWS Elastic Beanstalk environment by ID.</para>
+        /// <para>Specify the Elastic Beanstalk environment by ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -76,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>Specify the AWS Elastic Beanstalk environment by name.</para>
+        /// <para>Specify the Elastic Beanstalk environment by name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

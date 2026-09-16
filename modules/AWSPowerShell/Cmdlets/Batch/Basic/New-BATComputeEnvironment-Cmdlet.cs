@@ -348,7 +348,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_InstanceRole
         /// <summary>
         /// <para>
-        /// Amazon.Batch.Model.ComputeResource.InstanceRole
+        /// <para>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
+        /// This parameter is required for Amazon EC2 instances types. You can specify the short
+        /// name or full Amazon Resource Name (ARN) of an instance profile. For example, <c><i>ecsInstanceRole</i></c> or <c>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
+        /// ECS instance role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

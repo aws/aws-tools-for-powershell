@@ -31,6 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Returns the descriptions of existing applications.
+    /// 
+    ///  
+    /// <para>
+    /// This action only returns information about applications that the calling principle
+    /// has IAM permissions to access. For example, consider a case where a user only has
+    /// permission to access two of three applications. When the user calls the <i>DescribeApplications</i>
+    /// action, the response will only include the two applications that the user has permission
+    /// to access instead of all three applications. If the user doesn’t have access to any
+    /// of the applications an empty result is returned.
+    /// </para><note><para>
+    /// The <i>AWSElasticBeanstalkReadOnly</i> managed policy allows operators to view information
+    /// about resources related to Elastic Beanstalk environments. For more information, see
+    /// <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html">
+    /// Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+    /// Guide</i>. For detailed instructions to attach a policy to a user or group, see the
+    /// section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed">
+    /// Controlling access with managed policies</a> in the same topic.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EBApplication")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationDescription")]
@@ -48,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to only include
         /// those with the specified names.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

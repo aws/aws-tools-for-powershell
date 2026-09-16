@@ -138,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         public System.Int32? MultiRegion_RtoInMinute { get; set; }
         #endregion
         
+        #region Parameter SharingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether cross-account sharing is enabled for the policy. Disabling sharing
+        /// stops member services from using the policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SharingEnabled { get; set; }
+        #endregion
+        
         #region Parameter AvailabilitySlo_Target
         /// <summary>
         /// <para>
@@ -221,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
                 WriteWarning("You are passing $null as a value for parameter PolicyArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SharingEnabled = this.SharingEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -361,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             {
                 request.PolicyArn = cmdletContext.PolicyArn;
             }
+            if (cmdletContext.SharingEnabled != null)
+            {
+                request.SharingEnabled = cmdletContext.SharingEnabled.Value;
+            }
             
             CmdletOutput output;
             
@@ -426,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             public System.Int32? MultiRegion_RpoInMinute { get; set; }
             public System.Int32? MultiRegion_RtoInMinute { get; set; }
             public System.String PolicyArn { get; set; }
+            public System.Boolean? SharingEnabled { get; set; }
             public System.Func<Amazon.Resiliencehubv2.Model.UpdatePolicyResponse, UpdateRH2PolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Policy;
         }

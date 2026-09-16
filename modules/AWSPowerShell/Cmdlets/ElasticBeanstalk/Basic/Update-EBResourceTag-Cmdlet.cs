@@ -30,8 +30,8 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can
-    /// be passed: <c>TagsToAdd</c> for tags to add or update, and <c>TagsToRemove</c>.
+    /// Update the list of tags applied to an Elastic Beanstalk resource. Two lists can be
+    /// passed: <c>TagsToAdd</c> for tags to add or update, and <c>TagsToRemove</c>.
     /// 
     ///  
     /// <para>
@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging
     /// Application Resources</a>.
     /// </para><para>
-    /// If you create a custom IAM user policy to control permission to this operation, specify
-    /// one of the following two virtual actions (or both) instead of the API operation name:
+    /// If you create a custom policy to control permission to this operation, specify one
+    /// of the following two virtual actions (or both) instead of the API operation name:
     /// </para><dl><dt>elasticbeanstalk:AddTags</dt><dd><para>
     /// Controls permission to call <c>UpdateTagsForResource</c> and pass a list of tags to
     /// add in the <c>TagsToAdd</c> parameter.

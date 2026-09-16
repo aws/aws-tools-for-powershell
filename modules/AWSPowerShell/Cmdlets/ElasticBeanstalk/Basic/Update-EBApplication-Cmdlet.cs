@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A new description for the application.</para><para>Default: If not specified, AWS Elastic Beanstalk does not update the description.</para>
+        /// <para>A new description for the application.</para><para>Default: If not specified, Elastic Beanstalk does not update the description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

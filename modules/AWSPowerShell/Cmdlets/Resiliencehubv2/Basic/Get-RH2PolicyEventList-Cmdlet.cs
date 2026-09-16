@@ -30,29 +30,72 @@ using Amazon.Resiliencehubv2.Model;
 namespace Amazon.PowerShell.Cmdlets.RH2
 {
     /// <summary>
-    /// Lists resilience policies.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists events for a resilience policy, including services that started or stopped using
+    /// it, changes to cross-account sharing, and deletion of the policy.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RH2PolicyList")]
-    [OutputType("Amazon.Resiliencehubv2.Model.PolicySummary")]
-    [AWSCmdlet("Calls the AWS Resilience Hub V2 ListPolicies API operation.", Operation = new[] {"ListPolicies"}, SelectReturnType = typeof(Amazon.Resiliencehubv2.Model.ListPoliciesResponse))]
-    [AWSCmdletOutput("Amazon.Resiliencehubv2.Model.PolicySummary or Amazon.Resiliencehubv2.Model.ListPoliciesResponse",
-        "This cmdlet returns a collection of Amazon.Resiliencehubv2.Model.PolicySummary objects.",
-        "The service call response (type Amazon.Resiliencehubv2.Model.ListPoliciesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "RH2PolicyEventList")]
+    [OutputType("Amazon.Resiliencehubv2.Model.PolicyEvent")]
+    [AWSCmdlet("Calls the AWS Resilience Hub V2 ListPolicyEvents API operation.", Operation = new[] {"ListPolicyEvents"}, SelectReturnType = typeof(Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse))]
+    [AWSCmdletOutput("Amazon.Resiliencehubv2.Model.PolicyEvent or Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse",
+        "This cmdlet returns a collection of Amazon.Resiliencehubv2.Model.PolicyEvent objects.",
+        "The service call response (type Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetRH2PolicyListCmdlet : AmazonResiliencehubv2ClientCmdlet, IExecutor
+    public partial class GetRH2PolicyEventListCmdlet : AmazonResiliencehubv2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AccountId
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The identifier of the account that owns the policies to include in the results.</para>
+        /// <para>The end time for filtering events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
+        public System.DateTime? EndTime { get; set; }
+        #endregion
+        
+        #region Parameter EventType
+        /// <summary>
+        /// <para>
+        /// <para>The type of events to include in the results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventTypes")]
+        public System.String[] EventType { get; set; }
+        #endregion
+        
+        #region Parameter PolicyArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyArn { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start time for filtering events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -87,13 +130,13 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicySummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Resiliencehubv2.Model.ListPoliciesResponse).
-        /// Specifying the name of a property of type Amazon.Resiliencehubv2.Model.ListPoliciesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Events'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse).
+        /// Specifying the name of a property of type Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PolicySummaries";
+        public string Select { get; set; } = "Events";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -122,10 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Resiliencehubv2.Model.ListPoliciesResponse, GetRH2PolicyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse, GetRH2PolicyEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AccountId = this.AccountId;
+            context.EndTime = this.EndTime;
+            if (this.EventType != null)
+            {
+                context.EventType = new List<System.String>(this.EventType);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -137,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PolicyArn = this.PolicyArn;
+            #if MODULAR
+            if (this.PolicyArn == null && ParameterWasBound(nameof(this.PolicyArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PolicyArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,15 +208,27 @@ namespace Amazon.PowerShell.Cmdlets.RH2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Resiliencehubv2.Model.ListPoliciesRequest();
+            var request = new Amazon.Resiliencehubv2.Model.ListPolicyEventsRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.EndTime != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.EventType != null)
+            {
+                request.EventTypes = cmdletContext.EventType;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.PolicyArn != null)
+            {
+                request.PolicyArn = cmdletContext.PolicyArn;
+            }
+            if (cmdletContext.StartTime != null)
+            {
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -220,12 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         
         #region AWS Service Operation Call
         
-        private Amazon.Resiliencehubv2.Model.ListPoliciesResponse CallAWSServiceOperation(IAmazonResiliencehubv2 client, Amazon.Resiliencehubv2.Model.ListPoliciesRequest request)
+        private Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse CallAWSServiceOperation(IAmazonResiliencehubv2 client, Amazon.Resiliencehubv2.Model.ListPolicyEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub V2", "ListPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub V2", "ListPolicyEvents");
             try
             {
-                return client.ListPoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListPolicyEventsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -242,11 +309,14 @@ namespace Amazon.PowerShell.Cmdlets.RH2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<System.String> EventType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Resiliencehubv2.Model.ListPoliciesResponse, GetRH2PolicyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PolicySummaries;
+            public System.String PolicyArn { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public System.Func<Amazon.Resiliencehubv2.Model.ListPolicyEventsResponse, GetRH2PolicyEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Events;
         }
         
     }

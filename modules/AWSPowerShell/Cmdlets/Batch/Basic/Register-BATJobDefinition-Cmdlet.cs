@@ -291,7 +291,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Image
         /// <summary>
         /// <para>
-        /// Amazon.Batch.Model.ContainerProperties.Image
+        /// <para>Required. The image used to start a container. This string is passed directly to the
+        /// Docker daemon. Images in the Docker Hub registry are available by default. Other repositories
+        /// are specified with <c><i>repository-url</i>/<i>image</i>:<i>tag</i></c>. It can
+        /// be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens
+        /// (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs
+        /// (#). This parameter maps to <c>Image</c> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create
+        /// a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
+        /// Remote API</a> and the <c>IMAGE</c> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>.</para><note><para>Docker image architecture must match the processor architecture of the compute resources
+        /// that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based
+        /// compute resources.</para></note><ul><li><para>Images in Amazon ECR Public repositories use the full <c>registry/repository[:tag]</c>
+        /// or <c>registry/repository[@digest]</c> naming conventions. For example, <c>public.ecr.aws/<i>registry_alias</i>/<i>my-web-app</i>:<i>latest</i></c>.</para></li><li><para>Images in Amazon ECR repositories use the full registry and repository URI (for example,
+        /// <c>123456789012.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</c>).</para></li><li><para>Images in official repositories on Docker Hub use a single name (for example, <c>ubuntu</c>
+        /// or <c>mongo</c>).</para></li><li><para>Images in other repositories on Docker Hub are qualified with an organization name
+        /// (for example, <c>amazon/amazon-ecs-agent</c>).</para></li><li><para>Images in other online repositories are qualified further by a domain name (for example,
+        /// <c>quay.io/assemblyline/ubuntu</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

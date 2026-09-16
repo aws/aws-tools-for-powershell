@@ -30,10 +30,10 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Creates an AWS Elastic Beanstalk configuration template, associated with a specific
-    /// Elastic Beanstalk application. You define application configuration settings in a
-    /// configuration template. You can then use the configuration template to deploy different
-    /// versions of the application with the same configuration settings.
+    /// Creates an Elastic Beanstalk configuration template, associated with a specific Elastic
+    /// Beanstalk application. You define application configuration settings in a configuration
+    /// template. You can then use the configuration template to deploy different versions
+    /// of the application with the same configuration settings.
     /// 
     ///  
     /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// If specified, these values override the values obtained from the solution stack or
         /// the source configuration template. For a complete list of Elastic Beanstalk configuration
         /// options, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">Option
-        /// Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><para />
+        /// Values</a> in the <i>Elastic Beanstalk Developer Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the custom platform. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">
-        /// Custom Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, then don't specify <c>SolutionStackName</c>.</para></note>
+        /// Custom Platforms</a> in the <i>Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <c>PlatformArn</c>, then don't specify <c>SolutionStackName</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// stack specifies the operating system, runtime, and application server for a configuration
         /// template. It also determines the set of configuration options as well as the possible
         /// and default values. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Supported
-        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><para>You must specify <c>SolutionStackName</c> if you don't specify <c>PlatformArn</c>,
+        /// Platforms</a> in the <i>Elastic Beanstalk Developer Guide</i>.</para><para>You must specify <c>SolutionStackName</c> if you don't specify <c>PlatformArn</c>,
         /// <c>EnvironmentId</c>, or <c>SourceConfiguration</c>.</para><para>Use the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html"><c>ListAvailableSolutionStacks</c></a> API to obtain a list of available solution
         /// stacks.</para>
         /// </para>

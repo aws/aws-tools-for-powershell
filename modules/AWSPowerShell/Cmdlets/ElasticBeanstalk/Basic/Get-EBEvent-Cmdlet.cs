@@ -32,8 +32,24 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Returns list of event descriptions matching criteria up to the last 6 weeks.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// This action returns the most recent 1,000 events from the specified <c>NextToken</c>.
+    /// </para><para>
+    /// This action only returns information about resources that the calling principle has
+    /// IAM permissions to access. For example, consider a case where a user only has permission
+    /// to access one of three resources. When the user calls the this action, the response
+    /// will only include the one resource that the user has permission to access instead
+    /// of all three resources. If the user doesn’t have access to any of the resources an
+    /// empty result is returned.
+    /// </para><note><para>
+    /// The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+    /// managed policy allows operators to view information about resources related to Elastic
+    /// Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html">
+    /// Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+    /// Guide</i>. For detailed instructions to attach a policy to a user or group, see the
+    /// section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed">
+    /// Controlling access with managed policies</a> in the same topic.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
@@ -52,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those associated with this application.</para>
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to include only
+        /// those associated with this application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that occur up to, but not including, the <c>EndTime</c>. </para>
+        /// <para> If specified, Elastic Beanstalk restricts the returned descriptions to those that
+        /// occur up to, but not including, the <c>EndTime</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to those associated
         /// with this environment.</para>
         /// </para>
         /// </summary>
@@ -85,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to those associated
         /// with this environment.</para>
         /// </para>
         /// </summary>
@@ -96,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts
-        /// the returned descriptions to those associated with this custom platform version.</para>
+        /// <para>The ARN of a custom platform version. If specified, Elastic Beanstalk restricts the
+        /// returned descriptions to those associated with this custom platform version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the described events to include only
-        /// those associated with this request ID.</para>
+        /// <para>If specified, Elastic Beanstalk restricts the described events to include only those
+        /// associated with this request ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to those that
         /// occur on or after this time.</para>
         /// </para>
         /// </summary>
@@ -141,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to those that
         /// are associated with this environment configuration.</para>
         /// </para>
         /// </summary>
@@ -152,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// <para>If specified, Elastic Beanstalk restricts the returned descriptions to those associated
         /// with this application version.</para>
         /// </para>
         /// </summary>

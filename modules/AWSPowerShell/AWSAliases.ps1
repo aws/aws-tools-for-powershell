@@ -8891,6 +8891,8 @@ Set-Alias -Name Put-CPFSegmentSubscription -Value Write-CPFSegmentSubscription
 Set-Alias -Name CPF-PutSegmentSubscription -Value Write-CPFSegmentSubscription
 Set-Alias -Name Search-CPFProfiles -Value Search-CPFProfile
 Set-Alias -Name CPF-SearchProfiles -Value Search-CPFProfile
+Set-Alias -Name Search-CPFRecommendations -Value Search-CPFRecommendation
+Set-Alias -Name CPF-SearchRecommendations -Value Search-CPFRecommendation
 Set-Alias -Name CPF-StartRecommender -Value Start-CPFRecommender
 Set-Alias -Name CPF-StartUploadJob -Value Start-CPFUploadJob
 Set-Alias -Name CPF-StopRecommender -Value Stop-CPFRecommender
@@ -29462,6 +29464,8 @@ Set-Alias -Name Delete-RH2TestSource -Value Remove-RH2TestSource
 Set-Alias -Name RH2-DeleteTestSources -Value Remove-RH2TestSource
 Set-Alias -Name Delete-RH2UserJourney -Value Remove-RH2UserJourney
 Set-Alias -Name RH2-DeleteUserJourney -Value Remove-RH2UserJourney
+Set-Alias -Name Get-RH2DependencyInsights -Value Get-RH2DependencyInsight
+Set-Alias -Name RH2-GetDependencyInsights -Value Get-RH2DependencyInsight
 Set-Alias -Name RH2-GetFailureModeFinding -Value Get-RH2FailureModeFinding
 Set-Alias -Name RH2-GetPolicy -Value Get-RH2Policy
 Set-Alias -Name RH2-GetService -Value Get-RH2Service
@@ -29490,6 +29494,9 @@ Set-Alias -Name RH2-ListInputSources -Value Get-RH2InputSourceList
 Set-Alias -Name List-RH2Policies -Value Get-RH2PolicyList
 Set-Alias -Name List-RH2PolicyList -Value Get-RH2PolicyList
 Set-Alias -Name RH2-ListPolicies -Value Get-RH2PolicyList
+Set-Alias -Name List-RH2PolicyEvents -Value Get-RH2PolicyEventList
+Set-Alias -Name List-RH2PolicyEventList -Value Get-RH2PolicyEventList
+Set-Alias -Name RH2-ListPolicyEvents -Value Get-RH2PolicyEventList
 Set-Alias -Name List-RH2Reports -Value Get-RH2ReportList
 Set-Alias -Name List-RH2ReportList -Value Get-RH2ReportList
 Set-Alias -Name RH2-ListReports -Value Get-RH2ReportList
@@ -29548,6 +29555,8 @@ Set-Alias -Name RH2-ListUserJourneys -Value Get-RH2UserJourneyList
 Set-Alias -Name Put-RH2TestSources -Value Write-RH2TestSource
 Set-Alias -Name Put-RH2TestSource -Value Write-RH2TestSource
 Set-Alias -Name RH2-PutTestSources -Value Write-RH2TestSource
+Set-Alias -Name Start-RH2DependencyInsights -Value Start-RH2DependencyInsight
+Set-Alias -Name RH2-StartDependencyInsights -Value Start-RH2DependencyInsight
 Set-Alias -Name RH2-StartFailureModeAssessment -Value Start-RH2FailureModeAssessment
 Set-Alias -Name RH2-StartTestRun -Value Start-RH2TestRun
 Set-Alias -Name RH2-StopTestRun -Value Stop-RH2TestRun

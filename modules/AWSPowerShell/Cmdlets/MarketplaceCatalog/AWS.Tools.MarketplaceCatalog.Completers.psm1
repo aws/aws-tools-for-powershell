@@ -139,7 +139,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.ResaleAuthorizationSortBy
         "Get-MCATEntityList/ResaleAuthorizationSort_SortBy"
         {
-            $v = "AvailabilityEndDate","CreatedDate","EntityId","LastModifiedDate","ManufacturerAccountId","ManufacturerLegalName","Name","OfferExtendedStatus","ProductId","ProductName","ResellerAccountID","ResellerLegalName","Status"
+            $v = "AvailabilityEndDate","CreatedDate","EntityId","IssuerAccountId","LastModifiedDate","ManufacturerAccountId","ManufacturerLegalName","Name","OfferExtendedStatus","ProductId","ProductName","ResellerAccountID","ResellerLegalName","ResellerRole","SourceAuthorization","Status"
             break
         }
 

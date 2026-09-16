@@ -506,6 +506,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchRecommendations" OutputProperty="*" Verb="Search" Noun="Recommendation" ShouldProcessTarget="DomainName,KeyName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartRecommender" Verb="Start" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

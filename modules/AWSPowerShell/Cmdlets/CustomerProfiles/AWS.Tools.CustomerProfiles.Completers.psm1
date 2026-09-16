@@ -489,6 +489,7 @@ $CPF_SelectMap = @{
                "Write-CPFProfileObjectType",
                "Write-CPFSegmentSubscription",
                "Search-CPFProfile",
+               "Search-CPFRecommendation",
                "Start-CPFRecommender",
                "Start-CPFUploadJob",
                "Stop-CPFRecommender",

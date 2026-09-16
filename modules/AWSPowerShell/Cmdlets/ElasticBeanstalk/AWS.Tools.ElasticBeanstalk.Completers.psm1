@@ -87,8 +87,18 @@ $EB_Completers = {
             break
         }
 
+        # Amazon.ElasticBeanstalk.ArchitectureType
+        "New-EBApplicationVersion/ImageConfiguration_Build_Architecture"
+        {
+            $v = "amd64","arm64"
+            break
+        }
+
         # Amazon.ElasticBeanstalk.ComputeType
-        "New-EBApplicationVersion/BuildConfiguration_ComputeType"
+        {
+            ($_ -eq "New-EBApplicationVersion/BuildConfiguration_ComputeType") -Or
+            ($_ -eq "New-EBApplicationVersion/ImageConfiguration_Build_ComputeType")
+        }
         {
             $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
             break
@@ -108,6 +118,13 @@ $EB_Completers = {
         "Get-EBEvent/Severity"
         {
             $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+
+        # Amazon.ElasticBeanstalk.ImageBuildType
+        "New-EBApplicationVersion/ImageConfiguration_Build_Type"
+        {
+            $v = "buildpack","docker"
             break
         }
 
@@ -135,6 +152,9 @@ $EB_Completers = {
 
 $EB_map = @{
     "BuildConfiguration_ComputeType"=@("New-EBApplicationVersion")
+    "ImageConfiguration_Build_Architecture"=@("New-EBApplicationVersion")
+    "ImageConfiguration_Build_ComputeType"=@("New-EBApplicationVersion")
+    "ImageConfiguration_Build_Type"=@("New-EBApplicationVersion")
     "InfoType"=@("Get-EBEnvironmentInfo","Request-EBEnvironmentInfo")
     "Severity"=@("Get-EBEvent")
     "SourceBuildInformation_SourceRepository"=@("New-EBApplicationVersion")

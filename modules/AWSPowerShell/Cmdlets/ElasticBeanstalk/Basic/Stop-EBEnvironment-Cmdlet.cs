@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The ID of the environment to terminate.</para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c>
-        /// error. </para>
+        /// not specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The name of the environment to terminate.</para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, AWS Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
-        /// </para>
+        /// specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -82,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TerminateResource
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the associated AWS resources should shut down when the environment
-        /// is terminated:</para><ul><li><para><c>true</c>: The specified environment as well as the associated AWS resources, such
-        /// as Auto Scaling group and LoadBalancer, are terminated.</para></li><li><para><c>false</c>: AWS Elastic Beanstalk resource management is removed from the environment,
-        /// but the AWS resources continue to operate.</para></li></ul><para> For more information, see the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
-        /// AWS Elastic Beanstalk User Guide. </a></para><para> Default: <c>true</c></para><para> Valid Values: <c>true</c> | <c>false</c></para>
+        /// <para>Indicates whether the associated Amazon Web Services resources should shut down when
+        /// the environment is terminated:</para><ul><li><para><c>true</c>: The specified environment as well as the associated Amazon Web Services
+        /// resources, such as Auto Scaling group and LoadBalancer, are terminated.</para></li><li><para><c>false</c>: Elastic Beanstalk resource management is removed from the environment,
+        /// but the Amazon Web Services resources continue to operate.</para></li></ul><para> For more information, see the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
+        /// Elastic Beanstalk User Guide. </a></para><para> Default: <c>true</c></para><para> Valid Values: <c>true</c> | <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

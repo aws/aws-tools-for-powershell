@@ -31,16 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Creates an application version for the specified application. You can create an application
-    /// version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the output
-    /// of an AWS CodeBuild build as follows:
+    /// version from a source bundle in Amazon S3, a commit in CodeCommit, or the output of
+    /// an CodeBuild build as follows:
     /// 
     ///  
     /// <para>
-    /// Specify a commit in an AWS CodeCommit repository with <c>SourceBuildInformation</c>.
+    /// Specify a commit in an CodeCommit repository with <c>SourceBuildInformation</c>.
     /// </para><para>
-    /// Specify a build in an AWS CodeBuild with <c>SourceBuildInformation</c> and <c>BuildConfiguration</c>.
+    /// Specify a build in an CodeBuild with <c>SourceBuildInformation</c> and <c>BuildConfiguration</c>.
     /// </para><para>
-    /// Specify a source bundle in S3 with <c>SourceBundle</c></para><para>
+    /// Specify a source bundle in Amazon S3 with <c>SourceBundle</c></para><para>
     /// Omit both <c>SourceBuildInformation</c> and <c>SourceBundle</c> to use the default
     /// sample application.
     /// </para><note><para>
@@ -81,6 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter ImageConfiguration_Build_Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The processor architecture that Elastic Beanstalk builds the container image for.
+        /// The architecture must match the architecture of the instances in the environment that
+        /// you deploy the application version to.</para><para>Valid values:</para><ul><li><para><c>amd64</c> – x86-64 instances. This is the default.</para></li><li><para><c>arm64</c> – Amazon Web Services Graviton instances.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.ArchitectureType")]
+        public Amazon.ElasticBeanstalk.ArchitectureType ImageConfiguration_Build_Architecture { get; set; }
+        #endregion
+        
         #region Parameter BuildConfiguration_ArtifactName
         /// <summary>
         /// <para>
@@ -105,16 +118,40 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.Boolean? AutoCreateApplication { get; set; }
         #endregion
         
+        #region Parameter ImageConfiguration_Build_Buildpack
+        /// <summary>
+        /// <para>
+        /// <para>The Cloud Native Buildpacks builder image that Elastic Beanstalk uses to build the
+        /// container image. For example, <c>paketobuildpacks/builder-jammy-base</c>.</para><para>This member is required when <c>Type</c> is <c>buildpack</c>. Elastic Beanstalk doesn't
+        /// provide a default builder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfiguration_Build_Buildpack { get; set; }
+        #endregion
+        
         #region Parameter BuildConfiguration_CodeBuildServiceRole
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that enables AWS CodeBuild to interact with dependent AWS services on behalf of the
-        /// AWS account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+        /// enables CodeBuild to interact with dependent Amazon Web Services service on behalf
+        /// of the Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String BuildConfiguration_CodeBuildServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfiguration_Build_CodeBuildServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
+        /// CodeBuild assumes to run the build in your Amazon Web Services account. Elastic Beanstalk
+        /// rejects a <c>Build</c> that doesn't specify this role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfiguration_Build_CodeBuildServiceRole { get; set; }
         #endregion
         
         #region Parameter BuildConfiguration_ComputeType
@@ -128,6 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public Amazon.ElasticBeanstalk.ComputeType BuildConfiguration_ComputeType { get; set; }
         #endregion
         
+        #region Parameter ImageConfiguration_Build_ComputeType
+        /// <summary>
+        /// <para>
+        /// <para>The size of the compute resources that run the build. If you don't specify it, Elastic
+        /// Beanstalk uses <c>BUILD_GENERAL1_MEDIUM</c>.</para><para>Valid values:</para><ul><li><para><c>BUILD_GENERAL1_SMALL</c> – Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c> – Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c> – Use up to 15 GB memory and 8 vCPUs for builds.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.ComputeType")]
+        public Amazon.ElasticBeanstalk.ComputeType ImageConfiguration_Build_ComputeType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -136,6 +185,19 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfiguration_Build_DockerfileLocation
+        /// <summary>
+        /// <para>
+        /// <para>The path to the Dockerfile within the source bundle, relative to the root of the source
+        /// bundle. For example, <c>backend/Dockerfile</c>.</para><para>Elastic Beanstalk uses this member only when <c>Type</c> is <c>docker</c>. If you
+        /// don't specify it, Elastic Beanstalk uses the Dockerfile at the root of the source
+        /// bundle.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfiguration_Build_DockerfileLocation { get; set; }
         #endregion
         
         #region Parameter BuildConfiguration_Image
@@ -154,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>Pre-processes and validates the environment manifest (<c>env.yaml</c>) and configuration
         /// files (<c>*.config</c> files in the <c>.ebextensions</c> folder) in the source bundle.
         /// Validating configuration files can identify issues prior to deploying the application
-        /// version to an environment.</para><para>You must turn processing on for application versions that you create using AWS CodeBuild
-        /// or AWS CodeCommit. For application versions built from a source bundle in Amazon S3,
-        /// processing is optional.</para><note><para>The <c>Process</c> option validates Elastic Beanstalk configuration files. It doesn't
+        /// version to an environment.</para><para>You must turn processing on for application versions that you create using CodeBuild
+        /// or CodeCommit. For application versions built from a source bundle in Amazon S3, processing
+        /// is optional.</para><note><para>The <c>Process</c> option validates Elastic Beanstalk configuration files. It doesn't
         /// validate your application's configuration files, like proxy server or Docker configuration.</para></note>
         /// </para>
         /// </summary>
@@ -238,8 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_TimeoutInMinute
         /// <summary>
         /// <para>
-        /// <para>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing
-        /// out any related build that does not get marked as completed. The default is 60 minutes.</para>
+        /// <para>How long in minutes, from 5 to 480 (8 hours), for CodeBuild to wait until timing out
+        /// any related build that does not get marked as completed. The default is 60 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,11 +309,48 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.Int32? BuildConfiguration_TimeoutInMinute { get; set; }
         #endregion
         
+        #region Parameter ImageConfiguration_Build_TimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>How long, in minutes from 5 to 480 (8 hours), Elastic Beanstalk waits before stopping
+        /// a build that hasn't completed. The default is 60 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageConfiguration_Build_TimeoutInMinutes")]
+        public System.Int32? ImageConfiguration_Build_TimeoutInMinute { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfiguration_Build_Type
+        /// <summary>
+        /// <para>
+        /// <para>How Elastic Beanstalk builds the container image. Elastic Beanstalk rejects a <c>Build</c>
+        /// that doesn't specify it.</para><para>Valid values:</para><ul><li><para><c>docker</c> – Elastic Beanstalk builds the image from a Dockerfile in your source
+        /// bundle. Specify the Dockerfile with <c>DockerfileLocation</c>.</para></li><li><para><c>buildpack</c> – Elastic Beanstalk builds the image with a Cloud Native Buildpacks
+        /// builder. Specify the builder with <c>Buildpack</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.ImageBuildType")]
+        public Amazon.ElasticBeanstalk.ImageBuildType ImageConfiguration_Build_Type { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfiguration_Source_Uri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of the container image, including the registry, the repository, and the image
+        /// tag or digest. For example, <c>111122223333.dkr.ecr.us-east-1.amazonaws.com/my-repository:latest</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfiguration_Source_Uri { get; set; }
+        #endregion
+        
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para>A label identifying this version.</para><para>Constraint: Must be unique per application. If an application version already exists
-        /// with this label for the specified application, AWS Elastic Beanstalk returns an <c>InvalidParameterValue</c>
+        /// with this label for the specified application, Elastic Beanstalk returns an <c>InvalidParameterValue</c>
         /// error. </para>
         /// </para>
         /// </summary>
@@ -326,6 +425,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.BuildConfiguration_Image = this.BuildConfiguration_Image;
             context.BuildConfiguration_TimeoutInMinute = this.BuildConfiguration_TimeoutInMinute;
             context.Description = this.Description;
+            context.ImageConfiguration_Build_Architecture = this.ImageConfiguration_Build_Architecture;
+            context.ImageConfiguration_Build_Buildpack = this.ImageConfiguration_Build_Buildpack;
+            context.ImageConfiguration_Build_CodeBuildServiceRole = this.ImageConfiguration_Build_CodeBuildServiceRole;
+            context.ImageConfiguration_Build_ComputeType = this.ImageConfiguration_Build_ComputeType;
+            context.ImageConfiguration_Build_DockerfileLocation = this.ImageConfiguration_Build_DockerfileLocation;
+            context.ImageConfiguration_Build_TimeoutInMinute = this.ImageConfiguration_Build_TimeoutInMinute;
+            context.ImageConfiguration_Build_Type = this.ImageConfiguration_Build_Type;
+            context.ImageConfiguration_Source_Uri = this.ImageConfiguration_Source_Uri;
             context.Process = this.Process;
             context.SourceBuildInformation_SourceLocation = this.SourceBuildInformation_SourceLocation;
             context.SourceBuildInformation_SourceRepository = this.SourceBuildInformation_SourceRepository;
@@ -429,6 +536,125 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ImageConfiguration
+            var requestImageConfigurationIsNull = true;
+            request.ImageConfiguration = new Amazon.ElasticBeanstalk.Model.ImageConfiguration();
+            Amazon.ElasticBeanstalk.Model.ImageSource requestImageConfiguration_imageConfiguration_Source = null;
+            
+             // populate Source
+            var requestImageConfiguration_imageConfiguration_SourceIsNull = true;
+            requestImageConfiguration_imageConfiguration_Source = new Amazon.ElasticBeanstalk.Model.ImageSource();
+            System.String requestImageConfiguration_imageConfiguration_Source_imageConfiguration_Source_Uri = null;
+            if (cmdletContext.ImageConfiguration_Source_Uri != null)
+            {
+                requestImageConfiguration_imageConfiguration_Source_imageConfiguration_Source_Uri = cmdletContext.ImageConfiguration_Source_Uri;
+            }
+            if (requestImageConfiguration_imageConfiguration_Source_imageConfiguration_Source_Uri != null)
+            {
+                requestImageConfiguration_imageConfiguration_Source.Uri = requestImageConfiguration_imageConfiguration_Source_imageConfiguration_Source_Uri;
+                requestImageConfiguration_imageConfiguration_SourceIsNull = false;
+            }
+             // determine if requestImageConfiguration_imageConfiguration_Source should be set to null
+            if (requestImageConfiguration_imageConfiguration_SourceIsNull)
+            {
+                requestImageConfiguration_imageConfiguration_Source = null;
+            }
+            if (requestImageConfiguration_imageConfiguration_Source != null)
+            {
+                request.ImageConfiguration.Source = requestImageConfiguration_imageConfiguration_Source;
+                requestImageConfigurationIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.Model.ImageBuildConfiguration requestImageConfiguration_imageConfiguration_Build = null;
+            
+             // populate Build
+            var requestImageConfiguration_imageConfiguration_BuildIsNull = true;
+            requestImageConfiguration_imageConfiguration_Build = new Amazon.ElasticBeanstalk.Model.ImageBuildConfiguration();
+            Amazon.ElasticBeanstalk.ArchitectureType requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Architecture = null;
+            if (cmdletContext.ImageConfiguration_Build_Architecture != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Architecture = cmdletContext.ImageConfiguration_Build_Architecture;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Architecture != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.Architecture = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Architecture;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            System.String requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Buildpack = null;
+            if (cmdletContext.ImageConfiguration_Build_Buildpack != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Buildpack = cmdletContext.ImageConfiguration_Build_Buildpack;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Buildpack != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.Buildpack = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Buildpack;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            System.String requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_CodeBuildServiceRole = null;
+            if (cmdletContext.ImageConfiguration_Build_CodeBuildServiceRole != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_CodeBuildServiceRole = cmdletContext.ImageConfiguration_Build_CodeBuildServiceRole;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_CodeBuildServiceRole != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.CodeBuildServiceRole = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_CodeBuildServiceRole;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.ComputeType requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_ComputeType = null;
+            if (cmdletContext.ImageConfiguration_Build_ComputeType != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_ComputeType = cmdletContext.ImageConfiguration_Build_ComputeType;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_ComputeType != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.ComputeType = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_ComputeType;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            System.String requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_DockerfileLocation = null;
+            if (cmdletContext.ImageConfiguration_Build_DockerfileLocation != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_DockerfileLocation = cmdletContext.ImageConfiguration_Build_DockerfileLocation;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_DockerfileLocation != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.DockerfileLocation = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_DockerfileLocation;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            System.Int32? requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_TimeoutInMinute = null;
+            if (cmdletContext.ImageConfiguration_Build_TimeoutInMinute != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_TimeoutInMinute = cmdletContext.ImageConfiguration_Build_TimeoutInMinute.Value;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_TimeoutInMinute != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.TimeoutInMinutes = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_TimeoutInMinute.Value;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.ImageBuildType requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Type = null;
+            if (cmdletContext.ImageConfiguration_Build_Type != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Type = cmdletContext.ImageConfiguration_Build_Type;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Type != null)
+            {
+                requestImageConfiguration_imageConfiguration_Build.Type = requestImageConfiguration_imageConfiguration_Build_imageConfiguration_Build_Type;
+                requestImageConfiguration_imageConfiguration_BuildIsNull = false;
+            }
+             // determine if requestImageConfiguration_imageConfiguration_Build should be set to null
+            if (requestImageConfiguration_imageConfiguration_BuildIsNull)
+            {
+                requestImageConfiguration_imageConfiguration_Build = null;
+            }
+            if (requestImageConfiguration_imageConfiguration_Build != null)
+            {
+                request.ImageConfiguration.Build = requestImageConfiguration_imageConfiguration_Build;
+                requestImageConfigurationIsNull = false;
+            }
+             // determine if request.ImageConfiguration should be set to null
+            if (requestImageConfigurationIsNull)
+            {
+                request.ImageConfiguration = null;
             }
             if (cmdletContext.Process != null)
             {
@@ -573,6 +799,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String BuildConfiguration_Image { get; set; }
             public System.Int32? BuildConfiguration_TimeoutInMinute { get; set; }
             public System.String Description { get; set; }
+            public Amazon.ElasticBeanstalk.ArchitectureType ImageConfiguration_Build_Architecture { get; set; }
+            public System.String ImageConfiguration_Build_Buildpack { get; set; }
+            public System.String ImageConfiguration_Build_CodeBuildServiceRole { get; set; }
+            public Amazon.ElasticBeanstalk.ComputeType ImageConfiguration_Build_ComputeType { get; set; }
+            public System.String ImageConfiguration_Build_DockerfileLocation { get; set; }
+            public System.Int32? ImageConfiguration_Build_TimeoutInMinute { get; set; }
+            public Amazon.ElasticBeanstalk.ImageBuildType ImageConfiguration_Build_Type { get; set; }
+            public System.String ImageConfiguration_Source_Uri { get; set; }
             public System.Boolean? Process { get; set; }
             public System.String SourceBuildInformation_SourceLocation { get; set; }
             public Amazon.ElasticBeanstalk.SourceRepository SourceBuildInformation_SourceRepository { get; set; }

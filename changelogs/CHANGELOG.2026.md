@@ -1,4 +1,20 @@
-﻿### 5.0.299 (2026-09-15 19:06Z)
+﻿### 5.0.300 (2026-09-16 19:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.335.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Search-CPFRecommendation leveraging the SearchRecommendations service API.
+  * Amazon Elastic Beanstalk
+    * Modified cmdlet New-EBApplicationVersion: added parameters ImageConfiguration_Build_Architecture, ImageConfiguration_Build_Buildpack, ImageConfiguration_Build_CodeBuildServiceRole, ImageConfiguration_Build_ComputeType, ImageConfiguration_Build_DockerfileLocation, ImageConfiguration_Build_TimeoutInMinute, ImageConfiguration_Build_Type and ImageConfiguration_Source_Uri.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters EntityTypeFilters_ResaleAuthorizationFilters_IssuerAccountId_ValueList and EntityTypeFilters_ResaleAuthorizationFilters_SourceAuthorization_ValueList.
+  * Amazon Resilience Hub V2
+    * Added cmdlet Get-RH2DependencyInsight leveraging the GetDependencyInsights service API.
+    * Added cmdlet Get-RH2PolicyEventList leveraging the ListPolicyEvents service API.
+    * Added cmdlet Start-RH2DependencyInsight leveraging the StartDependencyInsights service API.
+    * Modified cmdlet Get-RH2PolicyList: added parameter AccountId.
+    * Modified cmdlet New-RH2Policy: added parameter SharingEnabled.
+    * Modified cmdlet Update-RH2Policy: added parameter SharingEnabled.
+
+### 5.0.299 (2026-09-15 19:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.334.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameter PlatformVersion.

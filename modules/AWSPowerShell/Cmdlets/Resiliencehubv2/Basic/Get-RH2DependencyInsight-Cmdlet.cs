@@ -23,60 +23,58 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ElasticBeanstalk;
-using Amazon.ElasticBeanstalk.Model;
+using Amazon.Resiliencehubv2;
+using Amazon.Resiliencehubv2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EB
+namespace Amazon.PowerShell.Cmdlets.RH2
 {
     /// <summary>
-    /// Returns Amazon Web Services resources for this environment.
+    /// Retrieves the dependency insights generated for a service. The response reports the
+    /// current generation status; insights are populated once generation has completed. If
+    /// generation failed, the response includes an error code, whose possible values are
+    /// listed under the response's errorCode field, and a message describing the cause. To
+    /// use this operation, you must have the <c>resiliencehub:GetDependencyInsights</c> permission
+    /// on the service.
     /// </summary>
-    [Cmdlet("Get", "EBEnvironmentResource")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription")]
-    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeEnvironmentResources API operation.", Operation = new[] {"DescribeEnvironmentResources"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse), LegacyAlias="Get-EBEnvironmentResources")]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription or Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "RH2DependencyInsight")]
+    [OutputType("Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse")]
+    [AWSCmdlet("Calls the AWS Resilience Hub V2 GetDependencyInsights API operation.", Operation = new[] {"GetDependencyInsights"}, SelectReturnType = typeof(Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse))]
+    [AWSCmdletOutput("Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse",
+        "This cmdlet returns an Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse object containing multiple properties."
     )]
-    public partial class GetEBEnvironmentResourceCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetRH2DependencyInsightCmdlet : AmazonResiliencehubv2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EnvironmentId
+        #region Parameter ServiceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment to retrieve Amazon Web Services resource usage data.</para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error.
-        /// </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String EnvironmentId { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the environment to retrieve Amazon Web Services resource usage data.</para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, Elastic Beanstalk returns <c>MissingRequiredParameter</c> error. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String EnvironmentName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ServiceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnvironmentResources'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse).
+        /// Specifying the name of a property of type Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EnvironmentResources";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -95,11 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse, GetEBEnvironmentResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse, GetRH2DependencyInsightCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EnvironmentId = this.EnvironmentId;
-            context.EnvironmentName = this.EnvironmentName;
+            context.ServiceArn = this.ServiceArn;
+            #if MODULAR
+            if (this.ServiceArn == null && ParameterWasBound(nameof(this.ServiceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,15 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesRequest();
+            var request = new Amazon.Resiliencehubv2.Model.GetDependencyInsightsRequest();
             
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.ServiceArn != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
+                request.ServiceArn = cmdletContext.ServiceArn;
             }
             
             CmdletOutput output;
@@ -157,12 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesRequest request)
+        private Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse CallAWSServiceOperation(IAmazonResiliencehubv2 client, Amazon.Resiliencehubv2.Model.GetDependencyInsightsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeEnvironmentResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub V2", "GetDependencyInsights");
             try
             {
-                return client.DescribeEnvironmentResourcesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetDependencyInsightsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -179,10 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EnvironmentId { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.Func<Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse, GetEBEnvironmentResourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EnvironmentResources;
+            public System.String ServiceArn { get; set; }
+            public System.Func<Amazon.Resiliencehubv2.Model.GetDependencyInsightsResponse, GetRH2DependencyInsightCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

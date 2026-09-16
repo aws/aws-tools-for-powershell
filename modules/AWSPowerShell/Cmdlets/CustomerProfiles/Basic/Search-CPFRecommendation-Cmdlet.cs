@@ -1,0 +1,565 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.CPF
+{
+    /// <summary>
+    /// Retrieves recommendations for a profile in a specific domain. The profile is identified
+    /// using a search key, which consists of a <c>KeyName</c> and a <c>KeyValues</c> list.
+    /// The <c>KeyName</c> can be a predefined key (for example, <c>_profileId</c>, <c>_phone</c>,
+    /// <c>_email</c>) or a custom-defined key.
+    /// 
+    ///  
+    /// <para>
+    /// The search key must match exactly one profile. If no profile matches the search key,
+    /// the operation returns a <c>ResourceNotFoundException</c>. If more than one profile
+    /// matches the search key, the operation returns a <c>BadRequestException</c>. You can
+    /// use the SearchProfiles API to review the matching profiles.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Search", "CPFRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CustomerProfiles.Model.SearchRecommendationsResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles SearchRecommendations API operation.", Operation = new[] {"SearchRecommendations"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.SearchRecommendationsResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.SearchRecommendationsResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.SearchRecommendationsResponse object containing multiple properties."
+    )]
+    public partial class SearchCPFRecommendationCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter CandidateId
+        /// <summary>
+        /// <para>
+        /// <para>A list of item IDs to rank for the user. Use this when you want to re-rank a specific
+        /// set of items rather than getting recommendations from the full item catalog. Required
+        /// for personalized-ranking use cases.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CandidateIds")]
+        public System.String[] CandidateId { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Column
+        /// <summary>
+        /// <para>
+        /// <para>A list of metadata column names from your Items dataset to include in the recommendation
+        /// response.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Columns")]
+        public System.String[] Metadata_Column { get; set; }
+        #endregion
+        
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>The contextual metadata used to provide dynamic runtime information to tailor recommendations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Context { get; set; }
+        #endregion
+        
+        #region Parameter DomainName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the domain.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter Diversity_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether diversity-aware recommendations are enabled for this request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Diversity_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Recommender_Filter
+        /// <summary>
+        /// <para>
+        /// <para>A list of filters to apply to the returned recommendations. Filters define criteria
+        /// for including or excluding items from the recommendation results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Recommender_Filters")]
+        public Amazon.CustomerProfiles.Model.RecommenderFilter[] Recommender_Filter { get; set; }
+        #endregion
+        
+        #region Parameter KeyName
+        /// <summary>
+        /// <para>
+        /// <para>A searchable identifier of a customer profile. You can use a predefined key, such
+        /// as <c>_profileId</c>, <c>_phone</c>, or <c>_email</c>, or a custom-defined key.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String KeyName { get; set; }
+        #endregion
+        
+        #region Parameter KeyValue
+        /// <summary>
+        /// <para>
+        /// <para>A list of key values. Provide one value for each field of the search key.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("KeyValues")]
+        public System.String[] KeyValue { get; set; }
+        #endregion
+        
+        #region Parameter MaxRecommendation
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of recommendations to return. The default value is 5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxRecommendations")]
+        public System.Int32? MaxRecommendation { get; set; }
+        #endregion
+        
+        #region Parameter Recommender_Name
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the recommender.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Recommender_Name { get; set; }
+        #endregion
+        
+        #region Parameter Recommender_PromotionalFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of promotional filters to apply to the recommendations. Promotional filters
+        /// allow you to promote specific items within a configurable subset of recommendation
+        /// results.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Recommender_PromotionalFilters")]
+        public Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter[] Recommender_PromotionalFilter { get; set; }
+        #endregion
+        
+        #region Parameter Diversity_Value
+        /// <summary>
+        /// <para>
+        /// <para>An optional map of placeholder name to integer cap value used to resolve <c>$name</c>
+        /// placeholders defined in the recommender's <c>DiversityConfig</c> at inference time.
+        /// Up to 2 entries are supported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Diversity_Values")]
+        public System.Collections.Hashtable Diversity_Value { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.SearchRecommendationsResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.SearchRecommendationsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var targetParameterNames = new string[]
+            {
+                nameof(this.DomainName),
+                nameof(this.KeyName)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CPFRecommendation (SearchRecommendations)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.SearchRecommendationsResponse, SearchCPFRecommendationCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.CandidateId != null)
+            {
+                context.CandidateId = new List<System.String>(this.CandidateId);
+            }
+            if (this.Context != null)
+            {
+                context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Context.Keys)
+                {
+                    context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
+                }
+            }
+            context.Diversity_Enabled = this.Diversity_Enabled;
+            if (this.Diversity_Value != null)
+            {
+                context.Diversity_Value = new Dictionary<System.String, System.Int32>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Diversity_Value.Keys)
+                {
+                    context.Diversity_Value.Add((String)hashKey, (System.Int32)(this.Diversity_Value[hashKey]));
+                }
+            }
+            context.DomainName = this.DomainName;
+            #if MODULAR
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.KeyName = this.KeyName;
+            #if MODULAR
+            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.KeyValue != null)
+            {
+                context.KeyValue = new List<System.String>(this.KeyValue);
+            }
+            #if MODULAR
+            if (this.KeyValue == null && ParameterWasBound(nameof(this.KeyValue)))
+            {
+                WriteWarning("You are passing $null as a value for parameter KeyValue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MaxRecommendation = this.MaxRecommendation;
+            if (this.Metadata_Column != null)
+            {
+                context.Metadata_Column = new List<System.String>(this.Metadata_Column);
+            }
+            if (this.Recommender_Filter != null)
+            {
+                context.Recommender_Filter = new List<Amazon.CustomerProfiles.Model.RecommenderFilter>(this.Recommender_Filter);
+            }
+            context.Recommender_Name = this.Recommender_Name;
+            #if MODULAR
+            if (this.Recommender_Name == null && ParameterWasBound(nameof(this.Recommender_Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Recommender_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Recommender_PromotionalFilter != null)
+            {
+                context.Recommender_PromotionalFilter = new List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter>(this.Recommender_PromotionalFilter);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CustomerProfiles.Model.SearchRecommendationsRequest();
+            
+            if (cmdletContext.CandidateId != null)
+            {
+                request.CandidateIds = cmdletContext.CandidateId;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
+            }
+            
+             // populate Diversity
+            var requestDiversityIsNull = true;
+            request.Diversity = new Amazon.CustomerProfiles.Model.RecommendationDiversityConfig();
+            System.Boolean? requestDiversity_diversity_Enabled = null;
+            if (cmdletContext.Diversity_Enabled != null)
+            {
+                requestDiversity_diversity_Enabled = cmdletContext.Diversity_Enabled.Value;
+            }
+            if (requestDiversity_diversity_Enabled != null)
+            {
+                request.Diversity.Enabled = requestDiversity_diversity_Enabled.Value;
+                requestDiversityIsNull = false;
+            }
+            Dictionary<System.String, System.Int32> requestDiversity_diversity_Value = null;
+            if (cmdletContext.Diversity_Value != null)
+            {
+                requestDiversity_diversity_Value = cmdletContext.Diversity_Value;
+            }
+            if (requestDiversity_diversity_Value != null)
+            {
+                request.Diversity.Values = requestDiversity_diversity_Value;
+                requestDiversityIsNull = false;
+            }
+             // determine if request.Diversity should be set to null
+            if (requestDiversityIsNull)
+            {
+                request.Diversity = null;
+            }
+            if (cmdletContext.DomainName != null)
+            {
+                request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.KeyName != null)
+            {
+                request.KeyName = cmdletContext.KeyName;
+            }
+            if (cmdletContext.KeyValue != null)
+            {
+                request.KeyValues = cmdletContext.KeyValue;
+            }
+            if (cmdletContext.MaxRecommendation != null)
+            {
+                request.MaxRecommendations = cmdletContext.MaxRecommendation.Value;
+            }
+            
+             // populate Metadata
+            var requestMetadataIsNull = true;
+            request.Metadata = new Amazon.CustomerProfiles.Model.RecommendationMetadata();
+            List<System.String> requestMetadata_metadata_Column = null;
+            if (cmdletContext.Metadata_Column != null)
+            {
+                requestMetadata_metadata_Column = cmdletContext.Metadata_Column;
+            }
+            if (requestMetadata_metadata_Column != null)
+            {
+                request.Metadata.Columns = requestMetadata_metadata_Column;
+                requestMetadataIsNull = false;
+            }
+             // determine if request.Metadata should be set to null
+            if (requestMetadataIsNull)
+            {
+                request.Metadata = null;
+            }
+            
+             // populate Recommender
+            var requestRecommenderIsNull = true;
+            request.Recommender = new Amazon.CustomerProfiles.Model.Recommender();
+            List<Amazon.CustomerProfiles.Model.RecommenderFilter> requestRecommender_recommender_Filter = null;
+            if (cmdletContext.Recommender_Filter != null)
+            {
+                requestRecommender_recommender_Filter = cmdletContext.Recommender_Filter;
+            }
+            if (requestRecommender_recommender_Filter != null)
+            {
+                request.Recommender.Filters = requestRecommender_recommender_Filter;
+                requestRecommenderIsNull = false;
+            }
+            System.String requestRecommender_recommender_Name = null;
+            if (cmdletContext.Recommender_Name != null)
+            {
+                requestRecommender_recommender_Name = cmdletContext.Recommender_Name;
+            }
+            if (requestRecommender_recommender_Name != null)
+            {
+                request.Recommender.Name = requestRecommender_recommender_Name;
+                requestRecommenderIsNull = false;
+            }
+            List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter> requestRecommender_recommender_PromotionalFilter = null;
+            if (cmdletContext.Recommender_PromotionalFilter != null)
+            {
+                requestRecommender_recommender_PromotionalFilter = cmdletContext.Recommender_PromotionalFilter;
+            }
+            if (requestRecommender_recommender_PromotionalFilter != null)
+            {
+                request.Recommender.PromotionalFilters = requestRecommender_recommender_PromotionalFilter;
+                requestRecommenderIsNull = false;
+            }
+             // determine if request.Recommender should be set to null
+            if (requestRecommenderIsNull)
+            {
+                request.Recommender = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.CustomerProfiles.Model.SearchRecommendationsResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.SearchRecommendationsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "SearchRecommendations");
+            try
+            {
+                return client.SearchRecommendationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<System.String> CandidateId { get; set; }
+            public Dictionary<System.String, System.String> Context { get; set; }
+            public System.Boolean? Diversity_Enabled { get; set; }
+            public Dictionary<System.String, System.Int32> Diversity_Value { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String KeyName { get; set; }
+            public List<System.String> KeyValue { get; set; }
+            public System.Int32? MaxRecommendation { get; set; }
+            public List<System.String> Metadata_Column { get; set; }
+            public List<Amazon.CustomerProfiles.Model.RecommenderFilter> Recommender_Filter { get; set; }
+            public System.String Recommender_Name { get; set; }
+            public List<Amazon.CustomerProfiles.Model.RecommenderPromotionalFilter> Recommender_PromotionalFilter { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.SearchRecommendationsResponse, SearchCPFRecommendationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

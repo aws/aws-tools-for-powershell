@@ -30,14 +30,29 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Lists the platform branches available for your account in an AWS Region. Provides
-    /// summary information about each platform branch.
+    /// Lists the platform branches available for your account in an Amazon Web Services Region.
+    /// Provides summary information about each platform branch.
     /// 
     ///  
     /// <para>
-    /// For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS
-    /// Elastic Beanstalk Platforms Glossary</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">Elastic
+    /// Beanstalk Platforms Glossary</a>.
+    /// </para><para>
+    /// This action only returns information about resources that the calling principle has
+    /// IAM permissions to access. For example, consider a case where a user only has permission
+    /// to access one of three resources. When the user calls the this action, the response
+    /// will only include the one resource that the user has permission to access instead
+    /// of all three resources. If the user doesn’t have access to any of the resources an
+    /// empty result is returned.
+    /// </para><note><para>
+    /// The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+    /// managed policy allows operators to view information about resources related to Elastic
+    /// Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html">
+    /// Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+    /// Guide</i>. For detailed instructions to attach a policy to a user or group, see the
+    /// section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed">
+    /// Controlling access with managed policies</a> in the same topic.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBPlatformBranch")]
     [OutputType("Amazon.ElasticBeanstalk.Model.PlatformBranchSummary")]
