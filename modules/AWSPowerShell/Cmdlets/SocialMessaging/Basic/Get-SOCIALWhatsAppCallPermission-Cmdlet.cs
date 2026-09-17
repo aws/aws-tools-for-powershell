@@ -23,37 +23,55 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Notifications;
-using Amazon.Notifications.Model;
+using Amazon.SocialMessaging;
+using Amazon.SocialMessaging.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.UNO
+namespace Amazon.PowerShell.Cmdlets.SOCIAL
 {
     /// <summary>
-    /// Registers a <c>NotificationHub</c> in the specified Region.
-    /// 
-    ///  
-    /// <para>
-    /// There is a maximum of one <c>NotificationHub</c> per Region. You can have a maximum
-    /// of 3 <c>NotificationHub</c> resources at a time.
-    /// </para>
+    /// Retrieves the current calling permission for a WhatsApp end user, along with the calling
+    /// actions the business is allowed to take with that user. Provide the destination phone
+    /// number or the business-scoped user ID to identify the end user.
     /// </summary>
-    [Cmdlet("Register", "UNONotificationHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Notifications.Model.RegisterNotificationHubResponse")]
-    [AWSCmdlet("Calls the AWS User Notifications RegisterNotificationHub API operation.", Operation = new[] {"RegisterNotificationHub"}, SelectReturnType = typeof(Amazon.Notifications.Model.RegisterNotificationHubResponse))]
-    [AWSCmdletOutput("Amazon.Notifications.Model.RegisterNotificationHubResponse",
-        "This cmdlet returns an Amazon.Notifications.Model.RegisterNotificationHubResponse object containing multiple properties."
+    [Cmdlet("Get", "SOCIALWhatsAppCallPermission")]
+    [OutputType("Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse")]
+    [AWSCmdlet("Calls the AWS End User Messaging Social GetWhatsAppCallPermission API operation.", Operation = new[] {"GetWhatsAppCallPermission"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse))]
+    [AWSCmdletOutput("Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse",
+        "This cmdlet returns an Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse object containing multiple properties."
     )]
-    public partial class RegisterUNONotificationHubCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class GetSOCIALWhatsAppCallPermissionCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter NotificationHubRegion
+        #region Parameter DestinationPhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The Region of the <c>NotificationHub</c>.</para>
+        /// <para>The end user's phone number, in E.164 format, for which to retrieve the calling permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationPhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter EndUserBsuid
+        /// <summary>
+        /// <para>
+        /// <para>The business-scoped user identifier (BSUID) of the end user for which to retrieve
+        /// the calling permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndUserBsuid { get; set; }
+        #endregion
+        
+        #region Parameter OriginationPhoneNumberId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the business phone number for which to retrieve the calling
+        /// permission. The phone number identifiers are formatted as <c>phone-number-id-01234567890123456789012345678901</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,28 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NotificationHubRegion { get; set; }
+        public System.String OriginationPhoneNumberId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.RegisterNotificationHubResponse).
-        /// Specifying the name of a property of type Amazon.Notifications.Model.RegisterNotificationHubResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse).
+        /// Specifying the name of a property of type Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -97,12 +105,6 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NotificationHubRegion), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-UNONotificationHub (RegisterNotificationHub)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -110,14 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.RegisterNotificationHubResponse, RegisterUNONotificationHubCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse, GetSOCIALWhatsAppCallPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.NotificationHubRegion = this.NotificationHubRegion;
+            context.DestinationPhoneNumber = this.DestinationPhoneNumber;
+            context.EndUserBsuid = this.EndUserBsuid;
+            context.OriginationPhoneNumberId = this.OriginationPhoneNumberId;
             #if MODULAR
-            if (this.NotificationHubRegion == null && ParameterWasBound(nameof(this.NotificationHubRegion)))
+            if (this.OriginationPhoneNumberId == null && ParameterWasBound(nameof(this.OriginationPhoneNumberId)))
             {
-                WriteWarning("You are passing $null as a value for parameter NotificationHubRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OriginationPhoneNumberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -134,11 +138,19 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.RegisterNotificationHubRequest();
+            var request = new Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionRequest();
             
-            if (cmdletContext.NotificationHubRegion != null)
+            if (cmdletContext.DestinationPhoneNumber != null)
             {
-                request.NotificationHubRegion = cmdletContext.NotificationHubRegion;
+                request.DestinationPhoneNumber = cmdletContext.DestinationPhoneNumber;
+            }
+            if (cmdletContext.EndUserBsuid != null)
+            {
+                request.EndUserBsuid = cmdletContext.EndUserBsuid;
+            }
+            if (cmdletContext.OriginationPhoneNumberId != null)
+            {
+                request.OriginationPhoneNumberId = cmdletContext.OriginationPhoneNumberId;
             }
             
             CmdletOutput output;
@@ -173,12 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.RegisterNotificationHubResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.RegisterNotificationHubRequest request)
+        private Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse CallAWSServiceOperation(IAmazonSocialMessaging client, Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "RegisterNotificationHub");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS End User Messaging Social", "GetWhatsAppCallPermission");
             try
             {
-                return client.RegisterNotificationHubAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetWhatsAppCallPermissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -195,8 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NotificationHubRegion { get; set; }
-            public System.Func<Amazon.Notifications.Model.RegisterNotificationHubResponse, RegisterUNONotificationHubCmdlet, object> Select { get; set; } =
+            public System.String DestinationPhoneNumber { get; set; }
+            public System.String EndUserBsuid { get; set; }
+            public System.String OriginationPhoneNumberId { get; set; }
+            public System.Func<Amazon.SocialMessaging.Model.GetWhatsAppCallPermissionResponse, GetSOCIALWhatsAppCallPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

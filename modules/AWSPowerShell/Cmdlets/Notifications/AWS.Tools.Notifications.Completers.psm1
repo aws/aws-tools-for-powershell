@@ -239,6 +239,7 @@ $UNO_SelectMap = @{
                "Add-UNOResourceTag",
                "Remove-UNOResourceTag",
                "Update-UNOEventRule",
+               "Update-UNOManagedNotificationChannelAssociation",
                "Update-UNONotificationConfiguration")
 }
 

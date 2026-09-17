@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.335.0",
+    "ProductVersion"    : "4.0.336.0",
     "CoreVersion"       : "4.0.102.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.121.0",
+            "Version" : "4.0.122.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -340,7 +340,7 @@
             "InPreview"               : false
         },
         "SimpleNotificationService" : {
-            "Version" : "4.0.100.14",
+            "Version" : "4.0.100.15",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.105.3",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.117.0",
+            "Version" : "4.0.118.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -1460,7 +1460,7 @@
             "InPreview"               : false
         },
         "SimpleEmailV2"                   : {
-            "Version" : "4.0.104.3",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -1876,7 +1876,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "4.0.101.11",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -2524,7 +2524,7 @@
             "InPreview"               : false
         },
         "VPCLattice"                          : {
-            "Version" : "4.0.101.5",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -2956,7 +2956,7 @@
             "InPreview"               : false
         },
         "SocialMessaging"                     : {
-            "Version" : "4.0.102.3",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -3012,7 +3012,7 @@
             "InPreview"               : false
         },
         "Notifications"                       : {
-            "Version" : "4.0.100.14",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.110.3",
+            "Version" : "4.0.111.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"

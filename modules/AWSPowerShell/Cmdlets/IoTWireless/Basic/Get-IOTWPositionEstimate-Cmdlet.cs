@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Single? Gnss_AssistAltitude { get; set; }
         #endregion
         
+        #region Parameter GnssMultiFrame_AssistAltitude
+        /// <summary>
+        /// <para>
+        /// <para>Optional assistance altitude, which is the altitude of the device at capture time,
+        /// specified in meters above the WGS84 reference ellipsoid. This parameter is required
+        /// when Use2DSolver is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? GnssMultiFrame_AssistAltitude { get; set; }
+        #endregion
+        
         #region Parameter Gnss_AssistPosition
         /// <summary>
         /// <para>
@@ -70,6 +82,37 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Single[] Gnss_AssistPosition { get; set; }
+        #endregion
+        
+        #region Parameter GnssMultiFrame_AssistPosition
+        /// <summary>
+        /// <para>
+        /// <para>Optional assistance position information, specified using latitude and longitude values
+        /// in degrees. The coordinates are inside the WGS84 reference frame.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single[] GnssMultiFrame_AssistPosition { get; set; }
+        #endregion
+        
+        #region Parameter GnssMultiFrame_Capture
+        /// <summary>
+        /// <para>
+        /// <para>List of GNSS scan captures. Each capture contains a payload from a single GNSS scan.
+        /// The number of captures must be 2, 4, 8, 16, or 32.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GnssMultiFrame_Captures")]
+        public Amazon.IoTWireless.Model.GnssCapture[] GnssMultiFrame_Capture { get; set; }
         #endregion
         
         #region Parameter Gnss_CaptureTime
@@ -95,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Single? Gnss_CaptureTimeAccuracy { get; set; }
         #endregion
         
+        #region Parameter GnssMultiFrame_CaptureTimeAccuracy
+        /// <summary>
+        /// <para>
+        /// <para>Optional value that gives the capture time estimate accuracy, in seconds. If capture
+        /// time accuracy is not specified, default value of 300 is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? GnssMultiFrame_CaptureTimeAccuracy { get; set; }
+        #endregion
+        
         #region Parameter CellTowers_Cdma
         /// <summary>
         /// <para>
@@ -112,9 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter AdvancedConfiguration_WiFiCellular_ConfidencePercent
         /// <summary>
         /// <para>
-        /// Confidence level for WiFi and cellular
-        /// position estimates, expressed as a percentage. Valid range: 50–99 inclusive. Defaults
-        /// to 68 if not specified.
+        /// <para>The confidence level for WiFi and cellular position estimates, expressed as a percentage.
+        /// This value determines the size of the confidence area or uncertainty radius for the
+        /// estimated position. A higher confidence level produces a larger uncertainty radius,
+        /// while a lower confidence level produces a smaller, more precise radius.</para><para>Valid range: 50 to 99 inclusive. If not specified, the default value of 68 is used,
+        /// which corresponds to approximately one standard deviation of the normal distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +263,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Boolean? Gnss_Use2DSolver { get; set; }
         #endregion
         
+        #region Parameter GnssMultiFrame_Use2DSolver
+        /// <summary>
+        /// <para>
+        /// <para>Optional parameter that forces 2D solve, which modifies the positioning algorithm
+        /// to a 2D solution problem. When this parameter is specified, the assistance altitude
+        /// should have an accuracy of at least 10 meters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? GnssMultiFrame_Use2DSolver { get; set; }
+        #endregion
+        
         #region Parameter CellTowers_Wcdma
         /// <summary>
         /// <para>
@@ -297,6 +365,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.Gnss_CaptureTimeAccuracy = this.Gnss_CaptureTimeAccuracy;
             context.Gnss_Payload = this.Gnss_Payload;
             context.Gnss_Use2DSolver = this.Gnss_Use2DSolver;
+            context.GnssMultiFrame_AssistAltitude = this.GnssMultiFrame_AssistAltitude;
+            if (this.GnssMultiFrame_AssistPosition != null)
+            {
+                context.GnssMultiFrame_AssistPosition = new List<System.Single>(this.GnssMultiFrame_AssistPosition);
+            }
+            if (this.GnssMultiFrame_Capture != null)
+            {
+                context.GnssMultiFrame_Capture = new List<Amazon.IoTWireless.Model.GnssCapture>(this.GnssMultiFrame_Capture);
+            }
+            context.GnssMultiFrame_CaptureTimeAccuracy = this.GnssMultiFrame_CaptureTimeAccuracy;
+            context.GnssMultiFrame_Use2DSolver = this.GnssMultiFrame_Use2DSolver;
             context.Ip_IpAddress = this.Ip_IpAddress;
             context.Timestamp = this.Timestamp;
             if (this.WiFiAccessPoint != null)
@@ -482,6 +561,65 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.Gnss = null;
             }
             
+             // populate GnssMultiFrame
+            var requestGnssMultiFrameIsNull = true;
+            request.GnssMultiFrame = new Amazon.IoTWireless.Model.GnssMultiFrame();
+            System.Single? requestGnssMultiFrame_gnssMultiFrame_AssistAltitude = null;
+            if (cmdletContext.GnssMultiFrame_AssistAltitude != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_AssistAltitude = cmdletContext.GnssMultiFrame_AssistAltitude.Value;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_AssistAltitude != null)
+            {
+                request.GnssMultiFrame.AssistAltitude = requestGnssMultiFrame_gnssMultiFrame_AssistAltitude.Value;
+                requestGnssMultiFrameIsNull = false;
+            }
+            List<System.Single> requestGnssMultiFrame_gnssMultiFrame_AssistPosition = null;
+            if (cmdletContext.GnssMultiFrame_AssistPosition != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_AssistPosition = cmdletContext.GnssMultiFrame_AssistPosition;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_AssistPosition != null)
+            {
+                request.GnssMultiFrame.AssistPosition = requestGnssMultiFrame_gnssMultiFrame_AssistPosition;
+                requestGnssMultiFrameIsNull = false;
+            }
+            List<Amazon.IoTWireless.Model.GnssCapture> requestGnssMultiFrame_gnssMultiFrame_Capture = null;
+            if (cmdletContext.GnssMultiFrame_Capture != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_Capture = cmdletContext.GnssMultiFrame_Capture;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_Capture != null)
+            {
+                request.GnssMultiFrame.Captures = requestGnssMultiFrame_gnssMultiFrame_Capture;
+                requestGnssMultiFrameIsNull = false;
+            }
+            System.Single? requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy = null;
+            if (cmdletContext.GnssMultiFrame_CaptureTimeAccuracy != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy = cmdletContext.GnssMultiFrame_CaptureTimeAccuracy.Value;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy != null)
+            {
+                request.GnssMultiFrame.CaptureTimeAccuracy = requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy.Value;
+                requestGnssMultiFrameIsNull = false;
+            }
+            System.Boolean? requestGnssMultiFrame_gnssMultiFrame_Use2DSolver = null;
+            if (cmdletContext.GnssMultiFrame_Use2DSolver != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_Use2DSolver = cmdletContext.GnssMultiFrame_Use2DSolver.Value;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_Use2DSolver != null)
+            {
+                request.GnssMultiFrame.Use2DSolver = requestGnssMultiFrame_gnssMultiFrame_Use2DSolver.Value;
+                requestGnssMultiFrameIsNull = false;
+            }
+             // determine if request.GnssMultiFrame should be set to null
+            if (requestGnssMultiFrameIsNull)
+            {
+                request.GnssMultiFrame = null;
+            }
+            
              // populate Ip
             var requestIpIsNull = true;
             request.Ip = new Amazon.IoTWireless.Model.Ip();
@@ -575,6 +713,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Single? Gnss_CaptureTimeAccuracy { get; set; }
             public System.String Gnss_Payload { get; set; }
             public System.Boolean? Gnss_Use2DSolver { get; set; }
+            public System.Single? GnssMultiFrame_AssistAltitude { get; set; }
+            public List<System.Single> GnssMultiFrame_AssistPosition { get; set; }
+            public List<Amazon.IoTWireless.Model.GnssCapture> GnssMultiFrame_Capture { get; set; }
+            public System.Single? GnssMultiFrame_CaptureTimeAccuracy { get; set; }
+            public System.Boolean? GnssMultiFrame_Use2DSolver { get; set; }
             public System.String Ip_IpAddress { get; set; }
             public System.DateTime? Timestamp { get; set; }
             public List<Amazon.IoTWireless.Model.WiFiAccessPoint> WiFiAccessPoint { get; set; }

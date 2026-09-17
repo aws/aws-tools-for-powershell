@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-UNOOrganizationalUnit', 
         'Remove-UNOResourceTag', 
         'Update-UNOEventRule', 
+        'Update-UNOManagedNotificationChannelAssociation', 
         'Update-UNONotificationConfiguration')
 
     # Variables to export from this module

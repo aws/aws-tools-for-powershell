@@ -85,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppCallPermission" OutputProperty="*" Verb="Get" Noun="WhatsAppCallPermission" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWhatsAppFlow" OutputProperty="*" Verb="Get" Noun="WhatsAppFlow" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -141,6 +145,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendWhatsAppCallEvent" OutputProperty="CallId" Verb="Send" Noun="WhatsAppCallEvent" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendWhatsAppConversionEvent" OutputProperty="*" Verb="Send" Noun="WhatsAppConversionEvent" ShouldProcessTarget="DatasetId,Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -154,6 +162,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" OutputProperty="StatusCode" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLinkedWhatsAppBusinessAccountPhoneNumber" OutputProperty="PhoneNumberId" Verb="Update" Noun="LinkedWhatsAppBusinessAccountPhoneNumber" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

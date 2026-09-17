@@ -277,6 +277,23 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public Amazon.BedrockAgentCore.Model.SessionMetadataShape[] EvaluationMetadata_SessionMetadata { get; set; }
         #endregion
         
+        #region Parameter DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId
+        /// <summary>
+        /// <para>
+        /// <para>A list of session and trace ID pairs that restrict evaluation to specific traces within
+        /// a session. If specified, only the listed traces are evaluated instead of the entire
+        /// session.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceIds")]
+        public Amazon.BedrockAgentCore.Model.SessionTraceIds[] DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId { get; set; }
+        #endregion
+        
         #region Parameter DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime
         /// <summary>
         /// <para>
@@ -383,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (this.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionId != null)
             {
                 context.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionId = new List<System.String>(this.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionId);
+            }
+            if (this.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId != null)
+            {
+                context.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId = new List<Amazon.BedrockAgentCore.Model.SessionTraceIds>(this.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId);
             }
             context.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime = this.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime;
             context.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime = this.DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime;
@@ -563,6 +584,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionId != null)
             {
                 requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig.SessionIds = requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionId;
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfigIsNull = false;
+            }
+            List<Amazon.BedrockAgentCore.Model.SessionTraceIds> requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId = null;
+            if (cmdletContext.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId = cmdletContext.DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId;
+            }
+            if (requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId != null)
+            {
+                requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig.SessionTraceIds = requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId;
                 requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfigIsNull = false;
             }
             Amazon.BedrockAgentCore.Model.SessionFilterConfig requestDataSourceConfig_dataSourceConfig_CloudWatchLogs_dataSourceConfig_CloudWatchLogs_FilterConfig_dataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange = null;
@@ -786,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String BatchEvaluationName { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_FilterConfig_SessionId { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.SessionTraceIds> DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId { get; set; }
             public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_EndTime { get; set; }
             public System.DateTime? DataSourceConfig_CloudWatchLogs_FilterConfig_TimeRange_StartTime { get; set; }
             public List<System.String> DataSourceConfig_CloudWatchLogs_LogGroupNamePrefix { get; set; }

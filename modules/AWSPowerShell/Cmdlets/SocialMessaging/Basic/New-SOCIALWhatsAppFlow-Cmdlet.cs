@@ -83,10 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #region Parameter EndpointUri
         /// <summary>
         /// <para>
-        /// <para>Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the Flow's endpoint_uri
-        /// and called by Meta directly. When omitted, the Flow has no endpoint (static Flow).
-        /// Meta only calls the endpoint when the Flow JSON also declares data_api_version. To
-        /// verify that requests originate from Meta, attach your own Meta app via UpdateWhatsAppFlow.</para>
+        /// <para>The HTTPS endpoint that Meta calls for a data exchange Flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

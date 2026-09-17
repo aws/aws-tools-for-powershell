@@ -16408,8 +16408,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
                "Write-CSDDocument")
 }
 
@@ -30052,12 +30052,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem",
                "Add-DDBKeySchema",
+               "New-DDBTable",
+               "ConvertTo-DDBItem",
+               "New-DDBTableSchema",
                "Add-DDBIndexSchema",
-               "New-DDBTable")
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31306,14 +31306,14 @@ $EC2_Completers = {
         # Amazon.EC2.PayerResponsibilityScope
         "Edit-EC2VpcEndpointPayerResponsibility/Scope"
         {
-            $v = "vpc-endpoint-charges"
+            $v = "resource-gateway-charges","vpc-endpoint-charges"
             break
         }
 
         # Amazon.EC2.PayerResponsibilityType
         "Edit-EC2VpcEndpointPayerResponsibility/PayerResponsibility"
         {
-            $v = "vpc-endpoint-account","vpc-endpoint-service-account"
+            $v = "resource-gateway-account","vpc-endpoint-account","vpc-endpoint-service-account"
             break
         }
 
@@ -31777,7 +31777,7 @@ $EC2_Completers = {
         # Amazon.EC2.VpcEndpointType
         "New-EC2VpcEndpoint/VpcEndpointType"
         {
-            $v = "Gateway","GatewayLoadBalancer","Interface","Resource","ServiceNetwork"
+            $v = "Gateway","GatewayLoadBalancer","Interface","Resource","ServiceNetwork","Tunnel"
             break
         }
 
@@ -32884,8 +32884,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -62409,6 +62409,7 @@ $UNO_SelectMap = @{
                "Add-UNOResourceTag",
                "Remove-UNOResourceTag",
                "Update-UNOEventRule",
+               "Update-UNOManagedNotificationChannelAssociation",
                "Update-UNONotificationConfiguration")
 }
 
@@ -77981,17 +77982,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Get-S3PreSignedURL",
-               "Remove-S3Bucket",
-               "Read-S3Object",
-               "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Write-S3Object",
-               "Mount-S3PSDrive",
-               "Remove-S3Object",
                "Copy-S3Object",
+               "Dismount-S3PSDrive",
                "Get-S3MultipartUpload",
-               "New-S3Bucket")
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Object",
+               "New-S3Bucket",
+               "Mount-S3PSDrive",
+               "Test-S3Bucket",
+               "Read-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -85694,6 +85695,7 @@ $SOCIAL_SelectMap = @{
                "Get-SOCIALLinkedWhatsAppBusinessAccount",
                "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
                "Get-SOCIALWhatsAppBusinessPublicKey",
+               "Get-SOCIALWhatsAppCallPermission",
                "Get-SOCIALWhatsAppFlow",
                "Get-SOCIALWhatsAppFlowPreview",
                "Get-SOCIALWhatsAppMessageMedia",
@@ -85708,10 +85710,12 @@ $SOCIAL_SelectMap = @{
                "Publish-SOCIALWhatsAppFlow",
                "Write-SOCIALWhatsAppBusinessAccountEventDestination",
                "Write-SOCIALWhatsAppBusinessPublicKey",
+               "Send-SOCIALWhatsAppCallEvent",
                "Send-SOCIALWhatsAppConversionEvent",
                "Send-SOCIALWhatsAppMessage",
                "Add-SOCIALResourceTag",
                "Remove-SOCIALResourceTag",
+               "Update-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
                "Update-SOCIALWhatsAppFlow",
                "Update-SOCIALWhatsAppFlowAsset",
                "Update-SOCIALWhatsAppMessageTemplate")
@@ -91171,7 +91175,7 @@ $VPCL_Completers = {
         # Amazon.VPCLattice.ProtocolType
         "New-VPCLResourceConfiguration/Protocol"
         {
-            $v = "TCP"
+            $v = "TCP","TCP_UDP"
             break
         }
 
@@ -91195,7 +91199,7 @@ $VPCL_Completers = {
         # Amazon.VPCLattice.ResourceConfigurationType
         "New-VPCLResourceConfiguration/Type"
         {
-            $v = "ARN","CHILD","GROUP","SINGLE"
+            $v = "ARN","CHILD","CIDR","GROUP","SINGLE"
             break
         }
 
@@ -94672,6 +94676,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -94711,41 +94753,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

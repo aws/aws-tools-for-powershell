@@ -1,4 +1,25 @@
-﻿### 5.0.300 (2026-09-16 19:40Z)
+﻿### 5.0.301 (2026-09-17 19:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.336.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Start-BACBatchEvaluation: added parameter DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId.
+  * Amazon End User Messaging Social
+    * Added cmdlet Get-SOCIALWhatsAppCallPermission leveraging the GetWhatsAppCallPermission service API.
+    * Added cmdlet Send-SOCIALWhatsAppCallEvent leveraging the SendWhatsAppCallEvent service API.
+    * Added cmdlet Update-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber leveraging the UpdateLinkedWhatsAppBusinessAccountPhoneNumber service API.
+  * Amazon IoT Wireless
+    * Modified cmdlet Get-IOTWPositionEstimate: added parameters GnssMultiFrame_AssistAltitude, GnssMultiFrame_AssistPosition, GnssMultiFrame_Capture, GnssMultiFrame_CaptureTimeAccuracy and GnssMultiFrame_Use2DSolver.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2ExportJob: added parameters ExportDataSource_MessageInsightsDataSource_Exclude_TenantName and ExportDataSource_MessageInsightsDataSource_Include_TenantName.
+  * Amazon User Notifications
+    * Added cmdlet Update-UNOManagedNotificationChannelAssociation leveraging the UpdateManagedNotificationChannelAssociation service API.
+    * Modified cmdlet Add-UNOManagedNotificationAccountContact: added parameter IsSensitiveEventsSubscribed.
+    * Modified cmdlet Add-UNOManagedNotificationAdditionalChannel: added parameter IsSensitiveEventsSubscribed.
+    * Modified cmdlet Get-UNOManagedNotificationEventList: added parameter IncludeSensitiveEvent.
+  * Amazon VPC Lattice
+    * Modified cmdlet New-VPCLResourceConfiguration: added parameter ResourceConfigurationDefinition_CidrResource_CidrRange.
+    * Modified cmdlet Update-VPCLResourceConfiguration: added parameter ResourceConfigurationDefinition_CidrResource_CidrRange.
+
+### 5.0.300 (2026-09-16 19:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.335.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Added cmdlet Search-CPFRecommendation leveraging the SearchRecommendations service API.

@@ -78,14 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The alias for the replicated instance. The <c>ReplicaAlias</c> must be unique.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReplicaAlias { get; set; }
         #endregion
         
@@ -174,12 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.ReplicaAlias = this.ReplicaAlias;
-            #if MODULAR
-            if (this.ReplicaAlias == null && ParameterWasBound(nameof(this.ReplicaAlias)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReplicaAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ReplicaRegion = this.ReplicaRegion;
             #if MODULAR
             if (this.ReplicaRegion == null && ParameterWasBound(nameof(this.ReplicaRegion)))

@@ -648,17 +648,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Get-S3PreSignedURL",
-               "Remove-S3Bucket",
-               "Read-S3Object",
-               "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Write-S3Object",
-               "Mount-S3PSDrive",
-               "Remove-S3Object",
                "Copy-S3Object",
+               "Dismount-S3PSDrive",
                "Get-S3MultipartUpload",
-               "New-S3Bucket")
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Remove-S3Object",
+               "New-S3Bucket",
+               "Mount-S3PSDrive",
+               "Test-S3Bucket",
+               "Read-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap

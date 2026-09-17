@@ -362,6 +362,34 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String[] Include_Subject { get; set; }
         #endregion
         
+        #region Parameter ExportDataSource_MessageInsightsDataSource_Exclude_TenantName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tenant used when sending the message.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ExportDataSource_MessageInsightsDataSource_Exclude_TenantName { get; set; }
+        #endregion
+        
+        #region Parameter ExportDataSource_MessageInsightsDataSource_Include_TenantName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tenant used when sending the message.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ExportDataSource_MessageInsightsDataSource_Include_TenantName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'JobId'.
@@ -433,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.Exclude_Subject = new List<System.String>(this.Exclude_Subject);
             }
+            if (this.ExportDataSource_MessageInsightsDataSource_Exclude_TenantName != null)
+            {
+                context.ExportDataSource_MessageInsightsDataSource_Exclude_TenantName = new List<System.String>(this.ExportDataSource_MessageInsightsDataSource_Exclude_TenantName);
+            }
             if (this.Include_Destination != null)
             {
                 context.Include_Destination = new List<System.String>(this.Include_Destination);
@@ -456,6 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (this.Include_Subject != null)
             {
                 context.Include_Subject = new List<System.String>(this.Include_Subject);
+            }
+            if (this.ExportDataSource_MessageInsightsDataSource_Include_TenantName != null)
+            {
+                context.ExportDataSource_MessageInsightsDataSource_Include_TenantName = new List<System.String>(this.ExportDataSource_MessageInsightsDataSource_Include_TenantName);
             }
             context.MessageInsightsDataSource_MaxResult = this.MessageInsightsDataSource_MaxResult;
             context.MessageInsightsDataSource_StartDate = this.MessageInsightsDataSource_StartDate;
@@ -614,6 +650,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude.Subject = requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude_exclude_Subject;
                 requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_ExcludeIsNull = false;
             }
+            List<System.String> requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude_exportDataSource_MessageInsightsDataSource_Exclude_TenantName = null;
+            if (cmdletContext.ExportDataSource_MessageInsightsDataSource_Exclude_TenantName != null)
+            {
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude_exportDataSource_MessageInsightsDataSource_Exclude_TenantName = cmdletContext.ExportDataSource_MessageInsightsDataSource_Exclude_TenantName;
+            }
+            if (requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude_exportDataSource_MessageInsightsDataSource_Exclude_TenantName != null)
+            {
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude.TenantName = requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude_exportDataSource_MessageInsightsDataSource_Exclude_TenantName;
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_ExcludeIsNull = false;
+            }
              // determine if requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Exclude should be set to null
             if (requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_ExcludeIsNull)
             {
@@ -687,6 +733,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_include_Subject != null)
             {
                 requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include.Subject = requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_include_Subject;
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_IncludeIsNull = false;
+            }
+            List<System.String> requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_exportDataSource_MessageInsightsDataSource_Include_TenantName = null;
+            if (cmdletContext.ExportDataSource_MessageInsightsDataSource_Include_TenantName != null)
+            {
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_exportDataSource_MessageInsightsDataSource_Include_TenantName = cmdletContext.ExportDataSource_MessageInsightsDataSource_Include_TenantName;
+            }
+            if (requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_exportDataSource_MessageInsightsDataSource_Include_TenantName != null)
+            {
+                requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include.TenantName = requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include_exportDataSource_MessageInsightsDataSource_Include_TenantName;
                 requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_IncludeIsNull = false;
             }
              // determine if requestExportDataSource_exportDataSource_MessageInsightsDataSource_exportDataSource_MessageInsightsDataSource_Include should be set to null
@@ -870,12 +926,14 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public List<System.String> Exclude_LastDeliveryEvent { get; set; }
             public List<System.String> Exclude_LastEngagementEvent { get; set; }
             public List<System.String> Exclude_Subject { get; set; }
+            public List<System.String> ExportDataSource_MessageInsightsDataSource_Exclude_TenantName { get; set; }
             public List<System.String> Include_Destination { get; set; }
             public List<System.String> Include_FromEmailAddress { get; set; }
             public List<System.String> Include_Isp { get; set; }
             public List<System.String> Include_LastDeliveryEvent { get; set; }
             public List<System.String> Include_LastEngagementEvent { get; set; }
             public List<System.String> Include_Subject { get; set; }
+            public List<System.String> ExportDataSource_MessageInsightsDataSource_Include_TenantName { get; set; }
             public System.Int32? MessageInsightsDataSource_MaxResult { get; set; }
             public System.DateTime? MessageInsightsDataSource_StartDate { get; set; }
             public Dictionary<System.String, List<System.String>> MetricsDataSource_Dimension { get; set; }

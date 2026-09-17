@@ -56,6 +56,19 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter IncludeSensitiveEvent
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include sensitive events in the result. By default, only non-sensitive
+        /// events are returned. The <c>notifications:AccessSensitiveEvents</c> permission controls
+        /// access to sensitive events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeSensitiveEvents")]
+        public System.Boolean? IncludeSensitiveEvent { get; set; }
+        #endregion
+        
         #region Parameter Locale
         /// <summary>
         /// <para>
@@ -181,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EndTime = this.EndTime;
+            context.IncludeSensitiveEvent = this.IncludeSensitiveEvent;
             context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -218,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.IncludeSensitiveEvent != null)
+            {
+                request.IncludeSensitiveEvents = cmdletContext.IncludeSensitiveEvent.Value;
             }
             if (cmdletContext.Locale != null)
             {
@@ -324,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
+            public System.Boolean? IncludeSensitiveEvent { get; set; }
             public Amazon.Notifications.LocaleCode Locale { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

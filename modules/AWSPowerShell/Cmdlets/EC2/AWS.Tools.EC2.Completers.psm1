@@ -1082,14 +1082,14 @@ $EC2_Completers = {
         # Amazon.EC2.PayerResponsibilityScope
         "Edit-EC2VpcEndpointPayerResponsibility/Scope"
         {
-            $v = "vpc-endpoint-charges"
+            $v = "resource-gateway-charges","vpc-endpoint-charges"
             break
         }
 
         # Amazon.EC2.PayerResponsibilityType
         "Edit-EC2VpcEndpointPayerResponsibility/PayerResponsibility"
         {
-            $v = "vpc-endpoint-account","vpc-endpoint-service-account"
+            $v = "resource-gateway-account","vpc-endpoint-account","vpc-endpoint-service-account"
             break
         }
 
@@ -1553,7 +1553,7 @@ $EC2_Completers = {
         # Amazon.EC2.VpcEndpointType
         "New-EC2VpcEndpoint/VpcEndpointType"
         {
-            $v = "Gateway","GatewayLoadBalancer","Interface","Resource","ServiceNetwork"
+            $v = "Gateway","GatewayLoadBalancer","Interface","Resource","ServiceNetwork","Tunnel"
             break
         }
 
@@ -2660,8 +2660,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

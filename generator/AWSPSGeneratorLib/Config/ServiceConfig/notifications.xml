@@ -176,6 +176,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateManagedNotificationChannelAssociation" Verb="Update" Noun="ManagedNotificationChannelAssociation" ShouldProcessTarget="ManagedNotificationConfigurationArn,ChannelIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotificationConfiguration" OutputProperty="Arn" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

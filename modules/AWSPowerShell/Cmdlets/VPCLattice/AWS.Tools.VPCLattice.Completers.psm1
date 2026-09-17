@@ -136,7 +136,7 @@ $VPCL_Completers = {
         # Amazon.VPCLattice.ProtocolType
         "New-VPCLResourceConfiguration/Protocol"
         {
-            $v = "TCP"
+            $v = "TCP","TCP_UDP"
             break
         }
 
@@ -160,7 +160,7 @@ $VPCL_Completers = {
         # Amazon.VPCLattice.ResourceConfigurationType
         "New-VPCLResourceConfiguration/Type"
         {
-            $v = "ARN","CHILD","GROUP","SINGLE"
+            $v = "ARN","CHILD","CIDR","GROUP","SINGLE"
             break
         }
 

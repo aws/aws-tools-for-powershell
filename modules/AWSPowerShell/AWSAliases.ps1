@@ -24776,6 +24776,7 @@ Set-Alias -Name UNO-RegisterNotificationHub -Value Register-UNONotificationHub
 Set-Alias -Name UNO-TagResource -Value Add-UNOResourceTag
 Set-Alias -Name UNO-UntagResource -Value Remove-UNOResourceTag
 Set-Alias -Name UNO-UpdateEventRule -Value Update-UNOEventRule
+Set-Alias -Name UNO-UpdateManagedNotificationChannelAssociation -Value Update-UNOManagedNotificationChannelAssociation
 Set-Alias -Name UNO-UpdateNotificationConfiguration -Value Update-UNONotificationConfiguration
 Set-Alias -Name Activate-UNCEmailContact -Value Enable-UNCEmailContact
 Set-Alias -Name UNC-ActivateEmailContact -Value Enable-UNCEmailContact
@@ -33325,6 +33326,7 @@ Set-Alias -Name SOCIAL-DisassociateWhatsAppBusinessAccount -Value Disconnect-SOC
 Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccount -Value Get-SOCIALLinkedWhatsAppBusinessAccount
 Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccountPhoneNumber -Value Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber
 Set-Alias -Name SOCIAL-GetWhatsAppBusinessPublicKey -Value Get-SOCIALWhatsAppBusinessPublicKey
+Set-Alias -Name SOCIAL-GetWhatsAppCallPermission -Value Get-SOCIALWhatsAppCallPermission
 Set-Alias -Name SOCIAL-GetWhatsAppFlow -Value Get-SOCIALWhatsAppFlow
 Set-Alias -Name SOCIAL-GetWhatsAppFlowPreview -Value Get-SOCIALWhatsAppFlowPreview
 Set-Alias -Name SOCIAL-GetWhatsAppMessageMedia -Value Get-SOCIALWhatsAppMessageMedia
@@ -33353,10 +33355,12 @@ Set-Alias -Name Put-SOCIALWhatsAppBusinessAccountEventDestination -Value Write-S
 Set-Alias -Name SOCIAL-PutWhatsAppBusinessAccountEventDestinations -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
 Set-Alias -Name Put-SOCIALWhatsAppBusinessPublicKey -Value Write-SOCIALWhatsAppBusinessPublicKey
 Set-Alias -Name SOCIAL-PutWhatsAppBusinessPublicKey -Value Write-SOCIALWhatsAppBusinessPublicKey
+Set-Alias -Name SOCIAL-SendWhatsAppCallEvent -Value Send-SOCIALWhatsAppCallEvent
 Set-Alias -Name SOCIAL-SendWhatsAppConversionEvent -Value Send-SOCIALWhatsAppConversionEvent
 Set-Alias -Name SOCIAL-SendWhatsAppMessage -Value Send-SOCIALWhatsAppMessage
 Set-Alias -Name SOCIAL-TagResource -Value Add-SOCIALResourceTag
 Set-Alias -Name SOCIAL-UntagResource -Value Remove-SOCIALResourceTag
+Set-Alias -Name SOCIAL-UpdateLinkedWhatsAppBusinessAccountPhoneNumber -Value Update-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber
 Set-Alias -Name Update-SOCIALWhatsAppFlowAssets -Value Update-SOCIALWhatsAppFlowAsset
 Set-Alias -Name SOCIAL-UpdateWhatsAppFlowAssets -Value Update-SOCIALWhatsAppFlowAsset
 Set-Alias -Name SOCIAL-UpdateWhatsAppFlow -Value Update-SOCIALWhatsAppFlow

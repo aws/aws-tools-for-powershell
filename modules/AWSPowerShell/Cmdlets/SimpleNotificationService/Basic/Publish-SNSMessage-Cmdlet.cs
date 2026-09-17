@@ -73,8 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>The message you want to send.</para><para>If you are publishing to a topic and you want to send the same message to all transport
         /// protocols, include the text of the message as a String value. If you want to send
         /// different messages for each transport protocol, set the value of the <c>MessageStructure</c>
-        /// parameter to <c>json</c> and use a JSON object for the <c>Message</c> parameter. </para><para>Constraints:</para><ul><li><para>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256
-        /// KB in size (262,144 bytes, not 262,144 characters).</para></li><li><para>For SMS, each message can contain up to 140 characters. This character limit depends
+        /// parameter to <c>json</c> and use a JSON object for the <c>Message</c> parameter. </para><para>Constraints:</para><ul><li><para>With the exception of SMS, messages must be UTF-8 encoded strings. By default, a message
+        /// can be at most 256 KiB in size (262,144 bytes, not 262,144 characters).</para><para>When you publish to a topic, the maximum size is determined by the topic's <c>MaximumMessageSize</c>
+        /// attribute, which supports values up to 1 MiB (1,048,576 bytes). Amazon SNS validates
+        /// the combined size of the message body and message attributes against this value and
+        /// returns an <c>InvalidParameter</c> error if the limit is exceeded.</para><para>For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html">Large
+        /// message payloads</a> in the <i>Amazon SNS Developer Guide.</i></para></li><li><para>For SMS, each message can contain up to 140 characters. This character limit depends
         /// on the encoding schema. For example, an SMS message can contain 160 GSM characters,
         /// 140 ASCII characters, or 70 UCS-2 characters.</para><para>If you publish a message that exceeds this size limit, Amazon SNS sends the message
         /// as multiple messages, each fitting within the size limit. Messages aren't truncated

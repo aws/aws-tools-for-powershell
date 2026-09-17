@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public Amazon.Notifications.AccountContactType ContactIdentifier { get; set; }
         #endregion
         
+        #region Parameter IsSensitiveEventsSubscribed
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this contact is subscribed to sensitive events. The <c>notifications:SubscribeSensitiveEvents</c>
+        /// permission controls access to sensitive events. Defaults to false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsSensitiveEventsSubscribed { get; set; }
+        #endregion
+        
         #region Parameter ManagedNotificationConfigurationArn
         /// <summary>
         /// <para>
@@ -132,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
                 WriteWarning("You are passing $null as a value for parameter ContactIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IsSensitiveEventsSubscribed = this.IsSensitiveEventsSubscribed;
             context.ManagedNotificationConfigurationArn = this.ManagedNotificationConfigurationArn;
             #if MODULAR
             if (this.ManagedNotificationConfigurationArn == null && ParameterWasBound(nameof(this.ManagedNotificationConfigurationArn)))
@@ -158,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             if (cmdletContext.ContactIdentifier != null)
             {
                 request.ContactIdentifier = cmdletContext.ContactIdentifier;
+            }
+            if (cmdletContext.IsSensitiveEventsSubscribed != null)
+            {
+                request.IsSensitiveEventsSubscribed = cmdletContext.IsSensitiveEventsSubscribed.Value;
             }
             if (cmdletContext.ManagedNotificationConfigurationArn != null)
             {
@@ -219,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Notifications.AccountContactType ContactIdentifier { get; set; }
+            public System.Boolean? IsSensitiveEventsSubscribed { get; set; }
             public System.String ManagedNotificationConfigurationArn { get; set; }
             public System.Func<Amazon.Notifications.Model.AssociateManagedNotificationAccountContactResponse, AddUNOManagedNotificationAccountContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

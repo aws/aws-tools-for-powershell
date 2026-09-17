@@ -30,8 +30,14 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
+    /// <important><para>
+    /// Amazon SNS message data protection is no longer available to new customers. For more
+    /// information and guidance on alternatives, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html">Amazon
+    /// SNS message data protection availability change</a>.
+    /// </para></important><para>
     /// Adds or updates an inline policy document that is stored in the specified Amazon SNS
     /// topic.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "SNSDataProtectionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

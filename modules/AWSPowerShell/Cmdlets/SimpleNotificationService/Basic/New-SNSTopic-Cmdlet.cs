@@ -54,7 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists names, descriptions, and values of the special request parameters
         /// that the <c>CreateTopic</c> action uses:</para><ul><li><para><c>DeliveryPolicy</c> – The policy that defines how Amazon SNS retries failed deliveries
-        /// to HTTP/S endpoints.</para></li><li><para><c>DisplayName</c> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><c>Policy</c> – The policy that defines who can access your topic. By default, only
+        /// to HTTP/S endpoints.</para></li><li><para><c>DisplayName</c> – The display name to use for a topic with SMS, <c>email</c>,
+        /// and <c>email-json</c> subscriptions. For <c>email</c> and <c>email-json</c> subscriptions,
+        /// the display name is used as the sender name for regular notification messages. Subscription
+        /// confirmation and unsubscribe confirmation emails always use "Amazon Web Services Notifications"
+        /// as the sender name.</para></li><li><para><c>MaximumMessageSize</c> – The maximum size, in bytes, of a message that can be
+        /// published to the topic. Valid values are <c>1024</c> to <c>1048576</c> (1 MiB). The
+        /// default is <c>262144</c> (256 KiB).</para><para>A topic with a <c>MaximumMessageSize</c> above 256 KiB must have 100 or fewer subscriptions,
+        /// and each subscription must be an Amazon SQS, Amazon Data Firehose, or Lambda subscription.</para></li><li><para><c>Policy</c> – The policy that defines who can access your topic. By default, only
         /// the topic owner can publish or subscribe to the topic.</para></li><li><para><c>TracingConfig</c> – Tracing mode of an Amazon SNS topic. By default <c>TracingConfig</c>
         /// is set to <c>PassThrough</c>, and the topic passes through the tracing header it receives
         /// from an Amazon SNS publisher to its subscriptions. If set to <c>Active</c>, Amazon
@@ -117,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter DataProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>The body of the policy document you want to use for this topic.</para><para>You can only add one policy per topic.</para><para>The policy must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
+        /// <important><para>Amazon SNS message data protection is no longer available to new customers. For more
+        /// information and guidance on alternatives, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html">Amazon
+        /// SNS message data protection availability change</a>.</para></important><para>The body of the policy document you want to use for this topic.</para><para>You can only add one policy per topic.</para><para>The policy must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

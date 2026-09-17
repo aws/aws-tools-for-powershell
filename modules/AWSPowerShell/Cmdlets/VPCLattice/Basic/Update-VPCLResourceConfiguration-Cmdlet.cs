@@ -66,6 +66,22 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String ArnResource_Arn { get; set; }
         #endregion
         
+        #region Parameter ResourceConfigurationDefinition_CidrResource_CidrRange
+        /// <summary>
+        /// <para>
+        /// <para>The CIDR ranges of the network segment, for example, <c>10.0.0.0/16</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfigurationDefinition_CidrResource_CidrRanges")]
+        public System.String[] ResourceConfigurationDefinition_CidrResource_CidrRange { get; set; }
+        #endregion
+        
         #region Parameter DnsResource_DomainName
         /// <summary>
         /// <para>
@@ -186,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 context.PortRange = new List<System.String>(this.PortRange);
             }
             context.ArnResource_Arn = this.ArnResource_Arn;
+            if (this.ResourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                context.ResourceConfigurationDefinition_CidrResource_CidrRange = new List<System.String>(this.ResourceConfigurationDefinition_CidrResource_CidrRange);
+            }
             context.DnsResource_DomainName = this.DnsResource_DomainName;
             context.DnsResource_IpAddressType = this.DnsResource_IpAddressType;
             context.IpResource_IpAddress = this.IpResource_IpAddress;
@@ -247,6 +267,31 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_ArnResource != null)
             {
                 request.ResourceConfigurationDefinition.ArnResource = requestResourceConfigurationDefinition_resourceConfigurationDefinition_ArnResource;
+                requestResourceConfigurationDefinitionIsNull = false;
+            }
+            Amazon.VPCLattice.Model.CidrResource requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = null;
+            
+             // populate CidrResource
+            var requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull = true;
+            requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = new Amazon.VPCLattice.Model.CidrResource();
+            List<System.String> requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange = null;
+            if (cmdletContext.ResourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange = cmdletContext.ResourceConfigurationDefinition_CidrResource_CidrRange;
+            }
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource.CidrRanges = requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange;
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull = false;
+            }
+             // determine if requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource should be set to null
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = null;
+            }
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource != null)
+            {
+                request.ResourceConfigurationDefinition.CidrResource = requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource;
                 requestResourceConfigurationDefinitionIsNull = false;
             }
             Amazon.VPCLattice.Model.IpResource requestResourceConfigurationDefinition_resourceConfigurationDefinition_IpResource = null;
@@ -376,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public System.Boolean? AllowAssociationToShareableServiceNetwork { get; set; }
             public List<System.String> PortRange { get; set; }
             public System.String ArnResource_Arn { get; set; }
+            public List<System.String> ResourceConfigurationDefinition_CidrResource_CidrRange { get; set; }
             public System.String DnsResource_DomainName { get; set; }
             public Amazon.VPCLattice.ResourceConfigurationIpAddressType DnsResource_IpAddressType { get; set; }
             public System.String IpResource_IpAddress { get; set; }

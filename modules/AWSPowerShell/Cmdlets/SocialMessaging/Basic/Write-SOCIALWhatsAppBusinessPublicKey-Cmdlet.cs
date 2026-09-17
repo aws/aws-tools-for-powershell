@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #region Parameter BusinessPublicKey
         /// <summary>
         /// <para>
-        /// <para>PEM-encoded RSA public key. Mutually exclusive with kmsKeyArn.</para>
+        /// <para>The PEM-encoded 2048-bit RSA public key to set. Mutually exclusive with <c>kmsKeyArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>Customer-managed KMS asymmetric RSA key ARN. Mutually exclusive with businessPublicKey.</para>
+        /// <para>The ARN of a customer managed asymmetric RSA key in Amazon Web Services KMS. Mutually
+        /// exclusive with <c>businessPublicKey</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

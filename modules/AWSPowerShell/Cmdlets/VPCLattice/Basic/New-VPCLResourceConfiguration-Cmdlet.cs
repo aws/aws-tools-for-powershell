@@ -67,6 +67,22 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String ArnResource_Arn { get; set; }
         #endregion
         
+        #region Parameter ResourceConfigurationDefinition_CidrResource_CidrRange
+        /// <summary>
+        /// <para>
+        /// <para>The CIDR ranges of the network segment, for example, <c>10.0.0.0/16</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfigurationDefinition_CidrResource_CidrRanges")]
+        public System.String[] ResourceConfigurationDefinition_CidrResource_CidrRange { get; set; }
+        #endregion
+        
         #region Parameter CustomDomainName
         /// <summary>
         /// <para>
@@ -157,9 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter PortRange
         /// <summary>
         /// <para>
-        /// <para>(SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource
+        /// <para>(SINGLE, GROUP, CHILD, CIDR) The port ranges that a consumer can use to access a resource
         /// configuration (for example: 1-65535). You can separate port ranges using commas (for
-        /// example: 1,2,22-30).</para><para />
+        /// example: 1,2,22-30). To resolve DNS through a CIDR resource configuration, include
+        /// port 53 in the port ranges.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -175,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>(SINGLE, GROUP) The protocol accepted by the resource configuration.</para>
+        /// <para>(SINGLE, GROUP, CIDR) The protocol accepted by the resource configuration. The default
+        /// is <c>TCP</c>. <c>TCP_UDP</c> is supported only for CIDR resource configurations;
+        /// specify it for a CIDR resource configuration to allow DNS resolution, which uses UDP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,9 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceGatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>(SINGLE, GROUP, ARN) The ID or ARN of the resource gateway used to connect to the
-        /// resource configuration. For a child resource configuration, this value is inherited
-        /// from the parent resource configuration.</para>
+        /// <para>(SINGLE, GROUP, ARN, CIDR) The ID or ARN of the resource gateway used to connect to
+        /// the resource configuration. For a child resource configuration, this value is inherited
+        /// from the parent resource configuration. For a CIDR resource configuration, the associated
+        /// resource gateway must have its DNS resolution set to <c>IN_VPC</c> so that DNS queries
+        /// resolve in the context of your VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +248,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// <para>
         /// <para>The type of resource configuration. A resource configuration can be one of the following
         /// types:</para><ul><li><para><b>SINGLE</b> - A single resource.</para></li><li><para><b>GROUP</b> - A group of resources. You must create a group resource configuration
-        /// before you create a child resource configuration.</para></li><li><para><b>CHILD</b> - A single resource that is part of a group resource configuration.</para></li><li><para><b>ARN</b> - An Amazon Web Services resource.</para></li></ul>
+        /// before you create a child resource configuration.</para></li><li><para><b>CHILD</b> - A single resource that is part of a group resource configuration.</para></li><li><para><b>ARN</b> - An Amazon Web Services resource.</para></li><li><para><b>CIDR</b> - A network segment, expressed as a range of IP addresses (a CIDR block).
+        /// Use this type to share a portion of your network rather than an individual resource.
+        /// A consumer accesses the resources within the CIDR range through a <c>Tunnel</c> VPC
+        /// endpoint. You can't add a CIDR resource configuration to a service network. A CIDR
+        /// resource configuration must be associated with a resource gateway whose DNS resolution
+        /// is set to <c>IN_VPC</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -318,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             context.Protocol = this.Protocol;
             context.ArnResource_Arn = this.ArnResource_Arn;
+            if (this.ResourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                context.ResourceConfigurationDefinition_CidrResource_CidrRange = new List<System.String>(this.ResourceConfigurationDefinition_CidrResource_CidrRange);
+            }
             context.DnsResource_DomainName = this.DnsResource_DomainName;
             context.DnsResource_IpAddressType = this.DnsResource_IpAddressType;
             context.IpResource_IpAddress = this.IpResource_IpAddress;
@@ -413,6 +443,31 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_ArnResource != null)
             {
                 request.ResourceConfigurationDefinition.ArnResource = requestResourceConfigurationDefinition_resourceConfigurationDefinition_ArnResource;
+                requestResourceConfigurationDefinitionIsNull = false;
+            }
+            Amazon.VPCLattice.Model.CidrResource requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = null;
+            
+             // populate CidrResource
+            var requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull = true;
+            requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = new Amazon.VPCLattice.Model.CidrResource();
+            List<System.String> requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange = null;
+            if (cmdletContext.ResourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange = cmdletContext.ResourceConfigurationDefinition_CidrResource_CidrRange;
+            }
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange != null)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource.CidrRanges = requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource_resourceConfigurationDefinition_CidrResource_CidrRange;
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull = false;
+            }
+             // determine if requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource should be set to null
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResourceIsNull)
+            {
+                requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource = null;
+            }
+            if (requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource != null)
+            {
+                request.ResourceConfigurationDefinition.CidrResource = requestResourceConfigurationDefinition_resourceConfigurationDefinition_CidrResource;
                 requestResourceConfigurationDefinitionIsNull = false;
             }
             Amazon.VPCLattice.Model.IpResource requestResourceConfigurationDefinition_resourceConfigurationDefinition_IpResource = null;
@@ -560,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public List<System.String> PortRange { get; set; }
             public Amazon.VPCLattice.ProtocolType Protocol { get; set; }
             public System.String ArnResource_Arn { get; set; }
+            public List<System.String> ResourceConfigurationDefinition_CidrResource_CidrRange { get; set; }
             public System.String DnsResource_DomainName { get; set; }
             public Amazon.VPCLattice.ResourceConfigurationIpAddressType DnsResource_IpAddressType { get; set; }
             public System.String IpResource_IpAddress { get; set; }

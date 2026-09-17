@@ -30,32 +30,26 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Associates an additional Channel with a particular <c>ManagedNotificationConfiguration</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Supported Channels include Amazon Q Developer in chat applications, the Console Mobile
-    /// Application, and emails (notifications-contacts).
-    /// </para>
+    /// Updates the <c>isSensitiveEventsSubscribed</c> property of a particular ManagedNotification
+    /// channel association.
     /// </summary>
-    [Cmdlet("Add", "UNOManagedNotificationAdditionalChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "UNOManagedNotificationChannelAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS User Notifications AssociateManagedNotificationAdditionalChannel API operation.", Operation = new[] {"AssociateManagedNotificationAdditionalChannel"}, SelectReturnType = typeof(Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse))]
-    [AWSCmdletOutput("None or Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse",
+    [AWSCmdlet("Calls the AWS User Notifications UpdateManagedNotificationChannelAssociation API operation.", Operation = new[] {"UpdateManagedNotificationChannelAssociation"}, SelectReturnType = typeof(Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse))]
+    [AWSCmdletOutput("None or Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class AddUNOManagedNotificationAdditionalChannelCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class UpdateUNOManagedNotificationChannelAssociationCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelArn
+        #region Parameter ChannelIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>ManagedNotificationConfiguration</c>.</para><para>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile
-        /// Application, and email (notifications-contacts).</para>
+        /// <para>The identifier of the channel association to update. You can specify one of the following:</para><ul><li><para>An Account contact identifier.</para></li><li><para>A Channel ARN.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,14 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String ChannelIdentifier { get; set; }
         #endregion
         
         #region Parameter IsSensitiveEventsSubscribed
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this channel is subscribed to sensitive events. The <c>notifications:SubscribeSensitiveEvents</c>
-        /// permission controls access to sensitive events. Defaults to false.</para>
+        /// <para>Specifies whether the association is subscribed to sensitive events. The <c>notifications:SubscribeSensitiveEvents</c>
+        /// permission controls access to sensitive events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter ManagedNotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <c>ManagedNotificationConfiguration</c> to associate
-        /// with the additional Channel.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>ManagedNotificationConfiguration</c> whose
+        /// Channel association property you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-UNOManagedNotificationAdditionalChannel (AssociateManagedNotificationAdditionalChannel)"))
+            var targetParameterNames = new string[]
+            {
+                nameof(this.ManagedNotificationConfigurationArn),
+                nameof(this.ChannelIdentifier)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-UNOManagedNotificationChannelAssociation (UpdateManagedNotificationChannelAssociation)"))
             {
                 return;
             }
@@ -140,14 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse, AddUNOManagedNotificationAdditionalChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse, UpdateUNOManagedNotificationChannelAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelArn = this.ChannelArn;
+            context.ChannelIdentifier = this.ChannelIdentifier;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.ChannelIdentifier == null && ParameterWasBound(nameof(this.ChannelIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.IsSensitiveEventsSubscribed = this.IsSensitiveEventsSubscribed;
@@ -172,11 +171,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelRequest();
+            var request = new Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.ChannelIdentifier != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.ChannelIdentifier = cmdletContext.ChannelIdentifier;
             }
             if (cmdletContext.IsSensitiveEventsSubscribed != null)
             {
@@ -219,12 +218,12 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelRequest request)
+        private Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "AssociateManagedNotificationAdditionalChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "UpdateManagedNotificationChannelAssociation");
             try
             {
-                return client.AssociateManagedNotificationAdditionalChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateManagedNotificationChannelAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -241,10 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
+            public System.String ChannelIdentifier { get; set; }
             public System.Boolean? IsSensitiveEventsSubscribed { get; set; }
             public System.String ManagedNotificationConfigurationArn { get; set; }
-            public System.Func<Amazon.Notifications.Model.AssociateManagedNotificationAdditionalChannelResponse, AddUNOManagedNotificationAdditionalChannelCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Notifications.Model.UpdateManagedNotificationChannelAssociationResponse, UpdateUNOManagedNotificationChannelAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
