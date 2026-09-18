@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public Amazon.QConnect.Model.Citation[] Text_Citation { get; set; }
         #endregion
         
+        #region Parameter Message_Value_Data
+        /// <summary>
+        /// <para>
+        /// <para>The message data as a structured JSON document. This is the payload for a message
+        /// of type <c>DATA</c>, and must be a JSON object at the root level.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject Message_Value_Data { get; set; }
+        #endregion
+        
         #region Parameter Configuration_GenerateChunkedMessage
         /// <summary>
         /// <para>
@@ -327,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 context.ConversationContext_SelfServiceConversationHistory = new List<Amazon.QConnect.Model.SelfServiceConversationHistory>(this.ConversationContext_SelfServiceConversationHistory);
             }
+            context.Message_Value_Data = this.Message_Value_Data;
             context.AiGuardrailAssessment_Blocked = this.AiGuardrailAssessment_Blocked;
             if (this.Text_Citation != null)
             {
@@ -446,6 +458,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate Value
             var requestMessage_message_ValueIsNull = true;
             requestMessage_message_Value = new Amazon.QConnect.Model.MessageData();
+            Amazon.Runtime.Documents.Document? requestMessage_message_Value_message_Value_Data = null;
+            if (cmdletContext.Message_Value_Data != null)
+            {
+                requestMessage_message_Value_message_Value_Data = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Message_Value_Data);
+            }
+            if (requestMessage_message_Value_message_Value_Data != null)
+            {
+                requestMessage_message_Value.Data = requestMessage_message_Value_message_Value_Data.Value;
+                requestMessage_message_ValueIsNull = false;
+            }
             Amazon.QConnect.Model.TextMessage requestMessage_message_Value_message_Value_Text = null;
             
              // populate Text
@@ -657,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.Boolean? Configuration_GenerateChunkedMessage { get; set; }
             public System.Boolean? Configuration_GenerateFillerMessage { get; set; }
             public List<Amazon.QConnect.Model.SelfServiceConversationHistory> ConversationContext_SelfServiceConversationHistory { get; set; }
+            public System.Management.Automation.PSObject Message_Value_Data { get; set; }
             public System.Boolean? AiGuardrailAssessment_Blocked { get; set; }
             public List<Amazon.QConnect.Model.Citation> Text_Citation { get; set; }
             public System.String Text_Value { get; set; }

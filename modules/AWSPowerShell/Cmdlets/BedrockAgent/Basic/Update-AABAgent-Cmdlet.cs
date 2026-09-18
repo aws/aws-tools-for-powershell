@@ -132,9 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The type of memory that is stored. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -273,9 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>Contains configurations to override a prompt template in one part of an agent sequence.
         /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
         /// prompts</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -363,8 +365,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter AgentResourceRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Executor_Lambda = this.Executor_Lambda;
+            context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Description = this.Description;
             context.FoundationModel = this.FoundationModel;
             #if MODULAR
@@ -421,10 +423,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 request.AgentResourceRoleArn = cmdletContext.AgentResourceRoleArn;
             }
-            if (cmdletContext.CustomerEncryptionKeyArn != null)
-            {
-                request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
-            }
             
              // populate CustomOrchestration
             var requestCustomOrchestrationIsNull = true;
@@ -458,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestCustomOrchestrationIsNull)
             {
                 request.CustomOrchestration = null;
+            }
+            if (cmdletContext.CustomerEncryptionKeyArn != null)
+            {
+                request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
             }
             if (cmdletContext.Description != null)
             {
@@ -650,8 +652,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String AgentId { get; set; }
             public System.String AgentName { get; set; }
             public System.String AgentResourceRoleArn { get; set; }
-            public System.String CustomerEncryptionKeyArn { get; set; }
             public System.String Executor_Lambda { get; set; }
+            public System.String CustomerEncryptionKeyArn { get; set; }
             public System.String Description { get; set; }
             public System.String FoundationModel { get; set; }
             public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }

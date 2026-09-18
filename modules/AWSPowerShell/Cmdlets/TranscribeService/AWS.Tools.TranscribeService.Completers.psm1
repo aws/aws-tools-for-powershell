@@ -352,6 +352,7 @@ $TRS_SelectMap = @{
                "Add-TRSResourceTag",
                "Remove-TRSResourceTag",
                "Update-TRSCallAnalyticsCategory",
+               "Update-TRSLanguageModel",
                "Update-TRSMedicalVocabulary",
                "Update-TRSVocabulary",
                "Update-TRSVocabularyFilter")

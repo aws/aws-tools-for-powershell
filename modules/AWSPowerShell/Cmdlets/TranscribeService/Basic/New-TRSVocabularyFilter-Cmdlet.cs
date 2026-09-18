@@ -64,14 +64,44 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
         /// S3 bucket that contains your input files (in this case, your custom vocabulary filter).
-        /// If the role that you specify doesn’t have the appropriate permissions to access the
-        /// specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <c>arn:partition:iam::account:role/role-name-with-path</c>.
+        /// If you include <c>EncryptionConfiguration</c> in your request, this role must also
+        /// have permissions to access the specified KMS key. If the role that you specify doesn’t
+        /// have the appropriate permissions, your request fails.</para><para>IAM role ARNs have the format <c>arn:partition:iam::account:role/role-name-with-path</c>.
         /// For example: <c>arn:aws:iam::111122223333:role/Admin</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KMSEncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
+        /// that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS
+        /// encryption context</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable EncryptionConfiguration_KMSEncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KMSKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key you want to use to encrypt your resource
+        /// artifacts. Only full KMS key ARN format is supported.</para><para>KMS key ARNs have the format <c>arn:partition:kms:region:account:key/key-id</c>. For
+        /// example: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">KMS
+        /// key ARNs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KMSKey { get; set; }
         #endregion
         
         #region Parameter LanguageCode
@@ -216,6 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DataAccessRoleArn = this.DataAccessRoleArn;
+            if (this.EncryptionConfiguration_KMSEncryptionContext != null)
+            {
+                context.EncryptionConfiguration_KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EncryptionConfiguration_KMSEncryptionContext.Keys)
+                {
+                    context.EncryptionConfiguration_KMSEncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionConfiguration_KMSEncryptionContext[hashKey]));
+                }
+            }
+            context.EncryptionConfiguration_KMSKey = this.EncryptionConfiguration_KMSKey;
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -258,6 +297,35 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.DataAccessRoleArn != null)
             {
                 request.DataAccessRoleArn = cmdletContext.DataAccessRoleArn;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.TranscribeService.Model.EncryptionConfiguration();
+            Dictionary<System.String, System.String> requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext = null;
+            if (cmdletContext.EncryptionConfiguration_KMSEncryptionContext != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext = cmdletContext.EncryptionConfiguration_KMSEncryptionContext;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext != null)
+            {
+                request.EncryptionConfiguration.KMSEncryptionContext = requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KMSKey = null;
+            if (cmdletContext.EncryptionConfiguration_KMSKey != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KMSKey = cmdletContext.EncryptionConfiguration_KMSKey;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KMSKey != null)
+            {
+                request.EncryptionConfiguration.KMSKey = requestEncryptionConfiguration_encryptionConfiguration_KMSKey;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             if (cmdletContext.LanguageCode != null)
             {
@@ -335,6 +403,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DataAccessRoleArn { get; set; }
+            public Dictionary<System.String, System.String> EncryptionConfiguration_KMSEncryptionContext { get; set; }
+            public System.String EncryptionConfiguration_KMSKey { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.String VocabularyFilterFileUri { get; set; }

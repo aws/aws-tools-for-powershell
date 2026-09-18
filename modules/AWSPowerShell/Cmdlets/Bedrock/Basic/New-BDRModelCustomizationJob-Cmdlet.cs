@@ -68,9 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Include results where all of the based filters match.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -163,9 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Tags to attach to the resulting custom model.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -190,9 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Include results where the key equals the value.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -219,9 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <para>Parameters related to tuning the model. For details on the format for different models,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom
         /// model hyperparameters</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -263,9 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Tags to attach to the job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -326,9 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Include results where the key does not equal the value.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -341,9 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Include results where any of the base filters match.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -428,9 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>An array of IDs for each security group in the VPC to use.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -443,9 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>An array of IDs for each subnet in the VPC to use.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -493,9 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Information about the validators.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -558,18 +568,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
-            context.TeacherModelConfig_MaxResponseLengthForInference = this.TeacherModelConfig_MaxResponseLengthForInference;
-            context.TeacherModelConfig_TeacherModelIdentifier = this.TeacherModelConfig_TeacherModelIdentifier;
-            context.LambdaGrader_LambdaArn = this.LambdaGrader_LambdaArn;
-            context.HyperParameters_BatchSize = this.HyperParameters_BatchSize;
-            context.HyperParameters_EpochCount = this.HyperParameters_EpochCount;
-            context.HyperParameters_EvalInterval = this.HyperParameters_EvalInterval;
-            context.HyperParameters_InferenceMaxToken = this.HyperParameters_InferenceMaxToken;
-            context.HyperParameters_LearningRate = this.HyperParameters_LearningRate;
-            context.HyperParameters_MaxPromptLength = this.HyperParameters_MaxPromptLength;
-            context.HyperParameters_ReasoningEffort = this.HyperParameters_ReasoningEffort;
-            context.HyperParameters_TrainingSamplePerPrompt = this.HyperParameters_TrainingSamplePerPrompt;
-            context.CustomizationType = this.CustomizationType;
             context.CustomModelKmsKeyId = this.CustomModelKmsKeyId;
             context.CustomModelName = this.CustomModelName;
             #if MODULAR
@@ -582,6 +580,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.CustomModelTag = new List<Amazon.Bedrock.Model.Tag>(this.CustomModelTag);
             }
+            context.TeacherModelConfig_MaxResponseLengthForInference = this.TeacherModelConfig_MaxResponseLengthForInference;
+            context.TeacherModelConfig_TeacherModelIdentifier = this.TeacherModelConfig_TeacherModelIdentifier;
+            context.LambdaGrader_LambdaArn = this.LambdaGrader_LambdaArn;
+            context.HyperParameters_BatchSize = this.HyperParameters_BatchSize;
+            context.HyperParameters_EpochCount = this.HyperParameters_EpochCount;
+            context.HyperParameters_EvalInterval = this.HyperParameters_EvalInterval;
+            context.HyperParameters_InferenceMaxToken = this.HyperParameters_InferenceMaxToken;
+            context.HyperParameters_LearningRate = this.HyperParameters_LearningRate;
+            context.HyperParameters_MaxPromptLength = this.HyperParameters_MaxPromptLength;
+            context.HyperParameters_ReasoningEffort = this.HyperParameters_ReasoningEffort;
+            context.HyperParameters_TrainingSamplePerPrompt = this.HyperParameters_TrainingSamplePerPrompt;
+            context.CustomizationType = this.CustomizationType;
             if (this.HyperParameter != null)
             {
                 context.HyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -677,6 +687,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.CustomModelKmsKeyId != null)
+            {
+                request.CustomModelKmsKeyId = cmdletContext.CustomModelKmsKeyId;
+            }
+            if (cmdletContext.CustomModelName != null)
+            {
+                request.CustomModelName = cmdletContext.CustomModelName;
+            }
+            if (cmdletContext.CustomModelTag != null)
+            {
+                request.CustomModelTags = cmdletContext.CustomModelTag;
             }
             
              // populate CustomizationConfig
@@ -890,18 +912,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.CustomizationType != null)
             {
                 request.CustomizationType = cmdletContext.CustomizationType;
-            }
-            if (cmdletContext.CustomModelKmsKeyId != null)
-            {
-                request.CustomModelKmsKeyId = cmdletContext.CustomModelKmsKeyId;
-            }
-            if (cmdletContext.CustomModelName != null)
-            {
-                request.CustomModelName = cmdletContext.CustomModelName;
-            }
-            if (cmdletContext.CustomModelTag != null)
-            {
-                request.CustomModelTags = cmdletContext.CustomModelTag;
             }
             if (cmdletContext.HyperParameter != null)
             {
@@ -1167,6 +1177,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.String BaseModelIdentifier { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.String CustomModelKmsKeyId { get; set; }
+            public System.String CustomModelName { get; set; }
+            public List<Amazon.Bedrock.Model.Tag> CustomModelTag { get; set; }
             public System.Int32? TeacherModelConfig_MaxResponseLengthForInference { get; set; }
             public System.String TeacherModelConfig_TeacherModelIdentifier { get; set; }
             public System.String LambdaGrader_LambdaArn { get; set; }
@@ -1179,9 +1192,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public Amazon.Bedrock.ReasoningEffort HyperParameters_ReasoningEffort { get; set; }
             public System.Int32? HyperParameters_TrainingSamplePerPrompt { get; set; }
             public Amazon.Bedrock.CustomizationType CustomizationType { get; set; }
-            public System.String CustomModelKmsKeyId { get; set; }
-            public System.String CustomModelName { get; set; }
-            public List<Amazon.Bedrock.Model.Tag> CustomModelTag { get; set; }
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public System.String JobName { get; set; }
             public List<Amazon.Bedrock.Model.Tag> JobTag { get; set; }

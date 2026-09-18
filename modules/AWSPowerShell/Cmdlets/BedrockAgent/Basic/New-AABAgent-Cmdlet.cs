@@ -30,7 +30,42 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Amazon.BedrockAgent.IAmazonBedrockAgent.CreateAgent
+    /// <note><para>
+    /// Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new
+    /// customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+    /// AgentCore. Existing customers can continue to use the service as normal. For more
+    /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html">Amazon
+    /// Bedrock Agents Classic availability change</a>.
+    /// </para></note><para>
+    /// Creates an agent that orchestrates interactions between foundation models, data sources,
+    /// software applications, user conversations, and APIs to carry out tasks to help customers.
+    /// </para><ul><li><para>
+    /// Specify the following fields for security purposes.
+    /// </para><ul><li><para><c>agentResourceRoleArn</c> – The Amazon Resource Name (ARN) of the role with permissions
+    /// to invoke API operations on an agent.
+    /// </para></li><li><para>
+    /// (Optional) <c>customerEncryptionKeyArn</c> – The Amazon Resource Name (ARN) of a KMS
+    /// key to encrypt the creation of the agent.
+    /// </para></li><li><para>
+    /// (Optional) <c>idleSessionTTLinSeconds</c> – Specify the number of seconds for which
+    /// the agent should maintain session information. After this time expires, the subsequent
+    /// <c>InvokeAgent</c> request begins a new session.
+    /// </para></li></ul></li><li><para>
+    /// To enable your agent to retain conversational context across multiple sessions, include
+    /// a <c>memoryConfiguration</c> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html">Configure
+    /// memory</a>.
+    /// </para></li><li><para>
+    /// To override the default prompt behavior for agent orchestration and to use advanced
+    /// prompts, include a <c>promptOverrideConfiguration</c> object. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
+    /// prompts</a>.
+    /// </para></li><li><para>
+    /// If your agent fails to be created, the response returns a list of <c>failureReasons</c>
+    /// alongside a list of <c>recommendedActions</c> for you to troubleshoot.
+    /// </para></li><li><para>
+    /// The agent instructions will not be honored if your agent has only one knowledge base,
+    /// uses default prompts, has no action group, and user input is disabled.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.Agent")]
@@ -108,9 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The type of memory that is stored. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -242,9 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>Contains configurations to override a prompt template in one part of an agent sequence.
         /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
         /// prompts</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -268,9 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>Any tags that you want to attach to the agent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -348,8 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             #endif
             context.AgentResourceRoleArn = this.AgentResourceRoleArn;
             context.ClientToken = this.ClientToken;
-            context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Executor_Lambda = this.Executor_Lambda;
+            context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Description = this.Description;
             context.FoundationModel = this.FoundationModel;
             context.GuardrailConfiguration_GuardrailIdentifier = this.GuardrailConfiguration_GuardrailIdentifier;
@@ -408,10 +446,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.CustomerEncryptionKeyArn != null)
-            {
-                request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
-            }
             
              // populate CustomOrchestration
             var requestCustomOrchestrationIsNull = true;
@@ -445,6 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestCustomOrchestrationIsNull)
             {
                 request.CustomOrchestration = null;
+            }
+            if (cmdletContext.CustomerEncryptionKeyArn != null)
+            {
+                request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
             }
             if (cmdletContext.Description != null)
             {
@@ -641,8 +679,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String AgentName { get; set; }
             public System.String AgentResourceRoleArn { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String CustomerEncryptionKeyArn { get; set; }
             public System.String Executor_Lambda { get; set; }
+            public System.String CustomerEncryptionKeyArn { get; set; }
             public System.String Description { get; set; }
             public System.String FoundationModel { get; set; }
             public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }

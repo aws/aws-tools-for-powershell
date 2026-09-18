@@ -190,6 +190,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLanguageModel" OutputProperty="*" Verb="Update" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMedicalVocabulary" OutputProperty="*" Verb="Update" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

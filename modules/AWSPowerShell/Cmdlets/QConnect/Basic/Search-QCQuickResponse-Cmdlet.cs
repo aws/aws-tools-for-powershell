@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined
-        /// Amazon Connect contact attributes</a> to be resolved when search results are returned.</para><para />
+        /// Connect Customer contact attributes</a> to be resolved when search results are returned.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

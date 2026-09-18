@@ -433,6 +433,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.RecommendationMode
+        "Start-GLUEDataQualityRuleRecommendationRun/RecommendationMode"
+        {
+            $v = "ADVANCED","BASIC"
+            break
+        }
+
         # Amazon.Glue.RecrawlBehavior
         {
             ($_ -eq "New-GLUECrawler/RecrawlPolicy_RecrawlBehavior") -Or
@@ -719,6 +726,7 @@ $GLUE_map = @{
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
+    "RecommendationMode"=@("Start-GLUEDataQualityRuleRecommendationRun")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "ResourceType"=@("Get-GLUEDashboardUrl")

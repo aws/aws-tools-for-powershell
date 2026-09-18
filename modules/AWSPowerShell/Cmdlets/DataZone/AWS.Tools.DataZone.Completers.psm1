@@ -392,6 +392,17 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.NotebookType
+        {
+            ($_ -eq "Get-DZNotebookList/Type") -Or
+            ($_ -eq "New-DZNotebook/Type") -Or
+            ($_ -eq "Update-DZNotebook/Type")
+        }
+        {
+            $v = "DATA","SQL"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -729,7 +740,7 @@ $DZ_map = @{
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "TriggerSource_Type"=@("Start-DZNotebookRun")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Update-DZNotebook","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 

@@ -113,6 +113,28 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter AuthConfig_AuthType
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication used when calling the external application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppIntegrationsService.AuthType")]
+        public Amazon.AppIntegrationsService.AuthType AuthConfig_AuthType { get; set; }
+        #endregion
+        
+        #region Parameter AuthConfig_CredentialProviderIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Secrets Manager secret that stores the credentials. The secret must
+        /// be accessible to Connect Customer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthConfig_CredentialProviderIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -290,6 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthConfig_AuthType = this.AuthConfig_AuthType;
+            context.AuthConfig_CredentialProviderIdentifier = this.AuthConfig_CredentialProviderIdentifier;
             context.Description = this.Description;
             if (this.IframeConfig_Allow != null)
             {
@@ -416,6 +440,35 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.Arn = cmdletContext.Arn;
             }
+            
+             // populate AuthConfig
+            var requestAuthConfigIsNull = true;
+            request.AuthConfig = new Amazon.AppIntegrationsService.Model.AuthConfig();
+            Amazon.AppIntegrationsService.AuthType requestAuthConfig_authConfig_AuthType = null;
+            if (cmdletContext.AuthConfig_AuthType != null)
+            {
+                requestAuthConfig_authConfig_AuthType = cmdletContext.AuthConfig_AuthType;
+            }
+            if (requestAuthConfig_authConfig_AuthType != null)
+            {
+                request.AuthConfig.AuthType = requestAuthConfig_authConfig_AuthType;
+                requestAuthConfigIsNull = false;
+            }
+            System.String requestAuthConfig_authConfig_CredentialProviderIdentifier = null;
+            if (cmdletContext.AuthConfig_CredentialProviderIdentifier != null)
+            {
+                requestAuthConfig_authConfig_CredentialProviderIdentifier = cmdletContext.AuthConfig_CredentialProviderIdentifier;
+            }
+            if (requestAuthConfig_authConfig_CredentialProviderIdentifier != null)
+            {
+                request.AuthConfig.CredentialProviderIdentifier = requestAuthConfig_authConfig_CredentialProviderIdentifier;
+                requestAuthConfigIsNull = false;
+            }
+             // determine if request.AuthConfig should be set to null
+            if (requestAuthConfigIsNull)
+            {
+                request.AuthConfig = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -533,6 +586,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             public List<System.String> ExternalUrlConfig_ApprovedOrigin { get; set; }
             public Amazon.AppIntegrationsService.ApplicationType ApplicationType { get; set; }
             public System.String Arn { get; set; }
+            public Amazon.AppIntegrationsService.AuthType AuthConfig_AuthType { get; set; }
+            public System.String AuthConfig_CredentialProviderIdentifier { get; set; }
             public System.String Description { get; set; }
             public List<System.String> IframeConfig_Allow { get; set; }
             public List<System.String> IframeConfig_Sandbox { get; set; }

@@ -184,18 +184,18 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             }
             #endif
             context.Config_User_Role = this.Config_User_Role;
-            context.MembershipId = this.MembershipId;
-            #if MODULAR
-            if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MemberType = this.MemberType;
             #if MODULAR
             if (this.MemberType == null && ParameterWasBound(nameof(this.MemberType)))
             {
                 WriteWarning("You are passing $null as a value for parameter MemberType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MembershipId = this.MembershipId;
+            #if MODULAR
+            if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -256,13 +256,13 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.Config = null;
             }
-            if (cmdletContext.MembershipId != null)
-            {
-                request.MembershipId = cmdletContext.MembershipId;
-            }
             if (cmdletContext.MemberType != null)
             {
                 request.MemberType = cmdletContext.MemberType;
+            }
+            if (cmdletContext.MembershipId != null)
+            {
+                request.MembershipId = cmdletContext.MembershipId;
             }
             
             CmdletOutput output;
@@ -322,8 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public System.String AgentSpaceId { get; set; }
             public System.String ApplicationId { get; set; }
             public Amazon.SecurityAgent.UserRole Config_User_Role { get; set; }
-            public System.String MembershipId { get; set; }
             public Amazon.SecurityAgent.MembershipType MemberType { get; set; }
+            public System.String MembershipId { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.CreateMembershipResponse, NewSECAGMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

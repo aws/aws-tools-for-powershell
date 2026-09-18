@@ -209,10 +209,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DataQualityGlueTable_PreProcessingQuery { get; set; }
         #endregion
         
+        #region Parameter RecommendationMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode that Glue Data Quality uses to recommend rules.</para><para>The default is <c>BASIC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.RecommendationMode")]
+        public Amazon.Glue.RecommendationMode RecommendationMode { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>An IAM role supplied to encrypt the results of the run.</para>
+        /// <para>The IAM role that Glue assumes to access resources for the run.</para><para>For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/data-quality-authorization.html">Configure
+        /// IAM permissions for Glue Data Quality</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -347,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.GlueTable_DatabaseName = this.GlueTable_DatabaseName;
             context.GlueTable_TableName = this.GlueTable_TableName;
             context.NumberOfWorker = this.NumberOfWorker;
+            context.RecommendationMode = this.RecommendationMode;
             context.Role = this.Role;
             #if MODULAR
             if (this.Role == null && ParameterWasBound(nameof(this.Role)))
@@ -555,6 +568,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.NumberOfWorkers = cmdletContext.NumberOfWorker.Value;
             }
+            if (cmdletContext.RecommendationMode != null)
+            {
+                request.RecommendationMode = cmdletContext.RecommendationMode;
+            }
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
@@ -634,6 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String GlueTable_DatabaseName { get; set; }
             public System.String GlueTable_TableName { get; set; }
             public System.Int32? NumberOfWorker { get; set; }
+            public Amazon.Glue.RecommendationMode RecommendationMode { get; set; }
             public System.String Role { get; set; }
             public System.Int32? Timeout { get; set; }
             public System.Func<Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse, StartGLUEDataQualityRuleRecommendationRunCmdlet, object> Select { get; set; } =

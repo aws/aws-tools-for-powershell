@@ -101,6 +101,35 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String InputDataConfig_DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KMSEncryptionContext
+        /// <summary>
+        /// <para>
+        /// <para>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
+        /// that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS
+        /// encryption context</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable EncryptionConfiguration_KMSEncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KMSKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key you want to use to encrypt your resource
+        /// artifacts. Only full KMS key ARN format is supported.</para><para>KMS key ARNs have the format <c>arn:partition:kms:region:account:key/key-id</c>. For
+        /// example: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">KMS
+        /// key ARNs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KMSKey { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -243,6 +272,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter BaseModelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EncryptionConfiguration_KMSEncryptionContext != null)
+            {
+                context.EncryptionConfiguration_KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EncryptionConfiguration_KMSEncryptionContext.Keys)
+                {
+                    context.EncryptionConfiguration_KMSEncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionConfiguration_KMSEncryptionContext[hashKey]));
+                }
+            }
+            context.EncryptionConfiguration_KMSKey = this.EncryptionConfiguration_KMSKey;
             context.InputDataConfig_DataAccessRoleArn = this.InputDataConfig_DataAccessRoleArn;
             #if MODULAR
             if (this.InputDataConfig_DataAccessRoleArn == null && ParameterWasBound(nameof(this.InputDataConfig_DataAccessRoleArn)))
@@ -295,6 +333,35 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.BaseModelName != null)
             {
                 request.BaseModelName = cmdletContext.BaseModelName;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.TranscribeService.Model.EncryptionConfiguration();
+            Dictionary<System.String, System.String> requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext = null;
+            if (cmdletContext.EncryptionConfiguration_KMSEncryptionContext != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext = cmdletContext.EncryptionConfiguration_KMSEncryptionContext;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext != null)
+            {
+                request.EncryptionConfiguration.KMSEncryptionContext = requestEncryptionConfiguration_encryptionConfiguration_KMSEncryptionContext;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KMSKey = null;
+            if (cmdletContext.EncryptionConfiguration_KMSKey != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KMSKey = cmdletContext.EncryptionConfiguration_KMSKey;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KMSKey != null)
+            {
+                request.EncryptionConfiguration.KMSKey = requestEncryptionConfiguration_encryptionConfiguration_KMSKey;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             
              // populate InputDataConfig
@@ -403,6 +470,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.TranscribeService.BaseModelName BaseModelName { get; set; }
+            public Dictionary<System.String, System.String> EncryptionConfiguration_KMSEncryptionContext { get; set; }
+            public System.String EncryptionConfiguration_KMSKey { get; set; }
             public System.String InputDataConfig_DataAccessRoleArn { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String InputDataConfig_TuningDataS3Uri { get; set; }

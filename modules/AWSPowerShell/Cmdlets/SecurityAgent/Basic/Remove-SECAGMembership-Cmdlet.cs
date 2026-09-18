@@ -166,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MemberType = this.MemberType;
             context.MembershipId = this.MembershipId;
             #if MODULAR
             if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
@@ -173,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter MembershipId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemberType = this.MemberType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,13 +198,13 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.MembershipId != null)
-            {
-                request.MembershipId = cmdletContext.MembershipId;
-            }
             if (cmdletContext.MemberType != null)
             {
                 request.MemberType = cmdletContext.MemberType;
+            }
+            if (cmdletContext.MembershipId != null)
+            {
+                request.MembershipId = cmdletContext.MembershipId;
             }
             
             CmdletOutput output;
@@ -263,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         {
             public System.String AgentSpaceId { get; set; }
             public System.String ApplicationId { get; set; }
-            public System.String MembershipId { get; set; }
             public Amazon.SecurityAgent.MembershipType MemberType { get; set; }
+            public System.String MembershipId { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.DeleteMembershipResponse, RemoveSECAGMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

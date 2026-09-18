@@ -8138,6 +8138,9 @@ Set-Alias -Name CONN-ListRules -Value Get-CONNRuleList
 Set-Alias -Name List-CONNSecurityKeys -Value Get-CONNSecurityKeyList
 Set-Alias -Name List-CONNSecurityKeyList -Value Get-CONNSecurityKeyList
 Set-Alias -Name CONN-ListSecurityKeys -Value Get-CONNSecurityKeyList
+Set-Alias -Name List-CONNSecurityProfileAIAgents -Value Get-CONNSecurityProfileAIAgentList
+Set-Alias -Name List-CONNSecurityProfileAIAgentList -Value Get-CONNSecurityProfileAIAgentList
+Set-Alias -Name CONN-ListSecurityProfileAIAgents -Value Get-CONNSecurityProfileAIAgentList
 Set-Alias -Name List-CONNSecurityProfileApplications -Value Get-CONNSecurityProfileApplicationList
 Set-Alias -Name List-CONNSecurityProfileApplicationList -Value Get-CONNSecurityProfileApplicationList
 Set-Alias -Name CONN-ListSecurityProfileApplications -Value Get-CONNSecurityProfileApplicationList
@@ -34930,6 +34933,7 @@ Set-Alias -Name TRS-StartTranscriptionJob -Value Start-TRSTranscriptionJob
 Set-Alias -Name TRS-TagResource -Value Add-TRSResourceTag
 Set-Alias -Name TRS-UntagResource -Value Remove-TRSResourceTag
 Set-Alias -Name TRS-UpdateCallAnalyticsCategory -Value Update-TRSCallAnalyticsCategory
+Set-Alias -Name TRS-UpdateLanguageModel -Value Update-TRSLanguageModel
 Set-Alias -Name TRS-UpdateMedicalVocabulary -Value Update-TRSMedicalVocabulary
 Set-Alias -Name TRS-UpdateVocabulary -Value Update-TRSVocabulary
 Set-Alias -Name TRS-UpdateVocabularyFilter -Value Update-TRSVocabularyFilter

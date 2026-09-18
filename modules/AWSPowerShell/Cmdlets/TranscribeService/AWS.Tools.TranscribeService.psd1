@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-TRSMedicalTranscriptionJob', 
         'Start-TRSTranscriptionJob', 
         'Update-TRSCallAnalyticsCategory', 
+        'Update-TRSLanguageModel', 
         'Update-TRSMedicalVocabulary', 
         'Update-TRSVocabulary', 
         'Update-TRSVocabularyFilter')

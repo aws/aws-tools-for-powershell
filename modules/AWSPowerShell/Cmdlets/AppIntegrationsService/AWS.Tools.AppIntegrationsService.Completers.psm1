@@ -87,7 +87,17 @@ $AIS_Completers = {
             ($_ -eq "Update-AISApplication/ApplicationType")
         }
         {
-            $v = "MCP_SERVER","SERVICE","STANDARD"
+            $v = "A2A_SERVER","MCP_SERVER","SERVICE","STANDARD"
+            break
+        }
+
+        # Amazon.AppIntegrationsService.AuthType
+        {
+            ($_ -eq "New-AISApplication/AuthConfig_AuthType") -Or
+            ($_ -eq "Update-AISApplication/AuthConfig_AuthType")
+        }
+        {
+            $v = "API_KEY"
             break
         }
 
@@ -121,6 +131,7 @@ $AIS_Completers = {
 
 $AIS_map = @{
     "ApplicationType"=@("Get-AISApplicationList","New-AISApplication","Update-AISApplication")
+    "AuthConfig_AuthType"=@("New-AISApplication","Update-AISApplication")
     "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }

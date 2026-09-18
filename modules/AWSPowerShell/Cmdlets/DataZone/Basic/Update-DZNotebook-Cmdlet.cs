@@ -186,6 +186,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.NotebookStatus Status { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The updated type of the notebook.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.NotebookType")]
+        public Amazon.DataZone.NotebookType Type { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -289,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 }
             }
             context.Status = this.Status;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -395,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Status = cmdletContext.Status;
             }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
             
             CmdletOutput output;
             
@@ -462,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public Amazon.DataZone.NotebookStatus Status { get; set; }
+            public Amazon.DataZone.NotebookType Type { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateNotebookResponse, UpdateDZNotebookCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

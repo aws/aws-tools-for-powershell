@@ -1375,6 +1375,7 @@ $CONN_SelectMap = @{
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
+               "Get-CONNSecurityProfileAIAgentList",
                "Get-CONNSecurityProfileApplicationList",
                "Get-CONNSecurityProfileFlowModuleList",
                "Get-CONNSecurityProfilePermissionList",

@@ -101,9 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A list of harvested DASH manifests.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -170,9 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A list of harvested HLS manifests.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -185,9 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A list of harvested Low-Latency HLS manifests.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -233,9 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A collection of tags associated with the harvest job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -331,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 WriteWarning("You are passing $null as a value for parameter S3Destination_DestinationPath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HarvestJobName = this.HarvestJobName;
             if (this.HarvestedManifests_DashManifest != null)
             {
                 context.HarvestedManifests_DashManifest = new List<Amazon.MediaPackageV2.Model.HarvestedDashManifest>(this.HarvestedManifests_DashManifest);
@@ -343,7 +348,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 context.HarvestedManifests_LowLatencyHlsManifest = new List<Amazon.MediaPackageV2.Model.HarvestedLowLatencyHlsManifest>(this.HarvestedManifests_LowLatencyHlsManifest);
             }
-            context.HarvestJobName = this.HarvestJobName;
             context.OriginEndpointName = this.OriginEndpointName;
             #if MODULAR
             if (this.OriginEndpointName == null && ParameterWasBound(nameof(this.OriginEndpointName)))
@@ -449,6 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.Destination = null;
             }
+            if (cmdletContext.HarvestJobName != null)
+            {
+                request.HarvestJobName = cmdletContext.HarvestJobName;
+            }
             
              // populate HarvestedManifests
             var requestHarvestedManifestsIsNull = true;
@@ -487,10 +495,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestHarvestedManifestsIsNull)
             {
                 request.HarvestedManifests = null;
-            }
-            if (cmdletContext.HarvestJobName != null)
-            {
-                request.HarvestJobName = cmdletContext.HarvestJobName;
             }
             if (cmdletContext.OriginEndpointName != null)
             {
@@ -590,10 +594,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String Description { get; set; }
             public System.String S3Destination_BucketName { get; set; }
             public System.String S3Destination_DestinationPath { get; set; }
+            public System.String HarvestJobName { get; set; }
             public List<Amazon.MediaPackageV2.Model.HarvestedDashManifest> HarvestedManifests_DashManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.HarvestedHlsManifest> HarvestedManifests_HlsManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.HarvestedLowLatencyHlsManifest> HarvestedManifests_LowLatencyHlsManifest { get; set; }
-            public System.String HarvestJobName { get; set; }
             public System.String OriginEndpointName { get; set; }
             public System.DateTime? ScheduleConfiguration_EndTime { get; set; }
             public System.DateTime? ScheduleConfiguration_StartTime { get; set; }

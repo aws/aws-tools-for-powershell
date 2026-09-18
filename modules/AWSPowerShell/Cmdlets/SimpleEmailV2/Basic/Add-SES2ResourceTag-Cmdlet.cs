@@ -30,14 +30,14 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Add one or more tags (keys and values) to a specified resource. A <i>tag</i> is a
+    /// Add one or more tags (keys and values) to a specified resource. A <i>tag</i> is a
     /// label that you optionally define and associate with a resource. Tags can help you
     /// categorize and manage resources in different ways, such as by purpose, owner, environment,
     /// or other criteria. A resource can have as many as 50 tags.
     /// 
     ///  
     /// <para>
-    /// Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>,
+    /// Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>,
     /// both of which you define. A tag key is a general label that acts as a category for
     /// more specific tag values. A tag value acts as a descriptor within a tag key.
     /// </para>
@@ -79,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>A list of the tags that you want to add to the resource. A tag consists of a required
         /// tag key (<c>Key</c>) and an associated tag value (<c>Value</c>). The maximum length
         /// of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

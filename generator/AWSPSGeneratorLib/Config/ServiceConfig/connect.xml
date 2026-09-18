@@ -1045,6 +1045,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityProfileAIAgents" OutputProperty="*" Verb="Get" Noun="SecurityProfileAIAgentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityProfileApplications" OutputProperty="Applications" Verb="Get" Noun="SecurityProfileApplicationList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

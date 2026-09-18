@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Retrieve a list of the tags (keys and values) that are associated with a specified
-    /// resource. A <i>tag</i> is a label that you optionally define and associate with a
-    /// resource. Each tag consists of a required <i>tag key</i> and an optional associated <i>tag
-    /// value</i>. A tag key is a general label that acts as a category for more specific
+    /// resource. A <i>tag</i> is a label that you optionally define and associate with a
+    /// resource. Each tag consists of a required <i>tag key</i> and an optional associated
+    /// <i>tag value</i>. A tag key is a general label that acts as a category for more specific
     /// tag values. A tag value acts as a descriptor within a tag key.
     /// </summary>
     [Cmdlet("Get", "SES2ResourceTag")]

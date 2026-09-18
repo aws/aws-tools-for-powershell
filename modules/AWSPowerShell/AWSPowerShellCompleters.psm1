@@ -3030,7 +3030,17 @@ $AIS_Completers = {
             ($_ -eq "Update-AISApplication/ApplicationType")
         }
         {
-            $v = "MCP_SERVER","SERVICE","STANDARD"
+            $v = "A2A_SERVER","MCP_SERVER","SERVICE","STANDARD"
+            break
+        }
+
+        # Amazon.AppIntegrationsService.AuthType
+        {
+            ($_ -eq "New-AISApplication/AuthConfig_AuthType") -Or
+            ($_ -eq "Update-AISApplication/AuthConfig_AuthType")
+        }
+        {
+            $v = "API_KEY"
             break
         }
 
@@ -3064,6 +3074,7 @@ $AIS_Completers = {
 
 $AIS_map = @{
     "ApplicationType"=@("Get-AISApplicationList","New-AISApplication","Update-AISApplication")
+    "AuthConfig_AuthType"=@("New-AISApplication","Update-AISApplication")
     "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }
@@ -15947,8 +15958,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -22509,6 +22520,7 @@ $CONN_SelectMap = @{
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
+               "Get-CONNSecurityProfileAIAgentList",
                "Get-CONNSecurityProfileApplicationList",
                "Get-CONNSecurityProfileFlowModuleList",
                "Get-CONNSecurityProfilePermissionList",
@@ -25356,6 +25368,17 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.NotebookType
+        {
+            ($_ -eq "Get-DZNotebookList/Type") -Or
+            ($_ -eq "New-DZNotebook/Type") -Or
+            ($_ -eq "Update-DZNotebook/Type")
+        }
+        {
+            $v = "DATA","SQL"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -25693,7 +25716,7 @@ $DZ_map = @{
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "TriggerSource_Type"=@("Start-DZNotebookRun")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Update-DZNotebook","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -30052,12 +30075,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
-               "ConvertTo-DDBItem",
                "New-DDBTableSchema",
+               "New-DDBTable",
+               "Add-DDBKeySchema",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem")
+               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -31661,7 +31684,7 @@ $EC2_Completers = {
             ($_ -eq "Get-EC2DefaultCreditSpecification/InstanceFamily")
         }
         {
-            $v = "t2","t3","t3a","t4g"
+            $v = "t2","t3","t3a","t4g","t8i"
             break
         }
 
@@ -32884,8 +32907,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -40454,8 +40477,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -40994,6 +41017,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.RecommendationMode
+        "Start-GLUEDataQualityRuleRecommendationRun/RecommendationMode"
+        {
+            $v = "ADVANCED","BASIC"
+            break
+        }
+
         # Amazon.Glue.RecrawlBehavior
         {
             ($_ -eq "New-GLUECrawler/RecrawlPolicy_RecrawlBehavior") -Or
@@ -41280,6 +41310,7 @@ $GLUE_map = @{
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
+    "RecommendationMode"=@("Start-GLUEDataQualityRuleRecommendationRun")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "ResourceType"=@("Get-GLUEDashboardUrl")
@@ -70327,7 +70358,7 @@ $QC_Completers = {
         # Amazon.QConnect.MessageType
         "Send-QCMessage/Type"
         {
-            $v = "TEXT","TOOL_USE_RESULT"
+            $v = "DATA","TEXT","TOOL_USE_RESULT"
             break
         }
 
@@ -77981,18 +78012,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Read-S3Object",
                "Get-S3PreSignedURL",
-               "Copy-S3Object",
-               "Dismount-S3PSDrive",
-               "Get-S3MultipartUpload",
-               "Write-S3Object",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
                "Remove-S3Object",
-               "New-S3Bucket",
+               "Remove-S3Bucket",
                "Mount-S3PSDrive",
                "Test-S3Bucket",
-               "Read-S3Object")
+               "Write-S3Object",
+               "Copy-S3Object",
+               "Get-S3MultipartUpload",
+               "Remove-S3MultipartUpload",
+               "New-S3Bucket",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -80894,7 +80925,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Job","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HubContent","HyperParameterTuningJob","Image","ImageVersion","Job","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","PipelineVersion","Project","TrainingJob"
             break
         }
 
@@ -89941,6 +89972,7 @@ $TRS_SelectMap = @{
                "Add-TRSResourceTag",
                "Remove-TRSResourceTag",
                "Update-TRSCallAnalyticsCategory",
+               "Update-TRSLanguageModel",
                "Update-TRSMedicalVocabulary",
                "Update-TRSVocabulary",
                "Update-TRSVocabularyFilter")

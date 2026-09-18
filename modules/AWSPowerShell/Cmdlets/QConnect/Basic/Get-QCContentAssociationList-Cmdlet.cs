@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     /// <para>
     /// For more information about content associations--what they are and when they are used--see
     /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate
-    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator
+    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Connect Customer Administrator
     /// Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>

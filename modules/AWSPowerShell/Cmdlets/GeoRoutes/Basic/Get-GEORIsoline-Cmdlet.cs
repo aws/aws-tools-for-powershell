@@ -73,9 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>Specifies geographic areas to avoid where possible. Routes may still pass through
         /// these areas if no reasonable alternative exists.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -203,9 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// within the specified thresholds. This reverses the usual isoline calculation to show
         /// areas that could reach your location, rather than areas you could reach from your
         /// location. Either <c>Origin</c> or <c>Destination</c> must be provided.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -230,9 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>List of travel distances in meters. For example, [1000, 2000, 5000] would calculate
         /// areas reachable within 1, 2, and 5 kilometers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -324,9 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>Types of hazardous materials being transported. This affects which roads and tunnels
         /// can be used based on local regulations.</para><ul><li><para><c>Combustible</c>—Materials that can burn readily</para></li><li><para><c>Corrosive</c>—Materials that can destroy or irreversibly damage other substances</para></li><li><para><c>Explosive</c>—Materials that can produce an explosion by chemical reaction</para></li><li><para><c>Flammable</c>—Materials that can easily ignite</para></li><li><para><c>Gas</c>—Hazardous materials in gaseous form</para></li><li><para><c>HarmfulToWater</c>—Materials that pose a risk to water sources if released</para></li><li><para><c>Organic</c>—Hazardous organic compounds</para></li><li><para><c>Other</c>—Hazardous materials not covered by other categories</para></li><li><para><c>Poison</c>—Toxic materials</para></li><li><para><c>PoisonousInhalation</c>—Materials that are toxic when inhaled</para></li><li><para><c>Radioactive</c>—Materials that emit ionizing radiation</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -661,9 +665,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// coordinates. For example, this could be a store location, service center, or any point
         /// from which you want to calculate reachable areas. Either <c>Origin</c> or <c>Destination</c>
         /// must be provided.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -688,9 +693,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>The <c>[longitude, latitude]</c> coordinates of the point that should be matched to
         /// a specific side of the street.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -703,9 +709,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>The <c>[longitude, latitude]</c> coordinates of the point that should be matched to
         /// a specific side of the street.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -822,9 +829,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>List of travel times in seconds. For example, [300, 600, 900] would calculate areas
         /// reachable within 5, 10, and 15 minutes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -912,9 +920,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// BK1</c> through <c>BK4</c>) and Mexico (<c>A2, A4, B2, B4, C, D, ET2, ET4</c>) to
         /// avoid where possible. These road types may still be used if no reasonable alternative
         /// exists.</para><note><para>There are currently no other supported values as of 26th April 2024.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1050,9 +1059,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>Indicates types of regulated zones (such as congestion pricing or environmental zones)
         /// to avoid where possible. Routes may still pass through these zones if no reasonable
         /// alternative exists.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

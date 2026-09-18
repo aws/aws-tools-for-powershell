@@ -160,9 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// events matching these types produce ad markers (such as <c>SCTE35-OUT</c> and <c>SCTE35-IN</c>
         /// in HLS DATERANGE tags) in manifests.</para><para>Valid values: <c>PROGRAM</c> | <c>CHAPTER</c> | <c>UNSCHEDULED_EVENT</c> | <c>ALTERNATE_CONTENT_OPPORTUNITY</c>
         /// | <c>NETWORK</c></para><para>If you don't specify any values, the default is empty (only default ad types are used).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -175,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A DASH manifest configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -200,9 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>The DRM solution provider you're using to protect your content during distribution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -217,9 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <para>The failover conditions for the endpoint. The options are:</para><ul><li><para><c>STALE_MANIFEST</c> - The manifest stalled and there are no new segments or parts.</para></li><li><para><c>INCOMPLETE_MANIFEST</c> - There is a gap in the manifest.</para></li><li><para><c>MISSING_DRM_KEY</c> - Key rotation is enabled but we're unable to fetch the key
         /// for the current key period.</para></li><li><para><c>SLATE_INPUT</c> - The segments which contain slate content are considered to be
         /// missing content.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -232,9 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>An HTTP live streaming (HLS) manifest configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -294,9 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A low-latency HLS manifest configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -311,9 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <para>A list of Microsoft Smooth Streaming (MSS) manifest configurations for the origin
         /// endpoint. You can configure multiple MSS manifests to provide different streaming
         /// experiences or to support different client requirements.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -430,9 +437,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>The SCTE-35 message types that you want to be treated as ad markers in the output.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -513,9 +521,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of tag key:value pairs that you define. For example:</para><para><c>"Key1": "Value1",</c></para><para><c>"Key2": "Value2"</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -23,47 +23,66 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Mgn;
-using Amazon.Mgn.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.MGN
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// List imports.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a list of the allowed AI agents in a specific security profile.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "MGNImportList")]
-    [OutputType("Amazon.Mgn.Model.ImportTask")]
-    [AWSCmdlet("Calls the Application Migration Service ListImports API operation.", Operation = new[] {"ListImports"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListImportsResponse))]
-    [AWSCmdletOutput("Amazon.Mgn.Model.ImportTask or Amazon.Mgn.Model.ListImportsResponse",
-        "This cmdlet returns a collection of Amazon.Mgn.Model.ImportTask objects.",
-        "The service call response (type Amazon.Mgn.Model.ListImportsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CONNSecurityProfileAIAgentList")]
+    [OutputType("Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListSecurityProfileAIAgents API operation.", Operation = new[] {"ListSecurityProfileAIAgents"}, SelectReturnType = typeof(Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse",
+        "This cmdlet returns an Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse object containing multiple properties."
     )]
-    public partial class GetMGNImportListCmdlet : AmazonMgnClientCmdlet, IExecutor
+    public partial class GetCONNSecurityProfileAIAgentListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Filters_ImportIDs
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>List imports request filters import IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data
-        /// for this property is returned from the service the property will also be null. This
-        /// was changed to improve performance and allow the SDK and caller to distinguish between
-        /// a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Filters_ImportIDs { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter SecurityProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the security profle.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SecurityProfileId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>List imports request max results.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -79,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>List imports request next token.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -92,13 +112,13 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.ListImportsResponse).
-        /// Specifying the name of a property of type Amazon.Mgn.Model.ListImportsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -106,7 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -128,13 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.ListImportsResponse, GetMGNImportListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse, GetCONNSecurityProfileAIAgentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Filters_ImportIDs != null)
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                context.Filters_ImportIDs = new List<System.String>(this.Filters_ImportIDs);
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -146,6 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SecurityProfileId = this.SecurityProfileId;
+            #if MODULAR
+            if (this.SecurityProfileId == null && ParameterWasBound(nameof(this.SecurityProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,36 +191,24 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Mgn.Model.ListImportsRequest();
+            var request = new Amazon.Connect.Model.ListSecurityProfileAIAgentsRequest();
             
-            
-             // populate Filters
-            var requestFiltersIsNull = true;
-            request.Filters = new Amazon.Mgn.Model.ListImportsRequestFilters();
-            List<System.String> requestFilters_filters_ImportIDs = null;
-            if (cmdletContext.Filters_ImportIDs != null)
+            if (cmdletContext.InstanceId != null)
             {
-                requestFilters_filters_ImportIDs = cmdletContext.Filters_ImportIDs;
-            }
-            if (requestFilters_filters_ImportIDs != null)
-            {
-                request.Filters.ImportIDs = requestFilters_filters_ImportIDs;
-                requestFiltersIsNull = false;
-            }
-             // determine if request.Filters should be set to null
-            if (requestFiltersIsNull)
-            {
-                request.Filters = null;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
+            if (cmdletContext.SecurityProfileId != null)
+            {
+                request.SecurityProfileId = cmdletContext.SecurityProfileId;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -225,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -245,12 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         #region AWS Service Operation Call
         
-        private Amazon.Mgn.Model.ListImportsResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.ListImportsRequest request)
+        private Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListSecurityProfileAIAgentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "ListImports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListSecurityProfileAIAgents");
             try
             {
-                return client.ListImportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListSecurityProfileAIAgentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -267,11 +284,12 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Filters_ImportIDs { get; set; }
+            public System.String InstanceId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Mgn.Model.ListImportsResponse, GetMGNImportListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.String SecurityProfileId { get; set; }
+            public System.Func<Amazon.Connect.Model.ListSecurityProfileAIAgentsResponse, GetCONNSecurityProfileAIAgentListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

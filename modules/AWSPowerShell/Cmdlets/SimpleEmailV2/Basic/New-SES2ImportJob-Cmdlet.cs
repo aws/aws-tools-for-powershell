@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ContactListDestination_ContactListImportAction
         /// <summary>
         /// <para>
-        /// <para>&gt;The type of action to perform on the addresses. The following are the possible
-        /// values:</para><ul><li><para>PUT: add the addresses to the contact list. If the record already exists, it will
+        /// <para>&gt;The type of action to perform on the addresses. The following are the possible values:</para><ul><li><para>PUT: add the addresses to the contact list. If the record already exists, it will
         /// override it with the new value.</para></li><li><para>DELETE: remove the addresses from the contact list.</para></li></ul>
         /// </para>
         /// </summary>

@@ -65,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>List of Hazardous cargos contained in the vehicle.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -134,9 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <summary>
         /// <para>
         /// <para>List of trace points to be snapped onto the road network.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -230,8 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Key = this.Key;
-            context.SnappedGeometryFormat = this.SnappedGeometryFormat;
             context.SnapRadius = this.SnapRadius;
+            context.SnappedGeometryFormat = this.SnappedGeometryFormat;
             if (this.TracePoint != null)
             {
                 context.TracePoint = new List<Amazon.GeoRoutes.Model.RoadSnapTracePoint>(this.TracePoint);
@@ -273,13 +275,13 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             {
                 request.Key = cmdletContext.Key;
             }
-            if (cmdletContext.SnappedGeometryFormat != null)
-            {
-                request.SnappedGeometryFormat = cmdletContext.SnappedGeometryFormat;
-            }
             if (cmdletContext.SnapRadius != null)
             {
                 request.SnapRadius = cmdletContext.SnapRadius.Value;
+            }
+            if (cmdletContext.SnappedGeometryFormat != null)
+            {
+                request.SnappedGeometryFormat = cmdletContext.SnappedGeometryFormat;
             }
             if (cmdletContext.TracePoint != null)
             {
@@ -454,8 +456,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Key { get; set; }
-            public Amazon.GeoRoutes.GeometryFormat SnappedGeometryFormat { get; set; }
             public System.Int64? SnapRadius { get; set; }
+            public Amazon.GeoRoutes.GeometryFormat SnappedGeometryFormat { get; set; }
             public List<Amazon.GeoRoutes.Model.RoadSnapTracePoint> TracePoint { get; set; }
             public Amazon.GeoRoutes.RoadSnapTravelMode TravelMode { get; set; }
             public System.Int64? Truck_GrossWeight { get; set; }

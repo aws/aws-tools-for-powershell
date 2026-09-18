@@ -1,4 +1,31 @@
-﻿### 5.0.301 (2026-09-17 19:23Z)
+﻿### 5.0.302 (2026-09-18 19:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.337.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet New-AISApplication: added parameters AuthConfig_AuthType and AuthConfig_CredentialProviderIdentifier.
+    * Modified cmdlet Update-AISApplication: added parameters AuthConfig_AuthType and AuthConfig_CredentialProviderIdentifier.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNSecurityProfileAIAgentList leveraging the ListSecurityProfileAIAgents service API.
+    * Modified cmdlet New-CONNSecurityProfile: added parameter AllowedAIAgent.
+    * Modified cmdlet Update-CONNSecurityProfile: added parameter AllowedAIAgent.
+  * Amazon DataZone
+    * Modified cmdlet Get-DZNotebookList: added parameter Type.
+    * Modified cmdlet New-DZNotebook: added parameter Type.
+    * Modified cmdlet Update-DZNotebook: added parameter Type.
+  * Amazon Glue
+    * Modified cmdlet Start-GLUEDataQualityRuleRecommendationRun: added parameter RecommendationMode.
+  * Amazon Q Connect
+    * Modified cmdlet New-QCAIAgent: added parameters Configuration_OrchestrationAIAgentConfiguration_InputSchema, Configuration_OrchestrationAIAgentConfiguration_MultiAgentConfiguration and Configuration_OrchestrationAIAgentConfiguration_OutputSchema.
+    * Modified cmdlet Send-QCMessage: added parameter Message_Value_Data.
+    * Modified cmdlet Update-QCAIAgent: added parameters Configuration_OrchestrationAIAgentConfiguration_InputSchema, Configuration_OrchestrationAIAgentConfiguration_MultiAgentConfiguration and Configuration_OrchestrationAIAgentConfiguration_OutputSchema.
+  * Amazon Transcribe Service
+    * Added cmdlet Update-TRSLanguageModel leveraging the UpdateLanguageModel service API.
+    * Modified cmdlet New-TRSLanguageModel: added parameters EncryptionConfiguration_KMSEncryptionContext and EncryptionConfiguration_KMSKey.
+    * Modified cmdlet New-TRSVocabulary: added parameters EncryptionConfiguration_KMSEncryptionContext and EncryptionConfiguration_KMSKey.
+    * Modified cmdlet New-TRSVocabularyFilter: added parameters EncryptionConfiguration_KMSEncryptionContext and EncryptionConfiguration_KMSKey.
+    * Modified cmdlet Update-TRSVocabulary: added parameters EncryptionConfiguration_KMSEncryptionContext and EncryptionConfiguration_KMSKey.
+    * Modified cmdlet Update-TRSVocabularyFilter: added parameters EncryptionConfiguration_KMSEncryptionContext and EncryptionConfiguration_KMSKey.
+
+### 5.0.301 (2026-09-17 19:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.336.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock AgentCore Data Plane Fronting Layer
     * Modified cmdlet Start-BACBatchEvaluation: added parameter DataSourceConfig_CloudWatchLogs_FilterConfig_SessionTraceId.

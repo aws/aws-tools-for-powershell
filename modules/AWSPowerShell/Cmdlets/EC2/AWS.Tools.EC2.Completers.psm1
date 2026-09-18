@@ -1437,7 +1437,7 @@ $EC2_Completers = {
             ($_ -eq "Get-EC2DefaultCreditSpecification/InstanceFamily")
         }
         {
-            $v = "t2","t3","t3a","t4g"
+            $v = "t2","t3","t3a","t4g","t8i"
             break
         }
 
@@ -2660,8 +2660,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

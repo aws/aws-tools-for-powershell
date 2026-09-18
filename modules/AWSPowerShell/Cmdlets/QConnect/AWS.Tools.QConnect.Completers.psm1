@@ -198,7 +198,7 @@ $QC_Completers = {
         # Amazon.QConnect.MessageType
         "Send-QCMessage/Type"
         {
-            $v = "TEXT","TOOL_USE_RESULT"
+            $v = "DATA","TEXT","TOOL_USE_RESULT"
             break
         }
 

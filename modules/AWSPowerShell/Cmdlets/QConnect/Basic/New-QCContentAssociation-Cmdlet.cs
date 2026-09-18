@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     /// You can associate a step-by-step guide with multiple content resources.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate
-    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator
+    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Connect Customer Administrator
     /// Guide</i>. 
     /// </para>
     /// </summary>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter AmazonConnectGuideAssociation_FlowId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are
+        /// <para> The Amazon Resource Name (ARN) of an Connect Customer flow. Step-by-step guides are
         /// a type of flow.</para>
         /// </para>
         /// </summary>

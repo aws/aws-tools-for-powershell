@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Indicates whether redundant ingest is enabled for the ingest configuration. Default:
-        /// <c>false</c>.</para>
+        /// <c>false</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

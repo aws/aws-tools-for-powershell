@@ -80,6 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable AllowedAccessControlTag { get; set; }
         #endregion
         
+        #region Parameter AllowedAIAgent
+        /// <summary>
+        /// <para>
+        /// <para>A list of AI agents that the security profile will give access to.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedAIAgents")]
+        public Amazon.Connect.Model.AIAgent[] AllowedAIAgent { get; set; }
+        #endregion
+        
         #region Parameter AllowedFlowModule
         /// <summary>
         /// <para>
@@ -273,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.AllowedAccessControlTag.Add((String)hashKey, (System.String)(this.AllowedAccessControlTag[hashKey]));
                 }
             }
+            if (this.AllowedAIAgent != null)
+            {
+                context.AllowedAIAgent = new List<Amazon.Connect.Model.AIAgent>(this.AllowedAIAgent);
+            }
             if (this.AllowedFlowModule != null)
             {
                 context.AllowedFlowModule = new List<Amazon.Connect.Model.FlowModule>(this.AllowedFlowModule);
@@ -335,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.AllowedAccessControlTag != null)
             {
                 request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
+            }
+            if (cmdletContext.AllowedAIAgent != null)
+            {
+                request.AllowedAIAgents = cmdletContext.AllowedAIAgent;
             }
             if (cmdletContext.AllowedFlowModule != null)
             {
@@ -474,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.String AllowedAccessControlHierarchyGroupId { get; set; }
             public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
+            public List<Amazon.Connect.Model.AIAgent> AllowedAIAgent { get; set; }
             public List<Amazon.Connect.Model.FlowModule> AllowedFlowModule { get; set; }
             public List<Amazon.Connect.Model.Application> Application { get; set; }
             public System.String Description { get; set; }

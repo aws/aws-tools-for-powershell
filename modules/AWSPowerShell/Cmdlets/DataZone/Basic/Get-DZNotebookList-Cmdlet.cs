@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.NotebookStatus Status { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type to filter notebooks by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.NotebookType")]
+        public Amazon.DataZone.NotebookType Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -216,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.Status = this.Status;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -257,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -344,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public Amazon.DataZone.SortKey SortBy { get; set; }
             public Amazon.DataZone.SortOrder SortOrder { get; set; }
             public Amazon.DataZone.NotebookStatus Status { get; set; }
+            public Amazon.DataZone.NotebookType Type { get; set; }
             public System.Func<Amazon.DataZone.Model.ListNotebooksResponse, GetDZNotebookListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

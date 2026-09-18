@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     /// <para>
     /// For more information about content associations--what they are and when they are used--see
     /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate
-    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator
+    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Connect Customer Administrator
     /// Guide</i>. 
     /// </para>
     /// </summary>
