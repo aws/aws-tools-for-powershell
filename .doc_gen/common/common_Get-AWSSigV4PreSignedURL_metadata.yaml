@@ -1,0 +1,22 @@
+Common_Get-AWSSigV4PreSignedURL:
+  title: Use Get-AWSSigV4PreSignedURL
+  title_abbrev: Get-AWSSigV4PreSignedURL
+  synopsis: use Get-AWSSigV4PreSignedURL
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Generates a pre-signed URL that allows a GET request to an Amazon API Gateway API with IAM authorization for the next 15 minutes.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4PreSignedURL.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Generates a pre-signed URL for an object in Amazon S3 using the credentials of a named profile. The URL expires at the specified date and time.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4PreSignedURL.2.1.ps1
+  services:
+    Common:
+      Get-AWSSigV4PreSignedURL: 

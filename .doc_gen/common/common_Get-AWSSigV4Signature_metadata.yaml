@@ -1,0 +1,36 @@
+Common_Get-AWSSigV4Signature:
+  title: Use Get-AWSSigV4Signature
+  title_abbrev: Get-AWSSigV4Signature
+  synopsis: use Get-AWSSigV4Signature
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Signs a GET request to an Amazon API Gateway API that uses IAM authorization and invokes it with Invoke-RestMethod. Credentials and region are resolved from the shell defaults or profile in the same way as for other cmdlets.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4Signature.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Signs a POST request with a JSON payload. The payload and the headers passed to the cmdlet are part of the signature, so the same values must be sent with the request.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4Signature.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: Inspects the headers produced for a request to a Lambda function URL using the credentials of a named profile.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4Signature.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                 Value
+            ----                 -----
+            Authorization        AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20250921/us-west-2/lambda/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=...
+            X-Amz-Date           20250921T171741Z
+            X-Amz-Content-SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</programlisting>
+          snippet_files: []
+  services:
+    Common:
+      Get-AWSSigV4Signature: 

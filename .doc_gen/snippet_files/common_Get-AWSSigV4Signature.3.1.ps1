@@ -1,0 +1,1 @@
+Get-AWSSigV4Signature -Uri "https://abcdefghijklmnopqrstuvwxyz012345.lambda-url.us-west-2.on.aws/" -Service lambda -ProfileName my-profile -Region us-west-2
