@@ -67,9 +67,10 @@ namespace Amazon.PowerShell.Common
             {
                 parameters.Credentials = awsPSCredentials.Credentials;
                 WriteCredentialSourceDiagnostic(awsPSCredentials);
-                if (parameters.Credentials is SSOAWSCredentials sso)
-                    sso.Options.SupportsGettingNewToken = false;
+                SettingsStore.ThrowIfSsoLoginRequired(parameters.Credentials);
             }
+            else
+                WriteVerbose("Offloading credential resolution to .NET SDK.");
 
             this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
             if (region != null)
@@ -77,6 +78,8 @@ namespace Amazon.PowerShell.Common
                 parameters.Region = region;
                 WriteRegionSourceDiagnostic(regionSource, region.SystemName);
             }
+            else
+                WriteVerbose("Offloading region resolution to .NET SDK.");
 
             return parameters;
         }
@@ -201,8 +204,10 @@ namespace Amazon.PowerShell.Common
             var parameters = BuildSigningParameters();
             var request = BuildSigningRequest();
 
-            // Same conversion as the S3 presigner: skew-corrected baseline, rounded to whole seconds.
-            var baselineTime = CorrectClockSkew.GetCorrectedUtcNowForEndpoint(this.Uri.GetLeftPart(UriPartial.Authority));
+            // Same conversion as the S3 presigner: skew-corrected baseline, rounded to whole seconds. The
+            // endpoint key must match the one the signer uses (Uri.ToString() of the authority, trailing slash).
+            var endpoint = new Uri(this.Uri.GetLeftPart(UriPartial.Authority)).ToString();
+            var baselineTime = CorrectClockSkew.GetCorrectedUtcNowForEndpoint(endpoint);
             var expiry = TimeSpan.FromSeconds(Convert.ToInt64((this.Expire.ToUniversalTime() - baselineTime).TotalSeconds));
 
             try
