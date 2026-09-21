@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The CA certificate identifier to use for the DB instance's server certificate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating
-        /// Your Amazon DocumentDB TLS Certificates</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+        /// <para>The CA certificate identifier to use for the DB instance's server certificate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/ca_cert_rotation.html">Updating
+        /// Your Amazon DocumentDB TLS Certificates</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/security.encryption.ssl.html">
         /// Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to enable Performance Insights for the DB Instance.
-        /// For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using
+        /// For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/performance-insights.html">Using
         /// Amazon Performance Insights</a>.</para>
         /// </para>
         /// </summary>

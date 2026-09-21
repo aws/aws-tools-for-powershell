@@ -23,34 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DocDB;
-using Amazon.DocDB.Model;
+using Amazon.BillingConductor;
+using Amazon.BillingConductor.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DOC
+namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// Restarts the stopped cluster that is specified by <c>DBClusterIdentifier</c>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-stop-start.html">Stopping
-    /// and Starting an Amazon DocumentDB Cluster</a>.
+    /// Retrieves the auto billing group creation preference for a billing transfer.
     /// </summary>
-    [Cmdlet("Start", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DocDB.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) StartDBCluster API operation.", Operation = new[] {"StartDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.StartDBClusterResponse))]
-    [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.StartDBClusterResponse",
-        "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
-        "The service call response (type Amazon.DocDB.Model.StartDBClusterResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "ABCBillingTransferPreference")]
+    [OutputType("Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse")]
+    [AWSCmdlet("Calls the AWSBillingConductor GetBillingTransferPreference API operation.", Operation = new[] {"GetBillingTransferPreference"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse))]
+    [AWSCmdletOutput("Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse",
+        "This cmdlet returns an Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse object containing multiple properties."
     )]
-    public partial class StartDOCDBClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
+    public partial class GetABCBillingTransferPreferenceCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DBClusterIdentifier
+        #region Parameter ResponsibilityTransferArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster to restart. Example: <c>docdb-2019-05-28-15-24-52</c></para>
+        /// <para>The Amazon Resource Name (ARN) of the billing transfer whose preference you want to
+        /// retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,28 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DBClusterIdentifier { get; set; }
+        public System.String ResponsibilityTransferArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DBCluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDB.Model.StartDBClusterResponse).
-        /// Specifying the name of a property of type Amazon.DocDB.Model.StartDBClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse).
+        /// Specifying the name of a property of type Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DBCluster";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -94,12 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DOCDBCluster (StartDBCluster)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -107,14 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DocDB.Model.StartDBClusterResponse, StartDOCDBClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse, GetABCBillingTransferPreferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.ResponsibilityTransferArn = this.ResponsibilityTransferArn;
             #if MODULAR
-            if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
+            if (this.ResponsibilityTransferArn == null && ParameterWasBound(nameof(this.ResponsibilityTransferArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResponsibilityTransferArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DocDB.Model.StartDBClusterRequest();
+            var request = new Amazon.BillingConductor.Model.GetBillingTransferPreferenceRequest();
             
-            if (cmdletContext.DBClusterIdentifier != null)
+            if (cmdletContext.ResponsibilityTransferArn != null)
             {
-                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+                request.ResponsibilityTransferArn = cmdletContext.ResponsibilityTransferArn;
             }
             
             CmdletOutput output;
@@ -170,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         #region AWS Service Operation Call
         
-        private Amazon.DocDB.Model.StartDBClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.StartDBClusterRequest request)
+        private Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse CallAWSServiceOperation(IAmazonBillingConductor client, Amazon.BillingConductor.Model.GetBillingTransferPreferenceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "StartDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSBillingConductor", "GetBillingTransferPreference");
             try
             {
-                return client.StartDBClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetBillingTransferPreferenceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -192,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBClusterIdentifier { get; set; }
-            public System.Func<Amazon.DocDB.Model.StartDBClusterResponse, StartDOCDBClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DBCluster;
+            public System.String ResponsibilityTransferArn { get; set; }
+            public System.Func<Amazon.BillingConductor.Model.GetBillingTransferPreferenceResponse, GetABCBillingTransferPreferenceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

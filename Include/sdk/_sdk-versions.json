@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.337.0",
+    "ProductVersion"    : "4.0.338.0",
     "CoreVersion"       : "4.0.102.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.116.0",
+            "Version" : "4.0.117.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -1276,7 +1276,7 @@
             "InPreview"               : false
         },
         "DocDB"                           : {
-            "Version" : "4.0.100.14",
+            "Version" : "4.0.101.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -2228,7 +2228,7 @@
             "InPreview"               : false
         },
         "BillingConductor"                    : {
-            "Version" : "4.0.101.0",
+            "Version" : "4.0.102.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -3188,7 +3188,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "4.0.111.0",
+            "Version" : "4.0.112.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"
@@ -3196,7 +3196,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.116.0",
+            "Version" : "4.0.117.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.6"

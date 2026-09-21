@@ -207,6 +207,7 @@ $ABC_SelectMap = @{
                "Unregister-ABCAccount",
                "Unregister-ABCPricingRule",
                "Get-ABCBillingGroupCostReport",
+               "Get-ABCBillingTransferPreference",
                "Get-ABCAccountAssociationList",
                "Get-ABCBillingGroupCostReportList",
                "Get-ABCBillingGroupList",
@@ -221,6 +222,7 @@ $ABC_SelectMap = @{
                "Add-ABCResourceTag",
                "Remove-ABCResourceTag",
                "Update-ABCBillingGroup",
+               "Update-ABCBillingTransferPreference",
                "Update-ABCCustomLineItem",
                "Update-ABCPricingPlan",
                "Update-ABCPricingRule")

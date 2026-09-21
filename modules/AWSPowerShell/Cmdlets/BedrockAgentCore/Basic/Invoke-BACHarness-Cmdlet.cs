@@ -125,6 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Model_LiteLlmModelConfig_ApiBase { get; set; }
         #endregion
         
+        #region Parameter Model_OpenAiModelConfig_ApiBase
+        /// <summary>
+        /// <para>
+        /// <para>Optional custom endpoint URL for an OpenAI-compatible endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Model_OpenAiModelConfig_ApiBase { get; set; }
+        #endregion
+        
         #region Parameter Model_BedrockModelConfig_ApiFormat
         /// <summary>
         /// <para>
@@ -645,6 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             context.Model_LiteLlmModelConfig_Temperature = this.Model_LiteLlmModelConfig_Temperature;
             context.Model_LiteLlmModelConfig_TopP = this.Model_LiteLlmModelConfig_TopP;
             context.Model_OpenAiModelConfig_AdditionalParam = this.Model_OpenAiModelConfig_AdditionalParam;
+            context.Model_OpenAiModelConfig_ApiBase = this.Model_OpenAiModelConfig_ApiBase;
             context.Model_OpenAiModelConfig_ApiFormat = this.Model_OpenAiModelConfig_ApiFormat;
             context.Model_OpenAiModelConfig_ApiKeyArn = this.Model_OpenAiModelConfig_ApiKeyArn;
             context.Model_OpenAiModelConfig_MaxToken = this.Model_OpenAiModelConfig_MaxToken;
@@ -984,6 +995,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 requestModel_model_OpenAiModelConfig.AdditionalParams = requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_AdditionalParam.Value;
                 requestModel_model_OpenAiModelConfigIsNull = false;
             }
+            System.String requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase = null;
+            if (cmdletContext.Model_OpenAiModelConfig_ApiBase != null)
+            {
+                requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase = cmdletContext.Model_OpenAiModelConfig_ApiBase;
+            }
+            if (requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase != null)
+            {
+                requestModel_model_OpenAiModelConfig.ApiBase = requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase;
+                requestModel_model_OpenAiModelConfigIsNull = false;
+            }
             Amazon.BedrockAgentCore.HarnessOpenAiApiFormat requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiFormat = null;
             if (cmdletContext.Model_OpenAiModelConfig_ApiFormat != null)
             {
@@ -1182,6 +1203,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.Single? Model_LiteLlmModelConfig_Temperature { get; set; }
             public System.Single? Model_LiteLlmModelConfig_TopP { get; set; }
             public System.Management.Automation.PSObject Model_OpenAiModelConfig_AdditionalParam { get; set; }
+            public System.String Model_OpenAiModelConfig_ApiBase { get; set; }
             public Amazon.BedrockAgentCore.HarnessOpenAiApiFormat Model_OpenAiModelConfig_ApiFormat { get; set; }
             public System.String Model_OpenAiModelConfig_ApiKeyArn { get; set; }
             public System.Int32? Model_OpenAiModelConfig_MaxToken { get; set; }

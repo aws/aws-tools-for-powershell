@@ -191,6 +191,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Model_LiteLlmModelConfig_ApiBase { get; set; }
         #endregion
         
+        #region Parameter Model_OpenAiModelConfig_ApiBase
+        /// <summary>
+        /// <para>
+        /// <para>Optional custom endpoint URL for an OpenAI-compatible endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Model_OpenAiModelConfig_ApiBase { get; set; }
+        #endregion
+        
         #region Parameter Model_BedrockModelConfig_ApiFormat
         /// <summary>
         /// <para>
@@ -400,6 +410,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HarnessId { get; set; }
+        #endregion
+        
+        #region Parameter Hook
+        /// <summary>
+        /// <para>
+        /// <para>The lifecycle hooks to run at defined points in the agent loop. If specified, this
+        /// replaces all existing hooks. If not specified, the existing hooks are retained.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Hooks")]
+        public Amazon.BedrockAgentCoreControl.Model.HarnessHook[] Hook { get; set; }
         #endregion
         
         #region Parameter AuthorizerConfiguration_OptionalValue_CustomJWTAuthorizer_AllowedWorkloadConfiguration_HostingEnvironment
@@ -1116,6 +1142,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter HarnessId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Hook != null)
+            {
+                context.Hook = new List<Amazon.BedrockAgentCoreControl.Model.HarnessHook>(this.Hook);
+            }
             context.MaxIteration = this.MaxIteration;
             context.MaxToken = this.MaxToken;
             context.Memory_OptionalValue_AgentCoreMemoryConfiguration_ActorId = this.Memory_OptionalValue_AgentCoreMemoryConfiguration_ActorId;
@@ -1158,6 +1188,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Model_LiteLlmModelConfig_Temperature = this.Model_LiteLlmModelConfig_Temperature;
             context.Model_LiteLlmModelConfig_TopP = this.Model_LiteLlmModelConfig_TopP;
             context.Model_OpenAiModelConfig_AdditionalParam = this.Model_OpenAiModelConfig_AdditionalParam;
+            context.Model_OpenAiModelConfig_ApiBase = this.Model_OpenAiModelConfig_ApiBase;
             context.Model_OpenAiModelConfig_ApiFormat = this.Model_OpenAiModelConfig_ApiFormat;
             context.Model_OpenAiModelConfig_ApiKeyArn = this.Model_OpenAiModelConfig_ApiKeyArn;
             context.Model_OpenAiModelConfig_MaxToken = this.Model_OpenAiModelConfig_MaxToken;
@@ -1665,6 +1696,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.HarnessId = cmdletContext.HarnessId;
             }
+            if (cmdletContext.Hook != null)
+            {
+                request.Hooks = cmdletContext.Hook;
+            }
             if (cmdletContext.MaxIteration != null)
             {
                 request.MaxIterations = cmdletContext.MaxIteration.Value;
@@ -2081,6 +2116,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestModel_model_OpenAiModelConfig.AdditionalParams = requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_AdditionalParam.Value;
                 requestModel_model_OpenAiModelConfigIsNull = false;
             }
+            System.String requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase = null;
+            if (cmdletContext.Model_OpenAiModelConfig_ApiBase != null)
+            {
+                requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase = cmdletContext.Model_OpenAiModelConfig_ApiBase;
+            }
+            if (requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase != null)
+            {
+                requestModel_model_OpenAiModelConfig.ApiBase = requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiBase;
+                requestModel_model_OpenAiModelConfigIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.HarnessOpenAiApiFormat requestModel_model_OpenAiModelConfig_model_OpenAiModelConfig_ApiFormat = null;
             if (cmdletContext.Model_OpenAiModelConfig_ApiFormat != null)
             {
@@ -2360,6 +2405,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String HarnessId { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.HarnessHook> Hook { get; set; }
             public System.Int32? MaxIteration { get; set; }
             public System.Int32? MaxToken { get; set; }
             public System.String Memory_OptionalValue_AgentCoreMemoryConfiguration_ActorId { get; set; }
@@ -2392,6 +2438,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Single? Model_LiteLlmModelConfig_Temperature { get; set; }
             public System.Single? Model_LiteLlmModelConfig_TopP { get; set; }
             public System.Management.Automation.PSObject Model_OpenAiModelConfig_AdditionalParam { get; set; }
+            public System.String Model_OpenAiModelConfig_ApiBase { get; set; }
             public Amazon.BedrockAgentCoreControl.HarnessOpenAiApiFormat Model_OpenAiModelConfig_ApiFormat { get; set; }
             public System.String Model_OpenAiModelConfig_ApiKeyArn { get; set; }
             public System.Int32? Model_OpenAiModelConfig_MaxToken { get; set; }

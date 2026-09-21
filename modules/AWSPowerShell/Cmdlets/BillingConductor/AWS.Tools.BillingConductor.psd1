@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ABCBillingGroupCostReport', 
         'Get-ABCBillingGroupCostReportList', 
         'Get-ABCBillingGroupList', 
+        'Get-ABCBillingTransferPreference', 
         'Get-ABCCustomLineItemList', 
         'Get-ABCCustomLineItemVersionList', 
         'Get-ABCPricingPlanList', 
@@ -116,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-ABCPricingRule', 
         'Unregister-ABCResourceBatchFromCustomLineItem', 
         'Update-ABCBillingGroup', 
+        'Update-ABCBillingTransferPreference', 
         'Update-ABCCustomLineItem', 
         'Update-ABCPricingPlan', 
         'Update-ABCPricingRule')

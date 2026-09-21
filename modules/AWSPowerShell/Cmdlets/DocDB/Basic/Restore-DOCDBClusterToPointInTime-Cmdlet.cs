@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to copy all tags from the restored DB cluster to snapshots of the
+        /// restored DB cluster. The default is not to copy them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
@@ -151,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The network type of the cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the cluster.
         /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
-        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB
         /// clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</para><para>Valid Values: <c>IPV4</c> | <c>DUAL</c></para>
         /// </para>
         /// </summary>
@@ -308,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 context.Select = CreateSelectDelegate<Amazon.DocDB.Model.RestoreDBClusterToPointInTimeResponse, RestoreDOCDBClusterToPointInTimeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
             if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
@@ -361,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             // create request
             var request = new Amazon.DocDB.Model.RestoreDBClusterToPointInTimeRequest();
             
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
+            }
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
@@ -501,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }

@@ -1,4 +1,20 @@
-﻿### 5.0.302 (2026-09-18 19:59Z)
+﻿### 5.0.303 (2026-09-21 19:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.338.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Added cmdlet Get-ABCBillingTransferPreference leveraging the GetBillingTransferPreference service API.
+    * Added cmdlet Update-ABCBillingTransferPreference leveraging the UpdateBillingTransferPreference service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCHarness: added parameters Hook and Model_OpenAiModelConfig_ApiBase.
+    * Modified cmdlet Update-BACCHarness: added parameters Hook and Model_OpenAiModelConfig_ApiBase.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACHarness: added parameter Model_OpenAiModelConfig_ApiBase.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameter CopyTagsToSnapshot.
+    * Modified cmdlet New-DOCDBCluster: added parameter CopyTagsToSnapshot.
+    * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter CopyTagsToSnapshot.
+    * Modified cmdlet Restore-DOCDBClusterToPointInTime: added parameter CopyTagsToSnapshot.
+
+### 5.0.302 (2026-09-18 19:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.337.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet New-AISApplication: added parameters AuthConfig_AuthType and AuthConfig_CredentialProviderIdentifier.

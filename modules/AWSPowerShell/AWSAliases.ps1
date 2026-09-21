@@ -3859,6 +3859,7 @@ Set-Alias -Name Disassociate-ABCPricingRules -Value Unregister-ABCPricingRule
 Set-Alias -Name Disassociate-ABCPricingRule -Value Unregister-ABCPricingRule
 Set-Alias -Name ABC-DisassociatePricingRules -Value Unregister-ABCPricingRule
 Set-Alias -Name ABC-GetBillingGroupCostReport -Value Get-ABCBillingGroupCostReport
+Set-Alias -Name ABC-GetBillingTransferPreference -Value Get-ABCBillingTransferPreference
 Set-Alias -Name List-ABCAccountAssociations -Value Get-ABCAccountAssociationList
 Set-Alias -Name List-ABCAccountAssociationList -Value Get-ABCAccountAssociationList
 Set-Alias -Name ABC-ListAccountAssociations -Value Get-ABCAccountAssociationList
@@ -3893,6 +3894,7 @@ Set-Alias -Name ABC-ListTagsForResource -Value Get-ABCResourceTag
 Set-Alias -Name ABC-TagResource -Value Add-ABCResourceTag
 Set-Alias -Name ABC-UntagResource -Value Remove-ABCResourceTag
 Set-Alias -Name ABC-UpdateBillingGroup -Value Update-ABCBillingGroup
+Set-Alias -Name ABC-UpdateBillingTransferPreference -Value Update-ABCBillingTransferPreference
 Set-Alias -Name ABC-UpdateCustomLineItem -Value Update-ABCCustomLineItem
 Set-Alias -Name ABC-UpdatePricingPlan -Value Update-ABCPricingPlan
 Set-Alias -Name ABC-UpdatePricingRule -Value Update-ABCPricingRule

@@ -85,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBillingTransferPreference" OutputProperty="*" Verb="Get" Noun="BillingTransferPreference" PipelineParameter="ResponsibilityTransferArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccountAssociations" OutputProperty="LinkedAccounts" Verb="Get" Noun="AccountAssociationList" PipelineParameter="BillingPeriod" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Filters_AccountIds" NewName="Filters_AccountIds" />
@@ -143,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBillingGroup" OutputProperty="*" Verb="Update" Noun="BillingGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBillingTransferPreference" OutputProperty="*" Verb="Update" Noun="BillingTransferPreference" ShouldProcessTarget="ResponsibilityTransferArn" PipelineParameter="ResponsibilityTransferArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

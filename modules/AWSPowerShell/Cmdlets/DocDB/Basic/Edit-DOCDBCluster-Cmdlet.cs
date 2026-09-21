@@ -87,6 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.Int32? BackupRetentionPeriod { get; set; }
         #endregion
         
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster.
+        /// The default is not to copy them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyTagsToSnapshot { get; set; }
+        #endregion
+        
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
@@ -248,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The network type of the cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the cluster.
         /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
-        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB
         /// clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</para><para>Valid Values: <c>IPV4</c> | <c>DUAL</c></para>
         /// </para>
         /// </summary>
@@ -398,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 context.CloudwatchLogsExportConfiguration_EnableLogType = new List<System.String>(this.CloudwatchLogsExportConfiguration_EnableLogType);
             }
+            context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             #if MODULAR
             if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
@@ -480,6 +492,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (requestCloudwatchLogsExportConfigurationIsNull)
             {
                 request.CloudwatchLogsExportConfiguration = null;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -630,6 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Int32? BackupRetentionPeriod { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
