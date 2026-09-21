@@ -1,3 +1,4 @@
+---
 Common_Get-AWSSigV4PreSignedURL:
   title: Use Get-AWSSigV4PreSignedURL
   title_abbrev: Get-AWSSigV4PreSignedURL
@@ -12,7 +13,7 @@ Common_Get-AWSSigV4PreSignedURL:
         - description: 
           snippet_files:
           - .doc_gen/snippet_files/common_Get-AWSSigV4PreSignedURL.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: Generates a pre-signed URL for an object in Amazon S3 using the credentials of a named profile. The URL expires at the specified date and time.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: Generates a pre-signed URL for an object in Amazon S3 using the credentials of a named profile. The URL expires after one day.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
