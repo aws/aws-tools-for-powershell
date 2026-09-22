@@ -301,6 +301,18 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.String Source_Scope { get; set; }
         #endregion
         
+        #region Parameter Rule_Source_SourceContextGraphConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration that enables centralization of the context graph for the selected sources.
+        /// Including this configuration in a rule's source opts the rule into centralizing the
+        /// context graph for the selected sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ObservabilityAdmin.Model.SourceContextGraphConfiguration Rule_Source_SourceContextGraphConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Rule_Destination_DestinationLogsConfiguration_TagPropagationConfiguration_TagConflictResolutionStrategy
         /// <summary>
         /// <para>
@@ -408,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             }
             #endif
             context.Source_Scope = this.Source_Scope;
+            context.Rule_Source_SourceContextGraphConfiguration = this.Rule_Source_SourceContextGraphConfiguration;
             context.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion = this.Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion;
             context.SourceLogsConfiguration_EncryptedLogGroupStrategy = this.SourceLogsConfiguration_EncryptedLogGroupStrategy;
             context.SourceLogsConfiguration_LogGroupSelectionCriterion = this.SourceLogsConfiguration_LogGroupSelectionCriterion;
@@ -712,6 +725,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 requestRule_rule_Source.Scope = requestRule_rule_Source_source_Scope;
                 requestRule_rule_SourceIsNull = false;
             }
+            Amazon.ObservabilityAdmin.Model.SourceContextGraphConfiguration requestRule_rule_Source_rule_Source_SourceContextGraphConfiguration = null;
+            if (cmdletContext.Rule_Source_SourceContextGraphConfiguration != null)
+            {
+                requestRule_rule_Source_rule_Source_SourceContextGraphConfiguration = cmdletContext.Rule_Source_SourceContextGraphConfiguration;
+            }
+            if (requestRule_rule_Source_rule_Source_SourceContextGraphConfiguration != null)
+            {
+                requestRule_rule_Source.SourceContextGraphConfiguration = requestRule_rule_Source_rule_Source_SourceContextGraphConfiguration;
+                requestRule_rule_SourceIsNull = false;
+            }
             Amazon.ObservabilityAdmin.Model.SourceMetricsConfiguration requestRule_rule_Source_rule_Source_SourceMetricsConfiguration = null;
             
              // populate SourceMetricsConfiguration
@@ -874,6 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             public System.String Destination_Region { get; set; }
             public List<System.String> Source_Region { get; set; }
             public System.String Source_Scope { get; set; }
+            public Amazon.ObservabilityAdmin.Model.SourceContextGraphConfiguration Rule_Source_SourceContextGraphConfiguration { get; set; }
             public System.String Rule_Source_SourceLogsConfiguration_DataSourceSelectionCriterion { get; set; }
             public Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy SourceLogsConfiguration_EncryptedLogGroupStrategy { get; set; }
             public System.String SourceLogsConfiguration_LogGroupSelectionCriterion { get; set; }

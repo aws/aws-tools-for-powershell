@@ -326,6 +326,9 @@
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudWatchOmni">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchOmni.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatchRUM">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.CloudWatchRUM.dll</HintPath>
     </Reference>
@@ -1618,6 +1621,9 @@
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchOmni">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchOmni.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchRUM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchRUM.dll</HintPath>

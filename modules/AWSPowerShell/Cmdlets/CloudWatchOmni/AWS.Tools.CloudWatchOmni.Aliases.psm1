@@ -1,0 +1,3 @@
+﻿# CloudWatchOmni
+
+Export-ModuleMember -Alias *

@@ -197,6 +197,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_Action") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_AdobeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AdobeAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_AirtableAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AirtableAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AmazonBedrockARSAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_AmazonBedrockARSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_AmazonBedrockFSAction") -Or
@@ -219,6 +223,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_BambooHRAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_BedrockManagedKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_BedrockManagedKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_BeeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_BeeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_BoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_BoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_BoxKnowledgeBase") -Or
@@ -229,6 +235,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ChatAgent") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ChatAgent") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CiscoWebexMeetingsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CiscoWebexMeetingsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CiscoWebexVidcastAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CiscoWebexVidcastAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ComprehendMedicalAction") -Or
@@ -237,6 +247,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ConfluenceAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ConfluenceKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ConfluenceKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAdobeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAdobeAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAirtableAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAirtableAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAmazonBedrockARSAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateAmazonBedrockARSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateAmazonBedrockFSAction") -Or
@@ -253,12 +267,18 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateBambooHRAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBedrockManagedKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateBedrockManagedKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBeeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateBeeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateBoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateBoxKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateBoxKnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateCanvaAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateCiscoWebexMeetingsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateCiscoWebexMeetingsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateCiscoWebexVidcastAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateCiscoWebexVidcastAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateComprehendMedicalAction") -Or
@@ -273,16 +293,40 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDropboxAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDropboxAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDunAndBradstreetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDunAndBradstreetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateFactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateFactSetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateFigmaAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateFigmaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGenericHTTPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGenericHTTPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGithubAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGithubAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGmailAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGmailAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleAnalyticsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleAnalyticsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleCalendarAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleCalendarAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleChatAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleChatAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDocsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDocsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDriveAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleMeetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleMeetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleSheetsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleSheetsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateGoogleSlidesAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateGoogleSlidesAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateHGInsightsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateHGInsightsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateHubspotAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateHubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateHuggingFaceAction") -Or
@@ -301,6 +345,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMondayAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateMondayAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMoodysAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateMoodysAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMSExchangeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateMSExchangeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateMSTeamsAction") -Or
@@ -313,12 +359,18 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateOneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateOneDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateOneDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateOneNoteAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateOneNoteAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateOpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateOpenAPIAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdatePagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdatePagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdatePagerDutyAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdatePagerDutyAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateQBusinessKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateQBusinessKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateQuickBooksAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateQuickBooksAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateS3KnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateS3KnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateSalesforceAction") -Or
@@ -343,20 +395,34 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateSharePointAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateSharePointKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateSharePointKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateShopifyAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateShopifyAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateSlackAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateSlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateSmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateSmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateSnowFlakeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateSnowFlakeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateTextractAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateVisierAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateVisierAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateWebCrawlerKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateWebCrawlerKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateWhatsAppAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateWhatsAppAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateZapierAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZapierAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateZendeskAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZendeskAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateZoomAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZoomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateZoomInfoAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateZoomInfoAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateChatAgent") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateChatAgent") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateDashboardExecutiveSummaryWithQ") -Or
@@ -369,6 +435,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Dashboard") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_DropboxAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_DropboxAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_DunAndBradstreetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_DunAndBradstreetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_EditVisualWithQ") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
@@ -387,6 +457,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_Extension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_FactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_FactSetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_FigmaAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_FigmaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Flow") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Flow") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GenerateAnalyses") -Or
@@ -395,10 +467,28 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_GenericHTTPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GithubAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_GithubAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GmailAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GmailAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleAnalyticsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleAnalyticsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GoogleCalendarAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleCalendarAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleChatAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleChatAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleDocsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleDocsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleDriveAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_GoogleDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleMeetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleMeetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleSheetsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleSheetsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_GoogleSlidesAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_GoogleSlidesAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_HGInsightsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_HGInsightsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_HubspotAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_HubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_HuggingFaceAction") -Or
@@ -425,6 +515,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_MCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MondayAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_MondayAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_MoodysAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_MoodysAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MSExchangeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_MSExchangeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_MSTeamsAction") -Or
@@ -437,10 +529,14 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_OneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_OneDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_OneDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_OneNoteAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_OneNoteAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_OpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_OpenAPIAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_PagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_PagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_PagerDutyAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_PagerDutyAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_PerformFlowUiTask") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_PerformFlowUiTask") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_PrintReport") -Or
@@ -449,6 +545,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_PublishWithoutApproval") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_QBusinessKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_QBusinessKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_QuickBooksAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_QuickBooksAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_QuickEventTrigger") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
@@ -481,6 +579,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_SelfUpgradeUserRole") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ServiceNowAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ServiceNowAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareAdobeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAdobeAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareAirtableAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAirtableAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAmazonBedrockARSAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAmazonBedrockARSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareAmazonBedrockFSAction") -Or
@@ -499,6 +601,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBambooHRAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareBedrockManagedKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBedrockManagedKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareBeeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBeeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareBoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareBoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareBoxKnowledgeBase") -Or
@@ -507,6 +611,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareCanvaAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareChatAgent") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareChatAgent") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareCiscoWebexMeetingsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareCiscoWebexMeetingsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareCiscoWebexVidcastAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareCiscoWebexVidcastAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareComprehendMedicalAction") -Or
@@ -521,16 +629,40 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataset") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareDataSource") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDropboxAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDropboxAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDunAndBradstreetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDunAndBradstreetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareFactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareFactSetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareFigmaAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareFigmaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareGenericHTTPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGenericHTTPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareGithubAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGithubAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGmailAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGmailAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleAnalyticsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleAnalyticsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleCalendarAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleCalendarAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleChatAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleChatAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleDocsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleDocsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleDriveAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleMeetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleMeetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleSheetsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleSheetsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareGoogleSlidesAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareGoogleSlidesAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareHGInsightsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareHGInsightsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareHubspotAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareHubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareHuggingFaceAction") -Or
@@ -549,6 +681,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareMondayAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareMondayAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareMoodysAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareMoodysAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareMSExchangeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareMSExchangeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareMSTeamsAction") -Or
@@ -561,16 +695,22 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareOneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareOneDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareOneDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareOneNoteAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareOneNoteAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareOpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareOpenAPIAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SharePagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SharePagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_SharePagerDutyAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_SharePagerDutyAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SharePointAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SharePointAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SharePointKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SharePointKnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareQBusinessKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareQBusinessKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareQuickBooksAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareQuickBooksAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareS3KnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareS3KnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSalesforceAction") -Or
@@ -595,22 +735,40 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSharePointAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSharePointKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSharePointKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareShopifyAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareShopifyAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSlackAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareSnowFlakeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSnowFlakeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareSpace") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareSpace") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareTextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareVisierAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareVisierAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareWebCrawlerKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareWebCrawlerKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareWhatsAppAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareWhatsAppAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareZapierAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareZapierAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ShareZendeskAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ShareZendeskAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareZoomAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareZoomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareZoomInfoAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareZoomInfoAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShopifyAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShopifyAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SlackAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_SmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_SmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_SnowFlakeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_SnowFlakeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Space") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Space") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Story") -Or
@@ -623,8 +781,12 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_Topic") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_Trigger") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_Trigger") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseAdobeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseAdobeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAgentWebSearch") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseAirtableAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseAirtableAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseAmazonBedrockARSAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseAmazonBedrockFSAction") -Or
@@ -641,6 +803,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBedrockManagedKnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseBedrockModel") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBedrockModel") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseBeeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseBeeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBoxAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseBoxKnowledgeBase") -Or
@@ -649,6 +813,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseBrowserExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseCanvaAgentAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseCiscoWebexMeetingsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseCiscoWebexMeetingsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseCiscoWebexVidcastAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseCiscoWebexVidcastAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseComprehendAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseComprehendAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseComprehendMedicalAction") -Or
@@ -657,18 +825,42 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseConfluenceAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseConfluenceKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseConfluenceKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseDropboxAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseDropboxAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseDunAndBradstreetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseDunAndBradstreetAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseExcelAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseFactSetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseFactSetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseFigmaAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseFigmaAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGenericHTTPAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseGenericHTTPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGithubAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseGithubAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGmailAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGmailAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleAnalyticsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleAnalyticsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleCalendarAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleCalendarAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleChatAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleChatAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleDocsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleDocsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleDriveAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleMeetAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleMeetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleSheetsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleSheetsAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseGoogleSlidesAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseGoogleSlidesAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseHGInsightsAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseHGInsightsAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseHubspotAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseHubspotAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseHuggingFaceAction") -Or
@@ -685,6 +877,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseMCPAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseMondayAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseMondayAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseMoodysAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseMoodysAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseMSExchangeAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseMSExchangeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseMSTeamsAction") -Or
@@ -697,16 +891,22 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOneDriveAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseOneDriveKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOneDriveKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseOneNoteAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseOneNoteAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOpenAPIAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseOutlookAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UsePagerDutyAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UsePagerDutyAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UsePagerDutyAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UsePowerpointAddInExtension") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseQBusinessKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseQBusinessKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseQuickBooksAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseQuickBooksAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseS3KnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseS3KnowledgeBase") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSalesforceAction") -Or
@@ -731,24 +931,48 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSharePointAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSharePointKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSharePointKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseShopifyAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseShopifyAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSlackAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSlackAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseSmartsheetAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseSmartsheetAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseSnowFlakeAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseSnowFlakeAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseTextractAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseTextractAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseVisierAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseVisierAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseWebCrawlerKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseWebCrawlerKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseWhatsAppAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseWhatsAppAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseWordAddInExtension") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseZapierAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseZapierAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_UseZendeskAction") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_UseZendeskAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseZoomAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseZoomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_UseZoomInfoAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_UseZoomInfoAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_VisierAgentAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_VisierAgentAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_WebCrawlerKnowledgeBase") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_WebCrawlerKnowledgeBase") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_WhatsAppAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_WhatsAppAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ZapierAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ZapierAction") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ZendeskAction") -Or
-            ($_ -eq "Update-QSCustomPermission/Capabilities_ZendeskAction")
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ZendeskAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ZoomAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ZoomAction") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ZoomInfoAction") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ZoomInfoAction")
         }
         {
             $v = "ALLOW","DENY"
@@ -1526,6 +1750,8 @@ $QS_map = @{
     "Capabilities_AccessAppsNativeDataStore"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Action"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_AdobeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_AirtableAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1537,15 +1763,20 @@ $QS_map = @{
     "Capabilities_Automate"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BedrockManagedKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_BeeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BoxKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_BuildCalculatedFieldWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CiscoWebexMeetingsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CiscoWebexVidcastAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ConfluenceKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateAdobeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateAirtableAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1554,9 +1785,12 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBedrockManagedKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateBeeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateBoxKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateCiscoWebexMeetingsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateCiscoWebexVidcastAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1564,11 +1798,23 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDropboxAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDunAndBradstreetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateFactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateFigmaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateGenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateGithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGmailAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleAnalyticsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateGoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleChatAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleDocsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateGoogleDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleMeetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleSheetsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateGoogleSlidesAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateHGInsightsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateHubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateHuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateIDCKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1578,15 +1824,19 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateLinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateMoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMSExchangeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateMSTeamsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateNewRelicAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateNotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateOneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateOneDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateOneNoteAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateOpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdatePagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdatePagerDutyAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateQBusinessKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateQuickBooksAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateS3KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSandPGlobalEnergyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1599,19 +1849,28 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSharePointKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateShopifyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateSnowFlakeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateTheme"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateVisierAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateWebCrawlerKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateWhatsAppAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateZapierAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateZoomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateZoomInfoAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateDashboardExecutiveSummaryWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_DropboxAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_DunAndBradstreetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_EditVisualWithQ"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsvInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1621,12 +1880,22 @@ $QS_map = @{
     "Capabilities_ExportToPdfInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Extension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_FactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_FigmaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Flow"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GenerateAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GmailAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleAnalyticsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleChatAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleDocsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_GoogleDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleMeetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleSheetsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_GoogleSlidesAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_HGInsightsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_HuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_IDCKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1640,18 +1909,22 @@ $QS_map = @{
     "Capabilities_ManageSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_MoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MSExchangeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_MSTeamsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_NewRelicAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_NotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_OneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_OneDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_OneNoteAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_OpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_PagerDutyAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PerformFlowUiTask"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PrintReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_PublishWithoutApproval"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_QBusinessKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_QuickBooksAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_QuickEventTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Research"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1668,6 +1941,8 @@ $QS_map = @{
     "Capabilities_ScheduleTrigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SelfUpgradeUserRole"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareAdobeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareAirtableAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1677,10 +1952,13 @@ $QS_map = @{
     "Capabilities_ShareAsanaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBedrockManagedKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareBeeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareBoxKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareChatAgent"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareCiscoWebexMeetingsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareCiscoWebexVidcastAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1688,11 +1966,23 @@ $QS_map = @{
     "Capabilities_ShareDashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDropboxAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDunAndBradstreetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareFactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareFigmaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareGenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareGithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGmailAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleAnalyticsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareGoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleChatAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleDocsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareGoogleDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleMeetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleSheetsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareGoogleSlidesAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareHGInsightsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareHubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareHuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareIDCKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1702,17 +1992,21 @@ $QS_map = @{
     "Capabilities_ShareLinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareMondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareMoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareMSExchangeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareMSTeamsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareNewRelicAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareNotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareOneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareOneDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareOneNoteAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareOpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SharePagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_SharePagerDutyAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SharePointKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareQBusinessKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareQuickBooksAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareS3KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSandPGlobalEnergyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1725,21 +2019,32 @@ $QS_map = @{
     "Capabilities_ShareServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSharePointKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareShopifyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareSnowFlakeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareSpace"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareVisierAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareWebCrawlerKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareWhatsAppAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareZapierAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ShareZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareZoomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareZoomInfoAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShopifyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_SnowFlakeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Space"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Story"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_TextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Topic"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Trigger"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseAdobeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAgentWebSearch"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseAirtableAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockARSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockFSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseAmazonBedrockKRSAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1748,20 +2053,35 @@ $QS_map = @{
     "Capabilities_UseBambooHRAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBedrockManagedKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBedrockModel"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseBeeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBoxAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBoxKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseBrowserExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseCanvaAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseCiscoWebexMeetingsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseCiscoWebexVidcastAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseComprehendMedicalAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseConfluenceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseConfluenceKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseDropboxAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseDunAndBradstreetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseExcelAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseFactSetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseFigmaAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGenericHTTPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGithubAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGmailAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleAnalyticsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGoogleCalendarAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleChatAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleDocsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseGoogleDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleMeetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleSheetsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseGoogleSlidesAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseHGInsightsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseHubspotAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseHuggingFaceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseIDCKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1770,17 +2090,21 @@ $QS_map = @{
     "Capabilities_UseLinearAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMCPAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMondayAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseMoodysAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMSExchangeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseMSTeamsAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseNewRelicAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseNotionAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOneDriveAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOneDriveKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseOneNoteAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOpenAPIAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseOutlookAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UsePagerDutyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UsePagerDutyAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UsePowerpointAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseQBusinessKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseQuickBooksAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseS3KnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSalesforceAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSandPGlobalEnergyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -1793,15 +2117,27 @@ $QS_map = @{
     "Capabilities_UseServiceNowAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSharePointAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSharePointKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseShopifyAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSlackAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseSmartsheetAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseSnowFlakeAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseTextractAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseVisierAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseWebCrawlerKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseWhatsAppAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseWordAddInExtension"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseZapierAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_UseZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseZoomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_UseZoomInfoAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_VisierAgentAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_WebCrawlerKnowledgeBase"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_WhatsAppAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ZapierAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ZendeskAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ZoomAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ZoomInfoAction"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "ClientCredentialsGrantMetadata_ClientCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
     "Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
     "Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")

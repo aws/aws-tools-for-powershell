@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudwatchomni</C2jFilename>
+    <AssemblyName>CloudWatchOmni</AssemblyName>
+    <ServiceNounPrefix>CWOM</ServiceNounPrefix>
+    <ServiceName>CloudWatch Omni</ServiceName>
+    <ServiceId>CloudWatchOmni</ServiceId>
+    <ServiceClientInterface>IAmazonCloudWatchOmni</ServiceClientInterface>
+    <ServiceClient>AmazonCloudWatchOmniClient</ServiceClient>
+    <ServiceModuleGuid>9aadd9d8-4da7-4eea-9ae1-a956ffa7f470</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccessGrant" OutputProperty="AccessGrant" Verb="New" Noun="AccessGrant" ShouldProcessTarget="DomainId,SpaceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessProfile" OutputProperty="AccessProfile" Verb="New" Noun="AccessProfile" ShouldProcessTarget="SpaceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAlert" OutputProperty="*" Verb="New" Noun="Alert" ShouldProcessTarget="ProfileId,SpaceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="Domain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainAccessGrantForOrganization" OutputProperty="AccessGrant" Verb="New" Noun="DomainAccessGrantForOrganization" ShouldProcessTarget="DomainId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainForOrganization" OutputProperty="OrganizationDomain" Verb="New" Noun="DomainForOrganization" ShouldProcessTarget="Name,DomainAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="Integration" Verb="New" Noun="Integration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOmniDashboard" OutputProperty="OmniDashboard" Verb="New" Noun="OmniDashboard" ShouldProcessTarget="SpaceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOneTimeDeepLinkCode" OutputProperty="*" Verb="New" Noun="OneTimeDeepLinkCode" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSpace" OutputProperty="Space" Verb="New" Noun="Space" ShouldProcessTarget="DomainId,Name,DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateView" OutputProperty="*" Verb="New" Noun="View" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessGrant" Verb="Remove" Noun="AccessGrant" ShouldProcessTarget="GrantId" PipelineParameter="GrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessProfile" Verb="Remove" Noun="AccessProfile" ShouldProcessTarget="ProfileId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlert" Verb="Remove" Noun="Alert" ShouldProcessTarget="AlertId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainAccessGrantForOrganization" Verb="Remove" Noun="DomainAccessGrantForOrganization" ShouldProcessTarget="GrantId" PipelineParameter="GrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainForOrganization" Verb="Remove" Noun="DomainForOrganization" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOmniDashboard" Verb="Remove" Noun="OmniDashboard" ShouldProcessTarget="DashboardId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpace" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteView" Verb="Remove" Noun="View" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessGrant" OutputProperty="AccessGrant" Verb="Get" Noun="AccessGrant" PipelineParameter="GrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessProfile" OutputProperty="AccessProfile" Verb="Get" Noun="AccessProfile" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAlert" OutputProperty="Alert" Verb="Get" Noun="Alert" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextGraph" OutputProperty="Nodes" Verb="Get" Noun="ContextGraph" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomain" OutputProperty="Domain" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainAccessGrantForOrganization" OutputProperty="AccessGrant" Verb="Get" Noun="DomainAccessGrantForOrganization" PipelineParameter="GrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainForOrganization" OutputProperty="OrganizationDomain" Verb="Get" Noun="DomainForOrganization" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="Integration" Verb="Get" Noun="Integration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntelligenceConfiguration" OutputProperty="*" Verb="Get" Noun="IntelligenceConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOmniDashboard" OutputProperty="OmniDashboard" Verb="Get" Noun="OmniDashboard" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpace" OutputProperty="Space" Verb="Get" Noun="Space" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpaceCredentialsForOrganization" OutputProperty="Credentials" Verb="Get" Noun="SpaceCredentialsForOrganization" PipelineParameter="CredentialType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryQueryResults" OutputProperty="*" Verb="Get" Noun="TelemetryQueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessGrants" OutputProperty="Items" Verb="Get" Noun="AccessGrantList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessProfiles" OutputProperty="Items" Verb="Get" Noun="AccessProfileList" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAlerts" OutputProperty="Items" Verb="Get" Noun="AlertList" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainAccessGrantsForOrganization" OutputProperty="Items" Verb="Get" Noun="DomainAccessGrantsForOrganizationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Items" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOmniDashboards" OutputProperty="Items" Verb="Get" Noun="OmniDashboardList" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Items" Verb="Get" Noun="SpaceList" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpacesForOrganization" OutputProperty="Items" Verb="Get" Noun="SpacesForOrganizationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTelemetryFields" OutputProperty="Fields" Verb="Get" Noun="TelemetryFieldList" PipelineParameter="DataSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTelemetryQuerySessions" OutputProperty="Sessions" Verb="Get" Noun="TelemetryQuerySessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListViews" OutputProperty="Items" Verb="Get" Noun="ViewList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutIntelligenceConfiguration" OutputProperty="*" Verb="Write" Noun="IntelligenceConfiguration" ShouldProcessTarget="KmsKeyArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchPrincipals" OutputProperty="Results" Verb="Search" Noun="Principal" ShouldProcessTarget="DomainId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTelemetryQuery" OutputProperty="*" Verb="Start" Noun="TelemetryQuery" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTelemetryQuerySession" OutputProperty="SessionId" Verb="Start" Noun="TelemetryQuerySession" ShouldProcessTarget="SessionName" PipelineParameter="SessionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTelemetryQuery" Verb="Stop" Noun="TelemetryQuery" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTelemetryQuerySession" Verb="Stop" Noun="TelemetryQuerySession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessProfile" OutputProperty="AccessProfile" Verb="Update" Noun="AccessProfile" ShouldProcessTarget="ProfileId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlert" Verb="Update" Noun="Alert" ShouldProcessTarget="AlertId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomain" OutputProperty="Domain" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainForOrganization" OutputProperty="OrganizationDomain" Verb="Update" Noun="DomainForOrganization" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegration" OutputProperty="Integration" Verb="Update" Noun="Integration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOmniDashboard" OutputProperty="OmniDashboard" Verb="Update" Noun="OmniDashboard" ShouldProcessTarget="DashboardId,SpaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSpace" OutputProperty="Space" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateView" OutputProperty="*" Verb="Update" Noun="View" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

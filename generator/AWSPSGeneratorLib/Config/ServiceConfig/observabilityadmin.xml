@@ -36,6 +36,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatasetIntegration" OutputProperty="*" Verb="New" Noun="DatasetIntegration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateS3TableIntegration" OutputProperty="Arn" Verb="New" Noun="S3TableIntegration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatasetIntegration" Verb="Remove" Noun="DatasetIntegration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteS3TableIntegration" Verb="Remove" Noun="S3TableIntegration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +111,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCentralizationRuleForOrganization" OutputProperty="*" Verb="Get" Noun="CentralizationRuleForOrganization" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatasetIntegration" OutputProperty="*" Verb="Get" Noun="DatasetIntegration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCentralizationRulesForOrganization" OutputProperty="CentralizationRuleSummaries" Verb="Get" Noun="CentralizationRulesForOrganizationList" PipelineParameter="RuleNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetIntegrations" OutputProperty="DatasetIntegrationSummaries" Verb="Get" Noun="DatasetIntegrationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +232,10 @@
                 <Param Name="Rule_Source_SourceLogsConfiguration_EncryptedLogGroupStrategy" NewName="SourceLogsConfiguration_EncryptedLogGroupStrategy" />
                 <Param Name="Rule_Source_SourceLogsConfiguration_LogGroupSelectionCriteria" NewName="SourceLogsConfiguration_LogGroupSelectionCriterion" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatasetIntegration" OutputProperty="*" Verb="Update" Noun="DatasetIntegration" ShouldProcessTarget="Arn,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryPipeline" Verb="Update" Noun="TelemetryPipeline" ShouldProcessTarget="PipelineIdentifier" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">

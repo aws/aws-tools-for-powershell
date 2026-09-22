@@ -358,6 +358,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityReservationDateChangeQuote" OutputProperty="CapacityReservationModificationQuote" Verb="New" Noun="CapacityReservationDateChangeQuote" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityReservationFleet" OutputProperty="*" Verb="New" Noun="CapacityReservationFleet" ShouldProcessTarget="TotalTargetCapacity" PipelineParameter="TotalTargetCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1309,6 +1313,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityReservationCancellationQuotes" OutputProperty="CapacityReservationCancellationQuotes" Verb="Get" Noun="CapacityReservationCancellationQuoteDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservationDateChangeQuotes" OutputProperty="CapacityReservationModificationQuotes" Verb="Get" Noun="CapacityReservationDateChangeQuoteDetail" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
