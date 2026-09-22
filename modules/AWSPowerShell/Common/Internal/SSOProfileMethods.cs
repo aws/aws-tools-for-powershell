@@ -111,6 +111,25 @@ namespace Amazon.PowerShell.Utils
             }
         }
 
+        private static readonly char[] InvalidSectionNameChars = { '\r', '\n', '[', ']' };
+
+        /// <summary>
+        /// Validates that a value used to construct an INI section name in the shared config file
+        /// does not contain characters that could break out of the section header and inject
+        /// additional sections or properties (for example an attacker-supplied credential_process).
+        /// </summary>
+        public static void ValidateSectionNameComponent(string name, string paramName)
+        {
+            ThrowOnNullOrWhiteSpace(paramName, name);
+
+            if (name.IndexOfAny(InvalidSectionNameChars) >= 0)
+            {
+                throw new ArgumentException(
+                    $"{paramName} contains invalid characters. Line breaks and '[' or ']' are not allowed.",
+                    paramName);
+            }
+        }
+
         /// <summary>
         /// Add the session info given. If the sso-session section already exists, update it.
         /// </summary>
@@ -126,6 +145,8 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoSession), profileOptions.SsoSession);
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoStartUrl), profileOptions.SsoStartUrl);
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoRegion), profileOptions.SsoRegion);
+
+            ValidateSectionNameComponent(profileOptions.SsoSession, nameof(profileOptions.SsoSession));
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
@@ -167,6 +188,9 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(options.SsoRegion), options.SsoRegion);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoAccountId), options.SsoAccountId);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoRoleName), options.SsoRoleName);
+
+            ValidateSectionNameComponent(profile.Name, nameof(profile.Name));
+            ValidateSectionNameComponent(options.SsoSession, nameof(options.SsoSession));
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.

@@ -630,6 +630,15 @@ namespace Amazon.PowerShell.Common
             };
 
             // Register sso-session section to the config and then initiate login flow.
+            SSOProfileMethods.ValidateSectionNameComponent(SessionName, nameof(SessionName));
+
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionName), MyInvocation.BoundParameters);
+
+            if (!ConfirmShouldProceed(false, resourceIdentifiersText, "Initialize-AWSSSOConfiguration"))
+            {
+                return;
+            }
+
             profileOptions.RegisterSsoSession();
 
             WriteVerbose("Calling Invoke-AWSSSOLogin Cmdlet");
