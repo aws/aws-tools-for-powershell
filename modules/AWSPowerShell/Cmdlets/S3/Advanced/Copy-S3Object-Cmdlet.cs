@@ -1026,6 +1026,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.TagSet = new List<Tag>();
                 request.TagSet.AddRange(cmdletContext.TagSet);
+                request.TaggingDirective = TaggingDirective.REPLACE;
             }
 
             if (cmdletContext.RequestPayer != null)

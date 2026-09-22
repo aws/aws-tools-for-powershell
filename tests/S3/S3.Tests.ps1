@@ -251,7 +251,8 @@ Describe -Tag "Smoke" "S3" {
             Copy-S3Object -BucketName $eastBucketName -Key $prefixedKey -DestinationKey "\destkeycopyleadingbackslash" -Region us-east-1
         }
 
-        It "Can copy S3 object to S3 with TagSet parameter" -Skip {
+        It "Can replace tags when copying S3 object with TagSet parameter" {
+            Write-S3Object -BucketName $eastBucketName -Key key -Content $content -Region us-east-1 -TagSet @{Key='sourcetag';Value='sourcevalue'}
             Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $eastBucketName -DestinationKey "key-copy-tagset" -Region us-east-1 -TagSet @{Key='testtag';Value='testvalue'}
 
             $tagCollection = Get-S3ObjectTagSet -BucketName $eastBucketName -Key "key-copy-tagset"
@@ -259,6 +260,17 @@ Describe -Tag "Smoke" "S3" {
             ($tagCollection[0].Key) | Should -Be "testtag"
             ($tagCollection[0].Value) | Should -Be "testvalue"
         }
+
+        It "Can preserve source tags when copying S3 object without TagSet parameter" {
+            Write-S3Object -BucketName $eastBucketName -Key key -Content $content -Region us-east-1 -TagSet @{Key='sourcetag';Value='sourcevalue'}
+            Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $eastBucketName -DestinationKey "key-copy-source-tagset" -Region us-east-1
+
+            $tagCollection = Get-S3ObjectTagSet -BucketName $eastBucketName -Key "key-copy-source-tagset"
+            $tagCollection | Should -HaveCount 1
+            ($tagCollection[0].Key) | Should -Be "sourcetag"
+            ($tagCollection[0].Value) | Should -Be "sourcevalue"
+        }
+
         It "Can copy with ExpectedBucketOwner parameter" {
             $accountId = (Get-STSCallerIdentity).Account
             Copy-S3Object -BucketName $eastBucketName -Key key -SourceRegion us-east-1 -DestinationBucket $westBucketName -DestinationKey "key-copy-owner" -Region us-west-1 -ExpectedBucketOwner $accountId
