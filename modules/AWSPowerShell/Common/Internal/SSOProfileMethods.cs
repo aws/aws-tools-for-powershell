@@ -113,6 +113,8 @@ namespace Amazon.PowerShell.Utils
 
         private static readonly char[] InvalidSectionNameChars = { '\r', '\n', '[', ']' };
 
+        private static readonly char[] LineBreakChars = { '\r', '\n' };
+
         /// <summary>
         /// Validates that a value used to construct an INI section name in the shared config file
         /// does not contain characters that could break out of the section header and inject
@@ -126,6 +128,22 @@ namespace Amazon.PowerShell.Utils
             {
                 throw new ArgumentException(
                     $"{paramName} contains invalid characters. Line breaks and '[' or ']' are not allowed.",
+                    paramName);
+            }
+        }
+
+        /// <summary>
+        /// Validates that a value written as an INI property value does not contain line breaks.
+        /// A line break in a value would let the caller start a new line in the shared config file
+        /// and inject an additional section or property (for example an attacker-supplied
+        /// credential_process), bypassing section-name validation.
+        /// </summary>
+        public static void ValidatePropertyValue(string value, string paramName)
+        {
+            if (!string.IsNullOrEmpty(value) && value.IndexOfAny(LineBreakChars) >= 0)
+            {
+                throw new ArgumentException(
+                    $"{paramName} contains invalid characters. Line breaks are not allowed.",
                     paramName);
             }
         }
@@ -147,6 +165,10 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoRegion), profileOptions.SsoRegion);
 
             ValidateSectionNameComponent(profileOptions.SsoSession, nameof(profileOptions.SsoSession));
+
+            ValidatePropertyValue(profileOptions.SsoStartUrl, nameof(profileOptions.SsoStartUrl));
+            ValidatePropertyValue(profileOptions.SsoRegion, nameof(profileOptions.SsoRegion));
+            ValidatePropertyValue(profileOptions.SsoRegistrationScopes, nameof(profileOptions.SsoRegistrationScopes));
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
@@ -191,6 +213,14 @@ namespace Amazon.PowerShell.Utils
 
             ValidateSectionNameComponent(profile.Name, nameof(profile.Name));
             ValidateSectionNameComponent(options.SsoSession, nameof(options.SsoSession));
+
+            ValidatePropertyValue(options.SsoStartUrl, nameof(options.SsoStartUrl));
+            ValidatePropertyValue(options.SsoRegion, nameof(options.SsoRegion));
+            ValidatePropertyValue(options.SsoAccountId, nameof(options.SsoAccountId));
+            ValidatePropertyValue(options.SsoRoleName, nameof(options.SsoRoleName));
+            ValidatePropertyValue(options.SsoSession, nameof(options.SsoSession));
+            ValidatePropertyValue(options.SsoRegistrationScopes, nameof(options.SsoRegistrationScopes));
+            ValidatePropertyValue(profile.Region?.SystemName, $"{nameof(profile.Region)}.{nameof(profile.Region.SystemName)}");
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
