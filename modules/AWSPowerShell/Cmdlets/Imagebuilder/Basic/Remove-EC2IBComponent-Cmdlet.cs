@@ -30,7 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes a component build version.
+    /// Deletes a component build version. The request fails with <c>ResourceDependencyException</c>
+    /// if an image recipe or container recipe references this component version. It also
+    /// fails if the component build version is shared with other accounts.
     /// </summary>
     [Cmdlet("Remove", "EC2IBComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Imagebuilder.Model.DeleteComponentResponse")]

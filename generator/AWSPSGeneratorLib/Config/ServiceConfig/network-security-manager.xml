@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>network-security-manager</C2jFilename>
+    <AssemblyName>NetworkSecurityManager</AssemblyName>
+    <ServiceNounPrefix>NSM</ServiceNounPrefix>
+    <ServiceName>AWS Network Security Manager Customer API</ServiceName>
+    <ServiceId>Network Security Manager</ServiceId>
+    <ServiceClientInterface>IAmazonNetworkSecurityManager</ServiceClientInterface>
+    <ServiceClient>AmazonNetworkSecurityManagerClient</ServiceClient>
+    <ServiceModuleGuid>d3e16718-f6b7-4949-83a4-1bd9be15dd2d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="DeploymentName" PipelineParameter="DeploymentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeploymentSnapshot" OutputProperty="*" Verb="New" Noun="DeploymentSnapshot" ShouldProcessTarget="DeploymentIdentifier" PipelineParameter="DeploymentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicySnapshot" OutputProperty="*" Verb="New" Noun="PolicySnapshot" ShouldProcessTarget="PolicyIdentifier" PipelineParameter="PolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuleSnapshot" OutputProperty="*" Verb="New" Noun="RuleSnapshot" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateScope" OutputProperty="*" Verb="New" Noun="Scope" ShouldProcessTarget="ScopeName" PipelineParameter="ScopeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateScopeSnapshot" OutputProperty="*" Verb="New" Noun="ScopeSnapshot" ShouldProcessTarget="ScopeIdentifier" PipelineParameter="ScopeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplateSnapshot" OutputProperty="*" Verb="New" Noun="TemplateSnapshot" ShouldProcessTarget="TemplateIdentifier" PipelineParameter="TemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAdminAccount" Verb="Remove" Noun="AdminAccount" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentIdentifier" PipelineParameter="DeploymentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyIdentifier" PipelineParameter="PolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScope" Verb="Remove" Noun="Scope" ShouldProcessTarget="ScopeIdentifier" PipelineParameter="ScopeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateIdentifier" PipelineParameter="TemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateRuleConfiguration" OutputProperty="*" Verb="New" Noun="RuleConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAdminAccount" OutputProperty="AdminAccountDetails" Verb="Get" Noun="AdminAccount" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="PolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRule" OutputProperty="*" Verb="Get" Noun="Rule" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetScope" OutputProperty="*" Verb="Get" Noun="Scope" PipelineParameter="ScopeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="*" Verb="Get" Noun="Template" PipelineParameter="TemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAdminAccounts" OutputProperty="AdminAccounts" Verb="Get" Noun="AdminAccountList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAggregateResourceSynchronizationStatuses" OutputProperty="ResourceSynchronizationStatuses" Verb="Get" Noun="AggregateResourceSynchronizationStatusList" PipelineParameter="SynchronizationStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="DeploymentSnapshotList" PipelineParameter="DeploymentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicySnapshots" OutputProperty="Snapshots" Verb="Get" Noun="PolicySnapshotList" PipelineParameter="PolicyIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceAssociations" OutputProperty="ResourceAssociations" Verb="Get" Noun="ResourceAssociationList" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceSynchronizationStatuses" OutputProperty="ResourceSynchronizationStatuses" Verb="Get" Noun="ResourceSynchronizationStatusList" PipelineParameter="DeploymentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="RuleList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="RuleSnapshotList" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScopes" OutputProperty="Scopes" Verb="Get" Noun="ScopeList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScopeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ScopeSnapshotList" PipelineParameter="ScopeIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="Templates" Verb="Get" Noun="TemplateList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="TemplateSnapshotList" PipelineParameter="TemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAdminAccount" OutputProperty="AdminAccountDetails" Verb="Write" Noun="AdminAccount" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeployment" OutputProperty="*" Verb="Update" Noun="Deployment" ShouldProcessTarget="DeploymentIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRule" OutputProperty="*" Verb="Update" Noun="Rule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScope" OutputProperty="*" Verb="Update" Noun="Scope" ShouldProcessTarget="ScopeIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

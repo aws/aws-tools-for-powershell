@@ -206,6 +206,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? ResourceSpecification_BotLocaleImportSpecification_AudioFillerSettings_Enabled { get; set; }
         #endregion
         
+        #region Parameter ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether speaker diarization is enabled for the bot locale. Set to <c>true</c>
+        /// to have Amazon Lex treat speech from speakers other than the primary speaker as non-speech.
+        /// Set to <c>false</c> to disable speaker diarization and rely on voice activity detection
+        /// alone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter VoiceSettings_Engine
         /// <summary>
         /// <para>
@@ -662,6 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleImportSpecification_BotVersion = this.BotLocaleImportSpecification_BotVersion;
             context.BotLocaleImportSpecification_LocaleId = this.BotLocaleImportSpecification_LocaleId;
             context.BotLocaleImportSpecification_NluIntentConfidenceThreshold = this.BotLocaleImportSpecification_NluIntentConfidenceThreshold;
+            context.ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled = this.ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled;
             context.BotLocaleImportSpecification_SpeechDetectionSensitivity = this.BotLocaleImportSpecification_SpeechDetectionSensitivity;
             context.DeepgramConfig_ApiTokenSecretArn = this.DeepgramConfig_ApiTokenSecretArn;
             context.DeepgramConfig_ModelId = this.DeepgramConfig_ModelId;
@@ -1082,6 +1096,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeechDetectionSensitivity = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity;
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.SpeakerDiarizationSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings = null;
+            
+             // populate SpeakerDiarizationSettings
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings = new Amazon.LexModelsV2.Model.SpeakerDiarizationSettings();
+            System.Boolean? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled = null;
+            if (cmdletContext.ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled = cmdletContext.ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings.Enabled = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeakerDiarizationSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
             Amazon.LexModelsV2.Model.UnifiedSpeechSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings = null;
             
              // populate UnifiedSpeechSettings
@@ -1396,6 +1435,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotLocaleImportSpecification_BotVersion { get; set; }
             public System.String BotLocaleImportSpecification_LocaleId { get; set; }
             public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
+            public System.Boolean? ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled { get; set; }
             public Amazon.LexModelsV2.SpeechDetectionSensitivity BotLocaleImportSpecification_SpeechDetectionSensitivity { get; set; }
             public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
             public System.String DeepgramConfig_ModelId { get; set; }

@@ -11304,6 +11304,7 @@ $AWSB_SelectMap = @{
                "Get-AWSBEnterpriseSupportContractDetail",
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",
+               "Get-AWSBBillingViewSegmentList",
                "Get-AWSBEnterpriseSupportLinkedAccountChargeList",
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",
@@ -16421,9 +16422,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
+    "Select"=@("Get-CSDSuggestion",
                "Write-CSDDocument",
-               "Get-CSDSuggestion")
+               "Search-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30383,12 +30384,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
                "Add-DDBKeySchema",
+               "New-DDBTable",
                "New-DDBTableSchema",
-               "ConvertTo-DDBItem",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertFrom-DDBItem")
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33217,8 +33218,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -50369,6 +50370,16 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.RecordDistributionStrategy
+        {
+            ($_ -eq "New-KINStream/RecordDistributionStrategy") -Or
+            ($_ -eq "Update-KINStreamRecordDistributionStrategy/RecordDistributionStrategy")
+        }
+        {
+            $v = "AUTO","USER_PARTITION_KEY"
+            break
+        }
+
         # Amazon.Kinesis.S3CompressionType
         "New-KINChannel/S3DestinationConfiguration_StorageConfiguration_CompressionType"
         {
@@ -50426,6 +50437,7 @@ $KIN_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-KINChannel")
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "MinimumThroughputBillingCommitment_Status"=@("Update-KINAccountSetting")
+    "RecordDistributionStrategy"=@("New-KINStream","Update-KINStreamRecordDistributionStrategy")
     "S3DestinationConfiguration_StorageConfiguration_CompressionType"=@("New-KINChannel")
     "S3DestinationConfiguration_StorageConfiguration_StorageClass"=@("New-KINChannel")
     "ScalingType"=@("Update-KINShardCount")
@@ -50526,6 +50538,7 @@ $KIN_SelectMap = @{
                "Update-KINMaxRecordSize",
                "Update-KINShardCount",
                "Update-KINStreamMode",
+               "Update-KINStreamRecordDistributionStrategy",
                "Update-KINStreamWarmThroughput")
 }
 
@@ -57681,6 +57694,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.ContentKeyPeriodTiming
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming")
+        }
+        {
+            $v = "INDEX_ONLY","INDEX_WITH_START_END","START_END_ONLY"
+            break
+        }
+
         # Amazon.MediaPackageV2.HarvestJobStatus
         "Get-MPV2HarvestJobList/Status"
         {
@@ -57752,6 +57775,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.SpekeVersion
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_SpekeVersion") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_SpekeVersion")
+        }
+        {
+            $v = "V2_0","V2_1"
+            break
+        }
+
         # Amazon.MediaPackageV2.StreamNameOutputMode
         {
             ($_ -eq "New-MPV2OriginEndpoint/StreamNameOutputMode") -Or
@@ -57800,6 +57833,8 @@ $MPV2_map = @{
     "InputType"=@("New-MPV2Channel")
     "OutputLockingMode"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_SpekeVersion"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
     "StreamNameOutputMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
@@ -60093,7 +60128,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference")
         }
         {
-            $v = "Deepgram","Neural","Standard"
+            $v = "Advanced","Deepgram","Neural","Standard"
             break
         }
 
@@ -62130,6 +62165,217 @@ $NWFW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NWFW_SelectCompleters $NWFW_SelectMap
+# Argument completions for service AWS Network Security Manager Customer API
+
+
+$NSM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.NetworkSecurityManager.EntityStatusFilter
+        {
+            ($_ -eq "Get-NSMDeploymentList/Status") -Or
+            ($_ -eq "Get-NSMPolicyList/Status") -Or
+            ($_ -eq "Get-NSMRuleList/Status") -Or
+            ($_ -eq "Get-NSMScopeList/Status") -Or
+            ($_ -eq "Get-NSMTemplateList/Status")
+        }
+        {
+            $v = "ACTIVE","DISABLED","DRAFT"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.ExistingCustomerWebACLResolution
+        {
+            ($_ -eq "New-NSMPolicy/PolicyConfiguration_WafConfig_ExistingCustomerWebACLResolution") -Or
+            ($_ -eq "Update-NSMPolicy/PolicyConfiguration_WafConfig_ExistingCustomerWebACLResolution")
+        }
+        {
+            $v = "NO_REMEDIATION","OVERRIDE_ASSOCIATION","RETROFIT"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.PolicyFirewallType
+        "New-NSMPolicy/FirewallType"
+        {
+            $v = "SHIELD_ADVANCED","WAF"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.RuleFirewallType
+        {
+            ($_ -eq "New-NSMRule/FirewallType") -Or
+            ($_ -eq "New-NSMRuleConfiguration/RuleFirewallType")
+        }
+        {
+            $v = "WAF"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.RuleType
+        {
+            ($_ -eq "New-NSMRule/RuleType") -Or
+            ($_ -eq "New-NSMRuleConfiguration/RuleType") -Or
+            ($_ -eq "Update-NSMRule/RuleType")
+        }
+        {
+            $v = "CONFIGURATION","INSPECTION"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.SynchronizationStatus
+        {
+            ($_ -eq "Get-NSMAggregateResourceSynchronizationStatusList/SynchronizationStatus") -Or
+            ($_ -eq "Get-NSMResourceSynchronizationStatusList/SynchronizationStatus")
+        }
+        {
+            $v = "IN_SYNC","NOT_APPLICABLE","OUT_OF_SYNC"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.TemplateFirewallType
+        "New-NSMTemplate/FirewallType"
+        {
+            $v = "WAF"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.WAFConfigDataType
+        "New-NSMRuleConfiguration/WafConfigDataType"
+        {
+            $v = "AssociationConfig","CaptchaConfig","ChallengeConfig","CustomResponseBodies","DataProtectionConfig","DefaultAction","LoggingConfiguration","OnSourceDDoSProtectionConfig","TokenDomains","VisibilityConfig"
+            break
+        }
+
+        # Amazon.NetworkSecurityManager.WAFConflictResolutionOptions
+        {
+            ($_ -eq "New-NSMPolicy/PolicyConfiguration_WafConfig_ConflictResolution") -Or
+            ($_ -eq "Update-NSMPolicy/PolicyConfiguration_WafConfig_ConflictResolution")
+        }
+        {
+            $v = "MERGE_WHERE_APPLICABLE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NSM_map = @{
+    "FirewallType"=@("New-NSMPolicy","New-NSMRule","New-NSMTemplate")
+    "PolicyConfiguration_WafConfig_ConflictResolution"=@("New-NSMPolicy","Update-NSMPolicy")
+    "PolicyConfiguration_WafConfig_ExistingCustomerWebACLResolution"=@("New-NSMPolicy","Update-NSMPolicy")
+    "RuleFirewallType"=@("New-NSMRuleConfiguration")
+    "RuleType"=@("New-NSMRule","New-NSMRuleConfiguration","Update-NSMRule")
+    "Status"=@("Get-NSMDeploymentList","Get-NSMPolicyList","Get-NSMRuleList","Get-NSMScopeList","Get-NSMTemplateList")
+    "SynchronizationStatus"=@("Get-NSMAggregateResourceSynchronizationStatusList","Get-NSMResourceSynchronizationStatusList")
+    "WafConfigDataType"=@("New-NSMRuleConfiguration")
+}
+
+_awsArgumentCompleterRegistration $NSM_Completers $NSM_map
+
+$NSM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.NSM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NSM_SelectMap = @{
+    "Select"=@("New-NSMDeployment",
+               "New-NSMDeploymentSnapshot",
+               "New-NSMPolicy",
+               "New-NSMPolicySnapshot",
+               "New-NSMRule",
+               "New-NSMRuleSnapshot",
+               "New-NSMScope",
+               "New-NSMScopeSnapshot",
+               "New-NSMTemplate",
+               "New-NSMTemplateSnapshot",
+               "Remove-NSMAdminAccount",
+               "Remove-NSMDeployment",
+               "Remove-NSMPolicy",
+               "Remove-NSMRule",
+               "Remove-NSMScope",
+               "Remove-NSMTemplate",
+               "New-NSMRuleConfiguration",
+               "Get-NSMAdminAccount",
+               "Get-NSMDeployment",
+               "Get-NSMPolicy",
+               "Get-NSMRule",
+               "Get-NSMScope",
+               "Get-NSMTemplate",
+               "Get-NSMAdminAccountList",
+               "Get-NSMAggregateResourceSynchronizationStatusList",
+               "Get-NSMDeploymentList",
+               "Get-NSMDeploymentSnapshotList",
+               "Get-NSMPolicyList",
+               "Get-NSMPolicySnapshotList",
+               "Get-NSMResourceAssociationList",
+               "Get-NSMResourceSynchronizationStatusList",
+               "Get-NSMRuleList",
+               "Get-NSMRuleSnapshotList",
+               "Get-NSMScopeList",
+               "Get-NSMScopeSnapshotList",
+               "Get-NSMResourceTag",
+               "Get-NSMTemplateList",
+               "Get-NSMTemplateSnapshotList",
+               "Write-NSMAdminAccount",
+               "Add-NSMResourceTag",
+               "Remove-NSMResourceTag",
+               "Update-NSMDeployment",
+               "Update-NSMPolicy",
+               "Update-NSMRule",
+               "Update-NSMScope",
+               "Update-NSMTemplate")
+}
+
+_awsArgumentCompleterRegistration $NSM_SelectCompleters $NSM_SelectMap
 # Argument completions for service Network Flow Monitor
 
 
@@ -66813,7 +67059,9 @@ $PAYCD_Completers = {
         {
             ($_ -eq "Protect-PAYCDData/Asymmetric_PaddingType") -Or
             ($_ -eq "Unprotect-PAYCDData/Asymmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Asymmetric_PaddingType") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Symmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Asymmetric_PaddingType") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Symmetric_PaddingType") -Or
             ($_ -eq "Protect-PAYCDData/Symmetric_PaddingType") -Or
             ($_ -eq "Unprotect-PAYCDData/Symmetric_PaddingType")
@@ -66936,6 +67184,7 @@ $PAYCD_map = @{
     "GenerationAttributes_Algorithm"=@("New-PAYCDMac")
     "IncomingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "IncomingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "IncomingEncryptionAttributes_Asymmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
@@ -66952,6 +67201,7 @@ $PAYCD_map = @{
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "OutgoingEncryptionAttributes_Asymmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
@@ -78663,18 +78913,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Remove-S3Bucket",
-               "Get-S3MultipartUpload",
+               "Test-S3Bucket",
                "New-S3Bucket",
                "Remove-S3Object",
-               "Mount-S3PSDrive",
                "Write-S3Object",
+               "Get-S3MultipartUpload",
                "Copy-S3Object",
-               "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Dismount-S3PSDrive",
                "Get-S3PreSignedURL",
-               "Read-S3Object")
+               "Read-S3Object",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -95359,6 +95609,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -95398,41 +95686,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

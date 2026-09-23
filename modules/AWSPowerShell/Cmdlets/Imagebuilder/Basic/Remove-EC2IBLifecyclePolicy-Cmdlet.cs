@@ -30,7 +30,10 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes the specified lifecycle policy resource.
+    /// Deletes the specified lifecycle policy resource. Deleting the policy removes its schedule,
+    /// so no further lifecycle runs occur for that policy. If a lifecycle execution is in
+    /// progress for the policy, Image Builder cancels it. Deletion doesn't revert actions
+    /// that the policy already applied to your resources.
     /// </summary>
     [Cmdlet("Remove", "EC2IBLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

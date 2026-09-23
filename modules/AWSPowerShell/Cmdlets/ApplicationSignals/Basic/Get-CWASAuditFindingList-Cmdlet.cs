@@ -69,9 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// phase. When changes are detected, the <c>top_contributor</c> auditor skips its analysis
         /// to avoid redundancy.</para></li></ul><note><para><c>InitAuditor</c> and <c>Summarizer</c> auditors are not configurable as they are
         /// automatically triggered during the audit process.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -85,9 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>
         /// <para>A list of audit targets to filter the findings by. You can specify services, SLOs,
         /// or service operations to limit the audit findings to specific entities.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -215,10 +217,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListAuditFindingsResponse, GetCWASAuditFindingListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Auditor != null)
-            {
-                context.Auditor = new List<System.String>(this.Auditor);
-            }
             if (this.AuditTarget != null)
             {
                 context.AuditTarget = new List<Amazon.ApplicationSignals.Model.AuditTarget>(this.AuditTarget);
@@ -229,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 WriteWarning("You are passing $null as a value for parameter AuditTarget which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Auditor != null)
+            {
+                context.Auditor = new List<System.String>(this.Auditor);
+            }
             context.DetailLevel = this.DetailLevel;
             context.EndTime = this.EndTime;
             #if MODULAR
@@ -264,13 +266,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request and set iteration invariants
             var request = new Amazon.ApplicationSignals.Model.ListAuditFindingsRequest();
             
-            if (cmdletContext.Auditor != null)
-            {
-                request.Auditors = cmdletContext.Auditor;
-            }
             if (cmdletContext.AuditTarget != null)
             {
                 request.AuditTargets = cmdletContext.AuditTarget;
+            }
+            if (cmdletContext.Auditor != null)
+            {
+                request.Auditors = cmdletContext.Auditor;
             }
             if (cmdletContext.DetailLevel != null)
             {
@@ -367,8 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Auditor { get; set; }
             public List<Amazon.ApplicationSignals.Model.AuditTarget> AuditTarget { get; set; }
+            public List<System.String> Auditor { get; set; }
             public Amazon.ApplicationSignals.DetailLevel DetailLevel { get; set; }
             public System.DateTime? EndTime { get; set; }
             public System.Int32? MaxResult { get; set; }

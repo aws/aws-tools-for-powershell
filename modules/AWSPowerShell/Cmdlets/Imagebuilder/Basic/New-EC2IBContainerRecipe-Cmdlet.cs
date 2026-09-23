@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InstanceConfiguration_BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>Defines the block devices to attach for building an instance from this Image Builder
-        /// AMI.</para><para />
+        /// <para>Defines the block device mappings for the EC2 instance that Image Builder launches
+        /// to build and test your container image.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Component
         /// <summary>
         /// <para>
-        /// <para>The components included in the container recipe.</para><para />
+        /// <para>The components included in the container recipe. You can specify each component only
+        /// one time in a recipe.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -107,7 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DockerfileTemplateData
         /// <summary>
         /// <para>
-        /// <para>The Dockerfile template used to build your image as an inline data blob.</para>
+        /// <para>The Dockerfile template used to build your image, as an inline data blob. You must
+        /// specify exactly one of the <c>dockerfileTemplateData</c> or <c>dockerfileTemplateUri</c>
+        /// properties. For the contextual variables that the template can include, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/create-container-recipes.html">Create
+        /// a new version of a container recipe</a> in the <i>EC2 Image Builder User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DockerfileTemplateUri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URI for the Dockerfile that is used to build your container image.</para>
+        /// <para>The Amazon S3 URI for the Dockerfile template that is used to build your container
+        /// image. You must have permission to read the object. Image Builder reads the object
+        /// once, when it creates the recipe, and stores its content in the recipe. Later changes
+        /// to the S3 object don't affect the recipe. You must specify exactly one of the <c>dockerfileTemplateData</c>
+        /// or <c>dockerfileTemplateUri</c> properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Validates the required permissions and request parameters without making the request.
+        /// <para>Validates the required permissions and request parameters without performing the operation.
         /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
         /// response.</para>
         /// </para>
@@ -151,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageOsVersionOverride
         /// <summary>
         /// <para>
-        /// <para>Specifies the operating system version for the base image.</para>
+        /// <para>Specifies the operating system version for the base image. Use this property only
+        /// when the base image is a container image from a registry. When the base image is an
+        /// Image Builder image, the operating system version comes from the parent image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the container recipe.</para>
+        /// <para>The name of the container recipe. The recipe name, combined with the semantic version,
+        /// must be unique to your account in each Amazon Web Services Region. Image Builder generates
+        /// the container recipe ARN from a normalized form of the name, so names that differ
+        /// only in case, spaces, or underscores count as the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -191,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ParentImage
         /// <summary>
         /// <para>
-        /// <para>The base image for the container recipe.</para>
+        /// <para>The base image for the container recipe. This can be an Image Builder image resource
+        /// ARN or a container image URI from a registry, for example <c>amazonlinux:latest</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,7 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter PlatformOverride
         /// <summary>
         /// <para>
-        /// <para>Specifies the operating system platform when you use a custom base image.</para>
+        /// <para>Specifies the operating system platform when you use a custom base image. Container
+        /// recipes support only the Linux and Windows platforms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,9 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter TargetRepository_RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the container repository where the output container image is stored. This
-        /// name is prefixed by the repository location. For example, <c>&lt;repository location
-        /// url&gt;/repository_name</c>.</para>
+        /// <para>The name of the container repository where the output container image is stored. Provide
+        /// the repository name only (a namespace path such as <c>team-a/my-repo</c> is allowed,
+        /// but not the registry hostname).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -303,9 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

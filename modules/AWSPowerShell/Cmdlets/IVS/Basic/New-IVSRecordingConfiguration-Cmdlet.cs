@@ -111,9 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// the best available rendition is recorded. For details on the resolution dimensions
         /// of each rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record
         /// to Amazon S3</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -158,9 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and overwrites it at
         /// the interval specified by <c>targetIntervalSeconds</c>. You can enable both <c>SEQUENTIAL</c>
         /// and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -176,9 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// for details, including restrictions that apply to tags and "Tag naming limits and
         /// requirements"; Amazon IVS has no service-specific constraints beyond what is documented
         /// there.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -255,11 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             context.S3_BucketName = this.S3_BucketName;
             context.Name = this.Name;
             context.RecordingReconnectWindowSecond = this.RecordingReconnectWindowSecond;
+            context.RenditionConfiguration_RenditionSelection = this.RenditionConfiguration_RenditionSelection;
             if (this.RenditionConfiguration_Rendition != null)
             {
                 context.RenditionConfiguration_Rendition = new List<System.String>(this.RenditionConfiguration_Rendition);
             }
-            context.RenditionConfiguration_RenditionSelection = this.RenditionConfiguration_RenditionSelection;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -337,16 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
              // populate RenditionConfiguration
             var requestRenditionConfigurationIsNull = true;
             request.RenditionConfiguration = new Amazon.IVS.Model.RenditionConfiguration();
-            List<System.String> requestRenditionConfiguration_renditionConfiguration_Rendition = null;
-            if (cmdletContext.RenditionConfiguration_Rendition != null)
-            {
-                requestRenditionConfiguration_renditionConfiguration_Rendition = cmdletContext.RenditionConfiguration_Rendition;
-            }
-            if (requestRenditionConfiguration_renditionConfiguration_Rendition != null)
-            {
-                request.RenditionConfiguration.Renditions = requestRenditionConfiguration_renditionConfiguration_Rendition;
-                requestRenditionConfigurationIsNull = false;
-            }
             Amazon.IVS.RenditionConfigurationRenditionSelection requestRenditionConfiguration_renditionConfiguration_RenditionSelection = null;
             if (cmdletContext.RenditionConfiguration_RenditionSelection != null)
             {
@@ -355,6 +348,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (requestRenditionConfiguration_renditionConfiguration_RenditionSelection != null)
             {
                 request.RenditionConfiguration.RenditionSelection = requestRenditionConfiguration_renditionConfiguration_RenditionSelection;
+                requestRenditionConfigurationIsNull = false;
+            }
+            List<System.String> requestRenditionConfiguration_renditionConfiguration_Rendition = null;
+            if (cmdletContext.RenditionConfiguration_Rendition != null)
+            {
+                requestRenditionConfiguration_renditionConfiguration_Rendition = cmdletContext.RenditionConfiguration_Rendition;
+            }
+            if (requestRenditionConfiguration_renditionConfiguration_Rendition != null)
+            {
+                request.RenditionConfiguration.Renditions = requestRenditionConfiguration_renditionConfiguration_Rendition;
                 requestRenditionConfigurationIsNull = false;
             }
              // determine if request.RenditionConfiguration should be set to null
@@ -473,8 +476,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             public System.String S3_BucketName { get; set; }
             public System.String Name { get; set; }
             public System.Int32? RecordingReconnectWindowSecond { get; set; }
-            public List<System.String> RenditionConfiguration_Rendition { get; set; }
             public Amazon.IVS.RenditionConfigurationRenditionSelection RenditionConfiguration_RenditionSelection { get; set; }
+            public List<System.String> RenditionConfiguration_Rendition { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.IVS.RecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public Amazon.IVS.ThumbnailConfigurationResolution ThumbnailConfiguration_Resolution { get; set; }

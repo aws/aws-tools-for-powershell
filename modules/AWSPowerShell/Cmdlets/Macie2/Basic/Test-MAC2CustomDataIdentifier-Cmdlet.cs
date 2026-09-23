@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// from the results. If the text matched by the regular expression contains any string
         /// in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore
         /// words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -70,9 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// precede and be within proximity (maximumMatchDistance) of the regular expression to
         /// match. The array can contain as many as 50 keywords. Each keyword can contain 3-90
         /// UTF-8 characters. Keywords aren't case sensitive.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

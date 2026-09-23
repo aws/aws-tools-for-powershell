@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
     /// Verifies the subscription and performs resource dependency checks on the requested
-    /// Amazon Web Services Marketplace resource. For Amazon Web Services Marketplace components,
-    /// the response contains fields to download the components and their artifacts.
+    /// Amazon Web Services Marketplace resource. The caller must be entitled to the resource.
+    /// For Amazon Web Services Marketplace components, the response contains fields to download
+    /// the components and their artifacts.
     /// </summary>
     [Cmdlet("Get", "EC2IBMarketplaceResource")]
     [OutputType("Amazon.Imagebuilder.Model.GetMarketplaceResourceResponse")]
@@ -67,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceLocation
         /// <summary>
         /// <para>
-        /// <para>The bucket path that you can specify to download the resource from Amazon S3.</para>
+        /// <para>The Amazon S3 location of the component artifact to retrieve, in <c>s3://bucket/key</c>
+        /// form.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

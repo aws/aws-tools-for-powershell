@@ -248,7 +248,9 @@ $PAYCD_Completers = {
         {
             ($_ -eq "Protect-PAYCDData/Asymmetric_PaddingType") -Or
             ($_ -eq "Unprotect-PAYCDData/Asymmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Asymmetric_PaddingType") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Symmetric_PaddingType") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Asymmetric_PaddingType") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingEncryptionAttributes_Symmetric_PaddingType") -Or
             ($_ -eq "Protect-PAYCDData/Symmetric_PaddingType") -Or
             ($_ -eq "Unprotect-PAYCDData/Symmetric_PaddingType")
@@ -371,6 +373,7 @@ $PAYCD_map = @{
     "GenerationAttributes_Algorithm"=@("New-PAYCDMac")
     "IncomingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "IncomingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "IncomingEncryptionAttributes_Asymmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
@@ -387,6 +390,7 @@ $PAYCD_map = @{
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
+    "OutgoingEncryptionAttributes_Asymmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")

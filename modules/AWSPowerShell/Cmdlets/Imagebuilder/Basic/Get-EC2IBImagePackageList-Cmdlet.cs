@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>Filter results for the ListImagePackages request by the Image Build Version ARN</para>
+        /// <para>The Amazon Resource Name (ARN) of the image build version whose packages you want
+        /// to list. The value must be a full build version ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

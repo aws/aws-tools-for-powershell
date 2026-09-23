@@ -30,8 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Retrieves the runtime information for a specific runtime instance of the lifecycle
-    /// policy.
+    /// Retrieves runtime information for a lifecycle execution – a single run of lifecycle
+    /// actions that a lifecycle policy or a <a>StartResourceStateUpdate</a> request started.
     /// </summary>
     [Cmdlet("Get", "EC2IBLifecycleExecution")]
     [OutputType("Amazon.Imagebuilder.Model.LifecycleExecution")]

@@ -30,7 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes a specific workflow resource.
+    /// Deletes a specific workflow resource. You can't delete a workflow build version while
+    /// an image pipeline references it. The request fails with <c>ResourceDependencyException</c>.
     /// </summary>
     [Cmdlet("Remove", "EC2IBWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

@@ -923,6 +923,9 @@
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkMonitor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkSecurityManager">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.NetworkSecurityManager.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Notifications">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Notifications.dll</HintPath>
     </Reference>
@@ -2218,6 +2221,9 @@
     </Reference>
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NetworkSecurityManager">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkSecurityManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Notifications">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Notifications.dll</HintPath>

@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The pagination token returned by a previous call. Specify this token to retrieve the
-        /// next page of results. This value is <c>null</c> when there are no more results to
-        /// return.</para>
+        /// next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

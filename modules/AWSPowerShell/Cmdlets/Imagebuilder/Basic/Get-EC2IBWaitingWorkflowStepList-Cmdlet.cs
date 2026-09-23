@@ -30,8 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Retrieves a list of workflow steps that are waiting for action for workflows in your
-    /// Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the workflow steps in your Amazon Web Services account that have paused at a
+    /// <c>WaitForAction</c> step, and are waiting for you to respond. To send a response,
+    /// call <a>SendWorkflowStepAction</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBWaitingWorkflowStepList")]
     [OutputType("Amazon.Imagebuilder.Model.WorkflowStepExecution")]

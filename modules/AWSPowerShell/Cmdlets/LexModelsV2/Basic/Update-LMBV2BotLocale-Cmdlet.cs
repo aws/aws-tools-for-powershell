@@ -242,6 +242,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? SlotResolutionImprovement_Enabled { get; set; }
         #endregion
         
+        #region Parameter SpeakerDiarizationSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether speaker diarization is enabled for the bot locale. Set to <c>true</c>
+        /// to have Amazon Lex treat speech from speakers other than the primary speaker as non-speech.
+        /// Set to <c>false</c> to disable speaker diarization and rely on voice activity detection
+        /// alone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SpeakerDiarizationSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter VoiceSettings_Engine
         /// <summary>
         /// <para>
@@ -641,6 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter NluIntentConfidenceThreshold which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SpeakerDiarizationSettings_Enabled = this.SpeakerDiarizationSettings_Enabled;
             context.SpeechDetectionSensitivity = this.SpeechDetectionSensitivity;
             context.DeepgramConfig_ApiTokenSecretArn = this.DeepgramConfig_ApiTokenSecretArn;
             context.DeepgramConfig_ModelId = this.DeepgramConfig_ModelId;
@@ -1178,6 +1192,25 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 request.NluIntentConfidenceThreshold = cmdletContext.NluIntentConfidenceThreshold.Value;
             }
+            
+             // populate SpeakerDiarizationSettings
+            var requestSpeakerDiarizationSettingsIsNull = true;
+            request.SpeakerDiarizationSettings = new Amazon.LexModelsV2.Model.SpeakerDiarizationSettings();
+            System.Boolean? requestSpeakerDiarizationSettings_speakerDiarizationSettings_Enabled = null;
+            if (cmdletContext.SpeakerDiarizationSettings_Enabled != null)
+            {
+                requestSpeakerDiarizationSettings_speakerDiarizationSettings_Enabled = cmdletContext.SpeakerDiarizationSettings_Enabled.Value;
+            }
+            if (requestSpeakerDiarizationSettings_speakerDiarizationSettings_Enabled != null)
+            {
+                request.SpeakerDiarizationSettings.Enabled = requestSpeakerDiarizationSettings_speakerDiarizationSettings_Enabled.Value;
+                requestSpeakerDiarizationSettingsIsNull = false;
+            }
+             // determine if request.SpeakerDiarizationSettings should be set to null
+            if (requestSpeakerDiarizationSettingsIsNull)
+            {
+                request.SpeakerDiarizationSettings = null;
+            }
             if (cmdletContext.SpeechDetectionSensitivity != null)
             {
                 request.SpeechDetectionSensitivity = cmdletContext.SpeechDetectionSensitivity;
@@ -1412,6 +1445,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? SlotResolutionImprovement_Enabled { get; set; }
             public System.String LocaleId { get; set; }
             public System.Double? NluIntentConfidenceThreshold { get; set; }
+            public System.Boolean? SpeakerDiarizationSettings_Enabled { get; set; }
             public Amazon.LexModelsV2.SpeechDetectionSensitivity SpeechDetectionSensitivity { get; set; }
             public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
             public System.String DeepgramConfig_ModelId { get; set; }

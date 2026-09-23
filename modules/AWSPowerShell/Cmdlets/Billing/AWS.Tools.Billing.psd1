@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AWSBBillingPreference', 
         'Get-AWSBBillingView', 
         'Get-AWSBBillingViewList', 
+        'Get-AWSBBillingViewSegmentList', 
         'Get-AWSBCredit', 
         'Get-AWSBCreditAllocationHistory', 
         'Get-AWSBEnterpriseSupportChargeSummary', 

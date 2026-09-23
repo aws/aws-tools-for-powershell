@@ -30,7 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns a list of image scan findings for your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of image scan findings for your account. Amazon Inspector generates
+    /// the findings when it scans images that have scanning enabled.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImageScanFindingList")]
     [OutputType("Amazon.Imagebuilder.Model.ImageScanFinding")]
@@ -49,7 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>An array of name value pairs that you can use to filter your results. You can use
-        /// the following filters to streamline results:</para><ul><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li><li><para><c>severity</c></para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para><para />
+        /// the following filters to streamline results:</para><ul><li><para><c>imageBuildVersionArn</c> – Filters findings by the image build version that was
+        /// scanned.</para></li><li><para><c>imagePipelineArn</c> – Filters findings by the pipeline that created the scanned
+        /// image.</para></li><li><para><c>vulnerabilityId</c> – Filters findings by vulnerability ID, for example a CVE
+        /// ID.</para></li><li><para><c>severity</c> – Filters findings by severity level.</para></li></ul><para>If you don't request a filter, then all findings in your account are listed.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

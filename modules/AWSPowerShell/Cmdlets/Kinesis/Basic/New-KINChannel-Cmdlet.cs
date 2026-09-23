@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3DestinationConfiguration_DataFreshnessInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds
-        /// (5 to 15 minutes). The default value is 300 seconds.</para>
+        /// <para>The maximum age, in seconds, of undelivered data before the channel delivers it to
+        /// the destination. The default value is 300 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3TablesDestinationConfiguration_DataFreshnessInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds
-        /// (5 to 15 minutes). The default value is 300 seconds.</para>
+        /// <para>The maximum age, in seconds, of undelivered data before the channel delivers it to
+        /// the destination. The default value is 300 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3DestinationConfiguration_StorageConfiguration_StorageClass
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 storage class for delivered objects. Valid values:</para><ul><li><para><c>STANDARD</c> - Default storage class for frequently accessed data. (default)</para></li><li><para><c>INTELLIGENT_TIERING</c> - Automatically moves objects to the most cost-effective
+        /// <para>The Amazon S3 storage class for delivered objects. Valid values:</para><ul><li><para><c>STANDARD</c> - The default storage class, for frequently accessed data.</para></li><li><para><c>INTELLIGENT_TIERING</c> - Automatically moves objects to the most cost-effective
         /// access tier based on usage patterns.</para></li><li><para><c>GLACIER_IR</c> - Low-cost storage for rarely accessed data that requires millisecond
         /// retrieval.</para></li></ul>
         /// </para>

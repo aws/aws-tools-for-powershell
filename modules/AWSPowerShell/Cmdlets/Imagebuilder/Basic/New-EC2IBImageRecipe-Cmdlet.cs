@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>The block device mappings of the image recipe.</para><para />
+        /// <para>The block device mappings that Image Builder applies to the build instance and the
+        /// output AMI. For example, you can override the size of the base image's root volume
+        /// or attach additional EBS volumes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -98,7 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Component
         /// <summary>
         /// <para>
-        /// <para>The components included in the image recipe.</para><para />
+        /// <para>The components included in the image recipe. Components are optional. A recipe with
+        /// no components bakes the base image without additional customization. You can specify
+        /// each component only one time in a recipe. Components with a status of <c>DEPRECATED</c>
+        /// or <c>DISABLED</c> can't be added to new recipes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -123,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Validates the required permissions and request parameters without making the request.
+        /// <para>Validates the required permissions and request parameters without performing the operation.
         /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
         /// response.</para>
         /// </para>
@@ -135,7 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the image recipe.</para>
+        /// <para>The name of the image recipe. The recipe name, combined with the semantic version,
+        /// must be unique to your account in each Amazon Web Services Region. Image Builder generates
+        /// the image recipe ARN from a normalized form of the name, so names that differ only
+        /// in case, spaces, or underscores count as the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The base image for customizations specified in the image recipe. You can specify the
         /// parent image using one of the following options:</para><ul><li><para>AMI ID</para></li><li><para>Image Builder image Amazon Resource Name (ARN)</para></li><li><para>Amazon Web Services Systems Manager (SSM) Parameter Store Parameter, prefixed by <c>ssm:</c>,
         /// followed by the parameter name or ARN.</para></li><li><para>Amazon Web Services Marketplace product ID</para></li></ul><para>If you enter an AMI ID or an SSM parameter that contains the AMI ID, you must have
-        /// access to the AMI, and the AMI must be in the source Region.</para>
+        /// access to the AMI. The AMI must also be in the Region where you're creating the recipe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -210,11 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SystemsManagerAgent_UninstallAfterBuild
         /// <summary>
         /// <para>
-        /// <para>Controls whether the Systems Manager agent is removed from your final build image,
-        /// prior to creating the new AMI. If this is set to true, then the agent is removed from
-        /// the final image. If it's set to false, then the agent is left in, so that it is included
-        /// in the new AMI. default value is false.</para><para>The default behavior of uninstallAfterBuild is to remove the SSM Agent if it was installed
-        /// by EC2 Image Builder</para>
+        /// <para>Specifies whether the Systems Manager agent is removed from your final build image
+        /// before Image Builder creates the new AMI. If <c>true</c>, the agent is removed. If
+        /// <c>false</c>, the agent is kept, so that it's included in the AMI. If you don't set
+        /// this property, Image Builder removes the agent only if Image Builder installed the
+        /// agent during the build. An agent that was pre-installed on the base image is kept.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// added to ensure that Systems Manager is installed on your Linux build instance. If
         /// you override the user data, make sure that you add commands to install Systems Manager,
         /// if it is not pre-installed on your base image.</para><note><para>The user data is always base 64 encoded. For example, the following commands are encoded
-        /// as <c>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</c>:</para><para><i>#!/bin/bash</i></para><para>mkdir -p /var/bb/</para><para>touch /var</para></note>
+        /// as <c>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhcg==</c>:</para><para><i>#!/bin/bash</i></para><para>mkdir -p /var/bb/</para><para>touch /var</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,7 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter WorkingDirectory
         /// <summary>
         /// <para>
-        /// <para>The working directory used during build and test workflows.</para>
+        /// <para>The working directory used during build and test workflows. If you don't specify a
+        /// working directory, Image Builder uses <c>/tmp</c> for Linux and macOS build instances,
+        /// and <c>C:/</c> for Windows build instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

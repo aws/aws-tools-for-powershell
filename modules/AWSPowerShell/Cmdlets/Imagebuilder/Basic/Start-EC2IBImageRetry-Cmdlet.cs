@@ -30,7 +30,10 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Retries an image distribution or test without rebuilding the image.
+    /// Retries a failed or canceled image build without rebuilding the phases that already
+    /// completed. The image re-runs asynchronously in place: the same build version returns
+    /// to the test or distribution phase where it failed and continues from there. No new
+    /// image build version is created. Retry is only supported for AMI-based images.
     /// </summary>
     [Cmdlet("Start", "EC2IBImageRetry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The source image Amazon Resource Name (ARN) to retry.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image build version that you want to retry.
+        /// The image must be in the <c>FAILED</c> or <c>CANCELLED</c> state.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,9 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

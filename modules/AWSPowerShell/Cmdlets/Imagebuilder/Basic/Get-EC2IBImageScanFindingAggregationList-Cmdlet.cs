@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     ///  
     /// <para>
     /// To streamline results, you can use the following filters in your request:
-    /// </para><ul><li><para><c>accountId</c></para></li><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><c>imageBuildVersionArn</c></para></li><li><para><c>imagePipelineArn</c></para></li><li><para><c>vulnerabilityId</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImageScanFindingAggregationList")]
     [OutputType("Amazon.Imagebuilder.Model.ListImageScanFindingAggregationsResponse")]

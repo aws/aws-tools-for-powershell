@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// </para></li><li><para>
     /// A URL that points to a YAML document file stored in Amazon S3, using the <c>uri</c>
     /// property in the request body.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// Image Builder determines the component type from the document. If the document contains
+    /// a single phase named <c>test</c>, the component type is <c>TEST</c>. Otherwise, the
+    /// component type is <c>BUILD</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2IBComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Validates the required permissions and request parameters without making the request.
+        /// <para>Validates the required permissions and request parameters without performing the operation.
         /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
         /// response.</para>
         /// </para>
@@ -105,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt
         /// this component. This can be either the Key ARN or the Alias ARN. For more information,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key
-        /// identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// identifiers (KeyId)</a> in the <i>Key Management Service Developer Guide</i>. If you
+        /// don't specify a key, Image Builder encrypts the component data with a KMS key that
+        /// Image Builder owns.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +121,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the component.</para>
+        /// <para>The name of the component. Image Builder generates the component ARN from a normalized
+        /// form of the name, so names that differ only in case, spaces, or underscores count
+        /// as the same name. If a component with the same name and semantic version already exists
+        /// in your account in the same Amazon Web Services Region, the request creates a new
+        /// build version for it. If the content is also identical to the latest build version,
+        /// the request fails because the component already exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -205,7 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The <c>uri</c> of a YAML component document file. This must be an S3 URL (<c>s3://bucket/key</c>),
         /// and you must have permission to access the S3 bucket it points to. If you use Amazon
-        /// S3, you can specify component content up to your service quota.</para><para>Alternatively, you can specify the YAML document inline, using the component <c>data</c>
+        /// S3, you can specify component content up to your service quota for component size,
+        /// which is 64 KB by default.</para><para>Alternatively, you can specify the YAML document inline, using the component <c>data</c>
         /// property. You cannot specify both properties.</para>
         /// </para>
         /// </summary>
@@ -216,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

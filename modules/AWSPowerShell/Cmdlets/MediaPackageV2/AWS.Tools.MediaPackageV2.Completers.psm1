@@ -100,6 +100,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.ContentKeyPeriodTiming
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming")
+        }
+        {
+            $v = "INDEX_ONLY","INDEX_WITH_START_END","START_END_ONLY"
+            break
+        }
+
         # Amazon.MediaPackageV2.HarvestJobStatus
         "Get-MPV2HarvestJobList/Status"
         {
@@ -171,6 +181,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.SpekeVersion
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_SpekeVersion") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_SpekeVersion")
+        }
+        {
+            $v = "V2_0","V2_1"
+            break
+        }
+
         # Amazon.MediaPackageV2.StreamNameOutputMode
         {
             ($_ -eq "New-MPV2OriginEndpoint/StreamNameOutputMode") -Or
@@ -219,6 +239,8 @@ $MPV2_map = @{
     "InputType"=@("New-MPV2Channel")
     "OutputLockingMode"=@("New-MPV2Channel")
     "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_SpekeVersion"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Segment_OutputTimestampMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
     "StreamNameOutputMode"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")

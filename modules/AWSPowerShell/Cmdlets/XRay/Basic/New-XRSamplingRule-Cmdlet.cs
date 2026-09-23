@@ -55,9 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// <summary>
         /// <para>
         /// <para>Matches attributes derived from the request.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -253,9 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para>The following restrictions apply to tags:</para><ul><li><para>Maximum number of user-applied tags per resource: 50</para></li><li><para>Maximum tag key length: 128 Unicode characters</para></li><li><para>Maximum tag value length: 256 Unicode characters</para></li><li><para>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters:
         /// _ . : / = + - and @</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Don't use <c>aws:</c> as a prefix for keys; it's reserved for Amazon Web Services
         /// use.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -358,18 +360,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 WriteWarning("You are passing $null as a value for parameter SamplingRule_FixedRate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SamplingRule_Host = this.SamplingRule_Host;
-            #if MODULAR
-            if (this.SamplingRule_Host == null && ParameterWasBound(nameof(this.SamplingRule_Host)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SamplingRule_Host which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SamplingRule_HTTPMethod = this.SamplingRule_HTTPMethod;
             #if MODULAR
             if (this.SamplingRule_HTTPMethod == null && ParameterWasBound(nameof(this.SamplingRule_HTTPMethod)))
             {
                 WriteWarning("You are passing $null as a value for parameter SamplingRule_HTTPMethod which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SamplingRule_Host = this.SamplingRule_Host;
+            #if MODULAR
+            if (this.SamplingRule_Host == null && ParameterWasBound(nameof(this.SamplingRule_Host)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SamplingRule_Host which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.SamplingRule_Priority = this.SamplingRule_Priority;
@@ -469,16 +471,6 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 request.SamplingRule.FixedRate = requestSamplingRule_samplingRule_FixedRate.Value;
                 requestSamplingRuleIsNull = false;
             }
-            System.String requestSamplingRule_samplingRule_Host = null;
-            if (cmdletContext.SamplingRule_Host != null)
-            {
-                requestSamplingRule_samplingRule_Host = cmdletContext.SamplingRule_Host;
-            }
-            if (requestSamplingRule_samplingRule_Host != null)
-            {
-                request.SamplingRule.Host = requestSamplingRule_samplingRule_Host;
-                requestSamplingRuleIsNull = false;
-            }
             System.String requestSamplingRule_samplingRule_HTTPMethod = null;
             if (cmdletContext.SamplingRule_HTTPMethod != null)
             {
@@ -487,6 +479,16 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRule_samplingRule_HTTPMethod != null)
             {
                 request.SamplingRule.HTTPMethod = requestSamplingRule_samplingRule_HTTPMethod;
+                requestSamplingRuleIsNull = false;
+            }
+            System.String requestSamplingRule_samplingRule_Host = null;
+            if (cmdletContext.SamplingRule_Host != null)
+            {
+                requestSamplingRule_samplingRule_Host = cmdletContext.SamplingRule_Host;
+            }
+            if (requestSamplingRule_samplingRule_Host != null)
+            {
+                request.SamplingRule.Host = requestSamplingRule_samplingRule_Host;
                 requestSamplingRuleIsNull = false;
             }
             System.Int32? requestSamplingRule_samplingRule_Priority = null;
@@ -680,8 +682,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
         {
             public Dictionary<System.String, System.String> SamplingRule_Attribute { get; set; }
             public System.Double? SamplingRule_FixedRate { get; set; }
-            public System.String SamplingRule_Host { get; set; }
             public System.String SamplingRule_HTTPMethod { get; set; }
+            public System.String SamplingRule_Host { get; set; }
             public System.Int32? SamplingRule_Priority { get; set; }
             public System.Int32? SamplingRule_ReservoirSize { get; set; }
             public System.String SamplingRule_ResourceARN { get; set; }

@@ -32,7 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// <summary>
     /// Creates a new image along with all configured output resources defined in the distribution
     /// configuration. You must specify exactly one recipe for your image, using either a
-    /// ContainerRecipeArn or an ImageRecipeArn.
+    /// <c>containerRecipeArn</c> or an <c>imageRecipeArn</c>.
+    /// 
+    ///  
+    /// <para>
+    /// The response returns as soon as Image Builder creates the new image resource. The
+    /// image build process runs asynchronously. To check its progress, call <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetImage.html">GetImage</a>
+    /// and check the image status.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2IBImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -51,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the container recipe that defines how images are
-        /// configured and tested.</para>
+        /// configured and tested. You must specify either this property or <c>imageRecipeArn</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the distribution configuration that defines and
-        /// configures the outputs of your pipeline.</para>
+        /// configures the outputs of the image build. If you don't specify a distribution configuration,
+        /// Image Builder creates the output image only in the account and Amazon Web Services
+        /// Region where the build runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image
-        /// Builder access to perform workflow actions.</para>
+        /// Builder access to perform workflow actions. This property is required if you specify
+        /// <c>workflows</c>. If you don't provide a role, Image Builder uses the Image Builder
+        /// service-linked role in your account, and creates it if it doesn't exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the image recipe that defines how images are configured,
-        /// tested, and assessed.</para>
+        /// tested, and assessed. You must specify either this property or <c>containerRecipeArn</c>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -121,9 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageScanningConfiguration_ImageScanningEnabled
         /// <summary>
         /// <para>
-        /// <para>A setting that indicates whether Image Builder keeps a snapshot of the vulnerability
-        /// scans that Amazon Inspector runs against the build instance when you create a new
-        /// image.</para>
+        /// <para>Specifies whether Amazon Inspector scans for vulnerabilities when you create a new
+        /// image, and whether Image Builder saves the findings. Amazon Inspector must be enabled
+        /// in the account. Image tests must also be enabled. For AMI output, Amazon Inspector
+        /// scans the test instance. For container output, Amazon Inspector scans the container
+        /// image that Image Builder pushes to the Amazon ECR repository from your <c>ecrConfiguration</c>
+        /// settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,11 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter EcrConfiguration_RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the container repository that Amazon Inspector scans to identify findings
-        /// for your container images. The name includes the path for the repository location.
-        /// If you don’t provide this information, Image Builder creates a repository in your
-        /// account named <c>image-builder-image-scanning-repository</c> for vulnerability scans
-        /// of your output container images.</para>
+        /// <para>The name of the container repository where Image Builder pushes the container image
+        /// for the vulnerability scan. Provide the repository name only (a namespace path is
+        /// allowed, but not the registry hostname); the repository must already exist in your
+        /// account. If you don't specify a repository name, Image Builder creates the default
+        /// repository <c>image-builder-image-scanning-repository</c> in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_TimeoutMinute
         /// <summary>
         /// <para>
-        /// <para>The maximum time in minutes that tests are permitted to run.</para><note><para>The timeout property is not currently active. This value is ignored.</para></note>
+        /// <para>The maximum time in minutes that tests are permitted to run. If you don't specify
+        /// a value, Image Builder stores and returns 720.</para><note><para>The timeout property is not currently active. This value is ignored.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Workflow
         /// <summary>
         /// <para>
-        /// <para>Contains an array of workflow configuration objects.</para><para />
+        /// <para>The array of workflow configuration objects for the build. If you specify workflows,
+        /// they replace the default workflows that Image Builder otherwise runs for the build,
+        /// and you must also provide an <c>executionRole</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -229,9 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

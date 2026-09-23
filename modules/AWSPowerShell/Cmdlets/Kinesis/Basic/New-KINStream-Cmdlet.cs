@@ -114,6 +114,22 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.Int32? MaxRecordSizeInKiB { get; set; }
         #endregion
         
+        #region Parameter RecordDistributionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The record distribution strategy for the stream, which determines how Amazon Kinesis
+        /// Data Streams distributes records across shards. Specify one of the following values:</para><ul><li><para><c>AUTO</c> – Amazon Kinesis Data Streams distributes records evenly across shards
+        /// and ignores any partition key and <c>ExplicitHashKey</c> that producers supply. Use
+        /// this value for stateless workloads that do not require partition-key ordering.</para></li><li><para><c>USER_PARTITION_KEY</c> – Producers must supply a partition key, which Amazon Kinesis
+        /// Data Streams uses to determine shard placement. This is the default.</para></li></ul><para>The record distribution strategy is only supported for streams that use the on-demand
+        /// capacity mode. If you do not specify this parameter, the stream uses <c>USER_PARTITION_KEY</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kinesis.RecordDistributionStrategy")]
+        public Amazon.Kinesis.RecordDistributionStrategy RecordDistributionStrategy { get; set; }
+        #endregion
+        
         #region Parameter ShardCount
         /// <summary>
         /// <para>
@@ -233,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxRecordSizeInKiB = this.MaxRecordSizeInKiB;
+            context.RecordDistributionStrategy = this.RecordDistributionStrategy;
             context.ShardCount = this.ShardCount;
             context.StreamModeDetails_StreamMode = this.StreamModeDetails_StreamMode;
             context.StreamName = this.StreamName;
@@ -270,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.MaxRecordSizeInKiB != null)
             {
                 request.MaxRecordSizeInKiB = cmdletContext.MaxRecordSizeInKiB.Value;
+            }
+            if (cmdletContext.RecordDistributionStrategy != null)
+            {
+                request.RecordDistributionStrategy = cmdletContext.RecordDistributionStrategy;
             }
             if (cmdletContext.ShardCount != null)
             {
@@ -362,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxRecordSizeInKiB { get; set; }
+            public Amazon.Kinesis.RecordDistributionStrategy RecordDistributionStrategy { get; set; }
             public System.Int32? ShardCount { get; set; }
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.String StreamName { get; set; }

@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// field is 1 KB total. <i>This field is exposed to all stage participants and should
         /// not be used for personally identifying, confidential, or sensitive information.</i></para><para>These attributes are merged with any attributes set for this participant when creating
         /// the token. If there is overlap in keys, the values in these attributes are replaced.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

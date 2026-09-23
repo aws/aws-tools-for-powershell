@@ -70,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// them fails, Job-C will not be executed, and its status will be set to <c>LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED</c>.</para><para>You can set up multiple levels of dependency in this way, so that the failure of one
         /// job will cause all requests that are directly or indirectly dependent on it to be
         /// cancelled.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -178,10 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The optional <c>parallelism</c> parameter can be set to reduce the number of threads
-        /// used by the bulk load process.</para><para><i>Allowed values</i>:</para><ul><li><para><c>LOW</c> –   The number of threads used is the number of available vCPUs divided
-        /// by 8.</para></li><li><para><c>MEDIUM</c> –   The number of threads used is the number of available vCPUs divided
-        /// by 2.</para></li><li><para><c>HIGH</c> –   The number of threads used is the same as the number of available
-        /// vCPUs.</para></li><li><para><c>OVERSUBSCRIBE</c> –   The number of threads used is the number of available vCPUs
+        /// used by the bulk load process.</para><para><i>Allowed values</i>:</para><ul><li><para><c>LOW</c> – The number of threads used is the number of available vCPUs divided
+        /// by 8.</para></li><li><para><c>MEDIUM</c> – The number of threads used is the number of available vCPUs divided
+        /// by 2.</para></li><li><para><c>HIGH</c> – The number of threads used is the same as the number of available vCPUs.</para></li><li><para><c>OVERSUBSCRIBE</c> – The number of threads used is the number of available vCPUs
         /// multiplied by 2. If this value is used, the bulk loader takes up all available resources.</para><para>This does not mean, however, that the <c>OVERSUBSCRIBE</c> setting results in 100%
         /// CPU utilization. Because the load operation is I/O bound, the highest CPU utilization
         /// to expect is in the 60% to 70% range.</para></li></ul><para><i>Default value</i>: <c>HIGH</c></para><para>The <c>parallelism</c> setting can sometimes result in a deadlock between threads
@@ -198,16 +198,17 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         #region Parameter ParserConfiguration
         /// <summary>
         /// <para>
-        /// <para><b><c>parserConfiguration</c></b>   –   An optional object with additional parser
-        /// configuration values. Each of the child parameters is also optional:</para><para><b /></para><ul><li><para><b><c>namedGraphUri</c></b> - The default graph for all RDF formats when no graph
+        /// <para><b><c>parserConfiguration</c></b> – An optional object with additional parser configuration
+        /// values. Each of the child parameters is also optional:</para><para><b /></para><ul><li><para><b><c>namedGraphUri</c></b> - The default graph for all RDF formats when no graph
         /// is specified (for non-quads formats and NQUAD entries with no graph).</para><para>The default is <c>https://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</c>.</para></li><li><para><b><c>baseUri</c></b> - The base URI for RDF/XML and Turtle formats.</para><para>The default is <c>https://aws.amazon.com/neptune/default</c>.</para></li><li><para><b><c>allowEmptyStrings</c></b> - Gremlin users need to be able to pass empty string
         /// values("") as node and edge properties when loading CSV data. If <c>allowEmptyStrings</c>
         /// is set to <c>false</c> (the default), such empty strings are treated as nulls and
         /// are not loaded.</para><para>If <c>allowEmptyStrings</c> is set to <c>true</c>, the loader treats empty strings
         /// as valid property values and loads them accordingly.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

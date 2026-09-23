@@ -48,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which to get a list of lifecycle
-        /// runtime instances.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which to list lifecycle executions.
+        /// Specify a lifecycle policy ARN to list its executions, or an image build version ARN
+        /// to list the executions that <a>StartResourceStateUpdate</a> started for that image.
+        /// Other ARN types aren't valid for this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,9 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of components that can be filtered by name, or by using the listed
-    /// <c>filters</c> to streamline results. Newly created components can take up to two
-    /// minutes to appear in the ListComponents API Results.
+    /// Returns the list of components that you have access to. By default, the response doesn't
+    /// include components in the <c>DEPRECATED</c> state. To list deprecated components,
+    /// use the <c>status</c> filter with the value <c>DEPRECATED</c>.
     /// 
     ///  <note><para>
     /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
@@ -58,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ByName
         /// <summary>
         /// <para>
-        /// <para>Returns the list of components for the specified name.</para>
+        /// <para>Specifies whether to return one entry per component name, with all versions of each
+        /// component aggregated. Defaults to <c>false</c>, which returns one entry per component
+        /// version. You can't combine this option with the <c>version</c> filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Use the following filters to streamline results:</para><ul><li><para><c>description</c></para></li><li><para><c>name</c></para></li><li><para><c>platform</c></para></li><li><para><c>supportedOsVersion</c></para></li><li><para><c>type</c></para></li><li><para><c>version</c></para></li></ul><para />
+        /// <para>Use the following filters to streamline results:</para><ul><li><para><c>description</c></para></li><li><para><c>name</c></para></li><li><para><c>platform</c></para></li><li><para><c>productCodes</c></para></li><li><para><c>status</c></para></li><li><para><c>supportedOsVersion</c></para></li><li><para><c>type</c></para></li><li><para><c>version</c></para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -111,8 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>Filters results based on the type of owner for the component. By default, this request
         /// returns a list of components that your account owns. To see results for other types
-        /// of owners, you can specify components that Amazon manages, third party components,
-        /// or components that other accounts have shared with you.</para>
+        /// of owners, you can specify components that Amazon manages, components from the Amazon
+        /// Web Services Marketplace, third party components, or components that other accounts
+        /// have shared with you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

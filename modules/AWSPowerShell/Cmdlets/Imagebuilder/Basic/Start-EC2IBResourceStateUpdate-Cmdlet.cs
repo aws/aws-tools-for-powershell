@@ -30,8 +30,13 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Begins an asynchronous resource state update for lifecycle changes to the specified
-    /// image resources.
+    /// Begins an ad-hoc state change for the specified image build version. This is a one-time
+    /// operation - if you schedule the update, it runs only once. If the request includes
+    /// underlying resources, or schedules the update far enough in the future, Image Builder
+    /// runs the update as an asynchronous lifecycle execution and returns its identifier.
+    /// Otherwise, for target states other than <c>DELETED</c>, the state change applies immediately.
+    /// If a request that starts a lifecycle execution arrives while the image already has
+    /// one in progress, Image Builder rejects it.
     /// </summary>
     [Cmdlet("Start", "EC2IBResourceStateUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse")]
@@ -48,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter IncludeResources_Ami
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the lifecycle action should apply to distributed AMIs</para>
+        /// <para>Specifies whether the lifecycle action should apply to distributed AMIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the IAM role that’s used to update image
-        /// state.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the IAM role that's used to update image
+        /// state. You must provide this property together with <c>includeResources</c>. Neither
+        /// is valid without the other.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_SharedAccount
         /// <summary>
         /// <para>
-        /// <para>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle
-        /// action.</para><para />
+        /// <para>The lifecycle action doesn't apply to AMIs that are shared with any of the specified
+        /// Amazon Web Services accounts.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -155,7 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter State_Status
         /// <summary>
         /// <para>
-        /// <para>Shows the current lifecycle policy action that was applied to an impacted resource.</para>
+        /// <para>The status to which you want to move the image resource. Set the status to <c>AVAILABLE</c>
+        /// to restore an image that's currently deprecated or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Amis_TagMap
         /// <summary>
         /// <para>
-        /// <para>Lists tags that should be excluded from lifecycle actions for the AMIs that have them.</para><para />
+        /// <para>Lifecycle actions don't apply to AMIs that have any of these tags. Both the key and
+        /// the value must match.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -182,8 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Defines the unit of time that the lifecycle policy uses to calculate elapsed time
-        /// since the last instance launched from the AMI. For example: days, weeks, months, or
-        /// years.</para>
+        /// since the last launch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +202,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter UpdateAt
         /// <summary>
         /// <para>
-        /// <para>Specifies the timestamp when the state transition takes effect. Use this parameter
-        /// only when the target status is <c>DEPRECATED</c>. The value must be a future time.</para>
+        /// <para>The timestamp that indicates when resources are updated by a lifecycle action. This
+        /// property is valid only when the target status is <c>DEPRECATED</c>, and the value
+        /// must be a future time. If you don't specify a value, Image Builder begins the state
+        /// update right away. For a scheduled deprecation, included AMIs get their EC2 deprecation
+        /// time set immediately, and Image Builder schedules the image resource to transition
+        /// to <c>DEPRECATED</c> at that time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

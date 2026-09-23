@@ -90,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Returns container recipes belonging to the specified owner, that have been shared
-        /// with you. You can omit this field to return container recipes belonging to your account.</para>
+        /// with you. You can omit this field to return container recipes belonging to your account.
+        /// For container recipes, the valid owner values are <c>Self</c>, <c>Shared</c>, and
+        /// <c>Amazon</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// or update a bot you are only required to specify a name, a locale, and whether the
     /// bot is directed toward children under age 13. You can use this to add intents later,
     /// or to remove intents from an existing bot. When you create a bot with the minimum
-    /// information, the bot is created or updated but Amazon Lex returns the <code /> response
+    /// information, the bot is created or updated but Amazon Lex returns the <c></c> response
     /// <c>FAILED</c>. You can build the bot after you add one or more intents. For more information
     /// about Amazon Lex bots, see <a>how-it-works</a>. 
     /// 
@@ -208,9 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>An array of <c>Intent</c> objects. Each intent represents a command that a user can
         /// express. For example, a pizza ordering bot might support an OrderPizza intent. For
         /// more information, see <a>how-it-works</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -253,9 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>
         /// <para>An array of objects, each of which provides a message string and its type. You can
         /// specify the message string in plain text or in Speech Synthesis Markup Language (SSML).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -332,9 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>A list of tags to add to the bot. You can only add tags when you create a bot, you
         /// can't use the <c>PutBot</c> operation to update the tags on a bot. To update tags,
         /// use the <c>TagResource</c> operation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

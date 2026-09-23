@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// belongs to.</para></li><li><para><c>AwsAccountId</c> specifies the account where this object is in.</para></li></ul><para>Below is an example of a service.</para><para><c>{ "Type": "Service", "Name": "visits-service", "Environment": "petclinic-test"
         /// }</c></para><para>Below is an example of a resource.</para><para><c>{ "Type": "AWS::Resource", "ResourceType": "AWS::DynamoDB::Table", "Identifier":
         /// "Customers" }</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

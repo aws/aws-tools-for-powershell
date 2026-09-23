@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// <summary>
         /// <para>
         /// <para>Matches attributes derived from the request.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -251,8 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 }
             }
             context.SamplingRuleUpdate_FixedRate = this.SamplingRuleUpdate_FixedRate;
-            context.SamplingRuleUpdate_Host = this.SamplingRuleUpdate_Host;
             context.SamplingRuleUpdate_HTTPMethod = this.SamplingRuleUpdate_HTTPMethod;
+            context.SamplingRuleUpdate_Host = this.SamplingRuleUpdate_Host;
             context.SamplingRuleUpdate_Priority = this.SamplingRuleUpdate_Priority;
             context.SamplingRuleUpdate_ReservoirSize = this.SamplingRuleUpdate_ReservoirSize;
             context.SamplingRuleUpdate_ResourceARN = this.SamplingRuleUpdate_ResourceARN;
@@ -303,16 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 request.SamplingRuleUpdate.FixedRate = requestSamplingRuleUpdate_samplingRuleUpdate_FixedRate.Value;
                 requestSamplingRuleUpdateIsNull = false;
             }
-            System.String requestSamplingRuleUpdate_samplingRuleUpdate_Host = null;
-            if (cmdletContext.SamplingRuleUpdate_Host != null)
-            {
-                requestSamplingRuleUpdate_samplingRuleUpdate_Host = cmdletContext.SamplingRuleUpdate_Host;
-            }
-            if (requestSamplingRuleUpdate_samplingRuleUpdate_Host != null)
-            {
-                request.SamplingRuleUpdate.Host = requestSamplingRuleUpdate_samplingRuleUpdate_Host;
-                requestSamplingRuleUpdateIsNull = false;
-            }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod = null;
             if (cmdletContext.SamplingRuleUpdate_HTTPMethod != null)
             {
@@ -321,6 +312,16 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod != null)
             {
                 request.SamplingRuleUpdate.HTTPMethod = requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod;
+                requestSamplingRuleUpdateIsNull = false;
+            }
+            System.String requestSamplingRuleUpdate_samplingRuleUpdate_Host = null;
+            if (cmdletContext.SamplingRuleUpdate_Host != null)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_Host = cmdletContext.SamplingRuleUpdate_Host;
+            }
+            if (requestSamplingRuleUpdate_samplingRuleUpdate_Host != null)
+            {
+                request.SamplingRuleUpdate.Host = requestSamplingRuleUpdate_samplingRuleUpdate_Host;
                 requestSamplingRuleUpdateIsNull = false;
             }
             System.Int32? requestSamplingRuleUpdate_samplingRuleUpdate_Priority = null;
@@ -500,8 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
         {
             public Dictionary<System.String, System.String> SamplingRuleUpdate_Attribute { get; set; }
             public System.Double? SamplingRuleUpdate_FixedRate { get; set; }
-            public System.String SamplingRuleUpdate_Host { get; set; }
             public System.String SamplingRuleUpdate_HTTPMethod { get; set; }
+            public System.String SamplingRuleUpdate_Host { get; set; }
             public System.Int32? SamplingRuleUpdate_Priority { get; set; }
             public System.Int32? SamplingRuleUpdate_ReservoirSize { get; set; }
             public System.String SamplingRuleUpdate_ResourceARN { get; set; }

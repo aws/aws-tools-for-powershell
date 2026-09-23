@@ -66,9 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Types of media to be recorded. Default: <c>AUDIO_VIDEO</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -131,9 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites
         /// it at the interval specified by <c>targetIntervalSeconds</c>. You can enable both
         /// <c>SEQUENTIAL</c> and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -240,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             {
                 context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
             }
-            context.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = this.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond;
             context.AutoParticipantRecordingConfiguration_RecordParticipantReplica = this.AutoParticipantRecordingConfiguration_RecordParticipantReplica;
+            context.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = this.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond;
             context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
             context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
             if (this.ThumbnailConfiguration_Storage != null)
@@ -284,16 +286,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 request.AutoParticipantRecordingConfiguration.MediaTypes = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
-            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = null;
-            if (cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
-            {
-                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
-            }
-            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
-            {
-                request.AutoParticipantRecordingConfiguration.RecordingReconnectWindowSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
-                requestAutoParticipantRecordingConfigurationIsNull = false;
-            }
             System.Boolean? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica = null;
             if (cmdletContext.AutoParticipantRecordingConfiguration_RecordParticipantReplica != null)
             {
@@ -302,6 +294,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica != null)
             {
                 request.AutoParticipantRecordingConfiguration.RecordParticipantReplicas = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica.Value;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                request.AutoParticipantRecordingConfiguration.RecordingReconnectWindowSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
             System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
@@ -451,8 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             public System.String Arn { get; set; }
             public System.Int32? HlsConfiguration_TargetSegmentDurationSecond { get; set; }
             public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
-            public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
             public System.Boolean? AutoParticipantRecordingConfiguration_RecordParticipantReplica { get; set; }
+            public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
             public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
             public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public List<System.String> ThumbnailConfiguration_Storage { get; set; }

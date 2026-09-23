@@ -471,7 +471,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference")
         }
         {
-            $v = "Deepgram","Neural","Standard"
+            $v = "Advanced","Deepgram","Neural","Standard"
             break
         }
 

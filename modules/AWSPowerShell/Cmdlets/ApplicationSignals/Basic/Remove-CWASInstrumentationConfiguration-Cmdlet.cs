@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter Environment
         /// <summary>
         /// <para>
-        /// <para>Environment name for the instrumentation configuration.</para>
+        /// Environment name for the instrumentation configuration.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter InstrumentationType
         /// <summary>
         /// <para>
-        /// <para>Type of instrumentation configuration (BREAKPOINT or PROBE). Required to identify
-        /// the configuration to delete.</para>
+        /// Type of instrumentation configuration
+        /// (BREAKPOINT or PROBE). Required to identify the configuration to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter LocationIdentifier_LocationHash
         /// <summary>
         /// <para>
-        /// <para>The pre-computed location hash (16-character hex string)</para>
+        /// The pre-computed location hash (16-character
+        /// hex string)
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>Service name for the instrumentation configuration.</para>
+        /// Service name for the instrumentation configuration.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -177,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter SignalType
         /// <summary>
         /// <para>
-        /// <para>Signal type for the instrumentation configuration.</para>
+        /// Signal type for the instrumentation configuration.
         /// </para>
         /// </summary>
         #if !MODULAR

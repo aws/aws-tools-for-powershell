@@ -197,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStreamRecordDistributionStrategy" Verb="Update" Noun="StreamRecordDistributionStrategy" ShouldProcessTarget="StreamARN" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateStreamWarmThroughput" OutputProperty="*" Verb="Update" Noun="StreamWarmThroughput" ShouldProcessTarget="WarmThroughputMiBps" PipelineParameter="WarmThroughputMiBps" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

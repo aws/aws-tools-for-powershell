@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #endif
             context.Email = this.Email;
-            context.Username = this.Username;
             context.UserType = this.UserType;
+            context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,13 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 request.Email = cmdletContext.Email;
             }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
-            }
             if (cmdletContext.UserType != null)
             {
                 request.UserType = cmdletContext.UserType;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -238,8 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             public System.String AccountId { get; set; }
             public System.String Email { get; set; }
-            public System.String Username { get; set; }
             public Amazon.Chime.UserType UserType { get; set; }
+            public System.String Username { get; set; }
             public System.Func<Amazon.Chime.Model.CreateUserResponse, NewCHMUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.User;
         }

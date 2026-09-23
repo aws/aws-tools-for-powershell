@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     /// 
     ///  <ul><li><para>
     /// Windows 11 Enterprise
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// The response returns as soon as Image Builder creates the new image resource in the
+    /// <c>PENDING</c> state. The conversion from ISO file to AMI then runs asynchronously
+    /// on an EC2 instance that Image Builder launches with the specified infrastructure configuration.
+    /// </para>
     /// </summary>
     [Cmdlet("Import", "EC2IBDiskImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image
         /// Builder access to perform workflow actions to import an image from a Microsoft ISO
-        /// file.</para>
+        /// file. If you don't provide a role, Image Builder uses the Image Builder service-linked
+        /// role in your account, and creates it if it doesn't exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the image resource that's created from the import.</para>
+        /// <para>The name of the image resource that's created from the import. Image Builder generates
+        /// the image ARN from a normalized form of the name, so names that differ only in case,
+        /// spaces, or underscores count as the same name. If an image with the same name and
+        /// semantic version already exists in your account in the same Amazon Web Services Region,
+        /// the import creates a new build version for it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter OsVersion
         /// <summary>
         /// <para>
-        /// <para>The operating system version for the imported image. Allowed values include the following:
-        /// <c>Microsoft Windows 11</c>.</para>
+        /// <para>The operating system version for the imported image. The only supported value is <c>Microsoft
+        /// Windows 11</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -228,7 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>The <c>uri</c> of the ISO disk file that's stored in Amazon S3.</para>
+        /// <para>The <c>uri</c> of the ISO disk file that's stored in Amazon S3, in <c>s3://bucket/key</c>
+        /// format. The key must end with the <c>.iso</c>, <c>.ISO</c>, or <c>.Iso</c> extension,
+        /// and the bucket must be owned by the account that makes the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -245,9 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

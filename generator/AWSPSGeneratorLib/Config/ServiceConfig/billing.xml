@@ -77,6 +77,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBillingViewSegments" OutputProperty="Items" Verb="Get" Noun="BillingViewSegmentList" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnterpriseSupportLinkedAccountCharges" OutputProperty="LinkedAccount" Verb="Get" Noun="EnterpriseSupportLinkedAccountChargeList" PipelineParameter="BillingMonth" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

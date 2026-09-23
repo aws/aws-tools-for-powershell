@@ -62,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>
         /// <para>Client-side filters that target specific instances. Each object in the array is AND-matched
         /// on its keys, and multiple objects are OR-matched to decide where to apply the instrumentation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -79,9 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>The function arguments to capture. Omit to capture defaults, use an empty list to
         /// capture none, use <c>["*"]</c> to capture all arguments, or specify argument names
         /// to capture selectively (up to 10 entries).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -95,9 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>
         /// <para>The local variables to capture by name. Omit or pass an empty list to capture none.
         /// You can specify up to 20 names.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -181,9 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter ExpiresAt
         /// <summary>
         /// <para>
-        /// <para>For BREAKPOINT: optional, defaults to 24 hours, must be between 5 min and 24 hours.
-        /// For PROBE: not supported. PROBE configurations are permanent and persist until explicitly
-        /// deleted.</para>
+        /// For BREAKPOINT: optional, defaults to 24 hours,
+        /// must be between 5 min and 24 hours. For PROBE: not supported. PROBE configurations
+        /// are permanent and persist until explicitly deleted.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter InstrumentationType
         /// <summary>
         /// <para>
-        /// <para>Type of instrumentation: BREAKPOINT (temporary) or PROBE (permanent)</para>
+        /// Type of instrumentation: BREAKPOINT
+        /// (temporary) or PROBE (permanent)
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -378,9 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <para>
         /// <para>An optional list of key-value pairs to associate with the instrumentation configuration.
         /// Tags can help you organize and categorize your resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

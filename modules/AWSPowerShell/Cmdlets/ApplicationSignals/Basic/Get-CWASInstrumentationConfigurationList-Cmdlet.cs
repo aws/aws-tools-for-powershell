@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter InstrumentationType
         /// <summary>
         /// <para>
-        /// <para>Type of instrumentation configuration (BREAKPOINT or PROBE). Required to determine
-        /// which backing store to query.</para>
+        /// Type of instrumentation configuration
+        /// (BREAKPOINT or PROBE). Required to determine which backing store to query.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes a container recipe.
+    /// Deletes a container recipe. The request fails with <c>ResourceDependencyException</c>
+    /// if the recipe is shared with other accounts, or if an image pipeline references it.
     /// </summary>
     [Cmdlet("Remove", "EC2IBContainerRecipe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

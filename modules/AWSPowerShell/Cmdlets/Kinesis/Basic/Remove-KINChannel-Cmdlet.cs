@@ -35,9 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
-    /// A stream cannot be deleted while it has active channels. To delete the stream, first
-    /// delete all channels attached to it. To find them, use <a>ListChannels</a> with a stream
-    /// filter.
+    /// A stream cannot be deleted while it has active channels. Use <a>ListChannels</a> with
+    /// a stream filter to find the channels attached to a stream before deleting it.
     /// </para><para>
     /// This operation has a call limit of 5 transactions per second (TPS) for each Amazon
     /// Web Services account. Exceeding 5 TPS results in a <c>LimitExceededException</c>.

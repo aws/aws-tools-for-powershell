@@ -340,6 +340,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.NetworkFlowMonitor.dll',
         'AWSSDK.NetworkManager.dll',
         'AWSSDK.NetworkMonitor.dll',
+        'AWSSDK.NetworkSecurityManager.dll',
         'AWSSDK.Notifications.dll',
         'AWSSDK.NotificationsContacts.dll',
         'AWSSDK.NovaAct.dll',

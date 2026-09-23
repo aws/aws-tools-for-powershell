@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Validates the required permissions and request parameters without making the request.
+        /// <para>Validates the required permissions and request parameters without performing the operation.
         /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
         /// response.</para>
         /// </para>
@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image
-        /// Builder access to run lifecycle actions.</para>
+        /// Builder access to run lifecycle actions. You must have permission to pass the role,
+        /// and the role's trust policy must allow the Image Builder service principal to assume
+        /// it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the lifecycle policy to create.</para>
+        /// <para>The name of the lifecycle policy to create. Policy names must be unique to your account
+        /// in each Amazon Web Services Region. Image Builder generates the policy ARN from a
+        /// normalized form of the name, so names that differ only in case, spaces, or underscores
+        /// count as the same name. You can't change the name after creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter PolicyDetail
         /// <summary>
         /// <para>
-        /// <para>Configuration details for the lifecycle policy rules.</para><para />
+        /// <para>Configuration details for the lifecycle policy rules. A policy can contain at most
+        /// one rule per action type: one <c>DELETE</c>, one <c>DEPRECATE</c>, and one <c>DISABLE</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -143,7 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of Image Builder resource that the lifecycle policy applies to.</para>
+        /// <para>The type of Image Builder resource that the lifecycle policy applies to. The resource
+        /// type determines the allowed rule actions: policies for AMI-based Image Builder images
+        /// support <c>DELETE</c>, <c>DEPRECATE</c>, and <c>DISABLE</c>, and policies for container-based
+        /// Image Builder images support only <c>DELETE</c>. You can't change the resource type
+        /// after creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,7 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the lifecycle policy resource is enabled.</para>
+        /// <para>Indicates whether the lifecycle policy resource is enabled. If you don't specify a
+        /// status, it defaults to <c>ENABLED</c>. Only enabled policies run on their schedule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,9 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

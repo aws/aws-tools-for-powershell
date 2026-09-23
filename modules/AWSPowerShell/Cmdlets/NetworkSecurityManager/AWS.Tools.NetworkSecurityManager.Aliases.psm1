@@ -1,0 +1,3 @@
+﻿# NetworkSecurityManager
+
+Export-ModuleMember -Alias *

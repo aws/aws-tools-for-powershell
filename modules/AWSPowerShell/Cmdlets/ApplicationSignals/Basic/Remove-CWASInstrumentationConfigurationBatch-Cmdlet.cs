@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
     /// Deletes multiple instrumentation configurations in a single request. Supports two
-    /// mutually exclusive selection methods:
-    /// 
-    ///  <ul><li>By scope: Delete all configurations matching a Service + Environment + InstrumentationType</li><li>By ARN list: Delete specific configurations by providing a list of resource ARNs</li></ul>
+    /// mutually exclusive selection methods: - By scope: Delete all configurations matching
+    /// a Service + Environment + InstrumentationType - By ARN list: Delete specific configurations
+    /// by providing a list of resource ARNs
     /// </summary>
     [Cmdlet("Remove", "CWASInstrumentationConfigurationBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ApplicationSignals.Model.BatchDeleteInstrumentationConfigurationsResponse")]
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter DeletionTarget_Scope_Environment
         /// <summary>
         /// <para>
-        /// <para>Environment identifier for the instrumentation configurations.</para>
+        /// Environment identifier for the instrumentation
+        /// configurations.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter DeletionTarget_ResourceArns_InstrumentationType
         /// <summary>
         /// <para>
-        /// <para>Instrumentation type: BREAKPOINT or PROBE.</para>
+        /// Instrumentation type: BREAKPOINT or
+        /// PROBE.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter DeletionTarget_Scope_InstrumentationType
         /// <summary>
         /// <para>
-        /// <para>Instrumentation type: BREAKPOINT or PROBE.</para>
+        /// Instrumentation type: BREAKPOINT or
+        /// PROBE.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter DeletionTarget_ResourceArns_ResourceArn
         /// <summary>
         /// <para>
-        /// <para>List of resource ARNs to delete.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// List of resource ARNs to delete.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -97,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter DeletionTarget_Scope_Service
         /// <summary>
         /// <para>
-        /// <para>Service name for the instrumentation configurations.</para>
+        /// Service name for the instrumentation configurations.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

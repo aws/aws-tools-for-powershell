@@ -30,8 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of component build versions for the specified component version Amazon
-    /// Resource Name (ARN).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of component build versions for the specified component version ARN.
+    /// You can only list build versions for components that your account owns. Deprecated
+    /// build versions aren't included in the results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBComponentBuildVersionList")]
     [OutputType("Amazon.Imagebuilder.Model.ComponentSummary")]
@@ -49,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ComponentVersionArn
         /// <summary>
         /// <para>
-        /// <para>The component version Amazon Resource Name (ARN) whose versions you want to list.</para>
+        /// <para>The component version ARN whose build versions you want to list. The ARN must specify
+        /// an exact version, without a build number suffix. If you don't specify an ARN, Image
+        /// Builder returns build versions for the components that your account owns.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

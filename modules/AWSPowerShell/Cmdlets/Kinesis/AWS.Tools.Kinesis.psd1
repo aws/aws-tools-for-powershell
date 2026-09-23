@@ -126,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-KINMaxRecordSize', 
         'Update-KINShardCount', 
         'Update-KINStreamMode', 
+        'Update-KINStreamRecordDistributionStrategy', 
         'Update-KINStreamWarmThroughput', 
         'Write-KINMultipleRecord', 
         'Write-KINRecord', 

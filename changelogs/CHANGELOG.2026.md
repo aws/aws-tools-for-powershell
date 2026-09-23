@@ -1,4 +1,22 @@
-﻿### 5.0.304 (2026-09-22 19:07Z)
+﻿### 5.0.305 (2026-09-23 19:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.340.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing
+    * Added cmdlet Get-AWSBBillingViewSegmentList leveraging the ListBillingViewSegments service API.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameters Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming and Segment_Encryption_SpekeKeyProvider_SpekeVersion.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameters Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming and Segment_Encryption_SpekeKeyProvider_SpekeVersion.
+  * Amazon Kinesis
+    * Added cmdlet Update-KINStreamRecordDistributionStrategy leveraging the UpdateStreamRecordDistributionStrategy service API.
+    * Modified cmdlet New-KINStream: added parameter RecordDistributionStrategy.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameter SpeakerDiarizationSettings_Enabled.
+    * Modified cmdlet Start-LMBV2Import: added parameter ResourceSpecification_BotLocaleImportSpecification_SpeakerDiarizationSettings_Enabled.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameter SpeakerDiarizationSettings_Enabled.
+  * Amazon Network Security Manager Customer API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix NSM and can be listed using the command 'Get-AWSCmdletName -Service NSM'.
+  * Amazon Payment Cryptography Data
+    * Modified cmdlet Update-PAYCDEncryptData: added parameters IncomingEncryptionAttributes_Asymmetric_PaddingType and OutgoingEncryptionAttributes_Asymmetric_PaddingType.
+
+### 5.0.304 (2026-09-22 19:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.339.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Observability Admin Service
     * Added cmdlet Get-CWOADMNDatasetIntegration leveraging the GetDatasetIntegration service API.

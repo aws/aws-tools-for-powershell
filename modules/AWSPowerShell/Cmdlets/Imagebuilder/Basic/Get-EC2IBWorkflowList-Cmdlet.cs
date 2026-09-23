@@ -30,7 +30,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Lists workflow build versions based on filtering parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists workflow versions based on filtering parameters. To list the build versions
+    /// of a specific workflow version, call <a>ListWorkflowBuildVersions</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBWorkflowList")]
     [OutputType("Amazon.Imagebuilder.Model.WorkflowVersion")]
@@ -48,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ByName
         /// <summary>
         /// <para>
-        /// <para>Specify all or part of the workflow name to streamline results.</para>
+        /// <para>Specifies whether to return one entry per workflow name, with all versions of each
+        /// workflow aggregated. Defaults to <c>false</c>, which returns one entry per workflow
+        /// version. You can't combine this option with the <c>version</c> filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Used to streamline search results.</para><para />
+        /// <para>Filters to narrow the list of workflows. You can filter on <c>name</c>, <c>version</c>,
+        /// <c>description</c>, and <c>type</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -99,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>Used to get a list of workflow build version filtered by the identity of the creator.</para>
+        /// <para>Filters results based on the workflow owner. By default, this request returns the
+        /// workflows that your account owns (<c>Self</c>). Specify <c>Amazon</c> to list the
+        /// workflows that Image Builder manages. Image Builder rejects the <c>Shared</c> and
+        /// <c>ThirdParty</c> owner values for workflows, and <c>AWSMarketplace</c> returns no
+        /// results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

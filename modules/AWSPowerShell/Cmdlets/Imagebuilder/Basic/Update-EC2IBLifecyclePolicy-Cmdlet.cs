@@ -30,7 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Updates the specified lifecycle policy.
+    /// Updates the specified lifecycle policy. The request replaces the existing policy configuration
+    /// rather than merging changes, so re-specify every setting that you want to keep. The
+    /// <c>resourceType</c> must match the existing policy's value.
     /// </summary>
     [Cmdlet("Update", "EC2IBLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Optional description for the lifecycle policy.</para>
+        /// <para>Optional description for the lifecycle policy. Because the update replaces the entire
+        /// configuration, omitting this property removes any existing description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to
-        /// update the lifecycle policy.</para>
+        /// <para>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image
+        /// Builder access to run lifecycle actions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of image resource that the lifecycle policy applies to.</para>
+        /// <para>The type of image resource that the lifecycle policy applies to. The value must match
+        /// the policy's existing resource type. You can't change the resource type of an existing
+        /// lifecycle policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the lifecycle policy resource is enabled.</para>
+        /// <para>Indicates whether the lifecycle policy resource is enabled. Defaults to <c>ENABLED</c>
+        /// when omitted, so updating a disabled policy without setting this property re-enables
+        /// it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,9 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

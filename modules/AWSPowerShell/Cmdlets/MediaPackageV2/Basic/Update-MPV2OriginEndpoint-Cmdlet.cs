@@ -155,6 +155,23 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
         #endregion
         
+        #region Parameter Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming
+        /// <summary>
+        /// <para>
+        /// <para>Specifies what timing information MediaPackage signals in the <c>ContentKeyPeriod</c>
+        /// to your DRM key provider. If you don't specify a value, the default is <c>INDEX_ONLY</c>.
+        /// Signaling start and end times (<c>START_END_ONLY</c> or <c>INDEX_WITH_START_END</c>)
+        /// also requires key rotation to be enabled.</para><para>The allowed values are:</para><ul><li><para><c>INDEX_ONLY</c> - Signals only the content key index. This is the default and matches
+        /// the current behavior. It's supported for both SPEKE Version 2.0 and 2.1.</para></li><li><para><c>START_END_ONLY</c> - Signals only the start and end times the key is used for.
+        /// Requires <c>SpekeVersion</c><c>V2_1</c>.</para></li><li><para><c>INDEX_WITH_START_END</c> - Signals both the content key index and the start and
+        /// end times the key is used for. Requires <c>SpekeVersion</c><c>V2_1</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.ContentKeyPeriodTiming")]
+        public Amazon.MediaPackageV2.ContentKeyPeriodTiming Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming { get; set; }
+        #endregion
+        
         #region Parameter Segment_Scte_CustomAdType
         /// <summary>
         /// <para>
@@ -491,6 +508,21 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String Segment_SegmentName { get; set; }
         #endregion
         
+        #region Parameter Segment_Encryption_SpekeKeyProvider_SpekeVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the SPEKE version used with your DRM key provider. If you don't specify
+        /// a value, the default is <c>V2_0</c>.</para><para>The allowed values are:</para><ul><li><para><c>V2_0</c> - Follows the SPEKE Version 2.0 contract and signals only the content
+        /// key index in key requests. This is the default.</para></li><li><para><c>V2_1</c> - Follows the SPEKE Version 2.1 contract and additionally supports signaling
+        /// the start and end times a content key is used for, using <c>ContentKeyPeriodConfiguration</c>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/speke/latest/documentation/standard-payload-components-v2.html">SPEKE
+        /// Version 2.0 payload</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.SpekeVersion")]
+        public Amazon.MediaPackageV2.SpekeVersion Segment_Encryption_SpekeKeyProvider_SpekeVersion { get; set; }
+        #endregion
+        
         #region Parameter StartoverWindowSecond
         /// <summary>
         /// <para>
@@ -692,6 +724,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.EncryptionMethod_TsEncryptionMethod = this.EncryptionMethod_TsEncryptionMethod;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             context.Segment_Encryption_SpekeKeyProvider_CertificateArn = this.Segment_Encryption_SpekeKeyProvider_CertificateArn;
+            context.Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming = this.Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming;
             if (this.SpekeKeyProvider_DrmSystem != null)
             {
                 context.SpekeKeyProvider_DrmSystem = new List<System.String>(this.SpekeKeyProvider_DrmSystem);
@@ -700,6 +733,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             context.EncryptionContractConfiguration_PresetSpeke20Video = this.EncryptionContractConfiguration_PresetSpeke20Video;
             context.SpekeKeyProvider_ResourceId = this.SpekeKeyProvider_ResourceId;
             context.SpekeKeyProvider_RoleArn = this.SpekeKeyProvider_RoleArn;
+            context.Segment_Encryption_SpekeKeyProvider_SpekeVersion = this.Segment_Encryption_SpekeKeyProvider_SpekeVersion;
             context.SpekeKeyProvider_Url = this.SpekeKeyProvider_Url;
             context.Segment_IncludeIframeOnlyStream = this.Segment_IncludeIframeOnlyStream;
             context.Segment_OutputTimestampMode = this.Segment_OutputTimestampMode;
@@ -1028,6 +1062,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider.RoleArn = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_spekeKeyProvider_RoleArn;
                 requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = false;
             }
+            Amazon.MediaPackageV2.SpekeVersion requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_SpekeVersion = null;
+            if (cmdletContext.Segment_Encryption_SpekeKeyProvider_SpekeVersion != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_SpekeVersion = cmdletContext.Segment_Encryption_SpekeKeyProvider_SpekeVersion;
+            }
+            if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_SpekeVersion != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider.SpekeVersion = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_SpekeVersion;
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = false;
+            }
             System.String requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_spekeKeyProvider_Url = null;
             if (cmdletContext.SpekeKeyProvider_Url != null)
             {
@@ -1036,6 +1080,31 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_spekeKeyProvider_Url != null)
             {
                 requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider.Url = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_spekeKeyProvider_Url;
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = false;
+            }
+            Amazon.MediaPackageV2.Model.ContentKeyPeriodConfiguration requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration = null;
+            
+             // populate ContentKeyPeriodConfiguration
+            var requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfigurationIsNull = true;
+            requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration = new Amazon.MediaPackageV2.Model.ContentKeyPeriodConfiguration();
+            Amazon.MediaPackageV2.ContentKeyPeriodTiming requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming = null;
+            if (cmdletContext.Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming = cmdletContext.Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming;
+            }
+            if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration.ContentKeyPeriodTiming = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming;
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfigurationIsNull = false;
+            }
+             // determine if requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration should be set to null
+            if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfigurationIsNull)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration = null;
+            }
+            if (requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration != null)
+            {
+                requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider.ContentKeyPeriodConfiguration = requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration;
                 requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProviderIsNull = false;
             }
             Amazon.MediaPackageV2.Model.EncryptionContractConfiguration requestSegment_segment_Encryption_segment_Encryption_SpekeKeyProvider_segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration = null;
@@ -1183,11 +1252,13 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public Amazon.MediaPackageV2.TsEncryptionMethod EncryptionMethod_TsEncryptionMethod { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public System.String Segment_Encryption_SpekeKeyProvider_CertificateArn { get; set; }
+            public Amazon.MediaPackageV2.ContentKeyPeriodTiming Segment_Encryption_SpekeKeyProvider_ContentKeyPeriodConfiguration_ContentKeyPeriodTiming { get; set; }
             public List<System.String> SpekeKeyProvider_DrmSystem { get; set; }
             public Amazon.MediaPackageV2.PresetSpeke20Audio EncryptionContractConfiguration_PresetSpeke20Audio { get; set; }
             public Amazon.MediaPackageV2.PresetSpeke20Video EncryptionContractConfiguration_PresetSpeke20Video { get; set; }
             public System.String SpekeKeyProvider_ResourceId { get; set; }
             public System.String SpekeKeyProvider_RoleArn { get; set; }
+            public Amazon.MediaPackageV2.SpekeVersion Segment_Encryption_SpekeKeyProvider_SpekeVersion { get; set; }
             public System.String SpekeKeyProvider_Url { get; set; }
             public System.Boolean? Segment_IncludeIframeOnlyStream { get; set; }
             public Amazon.MediaPackageV2.OutputTimestampMode Segment_OutputTimestampMode { get; set; }

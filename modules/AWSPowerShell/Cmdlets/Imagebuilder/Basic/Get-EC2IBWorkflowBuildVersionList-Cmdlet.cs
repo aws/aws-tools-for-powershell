@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of
-        /// build versions.</para>
+        /// build versions. The version segments can contain wildcards (<c>x</c>) to match multiple
+        /// versions of the workflow. If you don't specify an ARN, the response lists build versions
+        /// for all of the workflows in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

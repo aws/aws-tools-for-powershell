@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Validates the required permissions and request parameters without making the request.
+        /// <para>Validates the required permissions and request parameters without performing the operation.
         /// If validation succeeds, the operation returns a <c>DryRunOperationException</c> error
         /// response.</para>
         /// </para>
@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The ID of the Dedicated Host on which build and test instances run. This only applies
-        /// if <c>tenancy</c> is <c>host</c>. If you specify the host ID, you must not specify
-        /// the resource group ARN. If you specify both, Image Builder returns an error.</para>
+        /// if <c>tenancy</c> is <c>host</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,9 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the host resource group in which to launch build
-        /// and test instances. This only applies if <c>tenancy</c> is <c>host</c>. If you specify
-        /// the resource group ARN, you must not specify the host ID. If you specify both, Image
-        /// Builder returns an error.</para>
+        /// and test instances. This only applies if <c>tenancy</c> is <c>host</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Limit the number of hops that an instance metadata request can traverse to reach its
-        /// destination. The default is one hop. However, if HTTP tokens are required, container
-        /// image builds need a minimum of two hops.</para>
+        /// destination. If you don't set a value, the EC2 launch default for the instance applies.
+        /// If HTTP tokens are required, container image builds need a minimum of two hops.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// requests. The values affect the response as follows:</para><ul><li><para><b>required</b> – When you retrieve the IAM role credentials, version 2.0 credentials
         /// are returned in all cases.</para></li><li><para><b>optional</b> – You can include a signed token header in your request to retrieve
         /// instance metadata, or you can leave it out. If you include it, version 2.0 credentials
-        /// are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</para></li></ul><para>The default setting is <b>optional</b>.</para>
+        /// are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</para></li></ul><para>If you don't set a value, the EC2 launch default applies to the build and test instances.
+        /// That default depends on the base AMI and any account-level instance metadata defaults.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+        /// the instance metadata options</a> in the <i><i>Amazon EC2 User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The instance profile to associate with the instance used to customize your Amazon
-        /// EC2 AMI.</para>
+        /// EC2 AMI. The instance profile must exist in your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The instance types of the infrastructure configuration. You can specify one or more
         /// instance types to use for this build. Image Builder picks one of these instance types
-        /// based on availability.</para><para />
+        /// based on availability. If you don't specify instance types, Image Builder selects
+        /// compatible instance types automatically. If you specify a Dedicated Host, Image Builder
+        /// uses only instance types that the host supports.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -179,7 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the infrastructure configuration.</para>
+        /// <para>The name of the infrastructure configuration. Infrastructure configuration names must
+        /// be unique to your account in each Amazon Web Services Region. Image Builder generates
+        /// the infrastructure configuration ARN from a normalized form of the name, so names
+        /// that differ only in case, spaces, or underscores count as the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,7 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The metadata tags to assign to the Amazon EC2 instance that Image Builder launches
-        /// during the build process. Tags are formatted as key value pairs.</para><para />
+        /// during the build process. Tags are formatted as key value pairs. Tag keys can't begin
+        /// with <c>aws:</c> or match one of the following reserved keys: <c>CreatedBy</c>, <c>Ec2ImageBuilderArn</c>,
+        /// <c>Name</c>, or <c>Tags</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -212,7 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket in which to store the logs.</para>
+        /// <para>The name of an existing Amazon S3 bucket where Image Builder saves build logs. The
+        /// bucket isn't validated when you create or update the configuration, and Image Builder
+        /// doesn't create it. The instance profile associated with this infrastructure configuration
+        /// must have permission to write to the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 path to the bucket where the logs are stored.</para>
+        /// <para>The Amazon S3 key prefix under which Image Builder writes build and test logs in the
+        /// bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,9 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image
-        /// build event notifications.</para><note><para>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted
-        /// using keys from other accounts. The key that is used to encrypt the SNS topic must
-        /// reside in the account that the Image Builder service runs under.</para></note>
+        /// build event notifications. Specify a standard topic. Image Builder doesn't support
+        /// FIFO topics. Image Builder validates the topic when you create or update the configuration.
+        /// You must have permission to publish to the topic.</para><note><para>EC2 Image Builder can't send notifications to SNS topics that are encrypted using
+        /// keys from other accounts. If your SNS topic is encrypted, the key must be owned by
+        /// the same account that owns your Image Builder resources.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.</para>
+        /// <para>The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.
+        /// If you specify <c>subnetId</c>, you must also specify one or more security group IDs
+        /// in <c>securityGroupIds</c>. Otherwise, the request fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,9 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation completes
-        /// no more than one time. If this token matches a previous request, the service ignores
-        /// the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>A unique, case-sensitive identifier you provide to ensure that the operation runs
+        /// no more than one time. If you retry a request with the same client token, Image Builder
+        /// returns the original response without running the operation again. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a> in the <i>Amazon EC2 API Reference</i>.</para>
         /// </para>
         /// </summary>

@@ -180,9 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The VPC security group IDs. The default is None.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -208,9 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets in the Neptune VPC. The default is None.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -382,9 +384,6 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             {
                 context.Subnet = new List<System.String>(this.Subnet);
             }
-            context.TrainingInstanceType = this.TrainingInstanceType;
-            context.TrainingInstanceVolumeSizeInGB = this.TrainingInstanceVolumeSizeInGB;
-            context.TrainingTimeOutInSecond = this.TrainingTimeOutInSecond;
             context.TrainModelS3Location = this.TrainModelS3Location;
             #if MODULAR
             if (this.TrainModelS3Location == null && ParameterWasBound(nameof(this.TrainModelS3Location)))
@@ -392,6 +391,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
                 WriteWarning("You are passing $null as a value for parameter TrainModelS3Location which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TrainingInstanceType = this.TrainingInstanceType;
+            context.TrainingInstanceVolumeSizeInGB = this.TrainingInstanceVolumeSizeInGB;
+            context.TrainingTimeOutInSecond = this.TrainingTimeOutInSecond;
             context.VolumeEncryptionKMSKey = this.VolumeEncryptionKMSKey;
             
             // allow further manipulation of loaded context prior to processing
@@ -496,6 +498,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             {
                 request.Subnets = cmdletContext.Subnet;
             }
+            if (cmdletContext.TrainModelS3Location != null)
+            {
+                request.TrainModelS3Location = cmdletContext.TrainModelS3Location;
+            }
             if (cmdletContext.TrainingInstanceType != null)
             {
                 request.TrainingInstanceType = cmdletContext.TrainingInstanceType;
@@ -507,10 +513,6 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             if (cmdletContext.TrainingTimeOutInSecond != null)
             {
                 request.TrainingTimeOutInSeconds = cmdletContext.TrainingTimeOutInSecond.Value;
-            }
-            if (cmdletContext.TrainModelS3Location != null)
-            {
-                request.TrainModelS3Location = cmdletContext.TrainModelS3Location;
             }
             if (cmdletContext.VolumeEncryptionKMSKey != null)
             {
@@ -586,10 +588,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             public System.String SagemakerIamRoleArn { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> Subnet { get; set; }
+            public System.String TrainModelS3Location { get; set; }
             public System.String TrainingInstanceType { get; set; }
             public System.Int32? TrainingInstanceVolumeSizeInGB { get; set; }
             public System.Int32? TrainingTimeOutInSecond { get; set; }
-            public System.String TrainModelS3Location { get; set; }
             public System.String VolumeEncryptionKMSKey { get; set; }
             public System.Func<Amazon.Neptunedata.Model.StartMLModelTrainingJobResponse, StartNEPTMLModelTrainingJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

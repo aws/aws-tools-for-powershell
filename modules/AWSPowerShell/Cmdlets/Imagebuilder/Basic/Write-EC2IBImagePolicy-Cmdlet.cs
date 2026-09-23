@@ -30,9 +30,10 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Applies a policy to an image. To share resources, call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>.
-    /// If you call this API, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
-    /// so that the resource is visible to all principals with whom the resource is shared.
+    /// Applies a policy to an image. The preferred way to share resources is with the RAM
+    /// API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>.
+    /// If you use the PutImagePolicy operation instead, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>.
+    /// Otherwise, the resource isn't visible to the principals that it's shared with.
     /// </summary>
     [Cmdlet("Write", "EC2IBImagePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Imagebuilder.Model.PutImagePolicyResponse")]
@@ -66,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The policy to apply.</para>
+        /// <para>The resource policy to apply to the image, as a JSON policy document. Image Builder
+        /// validates the policy with Amazon Web Services RAM before applying it, and rejects
+        /// invalid policies with <c>InvalidParameterValueException</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

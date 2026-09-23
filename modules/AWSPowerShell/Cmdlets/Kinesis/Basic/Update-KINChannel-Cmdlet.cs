@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3DestinationConfiguration_DataFreshnessInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds
-        /// (5 to 15 minutes).</para>
+        /// <para>The maximum age, in seconds, of undelivered data before the channel delivers it to
+        /// the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter S3TablesDestinationConfiguration_DataFreshnessInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds
-        /// (5 to 15 minutes).</para>
+        /// <para>The maximum age, in seconds, of undelivered data before the channel delivers it to
+        /// the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

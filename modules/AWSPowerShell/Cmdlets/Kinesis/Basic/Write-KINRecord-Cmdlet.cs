@@ -136,17 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// the partition key and associated data to a specific shard. Specifically, an MD5 hash
         /// function is used to map partition keys to 128-bit integer values and to map associated
         /// data records to shards. As a result of this hashing mechanism, all data records with
-        /// the same partition key map to the same shard within the stream.</para>
+        /// the same partition key map to the same shard within the stream.</para><para>If the stream uses the <c>USER_PARTITION_KEY</c> record distribution strategy (the
+        /// default), a partition key is required. If the stream uses the <c>AUTO</c> record distribution
+        /// strategy, the partition key is optional and any value you provide is ignored, along
+        /// with any <c>ExplicitHashKey</c> you provide. In that case, Amazon Kinesis Data Streams
+        /// distributes the record across shards using service-managed algorithms. For more information,
+        /// see <c>UpdateStreamRecordDistributionStrategy</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PartitionKey { get; set; }
         #endregion
         
@@ -250,12 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.DryRun = this.DryRun;
             context.ExplicitHashKey = this.ExplicitHashKey;
             context.PartitionKey = this.PartitionKey;
-            #if MODULAR
-            if (this.PartitionKey == null && ParameterWasBound(nameof(this.PartitionKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PartitionKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SequenceNumberForOrdering = this.SequenceNumberForOrdering;
             context.StreamARN = this.StreamARN;
             context.StreamId = this.StreamId;

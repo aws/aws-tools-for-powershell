@@ -30,7 +30,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Deletes a distribution configuration.
+    /// Deletes a distribution configuration. You can't delete a configuration that an image
+    /// pipeline still references. The request fails with <c>ResourceDependencyException</c>.
+    /// Update or delete the referencing pipelines first.
     /// </summary>
     [Cmdlet("Remove", "EC2IBDistributionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse")]

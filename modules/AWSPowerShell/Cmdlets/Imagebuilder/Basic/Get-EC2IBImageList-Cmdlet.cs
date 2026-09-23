@@ -30,8 +30,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of images that you have access to. Newly created images can take
-    /// up to two minutes to appear in the ListImages API Results.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of images that you have access to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBImageList")]
     [OutputType("Amazon.Imagebuilder.Model.ImageVersion")]
@@ -49,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ByName
         /// <summary>
         /// <para>
-        /// <para>Requests a list of images with a specific recipe name.</para>
+        /// <para>Specifies whether to return one entry per image name, with all versions of each image
+        /// aggregated. Defaults to <c>false</c>, which returns one entry per image version. You
+        /// can't combine this option with the <c>version</c> filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter IncludeDeprecated
         /// <summary>
         /// <para>
-        /// <para>Includes deprecated images in the response list.</para>
+        /// <para>Specifies whether to include deprecated Amazon-managed images in the results. Deprecated
+        /// images that you own are always returned. Defaults to <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

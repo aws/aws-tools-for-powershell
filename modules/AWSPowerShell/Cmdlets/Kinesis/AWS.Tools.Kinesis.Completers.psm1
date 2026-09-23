@@ -104,6 +104,16 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.RecordDistributionStrategy
+        {
+            ($_ -eq "New-KINStream/RecordDistributionStrategy") -Or
+            ($_ -eq "Update-KINStreamRecordDistributionStrategy/RecordDistributionStrategy")
+        }
+        {
+            $v = "AUTO","USER_PARTITION_KEY"
+            break
+        }
+
         # Amazon.Kinesis.S3CompressionType
         "New-KINChannel/S3DestinationConfiguration_StorageConfiguration_CompressionType"
         {
@@ -161,6 +171,7 @@ $KIN_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-KINChannel")
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "MinimumThroughputBillingCommitment_Status"=@("Update-KINAccountSetting")
+    "RecordDistributionStrategy"=@("New-KINStream","Update-KINStreamRecordDistributionStrategy")
     "S3DestinationConfiguration_StorageConfiguration_CompressionType"=@("New-KINChannel")
     "S3DestinationConfiguration_StorageConfiguration_StorageClass"=@("New-KINChannel")
     "ScalingType"=@("Update-KINShardCount")
@@ -261,6 +272,7 @@ $KIN_SelectMap = @{
                "Update-KINMaxRecordSize",
                "Update-KINShardCount",
                "Update-KINStreamMode",
+               "Update-KINStreamRecordDistributionStrategy",
                "Update-KINStreamWarmThroughput")
 }
 

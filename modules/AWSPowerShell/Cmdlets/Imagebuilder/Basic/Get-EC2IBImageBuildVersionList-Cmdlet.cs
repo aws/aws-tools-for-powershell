@@ -63,7 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image version whose build versions you want
+        /// to retrieve. The ARN must specify an exact version (<c>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</c>)
+        /// - wildcards aren't allowed. This parameter is optional. If you don't specify it, Image
+        /// Builder returns build versions for all of the images in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

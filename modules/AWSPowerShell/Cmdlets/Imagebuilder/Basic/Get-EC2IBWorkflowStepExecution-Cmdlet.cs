@@ -47,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter StepExecutionId
         /// <summary>
         /// <para>
-        /// <para>Use the unique identifier for a specific runtime instance of the workflow step to
-        /// get runtime details for that step.</para>
+        /// <para>The unique identifier for the runtime instance of the workflow step that you want
+        /// to get runtime details for. To get the identifiers for the steps that ran in a workflow,
+        /// call <a>ListWorkflowStepExecutions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
