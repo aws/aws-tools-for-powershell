@@ -8,16 +8,21 @@ Common_Get-AWSSigV4PreSignedURL:
       versions:
       - sdk_version: 5
         excerpts:
-        - description: '<emphasis role="bold">Example 1: Generates a pre-signed URL that allows a GET request to an Amazon API Gateway API with IAM authorization for the next 15 minutes.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: Generates a pre-signed URL that allows a GET request to an Amazon API Gateway API with IAM authorization for the next 15 minutes, and sends the request by passing the result to Invoke-RestMethod using splatting.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
           - .doc_gen/snippet_files/common_Get-AWSSigV4PreSignedURL.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: Generates a pre-signed URL for an object in Amazon S3 using the credentials of a named profile. The URL expires after one day.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: Generates a pre-signed URL for an object in Amazon S3 using the credentials of a named profile and outputs the URL. The URL expires after one day.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
           - .doc_gen/snippet_files/common_Get-AWSSigV4PreSignedURL.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">https://amzn-s3-demo-bucket.s3.us-west-2.amazonaws.com/report.csv?X-Amz-Expires=86400&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20250921%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20250921T171741Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=...</programlisting>
+          snippet_files: []
   services:
     Common:
       Get-AWSSigV4PreSignedURL: 

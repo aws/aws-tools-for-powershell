@@ -8,12 +8,12 @@ Common_Get-AWSSigV4Signature:
       versions:
       - sdk_version: 5
         excerpts:
-        - description: '<emphasis role="bold">Example 1: Signs a GET request to an Amazon API Gateway API that uses IAM authorization and invokes it with Invoke-RestMethod. Credentials and region are resolved from the shell defaults or profile in the same way as for other cmdlets.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: Signs a GET request to an Amazon API Gateway API that uses IAM authorization and invokes it with Invoke-RestMethod. Credentials and region are resolved from the shell defaults or profile in the same way as for other cmdlets. On PowerShell 7, -SkipHeaderValidation is required because the Authorization header value contains commas; the switch does not exist on Windows PowerShell 5.1, where it is not needed.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
           - .doc_gen/snippet_files/common_Get-AWSSigV4Signature.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: Signs a POST request with a JSON payload. The payload and the headers passed to the cmdlet are part of the signature, so the same values must be sent with the request.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: Signs a POST request with a JSON payload. The payload and the headers passed to the cmdlet are part of the signature, so the same values must be sent with the request; here the Content-Type is signed via -Header and sent via -ContentType.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:

@@ -1,0 +1,23 @@
+---
+Common_Get-AWSSigV4SignedRequest:
+  title: Use Get-AWSSigV4SignedRequest
+  title_abbrev: Get-AWSSigV4SignedRequest
+  synopsis: use Get-AWSSigV4SignedRequest
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Signs a GET request to an Amazon API Gateway API that uses IAM authorization and sends it by passing the result to Invoke-RestMethod using splatting. Credentials and region are resolved from the shell defaults or profile in the same way as for other cmdlets.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4SignedRequest.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Signs a POST request with a JSON payload. The returned hashtable carries the signed Uri, Method, Headers and Body, so other Invoke-RestMethod parameters can be added alongside it.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Get-AWSSigV4SignedRequest.2.1.ps1
+  services:
+    Common:
+      Get-AWSSigV4SignedRequest: 
