@@ -409,10 +409,21 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     .Select(name => name.Trim())
                     .ToArray();
 
-                if (targetParameterNames.Length == 1)
+                var targetParameters = targetParameterNames
+                    .Select(name => MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == name).Single())
+                    .ToArray();
+
+                var hasSensitiveTarget = targetParameters.Any(parameter => parameter.BaseProperty != null && parameter.BaseProperty.IsSensitive());
+
+                if (hasSensitiveTarget)
+                {
+                    writer.WriteLine("// One or more ShouldProcess target parameters are marked Sensitive in the SDK and are redacted.");
+                    writer.WriteLine("var resourceIdentifiersText = string.Empty;");
+                }
+                else if (targetParameterNames.Length == 1)
                 {
                     // Single parameter - use existing logic for backward compatibility
-                    var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[0]).Single();
+                    var targetParameter = targetParameters[0];
                     writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.{targetParameter.CmdletParameterName}), MyInvocation.BoundParameters);");
                 }
                 else
@@ -421,10 +432,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("var targetParameterNames = new string[]");
                     writer.OpenRegion();
                     
-                    for (int i = 0; i < targetParameterNames.Length; i++)
+                    for (int i = 0; i < targetParameters.Length; i++)
                     {
-                        var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[i]).Single();
-                        var comma = i < targetParameterNames.Length - 1 ? "," : "";
+                        var targetParameter = targetParameters[i];
+                        var comma = i < targetParameters.Length - 1 ? "," : "";
                         writer.WriteLine($"nameof(this.{targetParameter.CmdletParameterName}){comma}");
                     }
                     

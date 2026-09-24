@@ -7,6 +7,7 @@ using System.Xml;
 using AWSPowerShellGenerator.Analysis;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.ServiceConfig;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPSGeneratorLibTests
 {
@@ -1919,6 +1920,7 @@ namespace AWSPSGeneratorLibTests
     internal class MockPropertyInfo : PropertyInfo
     {
         private bool _isDeprecated;
+        private bool _isSensitive;
 
         public MockPropertyInfo(string name, Type propertyType)
         {
@@ -1934,19 +1936,27 @@ namespace AWSPSGeneratorLibTests
 
         public void SetDeprecated(bool isDeprecated) => _isDeprecated = isDeprecated;
 
+        public void SetSensitive(bool isSensitive) => _isSensitive = isSensitive;
+
         // Used by SimplePropertyInfo constructor to detect ObsoleteAttribute for IsDeprecated property
         public override object[] GetCustomAttributes(Type attributeType, bool inherit)
         {
-            if (_isDeprecated && attributeType == typeof(ObsoleteAttribute))
-                return new[] { new ObsoleteAttribute("This parameter is deprecated") };
-            return Array.Empty<Attribute>();
+            var attributes = new List<Attribute>();
+            if (_isDeprecated && (attributeType == typeof(ObsoleteAttribute) || attributeType == typeof(Attribute)))
+                attributes.Add(new ObsoleteAttribute("This parameter is deprecated"));
+            if (_isSensitive && attributeType == typeof(Attribute))
+                attributes.Add(new Amazon.Runtime.Internal.AWSPropertyAttribute { Sensitive = true });
+            return attributes.ToArray();
         }
         
         public override object[] GetCustomAttributes(bool inherit)
         {
+            var attributes = new List<Attribute>();
             if (_isDeprecated)
-                return new[] { new ObsoleteAttribute("This parameter is deprecated") };
-            return Array.Empty<Attribute>();
+                attributes.Add(new ObsoleteAttribute("This parameter is deprecated"));
+            if (_isSensitive)
+                attributes.Add(new Amazon.Runtime.Internal.AWSPropertyAttribute { Sensitive = true });
+            return attributes.ToArray();
         }
         
         public override bool IsDefined(Type attributeType, bool inherit) => 
@@ -2570,5 +2580,72 @@ namespace AWSPSGeneratorLibTests
             }
         }
 
+    }
+
+    /// <summary>
+    /// Verifies PropertyInfo.IsSensitive() so the ShouldProcess confirmation-message guard cannot regress.
+    /// </summary>
+    [TestClass]
+    public class SensitiveShouldProcessTargetTests
+    {
+        private ConfigModelCollection _allModels;
+        private ConfigModel _testModel;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _allModels = new ConfigModelCollection { MetadataParameterNames = new List<string>() };
+            _testModel = new ConfigModel
+            {
+                AssemblyName = "TestService",
+                ServiceName = "Test Service",
+                ServiceNounPrefix = "TEST",
+                MetadataPropertyNames = new List<string>()
+            };
+        }
+
+        [TestMethod]
+        public void IsSensitive_ReturnsTrue_ForSensitiveProperty()
+        {
+            // Arrange
+            var property = new MockPropertyInfo("OldPassword", typeof(string));
+            property.SetSensitive(true);
+
+            // Act
+            var result = property.IsSensitive();
+
+            // Assert
+            Assert.IsTrue(result,
+                "A property carrying AWSPropertyAttribute(Sensitive=true) must be reported as sensitive so its value is never placed in a ShouldProcess confirmation message.");
+        }
+
+        [TestMethod]
+        public void IsSensitive_ReturnsFalse_ForNonSensitiveProperty()
+        {
+            // Arrange
+            var property = new MockPropertyInfo("UserName", typeof(string));
+
+            // Act
+            var result = property.IsSensitive();
+
+            // Assert
+            Assert.IsFalse(result,
+                "A non-sensitive property should remain usable as a ShouldProcess target.");
+        }
+    }
+}
+
+namespace Amazon.Runtime.Internal
+{
+    /// <summary>
+    /// Stand-in for the SDK's Amazon.Runtime.Internal.AWSPropertyAttribute, matched by full type name in IsSensitive().
+    /// </summary>
+    [System.AttributeUsage(System.AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class AWSPropertyAttribute : System.Attribute
+    {
+        public bool Sensitive { get; set; }
+        public bool Required { get; set; }
+        public long Min { get; set; }
+        public long Max { get; set; }
     }
 }

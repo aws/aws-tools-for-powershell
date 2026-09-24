@@ -61,4 +61,31 @@ Describe -Tag "Smoke" "IAM" {
         }
 
     }
+
+    Context "ChangePassword WhatIf" {
+
+        It "does NOT expose OldPassword in -WhatIf output (Sensitive parameter redacted)" {
+            $oldPasswordCanary = "OldPwd-Canary-$([DateTime]::Now.ToFileTime())-DoNotLeak"
+            $newPasswordCanary = "NewPwd-Canary-$([DateTime]::Now.ToFileTime())"
+            $transcriptPath = Join-Path ([System.IO.Path]::GetTempPath()) "iam-editpassword-whatif-$([DateTime]::Now.ToFileTime()).txt"
+
+            try {
+                Start-Transcript -Path $transcriptPath | Out-Null
+                Edit-IAMPassword -OldPassword $oldPasswordCanary -NewPassword $newPasswordCanary -WhatIf
+            }
+            finally {
+                Stop-Transcript | Out-Null
+            }
+
+            $whatIfMessage = (Get-Content -Path $transcriptPath | Where-Object { $_ -like "What if:*" }) -join "`n"
+            try {
+                $whatIfMessage | Should -BeLike "*Edit-IAMPassword (ChangePassword)*"
+                $whatIfMessage | Should -Not -BeLike "*$oldPasswordCanary*"
+            }
+            finally {
+                Remove-Item -Path $transcriptPath -Force -ErrorAction SilentlyContinue
+            }
+        }
+
+    }
 }
