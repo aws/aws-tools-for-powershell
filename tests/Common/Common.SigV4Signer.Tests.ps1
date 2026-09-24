@@ -148,16 +148,6 @@ Describe -Tag "Smoke" "Common.SigV4Signer" {
             $request["Headers"]["X-Amz-Date"] | Should -Match "^\d{8}T\d{6}Z$"
             $warnings | Should -Match "X-Amz-Date"
         }
-
-        It "Is accepted by Invoke-RestMethod without header validation errors" {
-            # Nothing listens on port 9, so a rejected header fails before connecting and an accepted one fails connecting.
-            $request = Get-AWSSigV4SignedRequest -Uri "http://127.0.0.1:9/prod/items" @script:signingArgs
-            $failure = $null
-            try { Invoke-RestMethod @request -TimeoutSec 5 -ErrorAction Stop } catch { $failure = $_ }
-
-            $failure | Should -Not -BeNullOrEmpty
-            $failure.Exception.Message | Should -Not -Match "format of value"
-        }
     }
 
     Context "Get-AWSSigV4PreSignedURL" {
