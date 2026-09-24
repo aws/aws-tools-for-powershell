@@ -41,6 +41,11 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(profileName), profileName);
             ThrowOnNullOrWhiteSpace(nameof(_loginSessionPropertyName), loginSession);
 
+            SSOProfileMethods.ValidateSectionNameComponent(profileName, nameof(profileName));
+
+            SSOProfileMethods.ValidatePropertyValue(loginSession, nameof(loginSession));
+            SSOProfileMethods.ValidatePropertyValue(region, nameof(region));
+
             if (!string.IsNullOrWhiteSpace(region))
                 profileProperties.Add(_regionPropertyName, region);
 
