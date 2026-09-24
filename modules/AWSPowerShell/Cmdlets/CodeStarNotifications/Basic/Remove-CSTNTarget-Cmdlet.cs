@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetAddress), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetAddress), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.TargetAddress) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CSTNTarget (DeleteTarget)"))
             {
                 return;

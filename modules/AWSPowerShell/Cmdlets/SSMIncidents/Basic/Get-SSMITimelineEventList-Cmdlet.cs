@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// timeline events with the following keys:</para><ul><li><para><c>eventReference</c></para></li><li><para><c>eventTime</c></para></li><li><para><c>eventType</c></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
         /// events that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns timeline events
         /// that match any of the values provided.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

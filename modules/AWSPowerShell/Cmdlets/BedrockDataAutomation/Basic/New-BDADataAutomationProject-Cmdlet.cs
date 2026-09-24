@@ -819,7 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProjectName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProjectName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ProjectName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BDADataAutomationProject (CreateDataAutomationProject)"))
             {
                 return;

@@ -34,13 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// one of the following match sources, and the chosen source must be supplied through
     /// the matching request field — they are mutually exclusive:
     /// 
-    ///  <ul><li><para><c>FirewallDomainListId</c> — match a customer-managed or AWS-managed domain list.
+    ///  <ul><li><para><c>FirewallDomainListId</c> — match a customer-managed or Amazon Web Services-managed
+    /// domain list.
     /// </para></li><li><para><c>DnsThreatProtection</c> — match a built-in DNS Firewall Advanced threat detector
     /// (<c>DGA</c>, <c>DNS_TUNNELING</c>, or <c>DICTIONARY_DGA</c>).
     /// </para></li><li><para><c>FirewallRuleType</c> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>:
     /// <c>FirewallAdvancedContentCategory</c>, <c>FirewallAdvancedThreatCategory</c>, <c>DnsThreatProtection</c>,
     /// or <c>PartnerThreatProtection</c>. The <c>PartnerThreatProtection</c> variant requires
-    /// an active AWS Marketplace subscription to the named partner product.
+    /// an active Amazon Web Services Marketplace subscription to the named partner product.
     /// </para></li></ul><para>
     /// For rules that require asynchronous provisioning (today, the <c>PartnerThreatProtection</c>
     /// rule type), the rule's <c>Status</c> begins at <c>CREATING</c> and transitions to
@@ -280,8 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The identifier of the partner threat-protection product, exactly as returned in the
         /// <c>Value</c> field of a <a>FirewallRuleTypeDefinition</a> with <c>RuleType</c> set
-        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active AWS Marketplace
-        /// subscription to this product.</para>
+        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active Amazon
+        /// Web Services Marketplace subscription to this product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

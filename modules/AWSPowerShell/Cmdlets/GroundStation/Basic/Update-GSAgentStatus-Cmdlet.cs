@@ -30,7 +30,11 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Amazon.GroundStation.IAmazonGroundStation.UpdateAgentStatus
+    /// <note><para>
+    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
+    /// </para></note><para>
+    /// Update the status of the agent.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GSAgentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -66,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <summary>
         /// <para>
         /// <para>List of component statuses for agent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -88,9 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <summary>
         /// <para>
         /// <para>Sparse map of failure signatures.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

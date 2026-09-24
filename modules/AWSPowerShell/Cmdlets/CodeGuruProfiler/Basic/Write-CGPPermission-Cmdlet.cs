@@ -35,19 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     /// created for it using the permissions in the action group and the roles and users in
     /// the <c>principals</c> parameter. 
     /// 
-    ///  <pre><c> &lt;p&gt; The one supported action group that can be added is &lt;code&gt;agentPermission&lt;/code&gt;
-    /// which grants &lt;code&gt;ConfigureAgent&lt;/code&gt; and &lt;code&gt;PostAgent&lt;/code&gt;
-    /// permissions. For more information, see &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html"&gt;Resource-based
-    /// policies in CodeGuru Profiler&lt;/a&gt; in the &lt;i&gt;Amazon CodeGuru Profiler User
-    /// Guide&lt;/i&gt;, &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"&gt;
-    /// &lt;code&gt;ConfigureAgent&lt;/code&gt; &lt;/a&gt;, and &lt;a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"&gt;
-    /// &lt;code&gt;PostAgentProfile&lt;/code&gt; &lt;/a&gt;. &lt;/p&gt; &lt;p&gt; The first
-    /// time you call &lt;code&gt;PutPermission&lt;/code&gt; on a profiling group, do not
-    /// specify a &lt;code&gt;revisionId&lt;/code&gt; because it doesn't have a resource-based
-    /// policy. Subsequent calls must provide a &lt;code&gt;revisionId&lt;/code&gt; to specify
-    /// which revision of the resource-based policy to add the permissions to. &lt;/p&gt;
-    /// &lt;p&gt; The response contains the profiling group's JSON-formatted resource policy.
-    /// &lt;/p&gt; </c></pre>
+    ///  
+    /// <para>
+    ///  The one supported action group that can be added is <c>agentPermission</c> which
+    /// grants <c>ConfigureAgent</c> and <c>PostAgent</c> permissions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html">Resource-based
+    /// policies in CodeGuru Profiler</a> in the <i>Amazon CodeGuru Profiler User Guide</i>,
+    /// <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"><c>ConfigureAgent</c></a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"><c>PostAgentProfile</c></a>. 
+    /// </para><para>
+    ///  The first time you call <c>PutPermission</c> on a profiling group, do not specify
+    /// a <c>revisionId</c> because it doesn't have a resource-based policy. Subsequent calls
+    /// must provide a <c>revisionId</c> to specify which revision of the resource-based policy
+    /// to add the permissions to. 
+    /// </para><para>
+    ///  The response contains the profiling group's JSON-formatted resource policy. 
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CGPPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.PutPermissionResponse")]
@@ -86,9 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <para>
         /// <para> A list ARNs for the roles and users you want to grant access to the profiling group.
         /// Wildcards are not are supported in the ARNs. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

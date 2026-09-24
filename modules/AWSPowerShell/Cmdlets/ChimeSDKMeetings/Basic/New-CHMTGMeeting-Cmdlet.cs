@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalMeetingId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalMeetingId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ExternalMeetingId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMTGMeeting (CreateMeeting)"))
             {
                 return;

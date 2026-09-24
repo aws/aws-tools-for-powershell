@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CfnStackName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CfnStackName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.CfnStackName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EDRSSourceNetworkStack (AssociateSourceNetworkStack)"))
             {
                 return;

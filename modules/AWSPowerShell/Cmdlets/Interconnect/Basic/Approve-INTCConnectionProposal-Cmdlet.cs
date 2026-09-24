@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.INTC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActivationKey), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActivationKey), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ActivationKey) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-INTCConnectionProposal (AcceptConnectionProposal)"))
             {
                 return;

@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClientRequestToken), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClientRequestToken), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ClientRequestToken) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMMPMediaConcatenationPipeline (CreateMediaConcatenationPipeline)"))
             {
                 return;

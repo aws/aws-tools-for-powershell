@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Token), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Token), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Token) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-AMSPIntrospectOAuth2TokenWithIAM (IntrospectOAuth2TokenWithIAM)"))
             {
                 return;

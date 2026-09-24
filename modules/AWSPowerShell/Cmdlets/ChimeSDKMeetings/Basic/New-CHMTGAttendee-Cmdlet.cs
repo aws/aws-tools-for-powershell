@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalUserId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalUserId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ExternalUserId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMTGAttendee (CreateAttendee)"))
             {
                 return;

@@ -42,8 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// <c>FirewallAdvancedThreatCategory</c>, <c>DnsThreatProtection</c>, and <c>PartnerThreatProtection</c>.
     /// When a returned definition's variant requires an external subscription (currently
     /// only <c>PartnerThreatProtection</c>), the response also includes a <a>SubscriptionInfo</a>
-    /// identifying the AWS Marketplace product that backs it; absence of <c>SubscriptionInfo</c>
-    /// means the variant is fully managed by AWS and requires no separate subscription.
+    /// identifying the Amazon Web Services Marketplace product that backs it; absence of
+    /// <c>SubscriptionInfo</c> means the variant is fully managed by Amazon Web Services
+    /// and requires no separate subscription.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RFirewallRuleTypeList")]

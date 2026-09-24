@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Certificate), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Certificate), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Certificate) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-TFRCertificate (ImportCertificate)"))
             {
                 return;

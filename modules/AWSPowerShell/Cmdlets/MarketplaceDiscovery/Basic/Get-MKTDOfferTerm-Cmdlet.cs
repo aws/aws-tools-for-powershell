@@ -47,6 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
+        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
+        /// behavior, and the default locale. If omitted, the service returns content in the default
+        /// locale.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Locale { get; set; }
+        #endregion
+        
         #region Parameter OfferId
         /// <summary>
         /// <para>
@@ -136,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
                 context.Select = CreateSelectDelegate<Amazon.MarketplaceDiscovery.Model.GetOfferTermsResponse, GetMKTDOfferTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -172,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             // create request and set iteration invariants
             var request = new Amazon.MarketplaceDiscovery.Model.GetOfferTermsRequest();
             
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -259,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Locale { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OfferId { get; set; }

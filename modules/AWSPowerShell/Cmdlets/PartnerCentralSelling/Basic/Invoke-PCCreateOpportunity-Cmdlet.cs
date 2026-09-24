@@ -885,7 +885,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Account_CompanyName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Account_CompanyName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Account_CompanyName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-PCCreateOpportunity (CreateOpportunity)"))
             {
                 return;

@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 nameof(this.DomainIdentifier),
                 nameof(this.OwningProjectIdentifier)
             };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Name) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DZNotebookImport (StartNotebookImport)"))
             {
                 return;

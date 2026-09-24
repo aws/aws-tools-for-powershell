@@ -40,9 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// <para>
     /// Returns only the sessions that the caller created. When identity-enhanced role sessions
     /// are used, you must provide either the <c>ClusterIdentifier</c> or <c>WorkgroupName</c>
-    /// parameter to ensure that the AWS IAM Identity Center user can only access the Amazon
-    /// Redshift IAM Identity Center applications they are assigned. For more information,
-    /// see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">
+    /// parameter to ensure that the IAM Identity Center user can only access the Amazon Redshift
+    /// IAM Identity Center applications they are assigned. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">
     /// Trusted identity propagation overview</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

@@ -62,6 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         public System.String ListingId { get; set; }
         #endregion
         
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
+        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
+        /// behavior, and the default locale. If omitted, the service returns content in the default
+        /// locale.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Locale { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -99,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
                 WriteWarning("You are passing $null as a value for parameter ListingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Locale = this.Locale;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             if (cmdletContext.ListingId != null)
             {
                 request.ListingId = cmdletContext.ListingId;
+            }
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
             }
             
             CmdletOutput output;
@@ -175,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ListingId { get; set; }
+            public System.String Locale { get; set; }
             public System.Func<Amazon.MarketplaceDiscovery.Model.GetListingResponse, GetMKTDListingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

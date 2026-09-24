@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.AccountName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ACCTAccountName (PutAccountName)"))
             {
                 return;

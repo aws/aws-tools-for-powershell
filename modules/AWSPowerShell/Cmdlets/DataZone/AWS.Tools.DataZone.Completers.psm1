@@ -117,6 +117,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.BlueprintCategory
+        {
+            ($_ -eq "New-DZEnvironmentBlueprint/BlueprintCategory") -Or
+            ($_ -eq "Update-DZEnvironmentBlueprint/BlueprintCategory")
+        }
+        {
+            $v = "TOOLING"
+            break
+        }
+
         # Amazon.DataZone.ChangeAction
         "New-DZListingChangeSet/Action"
         {
@@ -703,6 +713,7 @@ $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
     "Action"=@("Get-DZRuleList","New-DZListingChangeSet","New-DZRule")
     "AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
+    "BlueprintCategory"=@("New-DZEnvironmentBlueprint","Update-DZEnvironmentBlueprint")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")

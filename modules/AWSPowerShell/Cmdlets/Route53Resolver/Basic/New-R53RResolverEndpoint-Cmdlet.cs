@@ -112,7 +112,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound
         /// endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet
-        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note><para />
+        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note><para>We recommend using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver-getting-started.html">VPC
+        /// Resolver on Outposts</a> to create endpoints on Outposts Racks.</para><important><para>Outposts subnets with <a href="https://docs.aws.amazon.com/outposts/latest/server-userguide/local-network-interface.html">Local
+        /// Network Interface (LNI)</a> enabled are not compatible with Route 53 Resolver endpoints.
+        /// If you enable LNI on a subnet that contains Route 53 Resolver endpoint elastic network
+        /// interfaces (ENIs), those ENIs will stop functioning. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-resolver.html#best-practices-resolver-subnet-compatibility">Subnet
+        /// compatibility for Resolver endpoints</a> in the <i>Amazon Route 53 Developer Guide</i>.</para></important><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -163,7 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also
-        /// specify a value for the <c>PreferredInstanceType</c>. </para>
+        /// specify a value for the <c>PreferredInstanceType</c>. </para><note><para>Resolver endpoints on Outposts are supported on first-generation Outposts only. Inbound
+        /// and outbound Resolver endpoints aren't supported on second-generation Outposts.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,11 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Amazon.GroundStation.IAmazonGroundStation.GetAgentTaskResponseUrl
+    /// <note><para>
+    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
+    /// </para></note><para>
+    /// Gets a presigned URL for uploading agent task response logs.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GSAgentTaskResponseUrl")]
     [OutputType("Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse")]

@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MembershipName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MembershipName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.MembershipName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SecurityIRMembership (CreateMembership)"))
             {
                 return;

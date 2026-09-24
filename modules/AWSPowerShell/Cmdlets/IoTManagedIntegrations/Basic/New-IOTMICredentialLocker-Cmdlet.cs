@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Name) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTMICredentialLocker (CreateCredentialLocker)"))
             {
                 return;

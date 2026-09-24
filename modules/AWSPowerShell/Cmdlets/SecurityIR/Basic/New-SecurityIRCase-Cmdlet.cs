@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Title), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Title), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Title) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SecurityIRCase (CreateCase)"))
             {
                 return;

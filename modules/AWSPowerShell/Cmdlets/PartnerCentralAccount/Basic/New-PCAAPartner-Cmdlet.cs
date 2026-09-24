@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LegalName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LegalName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.LegalName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PCAAPartner (CreatePartner)"))
             {
                 return;

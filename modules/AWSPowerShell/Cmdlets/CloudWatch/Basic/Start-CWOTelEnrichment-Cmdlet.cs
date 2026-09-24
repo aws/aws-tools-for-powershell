@@ -41,14 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Before calling this operation, you must enable resource tags on telemetry for your
     /// account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html">Enable
     /// resource tags on telemetry</a>.
+    /// </para><para>
+    /// Optionally, <c>IncludeFilters</c> and <c>ExcludeFilters</c> limit enrichment to a
+    /// subset of the account's metrics. These filters are stored only when this operation
+    /// starts enrichment. Calling <c>StartOTelEnrichment</c> for an account where enrichment
+    /// is already running has no effect and does not modify the filters that are applied.
+    /// To change them, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html">UpdateOTelEnrichment</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CWOTelEnrichment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.CloudWatch.Model.StartOTelEnrichmentResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch StartOTelEnrichment API operation.", Operation = new[] {"StartOTelEnrichment"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.StartOTelEnrichmentResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatch.Model.StartOTelEnrichmentResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.StartOTelEnrichmentResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.StartOTelEnrichmentResponse",
+        "This cmdlet returns an Amazon.CloudWatch.Model.StartOTelEnrichmentResponse object containing multiple properties."
     )]
     public partial class StartCWOTelEnrichmentCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -56,10 +61,46 @@ namespace Amazon.PowerShell.Cmdlets.CW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ExcludeFilter
+        /// <summary>
+        /// <para>
+        /// <para>The metric namespaces, and the metric names, to leave unenriched. If this parameter
+        /// is omitted, nothing is excluded.</para><para>Amazon CloudWatch applies <c>ExcludeFilters</c> after <c>IncludeFilters</c>, so a
+        /// metric that both parameters match is not enriched.</para><para>A maximum of 100 filters is allowed across <c>IncludeFilters</c> and <c>ExcludeFilters</c>
+        /// combined.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeFilters")]
+        public Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector[] ExcludeFilter { get; set; }
+        #endregion
+        
+        #region Parameter IncludeFilter
+        /// <summary>
+        /// <para>
+        /// <para>The metric namespaces, and the metric names, to enrich. If this parameter is omitted,
+        /// every namespace that Amazon CloudWatch supports for enrichment is in scope.</para><para>A maximum of 100 filters is allowed across <c>IncludeFilters</c> and <c>ExcludeFilters</c>
+        /// combined.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeFilters")]
+        public Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector[] IncludeFilter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.StartOTelEnrichmentResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatch.Model.StartOTelEnrichmentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,6 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.StartOTelEnrichmentResponse, StartCWOTelEnrichmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.ExcludeFilter != null)
+            {
+                context.ExcludeFilter = new List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector>(this.ExcludeFilter);
+            }
+            if (this.IncludeFilter != null)
+            {
+                context.IncludeFilter = new List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector>(this.IncludeFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.StartOTelEnrichmentRequest();
             
+            if (cmdletContext.ExcludeFilter != null)
+            {
+                request.ExcludeFilters = cmdletContext.ExcludeFilter;
+            }
+            if (cmdletContext.IncludeFilter != null)
+            {
+                request.IncludeFilters = cmdletContext.IncludeFilter;
+            }
             
             CmdletOutput output;
             
@@ -172,8 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector> ExcludeFilter { get; set; }
+            public List<Amazon.CloudWatch.Model.OTelEnrichmentMetricSelector> IncludeFilter { get; set; }
             public System.Func<Amazon.CloudWatch.Model.StartOTelEnrichmentResponse, StartCWOTelEnrichmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

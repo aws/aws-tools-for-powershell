@@ -79,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>
         /// <para>The metadata for the notebook, specified as key-value pairs. You can specify up to
         /// 50 entries, with keys up to 128 characters and values up to 1024 characters.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -128,9 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>
         /// <para>The sensitive parameters for the notebook, specified as key-value pairs. You can specify
         /// up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -197,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 nameof(this.DomainIdentifier),
                 nameof(this.OwningProjectIdentifier)
             };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Name) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DZNotebook (CreateNotebook)"))
             {
                 return;

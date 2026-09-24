@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryString), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryString), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.QueryString) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Initialize-TSQQuery (PrepareQuery)"))
             {
                 return;

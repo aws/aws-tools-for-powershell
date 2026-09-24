@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 nameof(this.UserPoolId),
                 nameof(this.Username)
             };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Username) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIPAdminSoftwareToken (AdminDeleteSoftwareToken)"))
             {
                 return;
