@@ -69,17 +69,22 @@ Describe -Tag "Smoke" "IAM" {
             $newPasswordCanary = "NewPwd-Canary-$([DateTime]::Now.ToFileTime())"
             $transcriptPath = Join-Path ([System.IO.Path]::GetTempPath()) "iam-editpassword-whatif-$([DateTime]::Now.ToFileTime()).txt"
 
+            $transcriptStarted = $false
             try {
                 Start-Transcript -Path $transcriptPath | Out-Null
+                $transcriptStarted = $true
                 Edit-IAMPassword -OldPassword $oldPasswordCanary -NewPassword $newPasswordCanary -WhatIf
             }
             finally {
-                Stop-Transcript | Out-Null
+                if ($transcriptStarted) {
+                    Stop-Transcript | Out-Null
+                }
             }
 
             $whatIfMessage = (Get-Content -Path $transcriptPath | Where-Object { $_ -like "What if:*" }) -join "`n"
             try {
                 $whatIfMessage | Should -BeLike "*Edit-IAMPassword (ChangePassword)*"
+                $whatIfMessage | Should -BeLike "*sensitive data redacted*"
                 $whatIfMessage | Should -Not -BeLike "*$oldPasswordCanary*"
             }
             finally {

@@ -200,6 +200,19 @@ namespace Common.Tests
         }
 
         [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_UnboundSensitiveParameter_ReturnsEmpty()
+        {
+            // Arrange - the sensitive parameter is not present in bound parameters
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                "OldPassword", _boundParameters, new HashSet<string> { "OldPassword" });
+
+            // Assert - no value was supplied, so it must render empty rather than imply a value
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
         public void FormatParameterValuesForConfirmationMsg_MultipleParametersMixedSensitivity_RedactsOnlySensitiveFields()
         {
             // Arrange
