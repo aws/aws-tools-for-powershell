@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 nameof(this.ClientId),
                 nameof(this.UserPoolId)
             };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ClientId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CGIPUserPoolClientSecret (AddUserPoolClientSecret)"))
             {
                 return;

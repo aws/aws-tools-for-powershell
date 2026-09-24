@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     /// <summary>
     /// You can use <c>UpdateOutpostResolver</c> to update the instance count, type, or name
     /// of a Resolver on an Outpost.
+    /// 
+    ///  <note><para>
+    /// This operation applies to first-generation Outposts only. On second-generation Outposts,
+    /// Resolver is managed automatically by Amazon Web Services and can't be updated directly.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]

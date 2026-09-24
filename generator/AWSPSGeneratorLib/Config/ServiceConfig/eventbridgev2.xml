@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>eventbridgev2</C2jFilename>
+    <AssemblyName>EventBridgeV2</AssemblyName>
+    <ServiceNounPrefix>EVBV2</ServiceNounPrefix>
+    <ServiceName>Amazon EventBridgeV2</ServiceName>
+    <ServiceId>EventBridgeV2</ServiceId>
+    <ServiceClientInterface>IAmazonEventBridgeV2</ServiceClientInterface>
+    <ServiceClient>AmazonEventBridgeV2Client</ServiceClient>
+    <ServiceModuleGuid>e4a48796-36ed-4ea4-a8f5-f86ceb3e633f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateEventBus" OutputProperty="*" Verb="New" Noun="EventBus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSource" OutputProperty="*" Verb="New" Noun="EventSource" ShouldProcessTarget="Name,EventBusArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriber" OutputProperty="*" Verb="New" Noun="Subscriber" ShouldProcessTarget="Name,EventBusArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventBus" Verb="Remove" Noun="EventBus" ShouldProcessTarget="EventBusArn" PipelineParameter="EventBusArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSource" Verb="Remove" Noun="EventSource" ShouldProcessTarget="EventSourceArn" PipelineParameter="EventSourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="RevisionId" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="SubscriberArn" PipelineParameter="SubscriberArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventBus" OutputProperty="*" Verb="Get" Noun="EventBusDetail" PipelineParameter="EventBusArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSource" OutputProperty="*" Verb="Get" Noun="EventSourceDetail" PipelineParameter="EventSourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubscriber" OutputProperty="*" Verb="Get" Noun="SubscriberDetail" PipelineParameter="SubscriberArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcePolicies" OutputProperty="PolicySummaries" Verb="Get" Noun="ResourcePolicyList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscribers" OutputProperty="Subscribers" Verb="Get" Noun="SubscriberList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEvents" OutputProperty="*" Verb="Write" Noun="Event" ShouldProcessTarget="EventBusArn" PipelineParameter="EventBusArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRawEvents" OutputProperty="*" Verb="Write" Noun="RawEvent" ShouldProcessTarget="EventBusArn" PipelineParameter="EventBusArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeResource" OutputProperty="Arn" Verb="Revoke" Noun="Resource" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventBus" OutputProperty="*" Verb="Update" Noun="EventBus" ShouldProcessTarget="EventBusArn" PipelineParameter="EventBusArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventSource" OutputProperty="*" Verb="Update" Noun="EventSource" ShouldProcessTarget="EventSourceArn" PipelineParameter="EventSourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriber" OutputProperty="*" Verb="Update" Noun="Subscriber" ShouldProcessTarget="SubscriberArn" PipelineParameter="SubscriberArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OldPassword), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OldPassword), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.OldPassword) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-IAMPassword (ChangePassword)"))
             {
                 return;

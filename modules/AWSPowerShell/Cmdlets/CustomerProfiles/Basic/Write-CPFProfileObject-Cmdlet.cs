@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Object), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Object), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Object) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CPFProfileObject (PutProfileObject)"))
             {
                 return;

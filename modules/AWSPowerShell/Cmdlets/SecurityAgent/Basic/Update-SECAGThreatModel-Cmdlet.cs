@@ -77,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter ReportDestination_ContainerId
+        /// <summary>
+        /// <para>
+        /// <para>The container identifier where the report will be published.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_ContainerId { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -85,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ReportDestination_DocumentId
+        /// <summary>
+        /// <para>
+        /// <para>The existing document identifier to update instead of creating a new document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_DocumentId { get; set; }
         #endregion
         
         #region Parameter Assets_Document
@@ -135,6 +155,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public Amazon.SecurityAgent.Model.IntegratedRepository[] Assets_IntegratedRepository { get; set; }
         #endregion
         
+        #region Parameter ReportDestination_IntegrationId
+        /// <summary>
+        /// <para>
+        /// <para>The integration identifier for the document provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_IntegrationId { get; set; }
+        #endregion
+        
         #region Parameter LogConfig_LogGroup
         /// <summary>
         /// <para>
@@ -153,6 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LogConfig_LogStream { get; set; }
+        #endregion
+        
+        #region Parameter ReportDestination_ParentId
+        /// <summary>
+        /// <para>
+        /// <para>The parent document identifier under which the report will be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_ParentId { get; set; }
         #endregion
         
         #region Parameter ScopeDoc
@@ -321,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             context.Description = this.Description;
             context.LogConfig_LogGroup = this.LogConfig_LogGroup;
             context.LogConfig_LogStream = this.LogConfig_LogStream;
+            context.ReportDestination_ContainerId = this.ReportDestination_ContainerId;
+            context.ReportDestination_DocumentId = this.ReportDestination_DocumentId;
+            context.ReportDestination_IntegrationId = this.ReportDestination_IntegrationId;
+            context.ReportDestination_ParentId = this.ReportDestination_ParentId;
             if (this.ScopeDoc != null)
             {
                 context.ScopeDoc = new List<Amazon.SecurityAgent.Model.DocumentInfo>(this.ScopeDoc);
@@ -456,6 +500,55 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.LogConfig = null;
             }
+            
+             // populate ReportDestination
+            var requestReportDestinationIsNull = true;
+            request.ReportDestination = new Amazon.SecurityAgent.Model.ReportDestination();
+            System.String requestReportDestination_reportDestination_ContainerId = null;
+            if (cmdletContext.ReportDestination_ContainerId != null)
+            {
+                requestReportDestination_reportDestination_ContainerId = cmdletContext.ReportDestination_ContainerId;
+            }
+            if (requestReportDestination_reportDestination_ContainerId != null)
+            {
+                request.ReportDestination.ContainerId = requestReportDestination_reportDestination_ContainerId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_DocumentId = null;
+            if (cmdletContext.ReportDestination_DocumentId != null)
+            {
+                requestReportDestination_reportDestination_DocumentId = cmdletContext.ReportDestination_DocumentId;
+            }
+            if (requestReportDestination_reportDestination_DocumentId != null)
+            {
+                request.ReportDestination.DocumentId = requestReportDestination_reportDestination_DocumentId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_IntegrationId = null;
+            if (cmdletContext.ReportDestination_IntegrationId != null)
+            {
+                requestReportDestination_reportDestination_IntegrationId = cmdletContext.ReportDestination_IntegrationId;
+            }
+            if (requestReportDestination_reportDestination_IntegrationId != null)
+            {
+                request.ReportDestination.IntegrationId = requestReportDestination_reportDestination_IntegrationId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_ParentId = null;
+            if (cmdletContext.ReportDestination_ParentId != null)
+            {
+                requestReportDestination_reportDestination_ParentId = cmdletContext.ReportDestination_ParentId;
+            }
+            if (requestReportDestination_reportDestination_ParentId != null)
+            {
+                request.ReportDestination.ParentId = requestReportDestination_reportDestination_ParentId;
+                requestReportDestinationIsNull = false;
+            }
+             // determine if request.ReportDestination should be set to null
+            if (requestReportDestinationIsNull)
+            {
+                request.ReportDestination = null;
+            }
             if (cmdletContext.ScopeDoc != null)
             {
                 request.ScopeDocs = cmdletContext.ScopeDoc;
@@ -537,6 +630,10 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public System.String Description { get; set; }
             public System.String LogConfig_LogGroup { get; set; }
             public System.String LogConfig_LogStream { get; set; }
+            public System.String ReportDestination_ContainerId { get; set; }
+            public System.String ReportDestination_DocumentId { get; set; }
+            public System.String ReportDestination_IntegrationId { get; set; }
+            public System.String ReportDestination_ParentId { get; set; }
             public List<Amazon.SecurityAgent.Model.DocumentInfo> ScopeDoc { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String ThreatModelId { get; set; }

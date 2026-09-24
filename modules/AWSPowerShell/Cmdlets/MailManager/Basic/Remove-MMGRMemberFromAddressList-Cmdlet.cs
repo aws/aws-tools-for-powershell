@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Address), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Address), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Address) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MMGRMemberFromAddressList (DeregisterMemberFromAddressList)"))
             {
                 return;

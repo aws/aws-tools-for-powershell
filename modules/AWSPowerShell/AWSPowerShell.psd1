@@ -219,6 +219,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.EMRServerless.dll',
         'AWSSDK.EntityResolution.dll',
         'AWSSDK.EventBridge.dll',
+        'AWSSDK.EventBridgeV2.dll',
         'AWSSDK.Evs.dll',
         'AWSSDK.Finspace.dll',
         'AWSSDK.FinSpaceData.dll',

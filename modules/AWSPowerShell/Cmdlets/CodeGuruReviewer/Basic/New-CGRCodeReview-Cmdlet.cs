@@ -53,9 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para>They types of analysis performed during a repository analysis or a pull request review.
         /// You can specify either <c>Security</c>, <c>CodeQuality</c>, or both.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -379,8 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             context.Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName = this.Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName;
             context.EventInfo_Name = this.EventInfo_Name;
             context.EventInfo_State = this.EventInfo_State;
-            context.RequestMetadata_Requester = this.RequestMetadata_Requester;
             context.RequestMetadata_RequestId = this.RequestMetadata_RequestId;
+            context.RequestMetadata_Requester = this.RequestMetadata_Requester;
             context.RequestMetadata_VendorName = this.RequestMetadata_VendorName;
             context.Details_BucketName = this.Details_BucketName;
             context.CodeArtifacts_BuildArtifactsObjectKey = this.CodeArtifacts_BuildArtifactsObjectKey;
@@ -658,16 +659,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
              // populate RequestMetadata
             var requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadataIsNull = true;
             requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata = new Amazon.CodeGuruReviewer.Model.RequestMetadata();
-            System.String requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester = null;
-            if (cmdletContext.RequestMetadata_Requester != null)
-            {
-                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester = cmdletContext.RequestMetadata_Requester;
-            }
-            if (requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester != null)
-            {
-                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata.Requester = requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester;
-                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadataIsNull = false;
-            }
             System.String requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_RequestId = null;
             if (cmdletContext.RequestMetadata_RequestId != null)
             {
@@ -676,6 +667,16 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_RequestId != null)
             {
                 requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata.RequestId = requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_RequestId;
+                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadataIsNull = false;
+            }
+            System.String requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester = null;
+            if (cmdletContext.RequestMetadata_Requester != null)
+            {
+                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester = cmdletContext.RequestMetadata_Requester;
+            }
+            if (requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester != null)
+            {
+                requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata.Requester = requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_Requester;
                 requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadataIsNull = false;
             }
             Amazon.CodeGuruReviewer.VendorName requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType_type_RepositoryAnalysis_SourceCodeType_RequestMetadata_requestMetadata_VendorName = null;
@@ -826,8 +827,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             public System.String Type_RepositoryAnalysis_SourceCodeType_RepositoryHead_BranchName { get; set; }
             public System.String EventInfo_Name { get; set; }
             public System.String EventInfo_State { get; set; }
-            public System.String RequestMetadata_Requester { get; set; }
             public System.String RequestMetadata_RequestId { get; set; }
+            public System.String RequestMetadata_Requester { get; set; }
             public Amazon.CodeGuruReviewer.VendorName RequestMetadata_VendorName { get; set; }
             public System.String Details_BucketName { get; set; }
             public System.String CodeArtifacts_BuildArtifactsObjectKey { get; set; }

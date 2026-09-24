@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LibraryName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LibraryName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.LibraryName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BDADataAutomationLibrary (CreateDataAutomationLibrary)"))
             {
                 return;

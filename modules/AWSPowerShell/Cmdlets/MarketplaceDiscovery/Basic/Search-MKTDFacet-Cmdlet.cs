@@ -78,6 +78,19 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         public Amazon.MarketplaceDiscovery.Model.SearchFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
+        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
+        /// behavior, and the default locale. If omitted, the service returns content in the default
+        /// locale.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Locale { get; set; }
+        #endregion
+        
         #region Parameter SearchText
         /// <summary>
         /// <para>
@@ -167,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             {
                 context.Filter = new List<Amazon.MarketplaceDiscovery.Model.SearchFilter>(this.Filter);
             }
+            context.Locale = this.Locale;
             context.NextToken = this.NextToken;
             context.SearchText = this.SearchText;
             
@@ -194,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
             }
             if (cmdletContext.SearchText != null)
             {
@@ -280,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         {
             public List<System.String> FacetType { get; set; }
             public List<Amazon.MarketplaceDiscovery.Model.SearchFilter> Filter { get; set; }
+            public System.String Locale { get; set; }
             public System.String NextToken { get; set; }
             public System.String SearchText { get; set; }
             public System.Func<Amazon.MarketplaceDiscovery.Model.SearchFacetsResponse, SearchMKTDFacetCmdlet, object> Select { get; set; } =

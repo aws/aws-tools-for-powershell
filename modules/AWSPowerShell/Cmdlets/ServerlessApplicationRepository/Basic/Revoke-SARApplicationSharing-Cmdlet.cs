@@ -32,7 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     /// <summary>
     /// Unshares an application from an AWS Organization.
     /// 
-    /// 
     /// <para>
     /// This operation can be called only from the organization's master account.
     /// </para>

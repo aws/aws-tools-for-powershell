@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     ///  
     /// <para>
     /// If the rule group contains any rule configured with the <c>PartnerThreatProtection</c>
-    /// rule type, the calling account must hold an active AWS Marketplace subscription to
-    /// the named partner. If the subscription is missing, the association request is rejected.
+    /// rule type, the calling account must hold an active Amazon Web Services Marketplace
+    /// subscription to the named partner. If the subscription is missing, the association
+    /// request is rejected.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53RFirewallRuleGroupAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

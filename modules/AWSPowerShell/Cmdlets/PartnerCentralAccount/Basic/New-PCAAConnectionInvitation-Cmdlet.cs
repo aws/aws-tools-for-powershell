@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
                 nameof(this.Name),
                 nameof(this.ReceiverIdentifier)
             };
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Name) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PCAAConnectionInvitation (CreateConnectionInvitation)"))
             {
                 return;

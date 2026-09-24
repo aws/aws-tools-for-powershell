@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter ReportFilters_AnnotationNote
+        /// <summary>
+        /// <para>
+        /// <para>Whether to include reviewer annotation notes under each finding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_AnnotationNotes")]
+        public System.Boolean? ReportFilters_AnnotationNote { get; set; }
+        #endregion
+        
         #region Parameter CodeRemediationStrategy
         /// <summary>
         /// <para>
@@ -103,6 +114,52 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CodeReviewId { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_ComplianceReport
+        /// <summary>
+        /// <para>
+        /// <para>Whether to include the compliance-ready report additions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ReportFilters_ComplianceReport { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_ConfidenceLevel
+        /// <summary>
+        /// <para>
+        /// <para>The confidence levels to include in the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_ConfidenceLevels")]
+        public System.String[] ReportFilters_ConfidenceLevel { get; set; }
+        #endregion
+        
+        #region Parameter ReportDestination_ContainerId
+        /// <summary>
+        /// <para>
+        /// <para>The container identifier where the report will be published.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_ContainerId { get; set; }
+        #endregion
+        
+        #region Parameter ReportDestination_DocumentId
+        /// <summary>
+        /// <para>
+        /// <para>The existing document identifier to update instead of creating a new document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_DocumentId { get; set; }
         #endregion
         
         #region Parameter Assets_Document
@@ -137,6 +194,22 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public Amazon.SecurityAgent.Model.Endpoint[] Assets_Endpoint { get; set; }
         #endregion
         
+        #region Parameter ReportFilters_FindingType
+        /// <summary>
+        /// <para>
+        /// <para>The finding types to include in the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_FindingTypes")]
+        public System.String[] ReportFilters_FindingType { get; set; }
+        #endregion
+        
         #region Parameter Assets_IntegratedRepository
         /// <summary>
         /// <para>
@@ -151,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Assets_IntegratedRepositories")]
         public Amazon.SecurityAgent.Model.IntegratedRepository[] Assets_IntegratedRepository { get; set; }
+        #endregion
+        
+        #region Parameter ReportDestination_IntegrationId
+        /// <summary>
+        /// <para>
+        /// <para>The integration identifier for the document provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_IntegrationId { get; set; }
         #endregion
         
         #region Parameter LogConfig_LogGroup
@@ -185,6 +268,48 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.Double? MaxTaskHour { get; set; }
         #endregion
         
+        #region Parameter ReportDestination_ParentId
+        /// <summary>
+        /// <para>
+        /// <para>The parent document identifier under which the report will be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReportDestination_ParentId { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_RiskLevel
+        /// <summary>
+        /// <para>
+        /// <para>The severity levels to include in the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_RiskLevels")]
+        public System.String[] ReportFilters_RiskLevel { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_RiskType
+        /// <summary>
+        /// <para>
+        /// <para>The risk types to include in the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_RiskTypes")]
+        public System.String[] ReportFilters_RiskType { get; set; }
+        #endregion
+        
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
@@ -208,6 +333,38 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SecurityAgent.Model.SourceCodeRepository[] Assets_SourceCode { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_Status
+        /// <summary>
+        /// <para>
+        /// <para>The finding statuses to include in the report.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_Statuses")]
+        public System.String[] ReportFilters_Status { get; set; }
+        #endregion
+        
+        #region Parameter ReportFilters_TaskStatus
+        /// <summary>
+        /// <para>
+        /// <para>The task execution statuses to include in the report's task table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportFilters_TaskStatuses")]
+        public System.String[] ReportFilters_TaskStatus { get; set; }
         #endregion
         
         #region Parameter Title
@@ -337,6 +494,36 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             context.LogConfig_LogGroup = this.LogConfig_LogGroup;
             context.LogConfig_LogStream = this.LogConfig_LogStream;
             context.MaxTaskHour = this.MaxTaskHour;
+            context.ReportDestination_ContainerId = this.ReportDestination_ContainerId;
+            context.ReportDestination_DocumentId = this.ReportDestination_DocumentId;
+            context.ReportDestination_IntegrationId = this.ReportDestination_IntegrationId;
+            context.ReportDestination_ParentId = this.ReportDestination_ParentId;
+            context.ReportFilters_AnnotationNote = this.ReportFilters_AnnotationNote;
+            context.ReportFilters_ComplianceReport = this.ReportFilters_ComplianceReport;
+            if (this.ReportFilters_ConfidenceLevel != null)
+            {
+                context.ReportFilters_ConfidenceLevel = new List<System.String>(this.ReportFilters_ConfidenceLevel);
+            }
+            if (this.ReportFilters_FindingType != null)
+            {
+                context.ReportFilters_FindingType = new List<System.String>(this.ReportFilters_FindingType);
+            }
+            if (this.ReportFilters_RiskLevel != null)
+            {
+                context.ReportFilters_RiskLevel = new List<System.String>(this.ReportFilters_RiskLevel);
+            }
+            if (this.ReportFilters_RiskType != null)
+            {
+                context.ReportFilters_RiskType = new List<System.String>(this.ReportFilters_RiskType);
+            }
+            if (this.ReportFilters_Status != null)
+            {
+                context.ReportFilters_Status = new List<System.String>(this.ReportFilters_Status);
+            }
+            if (this.ReportFilters_TaskStatus != null)
+            {
+                context.ReportFilters_TaskStatus = new List<System.String>(this.ReportFilters_TaskStatus);
+            }
             context.ServiceRole = this.ServiceRole;
             context.Title = this.Title;
             context.ValidationMode = this.ValidationMode;
@@ -470,6 +657,144 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             {
                 request.MaxTaskHours = cmdletContext.MaxTaskHour.Value;
             }
+            
+             // populate ReportDestination
+            var requestReportDestinationIsNull = true;
+            request.ReportDestination = new Amazon.SecurityAgent.Model.ReportDestination();
+            System.String requestReportDestination_reportDestination_ContainerId = null;
+            if (cmdletContext.ReportDestination_ContainerId != null)
+            {
+                requestReportDestination_reportDestination_ContainerId = cmdletContext.ReportDestination_ContainerId;
+            }
+            if (requestReportDestination_reportDestination_ContainerId != null)
+            {
+                request.ReportDestination.ContainerId = requestReportDestination_reportDestination_ContainerId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_DocumentId = null;
+            if (cmdletContext.ReportDestination_DocumentId != null)
+            {
+                requestReportDestination_reportDestination_DocumentId = cmdletContext.ReportDestination_DocumentId;
+            }
+            if (requestReportDestination_reportDestination_DocumentId != null)
+            {
+                request.ReportDestination.DocumentId = requestReportDestination_reportDestination_DocumentId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_IntegrationId = null;
+            if (cmdletContext.ReportDestination_IntegrationId != null)
+            {
+                requestReportDestination_reportDestination_IntegrationId = cmdletContext.ReportDestination_IntegrationId;
+            }
+            if (requestReportDestination_reportDestination_IntegrationId != null)
+            {
+                request.ReportDestination.IntegrationId = requestReportDestination_reportDestination_IntegrationId;
+                requestReportDestinationIsNull = false;
+            }
+            System.String requestReportDestination_reportDestination_ParentId = null;
+            if (cmdletContext.ReportDestination_ParentId != null)
+            {
+                requestReportDestination_reportDestination_ParentId = cmdletContext.ReportDestination_ParentId;
+            }
+            if (requestReportDestination_reportDestination_ParentId != null)
+            {
+                request.ReportDestination.ParentId = requestReportDestination_reportDestination_ParentId;
+                requestReportDestinationIsNull = false;
+            }
+             // determine if request.ReportDestination should be set to null
+            if (requestReportDestinationIsNull)
+            {
+                request.ReportDestination = null;
+            }
+            
+             // populate ReportFilters
+            var requestReportFiltersIsNull = true;
+            request.ReportFilters = new Amazon.SecurityAgent.Model.ReportFilters();
+            System.Boolean? requestReportFilters_reportFilters_AnnotationNote = null;
+            if (cmdletContext.ReportFilters_AnnotationNote != null)
+            {
+                requestReportFilters_reportFilters_AnnotationNote = cmdletContext.ReportFilters_AnnotationNote.Value;
+            }
+            if (requestReportFilters_reportFilters_AnnotationNote != null)
+            {
+                request.ReportFilters.AnnotationNotes = requestReportFilters_reportFilters_AnnotationNote.Value;
+                requestReportFiltersIsNull = false;
+            }
+            System.Boolean? requestReportFilters_reportFilters_ComplianceReport = null;
+            if (cmdletContext.ReportFilters_ComplianceReport != null)
+            {
+                requestReportFilters_reportFilters_ComplianceReport = cmdletContext.ReportFilters_ComplianceReport.Value;
+            }
+            if (requestReportFilters_reportFilters_ComplianceReport != null)
+            {
+                request.ReportFilters.ComplianceReport = requestReportFilters_reportFilters_ComplianceReport.Value;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_ConfidenceLevel = null;
+            if (cmdletContext.ReportFilters_ConfidenceLevel != null)
+            {
+                requestReportFilters_reportFilters_ConfidenceLevel = cmdletContext.ReportFilters_ConfidenceLevel;
+            }
+            if (requestReportFilters_reportFilters_ConfidenceLevel != null)
+            {
+                request.ReportFilters.ConfidenceLevels = requestReportFilters_reportFilters_ConfidenceLevel;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_FindingType = null;
+            if (cmdletContext.ReportFilters_FindingType != null)
+            {
+                requestReportFilters_reportFilters_FindingType = cmdletContext.ReportFilters_FindingType;
+            }
+            if (requestReportFilters_reportFilters_FindingType != null)
+            {
+                request.ReportFilters.FindingTypes = requestReportFilters_reportFilters_FindingType;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_RiskLevel = null;
+            if (cmdletContext.ReportFilters_RiskLevel != null)
+            {
+                requestReportFilters_reportFilters_RiskLevel = cmdletContext.ReportFilters_RiskLevel;
+            }
+            if (requestReportFilters_reportFilters_RiskLevel != null)
+            {
+                request.ReportFilters.RiskLevels = requestReportFilters_reportFilters_RiskLevel;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_RiskType = null;
+            if (cmdletContext.ReportFilters_RiskType != null)
+            {
+                requestReportFilters_reportFilters_RiskType = cmdletContext.ReportFilters_RiskType;
+            }
+            if (requestReportFilters_reportFilters_RiskType != null)
+            {
+                request.ReportFilters.RiskTypes = requestReportFilters_reportFilters_RiskType;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_Status = null;
+            if (cmdletContext.ReportFilters_Status != null)
+            {
+                requestReportFilters_reportFilters_Status = cmdletContext.ReportFilters_Status;
+            }
+            if (requestReportFilters_reportFilters_Status != null)
+            {
+                request.ReportFilters.Statuses = requestReportFilters_reportFilters_Status;
+                requestReportFiltersIsNull = false;
+            }
+            List<System.String> requestReportFilters_reportFilters_TaskStatus = null;
+            if (cmdletContext.ReportFilters_TaskStatus != null)
+            {
+                requestReportFilters_reportFilters_TaskStatus = cmdletContext.ReportFilters_TaskStatus;
+            }
+            if (requestReportFilters_reportFilters_TaskStatus != null)
+            {
+                request.ReportFilters.TaskStatuses = requestReportFilters_reportFilters_TaskStatus;
+                requestReportFiltersIsNull = false;
+            }
+             // determine if request.ReportFilters should be set to null
+            if (requestReportFiltersIsNull)
+            {
+                request.ReportFilters = null;
+            }
             if (cmdletContext.ServiceRole != null)
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
@@ -549,6 +874,18 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             public System.String LogConfig_LogGroup { get; set; }
             public System.String LogConfig_LogStream { get; set; }
             public System.Double? MaxTaskHour { get; set; }
+            public System.String ReportDestination_ContainerId { get; set; }
+            public System.String ReportDestination_DocumentId { get; set; }
+            public System.String ReportDestination_IntegrationId { get; set; }
+            public System.String ReportDestination_ParentId { get; set; }
+            public System.Boolean? ReportFilters_AnnotationNote { get; set; }
+            public System.Boolean? ReportFilters_ComplianceReport { get; set; }
+            public List<System.String> ReportFilters_ConfidenceLevel { get; set; }
+            public List<System.String> ReportFilters_FindingType { get; set; }
+            public List<System.String> ReportFilters_RiskLevel { get; set; }
+            public List<System.String> ReportFilters_RiskType { get; set; }
+            public List<System.String> ReportFilters_Status { get; set; }
+            public List<System.String> ReportFilters_TaskStatus { get; set; }
             public System.String ServiceRole { get; set; }
             public System.String Title { get; set; }
             public Amazon.SecurityAgent.ValidationMode ValidationMode { get; set; }

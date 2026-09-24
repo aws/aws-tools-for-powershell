@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BusinessVerificationDetails_RegistrationId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BusinessVerificationDetails_RegistrationId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.BusinessVerificationDetails_RegistrationId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-PCAAVerification (StartVerification)"))
             {
                 return;

@@ -1,4 +1,37 @@
-﻿### 5.0.305 (2026-09-23 19:11Z)
+﻿### 5.0.306 (2026-09-24 19:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.341.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWResourceMetricsConfiguration leveraging the GetResourceMetricsConfiguration service API.
+    * Added cmdlet New-CWResourceMetricsConfiguration leveraging the CreateResourceMetricsConfiguration service API.
+    * Added cmdlet Remove-CWResourceMetricsConfiguration leveraging the DeleteResourceMetricsConfiguration service API.
+    * Added cmdlet Update-CWOTelEnrichment leveraging the UpdateOTelEnrichment service API.
+    * Added cmdlet Update-CWResourceMetricsConfiguration leveraging the UpdateResourceMetricsConfiguration service API.
+    * Modified cmdlet Start-CWOTelEnrichment: added parameters ExcludeFilter and IncludeFilter.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameter Props_IamProperties_RoleArn.
+    * Modified cmdlet New-DZEnvironmentBlueprint: added parameter BlueprintCategory.
+    * Modified cmdlet Update-DZEnvironmentBlueprint: added parameter BlueprintCategory.
+  * Amazon ElastiCache
+    * Modified cmdlet New-ECGlobalReplicationGroup: added parameter Tag.
+  * Amazon EventBridgeV2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EVBV2 and can be listed using the command 'Get-AWSCmdletName -Service EVBV2'.
+  * Amazon Marketplace Discovery
+    * Modified cmdlet Get-MKTDFulfillmentOptionList: added parameter Locale.
+    * Modified cmdlet Get-MKTDListing: added parameter Locale.
+    * Modified cmdlet Get-MKTDOffer: added parameter Locale.
+    * Modified cmdlet Get-MKTDOfferSet: added parameter Locale.
+    * Modified cmdlet Get-MKTDOfferTerm: added parameter Locale.
+    * Modified cmdlet Get-MKTDProduct: added parameter Locale.
+    * Modified cmdlet Get-MKTDPurchaseOptionList: added parameter Locale.
+    * Modified cmdlet Search-MKTDFacet: added parameter Locale.
+    * Modified cmdlet Search-MKTDListing: added parameter Locale.
+  * Amazon Security Agent
+    * Modified cmdlet New-SECAGCodeReview: added parameters ReportDestination_ContainerId, ReportDestination_DocumentId, ReportDestination_IntegrationId, ReportDestination_ParentId, ReportFilters_AnnotationNote, ReportFilters_ComplianceReport, ReportFilters_ConfidenceLevel, ReportFilters_FindingType, ReportFilters_RiskLevel, ReportFilters_RiskType, ReportFilters_Status and ReportFilters_TaskStatus.
+    * Modified cmdlet New-SECAGPentest: added parameters ReportDestination_ContainerId, ReportDestination_DocumentId, ReportDestination_IntegrationId, ReportDestination_ParentId, ReportFilters_AnnotationNote, ReportFilters_ComplianceReport, ReportFilters_ConfidenceLevel, ReportFilters_FindingType, ReportFilters_RiskLevel, ReportFilters_RiskType, ReportFilters_Status and ReportFilters_TaskStatus.
+    * Modified cmdlet Update-SECAGCodeReview: added parameters ReportDestination_ContainerId, ReportDestination_DocumentId, ReportDestination_IntegrationId, ReportDestination_ParentId, ReportFilters_AnnotationNote, ReportFilters_ComplianceReport, ReportFilters_ConfidenceLevel, ReportFilters_FindingType, ReportFilters_RiskLevel, ReportFilters_RiskType, ReportFilters_Status and ReportFilters_TaskStatus.
+    * Modified cmdlet Update-SECAGPentest: added parameters ReportDestination_ContainerId, ReportDestination_DocumentId, ReportDestination_IntegrationId, ReportDestination_ParentId, ReportFilters_AnnotationNote, ReportFilters_ComplianceReport, ReportFilters_ConfidenceLevel, ReportFilters_FindingType, ReportFilters_RiskLevel, ReportFilters_RiskType, ReportFilters_Status and ReportFilters_TaskStatus.
+    * Modified cmdlet Update-SECAGThreatModel: added parameters ReportDestination_ContainerId, ReportDestination_DocumentId, ReportDestination_IntegrationId and ReportDestination_ParentId.
+
+### 5.0.305 (2026-09-23 19:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.340.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing
     * Added cmdlet Get-AWSBBillingViewSegmentList leveraging the ListBillingViewSegments service API.

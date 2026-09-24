@@ -69,10 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         /// <para>
         /// <para> The format of the submitted profiling data. The format maps to the <c>Accept</c>
         /// and <c>Content-Type</c> headers of the HTTP request. You can specify one of the following:
-        /// or the default . </para><pre><c> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
-        /// — standard JSON format &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/x-amzn-ion&lt;/code&gt;
-        /// — the Amazon Ion data format. For more information, see &lt;a href="http://amzn.github.io/ion-docs/"&gt;Amazon
-        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
+        /// or the default . </para><ul><li><para><c>application/json</c> — standard JSON format </para></li><li><para><c>application/x-amzn-ion</c> — the Amazon Ion data format. For more information,
+        /// see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

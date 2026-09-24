@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter BlueprintCategory
+        /// <summary>
+        /// <para>
+        /// <para>The category to update. The only valid value is <c>TOOLING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.BlueprintCategory")]
+        public Amazon.DataZone.BlueprintCategory BlueprintCategory { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -106,9 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>
         /// <para>The user parameters to be updated as part of the <c>UpdateEnvironmentBlueprint</c>
         /// action.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -163,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse, UpdateDZEnvironmentBlueprintCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BlueprintCategory = this.BlueprintCategory;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -199,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.UpdateEnvironmentBlueprintRequest();
             
+            if (cmdletContext.BlueprintCategory != null)
+            {
+                request.BlueprintCategory = cmdletContext.BlueprintCategory;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -304,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DataZone.BlueprintCategory BlueprintCategory { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }

@@ -37,6 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// To copy an existing dashboard, use <c>GetDashboard</c>, and then use the data returned
     /// within <c>DashboardBody</c> as the template for the new dashboard when you call <c>PutDashboard</c>
     /// to create the copy.
+    /// </para><para>
+    /// You might have recently enabled an <a href="https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion">opt-in
+    /// Region (Region that is disabled by default)</a> for your account. In that Region,
+    /// <c>GetDashboard</c> can return an access denied error for up to 24 hours after you
+    /// enable the Region. This delay occurs while dashboard data propagates. The error does
+    /// not indicate a problem with your permissions. Because dashboards are global, you can
+    /// call <c>GetDashboard</c> in any other enabled Region, or retry after propagation completes.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWDashboard")]

@@ -96,14 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// Secrets Manager or temporary credentials. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Database { get; set; }
         #endregion
         
@@ -220,12 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             }
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
-            #if MODULAR
-            if (this.Database == null && ParameterWasBound(nameof(this.Database)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Database which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DbUser = this.DbUser;
             context.MaxResult = this.MaxResult;
             #if !MODULAR

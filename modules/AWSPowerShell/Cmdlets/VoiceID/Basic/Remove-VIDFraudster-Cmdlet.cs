@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FraudsterId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FraudsterId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.FraudsterId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-VIDFraudster (DeleteFraudster)"))
             {
                 return;

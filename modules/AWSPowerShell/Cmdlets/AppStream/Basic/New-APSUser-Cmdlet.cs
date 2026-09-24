@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.UserName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-APSUser (CreateUser)"))
             {
                 return;

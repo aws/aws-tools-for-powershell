@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EndpointName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EndpointName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.EndpointName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACCAgentRuntimeEndpoint (UpdateAgentRuntimeEndpoint)"))
             {
                 return;

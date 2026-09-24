@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.ResourceARN) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHMVOResourceTag (UntagResource)"))
             {
                 return;

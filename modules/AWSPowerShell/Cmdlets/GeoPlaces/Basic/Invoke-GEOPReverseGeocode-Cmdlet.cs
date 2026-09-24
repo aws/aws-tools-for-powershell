@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryPosition), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryPosition), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.QueryPosition) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-GEOPReverseGeocode (ReverseGeocode)"))
             {
                 return;

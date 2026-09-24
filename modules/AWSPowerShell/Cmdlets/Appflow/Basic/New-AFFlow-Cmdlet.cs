@@ -113,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para>Custom properties that are required to use the custom connector as a source.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -207,9 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <para>
         /// <para> The configuration that controls how Amazon AppFlow places data in the destination
         /// connector. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -649,9 +651,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <summary>
         /// <para>
         /// <para> The tags used to organize, track, or control access for your flow. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -665,9 +668,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
         /// <para>
         /// <para> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
         /// run. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -848,13 +852,13 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.S3_BucketName = this.S3_BucketName;
             context.S3_BucketPrefix = this.S3_BucketPrefix;
             context.S3InputFormatConfig_S3InputFileType = this.S3InputFormatConfig_S3InputFileType;
+            context.SAPOData_ObjectPath = this.SAPOData_ObjectPath;
+            context.PaginationConfig_MaxPageSize = this.PaginationConfig_MaxPageSize;
+            context.ParallelismConfig_MaxParallelism = this.ParallelismConfig_MaxParallelism;
             context.Salesforce_DataTransferApi = this.Salesforce_DataTransferApi;
             context.Salesforce_EnableDynamicFieldUpdate = this.Salesforce_EnableDynamicFieldUpdate;
             context.Salesforce_IncludeDeletedRecord = this.Salesforce_IncludeDeletedRecord;
             context.Salesforce_Object = this.Salesforce_Object;
-            context.SAPOData_ObjectPath = this.SAPOData_ObjectPath;
-            context.PaginationConfig_MaxPageSize = this.PaginationConfig_MaxPageSize;
-            context.ParallelismConfig_MaxParallelism = this.ParallelismConfig_MaxParallelism;
             context.ServiceNow_Object = this.ServiceNow_Object;
             context.Singular_Object = this.Singular_Object;
             context.Slack_Object = this.Slack_Object;
@@ -1910,13 +1914,13 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String S3_BucketName { get; set; }
             public System.String S3_BucketPrefix { get; set; }
             public Amazon.Appflow.S3InputFileType S3InputFormatConfig_S3InputFileType { get; set; }
+            public System.String SAPOData_ObjectPath { get; set; }
+            public System.Int32? PaginationConfig_MaxPageSize { get; set; }
+            public System.Int32? ParallelismConfig_MaxParallelism { get; set; }
             public Amazon.Appflow.SalesforceDataTransferApi Salesforce_DataTransferApi { get; set; }
             public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
             public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
             public System.String Salesforce_Object { get; set; }
-            public System.String SAPOData_ObjectPath { get; set; }
-            public System.Int32? PaginationConfig_MaxPageSize { get; set; }
-            public System.Int32? ParallelismConfig_MaxParallelism { get; set; }
             public System.String ServiceNow_Object { get; set; }
             public System.String Singular_Object { get; set; }
             public System.String Slack_Object { get; set; }

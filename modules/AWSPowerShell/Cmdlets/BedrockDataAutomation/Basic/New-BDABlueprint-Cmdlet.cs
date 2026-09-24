@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BlueprintName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BlueprintName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.BlueprintName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BDABlueprint (CreateBlueprint)"))
             {
                 return;

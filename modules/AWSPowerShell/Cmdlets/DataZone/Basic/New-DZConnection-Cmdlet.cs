@@ -80,9 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Amazon Athena properties of the Amazon Web Services Glue connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -95,9 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Athena properties for this configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -270,9 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The configurations of the connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -296,9 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The connection properties of the Amazon Web Services Glue connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -311,9 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The connection properties for this configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -338,9 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The custom authentication credentials of a connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -353,9 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The custom authentication credentials of a connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -493,9 +500,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>The Amazon Web Services Glue connection names in the Spark Amazon Web Services Glue
         /// properties. Specify either <c>glueConnectionName</c> or <c>glueConnectionNames</c>,
         /// but not both.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -837,9 +845,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Python properties of the Amazon Web Services Glue connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -852,9 +861,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Python properties for this configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -946,6 +956,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Props_GitProperties_RepositoryId { get; set; }
+        #endregion
+        
+        #region Parameter Props_IamProperties_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role to associate with the connection as the project user role.
+        /// To use this operation, you must have <c>iam:PassRole</c> permission for this role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Props_IamProperties_RoleArn { get; set; }
         #endregion
         
         #region Parameter SparkEmrProperties_RuntimeRole
@@ -1061,9 +1082,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The group ID list of the physical connection requirements of a connection. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1076,9 +1098,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The group ID list of the physical connection requirements of a connection. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1100,9 +1123,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Spark properties of the Amazon Web Services Glue connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1115,9 +1139,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The Spark properties for this configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1151,9 +1176,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The subnet ID list of the physical connection requirements of a connection. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1166,9 +1192,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The subnet ID list of the physical connection requirements of a connection. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1180,9 +1207,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The subnet IDs of the VPC connection. You can specify between 1 and 16 subnet IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1227,9 +1255,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The OAuth2 token URL parameter map of the OAuth2 properties.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1242,9 +1271,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <summary>
         /// <para>
         /// <para>The OAuth2 token URL parameter map of the OAuth2 properties.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1386,9 +1416,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>
         /// <para>Speciefies whether to validate for compute environments of the Amazon Web Services
         /// Glue connection.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1402,9 +1433,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>
         /// <para>The compute environments to use when validating connectivity. The service validates
         /// that the connection is reachable from each specified environment.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1642,6 +1674,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             context.HyperPodProperties_ClusterName = this.HyperPodProperties_ClusterName;
             context.IamProperties_GlueLineageSyncEnabled = this.IamProperties_GlueLineageSyncEnabled;
+            context.Props_IamProperties_RoleArn = this.Props_IamProperties_RoleArn;
             context.Props_LakehouseProperties_GlueLineageSyncEnabled = this.Props_LakehouseProperties_GlueLineageSyncEnabled;
             context.MlflowProperties_TrackingServerArn = this.MlflowProperties_TrackingServerArn;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
@@ -2374,31 +2407,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 request.Props.HyperPodProperties = requestProps_props_HyperPodProperties;
                 requestPropsIsNull = false;
             }
-            Amazon.DataZone.Model.IamPropertiesInput requestProps_props_IamProperties = null;
-            
-             // populate IamProperties
-            var requestProps_props_IamPropertiesIsNull = true;
-            requestProps_props_IamProperties = new Amazon.DataZone.Model.IamPropertiesInput();
-            System.Boolean? requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled = null;
-            if (cmdletContext.IamProperties_GlueLineageSyncEnabled != null)
-            {
-                requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled = cmdletContext.IamProperties_GlueLineageSyncEnabled.Value;
-            }
-            if (requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled != null)
-            {
-                requestProps_props_IamProperties.GlueLineageSyncEnabled = requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled.Value;
-                requestProps_props_IamPropertiesIsNull = false;
-            }
-             // determine if requestProps_props_IamProperties should be set to null
-            if (requestProps_props_IamPropertiesIsNull)
-            {
-                requestProps_props_IamProperties = null;
-            }
-            if (requestProps_props_IamProperties != null)
-            {
-                request.Props.IamProperties = requestProps_props_IamProperties;
-                requestPropsIsNull = false;
-            }
             Amazon.DataZone.Model.LakehousePropertiesInput requestProps_props_LakehouseProperties = null;
             
              // populate LakehouseProperties
@@ -2472,6 +2480,41 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_WorkflowsMwaaProperties != null)
             {
                 request.Props.WorkflowsMwaaProperties = requestProps_props_WorkflowsMwaaProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.IamPropertiesInput requestProps_props_IamProperties = null;
+            
+             // populate IamProperties
+            var requestProps_props_IamPropertiesIsNull = true;
+            requestProps_props_IamProperties = new Amazon.DataZone.Model.IamPropertiesInput();
+            System.Boolean? requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled = null;
+            if (cmdletContext.IamProperties_GlueLineageSyncEnabled != null)
+            {
+                requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled = cmdletContext.IamProperties_GlueLineageSyncEnabled.Value;
+            }
+            if (requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled != null)
+            {
+                requestProps_props_IamProperties.GlueLineageSyncEnabled = requestProps_props_IamProperties_iamProperties_GlueLineageSyncEnabled.Value;
+                requestProps_props_IamPropertiesIsNull = false;
+            }
+            System.String requestProps_props_IamProperties_props_IamProperties_RoleArn = null;
+            if (cmdletContext.Props_IamProperties_RoleArn != null)
+            {
+                requestProps_props_IamProperties_props_IamProperties_RoleArn = cmdletContext.Props_IamProperties_RoleArn;
+            }
+            if (requestProps_props_IamProperties_props_IamProperties_RoleArn != null)
+            {
+                requestProps_props_IamProperties.RoleArn = requestProps_props_IamProperties_props_IamProperties_RoleArn;
+                requestProps_props_IamPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_IamProperties should be set to null
+            if (requestProps_props_IamPropertiesIsNull)
+            {
+                requestProps_props_IamProperties = null;
+            }
+            if (requestProps_props_IamProperties != null)
+            {
+                request.Props.IamProperties = requestProps_props_IamProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.AmazonQPropertiesInput requestProps_props_AmazonQProperties = null;
@@ -3689,6 +3732,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> GlueConnectionInput_ValidateForComputeEnvironment { get; set; }
             public System.String HyperPodProperties_ClusterName { get; set; }
             public System.Boolean? IamProperties_GlueLineageSyncEnabled { get; set; }
+            public System.String Props_IamProperties_RoleArn { get; set; }
             public System.Boolean? Props_LakehouseProperties_GlueLineageSyncEnabled { get; set; }
             public System.String MlflowProperties_TrackingServerArn { get; set; }
             public System.String Credentials_SecretArn { get; set; }

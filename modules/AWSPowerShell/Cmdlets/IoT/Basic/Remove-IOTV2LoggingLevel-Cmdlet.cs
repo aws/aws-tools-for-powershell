@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>The type of resource for which you are configuring logging. Must be <c>THING_Group</c>.</para>
+        /// <para>The type of resource for which you are configuring logging. Must be <c>DEFAULT</c>,
+        /// <c>THING_GROUP</c>, <c>CLIENT_ID</c>, <c>SOURCE_IP</c>, or <c>PRINCIPAL_ID</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

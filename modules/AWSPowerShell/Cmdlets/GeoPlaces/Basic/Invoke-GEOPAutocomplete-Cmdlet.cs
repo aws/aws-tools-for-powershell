@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryText), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryText), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.QueryText) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-GEOPAutocomplete (Autocomplete)"))
             {
                 return;

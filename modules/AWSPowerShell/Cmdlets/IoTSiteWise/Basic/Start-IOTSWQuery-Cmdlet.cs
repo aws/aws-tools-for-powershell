@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryStatement), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryStatement), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.QueryStatement) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-IOTSWQuery (ExecuteQuery)"))
             {
                 return;

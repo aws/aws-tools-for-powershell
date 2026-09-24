@@ -104,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The destination for the asset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -142,9 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>A list of Amazon Redshift datashare assets.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -157,9 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>Is a list of Amazon S3 bucket and object key pairs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -202,17 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String CreateS3DataAccessFromS3Bucket_DataSetId { get; set; }
         #endregion
         
-        #region Parameter ExportAssetsToS3_DataSetId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for the data set associated with this export job.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Details_ExportAssetsToS3_DataSetId")]
-        public System.String ExportAssetsToS3_DataSetId { get; set; }
-        #endregion
-        
         #region Parameter ExportAssetToSignedUrl_DataSetId
         /// <summary>
         /// <para>
@@ -222,6 +214,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ExportAssetToSignedUrl_DataSetId")]
         public System.String ExportAssetToSignedUrl_DataSetId { get; set; }
+        #endregion
+        
+        #region Parameter ExportAssetsToS3_DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the data set associated with this export job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ExportAssetsToS3_DataSetId")]
+        public System.String ExportAssetsToS3_DataSetId { get; set; }
         #endregion
         
         #region Parameter ExportRevisionsToS3_DataSetId
@@ -294,9 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>A list of LF-tag conditions that apply to database resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -309,9 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>A list of LF-tag conditions that apply to table resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -324,9 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -339,9 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The keys used to create the Amazon S3 data access.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -378,9 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <para>
         /// <para>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
         /// encrypt S3 objects being shared in this S3 Data Access asset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -405,9 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The permissions granted to subscribers on database resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -420,9 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The permissions granted to subscribers on table resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -447,9 +457,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The destination for the revision.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -469,17 +480,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String CreateS3DataAccessFromS3Bucket_RevisionId { get; set; }
         #endregion
         
-        #region Parameter ExportAssetsToS3_RevisionId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for the revision associated with this export request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Details_ExportAssetsToS3_RevisionId")]
-        public System.String ExportAssetsToS3_RevisionId { get; set; }
-        #endregion
-        
         #region Parameter ExportAssetToSignedUrl_RevisionId
         /// <summary>
         /// <para>
@@ -489,6 +489,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ExportAssetToSignedUrl_RevisionId")]
         public System.String ExportAssetToSignedUrl_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ExportAssetsToS3_RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the revision associated with this export request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ExportAssetsToS3_RevisionId")]
+        public System.String ExportAssetsToS3_RevisionId { get; set; }
         #endregion
         
         #region Parameter ImportAssetFromApiGatewayApi_RevisionId
@@ -573,9 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>The tags to be applied to assets created by the job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -689,6 +701,9 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             }
             context.CreateS3DataAccessFromS3Bucket_DataSetId = this.CreateS3DataAccessFromS3Bucket_DataSetId;
             context.CreateS3DataAccessFromS3Bucket_RevisionId = this.CreateS3DataAccessFromS3Bucket_RevisionId;
+            context.ExportAssetToSignedUrl_AssetId = this.ExportAssetToSignedUrl_AssetId;
+            context.ExportAssetToSignedUrl_DataSetId = this.ExportAssetToSignedUrl_DataSetId;
+            context.ExportAssetToSignedUrl_RevisionId = this.ExportAssetToSignedUrl_RevisionId;
             if (this.ExportAssetsToS3_AssetDestination != null)
             {
                 context.ExportAssetsToS3_AssetDestination = new List<Amazon.DataExchange.Model.AssetDestinationEntry>(this.ExportAssetsToS3_AssetDestination);
@@ -697,9 +712,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             context.Encryption_KmsKeyArn = this.Encryption_KmsKeyArn;
             context.Encryption_Type = this.Encryption_Type;
             context.ExportAssetsToS3_RevisionId = this.ExportAssetsToS3_RevisionId;
-            context.ExportAssetToSignedUrl_AssetId = this.ExportAssetToSignedUrl_AssetId;
-            context.ExportAssetToSignedUrl_DataSetId = this.ExportAssetToSignedUrl_DataSetId;
-            context.ExportAssetToSignedUrl_RevisionId = this.ExportAssetToSignedUrl_RevisionId;
             context.ExportRevisionsToS3_DataSetId = this.ExportRevisionsToS3_DataSetId;
             context.Details_ExportRevisionsToS3_Encryption_KmsKeyArn = this.Details_ExportRevisionsToS3_Encryption_KmsKeyArn;
             context.Details_ExportRevisionsToS3_Encryption_Type = this.Details_ExportRevisionsToS3_Encryption_Type;
@@ -721,6 +733,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             context.ImportAssetFromSignedUrl_Md5Hash = this.ImportAssetFromSignedUrl_Md5Hash;
             context.ImportAssetFromSignedUrl_RevisionId = this.ImportAssetFromSignedUrl_RevisionId;
             context.ImportAssetsFromLakeFormationTagPolicy_CatalogId = this.ImportAssetsFromLakeFormationTagPolicy_CatalogId;
+            context.ImportAssetsFromLakeFormationTagPolicy_DataSetId = this.ImportAssetsFromLakeFormationTagPolicy_DataSetId;
             if (this.Database_Expression != null)
             {
                 context.Database_Expression = new List<Amazon.DataExchange.Model.LFTag>(this.Database_Expression);
@@ -729,7 +742,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             {
                 context.Database_Permission = new List<System.String>(this.Database_Permission);
             }
-            context.ImportAssetsFromLakeFormationTagPolicy_DataSetId = this.ImportAssetsFromLakeFormationTagPolicy_DataSetId;
             context.ImportAssetsFromLakeFormationTagPolicy_RevisionId = this.ImportAssetsFromLakeFormationTagPolicy_RevisionId;
             context.ImportAssetsFromLakeFormationTagPolicy_RoleArn = this.ImportAssetsFromLakeFormationTagPolicy_RoleArn;
             if (this.Table_Expression != null)
@@ -1529,14 +1541,14 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public List<Amazon.DataExchange.Model.KmsKeyToGrant> AssetSource_KmsKeysToGrant { get; set; }
             public System.String CreateS3DataAccessFromS3Bucket_DataSetId { get; set; }
             public System.String CreateS3DataAccessFromS3Bucket_RevisionId { get; set; }
+            public System.String ExportAssetToSignedUrl_AssetId { get; set; }
+            public System.String ExportAssetToSignedUrl_DataSetId { get; set; }
+            public System.String ExportAssetToSignedUrl_RevisionId { get; set; }
             public List<Amazon.DataExchange.Model.AssetDestinationEntry> ExportAssetsToS3_AssetDestination { get; set; }
             public System.String ExportAssetsToS3_DataSetId { get; set; }
             public System.String Encryption_KmsKeyArn { get; set; }
             public Amazon.DataExchange.ServerSideEncryptionTypes Encryption_Type { get; set; }
             public System.String ExportAssetsToS3_RevisionId { get; set; }
-            public System.String ExportAssetToSignedUrl_AssetId { get; set; }
-            public System.String ExportAssetToSignedUrl_DataSetId { get; set; }
-            public System.String ExportAssetToSignedUrl_RevisionId { get; set; }
             public System.String ExportRevisionsToS3_DataSetId { get; set; }
             public System.String Details_ExportRevisionsToS3_Encryption_KmsKeyArn { get; set; }
             public Amazon.DataExchange.ServerSideEncryptionTypes Details_ExportRevisionsToS3_Encryption_Type { get; set; }
@@ -1555,9 +1567,9 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }
             public System.String ImportAssetFromSignedUrl_RevisionId { get; set; }
             public System.String ImportAssetsFromLakeFormationTagPolicy_CatalogId { get; set; }
+            public System.String ImportAssetsFromLakeFormationTagPolicy_DataSetId { get; set; }
             public List<Amazon.DataExchange.Model.LFTag> Database_Expression { get; set; }
             public List<System.String> Database_Permission { get; set; }
-            public System.String ImportAssetsFromLakeFormationTagPolicy_DataSetId { get; set; }
             public System.String ImportAssetsFromLakeFormationTagPolicy_RevisionId { get; set; }
             public System.String ImportAssetsFromLakeFormationTagPolicy_RoleArn { get; set; }
             public List<Amazon.DataExchange.Model.LFTag> Table_Expression { get; set; }

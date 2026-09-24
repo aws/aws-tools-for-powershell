@@ -15961,8 +15961,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedCookie",
-               "New-CFSignedUrl")
+               "New-CFSignedUrl",
+               "New-CFSignedCookie")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -25402,6 +25402,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.BlueprintCategory
+        {
+            ($_ -eq "New-DZEnvironmentBlueprint/BlueprintCategory") -Or
+            ($_ -eq "Update-DZEnvironmentBlueprint/BlueprintCategory")
+        }
+        {
+            $v = "TOOLING"
+            break
+        }
+
         # Amazon.DataZone.ChangeAction
         "New-DZListingChangeSet/Action"
         {
@@ -25988,6 +25998,7 @@ $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
     "Action"=@("Get-DZRuleList","New-DZListingChangeSet","New-DZRule")
     "AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
+    "BlueprintCategory"=@("New-DZEnvironmentBlueprint","Update-DZEnvironmentBlueprint")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
@@ -30384,12 +30395,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "New-DDBTable",
-               "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
-               "ConvertTo-DDBItem")
+               "ConvertTo-DDBItem",
+               "New-DDBTable",
+               "Add-DDBKeySchema",
+               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -37091,6 +37102,229 @@ $EVB_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap
+# Argument completions for service Amazon EventBridgeV2
+
+
+$EVBV2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EventBridgeV2.DeduplicationType
+        {
+            ($_ -eq "Write-EVBV2Event/DeduplicationConfiguration_DeduplicationType") -Or
+            ($_ -eq "Write-EVBV2RawEvent/DeduplicationConfiguration_DeduplicationType") -Or
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_EventBusV2Parameters_DeduplicationConfiguration_DeduplicationType") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_EventBusV2Parameters_DeduplicationConfiguration_DeduplicationType")
+        }
+        {
+            $v = "CONTENT_BASED"
+            break
+        }
+
+        # Amazon.EventBridgeV2.FilterLanguage
+        {
+            ($_ -eq "New-EVBV2Subscriber/FilterConfiguration_Language") -Or
+            ($_ -eq "Update-EVBV2Subscriber/FilterConfiguration_Language")
+        }
+        {
+            $v = "EVENT_BRIDGE_PATTERN"
+            break
+        }
+
+        # Amazon.EventBridgeV2.IncludePayload
+        {
+            ($_ -eq "New-EVBV2Subscriber/LogConfiguration_IncludePayload") -Or
+            ($_ -eq "Update-EVBV2Subscriber/LogConfiguration_IncludePayload")
+        }
+        {
+            $v = "FULL","ON_ERROR_ONLY"
+            break
+        }
+
+        # Amazon.EventBridgeV2.InvocationType
+        {
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_LambdaParameters_InvocationType") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_LambdaParameters_InvocationType") -Or
+            ($_ -eq "New-EVBV2Subscriber/InvokeConfiguration_StepFunctionsParameters_InvocationType") -Or
+            ($_ -eq "Update-EVBV2Subscriber/InvokeConfiguration_StepFunctionsParameters_InvocationType")
+        }
+        {
+            $v = "EVENT","REQUEST_RESPONSE"
+            break
+        }
+
+        # Amazon.EventBridgeV2.LogLevel
+        {
+            ($_ -eq "New-EVBV2Subscriber/LogConfiguration_Level") -Or
+            ($_ -eq "Update-EVBV2Subscriber/LogConfiguration_Level")
+        }
+        {
+            $v = "ERROR","INFO","OFF"
+            break
+        }
+
+        # Amazon.EventBridgeV2.OrderingType
+        "New-EVBV2Subscriber/Type"
+        {
+            $v = "FIFO","UNORDERED"
+            break
+        }
+
+        # Amazon.EventBridgeV2.PointType
+        "New-EVBV2Subscriber/PointInTimeConfiguration_PointType"
+        {
+            $v = "HORIZON","TIMESTAMP"
+            break
+        }
+
+        # Amazon.EventBridgeV2.ResumePosition
+        "Update-EVBV2Subscriber/ResumePosition"
+        {
+            $v = "LAST_PROCESSED","LATEST"
+            break
+        }
+
+        # Amazon.EventBridgeV2.RetryStrategy
+        {
+            ($_ -eq "New-EVBV2Subscriber/RetryPolicy_RetryStrategy") -Or
+            ($_ -eq "Update-EVBV2Subscriber/RetryPolicy_RetryStrategy")
+        }
+        {
+            $v = "ALL"
+            break
+        }
+
+        # Amazon.EventBridgeV2.StartingPosition
+        "New-EVBV2Subscriber/StartingPosition"
+        {
+            $v = "LATEST","POINT_IN_TIME"
+            break
+        }
+
+        # Amazon.EventBridgeV2.SubscriberState
+        {
+            ($_ -eq "New-EVBV2Subscriber/State") -Or
+            ($_ -eq "Update-EVBV2Subscriber/State")
+        }
+        {
+            $v = "RUNNING","STOPPED"
+            break
+        }
+
+        # Amazon.EventBridgeV2.TransformerType
+        {
+            ($_ -eq "New-EVBV2Subscriber/Transformer_Type") -Or
+            ($_ -eq "Update-EVBV2Subscriber/Transformer_Type")
+        }
+        {
+            $v = "JSONATA","RAW","WITH_METADATA"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EVBV2_map = @{
+    "DeduplicationConfiguration_DeduplicationType"=@("Write-EVBV2Event","Write-EVBV2RawEvent")
+    "FilterConfiguration_Language"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_EventBusV2Parameters_DeduplicationConfiguration_DeduplicationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_LambdaParameters_InvocationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "InvokeConfiguration_StepFunctionsParameters_InvocationType"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "LogConfiguration_IncludePayload"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "LogConfiguration_Level"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "PointInTimeConfiguration_PointType"=@("New-EVBV2Subscriber")
+    "ResumePosition"=@("Update-EVBV2Subscriber")
+    "RetryPolicy_RetryStrategy"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "StartingPosition"=@("New-EVBV2Subscriber")
+    "State"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "Transformer_Type"=@("New-EVBV2Subscriber","Update-EVBV2Subscriber")
+    "Type"=@("New-EVBV2Subscriber")
+}
+
+_awsArgumentCompleterRegistration $EVBV2_Completers $EVBV2_map
+
+$EVBV2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.EVBV2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EVBV2_SelectMap = @{
+    "Select"=@("New-EVBV2EventBus",
+               "New-EVBV2EventSource",
+               "New-EVBV2Subscriber",
+               "Remove-EVBV2EventBus",
+               "Remove-EVBV2EventSource",
+               "Remove-EVBV2ResourcePolicy",
+               "Remove-EVBV2Subscriber",
+               "Get-EVBV2EventBusDetail",
+               "Get-EVBV2EventSourceDetail",
+               "Get-EVBV2SubscriberDetail",
+               "Get-EVBV2ResourcePolicy",
+               "Get-EVBV2EventBusList",
+               "Get-EVBV2EventSourceList",
+               "Get-EVBV2ResourcePolicyList",
+               "Get-EVBV2SubscriberList",
+               "Get-EVBV2ResourceTag",
+               "Write-EVBV2Event",
+               "Write-EVBV2RawEvent",
+               "Write-EVBV2ResourcePolicy",
+               "Revoke-EVBV2Resource",
+               "Add-EVBV2ResourceTag",
+               "Remove-EVBV2ResourceTag",
+               "Update-EVBV2EventBus",
+               "Update-EVBV2EventSource",
+               "Update-EVBV2Subscriber")
+}
+
+_awsArgumentCompleterRegistration $EVBV2_SelectCompleters $EVBV2_SelectMap
 # Argument completions for service Amazon CloudWatch Events
 
 
@@ -40788,8 +41022,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -60599,12 +60833,14 @@ $CW_SelectCompleters = {
 
 $CW_SelectMap = @{
     "Select"=@("Add-CWDatasetKmsKey",
+               "New-CWResourceMetricsConfiguration",
                "Remove-CWAlarmMuteRule",
                "Remove-CWAlarm",
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
                "Remove-CWMetricStream",
+               "Remove-CWResourceMetricsConfiguration",
                "Get-CWAlarmContributor",
                "Get-CWAlarmHistory",
                "Get-CWAlarm",
@@ -60625,6 +60861,7 @@ $CW_SelectMap = @{
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
                "Get-CWOTelEnrichment",
+               "Get-CWResourceMetricsConfiguration",
                "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
@@ -60647,7 +60884,9 @@ $CW_SelectMap = @{
                "Stop-CWMetricStream",
                "Stop-CWOTelEnrichment",
                "Add-CWResourceTag",
-               "Remove-CWResourceTag")
+               "Remove-CWResourceTag",
+               "Update-CWOTelEnrichment",
+               "Update-CWResourceMetricsConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CW_SelectCompleters $CW_SelectMap
@@ -78913,18 +79152,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
+               "Read-S3Object",
                "Test-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Get-S3PreSignedURL",
                "New-S3Bucket",
+               "Remove-S3Bucket",
                "Remove-S3Object",
                "Write-S3Object",
                "Get-S3MultipartUpload",
+               "Dismount-S3PSDrive",
                "Copy-S3Object",
-               "Get-S3PreSignedURL",
-               "Read-S3Object",
-               "Mount-S3PSDrive",
-               "Remove-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Dismount-S3PSDrive")
+               "Mount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -88715,8 +88954,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

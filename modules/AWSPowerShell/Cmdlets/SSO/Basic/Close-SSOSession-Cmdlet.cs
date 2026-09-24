@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.AccessToken) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Close-SSOSession (Logout)"))
             {
                 return;

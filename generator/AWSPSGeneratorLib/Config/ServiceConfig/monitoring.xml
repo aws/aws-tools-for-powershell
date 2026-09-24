@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceMetricsConfiguration" OutputProperty="ResourceMetricsConfiguration" Verb="New" Noun="ResourceMetricsConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlarmMuteRule" Verb="Remove" Noun="AlarmMuteRule" ShouldProcessTarget="AlarmMuteRuleName" PipelineParameter="AlarmMuteRuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMetricStream" Verb="Remove" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceMetricsConfiguration" Verb="Remove" Noun="ResourceMetricsConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,6 +142,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceMetricsConfiguration" OutputProperty="ResourceMetricsConfiguration" Verb="Get" Noun="ResourceMetricsConfiguration" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAlarmMuteRules" OutputProperty="AlarmMuteRuleSummaries" Verb="Get" Noun="AlarmMuteRuleList" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -207,7 +219,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOTelEnrichment" Verb="Start" Noun="OTelEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartOTelEnrichment" OutputProperty="*" Verb="Start" Noun="OTelEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +236,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOTelEnrichment" OutputProperty="*" Verb="Update" Noun="OTelEnrichment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceMetricsConfiguration" OutputProperty="ResourceMetricsConfiguration" Verb="Update" Noun="ResourceMetricsConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

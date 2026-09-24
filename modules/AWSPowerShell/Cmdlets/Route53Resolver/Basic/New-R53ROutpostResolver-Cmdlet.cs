@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
     /// Creates a Route 53 Resolver on an Outpost.
+    /// 
+    ///  <note><para>
+    /// This operation applies to first-generation Outposts only. On second-generation Outposts,
+    /// Resolver is enabled by default and managed automatically by Amazon Web Services, so
+    /// you don't need to create it.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]

@@ -248,8 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The identifier of the partner threat-protection product, exactly as returned in the
         /// <c>Value</c> field of a <a>FirewallRuleTypeDefinition</a> with <c>RuleType</c> set
-        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active AWS Marketplace
-        /// subscription to this product.</para>
+        /// to <c>PartnerThreatProtection</c>. The calling account must hold an active Amazon
+        /// Web Services Marketplace subscription to this product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

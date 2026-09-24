@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Email), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Email), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Email) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ORGGovCloudAccount (CreateGovCloudAccount)"))
             {
                 return;

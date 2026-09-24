@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppInstanceUserId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppInstanceUserId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.AppInstanceUserId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMIDAppInstanceUser (CreateAppInstanceUser)"))
             {
                 return;

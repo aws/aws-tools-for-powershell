@@ -62,6 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         public Amazon.MarketplaceDiscovery.Model.SearchFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>A BCP 47 language tag or comma-separated priority list specifying the preferred locale
+        /// for response content. See <c>Locale</c> for supported values, constraints, fallback
+        /// behavior, and the default locale. If omitted, the service returns content in the default
+        /// locale.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Locale { get; set; }
+        #endregion
+        
         #region Parameter SearchText
         /// <summary>
         /// <para>
@@ -186,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             {
                 context.Filter = new List<Amazon.MarketplaceDiscovery.Model.SearchFilter>(this.Filter);
             }
+            context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -221,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -318,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.MKTD
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.MarketplaceDiscovery.Model.SearchFilter> Filter { get; set; }
+            public System.String Locale { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SearchText { get; set; }

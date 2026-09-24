@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.PhoneNumber) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SNSSMSSandboxPhoneNumber (DeleteSMSSandboxPhoneNumber)"))
             {
                 return;

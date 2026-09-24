@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SpeakerId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SpeakerId), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.SpeakerId) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-VIDSpeaker (DeleteSpeaker)"))
             {
                 return;

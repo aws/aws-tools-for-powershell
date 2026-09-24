@@ -222,12 +222,14 @@ $CW_SelectCompleters = {
 
 $CW_SelectMap = @{
     "Select"=@("Add-CWDatasetKmsKey",
+               "New-CWResourceMetricsConfiguration",
                "Remove-CWAlarmMuteRule",
                "Remove-CWAlarm",
                "Remove-CWAnomalyDetector",
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
                "Remove-CWMetricStream",
+               "Remove-CWResourceMetricsConfiguration",
                "Get-CWAlarmContributor",
                "Get-CWAlarmHistory",
                "Get-CWAlarm",
@@ -248,6 +250,7 @@ $CW_SelectMap = @{
                "Get-CWMetricStream",
                "Get-CWMetricWidgetImage",
                "Get-CWOTelEnrichment",
+               "Get-CWResourceMetricsConfiguration",
                "Get-CWAlarmMuteRuleList",
                "Get-CWDashboardList",
                "Get-CWManagedInsightRule",
@@ -270,7 +273,9 @@ $CW_SelectMap = @{
                "Stop-CWMetricStream",
                "Stop-CWOTelEnrichment",
                "Add-CWResourceTag",
-               "Remove-CWResourceTag")
+               "Remove-CWResourceTag",
+               "Update-CWOTelEnrichment",
+               "Update-CWResourceMetricsConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CW_SelectCompleters $CW_SelectMap

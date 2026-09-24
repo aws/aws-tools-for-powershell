@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Target_Id), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Target_Id), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.Target_Id) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ORGAccountInvitation (InviteAccountToOrganization)"))
             {
                 return;

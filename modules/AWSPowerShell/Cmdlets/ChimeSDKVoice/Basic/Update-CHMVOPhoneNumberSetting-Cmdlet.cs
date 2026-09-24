@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CallingName), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CallingName), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.CallingName) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMVOPhoneNumberSetting (UpdatePhoneNumberSettings)"))
             {
                 return;

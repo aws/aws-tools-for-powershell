@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.AccessToken) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Complete-CGIPWebAuthnRegistration (CompleteWebAuthnRegistration)"))
             {
                 return;

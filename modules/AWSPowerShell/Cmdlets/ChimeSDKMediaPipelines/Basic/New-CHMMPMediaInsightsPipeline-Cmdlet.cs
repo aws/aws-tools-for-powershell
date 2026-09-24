@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MediaInsightsPipelineConfigurationArn), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MediaInsightsPipelineConfigurationArn), MyInvocation.BoundParameters, new System.Collections.Generic.HashSet<string> { nameof(this.MediaInsightsPipelineConfigurationArn) });
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMMPMediaInsightsPipeline (CreateMediaInsightsPipeline)"))
             {
                 return;
