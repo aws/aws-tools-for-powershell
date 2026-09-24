@@ -1,4 +1,4 @@
 {
   "Type": "Patch",
-  "Description": "Added Get-AWSSigV4Signature and Get-AWSSigV4PreSignedURL cmdlets to sign arbitrary HTTP requests with AWS Signature Version 4, for example to call Amazon API Gateway APIs with IAM authorization using Invoke-RestMethod."
+  "Description": "Added Get-AWSSigV4Signature, Get-AWSSigV4SignedRequest and Get-AWSSigV4PreSignedURL cmdlets to sign arbitrary HTTP requests with AWS Signature Version 4, for example to call Amazon API Gateway APIs with IAM authorization using Invoke-RestMethod."
 }
