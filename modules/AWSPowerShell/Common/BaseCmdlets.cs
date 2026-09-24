@@ -163,15 +163,28 @@ namespace Amazon.PowerShell.Common
         }
 
         /// <summary>
+        /// Redaction text substituted for a Sensitive parameter's value in ShouldProcess confirmation targets so it is never written to host/transcripts/logs.
+        /// </summary>
+        public const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
+
+        /// <summary>
         /// Returns formatted string containing the target of the operation for use in
         /// confirmation messages. Collections are truncated to avoid message bloat.
         /// </summary>
         public string FormatParameterValuesForConfirmationMsg(string targetParameterName, IDictionary<string, object> boundParameters)
         {
+            return FormatParameterValuesForConfirmationMsg(targetParameterName, boundParameters, null);
+        }
+
+        /// <summary>
+        /// As above, but replaces the value of any parameter named in <paramref name="sensitiveParameterNames"/> with a redaction message.
+        /// </summary>
+        public string FormatParameterValuesForConfirmationMsg(string targetParameterName, IDictionary<string, object> boundParameters, ISet<string> sensitiveParameterNames)
+        {
             try
             {
                 // Backward compatibility - single parameter
-                return FormatParameterValuesForConfirmationMsg(new[] { targetParameterName }, boundParameters);
+                return FormatParameterValuesForConfirmationMsg(new[] { targetParameterName }, boundParameters, sensitiveParameterNames);
             }
             catch
             {
@@ -186,6 +199,14 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         public string FormatParameterValuesForConfirmationMsg(string[] targetParameterNames, IDictionary<string, object> boundParameters)
         {
+            return FormatParameterValuesForConfirmationMsg(targetParameterNames, boundParameters, null);
+        }
+
+        /// <summary>
+        /// As above, but replaces each value of a parameter named in <paramref name="sensitiveParameterNames"/> with a redaction message while showing the rest.
+        /// </summary>
+        public string FormatParameterValuesForConfirmationMsg(string[] targetParameterNames, IDictionary<string, object> boundParameters, ISet<string> sensitiveParameterNames)
+        {
             try
             {
                 if (targetParameterNames == null || targetParameterNames.Length == 0 || boundParameters == null || boundParameters.Keys.Count == 0)
@@ -197,6 +218,9 @@ namespace Amazon.PowerShell.Common
                     var parameterName = targetParameterNames[0];
                     if (string.IsNullOrEmpty(parameterName))
                         return string.Empty;
+
+                    if (IsSensitiveParameter(parameterName, sensitiveParameterNames))
+                        return SensitiveDataRedactionMessage;
 
                     object paramValue;
                     if (!boundParameters.TryGetValue(parameterName, out paramValue) || paramValue == null)
@@ -213,6 +237,13 @@ namespace Amazon.PowerShell.Common
                     if (string.IsNullOrEmpty(paramName))
                         continue;
 
+                    // Redact sensitive parameters per-field, keeping non-sensitive context intact.
+                    if (IsSensitiveParameter(paramName, sensitiveParameterNames))
+                    {
+                        parameterValues.Add(SensitiveDataRedactionMessage);
+                        continue;
+                    }
+
                     object paramValue;
                     if (boundParameters.TryGetValue(paramName, out paramValue) && paramValue != null)
                     {
@@ -222,6 +253,9 @@ namespace Amazon.PowerShell.Common
                         {
                             // Found an array parameter - use only the first parameter's value
                             var firstParamName = targetParameterNames[0];
+                            if (IsSensitiveParameter(firstParamName, sensitiveParameterNames))
+                                return SensitiveDataRedactionMessage;
+
                             object firstParamValue;
                             if (boundParameters.TryGetValue(firstParamName, out firstParamValue) && firstParamValue != null)
                             {
@@ -255,6 +289,11 @@ namespace Amazon.PowerShell.Common
             {
                 return string.Empty;
             }
+        }
+
+        private static bool IsSensitiveParameter(string parameterName, ISet<string> sensitiveParameterNames)
+        {
+            return sensitiveParameterNames != null && sensitiveParameterNames.Contains(parameterName);
         }
 
         /// <summary>

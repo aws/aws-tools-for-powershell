@@ -409,27 +409,34 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     .Select(name => name.Trim())
                     .ToArray();
 
+                var targetParameters = targetParameterNames
+                    .Select(name => MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == name).Single())
+                    .ToArray();
+
+                // Sensitive target parameters must never have their value written into the confirmation/-WhatIf message.
+                var sensitiveParameters = targetParameters
+                    .Where(parameter => parameter.BaseProperty != null && parameter.BaseProperty.IsSensitive())
+                    .ToArray();
+
                 if (targetParameterNames.Length == 1)
                 {
-                    // Single parameter - use existing logic for backward compatibility
-                    var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[0]).Single();
-                    writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.{targetParameter.CmdletParameterName}), MyInvocation.BoundParameters);");
+                    var targetParameter = targetParameters[0];
+                    writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.{targetParameter.CmdletParameterName}), MyInvocation.BoundParameters{FormatSensitiveParameterNamesArgument(sensitiveParameters)});");
                 }
                 else
                 {
-                    // Multiple parameters - use new array-based method
                     writer.WriteLine("var targetParameterNames = new string[]");
                     writer.OpenRegion();
                     
-                    for (int i = 0; i < targetParameterNames.Length; i++)
+                    for (int i = 0; i < targetParameters.Length; i++)
                     {
-                        var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[i]).Single();
-                        var comma = i < targetParameterNames.Length - 1 ? "," : "";
+                        var targetParameter = targetParameters[i];
+                        var comma = i < targetParameters.Length - 1 ? "," : "";
                         writer.WriteLine($"nameof(this.{targetParameter.CmdletParameterName}){comma}");
                     }
                     
                     writer.CloseRegion("};");
-                    writer.WriteLine("var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);");
+                    writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters{FormatSensitiveParameterNamesArgument(sensitiveParameters)});");
                 }
             }
             else
@@ -441,6 +448,18 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("return;");
             writer.CloseRegion();
             writer.WriteLine();
+        }
+
+        /// <summary>
+        /// Emits the optional sensitiveParameterNames argument (a HashSet literal) for redacting sensitive targets, or empty when none are sensitive.
+        /// </summary>
+        private static string FormatSensitiveParameterNamesArgument(SimplePropertyInfo[] sensitiveParameters)
+        {
+            if (sensitiveParameters == null || sensitiveParameters.Length == 0)
+                return string.Empty;
+
+            var names = string.Join(", ", sensitiveParameters.Select(parameter => $"nameof(this.{parameter.CmdletParameterName})"));
+            return $", new System.Collections.Generic.HashSet<string> {{ {names} }}";
         }
 
         /// <summary>

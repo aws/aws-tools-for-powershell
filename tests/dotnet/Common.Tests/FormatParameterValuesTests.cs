@@ -184,6 +184,70 @@ namespace Common.Tests
             StringAssert.Contains(result, "values bound to the parameter BadParam");
         }
 
+        [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_SingleSensitiveParameter_ReturnsRedactionMessage()
+        {
+            // Arrange
+            _boundParameters["OldPassword"] = "hunter2";
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                "OldPassword", _boundParameters, new HashSet<string> { "OldPassword" });
+
+            // Assert
+            Assert.AreEqual(BaseCmdlet.SensitiveDataRedactionMessage, result);
+            Assert.IsFalse(result.Contains("hunter2"));
+        }
+
+        [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_MultipleParametersMixedSensitivity_RedactsOnlySensitiveFields()
+        {
+            // Arrange
+            _boundParameters["UserName"] = "alice";
+            _boundParameters["OldPassword"] = "hunter2";
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                new[] { "UserName", "OldPassword" }, _boundParameters, new HashSet<string> { "OldPassword" });
+
+            // Assert
+            Assert.AreEqual($"alice-{BaseCmdlet.SensitiveDataRedactionMessage}", result);
+            Assert.IsFalse(result.Contains("hunter2"));
+        }
+
+        [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_MultipleParametersAllSensitive_RedactsEachField()
+        {
+            // Arrange
+            _boundParameters["OldPassword"] = "hunter2";
+            _boundParameters["NewPassword"] = "s3cr3t";
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                new[] { "OldPassword", "NewPassword" }, _boundParameters,
+                new HashSet<string> { "OldPassword", "NewPassword" });
+
+            // Assert
+            Assert.AreEqual($"{BaseCmdlet.SensitiveDataRedactionMessage}-{BaseCmdlet.SensitiveDataRedactionMessage}", result);
+            Assert.IsFalse(result.Contains("hunter2"));
+            Assert.IsFalse(result.Contains("s3cr3t"));
+        }
+
+        [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_NoSensitiveNames_PreservesExistingBehavior()
+        {
+            // Arrange
+            _boundParameters["UserName"] = "alice";
+            _boundParameters["NewPassword"] = "s3cr3t";
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                new[] { "UserName", "NewPassword" }, _boundParameters, null);
+
+            // Assert
+            Assert.AreEqual("alice-s3cr3t", result);
+        }
+
         /// <summary>
         /// Test cmdlet that inherits from the actual BaseCmdlet to expose the protected FormatParameterValuesForConfirmationMsg method
         /// This uses the real implementation from the current base class without duplicating code
@@ -198,6 +262,16 @@ namespace Common.Tests
             public string TestFormatParameterValuesForConfirmationMsg(string[] targetParameterNames, IDictionary<string, object> boundParameters)
             {
                 return FormatParameterValuesForConfirmationMsg(targetParameterNames, boundParameters);
+            }
+
+            public string TestFormatParameterValuesForConfirmationMsg(string targetParameterName, IDictionary<string, object> boundParameters, ISet<string> sensitiveParameterNames)
+            {
+                return FormatParameterValuesForConfirmationMsg(targetParameterName, boundParameters, sensitiveParameterNames);
+            }
+
+            public string TestFormatParameterValuesForConfirmationMsg(string[] targetParameterNames, IDictionary<string, object> boundParameters, ISet<string> sensitiveParameterNames)
+            {
+                return FormatParameterValuesForConfirmationMsg(targetParameterNames, boundParameters, sensitiveParameterNames);
             }
         }
 
