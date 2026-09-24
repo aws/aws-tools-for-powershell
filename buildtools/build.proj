@@ -178,6 +178,12 @@
 
         <RemoveDir Directories="$(RootPath)/tests/results" />
         <MakeDir Directories="$(RootPath)/tests/results" />
+
+        <Message Text="Running .NET unit tests"/>
+        <Exec Command="dotnet test -c $(Configuration) --no-restore -v:quiet ../solutions/AWSPowerShellGenerator.sln" />
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShellCommonTests.sln" />
+        <Exec Command="dotnet test -c $(Configuration) --no-restore -v:quiet ../solutions/AWSPowerShellCommonTests.sln" />
+
         <Exec Command="pwsh -NoProfile -Command Invoke-Pester -EnableExit -OutputFile results/PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled -Show All" WorkingDirectory="$(RootPath)/tests" />
 
         <ItemGroup>
