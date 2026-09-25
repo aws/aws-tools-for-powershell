@@ -1,0 +1,2 @@
+$result = Get-AWSSigV4PreSignedURL -Uri "https://amzn-s3-demo-bucket.s3.us-west-2.amazonaws.com/report.csv" -Service s3 -Expire (Get-Date).AddDays(1) -ProfileName my-profile -Region us-west-2
+$result.Uri
