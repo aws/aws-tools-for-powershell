@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// allow Elasticsearch OSS clients and plugins to continue working with it. Default is
         /// false when creating a domain and true when upgrading a domain.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced
         /// cluster parameters</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -274,6 +275,28 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? VPCOptions_EgressEnabled { get; set; }
         #endregion
         
+        #region Parameter S3VectorsEngine_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables S3 vectors engine features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AIMLOptions_S3VectorsEngine_Enabled")]
+        public System.Boolean? S3VectorsEngine_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessVectorAcceleration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether serverless vector acceleration is enabled for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AIMLOptions_ServerlessVectorAcceleration_Enabled")]
+        public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter AdvancedSecurityOptions_Enabled
         /// <summary>
         /// <para>
@@ -315,28 +338,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_Enabled")]
         public System.Boolean? SAMLOptions_Enabled { get; set; }
-        #endregion
-        
-        #region Parameter S3VectorsEngine_Enabled
-        /// <summary>
-        /// <para>
-        /// <para>Enables S3 vectors engine features.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AIMLOptions_S3VectorsEngine_Enabled")]
-        public System.Boolean? S3VectorsEngine_Enabled { get; set; }
-        #endregion
-        
-        #region Parameter ServerlessVectorAcceleration_Enabled
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether serverless vector acceleration is enabled for the domain.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AIMLOptions_ServerlessVectorAcceleration_Enabled")]
-        public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
         #endregion
         
         #region Parameter AutomatedSnapshotPauseOptions_Enabled
@@ -597,9 +598,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>Key-value pairs to configure log publishing.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -614,9 +616,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance
         /// windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak
         /// windows</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -721,9 +724,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>List of node options for the domain.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -805,9 +809,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>The list of security group IDs associated with the VPC endpoints for the domain. If
         /// you do not provide a security group ID, OpenSearch Service uses the default security
         /// group for the VPC.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -889,9 +894,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain
         /// uses multiple Availability Zones, you need to provide two subnet IDs, one per zone.
         /// Otherwise, provide only one.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -904,9 +910,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>List of tags to add to the domain upon creation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1096,6 +1103,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.CreateDomainResponse, NewOSDomainCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
+            context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
+            context.ServerlessVectorAcceleration_Enabled = this.ServerlessVectorAcceleration_Enabled;
             context.AccessPolicy = this.AccessPolicy;
             if (this.AdvancedOption != null)
             {
@@ -1127,18 +1137,15 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
-            context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
-            context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
-            context.ServerlessVectorAcceleration_Enabled = this.ServerlessVectorAcceleration_Enabled;
-            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
-            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
-            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
                 context.AutoTuneOptions_MaintenanceSchedule = new List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule>(this.AutoTuneOptions_MaintenanceSchedule);
             }
             context.AutoTuneOptions_UseOffPeakWindow = this.AutoTuneOptions_UseOffPeakWindow;
+            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
+            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
+            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.ColdStorageOptions_Enabled = this.ColdStorageOptions_Enabled;
             context.ClusterConfig_DedicatedMasterCount = this.ClusterConfig_DedicatedMasterCount;
             context.ClusterConfig_DedicatedMasterEnabled = this.ClusterConfig_DedicatedMasterEnabled;
@@ -1181,12 +1188,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EncryptionAtRestOptions_KmsKeyId = this.EncryptionAtRestOptions_KmsKeyId;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
+            context.IPAddressType = this.IPAddressType;
             context.IdentityCenterOptions_EnabledAPIAccess = this.IdentityCenterOptions_EnabledAPIAccess;
             context.IdentityCenterOptions_IdentityCenterInstanceARN = this.IdentityCenterOptions_IdentityCenterInstanceARN;
             context.IdentityCenterOptions_IdentityCenterInstanceRegion = this.IdentityCenterOptions_IdentityCenterInstanceRegion;
             context.IdentityCenterOptions_RolesKey = this.IdentityCenterOptions_RolesKey;
             context.IdentityCenterOptions_SubjectKey = this.IdentityCenterOptions_SubjectKey;
-            context.IPAddressType = this.IPAddressType;
             if (this.LogPublishingOption != null)
             {
                 context.LogPublishingOption = new Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption>(StringComparer.Ordinal);
@@ -1232,6 +1239,90 @@ namespace Amazon.PowerShell.Cmdlets.OS
             // create request
             var request = new Amazon.OpenSearchService.Model.CreateDomainRequest();
             
+            
+             // populate AIMLOptions
+            var requestAIMLOptionsIsNull = true;
+            request.AIMLOptions = new Amazon.OpenSearchService.Model.AIMLOptionsInput();
+            Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
+            
+             // populate NaturalLanguageQueryGenerationOptions
+            var requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = true;
+            requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = new Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput();
+            Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = null;
+            if (cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState != null)
+            {
+                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState;
+            }
+            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState != null)
+            {
+                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions.DesiredState = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState;
+                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = false;
+            }
+             // determine if requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions should be set to null
+            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull)
+            {
+                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
+            }
+            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions != null)
+            {
+                request.AIMLOptions.NaturalLanguageQueryGenerationOptions = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions;
+                requestAIMLOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.S3VectorsEngine requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
+            
+             // populate S3VectorsEngine
+            var requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = true;
+            requestAIMLOptions_aIMLOptions_S3VectorsEngine = new Amazon.OpenSearchService.Model.S3VectorsEngine();
+            System.Boolean? requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = null;
+            if (cmdletContext.S3VectorsEngine_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = cmdletContext.S3VectorsEngine_Enabled.Value;
+            }
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine.Enabled = requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled.Value;
+                requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = false;
+            }
+             // determine if requestAIMLOptions_aIMLOptions_S3VectorsEngine should be set to null
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull)
+            {
+                requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
+            }
+            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine != null)
+            {
+                request.AIMLOptions.S3VectorsEngine = requestAIMLOptions_aIMLOptions_S3VectorsEngine;
+                requestAIMLOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.ServerlessVectorAcceleration requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
+            
+             // populate ServerlessVectorAcceleration
+            var requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = true;
+            requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = new Amazon.OpenSearchService.Model.ServerlessVectorAcceleration();
+            System.Boolean? requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = null;
+            if (cmdletContext.ServerlessVectorAcceleration_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = cmdletContext.ServerlessVectorAcceleration_Enabled.Value;
+            }
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration.Enabled = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled.Value;
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = false;
+            }
+             // determine if requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration should be set to null
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
+            }
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration != null)
+            {
+                request.AIMLOptions.ServerlessVectorAcceleration = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration;
+                requestAIMLOptionsIsNull = false;
+            }
+             // determine if request.AIMLOptions should be set to null
+            if (requestAIMLOptionsIsNull)
+            {
+                request.AIMLOptions = null;
+            }
             if (cmdletContext.AccessPolicy != null)
             {
                 request.AccessPolicies = cmdletContext.AccessPolicy;
@@ -1545,88 +1636,43 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.AdvancedSecurityOptions = null;
             }
             
-             // populate AIMLOptions
-            var requestAIMLOptionsIsNull = true;
-            request.AIMLOptions = new Amazon.OpenSearchService.Model.AIMLOptionsInput();
-            Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
-            
-             // populate NaturalLanguageQueryGenerationOptions
-            var requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = true;
-            requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = new Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput();
-            Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = null;
-            if (cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState != null)
+             // populate AutoTuneOptions
+            var requestAutoTuneOptionsIsNull = true;
+            request.AutoTuneOptions = new Amazon.OpenSearchService.Model.AutoTuneOptionsInput();
+            Amazon.OpenSearchService.AutoTuneDesiredState requestAutoTuneOptions_autoTuneOptions_DesiredState = null;
+            if (cmdletContext.AutoTuneOptions_DesiredState != null)
             {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState;
+                requestAutoTuneOptions_autoTuneOptions_DesiredState = cmdletContext.AutoTuneOptions_DesiredState;
             }
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState != null)
+            if (requestAutoTuneOptions_autoTuneOptions_DesiredState != null)
             {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions.DesiredState = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState;
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = false;
+                request.AutoTuneOptions.DesiredState = requestAutoTuneOptions_autoTuneOptions_DesiredState;
+                requestAutoTuneOptionsIsNull = false;
             }
-             // determine if requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions should be set to null
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull)
+            List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = null;
+            if (cmdletContext.AutoTuneOptions_MaintenanceSchedule != null)
             {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
+                requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = cmdletContext.AutoTuneOptions_MaintenanceSchedule;
             }
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions != null)
+            if (requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule != null)
             {
-                request.AIMLOptions.NaturalLanguageQueryGenerationOptions = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions;
-                requestAIMLOptionsIsNull = false;
+                request.AutoTuneOptions.MaintenanceSchedules = requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule;
+                requestAutoTuneOptionsIsNull = false;
             }
-            Amazon.OpenSearchService.Model.S3VectorsEngine requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
-            
-             // populate S3VectorsEngine
-            var requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = true;
-            requestAIMLOptions_aIMLOptions_S3VectorsEngine = new Amazon.OpenSearchService.Model.S3VectorsEngine();
-            System.Boolean? requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = null;
-            if (cmdletContext.S3VectorsEngine_Enabled != null)
+            System.Boolean? requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = null;
+            if (cmdletContext.AutoTuneOptions_UseOffPeakWindow != null)
             {
-                requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled = cmdletContext.S3VectorsEngine_Enabled.Value;
+                requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = cmdletContext.AutoTuneOptions_UseOffPeakWindow.Value;
             }
-            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled != null)
+            if (requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow != null)
             {
-                requestAIMLOptions_aIMLOptions_S3VectorsEngine.Enabled = requestAIMLOptions_aIMLOptions_S3VectorsEngine_s3VectorsEngine_Enabled.Value;
-                requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull = false;
+                request.AutoTuneOptions.UseOffPeakWindow = requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow.Value;
+                requestAutoTuneOptionsIsNull = false;
             }
-             // determine if requestAIMLOptions_aIMLOptions_S3VectorsEngine should be set to null
-            if (requestAIMLOptions_aIMLOptions_S3VectorsEngineIsNull)
+             // determine if request.AutoTuneOptions should be set to null
+            if (requestAutoTuneOptionsIsNull)
             {
-                requestAIMLOptions_aIMLOptions_S3VectorsEngine = null;
-            }
-            if (requestAIMLOptions_aIMLOptions_S3VectorsEngine != null)
-            {
-                request.AIMLOptions.S3VectorsEngine = requestAIMLOptions_aIMLOptions_S3VectorsEngine;
-                requestAIMLOptionsIsNull = false;
-            }
-            Amazon.OpenSearchService.Model.ServerlessVectorAcceleration requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
-            
-             // populate ServerlessVectorAcceleration
-            var requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = true;
-            requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = new Amazon.OpenSearchService.Model.ServerlessVectorAcceleration();
-            System.Boolean? requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = null;
-            if (cmdletContext.ServerlessVectorAcceleration_Enabled != null)
-            {
-                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = cmdletContext.ServerlessVectorAcceleration_Enabled.Value;
-            }
-            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled != null)
-            {
-                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration.Enabled = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled.Value;
-                requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = false;
-            }
-             // determine if requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration should be set to null
-            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull)
-            {
-                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
-            }
-            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration != null)
-            {
-                request.AIMLOptions.ServerlessVectorAcceleration = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration;
-                requestAIMLOptionsIsNull = false;
-            }
-             // determine if request.AIMLOptions should be set to null
-            if (requestAIMLOptionsIsNull)
-            {
-                request.AIMLOptions = null;
+                request.AutoTuneOptions = null;
             }
             
              // populate AutomatedSnapshotPauseOptions
@@ -1666,45 +1712,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAutomatedSnapshotPauseOptionsIsNull)
             {
                 request.AutomatedSnapshotPauseOptions = null;
-            }
-            
-             // populate AutoTuneOptions
-            var requestAutoTuneOptionsIsNull = true;
-            request.AutoTuneOptions = new Amazon.OpenSearchService.Model.AutoTuneOptionsInput();
-            Amazon.OpenSearchService.AutoTuneDesiredState requestAutoTuneOptions_autoTuneOptions_DesiredState = null;
-            if (cmdletContext.AutoTuneOptions_DesiredState != null)
-            {
-                requestAutoTuneOptions_autoTuneOptions_DesiredState = cmdletContext.AutoTuneOptions_DesiredState;
-            }
-            if (requestAutoTuneOptions_autoTuneOptions_DesiredState != null)
-            {
-                request.AutoTuneOptions.DesiredState = requestAutoTuneOptions_autoTuneOptions_DesiredState;
-                requestAutoTuneOptionsIsNull = false;
-            }
-            List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = null;
-            if (cmdletContext.AutoTuneOptions_MaintenanceSchedule != null)
-            {
-                requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule = cmdletContext.AutoTuneOptions_MaintenanceSchedule;
-            }
-            if (requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule != null)
-            {
-                request.AutoTuneOptions.MaintenanceSchedules = requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule;
-                requestAutoTuneOptionsIsNull = false;
-            }
-            System.Boolean? requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = null;
-            if (cmdletContext.AutoTuneOptions_UseOffPeakWindow != null)
-            {
-                requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = cmdletContext.AutoTuneOptions_UseOffPeakWindow.Value;
-            }
-            if (requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow != null)
-            {
-                request.AutoTuneOptions.UseOffPeakWindow = requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow.Value;
-                requestAutoTuneOptionsIsNull = false;
-            }
-             // determine if request.AutoTuneOptions should be set to null
-            if (requestAutoTuneOptionsIsNull)
-            {
-                request.AutoTuneOptions = null;
             }
             
              // populate ClusterConfig
@@ -2102,6 +2109,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.IPAddressType != null)
+            {
+                request.IPAddressType = cmdletContext.IPAddressType;
+            }
             
              // populate IdentityCenterOptions
             var requestIdentityCenterOptionsIsNull = true;
@@ -2160,10 +2171,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestIdentityCenterOptionsIsNull)
             {
                 request.IdentityCenterOptions = null;
-            }
-            if (cmdletContext.IPAddressType != null)
-            {
-                request.IPAddressType = cmdletContext.IPAddressType;
             }
             if (cmdletContext.LogPublishingOption != null)
             {
@@ -2407,6 +2414,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
+            public System.Boolean? S3VectorsEngine_Enabled { get; set; }
+            public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
             public System.String AccessPolicy { get; set; }
             public Dictionary<System.String, System.String> AdvancedOption { get; set; }
             public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }
@@ -2431,15 +2441,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String SAMLOptions_RolesKey { get; set; }
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
-            public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
-            public System.Boolean? S3VectorsEngine_Enabled { get; set; }
-            public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
-            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
-            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
-            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public System.Boolean? AutoTuneOptions_UseOffPeakWindow { get; set; }
+            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public System.Boolean? ColdStorageOptions_Enabled { get; set; }
             public System.Int32? ClusterConfig_DedicatedMasterCount { get; set; }
             public System.Boolean? ClusterConfig_DedicatedMasterEnabled { get; set; }
@@ -2473,12 +2480,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String EncryptionAtRestOptions_KmsKeyId { get; set; }
             public Amazon.OpenSearchService.EngineMode EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
             public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
             public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
             public System.String IdentityCenterOptions_IdentityCenterInstanceRegion { get; set; }
             public Amazon.OpenSearchService.RolesKeyIdCOption IdentityCenterOptions_RolesKey { get; set; }
             public Amazon.OpenSearchService.SubjectKeyIdCOption IdentityCenterOptions_SubjectKey { get; set; }
-            public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
             public Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
             public System.Boolean? OffPeakWindowOptions_Enabled { get; set; }

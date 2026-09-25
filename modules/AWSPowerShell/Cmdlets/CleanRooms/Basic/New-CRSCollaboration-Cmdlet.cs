@@ -75,9 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// specified, results can only be written to these Regions. This parameter enables you
         /// to meet your compliance and data governance requirements, and implement regional data
         /// governance policies.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -115,9 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The types of change requests that are automatically approved for this collaboration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -147,9 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The abilities granted to the collaboration creator.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -169,9 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>The custom ML member abilities for a collaboration member. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -285,9 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <summary>
         /// <para>
         /// <para>A list of initial members, not including the creator. This list is immutable.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -356,9 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para>An optional label that you can assign to a resource when you create it. Each tag consists
         /// of a key and an optional value, both of which you define. When you use tagging, you
         /// can also use tag-based access control in IAM policies to control access to this resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -429,6 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter CreatorDisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CreatorMLMemberAbilities_CustomMLMemberAbility != null)
+            {
+                context.CreatorMLMemberAbilities_CustomMLMemberAbility = new List<System.String>(this.CreatorMLMemberAbilities_CustomMLMemberAbility);
+            }
             if (this.CreatorMemberAbility != null)
             {
                 context.CreatorMemberAbility = new List<System.String>(this.CreatorMemberAbility);
@@ -439,10 +449,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter CreatorMemberAbility which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.CreatorMLMemberAbilities_CustomMLMemberAbility != null)
-            {
-                context.CreatorMLMemberAbilities_CustomMLMemberAbility = new List<System.String>(this.CreatorMLMemberAbilities_CustomMLMemberAbility);
-            }
             context.JobCompute_IsResponsible = this.JobCompute_IsResponsible;
             context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
             context.ModelTraining_IsResponsible = this.ModelTraining_IsResponsible;
@@ -519,10 +525,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.CreatorDisplayName = cmdletContext.CreatorDisplayName;
             }
-            if (cmdletContext.CreatorMemberAbility != null)
-            {
-                request.CreatorMemberAbilities = cmdletContext.CreatorMemberAbility;
-            }
             
              // populate CreatorMLMemberAbilities
             var requestCreatorMLMemberAbilitiesIsNull = true;
@@ -541,6 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestCreatorMLMemberAbilitiesIsNull)
             {
                 request.CreatorMLMemberAbilities = null;
+            }
+            if (cmdletContext.CreatorMemberAbility != null)
+            {
+                request.CreatorMemberAbilities = cmdletContext.CreatorMemberAbility;
             }
             
              // populate CreatorPaymentConfiguration
@@ -827,8 +833,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
             public List<System.String> AutoApprovedChangeRequestType { get; set; }
             public System.String CreatorDisplayName { get; set; }
-            public List<System.String> CreatorMemberAbility { get; set; }
             public List<System.String> CreatorMLMemberAbilities_CustomMLMemberAbility { get; set; }
+            public List<System.String> CreatorMemberAbility { get; set; }
             public System.Boolean? JobCompute_IsResponsible { get; set; }
             public System.Boolean? ModelInference_IsResponsible { get; set; }
             public System.Boolean? ModelTraining_IsResponsible { get; set; }

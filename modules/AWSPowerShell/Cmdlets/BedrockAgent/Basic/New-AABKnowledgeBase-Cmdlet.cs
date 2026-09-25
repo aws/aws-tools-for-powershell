@@ -542,7 +542,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>Model-specific configuration for the embedding model, provided as a JSON object. Use
         /// this field to specify settings that apply to the embedding model that you selected,
         /// such as how audio and video files are divided into segments.</para><para>The fields that this object accepts depend on the embedding model. For the settings
-        /// that each model accepts, see the documentation for that model.</para>
+        /// that each model accepts, see the documentation for that model.</para><para>For an example of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>
+        /// request that uses this field to configure a multimodal embedding model, see the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html#API_agent_CreateKnowledgeBase_Examples">Examples</a>
+        /// section of <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -555,7 +557,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>Model-specific configuration for the embedding model, provided as a JSON object. Use
         /// this field to specify settings that apply to the embedding model that you selected,
         /// such as how audio and video files are divided into segments.</para><para>The fields that this object accepts depend on the embedding model. For the settings
-        /// that each model accepts, see the documentation for that model.</para>
+        /// that each model accepts, see the documentation for that model.</para><para>For an example of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>
+        /// request that uses this field to configure a multimodal embedding model, see the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html#API_agent_CreateKnowledgeBase_Examples">Examples</a>
+        /// section of <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

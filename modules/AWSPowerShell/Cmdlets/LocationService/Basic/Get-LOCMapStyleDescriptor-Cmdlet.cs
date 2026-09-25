@@ -30,7 +30,32 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.GetMapStyleDescriptor
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// upgrading to <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html"><c>GetStyleDescriptor</c></a> unless you require <c>Grab</c> data.
+    /// </para><ul><li><para><c>GetMapStyleDescriptor</c> is part of a previous Amazon Location Service Maps API
+    /// (version 1) which has been superseded by a more intuitive, powerful, and complete
+    /// API (version 2).
+    /// </para></li><li><para>
+    /// The version 2 <c>GetStyleDescriptor</c> operation gives a better user experience and
+    /// is compatible with the remainder of the V2 Maps API.
+    /// </para></li><li><para>
+    /// If you are using an AWS SDK or the AWS CLI, note that the Maps API version 2 is found
+    /// under <c>geo-maps</c> or <c>geo_maps</c>, not under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since <c>Grab</c> is not yet fully supported in Maps API version 2, we recommend you
+    /// continue using API version 1 when using <c>Grab</c>.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_Operations_Amazon_Location_Service_Maps_V2.html">Maps
+    /// V2 API Reference</a> or the <a href="https://docs.aws.amazon.com/location/latest/developerguide/maps.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para>
+    /// Retrieves the map style descriptor from a map resource. 
+    /// </para><para>
+    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
+    /// what data to display, what order to display the data in, and the style for the data.
+    /// Style descriptors follow the Mapbox Style Specification.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LOCMapStyleDescriptor")]
     [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]

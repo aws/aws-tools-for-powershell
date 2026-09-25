@@ -541,6 +541,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.TableResourceShareType
+        "Get-GLUETableList/ResourceShareType"
+        {
+            $v = "ALL","FEDERATED"
+            break
+        }
+
         # Amazon.Glue.TaskRunSortColumnType
         "Get-GLUEMLTaskRunList/Sort_Column"
         {
@@ -728,7 +735,7 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecommendationMode"=@("Start-GLUEDataQualityRuleRecommendationRun")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
-    "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList","Get-GLUETableList")
     "ResourceType"=@("Get-GLUEDashboardUrl")
     "RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")

@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-SECAGArtifact', 
         'Add-SECAGResourceTag', 
         'Confirm-SECAGTargetDomain', 
+        'Get-SECAGActorMessageList', 
         'Get-SECAGAgentSpaceBatch', 
         'Get-SECAGAgentSpaceList', 
         'Get-SECAGApplication', 

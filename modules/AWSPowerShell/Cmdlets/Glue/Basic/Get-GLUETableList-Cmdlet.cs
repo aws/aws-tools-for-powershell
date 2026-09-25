@@ -158,6 +158,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] AuditContext_RequestedColumn { get; set; }
         #endregion
         
+        #region Parameter ResourceShareType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which tables the <c>GetTables</c> call returns. The allowable values are
+        /// <c>FEDERATED</c> or <c>ALL</c>. </para><ul><li><para>If set to <c>FEDERATED</c>, returns only federated tables, which reference an entity
+        /// outside the Glue Data Catalog.</para></li><li><para>If set to <c>ALL</c>, returns all tables in the database, both federated and non-federated.
+        /// </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.TableResourceShareType")]
+        public Amazon.Glue.TableResourceShareType ResourceShareType { get; set; }
+        #endregion
+        
         #region Parameter TransactionId
         /// <summary>
         /// <para>
@@ -270,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #endif
             context.NextToken = this.NextToken;
             context.QueryAsOfTime = this.QueryAsOfTime;
+            context.ResourceShareType = this.ResourceShareType;
             context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -356,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.QueryAsOfTime != null)
             {
                 request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             if (cmdletContext.TransactionId != null)
             {
@@ -478,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.QueryAsOfTime != null)
             {
                 request.QueryAsOfTime = cmdletContext.QueryAsOfTime.Value;
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             if (cmdletContext.TransactionId != null)
             {
@@ -607,6 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? QueryAsOfTime { get; set; }
+            public Amazon.Glue.TableResourceShareType ResourceShareType { get; set; }
             public System.String TransactionId { get; set; }
             public System.Func<Amazon.Glue.Model.GetTablesResponse, GetGLUETableListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableList;

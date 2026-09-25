@@ -1,4 +1,31 @@
-﻿### 5.0.306 (2026-09-24 19:17Z)
+﻿### 5.0.307 (2026-09-25 19:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.342.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Get-AABVpcConfiguration leveraging the GetVpcConfiguration service API.
+    * Added cmdlet Get-AABVpcConfigurationList leveraging the ListVpcConfigurations service API.
+    * Added cmdlet New-AABVpcConfiguration leveraging the CreateVpcConfiguration service API.
+    * Added cmdlet Remove-AABVpcConfiguration leveraging the DeleteVpcConfiguration service API.
+  * Amazon ARC - Region switch
+    * Added cmdlet Get-ARCServiceQuotaWarningList leveraging the ListServiceQuotaWarnings service API.
+    * Modified cmdlet New-ARCPlan: added parameter ServiceQuotaChecksEnabled.
+    * Modified cmdlet Update-ARCPlan: added parameter ServiceQuotaChecksEnabled.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet Get-ABCBillingGroupCostReport: added parameter NoAutoIteration.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Invoke-BACCPaymentConnectorCredentialRotation leveraging the RotatePaymentConnectorCredentials service API.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNRouterOutput: added parameters Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName, Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress, Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort, Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName, Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public and Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType.
+    * Modified cmdlet Update-EMCNRouterOutput: added parameters Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName, Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress, Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort, Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName, Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public and Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUETableList: added parameter ResourceShareType.
+  * Amazon Neptune Graph
+    * Modified cmdlet Get-NEPTGImportTaskList: added parameter GraphIdentifier.
+  * Amazon Q Connect
+    * Modified cmdlet Update-QCAssistantAIAgent: added parameter Configuration_Enabled.
+  * Amazon Security Agent
+    * Added cmdlet Get-SECAGActorMessageList leveraging the ListActorMessages service API.
+
+### 5.0.306 (2026-09-24 19:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.341.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch
     * Added cmdlet Get-CWResourceMetricsConfiguration leveraging the GetResourceMetricsConfiguration service API.

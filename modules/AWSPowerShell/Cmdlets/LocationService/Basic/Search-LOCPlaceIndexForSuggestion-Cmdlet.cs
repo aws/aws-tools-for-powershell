@@ -30,7 +30,36 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.SearchPlaceIndexForSuggestions
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to <a href="/location/latest/APIReference/API_geoplaces_Suggest.html"><c>Suggest</c></a> or <a href="/location/latest/APIReference/API_geoplaces_Autocomplete.html"><c>Autocomplete</c></a> unless you require Grab data.
+    /// </para><ul><li><para><c>SearchPlaceIndexForSuggestions</c> is part of a previous Amazon Location Service
+    /// Places API (version 1) which has been superseded by a more intuitive, powerful, and
+    /// complete API (version 2).
+    /// </para></li><li><para>
+    /// The version 2 <c>Suggest</c> operation gives better results for typeahead place search
+    /// suggestions with fuzzy matching, while the version 2 <c>Autocomplete</c> operation
+    /// gives better results for address completion based on partial input.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Places API version 2 is found under <c>geo-places</c> or <c>geo_places</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Places API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li></ul></important><para>
+    /// Generates suggestions for addresses and points of interest based on partial or misspelled
+    /// free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy
+    /// matching.
+    /// </para><para>
+    /// Optional parameters let you narrow your search results by bounding box or country,
+    /// or bias your search toward a specific position on the globe.
+    /// </para><note><para>
+    /// You can search for suggested place names near a specified position by using <c>BiasPosition</c>,
+    /// or filter results within a bounding box by using <c>FilterBBox</c>. These parameters
+    /// are mutually exclusive; using both <c>BiasPosition</c> and <c>FilterBBox</c> in the
+    /// same command returns an error.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForSuggestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsResponse")]
@@ -53,9 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents the position with longitude <c>-123.1174</c>
         /// and latitude <c>49.2847</c>.</para><note><para><c>BiasPosition</c> and <c>FilterBBox</c> are mutually exclusive. Specifying both
         /// options results in an error. </para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -75,9 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// box where the southwest corner has longitude <c>-12.7935</c> and latitude <c>-37.4835</c>,
         /// and the northeast corner has longitude <c>-12.0684</c> and latitude <c>-36.9542</c>.</para><note><para><c>FilterBBox</c> and <c>BiasPosition</c> are mutually exclusive. Specifying both
         /// options results in an error. </para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -93,9 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// of the categories listed.</para><para>For more information about using categories, including a list of Amazon Location categories,
         /// see <a href="https://docs.aws.amazon.com/location/previous/developerguide/category-filtering.html">Categories
         /// and filtering</a>, in the <i>Amazon Location Service developer guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -110,9 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>An optional parameter that limits the search results by returning only suggestions
         /// within the provided list of countries.</para><ul><li><para>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
         /// country code. For example, Australia uses three upper-case characters: <c>AUS</c>.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

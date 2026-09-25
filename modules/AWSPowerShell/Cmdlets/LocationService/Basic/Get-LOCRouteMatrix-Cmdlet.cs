@@ -30,7 +30,58 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.CalculateRouteMatrix
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to the <a href="/location/latest/APIReference/API_CalculateRouteMatrix.html">V2
+    /// <c>CalculateRouteMatrix</c></a> unless you require Grab data.
+    /// </para><ul><li><para>
+    /// This version of <c>CalculateRouteMatrix</c> is part of a previous Amazon Location
+    /// Service Routes API (version 1) which has been superseded by a more intuitive, powerful,
+    /// and complete API (version 2).
+    /// </para></li><li><para>
+    /// The version 2 <c>CalculateRouteMatrix</c> operation gives better results for matrix
+    /// routing calculations.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Routes API version 2 is found under <c>geo-routes</c> or <c>geo_routes</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Routes API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the Routes V2 <a href="/location/latest/APIReference/API_Operations_Amazon_Location_Service_Routes_V2.html">API
+    /// Reference</a> or the <a href="/location/latest/developerguide/routes.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html">
+    /// Calculates a route matrix</a> given the following required parameters: <c>DeparturePositions</c>
+    /// and <c>DestinationPositions</c>. <c>CalculateRouteMatrix</c> calculates routes and
+    /// returns the travel time and travel distance from each departure position to each destination
+    /// position in the request. For example, given departure positions A and B, and destination
+    /// positions X and Y, <c>CalculateRouteMatrix</c> will return time and distance for routes
+    /// from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned
+    /// (and routes calculated) will be the number of <c>DeparturePositions</c> times the
+    /// number of <c>DestinationPositions</c>.
+    /// </para><note><para>
+    /// Your account is charged for each route calculated, not the number of requests.
+    /// </para></note><para>
+    /// Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
+    /// a route calculator resource</a>.
+    /// </para><para>
+    /// By default, a request that doesn't specify a departure time uses the best time of
+    /// day to travel with the best traffic conditions when calculating routes.
+    /// </para><para>
+    /// Additional options include:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">
+    /// Specifying a departure time</a> using either <c>DepartureTime</c> or <c>DepartNow</c>.
+    /// This calculates routes based on predictive traffic data at the given time. 
+    /// </para><note><para>
+    /// You can't specify both <c>DepartureTime</c> and <c>DepartNow</c> in a single request.
+    /// Specifying both parameters returns a validation error.
+    /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying
+    /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
+    /// the routes. This also lets you specify additional route preferences in <c>CarModeOptions</c>
+    /// if traveling by <c>Car</c>, or <c>TruckModeOptions</c> if traveling by <c>Truck</c>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "LOCRouteMatrix")]
     [OutputType("Amazon.LocationService.Model.CalculateRouteMatrixResponse")]
@@ -130,9 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
         /// result in <c>SnappedDeparturePositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -173,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">
         /// moves the position to the nearest road</a>. The snapped value is available in the
         /// result in <c>SnappedDestinationPositions</c>.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

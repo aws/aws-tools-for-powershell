@@ -30,7 +30,31 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.DeleteMap
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// upgrading to the Maps API V2 unless you require <c>Grab</c> data.
+    /// </para><ul><li><para><c>DeleteMap</c> is part of a previous Amazon Location Service Maps API (version
+    /// 1) which has been superseded by a more intuitive, powerful, and complete API (version
+    /// 2).
+    /// </para></li><li><para>
+    /// The Maps API version 2 has a simplified interface that can be used without creating
+    /// or managing map resources.
+    /// </para></li><li><para>
+    /// If you are using an AWS SDK or the AWS CLI, note that the Maps API version 2 is found
+    /// under <c>geo-maps</c> or <c>geo_maps</c>, not under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since <c>Grab</c> is not yet fully supported in Maps API version 2, we recommend you
+    /// continue using API version 1 when using <c>Grab</c>.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_Operations_Amazon_Location_Service_Maps_V2.html">Maps
+    /// V2 API Reference</a> or the <a href="https://docs.aws.amazon.com/location/latest/developerguide/maps.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para>
+    /// Deletes a map resource from your Amazon Web Services account.
+    /// </para><note><para>
+    /// This operation deletes the resource permanently. If the map is being used in an application,
+    /// the map may not render.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

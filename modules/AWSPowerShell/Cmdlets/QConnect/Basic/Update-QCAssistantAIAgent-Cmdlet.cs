@@ -98,6 +98,20 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter Configuration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the AI Agent configured for this AI Agent type is enabled. When
+        /// this value is omitted or set to true, the configured AI Agent runs; when set to false,
+        /// the AI Agent ID is retained but no AI Agent runs for the AI Agent type. Setting this
+        /// value to false is currently supported only for the <c>ANSWER_RECOMMENDATION</c> AI
+        /// Agent type; other requests to set it to false are rejected with a validation error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter OrchestratorUseCase
         /// <summary>
         /// <para>
@@ -175,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter Configuration_AiAgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Configuration_Enabled = this.Configuration_Enabled;
             context.OrchestratorUseCase = this.OrchestratorUseCase;
             
             // allow further manipulation of loaded context prior to processing
@@ -212,6 +227,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfiguration_configuration_AiAgentId != null)
             {
                 request.Configuration.AiAgentId = requestConfiguration_configuration_AiAgentId;
+                requestConfigurationIsNull = false;
+            }
+            System.Boolean? requestConfiguration_configuration_Enabled = null;
+            if (cmdletContext.Configuration_Enabled != null)
+            {
+                requestConfiguration_configuration_Enabled = cmdletContext.Configuration_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_Enabled != null)
+            {
+                request.Configuration.Enabled = requestConfiguration_configuration_Enabled.Value;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -281,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public Amazon.QConnect.AIAgentType AiAgentType { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Configuration_AiAgentId { get; set; }
+            public System.Boolean? Configuration_Enabled { get; set; }
             public System.String OrchestratorUseCase { get; set; }
             public System.Func<Amazon.QConnect.Model.UpdateAssistantAIAgentResponse, UpdateQCAssistantAIAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Assistant;

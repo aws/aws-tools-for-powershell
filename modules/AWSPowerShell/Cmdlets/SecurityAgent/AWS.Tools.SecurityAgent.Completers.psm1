@@ -398,6 +398,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGSecurityRequirementPack",
                "Import-SECAGSecurityRequirement",
                "Start-SECAGProviderRegistration",
+               "Get-SECAGActorMessageList",
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
                "Get-SECAGArtifactList",

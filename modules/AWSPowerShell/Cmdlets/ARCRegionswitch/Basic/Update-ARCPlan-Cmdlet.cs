@@ -131,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public Amazon.ARCRegionswitch.Model.ReportOutputConfiguration[] ReportConfiguration_ReportOutput { get; set; }
         #endregion
         
+        #region Parameter ServiceQuotaChecksEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether service quota checks are enabled for the Region switch plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServiceQuotaChecksEnabled { get; set; }
+        #endregion
+        
         #region Parameter Trigger
         /// <summary>
         /// <para>
@@ -242,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             {
                 context.ReportConfiguration_ReportOutput = new List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration>(this.ReportConfiguration_ReportOutput);
             }
+            context.ServiceQuotaChecksEnabled = this.ServiceQuotaChecksEnabled;
             if (this.Trigger != null)
             {
                 context.Trigger = new List<Amazon.ARCRegionswitch.Model.Trigger>(this.Trigger);
@@ -310,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             if (requestReportConfigurationIsNull)
             {
                 request.ReportConfiguration = null;
+            }
+            if (cmdletContext.ServiceQuotaChecksEnabled != null)
+            {
+                request.ServiceQuotaChecksEnabled = cmdletContext.ServiceQuotaChecksEnabled.Value;
             }
             if (cmdletContext.Trigger != null)
             {
@@ -380,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             public System.String ExecutionRole { get; set; }
             public System.Int32? RecoveryTimeObjectiveMinute { get; set; }
             public List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> ReportConfiguration_ReportOutput { get; set; }
+            public System.Boolean? ServiceQuotaChecksEnabled { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Trigger> Trigger { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Workflow> Workflow { get; set; }
             public System.Func<Amazon.ARCRegionswitch.Model.UpdatePlanResponse, UpdateARCPlanCmdlet, object> Select { get; set; } =

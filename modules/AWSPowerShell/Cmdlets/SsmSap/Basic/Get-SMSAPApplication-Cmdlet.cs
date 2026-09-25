@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
                 context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.GetApplicationResponse, GetSMSAPApplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AppRegistryArn = this.AppRegistryArn;
             context.ApplicationArn = this.ApplicationArn;
             context.ApplicationId = this.ApplicationId;
-            context.AppRegistryArn = this.AppRegistryArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             // create request
             var request = new Amazon.SsmSap.Model.GetApplicationRequest();
             
+            if (cmdletContext.AppRegistryArn != null)
+            {
+                request.AppRegistryArn = cmdletContext.AppRegistryArn;
+            }
             if (cmdletContext.ApplicationArn != null)
             {
                 request.ApplicationArn = cmdletContext.ApplicationArn;
@@ -131,10 +135,6 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.AppRegistryArn != null)
-            {
-                request.AppRegistryArn = cmdletContext.AppRegistryArn;
             }
             
             CmdletOutput output;
@@ -191,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppRegistryArn { get; set; }
             public System.String ApplicationArn { get; set; }
             public System.String ApplicationId { get; set; }
-            public System.String AppRegistryArn { get; set; }
             public System.Func<Amazon.SsmSap.Model.GetApplicationResponse, GetSMSAPApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

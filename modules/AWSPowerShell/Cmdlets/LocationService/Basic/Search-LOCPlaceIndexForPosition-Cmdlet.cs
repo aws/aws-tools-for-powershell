@@ -30,7 +30,28 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.SearchPlaceIndexForPosition
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to <a href="/location/latest/APIReference/API_geoplaces_ReverseGeocode.html"><c>ReverseGeocode</c></a> or <a href="/location/latest/APIReference/API_geoplaces_SearchNearby.html"><c>SearchNearby</c></a> unless you require Grab data.
+    /// </para><ul><li><para><c>SearchPlaceIndexForPosition</c> is part of a previous Amazon Location Service
+    /// Places API (version 1) which has been superseded by a more intuitive, powerful, and
+    /// complete API (version 2).
+    /// </para></li><li><para>
+    /// The version 2 <c>ReverseGeocode</c> operation gives better results in the address
+    /// reverse-geocoding use case, while the version 2 <c>SearchNearby</c> operation gives
+    /// better results when searching for businesses and points of interest near a specific
+    /// location.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Places API version 2 is found under <c>geo-places</c> or <c>geo_places</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Places API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li></ul></important><para>
+    /// Reverse geocodes a given coordinate and returns a legible address. Allows you to search
+    /// for Places or points of interest near a given position.
+    /// </para>
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForPosition")]
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse")]
@@ -95,9 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>Specifies the longitude and latitude of the position to query.</para><para> This parameter must contain a pair of numbers. The first number represents the X
         /// coordinate, or longitude; the second number represents the Y coordinate, or latitude.</para><para>For example, <c>[-123.1174, 49.2847]</c> represents a position with longitude <c>-123.1174</c>
         /// and latitude <c>49.2847</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

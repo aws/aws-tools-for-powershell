@@ -661,6 +661,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RotatePaymentConnectorCredentials" OutputProperty="*" Verb="Invoke" Noun="PaymentConnectorCredentialRotation" ShouldProcessTarget="PaymentConnectorId,PaymentManagerId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetTokenVaultCMK" OutputProperty="*" Verb="Set" Noun="TokenVaultCMK" ShouldProcessTarget="TokenVaultId" PipelineParameter="KmsConfiguration_KeyType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

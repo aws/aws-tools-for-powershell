@@ -805,6 +805,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
+               "Invoke-BACCPaymentConnectorCredentialRotation",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",
                "Submit-BACCRegistryRecordForApproval",

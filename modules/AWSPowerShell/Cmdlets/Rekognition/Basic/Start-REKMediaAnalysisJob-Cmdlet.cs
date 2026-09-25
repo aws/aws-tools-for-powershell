@@ -30,9 +30,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <important><para>
+    /// Service availability notice: Streaming Video and Bulk Image Analysis is no longer
+    /// available to new customers. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition
+    /// feature availability changes</a>.
+    /// </para><para><b>This change does not impact the availability of other Amazon Rekognition features.</b></para></important><para>
     /// Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket.
     /// The output is a manifest file and a summary of the manifest stored in the Amazon S3
     /// bucket.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "REKMediaAnalysisJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

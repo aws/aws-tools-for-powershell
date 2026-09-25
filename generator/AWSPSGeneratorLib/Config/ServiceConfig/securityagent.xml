@@ -211,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListActorMessages" OutputProperty="Messages" Verb="Get" Noun="ActorMessageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgentSpaces" OutputProperty="AgentSpaceSummaries" Verb="Get" Noun="AgentSpaceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

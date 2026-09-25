@@ -5275,6 +5275,7 @@ $ARC_SelectMap = @{
                "Get-ARCPlansInRegionList",
                "Get-ARCRoute53HealthCheckList",
                "Get-ARCRoute53HealthCheckInRegionList",
+               "Get-ARCServiceQuotaWarningList",
                "Get-ARCResourceTag",
                "Start-ARCPlanExecution",
                "Add-ARCResourceTag",
@@ -8832,6 +8833,27 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.VpcConfigurationStatus
+        "Get-AABVpcConfigurationList/StatusFilter"
+        {
+            $v = "CREATED","CREATE_FAILED","CREATING","DELETE_FAILED","DELETING"
+            break
+        }
+
+        # Amazon.BedrockAgent.VpcProtocol
+        "New-AABVpcConfiguration/Protocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.BedrockAgent.VpcResolutionMode
+        "New-AABVpcConfiguration/ResolutionMode"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.BedrockAgent.WebScopeType
         {
             ($_ -eq "New-AABDataSource/CrawlerConfiguration_Scope") -Or
@@ -8888,11 +8910,14 @@ $AAB_map = @{
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "Protocol"=@("New-AABVpcConfiguration")
     "QueryEngineConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
+    "ResolutionMode"=@("New-AABVpcConfiguration")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "StatusFilter"=@("Get-AABVpcConfigurationList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
 
@@ -8958,6 +8983,7 @@ $AAB_SelectMap = @{
                "New-AABKnowledgeBase",
                "New-AABPrompt",
                "New-AABPromptVersion",
+               "New-AABVpcConfiguration",
                "Remove-AABAgent",
                "Remove-AABAgentActionGroup",
                "Remove-AABAgentAlias",
@@ -8970,6 +8996,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
                "Remove-AABResourcePolicy",
+               "Remove-AABVpcConfiguration",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
@@ -8987,6 +9014,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
                "Get-AABResourcePolicy",
+               "Get-AABVpcConfiguration",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
@@ -9003,6 +9031,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBasisList",
                "Get-AABPromptList",
                "Get-AABResourceTag",
+               "Get-AABVpcConfigurationList",
                "Initialize-AABAgent",
                "Initialize-AABFlow",
                "Write-AABResourcePolicy",
@@ -9757,6 +9786,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Write-BACCResourcePolicy",
+               "Invoke-BACCPaymentConnectorCredentialRotation",
                "Set-BACCTokenVaultCMK",
                "Start-BACCPolicyGeneration",
                "Submit-BACCRegistryRecordForApproval",
@@ -15961,8 +15991,8 @@ $CF_SelectMap = @{
                "Update-CFTrustStore",
                "Update-CFVpcOrigin",
                "Test-CFDnsConfiguration",
-               "New-CFSignedUrl",
-               "New-CFSignedCookie")
+               "New-CFSignedCookie",
+               "New-CFSignedUrl")
 }
 
 _awsArgumentCompleterRegistration $CF_SelectCompleters $CF_SelectMap
@@ -16422,9 +16452,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Get-CSDSuggestion",
-               "Write-CSDDocument",
-               "Search-CSDDocument")
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -21906,7 +21936,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MESSAGE_STREAMING","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_MUTE_AGENT_ON_HOLD","AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MESSAGE_STREAMING","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -30395,12 +30425,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
-               "New-DDBTable",
-               "Add-DDBKeySchema",
+               "Add-DDBIndexSchema",
                "New-DDBTableSchema",
-               "ConvertFrom-DDBItem")
+               "ConvertFrom-DDBItem",
+               "New-DDBTable",
+               "Add-DDBKeySchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -41022,8 +41052,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -41670,6 +41700,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.TableResourceShareType
+        "Get-GLUETableList/ResourceShareType"
+        {
+            $v = "ALL","FEDERATED"
+            break
+        }
+
         # Amazon.Glue.TaskRunSortColumnType
         "Get-GLUEMLTaskRunList/Sort_Column"
         {
@@ -41857,7 +41894,7 @@ $GLUE_map = @{
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecommendationMode"=@("Start-GLUEDataQualityRuleRecommendationRun")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
-    "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
+    "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList","Get-GLUETableList")
     "ResourceType"=@("Get-GLUEDashboardUrl")
     "RestConfiguration_GlobalSourceConfiguration_FilterConfiguration_FilterMode"=@("Register-GLUEConnectionType")
     "RestConfiguration_GlobalSourceConfiguration_PaginationConfiguration_CursorConfiguration_LimitParameter_PropertyLocation"=@("Register-GLUEConnectionType")
@@ -56689,7 +56726,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterOutput/Standard_Protocol")
         }
         {
-            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            $v = "RIST","RTMP_PUSH","RTP","SRT_CALLER","SRT_LISTENER"
             break
         }
 
@@ -56753,6 +56790,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.TlsEncryptionType
+        {
+            ($_ -eq "New-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType")
+        }
+        {
+            $v = "PUBLIC"
+            break
+        }
+
 
     }
 
@@ -56765,6 +56812,7 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
@@ -71221,7 +71269,7 @@ $QC_Completers = {
         # Amazon.QConnect.RecommendationType
         "Get-QCRecommendation/RecommendationType"
         {
-            $v = "BLOCKED_CASE_SUMMARIZATION_CHUNK","BLOCKED_GENERATIVE_ANSWER_CHUNK","BLOCKED_INTENT_ANSWER_CHUNK","BLOCKED_NOTES_CHUNK","CASE_SUMMARIZATION_CHUNK","DETECTED_INTENT","EMAIL_GENERATIVE_ANSWER_CHUNK","EMAIL_OVERVIEW_CHUNK","EMAIL_RESPONSE_CHUNK","GENERATIVE_ANSWER","GENERATIVE_ANSWER_CHUNK","GENERATIVE_RESPONSE","INTENT_ANSWER_CHUNK","KNOWLEDGE_CONTENT","NOTES_CHUNK","SUGGESTED_MESSAGE"
+            $v = "BLOCKED_CASE_SUMMARIZATION_CHUNK","BLOCKED_GENERATIVE_ANSWER_CHUNK","BLOCKED_INTENT_ANSWER_CHUNK","BLOCKED_NOTES_CHUNK","CASE_SUMMARIZATION_CHUNK","DETECTED_INTENT","EMAIL_GENERATIVE_ANSWER_CHUNK","EMAIL_OVERVIEW_CHUNK","EMAIL_RESPONSE_CHUNK","GENERATIVE_ANSWER","GENERATIVE_ANSWER_CHUNK","GENERATIVE_RESPONSE","INTENT_ANSWER_CHUNK","KNOWLEDGE_CONTENT","NOTES_CHUNK","PROACTIVE_RECOMMENDATION","SUGGESTED_MESSAGE"
             break
         }
 
@@ -79152,18 +79200,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Read-S3Object",
-               "Test-S3Bucket",
-               "Remove-S3MultipartUpload",
                "Get-S3PreSignedURL",
-               "New-S3Bucket",
-               "Remove-S3Bucket",
-               "Remove-S3Object",
-               "Write-S3Object",
-               "Get-S3MultipartUpload",
                "Dismount-S3PSDrive",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
                "Copy-S3Object",
-               "Mount-S3PSDrive")
+               "Test-S3Bucket",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket",
+               "Read-S3Object",
+               "Write-S3Object",
+               "Remove-S3Object",
+               "Remove-S3MultipartUpload")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -84203,6 +84251,7 @@ $SECAG_SelectMap = @{
                "Get-SECAGSecurityRequirementPack",
                "Import-SECAGSecurityRequirement",
                "Start-SECAGProviderRegistration",
+               "Get-SECAGActorMessageList",
                "Get-SECAGAgentSpaceList",
                "Get-SECAGApplicationList",
                "Get-SECAGArtifactList",
@@ -95848,44 +95897,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -95925,3 +95936,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

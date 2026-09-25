@@ -342,7 +342,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNRouterOutput/Standard_Protocol")
         }
         {
-            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            $v = "RIST","RTMP_PUSH","RTP","SRT_CALLER","SRT_LISTENER"
             break
         }
 
@@ -406,6 +406,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.TlsEncryptionType
+        {
+            ($_ -eq "New-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType")
+        }
+        {
+            $v = "PUBLIC"
+            break
+        }
+
 
     }
 
@@ -418,6 +428,7 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "Configuration_MediaLiveChannel_MediaLivePipelineId"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "Configuration_MediaLiveChannel_SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "ContentQualityAnalysisConfiguration_ContentLevel_BlackFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_FrozenFrames_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "ContentQualityAnalysisConfiguration_ContentLevel_SilentAudio_State"=@("New-EMCNRouterInput","Update-EMCNRouterInput")

@@ -30,7 +30,29 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.ListRouteCalculators<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to the Routes API V2 unless you require Grab data.
+    /// </para><ul><li><para><c>ListRouteCalculators</c> is part of a previous Amazon Location Service Routes
+    /// API (version 1) which has been superseded by a more intuitive, powerful, and complete
+    /// API (version 2).
+    /// </para></li><li><para>
+    /// The Routes API version 2 has a simplified interface that can be used without creating
+    /// or managing route calculator resources.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Routes API version 2 is found under <c>geo-routes</c> or <c>geo_routes</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Routes API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the Routes V2 <a href="/location/latest/APIReference/API_Operations_Amazon_Location_Service_Routes_V2.html">API
+    /// Reference</a> or the <a href="/location/latest/developerguide/routes.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para>
+    /// Lists route calculator resources in your Amazon Web Services account.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "LOCRouteCalculatorList")]
     [OutputType("Amazon.LocationService.Model.ListRouteCalculatorsResponseEntry")]

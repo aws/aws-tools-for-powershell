@@ -30,7 +30,14 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <important><para>
+    /// Service availability notice: Streaming Video and Bulk Image Analysis is no longer
+    /// available to new customers. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition
+    /// feature availability changes</a>.
+    /// </para><para><b>This change does not impact the availability of other Amazon Rekognition features.</b></para></important><para>
+    /// Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>.
+    /// 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "REKStreamProcessorList")]
     [OutputType("Amazon.Rekognition.Model.StreamProcessor")]

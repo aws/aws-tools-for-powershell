@@ -30,12 +30,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
+    /// <important><para>
+    /// Service availability notice: Streaming Video and Bulk Image Analysis is no longer
+    /// available to new customers. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition
+    /// feature availability changes</a>.
+    /// </para><para><b>This change does not impact the availability of other Amazon Rekognition features.</b></para></important><para>
     /// Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
     /// To tell <c>StartStreamProcessor</c> which stream processor to start, use the value
     /// of the <c>Name</c> field specified in the call to <c>CreateStreamProcessor</c>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// If you are using a label detection stream processor to detect labels, you need to
     /// provide a <c>Start selector</c> and a <c>Stop selector</c> to determine the length
     /// of the stream processing time.

@@ -436,6 +436,27 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.VpcConfigurationStatus
+        "Get-AABVpcConfigurationList/StatusFilter"
+        {
+            $v = "CREATED","CREATE_FAILED","CREATING","DELETE_FAILED","DELETING"
+            break
+        }
+
+        # Amazon.BedrockAgent.VpcProtocol
+        "New-AABVpcConfiguration/Protocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.BedrockAgent.VpcResolutionMode
+        "New-AABVpcConfiguration/ResolutionMode"
+        {
+            $v = "IN_VPC","PUBLIC"
+            break
+        }
+
         # Amazon.BedrockAgent.WebScopeType
         {
             ($_ -eq "New-AABDataSource/CrawlerConfiguration_Scope") -Or
@@ -492,11 +513,14 @@ $AAB_map = @{
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "Protocol"=@("New-AABVpcConfiguration")
     "QueryEngineConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
+    "ResolutionMode"=@("New-AABVpcConfiguration")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "StatusFilter"=@("Get-AABVpcConfigurationList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
 
@@ -562,6 +586,7 @@ $AAB_SelectMap = @{
                "New-AABKnowledgeBase",
                "New-AABPrompt",
                "New-AABPromptVersion",
+               "New-AABVpcConfiguration",
                "Remove-AABAgent",
                "Remove-AABAgentActionGroup",
                "Remove-AABAgentAlias",
@@ -574,6 +599,7 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
                "Remove-AABResourcePolicy",
+               "Remove-AABVpcConfiguration",
                "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
@@ -591,6 +617,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
                "Get-AABResourcePolicy",
+               "Get-AABVpcConfiguration",
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
@@ -607,6 +634,7 @@ $AAB_SelectMap = @{
                "Get-AABKnowledgeBasisList",
                "Get-AABPromptList",
                "Get-AABResourceTag",
+               "Get-AABVpcConfigurationList",
                "Initialize-AABAgent",
                "Initialize-AABFlow",
                "Write-AABResourcePolicy",

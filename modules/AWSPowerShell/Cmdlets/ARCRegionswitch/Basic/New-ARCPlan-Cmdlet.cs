@@ -191,6 +191,16 @@ namespace Amazon.PowerShell.Cmdlets.ARC
         public Amazon.ARCRegionswitch.Model.ReportOutputConfiguration[] ReportConfiguration_ReportOutput { get; set; }
         #endregion
         
+        #region Parameter ServiceQuotaChecksEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable service quota checks for the Region switch plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServiceQuotaChecksEnabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -335,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             {
                 context.ReportConfiguration_ReportOutput = new List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration>(this.ReportConfiguration_ReportOutput);
             }
+            context.ServiceQuotaChecksEnabled = this.ServiceQuotaChecksEnabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -424,6 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             {
                 request.ReportConfiguration = null;
             }
+            if (cmdletContext.ServiceQuotaChecksEnabled != null)
+            {
+                request.ServiceQuotaChecksEnabled = cmdletContext.ServiceQuotaChecksEnabled.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -500,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.ARC
             public System.Int32? RecoveryTimeObjectiveMinute { get; set; }
             public List<System.String> PlanRegions { get; set; }
             public List<Amazon.ARCRegionswitch.Model.ReportOutputConfiguration> ReportConfiguration_ReportOutput { get; set; }
+            public System.Boolean? ServiceQuotaChecksEnabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Trigger> Trigger { get; set; }
             public List<Amazon.ARCRegionswitch.Model.Workflow> Workflow { get; set; }

@@ -30,7 +30,34 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.CreateMap
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// upgrading to the Maps API V2 unless you require <c>Grab</c> data.
+    /// </para><ul><li><para><c>CreateMap</c> is part of a previous Amazon Location Service Maps API (version
+    /// 1) which has been superseded by a more intuitive, powerful, and complete API (version
+    /// 2).
+    /// </para></li><li><para>
+    /// The Maps API version 2 has a simplified interface that can be used without creating
+    /// or managing map resources.
+    /// </para></li><li><para>
+    /// If you are using an AWS SDK or the AWS CLI, note that the Maps API version 2 is found
+    /// under <c>geo-maps</c> or <c>geo_maps</c>, not under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since <c>Grab</c> is not yet fully supported in Maps API version 2, we recommend you
+    /// continue using API version 1 when using <c>Grab</c>.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_Operations_Amazon_Location_Service_Maps_V2.html">Maps
+    /// V2 API Reference</a> or the <a href="https://docs.aws.amazon.com/location/latest/developerguide/maps.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para>
+    /// Creates a map resource in your Amazon Web Services account, which provides map tiles
+    /// of different styles sourced from global location data providers.
+    /// </para><note><para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+    /// service terms</a> for more details.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateMapResponse")]
@@ -51,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// or, for styles that support custom layers, you can enable layer(s), such as POI layer
         /// for the VectorEsriNavigation style. Default is <c>unset</c>.</para><note><para>Not all map resources or styles support custom layers. See Custom Layers for more
         /// information.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -170,9 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
         /// identify, search, and filter your resources by labelling them.</para><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

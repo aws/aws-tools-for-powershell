@@ -30,7 +30,38 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.CreateRouteCalculator
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to the Routes API V2 unless you require Grab data.
+    /// </para><ul><li><para><c>CreateRouteCalculator</c> is part of a previous Amazon Location Service Routes
+    /// API (version 1) which has been superseded by a more intuitive, powerful, and complete
+    /// API (version 2).
+    /// </para></li><li><para>
+    /// The Routes API version 2 has a simplified interface that can be used without creating
+    /// or managing route calculator resources.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Routes API version 2 is found under <c>geo-routes</c> or <c>geo_routes</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Routes API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li><li><para>
+    /// Start your version 2 API journey with the Routes V2 <a href="/location/latest/APIReference/API_Operations_Amazon_Location_Service_Routes_V2.html">API
+    /// Reference</a> or the <a href="/location/latest/developerguide/routes.html">Developer
+    /// Guide</a>.
+    /// </para></li></ul></important><para>
+    /// Creates a route calculator resource in your Amazon Web Services account.
+    /// </para><para>
+    /// You can send requests to a route calculator resource to estimate travel time, distance,
+    /// and get directions. A route calculator sources traffic and road network data from
+    /// your chosen data provider.
+    /// </para><note><para>
+    /// If your application is tracking or routing assets you use in your business, such as
+    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+    /// service terms</a> for more details.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCRouteCalculator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateRouteCalculatorResponse")]
@@ -106,9 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>Applies one or more tags to the route calculator resource. A tag is a key-value pair
         /// helps manage, identify, search, and filter your resources by labelling them.</para><ul><li><para>For example: { <c>"tag1" : "value1"</c>, <c>"tag2" : "value2"</c>}</para></li></ul><para>Format: <c>"key" : "value"</c></para><para>Restrictions:</para><ul><li><para>Maximum 50 tags per resource</para></li><li><para>Each resource tag must be unique with a maximum of one value.</para></li><li><para>Maximum key length: 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length: 256 Unicode characters in UTF-8</para></li><li><para>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
         /// = . _ : / @. </para></li><li><para>Cannot use "aws:" as a prefix for a key.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

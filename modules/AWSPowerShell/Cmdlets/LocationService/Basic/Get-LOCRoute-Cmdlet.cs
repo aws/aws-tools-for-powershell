@@ -30,7 +30,46 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Amazon.LocationService.IAmazonLocationService.CalculateRoute
+    /// <important><para>
+    /// This operation is no longer current and may be deprecated in the future. We recommend
+    /// you upgrade to <a href="/location/latest/APIReference/API_CalculateRoutes.html"><c>CalculateRoutes</c></a> or <a href="/location/latest/APIReference/API_CalculateIsolines.html"><c>CalculateIsolines</c></a> unless you require Grab data.
+    /// </para><ul><li><para><c>CalculateRoute</c> is part of a previous Amazon Location Service Routes API (version
+    /// 1) which has been superseded by a more intuitive, powerful, and complete API (version
+    /// 2).
+    /// </para></li><li><para>
+    /// The version 2 <c>CalculateRoutes</c> operation gives better results for point-to-point
+    /// routing, while the version 2 <c>CalculateIsolines</c> operation adds support for calculating
+    /// service areas and travel time envelopes.
+    /// </para></li><li><para>
+    /// If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that
+    /// the Routes API version 2 is found under <c>geo-routes</c> or <c>geo_routes</c>, not
+    /// under <c>location</c>.
+    /// </para></li><li><para>
+    /// Since Grab is not yet fully supported in Routes API version 2, we recommend you continue
+    /// using API version 1 when using Grab.
+    /// </para></li></ul></important><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html">Calculates
+    /// a route</a> given the following required parameters: <c>DeparturePosition</c> and
+    /// <c>DestinationPosition</c>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
+    /// a route calculator resource</a>.
+    /// </para><para>
+    /// By default, a request that doesn't specify a departure time uses the best time of
+    /// day to travel with the best traffic conditions when calculating the route.
+    /// </para><para>
+    /// Additional options include:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">Specifying
+    /// a departure time</a> using either <c>DepartureTime</c> or <c>DepartNow</c>. This calculates
+    /// a route based on predictive traffic data at the given time. 
+    /// </para><note><para>
+    /// You can't specify both <c>DepartureTime</c> and <c>DepartNow</c> in a single request.
+    /// Specifying both parameters returns a validation error.
+    /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying
+    /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
+    /// the routes. This also lets you specify additional route preferences in <c>CarModeOptions</c>
+    /// if traveling by <c>Car</c>, or <c>TruckModeOptions</c> if traveling by <c>Truck</c>.
+    /// </para><note><para>
+    /// If you specify <c>walking</c> for the travel mode and your data provider is Esri,
+    /// the start and destination must be within 40km.
+    /// </para></note></li></ul>
     /// </summary>
     [Cmdlet("Get", "LOCRoute")]
     [OutputType("Amazon.LocationService.Model.CalculateRouteResponse")]
@@ -138,9 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// the position to the nearest road</a>. If Esri is the provider for your route calculator,
         /// specifying a route that is longer than 400 km returns a <c>400 RoutesValidationException</c>
         /// error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -174,9 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World
         /// Geodetic System (WGS 84)</a> format: <c>[longitude, latitude]</c>.</para><ul><li><para> For example, <c>[-122.339, 47.615]</c></para></li></ul><note><para>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. </para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -319,9 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// 47.620]]</c></para></li></ul><note><para>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html">moves
         /// the position to the nearest road</a>. </para><para>Specifying more than 23 waypoints returns a <c>400 ValidationException</c> error.</para><para>If Esri is the provider for your route calculator, specifying a route that is longer
         /// than 400 km returns a <c>400 RoutesValidationException</c> error.</para></note><para>Valid Values: <c>[-180 to 180,-90 to 90]</c></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

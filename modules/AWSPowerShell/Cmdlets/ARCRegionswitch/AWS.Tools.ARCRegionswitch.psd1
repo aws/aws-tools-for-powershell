@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ARCResourceTag', 
         'Get-ARCRoute53HealthCheckInRegionList', 
         'Get-ARCRoute53HealthCheckList', 
+        'Get-ARCServiceQuotaWarningList', 
         'New-ARCPlan', 
         'Remove-ARCPlan', 
         'Remove-ARCResourceTag', 

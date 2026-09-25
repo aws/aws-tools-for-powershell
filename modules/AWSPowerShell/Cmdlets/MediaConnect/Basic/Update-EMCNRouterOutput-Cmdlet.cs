@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP application on the destination server. Together with the stream
+        /// name, the application name forms the RTMP URL path, in the pattern <c>rtmp://destinationAddress/applicationName/streamName</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName { get; set; }
+        #endregion
+        
         #region Parameter Arn
         /// <summary>
         /// <para>
@@ -117,6 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String Rist_DestinationAddress { get; set; }
         #endregion
         
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress
+        /// <summary>
+        /// <para>
+        /// <para>The IP address or hostname of the destination RTMP server that the router output pushes
+        /// the stream to. Provide only the server address; specify the application and stream
+        /// names separately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress { get; set; }
+        #endregion
+        
         #region Parameter Rtp_DestinationAddress
         /// <summary>
         /// <para>
@@ -148,6 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Standard_ProtocolConfiguration_Rist_DestinationPort")]
         public System.Int32? Rist_DestinationPort { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort
+        /// <summary>
+        /// <para>
+        /// <para>The TCP port on the destination RTMP server. For RTMP, valid values range from <c>1024</c>
+        /// to <c>65535</c>. For RTMPS (RTMP over TLS), valid values are <c>443</c> or <c>1024</c>
+        /// to <c>65535</c>. RTMP typically uses port <c>1935</c>, and RTMPS typically uses port
+        /// <c>443</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort { get; set; }
         #endregion
         
         #region Parameter Rtp_DestinationPort
@@ -194,6 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [Alias("Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType")]
         [AWSConstantClassSource("Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType")]
         public Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of TLS encryption to use for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.TlsEncryptionType")]
+        public Amazon.MediaConnect.TlsEncryptionType Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType { get; set; }
         #endregion
         
         #region Parameter MediaConnectFlow_FlowArn
@@ -330,6 +377,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.RouterOutputProtocol Standard_Protocol { get; set; }
         #endregion
         
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public
+        /// <summary>
+        /// <para>
+        /// <para>The TLS encryption configuration that validates the destination by using a publicly
+        /// trusted certificate authority.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public { get; set; }
+        #endregion
+        
         #region Parameter FabricConfiguration_RecoveryLatencyMode
         /// <summary>
         /// <para>
@@ -455,6 +513,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String SrtCaller_StreamId { get; set; }
         #endregion
         
+        #region Parameter Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the RTMP stream that the output publishes to the destination application.
+        /// The stream name forms the final segment of the RTMP URL path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName { get; set; }
+        #endregion
+        
         #region Parameter Tier
         /// <summary>
         /// <para>
@@ -546,6 +615,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.Standard_Protocol = this.Standard_Protocol;
             context.Rist_DestinationAddress = this.Rist_DestinationAddress;
             context.Rist_DestinationPort = this.Rist_DestinationPort;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public;
+            context.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType = this.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType;
             context.Rtp_DestinationAddress = this.Rtp_DestinationAddress;
             context.Rtp_DestinationPort = this.Rtp_DestinationPort;
             context.Rtp_ForwardErrorCorrection = this.Rtp_ForwardErrorCorrection;
@@ -1026,6 +1101,111 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration.SrtListener = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_SrtListener;
                 requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfigurationIsNull = false;
             }
+            Amazon.MediaConnect.Model.RtmpPushRouterOutputConfiguration requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush = null;
+            
+             // populate RtmpPush
+            var requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = true;
+            requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush = new Amazon.MediaConnect.Model.RtmpPushRouterOutputConfiguration();
+            System.String requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush.ApplicationName = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush.DestinationAddress = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort.Value;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush.DestinationPort = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort.Value;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush.StreamName = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = false;
+            }
+            Amazon.MediaConnect.Model.TlsEncryption requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption = null;
+            
+             // populate TlsEncryption
+            var requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryptionIsNull = true;
+            requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption = new Amazon.MediaConnect.Model.TlsEncryption();
+            Amazon.MediaConnect.TlsEncryptionType requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption.EncryptionType = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryptionIsNull = false;
+            }
+            Amazon.MediaConnect.Model.TlsEncryptionConfiguration requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration = null;
+            
+             // populate EncryptionConfiguration
+            var requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfigurationIsNull = true;
+            requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration = new Amazon.MediaConnect.Model.TlsEncryptionConfiguration();
+            Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public = null;
+            if (cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public = cmdletContext.Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration.Public = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration should be set to null
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfigurationIsNull)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration = null;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption.EncryptionConfiguration = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryptionIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption should be set to null
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryptionIsNull)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption = null;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush.TlsEncryption = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush_configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush should be set to null
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPushIsNull)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush = null;
+            }
+            if (requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush != null)
+            {
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration.RtmpPush = requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_RtmpPush;
+                requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfigurationIsNull = false;
+            }
             Amazon.MediaConnect.Model.SrtCallerRouterOutputConfiguration requestConfiguration_configuration_Standard_configuration_Standard_ProtocolConfiguration_configuration_Standard_ProtocolConfiguration_SrtCaller = null;
             
              // populate SrtCaller
@@ -1317,6 +1497,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public Amazon.MediaConnect.RouterOutputProtocol Standard_Protocol { get; set; }
             public System.String Rist_DestinationAddress { get; set; }
             public System.Int32? Rist_DestinationPort { get; set; }
+            public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_ApplicationName { get; set; }
+            public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationAddress { get; set; }
+            public System.Int32? Configuration_Standard_ProtocolConfiguration_RtmpPush_DestinationPort { get; set; }
+            public System.String Configuration_Standard_ProtocolConfiguration_RtmpPush_StreamName { get; set; }
+            public Amazon.MediaConnect.Model.PublicTlsEncryptionConfiguration Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionConfiguration_Public { get; set; }
+            public Amazon.MediaConnect.TlsEncryptionType Configuration_Standard_ProtocolConfiguration_RtmpPush_TlsEncryption_EncryptionType { get; set; }
             public System.String Rtp_DestinationAddress { get; set; }
             public System.Int32? Rtp_DestinationPort { get; set; }
             public Amazon.MediaConnect.ForwardErrorCorrectionState Rtp_ForwardErrorCorrection { get; set; }

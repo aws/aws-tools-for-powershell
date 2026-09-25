@@ -1788,6 +1788,9 @@ Set-Alias -Name ARC-ListRoute53HealthChecks -Value Get-ARCRoute53HealthCheckList
 Set-Alias -Name List-ARCRoute53HealthChecksInRegion -Value Get-ARCRoute53HealthCheckInRegionList
 Set-Alias -Name List-ARCRoute53HealthCheckInRegionList -Value Get-ARCRoute53HealthCheckInRegionList
 Set-Alias -Name ARC-ListRoute53HealthChecksInRegion -Value Get-ARCRoute53HealthCheckInRegionList
+Set-Alias -Name List-ARCServiceQuotaWarnings -Value Get-ARCServiceQuotaWarningList
+Set-Alias -Name List-ARCServiceQuotaWarningList -Value Get-ARCServiceQuotaWarningList
+Set-Alias -Name ARC-ListServiceQuotaWarnings -Value Get-ARCServiceQuotaWarningList
 Set-Alias -Name ARC-ListTagsForResource -Value Get-ARCResourceTag
 Set-Alias -Name ARC-StartPlanExecution -Value Start-ARCPlanExecution
 Set-Alias -Name ARC-TagResource -Value Add-ARCResourceTag
@@ -2975,6 +2978,8 @@ Set-Alias -Name Create-AABPrompt -Value New-AABPrompt
 Set-Alias -Name AAB-CreatePrompt -Value New-AABPrompt
 Set-Alias -Name Create-AABPromptVersion -Value New-AABPromptVersion
 Set-Alias -Name AAB-CreatePromptVersion -Value New-AABPromptVersion
+Set-Alias -Name Create-AABVpcConfiguration -Value New-AABVpcConfiguration
+Set-Alias -Name AAB-CreateVpcConfiguration -Value New-AABVpcConfiguration
 Set-Alias -Name Delete-AABAgentActionGroup -Value Remove-AABAgentActionGroup
 Set-Alias -Name AAB-DeleteAgentActionGroup -Value Remove-AABAgentActionGroup
 Set-Alias -Name Delete-AABAgentAlias -Value Remove-AABAgentAlias
@@ -3000,6 +3005,8 @@ Set-Alias -Name Delete-AABPrompt -Value Remove-AABPrompt
 Set-Alias -Name AAB-DeletePrompt -Value Remove-AABPrompt
 Set-Alias -Name Delete-AABResourcePolicy -Value Remove-AABResourcePolicy
 Set-Alias -Name AAB-DeleteResourcePolicy -Value Remove-AABResourcePolicy
+Set-Alias -Name Delete-AABVpcConfiguration -Value Remove-AABVpcConfiguration
+Set-Alias -Name AAB-DeleteVpcConfiguration -Value Remove-AABVpcConfiguration
 Set-Alias -Name Disassociate-AABAgentCollaborator -Value Unregister-AABAgentCollaborator
 Set-Alias -Name AAB-DisassociateAgentCollaborator -Value Unregister-AABAgentCollaborator
 Set-Alias -Name Disassociate-AABAgentKnowledgeBase -Value Unregister-AABAgentKnowledgeBase
@@ -3020,6 +3027,7 @@ Set-Alias -Name Get-AABKnowledgeBaseDocuments -Value Get-AABKnowledgeBaseDocumen
 Set-Alias -Name AAB-GetKnowledgeBaseDocuments -Value Get-AABKnowledgeBaseDocument
 Set-Alias -Name AAB-GetPrompt -Value Get-AABPrompt
 Set-Alias -Name AAB-GetResourcePolicy -Value Get-AABResourcePolicy
+Set-Alias -Name AAB-GetVpcConfiguration -Value Get-AABVpcConfiguration
 Set-Alias -Name Ingest-AABKnowledgeBaseDocuments -Value Add-AABKnowledgeBaseDocument
 Set-Alias -Name Ingest-AABKnowledgeBaseDocument -Value Add-AABKnowledgeBaseDocument
 Set-Alias -Name AAB-IngestKnowledgeBaseDocuments -Value Add-AABKnowledgeBaseDocument
@@ -3066,6 +3074,9 @@ Set-Alias -Name List-AABPrompts -Value Get-AABPromptList
 Set-Alias -Name List-AABPromptList -Value Get-AABPromptList
 Set-Alias -Name AAB-ListPrompts -Value Get-AABPromptList
 Set-Alias -Name AAB-ListTagsForResource -Value Get-AABResourceTag
+Set-Alias -Name List-AABVpcConfigurations -Value Get-AABVpcConfigurationList
+Set-Alias -Name List-AABVpcConfigurationList -Value Get-AABVpcConfigurationList
+Set-Alias -Name AAB-ListVpcConfigurations -Value Get-AABVpcConfigurationList
 Set-Alias -Name Prepare-AABAgent -Value Initialize-AABAgent
 Set-Alias -Name AAB-PrepareAgent -Value Initialize-AABAgent
 Set-Alias -Name Prepare-AABFlow -Value Initialize-AABFlow
@@ -3367,6 +3378,9 @@ Set-Alias -Name List-BACCWorkloadIdentityList -Value Get-BACCWorkloadIdentityLis
 Set-Alias -Name BACC-ListWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name Put-BACCResourcePolicy -Value Write-BACCResourcePolicy
 Set-Alias -Name BACC-PutResourcePolicy -Value Write-BACCResourcePolicy
+Set-Alias -Name Rotate-BACCPaymentConnectorCredentials -Value Invoke-BACCPaymentConnectorCredentialRotation
+Set-Alias -Name Rotate-BACCPaymentConnectorCredentialRotation -Value Invoke-BACCPaymentConnectorCredentialRotation
+Set-Alias -Name BACC-RotatePaymentConnectorCredentials -Value Invoke-BACCPaymentConnectorCredentialRotation
 Set-Alias -Name BACC-SetTokenVaultCMK -Value Set-BACCTokenVaultCMK
 Set-Alias -Name BACC-StartPolicyGeneration -Value Start-BACCPolicyGeneration
 Set-Alias -Name BACC-SubmitRegistryRecordForApproval -Value Submit-BACCRegistryRecordForApproval
@@ -32354,6 +32368,9 @@ Set-Alias -Name Import-SECAGSecurityRequirements -Value Import-SECAGSecurityRequ
 Set-Alias -Name SECAG-ImportSecurityRequirements -Value Import-SECAGSecurityRequirement
 Set-Alias -Name Initiate-SECAGProviderRegistration -Value Start-SECAGProviderRegistration
 Set-Alias -Name SECAG-InitiateProviderRegistration -Value Start-SECAGProviderRegistration
+Set-Alias -Name List-SECAGActorMessages -Value Get-SECAGActorMessageList
+Set-Alias -Name List-SECAGActorMessageList -Value Get-SECAGActorMessageList
+Set-Alias -Name SECAG-ListActorMessages -Value Get-SECAGActorMessageList
 Set-Alias -Name List-SECAGAgentSpaces -Value Get-SECAGAgentSpaceList
 Set-Alias -Name List-SECAGAgentSpaceList -Value Get-SECAGAgentSpaceList
 Set-Alias -Name SECAG-ListAgentSpaces -Value Get-SECAGAgentSpaceList

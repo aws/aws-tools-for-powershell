@@ -74,9 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <para>
         /// <para>Optional assistance position information, specified using latitude and longitude values
         /// in degrees. The coordinates are inside the WGS84 reference frame.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -89,9 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <para>
         /// <para>Optional assistance position information, specified using latitude and longitude values
         /// in degrees. The coordinates are inside the WGS84 reference frame.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -104,9 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <para>
         /// <para>List of GNSS scan captures. Each capture contains a payload from a single GNSS scan.
         /// The number of captures must be 2, 4, 8, 16, or 32.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -153,9 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>CDMA object information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -181,9 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>GSM object information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -205,9 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>LTE object information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -229,9 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>TD-SCDMA object information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -279,9 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>WCDMA object information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -294,9 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <para>
         /// <para>Retrieves an estimated device position by resolving WLAN measurement data. The position
         /// is resolved using HERE's Wi-Fi based solver.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -370,11 +379,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 context.GnssMultiFrame_AssistPosition = new List<System.Single>(this.GnssMultiFrame_AssistPosition);
             }
+            context.GnssMultiFrame_CaptureTimeAccuracy = this.GnssMultiFrame_CaptureTimeAccuracy;
             if (this.GnssMultiFrame_Capture != null)
             {
                 context.GnssMultiFrame_Capture = new List<Amazon.IoTWireless.Model.GnssCapture>(this.GnssMultiFrame_Capture);
             }
-            context.GnssMultiFrame_CaptureTimeAccuracy = this.GnssMultiFrame_CaptureTimeAccuracy;
             context.GnssMultiFrame_Use2DSolver = this.GnssMultiFrame_Use2DSolver;
             context.Ip_IpAddress = this.Ip_IpAddress;
             context.Timestamp = this.Timestamp;
@@ -584,16 +593,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.GnssMultiFrame.AssistPosition = requestGnssMultiFrame_gnssMultiFrame_AssistPosition;
                 requestGnssMultiFrameIsNull = false;
             }
-            List<Amazon.IoTWireless.Model.GnssCapture> requestGnssMultiFrame_gnssMultiFrame_Capture = null;
-            if (cmdletContext.GnssMultiFrame_Capture != null)
-            {
-                requestGnssMultiFrame_gnssMultiFrame_Capture = cmdletContext.GnssMultiFrame_Capture;
-            }
-            if (requestGnssMultiFrame_gnssMultiFrame_Capture != null)
-            {
-                request.GnssMultiFrame.Captures = requestGnssMultiFrame_gnssMultiFrame_Capture;
-                requestGnssMultiFrameIsNull = false;
-            }
             System.Single? requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy = null;
             if (cmdletContext.GnssMultiFrame_CaptureTimeAccuracy != null)
             {
@@ -602,6 +601,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy != null)
             {
                 request.GnssMultiFrame.CaptureTimeAccuracy = requestGnssMultiFrame_gnssMultiFrame_CaptureTimeAccuracy.Value;
+                requestGnssMultiFrameIsNull = false;
+            }
+            List<Amazon.IoTWireless.Model.GnssCapture> requestGnssMultiFrame_gnssMultiFrame_Capture = null;
+            if (cmdletContext.GnssMultiFrame_Capture != null)
+            {
+                requestGnssMultiFrame_gnssMultiFrame_Capture = cmdletContext.GnssMultiFrame_Capture;
+            }
+            if (requestGnssMultiFrame_gnssMultiFrame_Capture != null)
+            {
+                request.GnssMultiFrame.Captures = requestGnssMultiFrame_gnssMultiFrame_Capture;
                 requestGnssMultiFrameIsNull = false;
             }
             System.Boolean? requestGnssMultiFrame_gnssMultiFrame_Use2DSolver = null;
@@ -715,8 +724,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Boolean? Gnss_Use2DSolver { get; set; }
             public System.Single? GnssMultiFrame_AssistAltitude { get; set; }
             public List<System.Single> GnssMultiFrame_AssistPosition { get; set; }
-            public List<Amazon.IoTWireless.Model.GnssCapture> GnssMultiFrame_Capture { get; set; }
             public System.Single? GnssMultiFrame_CaptureTimeAccuracy { get; set; }
+            public List<Amazon.IoTWireless.Model.GnssCapture> GnssMultiFrame_Capture { get; set; }
             public System.Boolean? GnssMultiFrame_Use2DSolver { get; set; }
             public System.String Ip_IpAddress { get; set; }
             public System.DateTime? Timestamp { get; set; }

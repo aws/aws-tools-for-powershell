@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter GraphIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Neptune Analytics graph. When provided, the service returns
+        /// only import tasks associated with this graph. If not specified, the service returns
+        /// all import tasks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GraphIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -121,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
                 context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.ListImportTasksResponse, GetNEPTGImportTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.GraphIdentifier = this.GraphIdentifier;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -150,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             // create request and set iteration invariants
             var request = new Amazon.NeptuneGraph.Model.ListImportTasksRequest();
             
+            if (cmdletContext.GraphIdentifier != null)
+            {
+                request.GraphIdentifier = cmdletContext.GraphIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -234,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GraphIdentifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.NeptuneGraph.Model.ListImportTasksResponse, GetNEPTGImportTaskListCmdlet, object> Select { get; set; } =

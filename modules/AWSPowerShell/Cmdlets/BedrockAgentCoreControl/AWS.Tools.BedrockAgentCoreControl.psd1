@@ -164,6 +164,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BACCTokenVault', 
         'Get-BACCWorkloadIdentity', 
         'Get-BACCWorkloadIdentityList', 
+        'Invoke-BACCPaymentConnectorCredentialRotation', 
         'New-BACCAgentRuntime', 
         'New-BACCAgentRuntimeEndpoint', 
         'New-BACCApiKeyCredentialProvider', 

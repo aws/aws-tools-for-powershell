@@ -210,6 +210,7 @@ $ARC_SelectMap = @{
                "Get-ARCPlansInRegionList",
                "Get-ARCRoute53HealthCheckList",
                "Get-ARCRoute53HealthCheckInRegionList",
+               "Get-ARCServiceQuotaWarningList",
                "Get-ARCResourceTag",
                "Start-ARCPlanExecution",
                "Add-ARCResourceTag",
