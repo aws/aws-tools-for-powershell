@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the entity</para>
+        /// Unique identifier for the entity
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity type for which the entity is requested</para>
+        /// The entity type for which the entity is requested
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
+        /// ARN generated at the server side when a DataAutomationLibrary
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR

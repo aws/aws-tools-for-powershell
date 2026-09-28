@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter BlueprintArn
         /// <summary>
         /// <para>
-        /// <para>Blueprint to be copied</para>
+        /// Blueprint to be copied
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter SourceStage
         /// <summary>
         /// <para>
-        /// <para>Source stage to copy from</para>
+        /// Source stage to copy from
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter TargetStage
         /// <summary>
         /// <para>
-        /// <para>Target stage to copy to</para>
+        /// Target stage to copy to
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Client token for idempotency</para>
+        /// Client token for idempotency
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

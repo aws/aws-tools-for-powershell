@@ -3826,6 +3826,12 @@ Set-Alias -Name AWSB-ListBillingViews -Value Get-AWSBBillingViewList
 Set-Alias -Name List-AWSBBillingViewSegments -Value Get-AWSBBillingViewSegmentList
 Set-Alias -Name List-AWSBBillingViewSegmentList -Value Get-AWSBBillingViewSegmentList
 Set-Alias -Name AWSB-ListBillingViewSegments -Value Get-AWSBBillingViewSegmentList
+Set-Alias -Name List-AWSBBusinessSupportAccountCharges -Value Get-AWSBBusinessSupportAccountChargeList
+Set-Alias -Name List-AWSBBusinessSupportAccountChargeList -Value Get-AWSBBusinessSupportAccountChargeList
+Set-Alias -Name AWSB-ListBusinessSupportAccountCharges -Value Get-AWSBBusinessSupportAccountChargeList
+Set-Alias -Name List-AWSBBusinessSupportSubscriptionHistory -Value Get-AWSBBusinessSupportSubscriptionHistoryList
+Set-Alias -Name List-AWSBBusinessSupportSubscriptionHistoryList -Value Get-AWSBBusinessSupportSubscriptionHistoryList
+Set-Alias -Name AWSB-ListBusinessSupportSubscriptionHistory -Value Get-AWSBBusinessSupportSubscriptionHistoryList
 Set-Alias -Name List-AWSBEnterpriseSupportLinkedAccountCharges -Value Get-AWSBEnterpriseSupportLinkedAccountChargeList
 Set-Alias -Name List-AWSBEnterpriseSupportLinkedAccountChargeList -Value Get-AWSBEnterpriseSupportLinkedAccountChargeList
 Set-Alias -Name AWSB-ListEnterpriseSupportLinkedAccountCharges -Value Get-AWSBEnterpriseSupportLinkedAccountChargeList
@@ -11814,6 +11820,8 @@ Set-Alias -Name Delete-EC2CarrierGateway -Value Remove-EC2CarrierGateway
 Set-Alias -Name EC2-DeleteCarrierGateway -Value Remove-EC2CarrierGateway
 Set-Alias -Name Delete-EC2ClientVpnEndpoint -Value Remove-EC2ClientVpnEndpoint
 Set-Alias -Name EC2-DeleteClientVpnEndpoint -Value Remove-EC2ClientVpnEndpoint
+Set-Alias -Name Delete-EC2ClientVpnEndpointAuthorizationPolicy -Value Remove-EC2ClientVpnEndpointAuthorizationPolicy
+Set-Alias -Name EC2-DeleteClientVpnEndpointAuthorizationPolicy -Value Remove-EC2ClientVpnEndpointAuthorizationPolicy
 Set-Alias -Name Delete-EC2ClientVpnRoute -Value Remove-EC2ClientVpnRoute
 Set-Alias -Name EC2-DeleteClientVpnRoute -Value Remove-EC2ClientVpnRoute
 Set-Alias -Name Delete-EC2CoipCidr -Value Remove-EC2CoipCidr
@@ -12703,6 +12711,7 @@ Set-Alias -Name EC2-GetCapacityManagerMetricDimensions -Value Get-EC2CapacityMan
 Set-Alias -Name Get-EC2CapacityManagerMonitoredTagKeys -Value Get-EC2CapacityManagerMonitoredTagKey
 Set-Alias -Name EC2-GetCapacityManagerMonitoredTagKeys -Value Get-EC2CapacityManagerMonitoredTagKey
 Set-Alias -Name EC2-GetCapacityReservationUsage -Value Get-EC2CapacityReservationUsage
+Set-Alias -Name EC2-GetClientVpnEndpointAuthorizationPolicy -Value Get-EC2ClientVpnEndpointAuthorizationPolicy
 Set-Alias -Name EC2-GetCoipPoolUsage -Value Get-EC2CoipPoolUsage
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
 Set-Alias -Name EC2-GetConsoleScreenshot -Value Get-EC2ConsoleScreenshot
@@ -12834,6 +12843,8 @@ Set-Alias -Name Modify-EC2CapacityReservationFleet -Value Edit-EC2CapacityReserv
 Set-Alias -Name EC2-ModifyCapacityReservationFleet -Value Edit-EC2CapacityReservationFleet
 Set-Alias -Name Modify-EC2ClientVpnEndpoint -Value Edit-EC2ClientVpnEndpoint
 Set-Alias -Name EC2-ModifyClientVpnEndpoint -Value Edit-EC2ClientVpnEndpoint
+Set-Alias -Name Modify-EC2ClientVpnEndpointAuthorizationPolicy -Value Edit-EC2ClientVpnEndpointAuthorizationPolicy
+Set-Alias -Name EC2-ModifyClientVpnEndpointAuthorizationPolicy -Value Edit-EC2ClientVpnEndpointAuthorizationPolicy
 Set-Alias -Name Modify-EC2DefaultCreditSpecification -Value Edit-EC2DefaultCreditSpecification
 Set-Alias -Name EC2-ModifyDefaultCreditSpecification -Value Edit-EC2DefaultCreditSpecification
 Set-Alias -Name Modify-EC2EbsDefaultKmsKeyId -Value Edit-EC2EbsDefaultKmsKeyId

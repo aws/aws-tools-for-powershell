@@ -132,6 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.CapabilityDeletePropagationPolicy DeletePropagationPolicy { get; set; }
         #endregion
         
+        #region Parameter Configuration_ArgoCd_EndpointPrefix
+        /// <summary>
+        /// <para>
+        /// <para>An optional prefix used to construct the hostname of the Argo CD server endpoint.
+        /// If not specified, Amazon EKS automatically generates the endpoint. This value can't
+        /// be changed after the capability is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ArgoCd_EndpointPrefix { get; set; }
+        #endregion
+        
         #region Parameter AwsIdc_IdcInstanceArn
         /// <summary>
         /// <para>
@@ -174,9 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// users or groups have which Argo CD roles. Each mapping associates an Argo CD role
         /// (<c>ADMIN</c>, <c>EDITOR</c>, or <c>VIEWER</c>) with one or more IAM Identity CenterIAM;
         /// Identity Center identities.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -212,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -248,9 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint.
         /// Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD
         /// server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -322,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #endif
             context.AwsIdc_IdcInstanceArn = this.AwsIdc_IdcInstanceArn;
             context.AwsIdc_IdcRegion = this.AwsIdc_IdcRegion;
+            context.Configuration_ArgoCd_EndpointPrefix = this.Configuration_ArgoCd_EndpointPrefix;
             context.ArgoCd_Namespace = this.ArgoCd_Namespace;
             if (this.NetworkAccess_VpceId != null)
             {
@@ -397,6 +413,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
              // populate ArgoCd
             var requestConfiguration_configuration_ArgoCdIsNull = true;
             requestConfiguration_configuration_ArgoCd = new Amazon.EKS.Model.ArgoCdConfigRequest();
+            System.String requestConfiguration_configuration_ArgoCd_configuration_ArgoCd_EndpointPrefix = null;
+            if (cmdletContext.Configuration_ArgoCd_EndpointPrefix != null)
+            {
+                requestConfiguration_configuration_ArgoCd_configuration_ArgoCd_EndpointPrefix = cmdletContext.Configuration_ArgoCd_EndpointPrefix;
+            }
+            if (requestConfiguration_configuration_ArgoCd_configuration_ArgoCd_EndpointPrefix != null)
+            {
+                requestConfiguration_configuration_ArgoCd.EndpointPrefix = requestConfiguration_configuration_ArgoCd_configuration_ArgoCd_EndpointPrefix;
+                requestConfiguration_configuration_ArgoCdIsNull = false;
+            }
             System.String requestConfiguration_configuration_ArgoCd_argoCd_Namespace = null;
             if (cmdletContext.ArgoCd_Namespace != null)
             {
@@ -568,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClusterName { get; set; }
             public System.String AwsIdc_IdcInstanceArn { get; set; }
             public System.String AwsIdc_IdcRegion { get; set; }
+            public System.String Configuration_ArgoCd_EndpointPrefix { get; set; }
             public System.String ArgoCd_Namespace { get; set; }
             public List<System.String> NetworkAccess_VpceId { get; set; }
             public List<Amazon.EKS.Model.ArgoCdRoleMapping> ArgoCd_RbacRoleMapping { get; set; }

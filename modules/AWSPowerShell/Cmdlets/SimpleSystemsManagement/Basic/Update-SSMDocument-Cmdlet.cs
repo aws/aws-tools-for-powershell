@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentFormat
         /// <summary>
         /// <para>
-        /// <para>Specify the document format for the new document version. Systems Manager supports
-        /// JSON and YAML documents. JSON is the default format.</para>
+        /// <para>Specify the document format for the new document version. The document format can
+        /// be JSON, YAML, or TEXT. JSON is the default format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity type for which the entity list is requested</para>
+        /// The entity type for which the entity list is
+        /// requested
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
+        /// ARN generated at the server side when a DataAutomationLibrary
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token for retrieving the next set of results</para>
+        /// Pagination token for retrieving the next set
+        /// of results
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

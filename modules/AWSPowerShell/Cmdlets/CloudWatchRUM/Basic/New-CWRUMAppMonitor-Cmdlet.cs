@@ -100,9 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para> List the domain names for which your application has administrative authority. The
         /// <c>CreateAppMonitor</c> requires either the domain or the domain list. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -129,9 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>A list of URLs in your website or application to exclude from RUM data collection.</para><para>You can't include both <c>ExcludedPages</c> and <c>IncludedPages</c> in the same operation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -145,9 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>A list of pages in your application that are to be displayed with a "favorite" icon
         /// in the CloudWatch RUM console.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -189,9 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>If this app monitor is to collect data from only certain pages in your application,
         /// this structure lists those pages. </para><para>You can't include both <c>ExcludedPages</c> and <c>IncludedPages</c> in the same operation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -290,9 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// with certain tag values.</para><para>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
         /// as strings of characters.</para><para>You can associate as many as 50 tags with an app monitor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -307,9 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>An array that lists the types of telemetry data that this app monitor is to collect.</para><ul><li><para><c>errors</c> indicates that RUM collects data about unhandled JavaScript errors
         /// raised by your application.</para></li><li><para><c>performance</c> indicates that RUM collects performance data about how your application
         /// and its resources are loaded and rendered. This includes Core Web Vitals.</para></li><li><para><c>http</c> indicates that RUM collects data about HTTP errors thrown by your application.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

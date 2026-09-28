@@ -142,6 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.CustomClaimValidationType[] DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaim { get; set; }
         #endregion
         
+        #region Parameter CustomMetadataSchemaConfiguration_DefaultSchema
+        /// <summary>
+        /// <para>
+        /// <para>The default JSON Schema that applies to record types without a specific override.
+        /// Supported property types are <c>string</c>, <c>string</c> with an <c>enum</c> constraint,
+        /// <c>string</c> with a <c>uri</c> format, and <c>boolean</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomMetadataSchemaConfiguration_DefaultSchema { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -230,6 +242,25 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverrides")]
         public Amazon.AgentRegistryControl.Model.PrivateEndpointOverride[] DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpointOverride { get; set; }
+        #endregion
+        
+        #region Parameter CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride
+        /// <summary>
+        /// <para>
+        /// <para>A list of per-record-type schema overrides. When a record's type matches an override,
+        /// that override's schema is used instead of the default schema for validation. If you
+        /// don't specify an override for a record type, the default schema applies. If no default
+        /// schema exists, custom metadata on records of that type is rejected.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomMetadataSchemaConfiguration_RecordTypeSchemaOverrides")]
+        public Amazon.AgentRegistryControl.Model.RecordTypeSchemaOverride[] CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride { get; set; }
         #endregion
         
         #region Parameter DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_PrivateEndpoint_SelfManagedLatticeResource_ResourceConfigurationIdentifier
@@ -406,6 +437,11 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             context.AutoDetectionConfiguration_Enabled = this.AutoDetectionConfiguration_Enabled;
             context.AutoDetectionConfiguration_Scope = this.AutoDetectionConfiguration_Scope;
             context.ClientToken = this.ClientToken;
+            context.CustomMetadataSchemaConfiguration_DefaultSchema = this.CustomMetadataSchemaConfiguration_DefaultSchema;
+            if (this.CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride != null)
+            {
+                context.CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride = new List<Amazon.AgentRegistryControl.Model.RecordTypeSchemaOverride>(this.CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride);
+            }
             context.Description = this.Description;
             if (this.DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience != null)
             {
@@ -532,6 +568,35 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate CustomMetadataSchemaConfiguration
+            var requestCustomMetadataSchemaConfigurationIsNull = true;
+            request.CustomMetadataSchemaConfiguration = new Amazon.AgentRegistryControl.Model.CustomMetadataSchemaConfiguration();
+            System.String requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_DefaultSchema = null;
+            if (cmdletContext.CustomMetadataSchemaConfiguration_DefaultSchema != null)
+            {
+                requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_DefaultSchema = cmdletContext.CustomMetadataSchemaConfiguration_DefaultSchema;
+            }
+            if (requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_DefaultSchema != null)
+            {
+                request.CustomMetadataSchemaConfiguration.DefaultSchema = requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_DefaultSchema;
+                requestCustomMetadataSchemaConfigurationIsNull = false;
+            }
+            List<Amazon.AgentRegistryControl.Model.RecordTypeSchemaOverride> requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_RecordTypeSchemaOverride = null;
+            if (cmdletContext.CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride != null)
+            {
+                requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_RecordTypeSchemaOverride = cmdletContext.CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride;
+            }
+            if (requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_RecordTypeSchemaOverride != null)
+            {
+                request.CustomMetadataSchemaConfiguration.RecordTypeSchemaOverrides = requestCustomMetadataSchemaConfiguration_customMetadataSchemaConfiguration_RecordTypeSchemaOverride;
+                requestCustomMetadataSchemaConfigurationIsNull = false;
+            }
+             // determine if request.CustomMetadataSchemaConfiguration should be set to null
+            if (requestCustomMetadataSchemaConfigurationIsNull)
+            {
+                request.CustomMetadataSchemaConfiguration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -847,6 +912,8 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             public System.Boolean? AutoDetectionConfiguration_Enabled { get; set; }
             public Amazon.AgentRegistryControl.AutoDetectionScope AutoDetectionConfiguration_Scope { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String CustomMetadataSchemaConfiguration_DefaultSchema { get; set; }
+            public List<Amazon.AgentRegistryControl.Model.RecordTypeSchemaOverride> CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride { get; set; }
             public System.String Description { get; set; }
             public List<System.String> DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> DiscoveryConfiguration_AuthorizerConfiguration_CustomJWTAuthorizer_AllowedClient { get; set; }

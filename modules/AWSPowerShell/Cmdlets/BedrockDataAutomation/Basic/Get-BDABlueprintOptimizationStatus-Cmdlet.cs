@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter InvocationArn
         /// <summary>
         /// <para>
-        /// <para>Invocation arn.</para>
+        /// Invocation arn.
         /// </para>
         /// </summary>
         #if !MODULAR

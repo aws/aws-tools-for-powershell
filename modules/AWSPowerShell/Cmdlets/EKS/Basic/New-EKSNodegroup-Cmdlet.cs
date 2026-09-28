@@ -224,9 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// specifying multiple values for <c>instanceTypes</c>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
         /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
         /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -240,9 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Kubernetes <c>labels</c> to apply to the nodes in the node group when they are
         /// created.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -405,9 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>Specify granular overrides for specific repair actions. These overrides control the
         /// repair action and the repair delay time before a node is considered eligible for repair.
         /// If you use this, you must specify all the values.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -496,9 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// security group when you create a managed node group, then the port on the nodes is
         /// opened to the internet (<c>0.0.0.0/0</c>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -514,9 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// If you specify <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></c> in your launch template, or the node group deployment will fail. For more information
         /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
         /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -538,9 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
         /// or Amazon Web Services resources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -555,9 +561,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The Kubernetes taints to be applied to the nodes in the node group. For more information,
         /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node
         /// taints on managed node groups</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -685,13 +692,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.LaunchTemplate_Id = this.LaunchTemplate_Id;
             context.LaunchTemplate_Name = this.LaunchTemplate_Name;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
-            context.NodegroupName = this.NodegroupName;
-            #if MODULAR
-            if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NodeRepairConfig_Enabled = this.NodeRepairConfig_Enabled;
             context.NodeRepairConfig_MaxParallelNodesRepairedCount = this.NodeRepairConfig_MaxParallelNodesRepairedCount;
             context.NodeRepairConfig_MaxParallelNodesRepairedPercentage = this.NodeRepairConfig_MaxParallelNodesRepairedPercentage;
@@ -706,6 +706,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (this.NodeRole == null && ParameterWasBound(nameof(this.NodeRole)))
             {
                 WriteWarning("You are passing $null as a value for parameter NodeRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.NodegroupName = this.NodegroupName;
+            #if MODULAR
+            if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.ReleaseVersion = this.ReleaseVersion;
@@ -831,10 +838,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.LaunchTemplate = null;
             }
-            if (cmdletContext.NodegroupName != null)
-            {
-                request.NodegroupName = cmdletContext.NodegroupName;
-            }
             
              // populate NodeRepairConfig
             var requestNodeRepairConfigIsNull = true;
@@ -907,6 +910,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.NodeRole != null)
             {
                 request.NodeRole = cmdletContext.NodeRole;
+            }
+            if (cmdletContext.NodegroupName != null)
+            {
+                request.NodegroupName = cmdletContext.NodegroupName;
             }
             if (cmdletContext.ReleaseVersion != null)
             {
@@ -1159,7 +1166,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String LaunchTemplate_Id { get; set; }
             public System.String LaunchTemplate_Name { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
-            public System.String NodegroupName { get; set; }
             public System.Boolean? NodeRepairConfig_Enabled { get; set; }
             public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedCount { get; set; }
             public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedPercentage { get; set; }
@@ -1167,6 +1173,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage { get; set; }
             public List<Amazon.EKS.Model.NodeRepairConfigOverrides> NodeRepairConfig_NodeRepairConfigOverride { get; set; }
             public System.String NodeRole { get; set; }
+            public System.String NodegroupName { get; set; }
             public System.String ReleaseVersion { get; set; }
             public System.String RemoteAccess_Ec2SshKey { get; set; }
             public List<System.String> RemoteAccess_SourceSecurityGroup { get; set; }

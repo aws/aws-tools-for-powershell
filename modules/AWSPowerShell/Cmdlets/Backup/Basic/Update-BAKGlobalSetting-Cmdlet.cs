@@ -56,9 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// or false. Example: <c>update-global-settings --global-settings isMpaEnabled=false</c>.</para><para>A value for Backup Service-Linked Role creation, styled as <c>isDelegatedAdministratorEnabled</c>.
         /// Values can be true or false. Example: <c>update-global-settings --global-settings
         /// isDelegatedAdministratorEnabled=false</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

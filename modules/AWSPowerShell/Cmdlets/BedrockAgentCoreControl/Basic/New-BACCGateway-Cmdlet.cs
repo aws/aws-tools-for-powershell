@@ -173,6 +173,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ProtocolConfiguration_Mcp_DisableMcpListToolsPagination
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether pagination is disabled for the Model Context Protocol (MCP) <c>tools/list</c>
+        /// operation. When set to <c>true</c>, the gateway returns the complete list of tools
+        /// in a single response without a pagination cursor. When set to <c>false</c> or omitted,
+        /// the gateway returns tools in paginated responses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ProtocolConfiguration_Mcp_DisableMcpListToolsPagination { get; set; }
+        #endregion
+        
         #region Parameter CustomJWTAuthorizer_DiscoveryUrl
         /// <summary>
         /// <para>
@@ -644,6 +657,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #endif
             context.PolicyEngineConfiguration_Arn = this.PolicyEngineConfiguration_Arn;
             context.PolicyEngineConfiguration_Mode = this.PolicyEngineConfiguration_Mode;
+            context.ProtocolConfiguration_Mcp_DisableMcpListToolsPagination = this.ProtocolConfiguration_Mcp_DisableMcpListToolsPagination;
             context.Mcp_Instruction = this.Mcp_Instruction;
             context.Mcp_SearchType = this.Mcp_SearchType;
             context.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond = this.ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond;
@@ -994,6 +1008,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate Mcp
             var requestProtocolConfiguration_protocolConfiguration_McpIsNull = true;
             requestProtocolConfiguration_protocolConfiguration_Mcp = new Amazon.BedrockAgentCoreControl.Model.MCPGatewayConfiguration();
+            System.Boolean? requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_DisableMcpListToolsPagination = null;
+            if (cmdletContext.ProtocolConfiguration_Mcp_DisableMcpListToolsPagination != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_DisableMcpListToolsPagination = cmdletContext.ProtocolConfiguration_Mcp_DisableMcpListToolsPagination.Value;
+            }
+            if (requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_DisableMcpListToolsPagination != null)
+            {
+                requestProtocolConfiguration_protocolConfiguration_Mcp.DisableMcpListToolsPagination = requestProtocolConfiguration_protocolConfiguration_Mcp_protocolConfiguration_Mcp_DisableMcpListToolsPagination.Value;
+                requestProtocolConfiguration_protocolConfiguration_McpIsNull = false;
+            }
             System.String requestProtocolConfiguration_protocolConfiguration_Mcp_mcp_Instruction = null;
             if (cmdletContext.Mcp_Instruction != null)
             {
@@ -1181,6 +1205,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Name { get; set; }
             public System.String PolicyEngineConfiguration_Arn { get; set; }
             public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
+            public System.Boolean? ProtocolConfiguration_Mcp_DisableMcpListToolsPagination { get; set; }
             public System.String Mcp_Instruction { get; set; }
             public Amazon.BedrockAgentCoreControl.SearchType Mcp_SearchType { get; set; }
             public System.Int32? ProtocolConfiguration_Mcp_SessionConfiguration_SessionTimeoutInSecond { get; set; }

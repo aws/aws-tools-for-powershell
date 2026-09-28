@@ -48,9 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode
         /// <summary>
         /// <para>
-        /// <para>Mode for sensitive data detection</para>
+        /// Mode for sensitive data detection
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode
         /// <summary>
         /// <para>
-        /// <para>Mode for sensitive data detection</para>
+        /// Mode for sensitive data detection
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode
         /// <summary>
         /// <para>
-        /// <para>Mode for sensitive data detection</para>
+        /// Mode for sensitive data detection
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode
         /// <summary>
         /// <para>
-        /// <para>Mode for sensitive data detection</para>
+        /// Mode for sensitive data detection
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope
         /// <summary>
         /// <para>
-        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Scope of detection - what types of sensitive
+        /// data to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -120,10 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope
         /// <summary>
         /// <para>
-        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Scope of detection - what types of sensitive
+        /// data to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -134,10 +141,13 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope
         /// <summary>
         /// <para>
-        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Scope of detection - what types of sensitive
+        /// data to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -148,10 +158,13 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope
         /// <summary>
         /// <para>
-        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Scope of detection - what types of sensitive
+        /// data to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -163,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -189,7 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LanguageConfiguration_IdentifyMultipleLanguage
         /// <summary>
         /// <para>
-        /// <para>Enable multiple language identification in audio</para>
+        /// Enable multiple language identification
+        /// in audio
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,9 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -228,9 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -252,9 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -290,10 +308,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
         /// <summary>
         /// <para>
-        /// <para>Types of PII entities to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Types of PII entities to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -304,10 +324,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
         /// <summary>
         /// <para>
-        /// <para>Types of PII entities to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Types of PII entities to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -318,10 +340,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
         /// <summary>
         /// <para>
-        /// <para>Types of PII entities to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Types of PII entities to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -332,10 +356,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
         /// <summary>
         /// <para>
-        /// <para>Types of PII entities to detect</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Types of PII entities to detect
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -407,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
         /// <summary>
         /// <para>
-        /// <para>Mode for redacting detected PII</para>
+        /// Mode for redacting detected PII
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
         /// <summary>
         /// <para>
-        /// <para>Mode for redacting detected PII</para>
+        /// Mode for redacting detected PII
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -429,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
         /// <summary>
         /// <para>
-        /// <para>Mode for redacting detected PII</para>
+        /// Mode for redacting detected PII
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
         /// <summary>
         /// <para>
-        /// <para>Mode for redacting detected PII</para>
+        /// Mode for redacting detected PII
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -654,9 +680,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -669,9 +696,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -683,9 +711,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -697,9 +726,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -712,9 +742,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -727,9 +758,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -741,9 +773,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -755,9 +788,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -769,9 +803,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

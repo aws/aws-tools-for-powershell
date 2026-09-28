@@ -131,6 +131,19 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public Amazon.AgentRegistryControl.Model.RegistryRecordCredentialProviderConfiguration[] Descriptors_McpServer_Source_FromUrl_CredentialProviderConfiguration { get; set; }
         #endregion
         
+        #region Parameter CustomMetadata
+        /// <summary>
+        /// <para>
+        /// <para>The custom metadata to attach to the registry record. Each key must match a property
+        /// defined in the registry's custom metadata schema. Values can be strings (maximum 128
+        /// characters) or native JSON booleans (<c>true</c> or <c>false</c>). Values are validated
+        /// against the schema at creation time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject CustomMetadata { get; set; }
+        #endregion
+        
         #region Parameter Descriptors_A2aAgentCard_Data
         /// <summary>
         /// <para>
@@ -281,7 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Provenance
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The provenance lineage entries for the registry record. This field is reserved for
+        /// the Amazon Web Services Agent Registry auto-detection service principal. Requests
+        /// that include this field from other callers are rejected.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -465,6 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.CustomMetadata = this.CustomMetadata;
             context.Description = this.Description;
             context.Descriptors_A2aAgentCard_Data = this.Descriptors_A2aAgentCard_Data;
             context.Descriptors_A2aAgentCard_DataSchemaVersion = this.Descriptors_A2aAgentCard_DataSchemaVersion;
@@ -556,6 +572,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CustomMetadata != null)
+            {
+                request.CustomMetadata = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.CustomMetadata);
             }
             if (cmdletContext.Description != null)
             {
@@ -1164,6 +1184,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Management.Automation.PSObject CustomMetadata { get; set; }
             public System.String Description { get; set; }
             public System.String Descriptors_A2aAgentCard_Data { get; set; }
             public System.String Descriptors_A2aAgentCard_DataSchemaVersion { get; set; }

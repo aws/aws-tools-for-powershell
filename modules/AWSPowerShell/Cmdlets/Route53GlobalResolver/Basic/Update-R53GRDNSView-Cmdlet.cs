@@ -168,7 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
-            context.DnssecValidation = this.DnssecValidation;
             context.DnsViewId = this.DnsViewId;
             #if MODULAR
             if (this.DnsViewId == null && ParameterWasBound(nameof(this.DnsViewId)))
@@ -176,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
                 WriteWarning("You are passing $null as a value for parameter DnsViewId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DnssecValidation = this.DnssecValidation;
             context.EdnsClientSubnet = this.EdnsClientSubnet;
             context.FirewallRulesFailOpen = this.FirewallRulesFailOpen;
             context.Name = this.Name;
@@ -199,13 +199,13 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.DnssecValidation != null)
-            {
-                request.DnssecValidation = cmdletContext.DnssecValidation;
-            }
             if (cmdletContext.DnsViewId != null)
             {
                 request.DnsViewId = cmdletContext.DnsViewId;
+            }
+            if (cmdletContext.DnssecValidation != null)
+            {
+                request.DnssecValidation = cmdletContext.DnssecValidation;
             }
             if (cmdletContext.EdnsClientSubnet != null)
             {
@@ -275,8 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.R53GR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
-            public Amazon.Route53GlobalResolver.DnsSecValidationType DnssecValidation { get; set; }
             public System.String DnsViewId { get; set; }
+            public Amazon.Route53GlobalResolver.DnsSecValidationType DnssecValidation { get; set; }
             public Amazon.Route53GlobalResolver.EdnsClientSubnetType EdnsClientSubnet { get; set; }
             public Amazon.Route53GlobalResolver.FirewallRulesFailOpenType FirewallRulesFailOpen { get; set; }
             public System.String Name { get; set; }

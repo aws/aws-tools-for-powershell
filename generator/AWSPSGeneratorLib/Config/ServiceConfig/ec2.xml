@@ -820,6 +820,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClientVpnEndpointAuthorizationPolicy" OutputProperty="Status" Verb="Remove" Noun="ClientVpnEndpointAuthorizationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteClientVpnRoute" OutputProperty="Status" Verb="Remove" Noun="ClientVpnRoute" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2380,6 +2384,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetClientVpnEndpointAuthorizationPolicy" OutputProperty="*" Verb="Get" Noun="ClientVpnEndpointAuthorizationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCoipPoolUsage" OutputProperty="*" Verb="Get" Noun="CoipPoolUsage" PipelineParameter="PoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2774,6 +2782,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyClientVpnEndpoint" OutputProperty="Return" Verb="Edit" Noun="ClientVpnEndpoint" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClientVpnEndpointAuthorizationPolicy" OutputProperty="Status" Verb="Edit" Noun="ClientVpnEndpointAuthorizationPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

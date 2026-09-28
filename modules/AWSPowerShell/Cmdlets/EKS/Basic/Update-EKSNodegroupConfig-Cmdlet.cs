@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Kubernetes <c>labels</c> to add or update.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -67,9 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Kubernetes taints to be added or updated.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -294,9 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>Specify granular overrides for specific repair actions. These overrides control the
         /// repair action and the repair delay time before a node is considered eligible for repair.
         /// If you use this, you must specify all the values.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -324,9 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Kubernetes <c>labels</c> to remove.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -339,9 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Kubernetes taints to remove.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -448,13 +453,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.Labels_RemoveLabel = new List<System.String>(this.Labels_RemoveLabel);
             }
-            context.NodegroupName = this.NodegroupName;
-            #if MODULAR
-            if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.NodeRepairConfig_Enabled = this.NodeRepairConfig_Enabled;
             context.NodeRepairConfig_MaxParallelNodesRepairedCount = this.NodeRepairConfig_MaxParallelNodesRepairedCount;
             context.NodeRepairConfig_MaxParallelNodesRepairedPercentage = this.NodeRepairConfig_MaxParallelNodesRepairedPercentage;
@@ -464,6 +462,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.NodeRepairConfig_NodeRepairConfigOverride = new List<Amazon.EKS.Model.NodeRepairConfigOverrides>(this.NodeRepairConfig_NodeRepairConfigOverride);
             }
+            context.NodegroupName = this.NodegroupName;
+            #if MODULAR
+            if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ScalingConfig_DesiredSize = this.ScalingConfig_DesiredSize;
             context.ScalingConfig_MaxSize = this.ScalingConfig_MaxSize;
             context.ScalingConfig_MinSize = this.ScalingConfig_MinSize;
@@ -536,10 +541,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.Labels = null;
             }
-            if (cmdletContext.NodegroupName != null)
-            {
-                request.NodegroupName = cmdletContext.NodegroupName;
-            }
             
              // populate NodeRepairConfig
             var requestNodeRepairConfigIsNull = true;
@@ -608,6 +609,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestNodeRepairConfigIsNull)
             {
                 request.NodeRepairConfig = null;
+            }
+            if (cmdletContext.NodegroupName != null)
+            {
+                request.NodegroupName = cmdletContext.NodegroupName;
             }
             
              // populate ScalingConfig
@@ -834,13 +839,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClusterName { get; set; }
             public Dictionary<System.String, System.String> Labels_AddOrUpdateLabel { get; set; }
             public List<System.String> Labels_RemoveLabel { get; set; }
-            public System.String NodegroupName { get; set; }
             public System.Boolean? NodeRepairConfig_Enabled { get; set; }
             public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedCount { get; set; }
             public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedPercentage { get; set; }
             public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdCount { get; set; }
             public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage { get; set; }
             public List<Amazon.EKS.Model.NodeRepairConfigOverrides> NodeRepairConfig_NodeRepairConfigOverride { get; set; }
+            public System.String NodegroupName { get; set; }
             public System.Int32? ScalingConfig_DesiredSize { get; set; }
             public System.Int32? ScalingConfig_MaxSize { get; set; }
             public System.Int32? ScalingConfig_MinSize { get; set; }

@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -63,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity type for which DataAutomationLibraryIngestionJob is being run</para>
+        /// The entity type for which DataAutomationLibraryIngestionJob
+        /// is being run
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter NotificationConfiguration_EventBridgeConfiguration_EventBridgeEnabled
         /// <summary>
         /// <para>
-        /// <para>Event bridge flag.</para>
+        /// Event bridge flag.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
+        /// ARN generated at the server side when a DataAutomationLibrary
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OperationType
         /// <summary>
         /// <para>
-        /// <para>The operation to be performed by DataAutomationLibraryIngestionJob</para>
+        /// The operation to be performed by DataAutomationLibraryIngestionJob
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter InputConfiguration_S3Object_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 uri.</para>
+        /// S3 uri.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OutputConfiguration_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 Uri</para>
+        /// S3 Uri
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,10 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// List of tags
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -167,9 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -180,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter InputConfiguration_S3Object_Version
         /// <summary>
         /// <para>
-        /// <para>S3 object version.</para>
+        /// S3 object version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token</para>
+        /// Idempotency token
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

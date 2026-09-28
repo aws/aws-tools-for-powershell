@@ -141,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter CustomMetadata_OptionalValue
+        /// <summary>
+        /// <para>
+        /// <para>The value to set for this field. Omit the wrapper to leave the field unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject CustomMetadata_OptionalValue { get; set; }
+        #endregion
+        
         #region Parameter Description_OptionalValue
         /// <summary>
         /// <para>
@@ -274,7 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         #region Parameter Provenance
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>The provenance lineage re-assertion for the registry record. This field is reserved
+        /// for the Amazon Web Services Agent Registry auto-detection service principal. Requests
+        /// that include this field from other callers are rejected. The source identity of an
+        /// existing lineage is immutable; a re-assertion may only refresh the source details.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between
@@ -452,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
                 context.Select = CreateSelectDelegate<Amazon.AgentRegistryControl.Model.UpdateRegistryRecordResponse, UpdateAGRCRegistryRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CustomMetadata_OptionalValue = this.CustomMetadata_OptionalValue;
             context.Description_OptionalValue = this.Description_OptionalValue;
             context.Descriptors_OptionalValue_A2aAgentCard_OptionalValue_Data_OptionalValue = this.Descriptors_OptionalValue_A2aAgentCard_OptionalValue_Data_OptionalValue;
             context.Descriptors_OptionalValue_A2aAgentCard_OptionalValue_DataSchemaVersion_OptionalValue = this.Descriptors_OptionalValue_A2aAgentCard_OptionalValue_DataSchemaVersion_OptionalValue;
@@ -528,6 +542,25 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
             // create request
             var request = new Amazon.AgentRegistryControl.Model.UpdateRegistryRecordRequest();
             
+            
+             // populate CustomMetadata
+            var requestCustomMetadataIsNull = true;
+            request.CustomMetadata = new Amazon.AgentRegistryControl.Model.UpdatedCustomMetadataMap();
+            Amazon.Runtime.Documents.Document? requestCustomMetadata_customMetadata_OptionalValue = null;
+            if (cmdletContext.CustomMetadata_OptionalValue != null)
+            {
+                requestCustomMetadata_customMetadata_OptionalValue = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.CustomMetadata_OptionalValue);
+            }
+            if (requestCustomMetadata_customMetadata_OptionalValue != null)
+            {
+                request.CustomMetadata.OptionalValue = requestCustomMetadata_customMetadata_OptionalValue.Value;
+                requestCustomMetadataIsNull = false;
+            }
+             // determine if request.CustomMetadata should be set to null
+            if (requestCustomMetadataIsNull)
+            {
+                request.CustomMetadata = null;
+            }
             
              // populate Description
             var requestDescriptionIsNull = true;
@@ -1573,6 +1606,7 @@ namespace Amazon.PowerShell.Cmdlets.AGRC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Management.Automation.PSObject CustomMetadata_OptionalValue { get; set; }
             public System.String Description_OptionalValue { get; set; }
             public System.String Descriptors_OptionalValue_A2aAgentCard_OptionalValue_Data_OptionalValue { get; set; }
             public System.String Descriptors_OptionalValue_A2aAgentCard_OptionalValue_DataSchemaVersion_OptionalValue { get; set; }

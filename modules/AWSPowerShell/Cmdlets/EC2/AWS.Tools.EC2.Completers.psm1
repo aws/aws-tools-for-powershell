@@ -288,6 +288,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ClientVpnAuthorizationPolicyShadowMode
+        "Edit-EC2ClientVpnEndpointAuthorizationPolicy/ShadowMode"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.EC2.ConnectivityType
         "New-EC2NatGateway/ConnectivityType"
         {
@@ -1166,7 +1173,7 @@ $EC2_Completers = {
         # Amazon.EC2.Rir
         "New-EC2IpamInternetRegistryAssociation/Rir"
         {
-            $v = "apnic","arin","lacnic","ripe"
+            $v = "apnic","arin","lacnic","nicbr","ripe"
             break
         }
 
@@ -1760,6 +1767,7 @@ $EC2_map = @{
     "Schedule"=@("New-EC2CapacityManagerDataExport")
     "Scope"=@("Edit-EC2VpcEndpointPayerResponsibility")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
+    "ShadowMode"=@("Edit-EC2ClientVpnEndpointAuthorizationPolicy")
     "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
     "SourceTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
@@ -2041,6 +2049,7 @@ $EC2_SelectMap = @{
                "Remove-EC2CapacityManagerDataExport",
                "Remove-EC2CarrierGateway",
                "Remove-EC2ClientVpnEndpoint",
+               "Remove-EC2ClientVpnEndpointAuthorizationPolicy",
                "Remove-EC2ClientVpnRoute",
                "Remove-EC2CoipCidr",
                "Remove-EC2CoipPool",
@@ -2422,6 +2431,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityManagerMetricDimension",
                "Get-EC2CapacityManagerMonitoredTagKey",
                "Get-EC2CapacityReservationUsage",
+               "Get-EC2ClientVpnEndpointAuthorizationPolicy",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
                "Get-EC2ConsoleScreenshot",
@@ -2503,6 +2513,7 @@ $EC2_SelectMap = @{
                "Edit-EC2CapacityReservation",
                "Edit-EC2CapacityReservationFleet",
                "Edit-EC2ClientVpnEndpoint",
+               "Edit-EC2ClientVpnEndpointAuthorizationPolicy",
                "Edit-EC2DefaultCreditSpecification",
                "Edit-EC2EbsDefaultKmsKeyId",
                "Edit-EC2Fleet",
@@ -2662,8 +2673,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2InstanceMetadata",
-               "Get-EC2PasswordData")
+               "Get-EC2PasswordData",
+               "Get-EC2InstanceMetadata")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap

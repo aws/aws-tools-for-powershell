@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
     /// with WEBSOCKET and CONNECTION_CREDENTIALS. 
     /// </para><para>
+    /// To receive connection information directly in the response, set <c>ConnectionTypes</c>
+    /// on the request. To initiate real-time message streaming when the chat is created,
+    /// set <c>ChatStreamingConfiguration</c> on the request. Both parameters are optional.
+    /// </para><para>
     /// A 429 error occurs in the following situations:
     /// </para><ul><li><para>
     /// API rate limit is exceeded. API TPS throttling returns a <c>TooManyRequests</c> exception.
@@ -98,6 +102,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ChatDurationInMinutes")]
         public System.Int32? ChatDurationInMinute { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionType
+        /// <summary>
+        /// <para>
+        /// <para>The types of connection information to return in the response. This parameter is optional.</para><para>Specify <c>CONNECTION_CREDENTIALS</c> to receive a connection token. Specify <c>WEBSOCKET</c>
+        /// to receive a websocket URL. You can specify both. No other value returns connection
+        /// information.</para><para>Request <c>WEBSOCKET</c> to get a URL the participant connects to directly. You do
+        /// not need to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
+        /// for it. Request <c>CONNECTION_CREDENTIALS</c> on its own and the response returns
+        /// a connection token but no websocket URL.</para><para>If you omit this parameter, the response has no connection information.</para><note><para>If the information you request cannot be returned, StartChatContact returns an error
+        /// rather than a response that omits it.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConnectionTypes")]
+        public System.String[] ConnectionType { get; set; }
         #endregion
         
         #region Parameter ContactFlowId
@@ -278,6 +303,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String PersistentChat_SourceContactId { get; set; }
         #endregion
         
+        #region Parameter ChatStreamingConfiguration_StreamingEndpointArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource
+        /// Name (ARN) of the streaming endpoint that is used to publish real-time message streaming
+        /// for chat conversations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChatStreamingConfiguration_StreamingEndpointArn { get; set; }
+        #endregion
+        
         #region Parameter SupportedMessagingContentType
         /// <summary>
         /// <para>
@@ -369,7 +406,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 }
             }
             context.ChatDurationInMinute = this.ChatDurationInMinute;
+            context.ChatStreamingConfiguration_StreamingEndpointArn = this.ChatStreamingConfiguration_StreamingEndpointArn;
             context.ClientToken = this.ClientToken;
+            if (this.ConnectionType != null)
+            {
+                context.ConnectionType = new List<System.String>(this.ConnectionType);
+            }
             context.ContactFlowId = this.ContactFlowId;
             #if MODULAR
             if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
@@ -438,9 +480,32 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.ChatDurationInMinutes = cmdletContext.ChatDurationInMinute.Value;
             }
+            
+             // populate ChatStreamingConfiguration
+            var requestChatStreamingConfigurationIsNull = true;
+            request.ChatStreamingConfiguration = new Amazon.Connect.Model.ChatStreamingConfiguration();
+            System.String requestChatStreamingConfiguration_chatStreamingConfiguration_StreamingEndpointArn = null;
+            if (cmdletContext.ChatStreamingConfiguration_StreamingEndpointArn != null)
+            {
+                requestChatStreamingConfiguration_chatStreamingConfiguration_StreamingEndpointArn = cmdletContext.ChatStreamingConfiguration_StreamingEndpointArn;
+            }
+            if (requestChatStreamingConfiguration_chatStreamingConfiguration_StreamingEndpointArn != null)
+            {
+                request.ChatStreamingConfiguration.StreamingEndpointArn = requestChatStreamingConfiguration_chatStreamingConfiguration_StreamingEndpointArn;
+                requestChatStreamingConfigurationIsNull = false;
+            }
+             // determine if request.ChatStreamingConfiguration should be set to null
+            if (requestChatStreamingConfigurationIsNull)
+            {
+                request.ChatStreamingConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ConnectionType != null)
+            {
+                request.ConnectionTypes = cmdletContext.ConnectionType;
             }
             if (cmdletContext.ContactFlowId != null)
             {
@@ -623,7 +688,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.Int32? ChatDurationInMinute { get; set; }
+            public System.String ChatStreamingConfiguration_StreamingEndpointArn { get; set; }
             public System.String ClientToken { get; set; }
+            public List<System.String> ConnectionType { get; set; }
             public System.String ContactFlowId { get; set; }
             public System.String CustomerId { get; set; }
             public List<System.String> DisconnectOnCustomerExit { get; set; }

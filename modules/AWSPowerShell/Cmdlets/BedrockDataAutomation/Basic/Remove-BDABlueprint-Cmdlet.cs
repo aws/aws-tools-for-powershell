@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter BlueprintArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a Blueprint is created</para>
+        /// ARN generated at the server side when a Blueprint
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter BlueprintVersion
         /// <summary>
         /// <para>
-        /// <para>Optional field to delete a specific Blueprint version</para>
+        /// Optional field to delete a specific Blueprint
+        /// version
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

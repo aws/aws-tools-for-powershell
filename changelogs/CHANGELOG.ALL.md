@@ -1,4 +1,35 @@
-﻿### 5.0.307 (2026-09-25 19:18Z)
+﻿### 5.0.308 (2026-09-28 19:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.343.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agent Registry Control
+    * Modified cmdlet New-AGRCRegistry: added parameters CustomMetadataSchemaConfiguration_DefaultSchema and CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride.
+    * Modified cmdlet New-AGRCRegistryRecord: added parameter CustomMetadata.
+    * Modified cmdlet Update-AGRCRegistry: added parameters CustomMetadataSchemaConfiguration_OptionalValue_DefaultSchema and CustomMetadataSchemaConfiguration_OptionalValue_RecordTypeSchemaOverride.
+    * Modified cmdlet Update-AGRCRegistryRecord: added parameter CustomMetadata_OptionalValue.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGateway: added parameter ProtocolConfiguration_Mcp_DisableMcpListToolsPagination.
+    * Modified cmdlet Update-BACCGateway: added parameter ProtocolConfiguration_Mcp_DisableMcpListToolsPagination.
+  * Amazon Billing
+    * Added cmdlet Get-AWSBBusinessSupportAccountChargeList leveraging the ListBusinessSupportAccountCharges service API.
+    * Added cmdlet Get-AWSBBusinessSupportSubscriptionHistoryList leveraging the ListBusinessSupportSubscriptionHistory service API.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameters ChatStreamingConfiguration_StreamingEndpointArn and ConnectionType.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2ClientVpnEndpointAuthorizationPolicy leveraging the ModifyClientVpnEndpointAuthorizationPolicy service API.
+    * Added cmdlet Get-EC2ClientVpnEndpointAuthorizationPolicy leveraging the GetClientVpnEndpointAuthorizationPolicy service API.
+    * Added cmdlet Remove-EC2ClientVpnEndpointAuthorizationPolicy leveraging the DeleteClientVpnEndpointAuthorizationPolicy service API.
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameters ConnectionLogOptions_IncludeAuthorizationPolicyContext, DevicePostureOptions_Enabled and DevicePostureOptions_TrustProvider.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameters ConnectionLogOptions_IncludeAuthorizationPolicyContext, DevicePostureOptions_Enabled and DevicePostureOptions_TrustProvider.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCapability: added parameter Configuration_ArgoCd_EndpointPrefix.
+  * Amazon Security Agent
+    * Modified cmdlet Get-SECAGPentestJobsForPentestList: added parameter JobType.
+    * Modified cmdlet New-SECAGPentest: added parameter CicdConfiguration_Enabled.
+    * Modified cmdlet Start-SECAGPentestJob: added parameter ScopeChange.
+    * Modified cmdlet Update-SECAGPentest: added parameter CicdConfiguration_Enabled.
+  * Amazon Systems Manager
+    * Modified cmdlet Remove-SSMResourcePolicy: added parameter DeletionMode.
+
+### 5.0.307 (2026-09-25 19:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.342.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Get-AABVpcConfiguration leveraging the GetVpcConfiguration service API.

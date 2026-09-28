@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationProject is created</para>
+        /// ARN generated at the server side when a DataAutomationProject
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter ProjectStage
         /// <summary>
         /// <para>
-        /// <para>Optional field to delete a specific DataAutomationProject stage</para>
+        /// Optional field to delete a specific DataAutomationProject
+        /// stage
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

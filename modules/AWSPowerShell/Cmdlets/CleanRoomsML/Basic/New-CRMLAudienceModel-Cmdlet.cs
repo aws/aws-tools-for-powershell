@@ -100,9 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         /// not, then Clean Rooms ML considers it to be a user tag and will count against the
         /// limit of 50 tags. Tags with only the key prefix of aws do not count against your tags
         /// per resource limit.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -212,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 }
             }
             context.TrainingDataEndTime = this.TrainingDataEndTime;
+            context.TrainingDataStartTime = this.TrainingDataStartTime;
             context.TrainingDatasetArn = this.TrainingDatasetArn;
             #if MODULAR
             if (this.TrainingDatasetArn == null && ParameterWasBound(nameof(this.TrainingDatasetArn)))
@@ -219,7 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter TrainingDatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TrainingDataStartTime = this.TrainingDataStartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -256,13 +257,13 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             {
                 request.TrainingDataEndTime = cmdletContext.TrainingDataEndTime.Value;
             }
-            if (cmdletContext.TrainingDatasetArn != null)
-            {
-                request.TrainingDatasetArn = cmdletContext.TrainingDatasetArn;
-            }
             if (cmdletContext.TrainingDataStartTime != null)
             {
                 request.TrainingDataStartTime = cmdletContext.TrainingDataStartTime.Value;
+            }
+            if (cmdletContext.TrainingDatasetArn != null)
+            {
+                request.TrainingDatasetArn = cmdletContext.TrainingDatasetArn;
             }
             
             CmdletOutput output;
@@ -324,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.DateTime? TrainingDataEndTime { get; set; }
-            public System.String TrainingDatasetArn { get; set; }
             public System.DateTime? TrainingDataStartTime { get; set; }
+            public System.String TrainingDatasetArn { get; set; }
             public System.Func<Amazon.CleanRoomsML.Model.CreateAudienceModelResponse, NewCRMLAudienceModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AudienceModelArn;
         }

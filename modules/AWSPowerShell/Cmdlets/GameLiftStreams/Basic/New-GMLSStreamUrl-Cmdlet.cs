@@ -66,9 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// Guide.</para></note><para><c>AdditionalEnvironmentVariables</c> and <c>AdditionalLaunchArgs</c> have similar
         /// purposes. <c>AdditionalEnvironmentVariables</c> passes data using environment variables;
         /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -86,9 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// game client.</para><para><c>AdditionalEnvironmentVariables</c> and <c>AdditionalLaunchArgs</c> have similar
         /// purposes. <c>AdditionalEnvironmentVariables</c> passes data using environment variables;
         /// while <c>AdditionalLaunchArgs</c> passes data using command-line arguments.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -167,9 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
         /// quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
         /// </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

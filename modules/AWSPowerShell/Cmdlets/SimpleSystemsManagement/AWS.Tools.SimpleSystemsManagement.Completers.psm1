@@ -114,6 +114,13 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.DeletionMode
+        "Remove-SSMResourcePolicy/DeletionMode"
+        {
+            $v = "RemoveSharing","RollbackMigration"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentFormat
         {
             ($_ -eq "Get-SSMDocument/DocumentFormat") -Or
@@ -358,6 +365,7 @@ $SSM_map = @{
     "BaselineOverride_RejectedPatchesAction"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
     "CutoffBehavior"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
+    "DeletionMode"=@("Remove-SSMResourcePolicy")
     "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")
     "DocumentReviews_Action"=@("Update-SSMDocumentMetadata")

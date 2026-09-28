@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the DataAutomationLibraryIngestionJob</para>
+        /// ARN of the DataAutomationLibraryIngestionJob
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
+        /// ARN generated at the server side when a DataAutomationLibrary
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR

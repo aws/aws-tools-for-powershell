@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// using Resource Access Manager (RAM). For more information about cross-account sharing
     /// of parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
     /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+    /// </para></li><li><para><c>Document</c> – Shares the document using Resource Access Manager (RAM). For more
+    /// information about sharing documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html">Sharing
+    /// Systems Manager documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "SSMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -54,6 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DeletionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the intended outcome of the operation. Applies only to the <c>Document</c>
+        /// resource type. The operation ignores this parameter for other resource types. Optional.
+        /// Defaults to <c>RemoveSharing</c>.</para><ul><li><para><c>RemoveSharing</c> – Deletes the resource policy and removes sharing of the document.</para></li><li><para><c>RollbackMigration</c> – Reverts the document to Custom sharing, preserving existing
+        /// consumer access, instead of removing the policy.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DeletionMode")]
+        public Amazon.SimpleSystemsManagement.DeletionMode DeletionMode { get; set; }
+        #endregion
         
         #region Parameter PolicyHash
         /// <summary>
@@ -152,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse, RemoveSSMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeletionMode = this.DeletionMode;
             context.PolicyHash = this.PolicyHash;
             #if MODULAR
             if (this.PolicyHash == null && ParameterWasBound(nameof(this.PolicyHash)))
@@ -189,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyRequest();
             
+            if (cmdletContext.DeletionMode != null)
+            {
+                request.DeletionMode = cmdletContext.DeletionMode;
+            }
             if (cmdletContext.PolicyHash != null)
             {
                 request.PolicyHash = cmdletContext.PolicyHash;
@@ -256,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SimpleSystemsManagement.DeletionMode DeletionMode { get; set; }
             public System.String PolicyHash { get; set; }
             public System.String PolicyId { get; set; }
             public System.String ResourceArn { get; set; }

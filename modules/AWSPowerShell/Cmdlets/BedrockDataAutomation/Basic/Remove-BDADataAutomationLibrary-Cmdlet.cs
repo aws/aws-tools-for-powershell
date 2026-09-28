@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter LibraryArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a DataAutomationLibrary is created</para>
+        /// ARN generated at the server side when a DataAutomationLibrary
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR

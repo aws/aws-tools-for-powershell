@@ -141,9 +141,12 @@ $SECAG_Completers = {
         }
 
         # Amazon.SecurityAgent.JobType
-        "Start-SECAGPentestJob/JobType"
         {
-            $v = "FULL","REVALIDATION"
+            ($_ -eq "Get-SECAGPentestJobsForPentestList/JobType") -Or
+            ($_ -eq "Start-SECAGPentestJob/JobType")
+        }
+        {
+            $v = "CICD","FULL","REVALIDATION"
             break
         }
 
@@ -286,7 +289,7 @@ $SECAG_map = @{
     "Filter_ProviderType"=@("Get-SECAGIntegrationList")
     "Filter_Status"=@("Get-SECAGSecurityRequirementPackList")
     "Input_Gitlab_TokenType"=@("New-SECAGIntegration")
-    "JobType"=@("Start-SECAGPentestJob")
+    "JobType"=@("Get-SECAGPentestJobsForPentestList","Start-SECAGPentestJob")
     "MemberType"=@("Get-SECAGMembershipList","New-SECAGMembership","Remove-SECAGMembership")
     "Mode_ServiceManaged_DnsResolution"=@("New-SECAGPrivateConnection")
     "Mode_ServiceManaged_IpAddressType"=@("New-SECAGPrivateConnection")

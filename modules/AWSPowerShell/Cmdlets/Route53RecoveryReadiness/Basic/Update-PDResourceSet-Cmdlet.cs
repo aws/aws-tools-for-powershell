@@ -48,9 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.PD
         /// <summary>
         /// <para>
         /// <para>A list of resource objects.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -152,16 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.PD
                 context.Select = CreateSelectDelegate<Amazon.Route53RecoveryReadiness.Model.UpdateResourceSetResponse, UpdatePDResourceSetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Resource != null)
-            {
-                context.Resource = new List<Amazon.Route53RecoveryReadiness.Model.Resource>(this.Resource);
-            }
-            #if MODULAR
-            if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Resource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceSetName = this.ResourceSetName;
             #if MODULAR
             if (this.ResourceSetName == null && ParameterWasBound(nameof(this.ResourceSetName)))
@@ -174,6 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.PD
             if (this.ResourceSetType == null && ParameterWasBound(nameof(this.ResourceSetType)))
             {
                 WriteWarning("You are passing $null as a value for parameter ResourceSetType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Resource != null)
+            {
+                context.Resource = new List<Amazon.Route53RecoveryReadiness.Model.Resource>(this.Resource);
+            }
+            #if MODULAR
+            if (this.Resource == null && ParameterWasBound(nameof(this.Resource)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Resource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -192,10 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.PD
             // create request
             var request = new Amazon.Route53RecoveryReadiness.Model.UpdateResourceSetRequest();
             
-            if (cmdletContext.Resource != null)
-            {
-                request.Resources = cmdletContext.Resource;
-            }
             if (cmdletContext.ResourceSetName != null)
             {
                 request.ResourceSetName = cmdletContext.ResourceSetName;
@@ -203,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.PD
             if (cmdletContext.ResourceSetType != null)
             {
                 request.ResourceSetType = cmdletContext.ResourceSetType;
+            }
+            if (cmdletContext.Resource != null)
+            {
+                request.Resources = cmdletContext.Resource;
             }
             
             CmdletOutput output;
@@ -259,9 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.PD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Route53RecoveryReadiness.Model.Resource> Resource { get; set; }
             public System.String ResourceSetName { get; set; }
             public System.String ResourceSetType { get; set; }
+            public List<Amazon.Route53RecoveryReadiness.Model.Resource> Resource { get; set; }
             public System.Func<Amazon.Route53RecoveryReadiness.Model.UpdateResourceSetResponse, UpdatePDResourceSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

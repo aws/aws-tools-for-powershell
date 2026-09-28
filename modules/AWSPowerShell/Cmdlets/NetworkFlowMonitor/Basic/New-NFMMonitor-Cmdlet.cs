@@ -57,9 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// if a workload consists of an interaction between a web service and a backend database
         /// (for example, Amazon Dynamo DB), the subnet with the EC2 instance that hosts the web
         /// service, which also runs the agent, is the local resource.</para><para>Be aware that all local resources must belong to the current Region.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -102,9 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// resources that you specify must be in the current Region.</para></li><li><para>When you specify a remote resource for another Region, you can only specify the <c>Region</c>
         /// resource type. You cannot specify a subnet, VPC, or Availability Zone in another Region.</para></li><li><para>If you leave the <c>RemoteResources</c> parameter empty, the monitor will include
         /// all network flows that terminate in the current Region.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -134,9 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The tags for a monitor. You can add a maximum of 200 tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

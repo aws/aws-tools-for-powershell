@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter BlueprintArn
         /// <summary>
         /// <para>
-        /// <para>ARN generated at the server side when a Blueprint is created</para>
+        /// ARN generated at the server side when a Blueprint
+        /// is created
         /// </para>
         /// </summary>
         #if !MODULAR

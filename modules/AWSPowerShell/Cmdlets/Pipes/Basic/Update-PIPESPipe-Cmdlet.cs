@@ -248,9 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>The capacity provider strategy to use for the task.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
         /// must be omitted. If no <c>capacityProviderStrategy</c> or launchType is specified,
         /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -286,9 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The command to send to the container that overrides the default command from the Docker
         /// image or the task definition.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -301,9 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>One or more container overrides that are sent to a task.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -366,9 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// can also specify an <c>N_TO_N</c> type dependency with a job ID for array jobs. In
         /// that case, each index child of this job must wait for the corresponding index child
         /// of each dependency to complete before it can begin.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -415,9 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Map source data to dimensions in the target Timestream for LiveAnalytics table.</para><para>For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html">Amazon
         /// Timestream for LiveAnalytics concepts</a></para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -482,9 +487,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// which are added to the container at launch, or you can override the existing environment
         /// variables from the Docker image or the task definition.</para><note><para>Environment variables cannot start with "<c>Batch</c>". This naming convention is
         /// reserved for variables that Batch sets.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -523,9 +529,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The event patterns.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -550,9 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The headers that need to be sent as part of request invoking the API Gateway REST
         /// API or EventBridge ApiDestination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -566,9 +574,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The headers that need to be sent as part of request invoking the API Gateway REST
         /// API or EventBridge ApiDestination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -583,9 +592,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>Specify <c>ALL</c> to include the execution data (specifically, the <c>payload</c>,
         /// <c>awsRequest</c>, and <c>awsResponse</c> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
         /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>By default, execution data is not included.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -597,9 +607,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The Elastic Inference accelerator override for the task.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -939,9 +950,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Maps multiple measures from the source event to the same record in the specified Timestream
         /// for LiveAnalytics table.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1038,9 +1050,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// that are set in the job definition. Parameters are specified as a key and value pair
         /// mapping. Parameters included here override any corresponding parameter defaults from
         /// the job definition.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1071,9 +1084,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The path parameter values to be used to populate API Gateway REST API or EventBridge
         /// ApiDestination path wildcards ("*").</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1087,9 +1101,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The path parameter values to be used to populate API Gateway REST API or EventBridge
         /// ApiDestination path wildcards ("*").</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1102,9 +1117,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>List of Parameter names and values for SageMaker Model Building Pipeline execution.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1119,9 +1135,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>An array of placement constraint objects to use for the task. You can specify up to
         /// 10 constraints per task (including constraints in the task definition and those specified
         /// at runtime).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1135,9 +1152,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The placement strategy objects to use for the task. You can specify a maximum of five
         /// strategy rules per task. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1195,9 +1213,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The query string keys/values that need to be sent as part of request invoking the
         /// API Gateway REST API or EventBridge ApiDestination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1211,9 +1230,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>The query string keys/values that need to be sent as part of request invoking the
         /// API Gateway REST API or EventBridge ApiDestination.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1239,9 +1259,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>The type and amount of resources to assign to a container. This overrides the settings
         /// in the job definition. The supported resources include <c>GPU</c>, <c>MEMORY</c>,
         /// and <c>VCPU</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1255,9 +1276,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the
         /// event primarily concerns. Any number, including zero, may be present.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1333,9 +1355,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Specifies the security groups associated with the stream. These security groups must
         /// all be in the same VPC. You can specify as many as five security groups.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1350,9 +1373,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>Specifies the security groups associated with the task. These security groups must
         /// all be in the same VPC. You can specify as many as five security groups. If you do
         /// not specify a security group, the default security group for the VPC is used.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1377,9 +1401,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Mappings of single source data fields to individual records in the specified Timestream
         /// for LiveAnalytics table.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1426,9 +1451,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>The SQL statement text to run.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1454,9 +1480,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Specifies the subnets associated with the stream. These subnets must all be in the
         /// same VPC. You can specify as many as 16 subnets.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1470,9 +1497,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <para>
         /// <para>Specifies the subnets associated with the task. These subnets must all be in the same
         /// VPC. You can specify as many as 16 subnets.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1488,9 +1516,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// Each tag consists of a key and an optional value, both of which you define. To learn
         /// more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags">RunTask</a>
         /// in the Amazon ECS API Reference.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -1914,8 +1943,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.TimestreamParameters_SingleMeasureMapping = new List<Amazon.Pipes.Model.SingleMeasureMapping>(this.TimestreamParameters_SingleMeasureMapping);
             }
             context.TimestreamParameters_TimeFieldType = this.TimestreamParameters_TimeFieldType;
-            context.TimestreamParameters_TimestampFormat = this.TimestreamParameters_TimestampFormat;
             context.TimestreamParameters_TimeValue = this.TimestreamParameters_TimeValue;
+            context.TimestreamParameters_TimestampFormat = this.TimestreamParameters_TimestampFormat;
             context.TimestreamParameters_VersionValue = this.TimestreamParameters_VersionValue;
             
             // allow further manipulation of loaded context prior to processing
@@ -3337,16 +3366,6 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 requestTargetParameters_targetParameters_TimestreamParameters.TimeFieldType = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeFieldType;
                 requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
             }
-            System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = null;
-            if (cmdletContext.TimestreamParameters_TimestampFormat != null)
-            {
-                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = cmdletContext.TimestreamParameters_TimestampFormat;
-            }
-            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat != null)
-            {
-                requestTargetParameters_targetParameters_TimestreamParameters.TimestampFormat = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat;
-                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
-            }
             System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue = null;
             if (cmdletContext.TimestreamParameters_TimeValue != null)
             {
@@ -3355,6 +3374,16 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue != null)
             {
                 requestTargetParameters_targetParameters_TimestreamParameters.TimeValue = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = null;
+            if (cmdletContext.TimestreamParameters_TimestampFormat != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = cmdletContext.TimestreamParameters_TimestampFormat;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.TimestampFormat = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat;
                 requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
             }
             System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_VersionValue = null;
@@ -3858,8 +3887,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             public List<Amazon.Pipes.Model.MultiMeasureMapping> TimestreamParameters_MultiMeasureMapping { get; set; }
             public List<Amazon.Pipes.Model.SingleMeasureMapping> TimestreamParameters_SingleMeasureMapping { get; set; }
             public Amazon.Pipes.TimeFieldType TimestreamParameters_TimeFieldType { get; set; }
-            public System.String TimestreamParameters_TimestampFormat { get; set; }
             public System.String TimestreamParameters_TimeValue { get; set; }
+            public System.String TimestreamParameters_TimestampFormat { get; set; }
             public System.String TimestreamParameters_VersionValue { get; set; }
             public System.Func<Amazon.Pipes.Model.UpdatePipeResponse, UpdatePIPESPipeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

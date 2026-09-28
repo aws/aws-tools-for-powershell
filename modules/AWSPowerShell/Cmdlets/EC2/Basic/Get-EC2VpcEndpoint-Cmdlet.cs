@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC in which the endpoint resides.</para></li><li><para><c>vpc-endpoint-id</c> - The ID of the endpoint.</para></li><li><para><c>vpc-endpoint-state</c> - The state of the endpoint (<c>pendingAcceptance</c> |
         /// <c>pending</c> | <c>available</c> | <c>deleting</c> | <c>deleted</c> | <c>rejected</c>
         /// | <c>failed</c>).</para></li><li><para><c>vpc-endpoint-type</c> - The type of VPC endpoint (<c>Interface</c> | <c>Gateway</c>
-        /// | <c>GatewayLoadBalancer</c> | <c>Resource</c> | <c>ServiceNetwork</c>).</para></li></ul><para />
+        /// | <c>GatewayLoadBalancer</c> | <c>Resource</c> | <c>ServiceNetwork</c> | <c>Tunnel</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

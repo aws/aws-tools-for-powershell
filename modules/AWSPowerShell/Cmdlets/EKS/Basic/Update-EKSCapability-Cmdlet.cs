@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>A list of role mappings to add or update. If a mapping for the specified role already
         /// exists, it will be updated with the new identities. If it doesn't exist, a new mapping
         /// will be created.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -135,9 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>A list of role mappings to remove from the RBAC configuration. Each mapping specifies
         /// an Argo CD role (<c>ADMIN</c>, <c>EDITOR</c>, or <c>VIEWER</c>) and the identities
         /// to remove from that role.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -164,9 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint.
         /// Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD
         /// server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

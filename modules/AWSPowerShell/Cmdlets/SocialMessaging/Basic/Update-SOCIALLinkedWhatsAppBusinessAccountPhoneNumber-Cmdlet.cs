@@ -97,9 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         /// <summary>
         /// <para>
         /// <para>Date-specific overrides to the weekly operating hours, such as holidays.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -139,9 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         /// <summary>
         /// <para>
         /// <para>The weekly schedule of hours during which the business accepts calls.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -196,7 +198,6 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 context.Select = CreateSelectDelegate<Amazon.SocialMessaging.Model.UpdateLinkedWhatsAppBusinessAccountPhoneNumberResponse, UpdateSOCIALLinkedWhatsAppBusinessAccountPhoneNumberCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CallSettings_CallbackPermissionStatus = this.CallSettings_CallbackPermissionStatus;
             context.CallSettings_CallEnabled = this.CallSettings_CallEnabled;
             #if MODULAR
             if (this.CallSettings_CallEnabled == null && ParameterWasBound(nameof(this.CallSettings_CallEnabled)))
@@ -215,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
                 context.CallSettings_CallHours_WeeklyOperatingHour = new List<Amazon.SocialMessaging.Model.WhatsAppWeeklyOperatingHoursEntry>(this.CallSettings_CallHours_WeeklyOperatingHour);
             }
             context.CallSettings_CallIconVisibility = this.CallSettings_CallIconVisibility;
+            context.CallSettings_CallbackPermissionStatus = this.CallSettings_CallbackPermissionStatus;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -242,16 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
              // populate CallSettings
             var requestCallSettingsIsNull = true;
             request.CallSettings = new Amazon.SocialMessaging.Model.WhatsAppCallSettings();
-            System.String requestCallSettings_callSettings_CallbackPermissionStatus = null;
-            if (cmdletContext.CallSettings_CallbackPermissionStatus != null)
-            {
-                requestCallSettings_callSettings_CallbackPermissionStatus = cmdletContext.CallSettings_CallbackPermissionStatus;
-            }
-            if (requestCallSettings_callSettings_CallbackPermissionStatus != null)
-            {
-                request.CallSettings.CallbackPermissionStatus = requestCallSettings_callSettings_CallbackPermissionStatus;
-                requestCallSettingsIsNull = false;
-            }
             System.Boolean? requestCallSettings_callSettings_CallEnabled = null;
             if (cmdletContext.CallSettings_CallEnabled != null)
             {
@@ -270,6 +262,16 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
             if (requestCallSettings_callSettings_CallIconVisibility != null)
             {
                 request.CallSettings.CallIconVisibility = requestCallSettings_callSettings_CallIconVisibility;
+                requestCallSettingsIsNull = false;
+            }
+            System.String requestCallSettings_callSettings_CallbackPermissionStatus = null;
+            if (cmdletContext.CallSettings_CallbackPermissionStatus != null)
+            {
+                requestCallSettings_callSettings_CallbackPermissionStatus = cmdletContext.CallSettings_CallbackPermissionStatus;
+            }
+            if (requestCallSettings_callSettings_CallbackPermissionStatus != null)
+            {
+                request.CallSettings.CallbackPermissionStatus = requestCallSettings_callSettings_CallbackPermissionStatus;
                 requestCallSettingsIsNull = false;
             }
             Amazon.SocialMessaging.Model.WhatsAppCallHours requestCallSettings_callSettings_CallHours = null;
@@ -391,13 +393,13 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CallSettings_CallbackPermissionStatus { get; set; }
             public System.Boolean? CallSettings_CallEnabled { get; set; }
             public System.Boolean? CallSettings_CallHours_Enabled { get; set; }
             public List<Amazon.SocialMessaging.Model.WhatsAppHolidayScheduleEntry> CallSettings_CallHours_HolidaySchedule { get; set; }
             public System.String CallSettings_CallHours_Timezone { get; set; }
             public List<Amazon.SocialMessaging.Model.WhatsAppWeeklyOperatingHoursEntry> CallSettings_CallHours_WeeklyOperatingHour { get; set; }
             public System.String CallSettings_CallIconVisibility { get; set; }
+            public System.String CallSettings_CallbackPermissionStatus { get; set; }
             public System.String Id { get; set; }
             public System.Func<Amazon.SocialMessaging.Model.UpdateLinkedWhatsAppBusinessAccountPhoneNumberResponse, UpdateSOCIALLinkedWhatsAppBusinessAccountPhoneNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PhoneNumberId;

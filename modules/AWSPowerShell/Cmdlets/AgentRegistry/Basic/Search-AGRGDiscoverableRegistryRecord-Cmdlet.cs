@@ -51,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.AGRG
         /// <para>
         /// <para> An optional structured JSON metadata filter that narrows the search results. Supports
         /// the field-level operators <c>$eq</c>, <c>$ne</c>, and <c>$in</c>, and the logical
-        /// operators <c>$and</c> and <c>$or</c> on filterable fields.</para>
+        /// operators <c>$and</c> and <c>$or</c> on filterable fields.</para><para> You can also filter on custom metadata fields using the <c>customMetadata.{key}</c>
+        /// prefix. For example, to filter by a custom metadata field: <c>{"customMetadata.environment":
+        /// {"$eq": "production"}}</c>. Filter values must be strings, so match a boolean field
+        /// on its string form: <c>{"customMetadata.requiresApproval": {"$eq": "true"}}</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

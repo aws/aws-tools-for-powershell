@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter Blueprint_BlueprintArn
         /// <summary>
         /// <para>
-        /// <para>Arn of blueprint.</para>
+        /// Arn of blueprint.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter DataAutomationProfileArn
         /// <summary>
         /// <para>
-        /// <para>Data automation profile ARN</para>
+        /// Data automation profile ARN
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,9 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// <summary>
         /// <para>
         /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -106,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OutputConfiguration_S3Object_S3Uri
         /// <summary>
         /// <para>
-        /// <para>S3 uri.</para>
+        /// S3 uri.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,10 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter Sample
         /// <summary>
         /// <para>
-        /// <para>List of Blueprint Optimization Samples</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// List of Blueprint Optimization Samples
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -145,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter Blueprint_Stage
         /// <summary>
         /// <para>
-        /// <para>Stage of blueprint.</para>
+        /// Stage of blueprint.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,10 +159,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// List of tags.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -171,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         #region Parameter OutputConfiguration_S3Object_Version
         /// <summary>
         /// <para>
-        /// <para>S3 object version.</para>
+        /// S3 object version.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

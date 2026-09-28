@@ -213,6 +213,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter DevicePostureOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether device posture evaluation is enabled for the Client VPN endpoint.
+        /// Specify <c>false</c> to disable device posture, which clears the configured device
+        /// trust providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DevicePostureOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter DnsServers_Enabled
         /// <summary>
         /// <para>
@@ -233,6 +245,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ClientRouteEnforcementOptions_Enforced { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionLogOptions_IncludeAuthorizationPolicyContext
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include the authorization policy evaluation context in the connection
+        /// logs for the Client VPN endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ConnectionLogOptions_IncludeAuthorizationPolicyContext { get; set; }
         #endregion
         
         #region Parameter ClientConnectOptions_LambdaFunctionArn
@@ -312,6 +335,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TransitGatewayConfiguration_TransitGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter DevicePostureOptions_TrustProvider
+        /// <summary>
+        /// <para>
+        /// <para>The device trust providers to configure for the Client VPN endpoint.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DevicePostureOptions_TrustProviders")]
+        public Amazon.EC2.Model.ClientVpnTrustProviderRequest[] DevicePostureOptions_TrustProvider { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -395,7 +433,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ConnectionLogOptions_CloudwatchLogGroup = this.ConnectionLogOptions_CloudwatchLogGroup;
             context.ConnectionLogOptions_CloudwatchLogStream = this.ConnectionLogOptions_CloudwatchLogStream;
             context.ConnectionLogOptions_Enabled = this.ConnectionLogOptions_Enabled;
+            context.ConnectionLogOptions_IncludeAuthorizationPolicyContext = this.ConnectionLogOptions_IncludeAuthorizationPolicyContext;
             context.Description = this.Description;
+            context.DevicePostureOptions_Enabled = this.DevicePostureOptions_Enabled;
+            if (this.DevicePostureOptions_TrustProvider != null)
+            {
+                context.DevicePostureOptions_TrustProvider = new List<Amazon.EC2.Model.ClientVpnTrustProviderRequest>(this.DevicePostureOptions_TrustProvider);
+            }
             context.DisconnectOnSessionTimeout = this.DisconnectOnSessionTimeout;
             if (this.DnsServers_CustomDnsServer != null)
             {
@@ -553,6 +597,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ConnectionLogOptions.Enabled = requestConnectionLogOptions_connectionLogOptions_Enabled.Value;
                 requestConnectionLogOptionsIsNull = false;
             }
+            System.Boolean? requestConnectionLogOptions_connectionLogOptions_IncludeAuthorizationPolicyContext = null;
+            if (cmdletContext.ConnectionLogOptions_IncludeAuthorizationPolicyContext != null)
+            {
+                requestConnectionLogOptions_connectionLogOptions_IncludeAuthorizationPolicyContext = cmdletContext.ConnectionLogOptions_IncludeAuthorizationPolicyContext.Value;
+            }
+            if (requestConnectionLogOptions_connectionLogOptions_IncludeAuthorizationPolicyContext != null)
+            {
+                request.ConnectionLogOptions.IncludeAuthorizationPolicyContext = requestConnectionLogOptions_connectionLogOptions_IncludeAuthorizationPolicyContext.Value;
+                requestConnectionLogOptionsIsNull = false;
+            }
              // determine if request.ConnectionLogOptions should be set to null
             if (requestConnectionLogOptionsIsNull)
             {
@@ -561,6 +615,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DevicePostureOptions
+            var requestDevicePostureOptionsIsNull = true;
+            request.DevicePostureOptions = new Amazon.EC2.Model.DevicePostureOptions();
+            System.Boolean? requestDevicePostureOptions_devicePostureOptions_Enabled = null;
+            if (cmdletContext.DevicePostureOptions_Enabled != null)
+            {
+                requestDevicePostureOptions_devicePostureOptions_Enabled = cmdletContext.DevicePostureOptions_Enabled.Value;
+            }
+            if (requestDevicePostureOptions_devicePostureOptions_Enabled != null)
+            {
+                request.DevicePostureOptions.Enabled = requestDevicePostureOptions_devicePostureOptions_Enabled.Value;
+                requestDevicePostureOptionsIsNull = false;
+            }
+            List<Amazon.EC2.Model.ClientVpnTrustProviderRequest> requestDevicePostureOptions_devicePostureOptions_TrustProvider = null;
+            if (cmdletContext.DevicePostureOptions_TrustProvider != null)
+            {
+                requestDevicePostureOptions_devicePostureOptions_TrustProvider = cmdletContext.DevicePostureOptions_TrustProvider;
+            }
+            if (requestDevicePostureOptions_devicePostureOptions_TrustProvider != null)
+            {
+                request.DevicePostureOptions.TrustProviders = requestDevicePostureOptions_devicePostureOptions_TrustProvider;
+                requestDevicePostureOptionsIsNull = false;
+            }
+             // determine if request.DevicePostureOptions should be set to null
+            if (requestDevicePostureOptionsIsNull)
+            {
+                request.DevicePostureOptions = null;
             }
             if (cmdletContext.DisconnectOnSessionTimeout != null)
             {
@@ -730,7 +813,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ConnectionLogOptions_CloudwatchLogGroup { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogStream { get; set; }
             public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
+            public System.Boolean? ConnectionLogOptions_IncludeAuthorizationPolicyContext { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DevicePostureOptions_Enabled { get; set; }
+            public List<Amazon.EC2.Model.ClientVpnTrustProviderRequest> DevicePostureOptions_TrustProvider { get; set; }
             public System.Boolean? DisconnectOnSessionTimeout { get; set; }
             public List<System.String> DnsServers_CustomDnsServer { get; set; }
             public System.Boolean? DnsServers_Enabled { get; set; }

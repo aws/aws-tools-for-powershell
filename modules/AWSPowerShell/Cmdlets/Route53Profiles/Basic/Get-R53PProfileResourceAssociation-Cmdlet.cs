@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         #region Parameter ProfileResourceAssociationId
         /// <summary>
         /// <para>
-        /// <para><para>The ID of the profile resource association that you want to get information about.</para></para>
+        /// <para> The ID of the profile resource association that you want to get information about.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

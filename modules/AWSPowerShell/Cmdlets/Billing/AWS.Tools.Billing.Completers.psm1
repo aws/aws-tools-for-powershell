@@ -173,6 +173,8 @@ $AWSB_SelectMap = @{
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",
                "Get-AWSBBillingViewSegmentList",
+               "Get-AWSBBusinessSupportAccountChargeList",
+               "Get-AWSBBusinessSupportSubscriptionHistoryList",
                "Get-AWSBEnterpriseSupportLinkedAccountChargeList",
                "Get-AWSBSourceViewsForBillingViewList",
                "Get-AWSBResourceTag",

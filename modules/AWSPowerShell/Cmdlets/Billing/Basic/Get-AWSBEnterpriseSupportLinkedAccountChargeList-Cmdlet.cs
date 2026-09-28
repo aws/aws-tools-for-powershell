@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>An optional linked account ID to filter results to a specific account.</para>
+        /// <para>The linked account ID to filter results to a specific account. If you don't specify
+        /// a value, the response includes charges for all linked accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of results to return per page. Default is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
