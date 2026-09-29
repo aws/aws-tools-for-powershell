@@ -102,10 +102,18 @@ namespace Amazon.PowerShell.Common
             if (this.Header != null)
             {
                 foreach (DictionaryEntry entry in this.Header)
-                    request.Headers[entry.Key.ToString()] = entry.Value?.ToString() ?? string.Empty;
+                    request.Headers[entry.Key.ToString()] = GetHeaderValue(entry);
             }
 
             return request;
+        }
+
+        protected string GetHeaderValue(DictionaryEntry entry)
+        {
+            var value = entry.Value is PSObject psObject ? psObject.BaseObject : entry.Value;
+            if (value is IEnumerable && !(value is string))
+                ThrowArgumentError($"Header '{entry.Key}' must have a single string value.", this);
+            return value?.ToString() ?? string.Empty;
         }
     }
 
@@ -113,9 +121,10 @@ namespace Amazon.PowerShell.Common
     {
         #region Parameter Body
         /// <summary>
-        /// The request payload as a string (UTF-8 encoded), byte array or seekable stream. The bytes sent must
-        /// match exactly; on Windows PowerShell 5.1 pass non-ASCII payloads to Invoke-RestMethod as a byte array,
-        /// or use Get-AWSSigV4SignedRequest.
+        /// The request payload as a string (UTF-8 encoded), byte array or seekable stream. A stream is hashed from
+        /// its current position, which is restored afterwards, so the request sends the bytes that were signed.
+        /// The bytes sent must match exactly; on PowerShell versions earlier than 7.4 pass non-ASCII payloads to
+        /// Invoke-RestMethod as a byte array, or use Get-AWSSigV4SignedRequest.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public object Body { get; set; }
@@ -214,7 +223,7 @@ namespace Amazon.PowerShell.Common
                 foreach (DictionaryEntry entry in this.Header)
                 {
                     var name = entry.Key.ToString();
-                    var value = entry.Value?.ToString() ?? string.Empty;
+                    var value = GetHeaderValue(entry);
                     if (!headers.ContainsKey(name))
                         headers[name] = value;
                     else if (!string.Equals((string)headers[name], value, StringComparison.Ordinal))
@@ -248,16 +257,16 @@ namespace Amazon.PowerShell.Common
     /// signature in its query string and can be used until it expires without further authentication.
     /// </para>
     /// <para>
-    /// The result is a hashtable with the URL under Uri and, under Headers, any headers passed via -Header;
-    /// these are part of the signature and must be sent with the request. The hashtable can be passed to
-    /// Invoke-RestMethod or Invoke-WebRequest as their parameters. A request body is not supported, and with temporary
-    /// credentials the URL cannot outlive the credentials.
+    /// The result is a hashtable with the URL under Uri, the HTTP method under Method and, under Headers, any
+    /// headers passed via -Header; these are part of the signature and must be sent with the request. The hashtable
+    /// can be passed to Invoke-RestMethod or Invoke-WebRequest as their parameters. A request body is not supported,
+    /// and with temporary credentials the URL cannot outlive the credentials.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "AWSSigV4PreSignedURL")]
     [AWSCmdlet("Generates a pre-signed URL for an HTTP request using AWS Signature Version 4.")]
     [OutputType(typeof(Hashtable))]
-    [AWSCmdletOutput("System.Collections.Hashtable", "Uri: the pre-signed URL. Headers: the signed headers that must be sent with the request.")]
+    [AWSCmdletOutput("System.Collections.Hashtable", "Uri: the pre-signed URL. Method: the HTTP method. Headers: the signed headers that must be sent with the request.")]
     public class GetSigV4PreSignedURLCmdlet : SigV4SignerCmdletBase
     {
         #region Parameter Expire
@@ -292,6 +301,7 @@ namespace Amazon.PowerShell.Common
                 WriteObject(new Hashtable(StringComparer.OrdinalIgnoreCase)
                 {
                     ["Uri"] = result.Uri.AbsoluteUri,
+                    ["Method"] = request.HttpMethod.Method,
                     ["Headers"] = headers
                 });
             }

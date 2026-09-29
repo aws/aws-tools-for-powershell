@@ -103,6 +103,10 @@ Describe -Tag "Smoke" "Common.SigV4Signer" {
             { Get-AWSSigV4Signature -Uri $script:apiUri -Method "INVALID" @script:signingArgs } | Should -Throw "*Method*"
         }
 
+        It "Rejects a header with multiple values" {
+            { Get-AWSSigV4Signature -Uri $script:apiUri -Header @{ "x-custom" = "a", "b" } @script:signingArgs } | Should -Throw "*single string value*"
+        }
+
         It "Rejects a whitespace service name" {
             $signingArgs = $script:signingArgs.Clone()
             $signingArgs.Service = " "
@@ -150,11 +154,33 @@ Describe -Tag "Smoke" "Common.SigV4Signer" {
         }
     }
 
+    Context "Live requests" {
+        # These use the credentials and region of the test environment and call STS GetCallerIdentity.
+        BeforeAll {
+            $script:stsUri = "https://sts.us-west-2.amazonaws.com/?Action=GetCallerIdentity&Version=2011-06-15"
+        }
+
+        It "Produces a signed request that STS accepts" {
+            $request = Get-AWSSigV4SignedRequest -Uri $script:stsUri -Service sts -Region us-west-2
+            $response = Invoke-RestMethod @request
+
+            $response.GetCallerIdentityResponse.GetCallerIdentityResult.Arn | Should -Not -BeNullOrEmpty
+        }
+
+        It "Produces a pre-signed URL that STS accepts" {
+            $presigned = Get-AWSSigV4PreSignedURL -Uri $script:stsUri -Service sts -Region us-west-2 -Expire (Get-Date).AddMinutes(5)
+            $response = Invoke-RestMethod @presigned
+
+            $response.GetCallerIdentityResponse.GetCallerIdentityResult.Arn | Should -Not -BeNullOrEmpty
+        }
+    }
+
     Context "Get-AWSSigV4PreSignedURL" {
         It "Returns a pre-signed URL carrying the signature in the query string" {
             $result = Get-AWSSigV4PreSignedURL -Uri "https://amzn-s3-demo-bucket.s3.us-west-2.amazonaws.com/my key.txt" -Service s3 -Expire (Get-Date).AddHours(1) -AccessKey $script:signingArgs.AccessKey -SecretKey $script:signingArgs.SecretKey -Region us-west-2
 
             $result | Should -BeOfType [System.Collections.Hashtable]
+            $result["Method"] | Should -BeExactly "GET"
             $result["Headers"].Count | Should -Be 0
             $url = $result["Uri"]
             $url | Should -BeOfType [System.String]
@@ -172,6 +198,13 @@ Describe -Tag "Smoke" "Common.SigV4Signer" {
 
             $url | Should -Match "X-Amz-Security-Token=SESSIONTOKENEXAMPLE"
             $url | Should -Match "X-Amz-Expires=(299|300)&"
+        }
+
+        It "Returns the signed method" {
+            $result = Get-AWSSigV4PreSignedURL -Uri "https://amzn-s3-demo-bucket.s3.us-west-2.amazonaws.com/report.csv" -Method put -Service s3 -Expire (Get-Date).AddMinutes(5) -AccessKey $script:signingArgs.AccessKey -SecretKey $script:signingArgs.SecretKey -Region us-west-2
+
+            $result["Method"] | Should -BeExactly "PUT"
+            $result["Uri"] | Should -Match "X-Amz-Signature="
         }
 
         It "Returns additional signed headers" {
