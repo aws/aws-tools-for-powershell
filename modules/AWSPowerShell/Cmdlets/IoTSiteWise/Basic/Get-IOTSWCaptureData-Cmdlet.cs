@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter FormatSettings_FramesPerSecond
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The target frame rate for the
-        /// output.&lt;/p&gt;
+        /// <para>The target frame rate for the output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter FormatSettings_HeightInPixel
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The target height of the output,
-        /// in pixels.&lt;/p&gt;
+        /// <para>The target height of the output, in pixels.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,8 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter FormatSettings_WidthInPixel
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The target width of the output,
-        /// in pixels.&lt;/p&gt;
+        /// <para>The target width of the output, in pixels.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

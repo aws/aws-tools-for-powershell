@@ -450,24 +450,49 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies whether the Transfer Family server requires or ignores a PPv2 header containing
-        /// the original client IP address on incoming SFTP connections. If you don't specify
+        /// the client's source IP address on incoming SFTP connections. If you don't specify
         /// a value, the default is <c>NONE</c></para><ul><li><para><c>NONE</c>: the server reads and ignores any PPv2 header on incoming SFTP connections.
         /// This is the default value. Use this value when your SFTP server is not behind an NLB,
-        /// or when you do not need to preserve client source IP addresses through an NLB.</para></li><li><para><c>PROXY_PROTOCOL_V2_ENFORCED</c>: the server requires a valid PPv2 header on every
+        /// or when you do not need to preserve the client's source IP address through an NLB.</para></li><li><para><c>PROXY_PROTOCOL_V2_ENFORCED</c>: the server requires a valid PPv2 header on every
         /// incoming SFTP connection. When a valid header is present, the server applies it and
-        /// uses the client IP address from the header. If a connection arrives without a PPv2
+        /// uses the source IP address from the header. If a connection arrives without a PPv2
         /// header, the server refuses the connection and logs an error to Amazon CloudWatch Logs
         /// indicating that the expected PPv2 header was missing. Use this value when your SFTP
-        /// server is behind an NLB with PPv2 enabled on the target group.</para><important><para>When you enable <c>PROXY_PROTOCOL_V2_ENFORCED</c>, the server trusts the source IP
-        /// address in the PPv2 header. You must configure security groups on your server's VPC
-        /// endpoint to restrict inbound traffic to only the NLB's private IP addresses. For the
-        /// full requirements, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working
+        /// server is behind an NLB with PPv2 enabled on the target group.</para><important><para>With <c>PROXY_PROTOCOL_V2_ENFORCED</c> you must restrict the server's VPC endpoint
+        /// security group to allow inbound traffic only via the trusted NLB. For more information,
+        /// see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/working-with-nlb.html">Working
         /// with Network Load Balancers</a>.</para></important></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Transfer.ProxyMode")]
         public Amazon.Transfer.ProxyMode ProtocolDetails_ProxyConfig_SftpMode { get; set; }
+        #endregion
+        
+        #region Parameter ProtocolDetails_SftpPort
+        /// <summary>
+        /// <para>
+        /// <para>A property used with Transfer Family servers that use the SFTP protocol and have <c>PUBLIC</c>
+        /// endpoints. This property accepts a list of up to three port configurations that the
+        /// service opens on the server endpoint.</para><para>Each entry in the list consists of two parameters, the <c>SftpPort</c> and the <c>CommunicationMode</c>.
+        /// The <c>SftpPort</c> takes any integer from 2000 to 65535, or 22. <c>CommunicationMode</c>
+        /// can be one of the following options:</para><ul><li><para><c>SERVER_TALK_FIRST</c>: The server responds to initial TCP connections first. Many
+        /// older clients expect that an SFTP server responds with its server string before starting
+        /// SSH negotiations.</para></li><li><para><c>CLIENT_TALK_FIRST</c>: The server responds to the initial TCP connection only
+        /// after receiving a data packet. Most modern clients support this behavior and send
+        /// their client string along with the initial data packets for SSH negotiation. Additionally,
+        /// this mode is more resilient to TCP retransmissions that can occur during the initial
+        /// TCP connection.</para></li></ul><para>The following is an <c>SftpPorts</c> example for port 2222 with <c>CLIENT_TALK_FIRST</c>.</para><para><c>[ { "SftpPort": 2222, "CommunicationMode": "CLIENT_TALK_FIRST" } ]</c></para><para>If you don't specify any configurations during <c>CreateServer</c>, the service uses
+        /// port 22 with <c>SERVER_TALK_FIRST</c> by default.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProtocolDetails_SftpPorts")]
+        public Amazon.Transfer.Model.SftpPortWithOptions[] ProtocolDetails_SftpPort { get; set; }
         #endregion
         
         #region Parameter StructuredLogDestination
@@ -639,6 +664,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.ProtocolDetails_PassiveIp = this.ProtocolDetails_PassiveIp;
             context.ProtocolDetails_ProxyConfig_SftpMode = this.ProtocolDetails_ProxyConfig_SftpMode;
             context.ProtocolDetails_SetStatOption = this.ProtocolDetails_SetStatOption;
+            if (this.ProtocolDetails_SftpPort != null)
+            {
+                context.ProtocolDetails_SftpPort = new List<Amazon.Transfer.Model.SftpPortWithOptions>(this.ProtocolDetails_SftpPort);
+            }
             context.ProtocolDetails_TlsSessionResumptionMode = this.ProtocolDetails_TlsSessionResumptionMode;
             if (this.Protocol != null)
             {
@@ -865,6 +894,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 request.ProtocolDetails.SetStatOption = requestProtocolDetails_protocolDetails_SetStatOption;
                 requestProtocolDetailsIsNull = false;
             }
+            List<Amazon.Transfer.Model.SftpPortWithOptions> requestProtocolDetails_protocolDetails_SftpPort = null;
+            if (cmdletContext.ProtocolDetails_SftpPort != null)
+            {
+                requestProtocolDetails_protocolDetails_SftpPort = cmdletContext.ProtocolDetails_SftpPort;
+            }
+            if (requestProtocolDetails_protocolDetails_SftpPort != null)
+            {
+                request.ProtocolDetails.SftpPorts = requestProtocolDetails_protocolDetails_SftpPort;
+                requestProtocolDetailsIsNull = false;
+            }
             Amazon.Transfer.TlsSessionResumptionMode requestProtocolDetails_protocolDetails_TlsSessionResumptionMode = null;
             if (cmdletContext.ProtocolDetails_TlsSessionResumptionMode != null)
             {
@@ -1046,6 +1085,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String ProtocolDetails_PassiveIp { get; set; }
             public Amazon.Transfer.ProxyMode ProtocolDetails_ProxyConfig_SftpMode { get; set; }
             public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
+            public List<Amazon.Transfer.Model.SftpPortWithOptions> ProtocolDetails_SftpPort { get; set; }
             public Amazon.Transfer.TlsSessionResumptionMode ProtocolDetails_TlsSessionResumptionMode { get; set; }
             public List<System.String> Protocol { get; set; }
             public Amazon.Transfer.DirectoryListingOptimization S3StorageOptions_DirectoryListingOptimization { get; set; }

@@ -51,6 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>An object that contains filters to apply when listing tenants. You can filter by tenant
+        /// name or sending status.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Filter { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -124,6 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.ListTenantsResponse, GetSES2TenantListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter.Keys)
+                {
+                    context.Filter.Add((String)hashKey, (System.String)(this.Filter[hashKey]));
+                }
+            }
             context.NextToken = this.NextToken;
             context.PageSize = this.PageSize;
             #if !MODULAR
@@ -153,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request and set iteration invariants
             var request = new Amazon.SimpleEmailV2.Model.ListTenantsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
             if (cmdletContext.PageSize != null)
             {
                 request.PageSize = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.PageSize.Value);
@@ -236,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Filter { get; set; }
             public System.String NextToken { get; set; }
             public int? PageSize { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.ListTenantsResponse, GetSES2TenantListCmdlet, object> Select { get; set; } =

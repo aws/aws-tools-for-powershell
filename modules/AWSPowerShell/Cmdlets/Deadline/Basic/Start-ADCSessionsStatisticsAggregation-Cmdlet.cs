@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Timezone
         /// <summary>
         /// <para>
-        /// <para>The timezone to use for the statistics. Use UTC notation such as "UTC+8."</para>
+        /// <para>The time zone to use for the statistics. Use UTC notation such as "UTC+8."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

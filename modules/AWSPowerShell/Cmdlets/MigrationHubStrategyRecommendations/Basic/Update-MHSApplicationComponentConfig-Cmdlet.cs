@@ -121,9 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         /// <summary>
         /// <para>
         /// <para> The list of source code configurations to update for the application component. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -211,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 context.Select = CreateSelectDelegate<Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigResponse, UpdateMHSApplicationComponentConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AppType = this.AppType;
             context.ApplicationComponentId = this.ApplicationComponentId;
             #if MODULAR
             if (this.ApplicationComponentId == null && ParameterWasBound(nameof(this.ApplicationComponentId)))
@@ -218,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 WriteWarning("You are passing $null as a value for parameter ApplicationComponentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AppType = this.AppType;
             context.ConfigureOnly = this.ConfigureOnly;
             context.InclusionStatus = this.InclusionStatus;
             context.SecretsManagerKey = this.SecretsManagerKey;
@@ -246,13 +247,13 @@ namespace Amazon.PowerShell.Cmdlets.MHS
             // create request
             var request = new Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigRequest();
             
-            if (cmdletContext.ApplicationComponentId != null)
-            {
-                request.ApplicationComponentId = cmdletContext.ApplicationComponentId;
-            }
             if (cmdletContext.AppType != null)
             {
                 request.AppType = cmdletContext.AppType;
+            }
+            if (cmdletContext.ApplicationComponentId != null)
+            {
+                request.ApplicationComponentId = cmdletContext.ApplicationComponentId;
             }
             if (cmdletContext.ConfigureOnly != null)
             {
@@ -374,8 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationComponentId { get; set; }
             public Amazon.MigrationHubStrategyRecommendations.AppType AppType { get; set; }
+            public System.String ApplicationComponentId { get; set; }
             public System.Boolean? ConfigureOnly { get; set; }
             public Amazon.MigrationHubStrategyRecommendations.InclusionStatus InclusionStatus { get; set; }
             public System.String SecretsManagerKey { get; set; }

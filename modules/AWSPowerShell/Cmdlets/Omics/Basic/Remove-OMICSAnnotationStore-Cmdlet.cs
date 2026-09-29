@@ -30,7 +30,14 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Amazon.Omics.IAmazonOmics.DeleteAnnotationStore
+    /// <important><para>
+    /// Amazon Web Services HealthOmics variant stores and annotation stores are no longer
+    /// open to new customers. Existing customers can continue to use the service as normal.
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html">
+    /// Amazon Web Services HealthOmics variant store and annotation store availability change</a>.
+    /// </para></important><para>
+    /// Deletes an annotation store.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "OMICSAnnotationStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Omics.StoreStatus")]

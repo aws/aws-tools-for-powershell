@@ -113,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>A list of per-run configurations provided inline in the request. Each entry must include
         /// a unique <c>runSettingId</c>. Supports up to 100 entries. For batches with more than
         /// 100 runs, use <c>s3UriSettings</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -259,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>
         /// <para>Amazon Web Services tags to associate with each workflow run. Merged with per-run
         /// <c>runTags</c>; run-specific values take precedence when keys overlap.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -301,8 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefaultRunSetting_SessionPolicy
         /// <summary>
         /// <para>
-        /// <para>Optional inline policy json for scoping down permissions via a session policy on the
-        /// IAM role provided in the roleArn parameter.</para>
+        /// Optional inline policy json for scoping
+        /// down permissions via a session policy on the IAM role provided in the roleArn parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -336,9 +338,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>
         /// <para>Amazon Web Services tags to associate with the batch resource. These tags are not
         /// inherited by individual runs. To tag individual runs, use <c>defaultRunSetting.runTags</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

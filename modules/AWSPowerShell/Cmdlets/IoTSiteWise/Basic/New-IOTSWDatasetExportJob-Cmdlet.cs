@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Input_Dataset_DatasetId
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The unique identifier for the dataset.&lt;/p&gt;
+        /// <para>The unique identifier for the dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,12 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Input_Dataset_ExportDataType
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The optional subset of data types
-        /// to export. If omitted, all data types are exported.&lt;/p&gt;
-        /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// <para>The optional subset of data types to export. If omitted, all data types are exported.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter ErrorReportLocation_S3Uri
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The S3 URI prefix for the error report.&lt;/p&gt;
+        /// <para>The S3 URI prefix for the error report.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,12 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Input_Timesery
         /// <summary>
         /// <para>
-        /// &lt;p&gt;List of individual timeseries items
-        /// to process.&lt;/p&gt;
-        /// <para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// <para>List of individual timeseries items to process.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

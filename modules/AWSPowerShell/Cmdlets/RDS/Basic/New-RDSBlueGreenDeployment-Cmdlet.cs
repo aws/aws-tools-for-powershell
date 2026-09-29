@@ -189,6 +189,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? TargetIops { get; set; }
         #endregion
         
+        #region Parameter TargetResourceConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies resource-level configuration overrides for the green environment.</para><para>Each entry identifies a resource in the blue environment by its Amazon Resource Name
+        /// (ARN). It defines the desired configuration for the corresponding resource in the
+        /// green environment. Any resource that you don't include in this parameter retains the
+        /// same configuration as its counterpart in the blue environment.</para><para>Use this parameter when one or more resources in the green environment require a different
+        /// configuration than what they have in the blue environment.</para><para>Constraints:</para><ul><li><para>You can't specify the same <c>SourceArn</c> in more than one entry.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetResourceConfigurations")]
+        public Amazon.RDS.Model.TargetResourceConfiguration[] TargetResourceConfiguration { get; set; }
+        #endregion
+        
         #region Parameter TargetStorageThroughput
         /// <summary>
         /// <para>
@@ -292,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.TargetDBParameterGroupName = this.TargetDBParameterGroupName;
             context.TargetEngineVersion = this.TargetEngineVersion;
             context.TargetIops = this.TargetIops;
+            if (this.TargetResourceConfiguration != null)
+            {
+                context.TargetResourceConfiguration = new List<Amazon.RDS.Model.TargetResourceConfiguration>(this.TargetResourceConfiguration);
+            }
             context.TargetStorageThroughput = this.TargetStorageThroughput;
             context.TargetStorageType = this.TargetStorageType;
             context.UpgradeTargetStorageConfig = this.UpgradeTargetStorageConfig;
@@ -346,6 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.TargetIops != null)
             {
                 request.TargetIops = cmdletContext.TargetIops.Value;
+            }
+            if (cmdletContext.TargetResourceConfiguration != null)
+            {
+                request.TargetResourceConfigurations = cmdletContext.TargetResourceConfiguration;
             }
             if (cmdletContext.TargetStorageThroughput != null)
             {
@@ -423,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String TargetDBParameterGroupName { get; set; }
             public System.String TargetEngineVersion { get; set; }
             public System.Int32? TargetIops { get; set; }
+            public List<Amazon.RDS.Model.TargetResourceConfiguration> TargetResourceConfiguration { get; set; }
             public System.Int32? TargetStorageThroughput { get; set; }
             public System.String TargetStorageType { get; set; }
             public System.Boolean? UpgradeTargetStorageConfig { get; set; }

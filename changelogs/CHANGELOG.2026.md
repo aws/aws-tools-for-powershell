@@ -1,4 +1,39 @@
-﻿### 5.0.308 (2026-09-28 19:31Z)
+﻿### 5.0.309 (2026-09-29 19:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.344.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameter Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn.
+    * Modified cmdlet Update-ADCFleet: added parameter Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgenticRetrieveStream: added parameters AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn and AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId.
+  * Amazon ElastiCache
+    * Modified cmdlet New-ECServerlessCache: added parameter ConnectionType.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameters BeaconingConfiguration_ClientSide_AdditionalEventType and BeaconingConfiguration_ClientSide_ReportingMode.
+  * Amazon Identity Store
+    * Added cmdlet Get-IDSIdentityStoreDetail leveraging the DescribeIdentityStore service API.
+    * Added cmdlet Get-IDSIdentityStoreList leveraging the ListIdentityStores service API.
+    * Added cmdlet Update-IDSIdentityStore leveraging the UpdateIdentityStore service API.
+    * Modified cmdlet Remove-IDSGroup: added parameter Revision.
+    * Modified cmdlet Remove-IDSUser: added parameter Revision.
+    * Modified cmdlet Update-IDSGroup: added parameter Revision.
+    * Modified cmdlet Update-IDSUser: added parameter Revision.
+  * Amazon OpenSearch Service
+    * Modified cmdlet Update-OSDomainConfig: added parameter AcceptedWarning.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSBlueGreenDeployment: added parameter TargetResourceConfiguration.
+  * Amazon Security Agent
+    * Added cmdlet Update-SECAGIntegration leveraging the UpdateIntegration service API.
+    * Modified cmdlet New-SECAGIntegration: added parameters Input_AzureDevOps_Code, Input_AzureDevOps_OrganizationName, Input_AzureDevOps_State, Input_BitbucketDataCenter_Code, Input_BitbucketDataCenter_State and Input_BitbucketDataCenter_TargetUrl.
+    * Modified cmdlet Start-SECAGProviderRegistration: added parameters ClientId, ClientSecret, OrganizationName and TargetUrl.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet Get-SES2ConfigurationSetList: added parameter Filter.
+    * Modified cmdlet Get-SES2EmailIdentityList: added parameter Filter.
+    * Modified cmdlet Get-SES2TenantList: added parameter Filter.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter ProtocolDetails_SftpPort.
+    * Modified cmdlet Update-TFRServer: added parameter ProtocolDetails_SftpPort.
+
+### 5.0.308 (2026-09-28 19:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.343.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agent Registry Control
     * Modified cmdlet New-AGRCRegistry: added parameters CustomMetadataSchemaConfiguration_DefaultSchema and CustomMetadataSchemaConfiguration_RecordTypeSchemaOverride.

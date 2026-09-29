@@ -73,6 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
         #endregion
         
+        #region Parameter BeaconingConfiguration_ClientSide_AdditionalEventType
+        /// <summary>
+        /// <para>
+        /// <para>The player operation events to report on, in addition to the ad progress events that
+        /// MediaTailor always reports on. The default is an empty list. This parameter is valid
+        /// only when <c>ReportingMode</c> is <c>INSIGHTS</c>. MediaTailor rejects the request
+        /// if you specify a value while <c>ReportingMode</c> is <c>DISABLED</c>, or if you specify
+        /// duplicate values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BeaconingConfiguration_ClientSide_AdditionalEventTypes")]
+        public System.String[] BeaconingConfiguration_ClientSide_AdditionalEventType { get; set; }
+        #endregion
+        
         #region Parameter AdDecisionServerConfiguration_VastResponse_AdSequencingMode
         /// <summary>
         /// <para>
@@ -460,6 +480,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.ApsRegion YieldOptimizationConfiguration_Region { get; set; }
         #endregion
         
+        #region Parameter BeaconingConfiguration_ClientSide_ReportingMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether MediaTailor includes its beacons in the ad tracking response. Valid
+        /// values, which are case-sensitive:</para><ul><li><para><c>INSIGHTS</c> – MediaTailor includes its beacons in the ad tracking response.</para></li><li><para><c>DISABLED</c> – MediaTailor doesn't include its beacons in the ad tracking response.</para></li></ul><para>If you send a <c>ClientSide</c> object, this setting is required. If you omit <c>BeaconingConfiguration</c>
+        /// or <c>ClientSide</c> entirely, MediaTailor uses <c>INSIGHTS</c>.</para><para><c>PutPlaybackConfiguration</c> replaces the whole playback configuration. To keep
+        /// beaconing off, include <c>DISABLED</c> in every subsequent write.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.ClientSideBeaconingMode")]
+        public Amazon.MediaTailor.ClientSideBeaconingMode BeaconingConfiguration_ClientSide_ReportingMode { get; set; }
+        #endregion
+        
         #region Parameter SlateAdUrl
         /// <summary>
         /// <para>
@@ -643,6 +677,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.AvailSuppression_FillPolicy = this.AvailSuppression_FillPolicy;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
             context.AvailSuppression_Value = this.AvailSuppression_Value;
+            if (this.BeaconingConfiguration_ClientSide_AdditionalEventType != null)
+            {
+                context.BeaconingConfiguration_ClientSide_AdditionalEventType = new List<System.String>(this.BeaconingConfiguration_ClientSide_AdditionalEventType);
+            }
+            context.BeaconingConfiguration_ClientSide_ReportingMode = this.BeaconingConfiguration_ClientSide_ReportingMode;
             context.Bumper_EndUrl = this.Bumper_EndUrl;
             context.Bumper_StartUrl = this.Bumper_StartUrl;
             context.CdnConfiguration = this.CdnConfiguration;
@@ -947,6 +986,50 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.AvailSuppression = null;
             }
             
+             // populate BeaconingConfiguration
+            var requestBeaconingConfigurationIsNull = true;
+            request.BeaconingConfiguration = new Amazon.MediaTailor.Model.BeaconingConfiguration();
+            Amazon.MediaTailor.Model.ClientSideBeaconingConfiguration requestBeaconingConfiguration_beaconingConfiguration_ClientSide = null;
+            
+             // populate ClientSide
+            var requestBeaconingConfiguration_beaconingConfiguration_ClientSideIsNull = true;
+            requestBeaconingConfiguration_beaconingConfiguration_ClientSide = new Amazon.MediaTailor.Model.ClientSideBeaconingConfiguration();
+            List<System.String> requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_AdditionalEventType = null;
+            if (cmdletContext.BeaconingConfiguration_ClientSide_AdditionalEventType != null)
+            {
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_AdditionalEventType = cmdletContext.BeaconingConfiguration_ClientSide_AdditionalEventType;
+            }
+            if (requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_AdditionalEventType != null)
+            {
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSide.AdditionalEventTypes = requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_AdditionalEventType;
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSideIsNull = false;
+            }
+            Amazon.MediaTailor.ClientSideBeaconingMode requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_ReportingMode = null;
+            if (cmdletContext.BeaconingConfiguration_ClientSide_ReportingMode != null)
+            {
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_ReportingMode = cmdletContext.BeaconingConfiguration_ClientSide_ReportingMode;
+            }
+            if (requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_ReportingMode != null)
+            {
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSide.ReportingMode = requestBeaconingConfiguration_beaconingConfiguration_ClientSide_beaconingConfiguration_ClientSide_ReportingMode;
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSideIsNull = false;
+            }
+             // determine if requestBeaconingConfiguration_beaconingConfiguration_ClientSide should be set to null
+            if (requestBeaconingConfiguration_beaconingConfiguration_ClientSideIsNull)
+            {
+                requestBeaconingConfiguration_beaconingConfiguration_ClientSide = null;
+            }
+            if (requestBeaconingConfiguration_beaconingConfiguration_ClientSide != null)
+            {
+                request.BeaconingConfiguration.ClientSide = requestBeaconingConfiguration_beaconingConfiguration_ClientSide;
+                requestBeaconingConfigurationIsNull = false;
+            }
+             // determine if request.BeaconingConfiguration should be set to null
+            if (requestBeaconingConfigurationIsNull)
+            {
+                request.BeaconingConfiguration = null;
+            }
+            
              // populate Bumper
             var requestBumperIsNull = true;
             request.Bumper = new Amazon.MediaTailor.Model.Bumper();
@@ -1243,6 +1326,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
             public System.String AvailSuppression_Value { get; set; }
+            public List<System.String> BeaconingConfiguration_ClientSide_AdditionalEventType { get; set; }
+            public Amazon.MediaTailor.ClientSideBeaconingMode BeaconingConfiguration_ClientSide_ReportingMode { get; set; }
             public System.String Bumper_EndUrl { get; set; }
             public System.String Bumper_StartUrl { get; set; }
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }

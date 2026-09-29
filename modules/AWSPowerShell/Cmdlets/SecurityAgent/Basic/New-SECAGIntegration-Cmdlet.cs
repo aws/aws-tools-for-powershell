@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Input_Gitlab_AccessToken { get; set; }
         #endregion
         
+        #region Parameter Input_AzureDevOps_Code
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth 2.0 authorization code returned to your redirect URL after the connection
+        /// is authorized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_AzureDevOps_Code { get; set; }
+        #endregion
+        
         #region Parameter Input_Bitbucket_Code
         /// <summary>
         /// <para>
@@ -65,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Input_Bitbucket_Code { get; set; }
+        #endregion
+        
+        #region Parameter Input_BitbucketDataCenter_Code
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth 2.0 authorization code returned to your redirect URL after the connection
+        /// is authorized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_BitbucketDataCenter_Code { get; set; }
         #endregion
         
         #region Parameter Input_Confluence_Code
@@ -158,6 +180,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter Input_AzureDevOps_OrganizationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Azure DevOps organization to connect, for example <c>my-org</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_AzureDevOps_OrganizationName { get; set; }
+        #endregion
+        
         #region Parameter Input_Github_OrganizationName
         /// <summary>
         /// <para>
@@ -182,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The integration provider. Currently, only GITHUB is supported.</para>
+        /// <para>The integration provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -206,6 +238,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         public System.String Input_Confluence_SiteUrl { get; set; }
         #endregion
         
+        #region Parameter Input_AzureDevOps_State
+        /// <summary>
+        /// <para>
+        /// <para>The CSRF state value returned by <c>InitiateProviderRegistration</c> and echoed back
+        /// on the authorization redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_AzureDevOps_State { get; set; }
+        #endregion
+        
         #region Parameter Input_Bitbucket_State
         /// <summary>
         /// <para>
@@ -214,6 +257,17 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Input_Bitbucket_State { get; set; }
+        #endregion
+        
+        #region Parameter Input_BitbucketDataCenter_State
+        /// <summary>
+        /// <para>
+        /// <para>The CSRF state value returned by <c>InitiateProviderRegistration</c> and echoed back
+        /// on the authorization redirect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_BitbucketDataCenter_State { get; set; }
         #endregion
         
         #region Parameter Input_Confluence_State
@@ -250,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Input_BitbucketDataCenter_TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>The HTTPS URL of your Bitbucket Data Center instance, for example <c>https://bitbucket.example.com</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Input_BitbucketDataCenter_TargetUrl { get; set; }
         #endregion
         
         #region Parameter Input_Github_TargetUrl
@@ -341,10 +405,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.CreateIntegrationResponse, NewSECAGIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Input_AzureDevOps_Code = this.Input_AzureDevOps_Code;
+            context.Input_AzureDevOps_OrganizationName = this.Input_AzureDevOps_OrganizationName;
+            context.Input_AzureDevOps_State = this.Input_AzureDevOps_State;
             context.Input_Bitbucket_Code = this.Input_Bitbucket_Code;
             context.Input_Bitbucket_InstallationId = this.Input_Bitbucket_InstallationId;
             context.Input_Bitbucket_State = this.Input_Bitbucket_State;
             context.Input_Bitbucket_Workspace = this.Input_Bitbucket_Workspace;
+            context.Input_BitbucketDataCenter_Code = this.Input_BitbucketDataCenter_Code;
+            context.Input_BitbucketDataCenter_State = this.Input_BitbucketDataCenter_State;
+            context.Input_BitbucketDataCenter_TargetUrl = this.Input_BitbucketDataCenter_TargetUrl;
             context.Input_Confluence_Code = this.Input_Confluence_Code;
             context.Input_Confluence_InstallationId = this.Input_Confluence_InstallationId;
             context.Input_Confluence_SiteUrl = this.Input_Confluence_SiteUrl;
@@ -402,6 +472,96 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
              // populate Input
             var requestInputIsNull = true;
             request.Input = new Amazon.SecurityAgent.Model.ProviderInput();
+            Amazon.SecurityAgent.Model.AzureDevOpsIntegrationInput requestInput_input_AzureDevOps = null;
+            
+             // populate AzureDevOps
+            var requestInput_input_AzureDevOpsIsNull = true;
+            requestInput_input_AzureDevOps = new Amazon.SecurityAgent.Model.AzureDevOpsIntegrationInput();
+            System.String requestInput_input_AzureDevOps_input_AzureDevOps_Code = null;
+            if (cmdletContext.Input_AzureDevOps_Code != null)
+            {
+                requestInput_input_AzureDevOps_input_AzureDevOps_Code = cmdletContext.Input_AzureDevOps_Code;
+            }
+            if (requestInput_input_AzureDevOps_input_AzureDevOps_Code != null)
+            {
+                requestInput_input_AzureDevOps.Code = requestInput_input_AzureDevOps_input_AzureDevOps_Code;
+                requestInput_input_AzureDevOpsIsNull = false;
+            }
+            System.String requestInput_input_AzureDevOps_input_AzureDevOps_OrganizationName = null;
+            if (cmdletContext.Input_AzureDevOps_OrganizationName != null)
+            {
+                requestInput_input_AzureDevOps_input_AzureDevOps_OrganizationName = cmdletContext.Input_AzureDevOps_OrganizationName;
+            }
+            if (requestInput_input_AzureDevOps_input_AzureDevOps_OrganizationName != null)
+            {
+                requestInput_input_AzureDevOps.OrganizationName = requestInput_input_AzureDevOps_input_AzureDevOps_OrganizationName;
+                requestInput_input_AzureDevOpsIsNull = false;
+            }
+            System.String requestInput_input_AzureDevOps_input_AzureDevOps_State = null;
+            if (cmdletContext.Input_AzureDevOps_State != null)
+            {
+                requestInput_input_AzureDevOps_input_AzureDevOps_State = cmdletContext.Input_AzureDevOps_State;
+            }
+            if (requestInput_input_AzureDevOps_input_AzureDevOps_State != null)
+            {
+                requestInput_input_AzureDevOps.State = requestInput_input_AzureDevOps_input_AzureDevOps_State;
+                requestInput_input_AzureDevOpsIsNull = false;
+            }
+             // determine if requestInput_input_AzureDevOps should be set to null
+            if (requestInput_input_AzureDevOpsIsNull)
+            {
+                requestInput_input_AzureDevOps = null;
+            }
+            if (requestInput_input_AzureDevOps != null)
+            {
+                request.Input.AzureDevOps = requestInput_input_AzureDevOps;
+                requestInputIsNull = false;
+            }
+            Amazon.SecurityAgent.Model.BitbucketDataCenterIntegrationInput requestInput_input_BitbucketDataCenter = null;
+            
+             // populate BitbucketDataCenter
+            var requestInput_input_BitbucketDataCenterIsNull = true;
+            requestInput_input_BitbucketDataCenter = new Amazon.SecurityAgent.Model.BitbucketDataCenterIntegrationInput();
+            System.String requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_Code = null;
+            if (cmdletContext.Input_BitbucketDataCenter_Code != null)
+            {
+                requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_Code = cmdletContext.Input_BitbucketDataCenter_Code;
+            }
+            if (requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_Code != null)
+            {
+                requestInput_input_BitbucketDataCenter.Code = requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_Code;
+                requestInput_input_BitbucketDataCenterIsNull = false;
+            }
+            System.String requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_State = null;
+            if (cmdletContext.Input_BitbucketDataCenter_State != null)
+            {
+                requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_State = cmdletContext.Input_BitbucketDataCenter_State;
+            }
+            if (requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_State != null)
+            {
+                requestInput_input_BitbucketDataCenter.State = requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_State;
+                requestInput_input_BitbucketDataCenterIsNull = false;
+            }
+            System.String requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_TargetUrl = null;
+            if (cmdletContext.Input_BitbucketDataCenter_TargetUrl != null)
+            {
+                requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_TargetUrl = cmdletContext.Input_BitbucketDataCenter_TargetUrl;
+            }
+            if (requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_TargetUrl != null)
+            {
+                requestInput_input_BitbucketDataCenter.TargetUrl = requestInput_input_BitbucketDataCenter_input_BitbucketDataCenter_TargetUrl;
+                requestInput_input_BitbucketDataCenterIsNull = false;
+            }
+             // determine if requestInput_input_BitbucketDataCenter should be set to null
+            if (requestInput_input_BitbucketDataCenterIsNull)
+            {
+                requestInput_input_BitbucketDataCenter = null;
+            }
+            if (requestInput_input_BitbucketDataCenter != null)
+            {
+                request.Input.BitbucketDataCenter = requestInput_input_BitbucketDataCenter;
+                requestInputIsNull = false;
+            }
             Amazon.SecurityAgent.Model.BitbucketIntegrationInput requestInput_input_Bitbucket = null;
             
              // populate Bitbucket
@@ -712,10 +872,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Input_AzureDevOps_Code { get; set; }
+            public System.String Input_AzureDevOps_OrganizationName { get; set; }
+            public System.String Input_AzureDevOps_State { get; set; }
             public System.String Input_Bitbucket_Code { get; set; }
             public System.String Input_Bitbucket_InstallationId { get; set; }
             public System.String Input_Bitbucket_State { get; set; }
             public System.String Input_Bitbucket_Workspace { get; set; }
+            public System.String Input_BitbucketDataCenter_Code { get; set; }
+            public System.String Input_BitbucketDataCenter_State { get; set; }
+            public System.String Input_BitbucketDataCenter_TargetUrl { get; set; }
             public System.String Input_Confluence_Code { get; set; }
             public System.String Input_Confluence_InstallationId { get; set; }
             public System.String Input_Confluence_SiteUrl { get; set; }

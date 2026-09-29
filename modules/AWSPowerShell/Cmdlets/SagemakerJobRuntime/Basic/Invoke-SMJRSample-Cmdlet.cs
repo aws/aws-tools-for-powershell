@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The raw inference request body in OpenAI-compatible JSON format.</para>
+        /// The raw inference request body in OpenAI-compatible
+        /// JSON format.
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -67,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>The job ARN that identifies which model session to route the inference request to.</para>
+        /// The job ARN that identifies which model session
+        /// to route the inference request to.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter TrajectoryId
         /// <summary>
         /// <para>
-        /// <para>The trajectory ID for grouping turns into a single rollout. Each turn (prompt and
-        /// response) is captured for later use.</para>
+        /// The trajectory ID for grouping turns into
+        /// a single rollout. Each turn (prompt and response) is captured for later use.
         /// </para>
         /// </summary>
         #if !MODULAR

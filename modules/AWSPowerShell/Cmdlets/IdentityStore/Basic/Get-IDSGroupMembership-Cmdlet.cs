@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The globally unique identifier for the identity store.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MembershipId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a <c>GroupMembership</c> in an identity store.</para>
+        /// <para>The identifier for a <c>GroupMembership</c> in an identity store.</para><para>You can specify the group membership by ID or by Amazon Resource Name (ARN). For example,
+        /// membership ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</c> or membership ARN <c>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

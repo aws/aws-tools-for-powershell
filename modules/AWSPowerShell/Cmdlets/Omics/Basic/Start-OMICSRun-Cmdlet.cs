@@ -311,8 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SessionPolicy
         /// <summary>
         /// <para>
-        /// <para>Optional inline policy json for scoping down permissions via a session policy on the
-        /// IAM role provided in the roleArn parameter.</para>
+        /// Optional inline policy json for scoping
+        /// down permissions via a session policy on the IAM role provided in the roleArn parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,9 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>
         /// <para>Tags for the run. You can add up to 50 tags per run. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding a tag</a>
         /// in the <i>Amazon Web Services HealthOmics User Guide</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

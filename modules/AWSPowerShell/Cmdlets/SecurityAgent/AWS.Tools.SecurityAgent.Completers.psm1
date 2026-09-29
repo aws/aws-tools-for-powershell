@@ -181,7 +181,7 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
+            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
             break
         }
 
@@ -271,6 +271,13 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.WebhookAction
+        "Update-SECAGIntegration/WebhookAction"
+        {
+            $v = "CREATE_IF_ABSENT","ROTATE"
+            break
+        }
+
 
     }
 
@@ -301,6 +308,7 @@ $SECAG_map = @{
     "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
     "ValidationMode"=@("New-SECAGCodeReview","Update-SECAGCodeReview")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
+    "WebhookAction"=@("Update-SECAGIntegration")
 }
 
 _awsArgumentCompleterRegistration $SECAG_Completers $SECAG_map
@@ -439,6 +447,7 @@ $SECAG_SelectMap = @{
                "Update-SECAGCodeReview",
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
+               "Update-SECAGIntegration",
                "Update-SECAGPentest",
                "Update-SECAGPrivateConnectionCertificate",
                "Update-SECAGSecurityRequirementPack",

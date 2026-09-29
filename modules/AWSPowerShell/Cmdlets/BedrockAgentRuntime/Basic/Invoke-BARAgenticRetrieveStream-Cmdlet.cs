@@ -135,9 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para>The list of messages for the agentic retrieval conversation.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -161,6 +162,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn { get; set; }
+        #endregion
+        
+        #region Parameter AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Mantle foundation model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn { get; set; }
         #endregion
         
         #region Parameter AgenticRetrieveConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn
@@ -187,6 +198,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.AgenticRetrieveMemoryPersistenceMode MemoryConfiguration_PersistenceMode { get; set; }
         #endregion
         
+        #region Parameter AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Bedrock project ID used for billing and usage attribution. If you don't
+        /// specify a value, the service uses the default project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId { get; set; }
+        #endregion
+        
         #region Parameter AgenticRetrieveConfiguration_RerankingModelType
         /// <summary>
         /// <para>
@@ -206,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para>Specifies the long-term memory configuration the agent can retrieve from. The agent
         /// decides whether to retrieve and composes its own query. This field currently accepts
         /// at most one entry.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -221,9 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para>The list of retrievers to use for agentic retrieval.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -339,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn = this.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn;
+            context.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn = this.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn;
+            context.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId = this.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId;
             context.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type = this.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type;
             context.AgenticRetrieveConfiguration_FoundationModelType = this.AgenticRetrieveConfiguration_FoundationModelType;
             context.AgenticRetrieveConfiguration_MaxAgentIteration = this.AgenticRetrieveConfiguration_MaxAgentIteration;
@@ -428,71 +454,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 request.AgenticRetrieveConfiguration.RerankingModelType = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_RerankingModelType;
                 requestAgenticRetrieveConfigurationIsNull = false;
             }
-            Amazon.BedrockAgentRuntime.Model.FoundationModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = null;
-            
-             // populate FoundationModelConfiguration
-            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = true;
-            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = new Amazon.BedrockAgentRuntime.Model.FoundationModelConfiguration();
-            Amazon.BedrockAgentRuntime.FoundationModelConfigurationType requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type = null;
-            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type;
-            }
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration.Type = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type;
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = null;
-            
-             // populate BedrockFoundationModelConfiguration
-            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull = true;
-            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = new Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelConfiguration();
-            Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = null;
-            
-             // populate ModelConfiguration
-            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull = true;
-            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = new Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelModelConfiguration();
-            System.String requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn = null;
-            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn;
-            }
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration.ModelArn = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn;
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull = false;
-            }
-             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration should be set to null
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = null;
-            }
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration.ModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration;
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull = false;
-            }
-             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration should be set to null
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = null;
-            }
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration != null)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration.BedrockFoundationModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration;
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = false;
-            }
-             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration should be set to null
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull)
-            {
-                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = null;
-            }
-            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration != null)
-            {
-                request.AgenticRetrieveConfiguration.FoundationModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration;
-                requestAgenticRetrieveConfigurationIsNull = false;
-            }
             Amazon.BedrockAgentRuntime.Model.AgenticRetrieveRerankingConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_RerankingConfiguration = null;
             
              // populate RerankingConfiguration
@@ -556,6 +517,121 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_RerankingConfiguration != null)
             {
                 request.AgenticRetrieveConfiguration.RerankingConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_RerankingConfiguration;
+                requestAgenticRetrieveConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.FoundationModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = null;
+            
+             // populate FoundationModelConfiguration
+            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = true;
+            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = new Amazon.BedrockAgentRuntime.Model.FoundationModelConfiguration();
+            Amazon.BedrockAgentRuntime.FoundationModelConfigurationType requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type = null;
+            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_Type;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration.Type = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_Type;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = null;
+            
+             // populate BedrockFoundationModelConfiguration
+            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull = true;
+            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = new Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelConfiguration();
+            Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = null;
+            
+             // populate ModelConfiguration
+            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull = true;
+            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = new Amazon.BedrockAgentRuntime.Model.BedrockFoundationModelModelConfiguration();
+            System.String requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn = null;
+            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration.ModelArn = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull = false;
+            }
+             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration should be set to null
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfigurationIsNull)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration = null;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration.ModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull = false;
+            }
+             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration should be set to null
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfigurationIsNull)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration = null;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration.BedrockFoundationModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.MantleFoundationModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration = null;
+            
+             // populate MantleFoundationModelConfiguration
+            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfigurationIsNull = true;
+            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration = new Amazon.BedrockAgentRuntime.Model.MantleFoundationModelConfiguration();
+            Amazon.BedrockAgentRuntime.Model.MantleFoundationModelModelConfiguration requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration = null;
+            
+             // populate ModelConfiguration
+            var requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfigurationIsNull = true;
+            requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration = new Amazon.BedrockAgentRuntime.Model.MantleFoundationModelModelConfiguration();
+            System.String requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn = null;
+            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration.ModelArn = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfigurationIsNull = false;
+            }
+            System.String requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId = null;
+            if (cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId = cmdletContext.AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration.ProjectId = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfigurationIsNull = false;
+            }
+             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration should be set to null
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfigurationIsNull)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration = null;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration.ModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfigurationIsNull = false;
+            }
+             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration should be set to null
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfigurationIsNull)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration = null;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration != null)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration.MantleFoundationModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration;
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull = false;
+            }
+             // determine if requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration should be set to null
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfigurationIsNull)
+            {
+                requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration = null;
+            }
+            if (requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration != null)
+            {
+                request.AgenticRetrieveConfiguration.FoundationModelConfiguration = requestAgenticRetrieveConfiguration_agenticRetrieveConfiguration_FoundationModelConfiguration;
                 requestAgenticRetrieveConfigurationIsNull = false;
             }
              // determine if request.AgenticRetrieveConfiguration should be set to null
@@ -772,6 +848,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_BedrockFoundationModelConfiguration_ModelConfiguration_ModelArn { get; set; }
+            public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ModelArn { get; set; }
+            public System.String AgenticRetrieveConfiguration_FoundationModelConfiguration_MantleFoundationModelConfiguration_ModelConfiguration_ProjectId { get; set; }
             public Amazon.BedrockAgentRuntime.FoundationModelConfigurationType AgenticRetrieveConfiguration_FoundationModelConfiguration_Type { get; set; }
             public Amazon.BedrockAgentRuntime.FoundationModelType AgenticRetrieveConfiguration_FoundationModelType { get; set; }
             public System.Int32? AgenticRetrieveConfiguration_MaxAgentIteration { get; set; }

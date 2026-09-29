@@ -45,6 +45,21 @@ namespace Amazon.PowerShell.Cmdlets.EC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ConnectionType
+        /// <summary>
+        /// <para>
+        /// <para>The connection type for the serverless cache. Must be either <c>vpc</c> | <c>public</c>.
+        /// Use <c>vpc</c> to access the cache through a VPC endpoint, or <c>public</c> to access
+        /// the cache over the internet. If not specified, defaults to <c>vpc</c>. This value
+        /// cannot be changed after the serverless cache is created. Setting this to <c>public</c>
+        /// requires Valkey 9 or above.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.ConnectionType")]
+        public Amazon.ElastiCache.ConnectionType ConnectionType { get; set; }
+        #endregion
+        
         #region Parameter DailySnapshotTime
         /// <summary>
         /// <para>
@@ -335,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.DataStorage_Unit = this.DataStorage_Unit;
             context.ECPUPerSecond_Maximum = this.ECPUPerSecond_Maximum;
             context.ECPUPerSecond_Minimum = this.ECPUPerSecond_Minimum;
+            context.ConnectionType = this.ConnectionType;
             context.DailySnapshotTime = this.DailySnapshotTime;
             context.Description = this.Description;
             context.Engine = this.Engine;
@@ -477,6 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.CacheUsageLimits = null;
             }
+            if (cmdletContext.ConnectionType != null)
+            {
+                request.ConnectionType = cmdletContext.ConnectionType;
+            }
             if (cmdletContext.DailySnapshotTime != null)
             {
                 request.DailySnapshotTime = cmdletContext.DailySnapshotTime;
@@ -589,6 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public Amazon.ElastiCache.DataStorageUnit DataStorage_Unit { get; set; }
             public System.Int32? ECPUPerSecond_Maximum { get; set; }
             public System.Int32? ECPUPerSecond_Minimum { get; set; }
+            public Amazon.ElastiCache.ConnectionType ConnectionType { get; set; }
             public System.String DailySnapshotTime { get; set; }
             public System.String Description { get; set; }
             public System.String Engine { get; set; }

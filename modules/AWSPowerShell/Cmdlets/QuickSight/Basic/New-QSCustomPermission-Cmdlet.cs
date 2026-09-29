@@ -1438,9 +1438,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A map of <c>DefaultCategoryEffects</c>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -3342,9 +3343,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The tags to associate with the custom permissions profile.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -4547,8 +4549,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateConfluenceAction = this.Capabilities_CreateAndUpdateConfluenceAction;
             context.Capabilities_CreateAndUpdateConfluenceKnowledgeBase = this.Capabilities_CreateAndUpdateConfluenceKnowledgeBase;
             context.Capabilities_CreateAndUpdateDashboardEmailReport = this.Capabilities_CreateAndUpdateDashboardEmailReport;
-            context.Capabilities_CreateAndUpdateDataset = this.Capabilities_CreateAndUpdateDataset;
             context.Capabilities_CreateAndUpdateDataSource = this.Capabilities_CreateAndUpdateDataSource;
+            context.Capabilities_CreateAndUpdateDataset = this.Capabilities_CreateAndUpdateDataset;
             context.Capabilities_CreateAndUpdateDropboxAction = this.Capabilities_CreateAndUpdateDropboxAction;
             context.Capabilities_CreateAndUpdateDunAndBradstreetAction = this.Capabilities_CreateAndUpdateDunAndBradstreetAction;
             context.Capabilities_CreateAndUpdateFactSetAction = this.Capabilities_CreateAndUpdateFactSetAction;
@@ -4574,10 +4576,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateKnowledgeBases = this.Capabilities_CreateAndUpdateKnowledgeBases;
             context.Capabilities_CreateAndUpdateLinearAction = this.Capabilities_CreateAndUpdateLinearAction;
             context.Capabilities_CreateAndUpdateMCPAction = this.Capabilities_CreateAndUpdateMCPAction;
-            context.Capabilities_CreateAndUpdateMondayAction = this.Capabilities_CreateAndUpdateMondayAction;
-            context.Capabilities_CreateAndUpdateMoodysAction = this.Capabilities_CreateAndUpdateMoodysAction;
             context.Capabilities_CreateAndUpdateMSExchangeAction = this.Capabilities_CreateAndUpdateMSExchangeAction;
             context.Capabilities_CreateAndUpdateMSTeamsAction = this.Capabilities_CreateAndUpdateMSTeamsAction;
+            context.Capabilities_CreateAndUpdateMondayAction = this.Capabilities_CreateAndUpdateMondayAction;
+            context.Capabilities_CreateAndUpdateMoodysAction = this.Capabilities_CreateAndUpdateMoodysAction;
             context.Capabilities_CreateAndUpdateNewRelicAction = this.Capabilities_CreateAndUpdateNewRelicAction;
             context.Capabilities_CreateAndUpdateNotionAction = this.Capabilities_CreateAndUpdateNotionAction;
             context.Capabilities_CreateAndUpdateOneDriveAction = this.Capabilities_CreateAndUpdateOneDriveAction;
@@ -4589,14 +4591,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateQBusinessKnowledgeBase = this.Capabilities_CreateAndUpdateQBusinessKnowledgeBase;
             context.Capabilities_CreateAndUpdateQuickBooksAction = this.Capabilities_CreateAndUpdateQuickBooksAction;
             context.Capabilities_CreateAndUpdateS3KnowledgeBase = this.Capabilities_CreateAndUpdateS3KnowledgeBase;
-            context.Capabilities_CreateAndUpdateSalesforceAction = this.Capabilities_CreateAndUpdateSalesforceAction;
-            context.Capabilities_CreateAndUpdateSandPGlobalEnergyAction = this.Capabilities_CreateAndUpdateSandPGlobalEnergyAction;
-            context.Capabilities_CreateAndUpdateSandPGMIAction = this.Capabilities_CreateAndUpdateSandPGMIAction;
             context.Capabilities_CreateAndUpdateSAPBillOfMaterialAction = this.Capabilities_CreateAndUpdateSAPBillOfMaterialAction;
             context.Capabilities_CreateAndUpdateSAPBusinessPartnerAction = this.Capabilities_CreateAndUpdateSAPBusinessPartnerAction;
             context.Capabilities_CreateAndUpdateSAPMaterialStockAction = this.Capabilities_CreateAndUpdateSAPMaterialStockAction;
             context.Capabilities_CreateAndUpdateSAPPhysicalInventoryAction = this.Capabilities_CreateAndUpdateSAPPhysicalInventoryAction;
             context.Capabilities_CreateAndUpdateSAPProductMasterDataAction = this.Capabilities_CreateAndUpdateSAPProductMasterDataAction;
+            context.Capabilities_CreateAndUpdateSalesforceAction = this.Capabilities_CreateAndUpdateSalesforceAction;
+            context.Capabilities_CreateAndUpdateSandPGMIAction = this.Capabilities_CreateAndUpdateSandPGMIAction;
+            context.Capabilities_CreateAndUpdateSandPGlobalEnergyAction = this.Capabilities_CreateAndUpdateSandPGlobalEnergyAction;
             context.Capabilities_CreateAndUpdateServiceNowAction = this.Capabilities_CreateAndUpdateServiceNowAction;
             context.Capabilities_CreateAndUpdateSharePointAction = this.Capabilities_CreateAndUpdateSharePointAction;
             context.Capabilities_CreateAndUpdateSharePointKnowledgeBase = this.Capabilities_CreateAndUpdateSharePointKnowledgeBase;
@@ -4616,9 +4618,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateZoomInfoAction = this.Capabilities_CreateAndUpdateZoomInfoAction;
             context.Capabilities_CreateChatAgent = this.Capabilities_CreateChatAgent;
             context.Capabilities_CreateDashboardExecutiveSummaryWithQ = this.Capabilities_CreateDashboardExecutiveSummaryWithQ;
+            context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
             context.Capabilities_CreateSpace = this.Capabilities_CreateSpace;
-            context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
             context.Capabilities_Dashboard = this.Capabilities_Dashboard;
             context.Capabilities_DropboxAction = this.Capabilities_DropboxAction;
             context.Capabilities_DunAndBradstreetAction = this.Capabilities_DunAndBradstreetAction;
@@ -4657,12 +4659,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_JiraAction = this.Capabilities_JiraAction;
             context.Capabilities_KnowledgeBase = this.Capabilities_KnowledgeBase;
             context.Capabilities_LinearAction = this.Capabilities_LinearAction;
-            context.Capabilities_ManageSharedFolder = this.Capabilities_ManageSharedFolder;
             context.Capabilities_MCPAction = this.Capabilities_MCPAction;
-            context.Capabilities_MondayAction = this.Capabilities_MondayAction;
-            context.Capabilities_MoodysAction = this.Capabilities_MoodysAction;
             context.Capabilities_MSExchangeAction = this.Capabilities_MSExchangeAction;
             context.Capabilities_MSTeamsAction = this.Capabilities_MSTeamsAction;
+            context.Capabilities_ManageSharedFolder = this.Capabilities_ManageSharedFolder;
+            context.Capabilities_MondayAction = this.Capabilities_MondayAction;
+            context.Capabilities_MoodysAction = this.Capabilities_MoodysAction;
             context.Capabilities_NewRelicAction = this.Capabilities_NewRelicAction;
             context.Capabilities_NotionAction = this.Capabilities_NotionAction;
             context.Capabilities_OneDriveAction = this.Capabilities_OneDriveAction;
@@ -4680,14 +4682,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_RenameSharedFolder = this.Capabilities_RenameSharedFolder;
             context.Capabilities_Research = this.Capabilities_Research;
             context.Capabilities_S3KnowledgeBase = this.Capabilities_S3KnowledgeBase;
-            context.Capabilities_SalesforceAction = this.Capabilities_SalesforceAction;
-            context.Capabilities_SandPGlobalEnergyAction = this.Capabilities_SandPGlobalEnergyAction;
-            context.Capabilities_SandPGMIAction = this.Capabilities_SandPGMIAction;
             context.Capabilities_SAPBillOfMaterialAction = this.Capabilities_SAPBillOfMaterialAction;
             context.Capabilities_SAPBusinessPartnerAction = this.Capabilities_SAPBusinessPartnerAction;
             context.Capabilities_SAPMaterialStockAction = this.Capabilities_SAPMaterialStockAction;
             context.Capabilities_SAPPhysicalInventoryAction = this.Capabilities_SAPPhysicalInventoryAction;
             context.Capabilities_SAPProductMasterDataAction = this.Capabilities_SAPProductMasterDataAction;
+            context.Capabilities_SalesforceAction = this.Capabilities_SalesforceAction;
+            context.Capabilities_SandPGMIAction = this.Capabilities_SandPGMIAction;
+            context.Capabilities_SandPGlobalEnergyAction = this.Capabilities_SandPGlobalEnergyAction;
             context.Capabilities_Scenario = this.Capabilities_Scenario;
             context.Capabilities_ScheduleTrigger = this.Capabilities_ScheduleTrigger;
             context.Capabilities_SelfUpgradeUserRole = this.Capabilities_SelfUpgradeUserRole;
@@ -4715,8 +4717,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareConfluenceAction = this.Capabilities_ShareConfluenceAction;
             context.Capabilities_ShareConfluenceKnowledgeBase = this.Capabilities_ShareConfluenceKnowledgeBase;
             context.Capabilities_ShareDashboard = this.Capabilities_ShareDashboard;
-            context.Capabilities_ShareDataset = this.Capabilities_ShareDataset;
             context.Capabilities_ShareDataSource = this.Capabilities_ShareDataSource;
+            context.Capabilities_ShareDataset = this.Capabilities_ShareDataset;
             context.Capabilities_ShareDropboxAction = this.Capabilities_ShareDropboxAction;
             context.Capabilities_ShareDunAndBradstreetAction = this.Capabilities_ShareDunAndBradstreetAction;
             context.Capabilities_ShareFactSetAction = this.Capabilities_ShareFactSetAction;
@@ -4742,10 +4744,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareKnowledgeBases = this.Capabilities_ShareKnowledgeBases;
             context.Capabilities_ShareLinearAction = this.Capabilities_ShareLinearAction;
             context.Capabilities_ShareMCPAction = this.Capabilities_ShareMCPAction;
-            context.Capabilities_ShareMondayAction = this.Capabilities_ShareMondayAction;
-            context.Capabilities_ShareMoodysAction = this.Capabilities_ShareMoodysAction;
             context.Capabilities_ShareMSExchangeAction = this.Capabilities_ShareMSExchangeAction;
             context.Capabilities_ShareMSTeamsAction = this.Capabilities_ShareMSTeamsAction;
+            context.Capabilities_ShareMondayAction = this.Capabilities_ShareMondayAction;
+            context.Capabilities_ShareMoodysAction = this.Capabilities_ShareMoodysAction;
             context.Capabilities_ShareNewRelicAction = this.Capabilities_ShareNewRelicAction;
             context.Capabilities_ShareNotionAction = this.Capabilities_ShareNotionAction;
             context.Capabilities_ShareOneDriveAction = this.Capabilities_ShareOneDriveAction;
@@ -4759,14 +4761,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareQBusinessKnowledgeBase = this.Capabilities_ShareQBusinessKnowledgeBase;
             context.Capabilities_ShareQuickBooksAction = this.Capabilities_ShareQuickBooksAction;
             context.Capabilities_ShareS3KnowledgeBase = this.Capabilities_ShareS3KnowledgeBase;
-            context.Capabilities_ShareSalesforceAction = this.Capabilities_ShareSalesforceAction;
-            context.Capabilities_ShareSandPGlobalEnergyAction = this.Capabilities_ShareSandPGlobalEnergyAction;
-            context.Capabilities_ShareSandPGMIAction = this.Capabilities_ShareSandPGMIAction;
             context.Capabilities_ShareSAPBillOfMaterialAction = this.Capabilities_ShareSAPBillOfMaterialAction;
             context.Capabilities_ShareSAPBusinessPartnerAction = this.Capabilities_ShareSAPBusinessPartnerAction;
             context.Capabilities_ShareSAPMaterialStockAction = this.Capabilities_ShareSAPMaterialStockAction;
             context.Capabilities_ShareSAPPhysicalInventoryAction = this.Capabilities_ShareSAPPhysicalInventoryAction;
             context.Capabilities_ShareSAPProductMasterDataAction = this.Capabilities_ShareSAPProductMasterDataAction;
+            context.Capabilities_ShareSalesforceAction = this.Capabilities_ShareSalesforceAction;
+            context.Capabilities_ShareSandPGMIAction = this.Capabilities_ShareSandPGMIAction;
+            context.Capabilities_ShareSandPGlobalEnergyAction = this.Capabilities_ShareSandPGlobalEnergyAction;
             context.Capabilities_ShareServiceNowAction = this.Capabilities_ShareServiceNowAction;
             context.Capabilities_ShareSharePointAction = this.Capabilities_ShareSharePointAction;
             context.Capabilities_ShareSharePointKnowledgeBase = this.Capabilities_ShareSharePointKnowledgeBase;
@@ -4840,10 +4842,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseJiraAction = this.Capabilities_UseJiraAction;
             context.Capabilities_UseLinearAction = this.Capabilities_UseLinearAction;
             context.Capabilities_UseMCPAction = this.Capabilities_UseMCPAction;
-            context.Capabilities_UseMondayAction = this.Capabilities_UseMondayAction;
-            context.Capabilities_UseMoodysAction = this.Capabilities_UseMoodysAction;
             context.Capabilities_UseMSExchangeAction = this.Capabilities_UseMSExchangeAction;
             context.Capabilities_UseMSTeamsAction = this.Capabilities_UseMSTeamsAction;
+            context.Capabilities_UseMondayAction = this.Capabilities_UseMondayAction;
+            context.Capabilities_UseMoodysAction = this.Capabilities_UseMoodysAction;
             context.Capabilities_UseNewRelicAction = this.Capabilities_UseNewRelicAction;
             context.Capabilities_UseNotionAction = this.Capabilities_UseNotionAction;
             context.Capabilities_UseOneDriveAction = this.Capabilities_UseOneDriveAction;
@@ -4857,14 +4859,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseQBusinessKnowledgeBase = this.Capabilities_UseQBusinessKnowledgeBase;
             context.Capabilities_UseQuickBooksAction = this.Capabilities_UseQuickBooksAction;
             context.Capabilities_UseS3KnowledgeBase = this.Capabilities_UseS3KnowledgeBase;
-            context.Capabilities_UseSalesforceAction = this.Capabilities_UseSalesforceAction;
-            context.Capabilities_UseSandPGlobalEnergyAction = this.Capabilities_UseSandPGlobalEnergyAction;
-            context.Capabilities_UseSandPGMIAction = this.Capabilities_UseSandPGMIAction;
             context.Capabilities_UseSAPBillOfMaterialAction = this.Capabilities_UseSAPBillOfMaterialAction;
             context.Capabilities_UseSAPBusinessPartnerAction = this.Capabilities_UseSAPBusinessPartnerAction;
             context.Capabilities_UseSAPMaterialStockAction = this.Capabilities_UseSAPMaterialStockAction;
             context.Capabilities_UseSAPPhysicalInventoryAction = this.Capabilities_UseSAPPhysicalInventoryAction;
             context.Capabilities_UseSAPProductMasterDataAction = this.Capabilities_UseSAPProductMasterDataAction;
+            context.Capabilities_UseSalesforceAction = this.Capabilities_UseSalesforceAction;
+            context.Capabilities_UseSandPGMIAction = this.Capabilities_UseSandPGMIAction;
+            context.Capabilities_UseSandPGlobalEnergyAction = this.Capabilities_UseSandPGlobalEnergyAction;
             context.Capabilities_UseServiceNowAction = this.Capabilities_UseServiceNowAction;
             context.Capabilities_UseSharePointAction = this.Capabilities_UseSharePointAction;
             context.Capabilities_UseSharePointKnowledgeBase = this.Capabilities_UseSharePointKnowledgeBase;
@@ -5422,16 +5424,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateAndUpdateDashboardEmailReports = requestCapabilities_capabilities_CreateAndUpdateDashboardEmailReport;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateDataset = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateDataset != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateDataset = cmdletContext.Capabilities_CreateAndUpdateDataset;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateDataset != null)
-            {
-                request.Capabilities.CreateAndUpdateDatasets = requestCapabilities_capabilities_CreateAndUpdateDataset;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateDataSource = null;
             if (cmdletContext.Capabilities_CreateAndUpdateDataSource != null)
             {
@@ -5440,6 +5432,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateDataSource != null)
             {
                 request.Capabilities.CreateAndUpdateDataSources = requestCapabilities_capabilities_CreateAndUpdateDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateDataset = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateDataset != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateDataset = cmdletContext.Capabilities_CreateAndUpdateDataset;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateDataset != null)
+            {
+                request.Capabilities.CreateAndUpdateDatasets = requestCapabilities_capabilities_CreateAndUpdateDataset;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateDropboxAction = null;
@@ -5692,26 +5694,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateAndUpdateMCPAction = requestCapabilities_capabilities_CreateAndUpdateMCPAction;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMondayAction = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateMondayAction != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateMondayAction = cmdletContext.Capabilities_CreateAndUpdateMondayAction;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateMondayAction != null)
-            {
-                request.Capabilities.CreateAndUpdateMondayAction = requestCapabilities_capabilities_CreateAndUpdateMondayAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMoodysAction = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateMoodysAction != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateMoodysAction = cmdletContext.Capabilities_CreateAndUpdateMoodysAction;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateMoodysAction != null)
-            {
-                request.Capabilities.CreateAndUpdateMoodysAction = requestCapabilities_capabilities_CreateAndUpdateMoodysAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMSExchangeAction = null;
             if (cmdletContext.Capabilities_CreateAndUpdateMSExchangeAction != null)
             {
@@ -5730,6 +5712,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateMSTeamsAction != null)
             {
                 request.Capabilities.CreateAndUpdateMSTeamsAction = requestCapabilities_capabilities_CreateAndUpdateMSTeamsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMondayAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateMondayAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateMondayAction = cmdletContext.Capabilities_CreateAndUpdateMondayAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateMondayAction != null)
+            {
+                request.Capabilities.CreateAndUpdateMondayAction = requestCapabilities_capabilities_CreateAndUpdateMondayAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateMoodysAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateMoodysAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateMoodysAction = cmdletContext.Capabilities_CreateAndUpdateMoodysAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateMoodysAction != null)
+            {
+                request.Capabilities.CreateAndUpdateMoodysAction = requestCapabilities_capabilities_CreateAndUpdateMoodysAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateNewRelicAction = null;
@@ -5842,36 +5844,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateAndUpdateS3KnowledgeBase = requestCapabilities_capabilities_CreateAndUpdateS3KnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSalesforceAction = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateSalesforceAction != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateSalesforceAction = cmdletContext.Capabilities_CreateAndUpdateSalesforceAction;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateSalesforceAction != null)
-            {
-                request.Capabilities.CreateAndUpdateSalesforceAction = requestCapabilities_capabilities_CreateAndUpdateSalesforceAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateSandPGlobalEnergyAction != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction = cmdletContext.Capabilities_CreateAndUpdateSandPGlobalEnergyAction;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction != null)
-            {
-                request.Capabilities.CreateAndUpdateSandPGlobalEnergyAction = requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction = null;
-            if (cmdletContext.Capabilities_CreateAndUpdateSandPGMIAction != null)
-            {
-                requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction = cmdletContext.Capabilities_CreateAndUpdateSandPGMIAction;
-            }
-            if (requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction != null)
-            {
-                request.Capabilities.CreateAndUpdateSandPGMIAction = requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSAPBillOfMaterialAction = null;
             if (cmdletContext.Capabilities_CreateAndUpdateSAPBillOfMaterialAction != null)
             {
@@ -5920,6 +5892,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateSAPProductMasterDataAction != null)
             {
                 request.Capabilities.CreateAndUpdateSAPProductMasterDataAction = requestCapabilities_capabilities_CreateAndUpdateSAPProductMasterDataAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSalesforceAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateSalesforceAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateSalesforceAction = cmdletContext.Capabilities_CreateAndUpdateSalesforceAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateSalesforceAction != null)
+            {
+                request.Capabilities.CreateAndUpdateSalesforceAction = requestCapabilities_capabilities_CreateAndUpdateSalesforceAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateSandPGMIAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction = cmdletContext.Capabilities_CreateAndUpdateSandPGMIAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction != null)
+            {
+                request.Capabilities.CreateAndUpdateSandPGMIAction = requestCapabilities_capabilities_CreateAndUpdateSandPGMIAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateSandPGlobalEnergyAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction = cmdletContext.Capabilities_CreateAndUpdateSandPGlobalEnergyAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction != null)
+            {
+                request.Capabilities.CreateAndUpdateSandPGlobalEnergyAction = requestCapabilities_capabilities_CreateAndUpdateSandPGlobalEnergyAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateServiceNowAction = null;
@@ -6112,6 +6114,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateDashboardExecutiveSummaryWithQ = requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSPICEDataset = null;
+            if (cmdletContext.Capabilities_CreateSPICEDataset != null)
+            {
+                requestCapabilities_capabilities_CreateSPICEDataset = cmdletContext.Capabilities_CreateSPICEDataset;
+            }
+            if (requestCapabilities_capabilities_CreateSPICEDataset != null)
+            {
+                request.Capabilities.CreateSPICEDataset = requestCapabilities_capabilities_CreateSPICEDataset;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSharedFolder = null;
             if (cmdletContext.Capabilities_CreateSharedFolder != null)
             {
@@ -6130,16 +6142,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateSpace != null)
             {
                 request.Capabilities.CreateSpaces = requestCapabilities_capabilities_CreateSpace;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSPICEDataset = null;
-            if (cmdletContext.Capabilities_CreateSPICEDataset != null)
-            {
-                requestCapabilities_capabilities_CreateSPICEDataset = cmdletContext.Capabilities_CreateSPICEDataset;
-            }
-            if (requestCapabilities_capabilities_CreateSPICEDataset != null)
-            {
-                request.Capabilities.CreateSPICEDataset = requestCapabilities_capabilities_CreateSPICEDataset;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Dashboard = null;
@@ -6522,16 +6524,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.LinearAction = requestCapabilities_capabilities_LinearAction;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ManageSharedFolder = null;
-            if (cmdletContext.Capabilities_ManageSharedFolder != null)
-            {
-                requestCapabilities_capabilities_ManageSharedFolder = cmdletContext.Capabilities_ManageSharedFolder;
-            }
-            if (requestCapabilities_capabilities_ManageSharedFolder != null)
-            {
-                request.Capabilities.ManageSharedFolders = requestCapabilities_capabilities_ManageSharedFolder;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MCPAction = null;
             if (cmdletContext.Capabilities_MCPAction != null)
             {
@@ -6540,26 +6532,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_MCPAction != null)
             {
                 request.Capabilities.MCPAction = requestCapabilities_capabilities_MCPAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MondayAction = null;
-            if (cmdletContext.Capabilities_MondayAction != null)
-            {
-                requestCapabilities_capabilities_MondayAction = cmdletContext.Capabilities_MondayAction;
-            }
-            if (requestCapabilities_capabilities_MondayAction != null)
-            {
-                request.Capabilities.MondayAction = requestCapabilities_capabilities_MondayAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MoodysAction = null;
-            if (cmdletContext.Capabilities_MoodysAction != null)
-            {
-                requestCapabilities_capabilities_MoodysAction = cmdletContext.Capabilities_MoodysAction;
-            }
-            if (requestCapabilities_capabilities_MoodysAction != null)
-            {
-                request.Capabilities.MoodysAction = requestCapabilities_capabilities_MoodysAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MSExchangeAction = null;
@@ -6580,6 +6552,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_MSTeamsAction != null)
             {
                 request.Capabilities.MSTeamsAction = requestCapabilities_capabilities_MSTeamsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ManageSharedFolder = null;
+            if (cmdletContext.Capabilities_ManageSharedFolder != null)
+            {
+                requestCapabilities_capabilities_ManageSharedFolder = cmdletContext.Capabilities_ManageSharedFolder;
+            }
+            if (requestCapabilities_capabilities_ManageSharedFolder != null)
+            {
+                request.Capabilities.ManageSharedFolders = requestCapabilities_capabilities_ManageSharedFolder;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MondayAction = null;
+            if (cmdletContext.Capabilities_MondayAction != null)
+            {
+                requestCapabilities_capabilities_MondayAction = cmdletContext.Capabilities_MondayAction;
+            }
+            if (requestCapabilities_capabilities_MondayAction != null)
+            {
+                request.Capabilities.MondayAction = requestCapabilities_capabilities_MondayAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MoodysAction = null;
+            if (cmdletContext.Capabilities_MoodysAction != null)
+            {
+                requestCapabilities_capabilities_MoodysAction = cmdletContext.Capabilities_MoodysAction;
+            }
+            if (requestCapabilities_capabilities_MoodysAction != null)
+            {
+                request.Capabilities.MoodysAction = requestCapabilities_capabilities_MoodysAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_NewRelicAction = null;
@@ -6752,36 +6754,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.S3KnowledgeBase = requestCapabilities_capabilities_S3KnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SalesforceAction = null;
-            if (cmdletContext.Capabilities_SalesforceAction != null)
-            {
-                requestCapabilities_capabilities_SalesforceAction = cmdletContext.Capabilities_SalesforceAction;
-            }
-            if (requestCapabilities_capabilities_SalesforceAction != null)
-            {
-                request.Capabilities.SalesforceAction = requestCapabilities_capabilities_SalesforceAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SandPGlobalEnergyAction = null;
-            if (cmdletContext.Capabilities_SandPGlobalEnergyAction != null)
-            {
-                requestCapabilities_capabilities_SandPGlobalEnergyAction = cmdletContext.Capabilities_SandPGlobalEnergyAction;
-            }
-            if (requestCapabilities_capabilities_SandPGlobalEnergyAction != null)
-            {
-                request.Capabilities.SandPGlobalEnergyAction = requestCapabilities_capabilities_SandPGlobalEnergyAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SandPGMIAction = null;
-            if (cmdletContext.Capabilities_SandPGMIAction != null)
-            {
-                requestCapabilities_capabilities_SandPGMIAction = cmdletContext.Capabilities_SandPGMIAction;
-            }
-            if (requestCapabilities_capabilities_SandPGMIAction != null)
-            {
-                request.Capabilities.SandPGMIAction = requestCapabilities_capabilities_SandPGMIAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SAPBillOfMaterialAction = null;
             if (cmdletContext.Capabilities_SAPBillOfMaterialAction != null)
             {
@@ -6830,6 +6802,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_SAPProductMasterDataAction != null)
             {
                 request.Capabilities.SAPProductMasterDataAction = requestCapabilities_capabilities_SAPProductMasterDataAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SalesforceAction = null;
+            if (cmdletContext.Capabilities_SalesforceAction != null)
+            {
+                requestCapabilities_capabilities_SalesforceAction = cmdletContext.Capabilities_SalesforceAction;
+            }
+            if (requestCapabilities_capabilities_SalesforceAction != null)
+            {
+                request.Capabilities.SalesforceAction = requestCapabilities_capabilities_SalesforceAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SandPGMIAction = null;
+            if (cmdletContext.Capabilities_SandPGMIAction != null)
+            {
+                requestCapabilities_capabilities_SandPGMIAction = cmdletContext.Capabilities_SandPGMIAction;
+            }
+            if (requestCapabilities_capabilities_SandPGMIAction != null)
+            {
+                request.Capabilities.SandPGMIAction = requestCapabilities_capabilities_SandPGMIAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SandPGlobalEnergyAction = null;
+            if (cmdletContext.Capabilities_SandPGlobalEnergyAction != null)
+            {
+                requestCapabilities_capabilities_SandPGlobalEnergyAction = cmdletContext.Capabilities_SandPGlobalEnergyAction;
+            }
+            if (requestCapabilities_capabilities_SandPGlobalEnergyAction != null)
+            {
+                request.Capabilities.SandPGlobalEnergyAction = requestCapabilities_capabilities_SandPGlobalEnergyAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Scenario = null;
@@ -7102,16 +7104,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareDashboards = requestCapabilities_capabilities_ShareDashboard;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDataset = null;
-            if (cmdletContext.Capabilities_ShareDataset != null)
-            {
-                requestCapabilities_capabilities_ShareDataset = cmdletContext.Capabilities_ShareDataset;
-            }
-            if (requestCapabilities_capabilities_ShareDataset != null)
-            {
-                request.Capabilities.ShareDatasets = requestCapabilities_capabilities_ShareDataset;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDataSource = null;
             if (cmdletContext.Capabilities_ShareDataSource != null)
             {
@@ -7120,6 +7112,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareDataSource != null)
             {
                 request.Capabilities.ShareDataSources = requestCapabilities_capabilities_ShareDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDataset = null;
+            if (cmdletContext.Capabilities_ShareDataset != null)
+            {
+                requestCapabilities_capabilities_ShareDataset = cmdletContext.Capabilities_ShareDataset;
+            }
+            if (requestCapabilities_capabilities_ShareDataset != null)
+            {
+                request.Capabilities.ShareDatasets = requestCapabilities_capabilities_ShareDataset;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDropboxAction = null;
@@ -7372,26 +7374,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareMCPAction = requestCapabilities_capabilities_ShareMCPAction;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMondayAction = null;
-            if (cmdletContext.Capabilities_ShareMondayAction != null)
-            {
-                requestCapabilities_capabilities_ShareMondayAction = cmdletContext.Capabilities_ShareMondayAction;
-            }
-            if (requestCapabilities_capabilities_ShareMondayAction != null)
-            {
-                request.Capabilities.ShareMondayAction = requestCapabilities_capabilities_ShareMondayAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMoodysAction = null;
-            if (cmdletContext.Capabilities_ShareMoodysAction != null)
-            {
-                requestCapabilities_capabilities_ShareMoodysAction = cmdletContext.Capabilities_ShareMoodysAction;
-            }
-            if (requestCapabilities_capabilities_ShareMoodysAction != null)
-            {
-                request.Capabilities.ShareMoodysAction = requestCapabilities_capabilities_ShareMoodysAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMSExchangeAction = null;
             if (cmdletContext.Capabilities_ShareMSExchangeAction != null)
             {
@@ -7410,6 +7392,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareMSTeamsAction != null)
             {
                 request.Capabilities.ShareMSTeamsAction = requestCapabilities_capabilities_ShareMSTeamsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMondayAction = null;
+            if (cmdletContext.Capabilities_ShareMondayAction != null)
+            {
+                requestCapabilities_capabilities_ShareMondayAction = cmdletContext.Capabilities_ShareMondayAction;
+            }
+            if (requestCapabilities_capabilities_ShareMondayAction != null)
+            {
+                request.Capabilities.ShareMondayAction = requestCapabilities_capabilities_ShareMondayAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMoodysAction = null;
+            if (cmdletContext.Capabilities_ShareMoodysAction != null)
+            {
+                requestCapabilities_capabilities_ShareMoodysAction = cmdletContext.Capabilities_ShareMoodysAction;
+            }
+            if (requestCapabilities_capabilities_ShareMoodysAction != null)
+            {
+                request.Capabilities.ShareMoodysAction = requestCapabilities_capabilities_ShareMoodysAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareNewRelicAction = null;
@@ -7542,36 +7544,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareS3KnowledgeBase = requestCapabilities_capabilities_ShareS3KnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSalesforceAction = null;
-            if (cmdletContext.Capabilities_ShareSalesforceAction != null)
-            {
-                requestCapabilities_capabilities_ShareSalesforceAction = cmdletContext.Capabilities_ShareSalesforceAction;
-            }
-            if (requestCapabilities_capabilities_ShareSalesforceAction != null)
-            {
-                request.Capabilities.ShareSalesforceAction = requestCapabilities_capabilities_ShareSalesforceAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSandPGlobalEnergyAction = null;
-            if (cmdletContext.Capabilities_ShareSandPGlobalEnergyAction != null)
-            {
-                requestCapabilities_capabilities_ShareSandPGlobalEnergyAction = cmdletContext.Capabilities_ShareSandPGlobalEnergyAction;
-            }
-            if (requestCapabilities_capabilities_ShareSandPGlobalEnergyAction != null)
-            {
-                request.Capabilities.ShareSandPGlobalEnergyAction = requestCapabilities_capabilities_ShareSandPGlobalEnergyAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSandPGMIAction = null;
-            if (cmdletContext.Capabilities_ShareSandPGMIAction != null)
-            {
-                requestCapabilities_capabilities_ShareSandPGMIAction = cmdletContext.Capabilities_ShareSandPGMIAction;
-            }
-            if (requestCapabilities_capabilities_ShareSandPGMIAction != null)
-            {
-                request.Capabilities.ShareSandPGMIAction = requestCapabilities_capabilities_ShareSandPGMIAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSAPBillOfMaterialAction = null;
             if (cmdletContext.Capabilities_ShareSAPBillOfMaterialAction != null)
             {
@@ -7620,6 +7592,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareSAPProductMasterDataAction != null)
             {
                 request.Capabilities.ShareSAPProductMasterDataAction = requestCapabilities_capabilities_ShareSAPProductMasterDataAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSalesforceAction = null;
+            if (cmdletContext.Capabilities_ShareSalesforceAction != null)
+            {
+                requestCapabilities_capabilities_ShareSalesforceAction = cmdletContext.Capabilities_ShareSalesforceAction;
+            }
+            if (requestCapabilities_capabilities_ShareSalesforceAction != null)
+            {
+                request.Capabilities.ShareSalesforceAction = requestCapabilities_capabilities_ShareSalesforceAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSandPGMIAction = null;
+            if (cmdletContext.Capabilities_ShareSandPGMIAction != null)
+            {
+                requestCapabilities_capabilities_ShareSandPGMIAction = cmdletContext.Capabilities_ShareSandPGMIAction;
+            }
+            if (requestCapabilities_capabilities_ShareSandPGMIAction != null)
+            {
+                request.Capabilities.ShareSandPGMIAction = requestCapabilities_capabilities_ShareSandPGMIAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSandPGlobalEnergyAction = null;
+            if (cmdletContext.Capabilities_ShareSandPGlobalEnergyAction != null)
+            {
+                requestCapabilities_capabilities_ShareSandPGlobalEnergyAction = cmdletContext.Capabilities_ShareSandPGlobalEnergyAction;
+            }
+            if (requestCapabilities_capabilities_ShareSandPGlobalEnergyAction != null)
+            {
+                request.Capabilities.ShareSandPGlobalEnergyAction = requestCapabilities_capabilities_ShareSandPGlobalEnergyAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareServiceNowAction = null;
@@ -8352,26 +8354,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.UseMCPAction = requestCapabilities_capabilities_UseMCPAction;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMondayAction = null;
-            if (cmdletContext.Capabilities_UseMondayAction != null)
-            {
-                requestCapabilities_capabilities_UseMondayAction = cmdletContext.Capabilities_UseMondayAction;
-            }
-            if (requestCapabilities_capabilities_UseMondayAction != null)
-            {
-                request.Capabilities.UseMondayAction = requestCapabilities_capabilities_UseMondayAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMoodysAction = null;
-            if (cmdletContext.Capabilities_UseMoodysAction != null)
-            {
-                requestCapabilities_capabilities_UseMoodysAction = cmdletContext.Capabilities_UseMoodysAction;
-            }
-            if (requestCapabilities_capabilities_UseMoodysAction != null)
-            {
-                request.Capabilities.UseMoodysAction = requestCapabilities_capabilities_UseMoodysAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMSExchangeAction = null;
             if (cmdletContext.Capabilities_UseMSExchangeAction != null)
             {
@@ -8390,6 +8372,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UseMSTeamsAction != null)
             {
                 request.Capabilities.UseMSTeamsAction = requestCapabilities_capabilities_UseMSTeamsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMondayAction = null;
+            if (cmdletContext.Capabilities_UseMondayAction != null)
+            {
+                requestCapabilities_capabilities_UseMondayAction = cmdletContext.Capabilities_UseMondayAction;
+            }
+            if (requestCapabilities_capabilities_UseMondayAction != null)
+            {
+                request.Capabilities.UseMondayAction = requestCapabilities_capabilities_UseMondayAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseMoodysAction = null;
+            if (cmdletContext.Capabilities_UseMoodysAction != null)
+            {
+                requestCapabilities_capabilities_UseMoodysAction = cmdletContext.Capabilities_UseMoodysAction;
+            }
+            if (requestCapabilities_capabilities_UseMoodysAction != null)
+            {
+                request.Capabilities.UseMoodysAction = requestCapabilities_capabilities_UseMoodysAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseNewRelicAction = null;
@@ -8522,36 +8524,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.UseS3KnowledgeBase = requestCapabilities_capabilities_UseS3KnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSalesforceAction = null;
-            if (cmdletContext.Capabilities_UseSalesforceAction != null)
-            {
-                requestCapabilities_capabilities_UseSalesforceAction = cmdletContext.Capabilities_UseSalesforceAction;
-            }
-            if (requestCapabilities_capabilities_UseSalesforceAction != null)
-            {
-                request.Capabilities.UseSalesforceAction = requestCapabilities_capabilities_UseSalesforceAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSandPGlobalEnergyAction = null;
-            if (cmdletContext.Capabilities_UseSandPGlobalEnergyAction != null)
-            {
-                requestCapabilities_capabilities_UseSandPGlobalEnergyAction = cmdletContext.Capabilities_UseSandPGlobalEnergyAction;
-            }
-            if (requestCapabilities_capabilities_UseSandPGlobalEnergyAction != null)
-            {
-                request.Capabilities.UseSandPGlobalEnergyAction = requestCapabilities_capabilities_UseSandPGlobalEnergyAction;
-                requestCapabilitiesIsNull = false;
-            }
-            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSandPGMIAction = null;
-            if (cmdletContext.Capabilities_UseSandPGMIAction != null)
-            {
-                requestCapabilities_capabilities_UseSandPGMIAction = cmdletContext.Capabilities_UseSandPGMIAction;
-            }
-            if (requestCapabilities_capabilities_UseSandPGMIAction != null)
-            {
-                request.Capabilities.UseSandPGMIAction = requestCapabilities_capabilities_UseSandPGMIAction;
-                requestCapabilitiesIsNull = false;
-            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSAPBillOfMaterialAction = null;
             if (cmdletContext.Capabilities_UseSAPBillOfMaterialAction != null)
             {
@@ -8600,6 +8572,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UseSAPProductMasterDataAction != null)
             {
                 request.Capabilities.UseSAPProductMasterDataAction = requestCapabilities_capabilities_UseSAPProductMasterDataAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSalesforceAction = null;
+            if (cmdletContext.Capabilities_UseSalesforceAction != null)
+            {
+                requestCapabilities_capabilities_UseSalesforceAction = cmdletContext.Capabilities_UseSalesforceAction;
+            }
+            if (requestCapabilities_capabilities_UseSalesforceAction != null)
+            {
+                request.Capabilities.UseSalesforceAction = requestCapabilities_capabilities_UseSalesforceAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSandPGMIAction = null;
+            if (cmdletContext.Capabilities_UseSandPGMIAction != null)
+            {
+                requestCapabilities_capabilities_UseSandPGMIAction = cmdletContext.Capabilities_UseSandPGMIAction;
+            }
+            if (requestCapabilities_capabilities_UseSandPGMIAction != null)
+            {
+                request.Capabilities.UseSandPGMIAction = requestCapabilities_capabilities_UseSandPGMIAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseSandPGlobalEnergyAction = null;
+            if (cmdletContext.Capabilities_UseSandPGlobalEnergyAction != null)
+            {
+                requestCapabilities_capabilities_UseSandPGlobalEnergyAction = cmdletContext.Capabilities_UseSandPGlobalEnergyAction;
+            }
+            if (requestCapabilities_capabilities_UseSandPGlobalEnergyAction != null)
+            {
+                request.Capabilities.UseSandPGlobalEnergyAction = requestCapabilities_capabilities_UseSandPGlobalEnergyAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseServiceNowAction = null;
@@ -8979,8 +8981,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateConfluenceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateConfluenceKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDashboardEmailReport { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDropboxAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDunAndBradstreetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateFactSetAction { get; set; }
@@ -9006,10 +9008,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateKnowledgeBases { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateLinearAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMCPAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMondayAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMSTeamsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateNewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateNotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateOneDriveAction { get; set; }
@@ -9021,14 +9023,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateQBusinessKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateQuickBooksAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateS3KnowledgeBase { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSalesforceAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSandPGlobalEnergyAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSAPProductMasterDataAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSandPGMIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSandPGlobalEnergyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateServiceNowAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateSharePointKnowledgeBase { get; set; }
@@ -9048,9 +9050,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZoomInfoAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateChatAgent { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSpace { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_DropboxAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_DunAndBradstreetAction { get; set; }
@@ -9089,12 +9091,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_JiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_KnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MCPAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_MondayAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_MoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSTeamsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_NewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_NotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_OneDriveAction { get; set; }
@@ -9112,14 +9114,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_RenameSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Research { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_S3KnowledgeBase { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_SalesforceAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_SandPGlobalEnergyAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_SandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPProductMasterDataAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SandPGMIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SandPGlobalEnergyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Scenario { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ScheduleTrigger { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SelfUpgradeUserRole { get; set; }
@@ -9147,8 +9149,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareConfluenceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareConfluenceKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDashboard { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDropboxAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDunAndBradstreetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareFactSetAction { get; set; }
@@ -9174,10 +9176,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareKnowledgeBases { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareLinearAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMCPAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareMondayAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMSTeamsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareNewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareNotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareOneDriveAction { get; set; }
@@ -9191,14 +9193,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareQBusinessKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareQuickBooksAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareS3KnowledgeBase { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGlobalEnergyAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPProductMasterDataAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGMIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGlobalEnergyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareServiceNowAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSharePointKnowledgeBase { get; set; }
@@ -9272,10 +9274,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseJiraAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseLinearAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMCPAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_UseMondayAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_UseMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseMSTeamsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseMondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseMoodysAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseNewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseNotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseOneDriveAction { get; set; }
@@ -9289,14 +9291,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseQBusinessKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseQuickBooksAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseS3KnowledgeBase { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_UseSalesforceAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGlobalEnergyAction { get; set; }
-            public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSAPProductMasterDataAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseSalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGMIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseSandPGlobalEnergyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseServiceNowAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseSharePointKnowledgeBase { get; set; }

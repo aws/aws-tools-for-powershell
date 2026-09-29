@@ -72,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <para>A list of contexts active for the request. A context can be activated when a previous
         /// intent is fulfilled, or by including the context in the request,</para><para>If you don't specify a list of contexts, Amazon Lex will use the current list of contexts
         /// for the session. If you specify an empty list, all contexts for the session are cleared.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -176,9 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// a <c>GetSession</c> request returns three intents in the summary view and you call
         /// <c>PutSession</c> with one intent in the summary view, the next call to <c>GetSession</c>
         /// will only return one intent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -191,9 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <para>
         /// <para>Map of key/value pairs representing the session-specific context information. It contains
         /// application information passed between Amazon Lex and a client application.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -206,9 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para>Map of the slots that have been gathered and their values. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -329,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             context.DialogAction_IntentName = this.DialogAction_IntentName;
             context.DialogAction_Message = this.DialogAction_Message;
             context.DialogAction_MessageFormat = this.DialogAction_MessageFormat;
+            context.DialogAction_SlotToElicit = this.DialogAction_SlotToElicit;
             if (this.DialogAction_Slot != null)
             {
                 context.DialogAction_Slot = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -337,7 +342,6 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                     context.DialogAction_Slot.Add((String)hashKey, (System.String)(this.DialogAction_Slot[hashKey]));
                 }
             }
-            context.DialogAction_SlotToElicit = this.DialogAction_SlotToElicit;
             context.DialogAction_Type = this.DialogAction_Type;
             if (this.RecentIntentSummaryView != null)
             {
@@ -434,16 +438,6 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 request.DialogAction.MessageFormat = requestDialogAction_dialogAction_MessageFormat;
                 requestDialogActionIsNull = false;
             }
-            Dictionary<System.String, System.String> requestDialogAction_dialogAction_Slot = null;
-            if (cmdletContext.DialogAction_Slot != null)
-            {
-                requestDialogAction_dialogAction_Slot = cmdletContext.DialogAction_Slot;
-            }
-            if (requestDialogAction_dialogAction_Slot != null)
-            {
-                request.DialogAction.Slots = requestDialogAction_dialogAction_Slot;
-                requestDialogActionIsNull = false;
-            }
             System.String requestDialogAction_dialogAction_SlotToElicit = null;
             if (cmdletContext.DialogAction_SlotToElicit != null)
             {
@@ -452,6 +446,16 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             if (requestDialogAction_dialogAction_SlotToElicit != null)
             {
                 request.DialogAction.SlotToElicit = requestDialogAction_dialogAction_SlotToElicit;
+                requestDialogActionIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestDialogAction_dialogAction_Slot = null;
+            if (cmdletContext.DialogAction_Slot != null)
+            {
+                requestDialogAction_dialogAction_Slot = cmdletContext.DialogAction_Slot;
+            }
+            if (requestDialogAction_dialogAction_Slot != null)
+            {
+                request.DialogAction.Slots = requestDialogAction_dialogAction_Slot;
                 requestDialogActionIsNull = false;
             }
             Amazon.Lex.DialogActionType requestDialogAction_dialogAction_Type = null;
@@ -544,8 +548,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             public System.String DialogAction_IntentName { get; set; }
             public System.String DialogAction_Message { get; set; }
             public Amazon.Lex.MessageFormatType DialogAction_MessageFormat { get; set; }
-            public Dictionary<System.String, System.String> DialogAction_Slot { get; set; }
             public System.String DialogAction_SlotToElicit { get; set; }
+            public Dictionary<System.String, System.String> DialogAction_Slot { get; set; }
             public Amazon.Lex.DialogActionType DialogAction_Type { get; set; }
             public List<Amazon.Lex.Model.IntentSummary> RecentIntentSummaryView { get; set; }
             public Dictionary<System.String, System.String> SessionAttribute { get; set; }

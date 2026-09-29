@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// Resource Name (ARN)</a> of an organization in Organizations, for example: <c>organizations::123456789012:organization/o-exampleorgid</c></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <c>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</c></para></li><li><para>An ARN of an IAM role, for example: <c>iam::123456789012:role/rolename</c></para></li><li><para>An ARN of an IAM user, for example: <c>iam::123456789012user/username</c></para></li><li><para>A service principal name, for example: <c>service-id.amazonaws.com</c></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
         /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
         /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -72,9 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// Resource Names (ARNs)</a> for one or more resources that you want to remove from the
         /// resource share. After the operation runs, these resources are no longer shared with
         /// principals associated with the resource share.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -109,9 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// to remove from the resource share. This enables granular management of source constraints
         /// while maintaining service principal associations. At least one source must remain
         /// when service principals are present.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

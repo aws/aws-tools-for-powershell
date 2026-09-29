@@ -45,6 +45,29 @@ namespace Amazon.PowerShell.Cmdlets.OS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AcceptedWarning
+        /// <summary>
+        /// <para>
+        /// <para>A list of advisory warning codes to accept for this configuration change. By default,
+        /// any advisory warning blocks the change. Include the code of each warning you want
+        /// to accept so the change can proceed. You can find warning codes in the<c>ValidationFailures</c>
+        /// list returned by <c>DescribeDomainChangeProgress</c>and <c>DescribeDryRunProgress</c>.
+        /// Critical validation failures cannot be accepted and always block the change. If you
+        /// omit this parameter or pass an empty list, all warnings block the change. For more
+        /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating
+        /// a domain update</a>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AcceptedWarnings")]
+        public System.String[] AcceptedWarning { get; set; }
+        #endregion
+        
         #region Parameter AccessPolicy
         /// <summary>
         /// <para>
@@ -1113,6 +1136,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
             context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
             context.ServerlessVectorAcceleration_Enabled = this.ServerlessVectorAcceleration_Enabled;
+            if (this.AcceptedWarning != null)
+            {
+                context.AcceptedWarning = new List<System.String>(this.AcceptedWarning);
+            }
             context.AccessPolicy = this.AccessPolicy;
             if (this.AdvancedOption != null)
             {
@@ -1327,6 +1354,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAIMLOptionsIsNull)
             {
                 request.AIMLOptions = null;
+            }
+            if (cmdletContext.AcceptedWarning != null)
+            {
+                request.AcceptedWarnings = cmdletContext.AcceptedWarning;
             }
             if (cmdletContext.AccessPolicy != null)
             {
@@ -2432,6 +2463,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
             public System.Boolean? S3VectorsEngine_Enabled { get; set; }
             public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
+            public List<System.String> AcceptedWarning { get; set; }
             public System.String AccessPolicy { get; set; }
             public Dictionary<System.String, System.String> AdvancedOption { get; set; }
             public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }

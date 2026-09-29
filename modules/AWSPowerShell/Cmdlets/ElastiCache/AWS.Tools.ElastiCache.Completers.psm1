@@ -110,6 +110,13 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.ConnectionType
+        "New-ECServerlessCache/ConnectionType"
+        {
+            $v = "public","vpc"
+            break
+        }
+
         # Amazon.ElastiCache.DataStorageUnit
         {
             ($_ -eq "Edit-ECServerlessCache/DataStorage_Unit") -Or
@@ -200,6 +207,7 @@ $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
+    "ConnectionType"=@("New-ECServerlessCache")
     "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "Durability"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")

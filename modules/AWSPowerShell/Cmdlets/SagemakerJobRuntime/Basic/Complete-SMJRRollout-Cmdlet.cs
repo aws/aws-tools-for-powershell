@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>The job ARN.</para>
+        /// The job ARN.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The target status for the trajectory. Defaults to READY if not specified. Set to FAILED
-        /// if the rollout encountered an error and the trajectory should not be used for processing.</para>
+        /// The target status for the trajectory. Defaults
+        /// to READY if not specified. Set to FAILED if the rollout encountered an error and the
+        /// trajectory should not be used for processing.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter TrajectoryId
         /// <summary>
         /// <para>
-        /// <para>The trajectory ID to mark as complete.</para>
+        /// The trajectory ID to mark as complete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// A unique, case-sensitive identifier that you
+        /// provide to ensure the idempotency of the request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

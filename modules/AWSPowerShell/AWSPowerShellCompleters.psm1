@@ -8174,7 +8174,7 @@ $BAR_Completers = {
         # Amazon.BedrockAgentRuntime.FoundationModelConfigurationType
         "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"
         {
-            $v = "BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_FOUNDATION_MODEL","MANTLE_FOUNDATION_MODEL"
             break
         }
 
@@ -16455,8 +16455,8 @@ $CSD_SelectCompleters = {
 
 $CSD_SelectMap = @{
     "Select"=@("Search-CSDDocument",
-               "Get-CSDSuggestion",
-               "Write-CSDDocument")
+               "Write-CSDDocument",
+               "Get-CSDSuggestion")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30427,12 +30427,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTable",
-               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
                "New-DDBTableSchema",
+               "Add-DDBKeySchema",
                "ConvertFrom-DDBItem",
-               "Add-DDBKeySchema")
+               "New-DDBTable",
+               "Add-DDBIndexSchema")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -34606,6 +34606,13 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.ConnectionType
+        "New-ECServerlessCache/ConnectionType"
+        {
+            $v = "public","vpc"
+            break
+        }
+
         # Amazon.ElastiCache.DataStorageUnit
         {
             ($_ -eq "Edit-ECServerlessCache/DataStorage_Unit") -Or
@@ -34696,6 +34703,7 @@ $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
+    "ConnectionType"=@("New-ECServerlessCache")
     "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "Durability"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
@@ -44146,6 +44154,7 @@ $IDS_SelectMap = @{
                "Remove-IDSUser",
                "Get-IDSGroup",
                "Get-IDSGroupMembership",
+               "Get-IDSIdentityStoreDetail",
                "Get-IDSUser",
                "Get-IDSGroupId",
                "Get-IDSGroupMembershipId",
@@ -44154,8 +44163,10 @@ $IDS_SelectMap = @{
                "Get-IDSGroupMembershipList",
                "Get-IDSGroupMembershipsForMemberList",
                "Find-IDSGroupList",
+               "Get-IDSIdentityStoreList",
                "Find-IDSUserList",
                "Update-IDSGroup",
+               "Update-IDSIdentityStore",
                "Update-IDSUser")
 }
 
@@ -58445,6 +58456,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.ClientSideBeaconingMode
+        "Set-EMTPlaybackConfiguration/BeaconingConfiguration_ClientSide_ReportingMode"
+        {
+            $v = "DISABLED","INSIGHTS"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -58587,6 +58605,7 @@ $EMT_map = @{
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "AwsServiceRequestConfiguration_MethodType"=@("Write-EMTFunction")
     "AwsServiceRequestConfiguration_Runtime"=@("Write-EMTFunction")
+    "BeaconingConfiguration_ClientSide_ReportingMode"=@("Set-EMTPlaybackConfiguration")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")
@@ -79214,17 +79233,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Copy-S3Object",
-               "Get-S3PreSignedURL",
-               "Get-S3MultipartUpload",
-               "Read-S3Object",
                "Remove-S3Object",
-               "Remove-S3MultipartUpload",
-               "Write-S3Object",
-               "Dismount-S3PSDrive",
+               "Get-S3PreSignedURL",
                "New-S3Bucket",
-               "Mount-S3PSDrive",
+               "Remove-S3MultipartUpload",
                "Test-S3Bucket",
-               "Remove-S3Bucket")
+               "Get-S3MultipartUpload",
+               "Mount-S3PSDrive",
+               "Remove-S3Bucket",
+               "Dismount-S3PSDrive",
+               "Read-S3Object",
+               "Write-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -81981,7 +82000,7 @@ $SM_Completers = {
             ($_ -eq "New-SMProcessingJob/ProcessingResources_ClusterConfig_SelectedInstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8i.12xlarge","ml.c8i.16xlarge","ml.c8i.24xlarge","ml.c8i.2xlarge","ml.c8i.32xlarge","ml.c8i.48xlarge","ml.c8i.4xlarge","ml.c8i.8xlarge","ml.c8i.96xlarge","ml.c8i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8i.12xlarge","ml.m8i.16xlarge","ml.m8i.24xlarge","ml.m8i.2xlarge","ml.m8i.32xlarge","ml.m8i.48xlarge","ml.m8i.4xlarge","ml.m8i.8xlarge","ml.m8i.96xlarge","ml.m8i.large","ml.m8i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p5.4xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8i.12xlarge","ml.r8i.16xlarge","ml.r8i.24xlarge","ml.r8i.2xlarge","ml.r8i.32xlarge","ml.r8i.48xlarge","ml.r8i.4xlarge","ml.r8i.8xlarge","ml.r8i.96xlarge","ml.r8i.large","ml.r8i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i-flex.12xlarge","ml.c7i-flex.16xlarge","ml.c7i-flex.2xlarge","ml.c7i-flex.4xlarge","ml.c7i-flex.8xlarge","ml.c7i-flex.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8i-flex.12xlarge","ml.c8i-flex.16xlarge","ml.c8i-flex.2xlarge","ml.c8i-flex.4xlarge","ml.c8i-flex.8xlarge","ml.c8i-flex.xlarge","ml.c8i.12xlarge","ml.c8i.16xlarge","ml.c8i.24xlarge","ml.c8i.2xlarge","ml.c8i.32xlarge","ml.c8i.48xlarge","ml.c8i.4xlarge","ml.c8i.8xlarge","ml.c8i.96xlarge","ml.c8i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i-flex.12xlarge","ml.m7i-flex.16xlarge","ml.m7i-flex.2xlarge","ml.m7i-flex.4xlarge","ml.m7i-flex.8xlarge","ml.m7i-flex.large","ml.m7i-flex.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8i-flex.12xlarge","ml.m8i-flex.16xlarge","ml.m8i-flex.2xlarge","ml.m8i-flex.4xlarge","ml.m8i-flex.8xlarge","ml.m8i-flex.large","ml.m8i-flex.xlarge","ml.m8i.12xlarge","ml.m8i.16xlarge","ml.m8i.24xlarge","ml.m8i.2xlarge","ml.m8i.32xlarge","ml.m8i.48xlarge","ml.m8i.4xlarge","ml.m8i.8xlarge","ml.m8i.96xlarge","ml.m8i.large","ml.m8i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p5.4xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8i-flex.12xlarge","ml.r8i-flex.16xlarge","ml.r8i-flex.2xlarge","ml.r8i-flex.4xlarge","ml.r8i-flex.8xlarge","ml.r8i-flex.large","ml.r8i-flex.xlarge","ml.r8i.12xlarge","ml.r8i.16xlarge","ml.r8i.24xlarge","ml.r8i.2xlarge","ml.r8i.32xlarge","ml.r8i.48xlarge","ml.r8i.4xlarge","ml.r8i.8xlarge","ml.r8i.96xlarge","ml.r8i.large","ml.r8i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
             break
         }
 
@@ -82524,7 +82543,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8i.12xlarge","ml.c8i.16xlarge","ml.c8i.24xlarge","ml.c8i.2xlarge","ml.c8i.32xlarge","ml.c8i.48xlarge","ml.c8i.4xlarge","ml.c8i.8xlarge","ml.c8i.96xlarge","ml.c8i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8i.12xlarge","ml.m8i.16xlarge","ml.m8i.24xlarge","ml.m8i.2xlarge","ml.m8i.32xlarge","ml.m8i.48xlarge","ml.m8i.4xlarge","ml.m8i.8xlarge","ml.m8i.96xlarge","ml.m8i.large","ml.m8i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8i.12xlarge","ml.r8i.16xlarge","ml.r8i.24xlarge","ml.r8i.2xlarge","ml.r8i.32xlarge","ml.r8i.48xlarge","ml.r8i.4xlarge","ml.r8i.8xlarge","ml.r8i.96xlarge","ml.r8i.large","ml.r8i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i-flex.12xlarge","ml.c7i-flex.16xlarge","ml.c7i-flex.2xlarge","ml.c7i-flex.4xlarge","ml.c7i-flex.8xlarge","ml.c7i-flex.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.c8i-flex.12xlarge","ml.c8i-flex.16xlarge","ml.c8i-flex.2xlarge","ml.c8i-flex.4xlarge","ml.c8i-flex.8xlarge","ml.c8i-flex.xlarge","ml.c8i.12xlarge","ml.c8i.16xlarge","ml.c8i.24xlarge","ml.c8i.2xlarge","ml.c8i.32xlarge","ml.c8i.48xlarge","ml.c8i.4xlarge","ml.c8i.8xlarge","ml.c8i.96xlarge","ml.c8i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.g7.12xlarge","ml.g7.24xlarge","ml.g7.2xlarge","ml.g7.48xlarge","ml.g7.4xlarge","ml.g7.8xlarge","ml.g7e.12xlarge","ml.g7e.24xlarge","ml.g7e.2xlarge","ml.g7e.48xlarge","ml.g7e.4xlarge","ml.g7e.8xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i-flex.12xlarge","ml.m7i-flex.16xlarge","ml.m7i-flex.2xlarge","ml.m7i-flex.4xlarge","ml.m7i-flex.8xlarge","ml.m7i-flex.large","ml.m7i-flex.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.m8i-flex.12xlarge","ml.m8i-flex.16xlarge","ml.m8i-flex.2xlarge","ml.m8i-flex.4xlarge","ml.m8i-flex.8xlarge","ml.m8i-flex.large","ml.m8i-flex.xlarge","ml.m8i.12xlarge","ml.m8i.16xlarge","ml.m8i.24xlarge","ml.m8i.2xlarge","ml.m8i.32xlarge","ml.m8i.48xlarge","ml.m8i.4xlarge","ml.m8i.8xlarge","ml.m8i.96xlarge","ml.m8i.large","ml.m8i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5.4xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.p6-b200.48xlarge","ml.p6-b300.48xlarge","ml.p6e-gb200.36xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.r8i-flex.12xlarge","ml.r8i-flex.16xlarge","ml.r8i-flex.2xlarge","ml.r8i-flex.4xlarge","ml.r8i-flex.8xlarge","ml.r8i-flex.large","ml.r8i-flex.xlarge","ml.r8i.12xlarge","ml.r8i.16xlarge","ml.r8i.24xlarge","ml.r8i.2xlarge","ml.r8i.32xlarge","ml.r8i.48xlarge","ml.r8i.4xlarge","ml.r8i.8xlarge","ml.r8i.96xlarge","ml.r8i.large","ml.r8i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -84047,7 +84066,7 @@ $SECAG_Completers = {
             ($_ -eq "Start-SECAGProviderRegistration/Provider")
         }
         {
-            $v = "BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
+            $v = "AZURE_DEVOPS","BITBUCKET","CONFLUENCE","GITHUB","GITLAB"
             break
         }
 
@@ -84137,6 +84156,13 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.WebhookAction
+        "Update-SECAGIntegration/WebhookAction"
+        {
+            $v = "CREATE_IF_ABSENT","ROTATE"
+            break
+        }
+
 
     }
 
@@ -84167,6 +84193,7 @@ $SECAG_map = @{
     "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
     "ValidationMode"=@("New-SECAGCodeReview","Update-SECAGCodeReview")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
+    "WebhookAction"=@("Update-SECAGIntegration")
 }
 
 _awsArgumentCompleterRegistration $SECAG_Completers $SECAG_map
@@ -84305,6 +84332,7 @@ $SECAG_SelectMap = @{
                "Update-SECAGCodeReview",
                "Update-SECAGFinding",
                "Update-SECAGIntegratedResource",
+               "Update-SECAGIntegration",
                "Update-SECAGPentest",
                "Update-SECAGPrivateConnectionCertificate",
                "Update-SECAGSecurityRequirementPack",
@@ -95921,44 +95949,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -95998,3 +95988,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

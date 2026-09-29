@@ -54,9 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// models of other asset models. You can't create assets directly from this type of asset
         /// model. </para></li><li><para><b>INTERFACE</b> – An interface is a type of model that defines a standard structure
         /// that can be applied to different asset models.</para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

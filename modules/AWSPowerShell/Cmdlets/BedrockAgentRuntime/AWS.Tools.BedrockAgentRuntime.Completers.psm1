@@ -125,7 +125,7 @@ $BAR_Completers = {
         # Amazon.BedrockAgentRuntime.FoundationModelConfigurationType
         "Invoke-BARAgenticRetrieveStream/AgenticRetrieveConfiguration_FoundationModelConfiguration_Type"
         {
-            $v = "BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_FOUNDATION_MODEL","MANTLE_FOUNDATION_MODEL"
             break
         }
 

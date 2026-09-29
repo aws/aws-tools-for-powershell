@@ -65,9 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter JobConfiguration_EventDetection_DatasetId
         /// <summary>
         /// <para>
-        /// &lt;p&gt;The IoT SiteWise dataset ID containing
-        /// the video time-series data to analyze. Query IoT SiteWise to discover available datasets
-        /// in your workspace.&lt;/p&gt;
+        /// <para>The IoT SiteWise dataset ID containing the video time-series data to analyze. Query
+        /// IoT SiteWise to discover available datasets in your workspace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter JobConfiguration_EventDetection_PropertyAlias
         /// <summary>
         /// <para>
-        /// &lt;p&gt;Human-readable alias for the video
-        /// time series to analyze (e.g., /camera/warehouse/zone-a). Specify either propertyAlias
-        /// or timeSeriesId, but not both. Use this when you have configured friendly aliases
-        /// in IoT SiteWise for better readability.&lt;/p&gt;
+        /// <para>Human-readable alias for the video time series to analyze (e.g., /camera/warehouse/zone-a).
+        /// Specify either propertyAlias or timeSeriesId, but not both. Use this when you have
+        /// configured friendly aliases in IoT SiteWise for better readability.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,10 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter JobConfiguration_EventDetection_TimeSeriesId
         /// <summary>
         /// <para>
-        /// &lt;p&gt;Unique system identifier for the
-        /// video time series to analyze. Specify either timeSeriesId or propertyAlias, but not
-        /// both. Use this when you have the system-generated time series identifier from IoT
-        /// SiteWise.&lt;/p&gt;
+        /// <para>Unique system identifier for the video time series to analyze. Specify either timeSeriesId
+        /// or propertyAlias, but not both. Use this when you have the system-generated time series
+        /// identifier from IoT SiteWise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

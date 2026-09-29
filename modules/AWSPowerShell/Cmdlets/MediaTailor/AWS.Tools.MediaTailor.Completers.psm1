@@ -104,6 +104,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.ClientSideBeaconingMode
+        "Set-EMTPlaybackConfiguration/BeaconingConfiguration_ClientSide_ReportingMode"
+        {
+            $v = "DISABLED","INSIGHTS"
+            break
+        }
+
         # Amazon.MediaTailor.CompressionMethod
         "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
         {
@@ -246,6 +253,7 @@ $EMT_map = @{
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "AwsServiceRequestConfiguration_MethodType"=@("Write-EMTFunction")
     "AwsServiceRequestConfiguration_Runtime"=@("Write-EMTFunction")
+    "BeaconingConfiguration_ClientSide_ReportingMode"=@("Set-EMTPlaybackConfiguration")
     "ConcurrentExecutorConfiguration_Runtime"=@("Write-EMTFunction")
     "CustomOutputConfiguration_Runtime"=@("Write-EMTFunction")
     "FunctionType"=@("Write-EMTFunction")

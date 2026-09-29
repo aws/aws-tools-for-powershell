@@ -45,17 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DatabaseInputDefinition_TempDirectory_Bucket
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon S3 bucket name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Input_DatabaseInputDefinition_TempDirectory_Bucket")]
-        public System.String DatabaseInputDefinition_TempDirectory_Bucket { get; set; }
-        #endregion
-        
         #region Parameter DataCatalogInputDefinition_TempDirectory_Bucket
         /// <summary>
         /// <para>
@@ -65,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Input_DataCatalogInputDefinition_TempDirectory_Bucket")]
         public System.String DataCatalogInputDefinition_TempDirectory_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter DatabaseInputDefinition_TempDirectory_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_DatabaseInputDefinition_TempDirectory_Bucket")]
+        public System.String DatabaseInputDefinition_TempDirectory_Bucket { get; set; }
         #endregion
         
         #region Parameter S3InputDefinition_Bucket
@@ -78,17 +78,6 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.String S3InputDefinition_Bucket { get; set; }
         #endregion
         
-        #region Parameter DatabaseInputDefinition_TempDirectory_BucketOwner
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Input_DatabaseInputDefinition_TempDirectory_BucketOwner")]
-        public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
-        #endregion
-        
         #region Parameter DataCatalogInputDefinition_TempDirectory_BucketOwner
         /// <summary>
         /// <para>
@@ -98,6 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Input_DataCatalogInputDefinition_TempDirectory_BucketOwner")]
         public System.String DataCatalogInputDefinition_TempDirectory_BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter DatabaseInputDefinition_TempDirectory_BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID of the bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_DatabaseInputDefinition_TempDirectory_BucketOwner")]
+        public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
         #endregion
         
         #region Parameter S3InputDefinition_BucketOwner
@@ -216,17 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         public System.Boolean? Excel_HeaderRow { get; set; }
         #endregion
         
-        #region Parameter DatabaseInputDefinition_TempDirectory_Key
-        /// <summary>
-        /// <para>
-        /// <para>The unique name of the object in the bucket.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Input_DatabaseInputDefinition_TempDirectory_Key")]
-        public System.String DatabaseInputDefinition_TempDirectory_Key { get; set; }
-        #endregion
-        
         #region Parameter DataCatalogInputDefinition_TempDirectory_Key
         /// <summary>
         /// <para>
@@ -236,6 +225,17 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Input_DataCatalogInputDefinition_TempDirectory_Key")]
         public System.String DataCatalogInputDefinition_TempDirectory_Key { get; set; }
+        #endregion
+        
+        #region Parameter DatabaseInputDefinition_TempDirectory_Key
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the object in the bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_DatabaseInputDefinition_TempDirectory_Key")]
+        public System.String DatabaseInputDefinition_TempDirectory_Key { get; set; }
         #endregion
         
         #region Parameter S3InputDefinition_Key
@@ -321,9 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>A structure that maps names of parameters used in the Amazon S3 path of a dataset
         /// to their definitions.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -348,9 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>One or more sheet numbers in the Excel file that will be included in the dataset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -363,9 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>One or more named sheets in the Excel file that will be included in the dataset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -402,9 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>Metadata tags to apply to this dataset.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -417,9 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>The map of substitution variable names to their values used in this filter expression.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -487,18 +492,18 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.Excel_SheetName = new List<System.String>(this.Excel_SheetName);
             }
             context.Json_MultiLine = this.Json_MultiLine;
-            context.DatabaseInputDefinition_DatabaseTableName = this.DatabaseInputDefinition_DatabaseTableName;
-            context.DatabaseInputDefinition_GlueConnectionName = this.DatabaseInputDefinition_GlueConnectionName;
-            context.DatabaseInputDefinition_QueryString = this.DatabaseInputDefinition_QueryString;
-            context.DatabaseInputDefinition_TempDirectory_Bucket = this.DatabaseInputDefinition_TempDirectory_Bucket;
-            context.DatabaseInputDefinition_TempDirectory_BucketOwner = this.DatabaseInputDefinition_TempDirectory_BucketOwner;
-            context.DatabaseInputDefinition_TempDirectory_Key = this.DatabaseInputDefinition_TempDirectory_Key;
             context.DataCatalogInputDefinition_CatalogId = this.DataCatalogInputDefinition_CatalogId;
             context.DataCatalogInputDefinition_DatabaseName = this.DataCatalogInputDefinition_DatabaseName;
             context.DataCatalogInputDefinition_TableName = this.DataCatalogInputDefinition_TableName;
             context.DataCatalogInputDefinition_TempDirectory_Bucket = this.DataCatalogInputDefinition_TempDirectory_Bucket;
             context.DataCatalogInputDefinition_TempDirectory_BucketOwner = this.DataCatalogInputDefinition_TempDirectory_BucketOwner;
             context.DataCatalogInputDefinition_TempDirectory_Key = this.DataCatalogInputDefinition_TempDirectory_Key;
+            context.DatabaseInputDefinition_DatabaseTableName = this.DatabaseInputDefinition_DatabaseTableName;
+            context.DatabaseInputDefinition_GlueConnectionName = this.DatabaseInputDefinition_GlueConnectionName;
+            context.DatabaseInputDefinition_QueryString = this.DatabaseInputDefinition_QueryString;
+            context.DatabaseInputDefinition_TempDirectory_Bucket = this.DatabaseInputDefinition_TempDirectory_Bucket;
+            context.DatabaseInputDefinition_TempDirectory_BucketOwner = this.DatabaseInputDefinition_TempDirectory_BucketOwner;
+            context.DatabaseInputDefinition_TempDirectory_Key = this.DatabaseInputDefinition_TempDirectory_Key;
             context.Metadata_SourceArn = this.Metadata_SourceArn;
             context.S3InputDefinition_Bucket = this.S3InputDefinition_Bucket;
             context.S3InputDefinition_BucketOwner = this.S3InputDefinition_BucketOwner;
@@ -746,96 +751,6 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 request.Input.S3InputDefinition = requestInput_input_S3InputDefinition;
                 requestInputIsNull = false;
             }
-            Amazon.GlueDataBrew.Model.DatabaseInputDefinition requestInput_input_DatabaseInputDefinition = null;
-            
-             // populate DatabaseInputDefinition
-            var requestInput_input_DatabaseInputDefinitionIsNull = true;
-            requestInput_input_DatabaseInputDefinition = new Amazon.GlueDataBrew.Model.DatabaseInputDefinition();
-            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName = null;
-            if (cmdletContext.DatabaseInputDefinition_DatabaseTableName != null)
-            {
-                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName = cmdletContext.DatabaseInputDefinition_DatabaseTableName;
-            }
-            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName != null)
-            {
-                requestInput_input_DatabaseInputDefinition.DatabaseTableName = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName;
-                requestInput_input_DatabaseInputDefinitionIsNull = false;
-            }
-            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName = null;
-            if (cmdletContext.DatabaseInputDefinition_GlueConnectionName != null)
-            {
-                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName = cmdletContext.DatabaseInputDefinition_GlueConnectionName;
-            }
-            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName != null)
-            {
-                requestInput_input_DatabaseInputDefinition.GlueConnectionName = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName;
-                requestInput_input_DatabaseInputDefinitionIsNull = false;
-            }
-            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString = null;
-            if (cmdletContext.DatabaseInputDefinition_QueryString != null)
-            {
-                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString = cmdletContext.DatabaseInputDefinition_QueryString;
-            }
-            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString != null)
-            {
-                requestInput_input_DatabaseInputDefinition.QueryString = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString;
-                requestInput_input_DatabaseInputDefinitionIsNull = false;
-            }
-            Amazon.GlueDataBrew.Model.S3Location requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = null;
-            
-             // populate TempDirectory
-            var requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = true;
-            requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = new Amazon.GlueDataBrew.Model.S3Location();
-            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket = null;
-            if (cmdletContext.DatabaseInputDefinition_TempDirectory_Bucket != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket = cmdletContext.DatabaseInputDefinition_TempDirectory_Bucket;
-            }
-            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.Bucket = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket;
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
-            }
-            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = null;
-            if (cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner;
-            }
-            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.BucketOwner = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner;
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
-            }
-            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key = null;
-            if (cmdletContext.DatabaseInputDefinition_TempDirectory_Key != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key = cmdletContext.DatabaseInputDefinition_TempDirectory_Key;
-            }
-            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key != null)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.Key = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key;
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
-            }
-             // determine if requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory should be set to null
-            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull)
-            {
-                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = null;
-            }
-            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory != null)
-            {
-                requestInput_input_DatabaseInputDefinition.TempDirectory = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory;
-                requestInput_input_DatabaseInputDefinitionIsNull = false;
-            }
-             // determine if requestInput_input_DatabaseInputDefinition should be set to null
-            if (requestInput_input_DatabaseInputDefinitionIsNull)
-            {
-                requestInput_input_DatabaseInputDefinition = null;
-            }
-            if (requestInput_input_DatabaseInputDefinition != null)
-            {
-                request.Input.DatabaseInputDefinition = requestInput_input_DatabaseInputDefinition;
-                requestInputIsNull = false;
-            }
             Amazon.GlueDataBrew.Model.DataCatalogInputDefinition requestInput_input_DataCatalogInputDefinition = null;
             
              // populate DataCatalogInputDefinition
@@ -924,6 +839,96 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_DataCatalogInputDefinition != null)
             {
                 request.Input.DataCatalogInputDefinition = requestInput_input_DataCatalogInputDefinition;
+                requestInputIsNull = false;
+            }
+            Amazon.GlueDataBrew.Model.DatabaseInputDefinition requestInput_input_DatabaseInputDefinition = null;
+            
+             // populate DatabaseInputDefinition
+            var requestInput_input_DatabaseInputDefinitionIsNull = true;
+            requestInput_input_DatabaseInputDefinition = new Amazon.GlueDataBrew.Model.DatabaseInputDefinition();
+            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName = null;
+            if (cmdletContext.DatabaseInputDefinition_DatabaseTableName != null)
+            {
+                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName = cmdletContext.DatabaseInputDefinition_DatabaseTableName;
+            }
+            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName != null)
+            {
+                requestInput_input_DatabaseInputDefinition.DatabaseTableName = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_DatabaseTableName;
+                requestInput_input_DatabaseInputDefinitionIsNull = false;
+            }
+            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName = null;
+            if (cmdletContext.DatabaseInputDefinition_GlueConnectionName != null)
+            {
+                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName = cmdletContext.DatabaseInputDefinition_GlueConnectionName;
+            }
+            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName != null)
+            {
+                requestInput_input_DatabaseInputDefinition.GlueConnectionName = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_GlueConnectionName;
+                requestInput_input_DatabaseInputDefinitionIsNull = false;
+            }
+            System.String requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString = null;
+            if (cmdletContext.DatabaseInputDefinition_QueryString != null)
+            {
+                requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString = cmdletContext.DatabaseInputDefinition_QueryString;
+            }
+            if (requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString != null)
+            {
+                requestInput_input_DatabaseInputDefinition.QueryString = requestInput_input_DatabaseInputDefinition_databaseInputDefinition_QueryString;
+                requestInput_input_DatabaseInputDefinitionIsNull = false;
+            }
+            Amazon.GlueDataBrew.Model.S3Location requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = null;
+            
+             // populate TempDirectory
+            var requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = true;
+            requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = new Amazon.GlueDataBrew.Model.S3Location();
+            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket = null;
+            if (cmdletContext.DatabaseInputDefinition_TempDirectory_Bucket != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket = cmdletContext.DatabaseInputDefinition_TempDirectory_Bucket;
+            }
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.Bucket = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Bucket;
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
+            }
+            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = null;
+            if (cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner = cmdletContext.DatabaseInputDefinition_TempDirectory_BucketOwner;
+            }
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.BucketOwner = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_BucketOwner;
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
+            }
+            System.String requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key = null;
+            if (cmdletContext.DatabaseInputDefinition_TempDirectory_Key != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key = cmdletContext.DatabaseInputDefinition_TempDirectory_Key;
+            }
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key != null)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory.Key = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory_databaseInputDefinition_TempDirectory_Key;
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull = false;
+            }
+             // determine if requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory should be set to null
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectoryIsNull)
+            {
+                requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory = null;
+            }
+            if (requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory != null)
+            {
+                requestInput_input_DatabaseInputDefinition.TempDirectory = requestInput_input_DatabaseInputDefinition_input_DatabaseInputDefinition_TempDirectory;
+                requestInput_input_DatabaseInputDefinitionIsNull = false;
+            }
+             // determine if requestInput_input_DatabaseInputDefinition should be set to null
+            if (requestInput_input_DatabaseInputDefinitionIsNull)
+            {
+                requestInput_input_DatabaseInputDefinition = null;
+            }
+            if (requestInput_input_DatabaseInputDefinition != null)
+            {
+                request.Input.DatabaseInputDefinition = requestInput_input_DatabaseInputDefinition;
                 requestInputIsNull = false;
             }
              // determine if request.Input should be set to null
@@ -1100,18 +1105,18 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             public List<System.Int32> Excel_SheetIndex { get; set; }
             public List<System.String> Excel_SheetName { get; set; }
             public System.Boolean? Json_MultiLine { get; set; }
-            public System.String DatabaseInputDefinition_DatabaseTableName { get; set; }
-            public System.String DatabaseInputDefinition_GlueConnectionName { get; set; }
-            public System.String DatabaseInputDefinition_QueryString { get; set; }
-            public System.String DatabaseInputDefinition_TempDirectory_Bucket { get; set; }
-            public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
-            public System.String DatabaseInputDefinition_TempDirectory_Key { get; set; }
             public System.String DataCatalogInputDefinition_CatalogId { get; set; }
             public System.String DataCatalogInputDefinition_DatabaseName { get; set; }
             public System.String DataCatalogInputDefinition_TableName { get; set; }
             public System.String DataCatalogInputDefinition_TempDirectory_Bucket { get; set; }
             public System.String DataCatalogInputDefinition_TempDirectory_BucketOwner { get; set; }
             public System.String DataCatalogInputDefinition_TempDirectory_Key { get; set; }
+            public System.String DatabaseInputDefinition_DatabaseTableName { get; set; }
+            public System.String DatabaseInputDefinition_GlueConnectionName { get; set; }
+            public System.String DatabaseInputDefinition_QueryString { get; set; }
+            public System.String DatabaseInputDefinition_TempDirectory_Bucket { get; set; }
+            public System.String DatabaseInputDefinition_TempDirectory_BucketOwner { get; set; }
+            public System.String DatabaseInputDefinition_TempDirectory_Key { get; set; }
             public System.String Metadata_SourceArn { get; set; }
             public System.String S3InputDefinition_Bucket { get; set; }
             public System.String S3InputDefinition_BucketOwner { get; set; }

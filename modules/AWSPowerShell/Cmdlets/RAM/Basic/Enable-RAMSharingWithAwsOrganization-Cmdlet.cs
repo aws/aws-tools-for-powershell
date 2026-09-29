@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     /// <para>
     /// You must call this operation from an IAM role or user in the organization's management
     /// account.
-    /// </para>
+    /// </para><para></para>
     /// </summary>
     [Cmdlet("Enable", "RAMSharingWithAwsOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

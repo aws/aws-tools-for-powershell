@@ -30,7 +30,45 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Amazon.BedrockAgentRuntime.IAmazonBedrockAgentRuntime.InvokeAgent
+    /// <note><para>
+    /// Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new
+    /// customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock
+    /// AgentCore. Existing customers can continue to use the service as normal. For more
+    /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html">Amazon
+    /// Bedrock Agents Classic availability change</a>.
+    /// </para></note><note></note><para>
+    /// Sends a prompt for the agent to process and respond to. Note the following fields
+    /// for the request:
+    /// </para><ul><li><para>
+    /// To continue the same conversation with an agent, use the same <c>sessionId</c> value
+    /// in the request.
+    /// </para></li><li><para>
+    /// To activate trace enablement, turn <c>enableTrace</c> to <c>true</c>. Trace enablement
+    /// helps you follow the agent's reasoning process that led it to the information it processed,
+    /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
+    /// enablement</a>.
+    /// </para></li><li><para>
+    /// End a conversation by setting <c>endSession</c> to <c>true</c>.
+    /// </para></li><li><para>
+    /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
+    /// or, if you configured an action group to return control, results from invocation of
+    /// the action group.
+    /// </para></li></ul><para>
+    /// The response contains both <b>chunk</b> and <b>trace</b> attributes.
+    /// </para><para>
+    /// The final response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
+    /// The <c>InvokeAgent</c> returns one chunk for the entire interaction.
+    /// </para><ul><li><para>
+    /// The <c>attribution</c> object contains citations for parts of the response.
+    /// </para></li><li><para>
+    /// If you set <c>enableTrace</c> to <c>true</c> in the request, you can trace the agent's
+    /// steps and reasoning process that led it to the response.
+    /// </para></li><li><para>
+    /// If the action predicted was configured to return control, the response returns parameters
+    /// for the action, elicited from the user, in the <c>returnControl</c> field.
+    /// </para></li><li><para>
+    /// Errors are also surfaced in the response.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Invoke", "BARAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse")]
@@ -132,9 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para>Contains information about the files used by code interpreter.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -173,9 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para>
         /// <para>An array of configurations, each of which applies to a knowledge base attached to
         /// the agent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -210,9 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para>The conversation's messages.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -244,9 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// template placeholder variables</a>.</para></li><li><para>In <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent
         /// collaboration</a>, the <c>promptSessionAttributes</c> will only be used by supervisor
         /// agent when $prompt_session_attributes$ is present in prompt template. </para></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -262,9 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return
         /// control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control
         /// session context</a>.</para><note><para>If you include this field, the <c>inputText</c> field will be ignored.</para></note><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -279,9 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para>Contains attributes that persist across a session and the values of those attributes.
         /// If <c>sessionAttributes</c> are passed to a supervisor agent in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">multi-agent
         /// collaboration</a>, it will be forwarded to all agent collaborators.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

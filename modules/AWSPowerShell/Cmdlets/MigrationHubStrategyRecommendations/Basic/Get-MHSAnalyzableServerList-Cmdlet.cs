@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter Sort
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to sort by ascending (ASC) or descending (DESC) order.</para>
+        /// Specifies whether to sort by ascending (ASC) or descending
+        /// (DESC) order.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to include in the response. The maximum value is 100.</para>
+        /// The maximum number of items to include in the
+        /// response. The maximum value is 100.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token from a previous call that you use to retrieve the next set of results. For
-        /// example, if a previous call to this action returned 100 items, but you set maxResults
-        /// to 10. You'll receive a set of 10 results along with a token. You then use the returned
-        /// token to retrieve the next set of 10.</para>
+        /// The token from a previous call that you use
+        /// to retrieve the next set of results. For example, if a previous call to this action
+        /// returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results
+        /// along with a token. You then use the returned token to retrieve the next set of 10.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

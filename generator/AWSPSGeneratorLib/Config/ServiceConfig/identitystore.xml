@@ -53,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityStore" OutputProperty="*" Verb="Get" Noun="IdentityStoreDetail" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -95,15 +99,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityStores" OutputProperty="IdentityStores" Verb="Get" Noun="IdentityStoreList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Find" Noun="UserList" PipelineParameter="IdentityStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="*" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UpdateIdentityStore" OutputProperty="*" Verb="Update" Noun="IdentityStore" ShouldProcessTarget="IdentityStoreId" PipelineParameter="IdentityStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

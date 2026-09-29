@@ -608,6 +608,21 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? Configuration_ServiceManagedEc2_PersistentVolumeConfiguration_SizeGiB { get; set; }
         #endregion
         
+        #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn
+        /// <summary>
+        /// <para>
+        /// <para>The software add-ons that the service installs on worker hosts when they launch.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOns")]
+        public Amazon.Deadline.Model.FleetSoftwareAddOn[] Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn { get; set; }
+        #endregion
+        
         #region Parameter Configuration_CustomerManaged_AutoScalingConfiguration_StandbyWorkerCount
         /// <summary>
         /// <para>
@@ -854,6 +869,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.RootEbsVolume_Iops = this.RootEbsVolume_Iops;
             context.RootEbsVolume_SizeGiB = this.RootEbsVolume_SizeGiB;
             context.RootEbsVolume_ThroughputMiB = this.RootEbsVolume_ThroughputMiB;
+            if (this.Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn != null)
+            {
+                context.Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn = new List<Amazon.Deadline.Model.FleetSoftwareAddOn>(this.Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn);
+            }
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max;
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min;
             context.InstanceMarketOptions_Type = this.InstanceMarketOptions_Type;
@@ -1466,6 +1485,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities.OsFamily = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_instanceCapabilities_OsFamily;
                 requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilitiesIsNull = false;
             }
+            List<Amazon.Deadline.Model.FleetSoftwareAddOn> requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn = null;
+            if (cmdletContext.Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn = cmdletContext.Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities.SoftwareAddOns = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilitiesIsNull = false;
+            }
             Amazon.Deadline.Model.AcceleratorCapabilities requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities = null;
             
              // populate AcceleratorCapabilities
@@ -1815,6 +1844,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.Int32? RootEbsVolume_Iops { get; set; }
             public System.Int32? RootEbsVolume_SizeGiB { get; set; }
             public System.Int32? RootEbsVolume_ThroughputMiB { get; set; }
+            public List<Amazon.Deadline.Model.FleetSoftwareAddOn> Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn { get; set; }
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min { get; set; }
             public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }

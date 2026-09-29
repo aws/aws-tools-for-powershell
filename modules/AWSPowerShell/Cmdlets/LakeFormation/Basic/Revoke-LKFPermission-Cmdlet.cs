@@ -58,17 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String CatalogId { get; set; }
         #endregion
         
-        #region Parameter Database_CatalogId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the Data Catalog. By default, it is the account ID of the caller.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Resource_Database_CatalogId")]
-        public System.String Database_CatalogId { get; set; }
-        #endregion
-        
         #region Parameter DataLocation_CatalogId
         /// <summary>
         /// <para>
@@ -79,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_DataLocation_CatalogId")]
         public System.String DataLocation_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter Database_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog. By default, it is the account ID of the caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Database_CatalogId")]
+        public System.String Database_CatalogId { get; set; }
         #endregion
         
         #region Parameter LFTag_CatalogId
@@ -145,9 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>The list of column names for the table. At least one of <c>ColumnNames</c> or <c>ColumnWildcard</c>
         /// is required.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -207,9 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>Excludes column names. Any column with this name will be excluded.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -234,9 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag
         /// policy.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -268,17 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String Catalog_Id { get; set; }
         #endregion
         
-        #region Parameter Database_Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the database resource. Unique to the Data Catalog.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Resource_Database_Name")]
-        public System.String Database_Name { get; set; }
-        #endregion
-        
         #region Parameter DataCellsFilter_Name
         /// <summary>
         /// <para>
@@ -288,6 +280,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_DataCellsFilter_Name")]
         public System.String DataCellsFilter_Name { get; set; }
+        #endregion
+        
+        #region Parameter Database_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database resource. Unique to the Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Database_Name")]
+        public System.String Database_Name { get; set; }
         #endregion
         
         #region Parameter LFTagExpression_Name
@@ -330,9 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>The permissions revoked to the principal on the resource. For information about permissions,
         /// see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
         /// and Access Control to Metadata and Data</a>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -353,9 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <para>
         /// <para>Indicates a list of permissions for which to revoke the grant option allowing the
         /// principal to pass permissions to other principals.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -435,9 +440,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>A list of possible values an attribute can take.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -509,14 +515,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             context.Principal_DataLakePrincipalIdentifier = this.Principal_DataLakePrincipalIdentifier;
             context.Catalog_Id = this.Catalog_Id;
-            context.Database_CatalogId = this.Database_CatalogId;
-            context.Database_Name = this.Database_Name;
             context.DataCellsFilter_DatabaseName = this.DataCellsFilter_DatabaseName;
             context.DataCellsFilter_Name = this.DataCellsFilter_Name;
             context.DataCellsFilter_TableCatalogId = this.DataCellsFilter_TableCatalogId;
             context.DataCellsFilter_TableName = this.DataCellsFilter_TableName;
             context.DataLocation_CatalogId = this.DataLocation_CatalogId;
             context.DataLocation_ResourceArn = this.DataLocation_ResourceArn;
+            context.Database_CatalogId = this.Database_CatalogId;
+            context.Database_Name = this.Database_Name;
             context.LFTag_CatalogId = this.LFTag_CatalogId;
             context.LFTag_TagKey = this.LFTag_TagKey;
             if (this.LFTag_TagValue != null)
@@ -642,41 +648,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 request.Resource.Catalog = requestResource_resource_Catalog;
                 requestResourceIsNull = false;
             }
-            Amazon.LakeFormation.Model.DatabaseResource requestResource_resource_Database = null;
-            
-             // populate Database
-            var requestResource_resource_DatabaseIsNull = true;
-            requestResource_resource_Database = new Amazon.LakeFormation.Model.DatabaseResource();
-            System.String requestResource_resource_Database_database_CatalogId = null;
-            if (cmdletContext.Database_CatalogId != null)
-            {
-                requestResource_resource_Database_database_CatalogId = cmdletContext.Database_CatalogId;
-            }
-            if (requestResource_resource_Database_database_CatalogId != null)
-            {
-                requestResource_resource_Database.CatalogId = requestResource_resource_Database_database_CatalogId;
-                requestResource_resource_DatabaseIsNull = false;
-            }
-            System.String requestResource_resource_Database_database_Name = null;
-            if (cmdletContext.Database_Name != null)
-            {
-                requestResource_resource_Database_database_Name = cmdletContext.Database_Name;
-            }
-            if (requestResource_resource_Database_database_Name != null)
-            {
-                requestResource_resource_Database.Name = requestResource_resource_Database_database_Name;
-                requestResource_resource_DatabaseIsNull = false;
-            }
-             // determine if requestResource_resource_Database should be set to null
-            if (requestResource_resource_DatabaseIsNull)
-            {
-                requestResource_resource_Database = null;
-            }
-            if (requestResource_resource_Database != null)
-            {
-                request.Resource.Database = requestResource_resource_Database;
-                requestResourceIsNull = false;
-            }
             Amazon.LakeFormation.Model.DataLocationResource requestResource_resource_DataLocation = null;
             
              // populate DataLocation
@@ -710,6 +681,41 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_DataLocation != null)
             {
                 request.Resource.DataLocation = requestResource_resource_DataLocation;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.DatabaseResource requestResource_resource_Database = null;
+            
+             // populate Database
+            var requestResource_resource_DatabaseIsNull = true;
+            requestResource_resource_Database = new Amazon.LakeFormation.Model.DatabaseResource();
+            System.String requestResource_resource_Database_database_CatalogId = null;
+            if (cmdletContext.Database_CatalogId != null)
+            {
+                requestResource_resource_Database_database_CatalogId = cmdletContext.Database_CatalogId;
+            }
+            if (requestResource_resource_Database_database_CatalogId != null)
+            {
+                requestResource_resource_Database.CatalogId = requestResource_resource_Database_database_CatalogId;
+                requestResource_resource_DatabaseIsNull = false;
+            }
+            System.String requestResource_resource_Database_database_Name = null;
+            if (cmdletContext.Database_Name != null)
+            {
+                requestResource_resource_Database_database_Name = cmdletContext.Database_Name;
+            }
+            if (requestResource_resource_Database_database_Name != null)
+            {
+                requestResource_resource_Database.Name = requestResource_resource_Database_database_Name;
+                requestResource_resource_DatabaseIsNull = false;
+            }
+             // determine if requestResource_resource_Database should be set to null
+            if (requestResource_resource_DatabaseIsNull)
+            {
+                requestResource_resource_Database = null;
+            }
+            if (requestResource_resource_Database != null)
+            {
+                request.Resource.Database = requestResource_resource_Database;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.LFTagExpressionResource requestResource_resource_LFTagExpression = null;
@@ -1103,14 +1109,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<System.String> PermissionsWithGrantOption { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
             public System.String Catalog_Id { get; set; }
-            public System.String Database_CatalogId { get; set; }
-            public System.String Database_Name { get; set; }
             public System.String DataCellsFilter_DatabaseName { get; set; }
             public System.String DataCellsFilter_Name { get; set; }
             public System.String DataCellsFilter_TableCatalogId { get; set; }
             public System.String DataCellsFilter_TableName { get; set; }
             public System.String DataLocation_CatalogId { get; set; }
             public System.String DataLocation_ResourceArn { get; set; }
+            public System.String Database_CatalogId { get; set; }
+            public System.String Database_Name { get; set; }
             public System.String LFTag_CatalogId { get; set; }
             public System.String LFTag_TagKey { get; set; }
             public List<System.String> LFTag_TagValue { get; set; }

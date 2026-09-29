@@ -363,6 +363,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegration" OutputProperty="*" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePentest" OutputProperty="*" Verb="Update" Noun="Pentest" ShouldProcessTarget="PentestId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -169,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The globally unique identifier for the identity store.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

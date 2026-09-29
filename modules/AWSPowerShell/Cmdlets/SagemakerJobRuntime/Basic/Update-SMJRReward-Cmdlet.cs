@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>The job ARN.</para>
+        /// The job ARN.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,11 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter Reward
         /// <summary>
         /// <para>
-        /// <para>The list of reward values to assign to this trajectory. Provide one reward value per
-        /// turn in the trajectory.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The list of reward values to assign to this trajectory.
+        /// Provide one reward value per turn in the trajectory.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -90,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter TrajectoryId
         /// <summary>
         /// <para>
-        /// <para>The trajectory ID to update with reward values.</para>
+        /// The trajectory ID to update with reward values.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SMJR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// A unique, case-sensitive identifier that you
+        /// provide to ensure the idempotency of the request.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

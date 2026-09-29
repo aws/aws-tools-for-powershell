@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     /// Updates the specified user metadata and attributes in the specified identity store.
     /// </summary>
     [Cmdlet("Update", "IDSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.IdentityStore.Model.UpdateUserResponse")]
     [AWSCmdlet("Calls the AWS Identity Store UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.UpdateUserResponse))]
-    [AWSCmdletOutput("None or Amazon.IdentityStore.Model.UpdateUserResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityStore.Model.UpdateUserResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.IdentityStore.Model.UpdateUserResponse",
+        "This cmdlet returns an Amazon.IdentityStore.Model.UpdateUserResponse object containing multiple properties."
     )]
     public partial class UpdateIDSUserCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
@@ -48,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The globally unique identifier for the identity store.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,10 +86,25 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public Amazon.IdentityStore.Model.AttributeOperation[] Operation { get; set; }
         #endregion
         
+        #region Parameter Revision
+        /// <summary>
+        /// <para>
+        /// <para>The expected current revision of the user. When you provide this value, the update
+        /// is applied only if it matches the current revision of the user in the identity store,
+        /// which prevents you from overwriting concurrent changes. If the value doesn't match,
+        /// the operation fails with a <c>ConflictException</c>. If you don't provide this value,
+        /// the update is applied unconditionally.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Revision { get; set; }
+        #endregion
+        
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a user in the identity store.</para>
+        /// <para>The identifier for a user in the identity store.</para><para>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user
+        /// ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c> or user ARN <c>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IdentityStore.Model.UpdateUserResponse).
+        /// Specifying the name of a property of type Amazon.IdentityStore.Model.UpdateUserResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 WriteWarning("You are passing $null as a value for parameter Operation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Revision = this.Revision;
             context.UserId = this.UserId;
             #if MODULAR
             if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
@@ -195,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (cmdletContext.Operation != null)
             {
                 request.Operations = cmdletContext.Operation;
+            }
+            if (cmdletContext.Revision != null)
+            {
+                request.Revision = cmdletContext.Revision;
             }
             if (cmdletContext.UserId != null)
             {
@@ -257,9 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             public System.String IdentityStoreId { get; set; }
             public List<Amazon.IdentityStore.Model.AttributeOperation> Operation { get; set; }
+            public System.String Revision { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.IdentityStore.Model.UpdateUserResponse, UpdateIDSUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

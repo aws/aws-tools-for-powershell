@@ -17754,6 +17754,9 @@ Set-Alias -Name Describe-IDSGroup -Value Get-IDSGroup
 Set-Alias -Name IDS-DescribeGroup -Value Get-IDSGroup
 Set-Alias -Name Describe-IDSGroupMembership -Value Get-IDSGroupMembership
 Set-Alias -Name IDS-DescribeGroupMembership -Value Get-IDSGroupMembership
+Set-Alias -Name Describe-IDSIdentityStore -Value Get-IDSIdentityStoreDetail
+Set-Alias -Name Describe-IDSIdentityStoreDetail -Value Get-IDSIdentityStoreDetail
+Set-Alias -Name IDS-DescribeIdentityStore -Value Get-IDSIdentityStoreDetail
 Set-Alias -Name Describe-IDSUser -Value Get-IDSUser
 Set-Alias -Name IDS-DescribeUser -Value Get-IDSUser
 Set-Alias -Name IDS-GetGroupId -Value Get-IDSGroupId
@@ -17771,10 +17774,14 @@ Set-Alias -Name IDS-ListGroupMembershipsForMember -Value Get-IDSGroupMemberships
 Set-Alias -Name List-IDSGroups -Value Find-IDSGroupList
 Set-Alias -Name List-IDSGroupList -Value Find-IDSGroupList
 Set-Alias -Name IDS-ListGroups -Value Find-IDSGroupList
+Set-Alias -Name List-IDSIdentityStores -Value Get-IDSIdentityStoreList
+Set-Alias -Name List-IDSIdentityStoreList -Value Get-IDSIdentityStoreList
+Set-Alias -Name IDS-ListIdentityStores -Value Get-IDSIdentityStoreList
 Set-Alias -Name List-IDSUsers -Value Find-IDSUserList
 Set-Alias -Name List-IDSUserList -Value Find-IDSUserList
 Set-Alias -Name IDS-ListUsers -Value Find-IDSUserList
 Set-Alias -Name IDS-UpdateGroup -Value Update-IDSGroup
+Set-Alias -Name IDS-UpdateIdentityStore -Value Update-IDSIdentityStore
 Set-Alias -Name IDS-UpdateUser -Value Update-IDSUser
 Set-Alias -Name Cancel-EC2IBImageCreation -Value Stop-EC2IBImageCreation
 Set-Alias -Name EC2IB-CancelImageCreation -Value Stop-EC2IBImageCreation
@@ -32464,6 +32471,7 @@ Set-Alias -Name SECAG-UpdateCodeReview -Value Update-SECAGCodeReview
 Set-Alias -Name SECAG-UpdateFinding -Value Update-SECAGFinding
 Set-Alias -Name Update-SECAGIntegratedResources -Value Update-SECAGIntegratedResource
 Set-Alias -Name SECAG-UpdateIntegratedResources -Value Update-SECAGIntegratedResource
+Set-Alias -Name SECAG-UpdateIntegration -Value Update-SECAGIntegration
 Set-Alias -Name SECAG-UpdatePentest -Value Update-SECAGPentest
 Set-Alias -Name SECAG-UpdatePrivateConnectionCertificate -Value Update-SECAGPrivateConnectionCertificate
 Set-Alias -Name SECAG-UpdateSecurityRequirementPack -Value Update-SECAGSecurityRequirementPack

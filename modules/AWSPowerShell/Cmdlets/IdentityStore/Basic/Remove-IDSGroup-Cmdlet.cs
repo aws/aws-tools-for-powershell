@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a group in the identity store.</para>
+        /// <para>The identifier for a group in the identity store.</para><para>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group
+        /// ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c> or group ARN <c>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The globally unique identifier for the identity store.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IdentityStoreId { get; set; }
+        #endregion
+        
+        #region Parameter Revision
+        /// <summary>
+        /// <para>
+        /// <para>The expected current revision of the group. When you provide this value, the group
+        /// is deleted only if it matches the current revision of the group in the identity store.
+        /// If the value doesn't match, the operation fails with a <c>ConflictException</c>. If
+        /// you don't provide this value, the group is deleted regardless of its current revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Revision { get; set; }
         #endregion
         
         #region Parameter Select
@@ -138,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 WriteWarning("You are passing $null as a value for parameter IdentityStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Revision = this.Revision;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;
+            }
+            if (cmdletContext.Revision != null)
+            {
+                request.Revision = cmdletContext.Revision;
             }
             
             CmdletOutput output;
@@ -219,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         {
             public System.String GroupId { get; set; }
             public System.String IdentityStoreId { get; set; }
+            public System.String Revision { get; set; }
             public System.Func<Amazon.IdentityStore.Model.DeleteGroupResponse, RemoveIDSGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

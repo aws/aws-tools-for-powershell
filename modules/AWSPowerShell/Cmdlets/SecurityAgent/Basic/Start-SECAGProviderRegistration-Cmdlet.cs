@@ -45,10 +45,41 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client ID of the OAuth application registered on your self-managed provider instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientId { get; set; }
+        #endregion
+        
+        #region Parameter ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>The client secret of the OAuth application registered on your self-managed provider
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientSecret { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the organization to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationName { get; set; }
+        #endregion
+        
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The provider to initiate registration with. Currently, only GITHUB is supported.</para>
+        /// <para>The provider to initiate registration with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SecurityAgent.Provider")]
         public Amazon.SecurityAgent.Provider Provider { get; set; }
+        #endregion
+        
+        #region Parameter TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>The HTTPS URL of a self-managed provider instance. Omit for SaaS providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetUrl { get; set; }
         #endregion
         
         #region Parameter Select
@@ -108,6 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 context.Select = CreateSelectDelegate<Amazon.SecurityAgent.Model.InitiateProviderRegistrationResponse, StartSECAGProviderRegistrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientId = this.ClientId;
+            context.ClientSecret = this.ClientSecret;
+            context.OrganizationName = this.OrganizationName;
             context.Provider = this.Provider;
             #if MODULAR
             if (this.Provider == null && ParameterWasBound(nameof(this.Provider)))
@@ -115,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
                 WriteWarning("You are passing $null as a value for parameter Provider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TargetUrl = this.TargetUrl;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,9 +176,25 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
             // create request
             var request = new Amazon.SecurityAgent.Model.InitiateProviderRegistrationRequest();
             
+            if (cmdletContext.ClientId != null)
+            {
+                request.ClientId = cmdletContext.ClientId;
+            }
+            if (cmdletContext.ClientSecret != null)
+            {
+                request.ClientSecret = cmdletContext.ClientSecret;
+            }
+            if (cmdletContext.OrganizationName != null)
+            {
+                request.OrganizationName = cmdletContext.OrganizationName;
+            }
             if (cmdletContext.Provider != null)
             {
                 request.Provider = cmdletContext.Provider;
+            }
+            if (cmdletContext.TargetUrl != null)
+            {
+                request.TargetUrl = cmdletContext.TargetUrl;
             }
             
             CmdletOutput output;
@@ -190,7 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.SECAG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientId { get; set; }
+            public System.String ClientSecret { get; set; }
+            public System.String OrganizationName { get; set; }
             public Amazon.SecurityAgent.Provider Provider { get; set; }
+            public System.String TargetUrl { get; set; }
             public System.Func<Amazon.SecurityAgent.Model.InitiateProviderRegistrationResponse, StartSECAGProviderRegistrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

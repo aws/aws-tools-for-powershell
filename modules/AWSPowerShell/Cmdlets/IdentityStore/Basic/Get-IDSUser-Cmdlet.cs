@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <para>The globally unique identifier for the identity store, such as <c>d-1234567890</c>.
         /// In this example, <c>d-</c> is a fixed prefix, and <c>1234567890</c> is a randomly
         /// generated string that contains numbers and lower case letters. This value is generated
-        /// at the time that a new identity store is created.</para>
+        /// at the time that a new identity store is created.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier for a user in the identity store.</para>
+        /// <para>The identifier for a user in the identity store.</para><para>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user
+        /// ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c> or user ARN <c>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

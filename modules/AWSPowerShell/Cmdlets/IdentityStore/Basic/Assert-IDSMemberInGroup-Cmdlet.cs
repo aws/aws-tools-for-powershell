@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>A list of identifiers for groups in the identity store.</para><para />
+        /// <para>A list of identifiers for groups in the identity store.</para><para>You can specify each group by ID or by Amazon Resource Name (ARN). For example, group
+        /// ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c> or group ARN <c>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -78,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// <para>The globally unique identifier for the identity store.</para>
+        /// <para>The globally unique identifier for the identity store.</para><para>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example,
+        /// identity store ID <c>d-1234567890</c> or identity store ARN <c>arn:aws:identitystore::111122223333:identitystore/d-1234567890</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter MemberId_UserId
         /// <summary>
         /// <para>
-        /// <para>An object containing the identifiers of resources that can be members.</para>
+        /// <para>The identifier for a user in the identity store.</para><para>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user
+        /// ID <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c> or user ARN <c>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

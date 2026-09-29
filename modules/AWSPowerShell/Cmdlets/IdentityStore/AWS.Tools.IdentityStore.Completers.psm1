@@ -131,6 +131,7 @@ $IDS_SelectMap = @{
                "Remove-IDSUser",
                "Get-IDSGroup",
                "Get-IDSGroupMembership",
+               "Get-IDSIdentityStoreDetail",
                "Get-IDSUser",
                "Get-IDSGroupId",
                "Get-IDSGroupMembershipId",
@@ -139,8 +140,10 @@ $IDS_SelectMap = @{
                "Get-IDSGroupMembershipList",
                "Get-IDSGroupMembershipsForMemberList",
                "Find-IDSGroupList",
+               "Get-IDSIdentityStoreList",
                "Find-IDSUserList",
                "Update-IDSGroup",
+               "Update-IDSIdentityStore",
                "Update-IDSUser")
 }
 

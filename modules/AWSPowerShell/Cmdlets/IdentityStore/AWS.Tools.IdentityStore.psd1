@@ -96,6 +96,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IDSGroupMembershipId', 
         'Get-IDSGroupMembershipList', 
         'Get-IDSGroupMembershipsForMemberList', 
+        'Get-IDSIdentityStoreDetail', 
+        'Get-IDSIdentityStoreList', 
         'Get-IDSUser', 
         'Get-IDSUserId', 
         'New-IDSGroup', 
@@ -105,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IDSGroupMembership', 
         'Remove-IDSUser', 
         'Update-IDSGroup', 
+        'Update-IDSIdentityStore', 
         'Update-IDSUser')
 
     # Variables to export from this module

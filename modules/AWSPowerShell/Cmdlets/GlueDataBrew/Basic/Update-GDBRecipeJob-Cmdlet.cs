@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>Represents a list of JDBC database output objects which defines the output destination
         /// for a DataBrew recipe job to write into.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -66,9 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <para>
         /// <para>One or more artifacts that represent the Glue Data Catalog output from running the
         /// job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -152,9 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         /// <summary>
         /// <para>
         /// <para>One or more artifacts that represent the output from running the job. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -238,13 +241,13 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.Select = CreateSelectDelegate<Amazon.GlueDataBrew.Model.UpdateRecipeJobResponse, UpdateGDBRecipeJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.DatabaseOutput != null)
-            {
-                context.DatabaseOutput = new List<Amazon.GlueDataBrew.Model.DatabaseOutput>(this.DatabaseOutput);
-            }
             if (this.DataCatalogOutput != null)
             {
                 context.DataCatalogOutput = new List<Amazon.GlueDataBrew.Model.DataCatalogOutput>(this.DataCatalogOutput);
+            }
+            if (this.DatabaseOutput != null)
+            {
+                context.DatabaseOutput = new List<Amazon.GlueDataBrew.Model.DatabaseOutput>(this.DatabaseOutput);
             }
             context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.EncryptionMode = this.EncryptionMode;
@@ -286,13 +289,13 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             // create request
             var request = new Amazon.GlueDataBrew.Model.UpdateRecipeJobRequest();
             
-            if (cmdletContext.DatabaseOutput != null)
-            {
-                request.DatabaseOutputs = cmdletContext.DatabaseOutput;
-            }
             if (cmdletContext.DataCatalogOutput != null)
             {
                 request.DataCatalogOutputs = cmdletContext.DataCatalogOutput;
+            }
+            if (cmdletContext.DatabaseOutput != null)
+            {
+                request.DatabaseOutputs = cmdletContext.DatabaseOutput;
             }
             if (cmdletContext.EncryptionKeyArn != null)
             {
@@ -385,8 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.GlueDataBrew.Model.DatabaseOutput> DatabaseOutput { get; set; }
             public List<Amazon.GlueDataBrew.Model.DataCatalogOutput> DataCatalogOutput { get; set; }
+            public List<Amazon.GlueDataBrew.Model.DatabaseOutput> DatabaseOutput { get; set; }
             public System.String EncryptionKeyArn { get; set; }
             public Amazon.GlueDataBrew.EncryptionMode EncryptionMode { get; set; }
             public Amazon.GlueDataBrew.LogSubscription LogSubscription { get; set; }
