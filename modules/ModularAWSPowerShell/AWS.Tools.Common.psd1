@@ -93,6 +93,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -100,6 +102,21 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Get-AWSSensitiveDataConfiguration', 
         'Set-AWSAutoIterationMode', 
         'Get-AWSAutoIterationMode', 
+        'Remove-AWSCredentialProfile', 
+        'Get-AWSPublicIpAddressRange', 
+        'Invoke-AWSSSOLogin', 
+        'Initialize-AWSSSOConfiguration', 
+        'Set-AWSSSOSessionConfiguration', 
+        'Invoke-AWSSSOLogout', 
+        'Get-AWSService', 
+        'Get-AWSCmdletName', 
+        'Add-AWSLoggingListener', 
+        'Remove-AWSLoggingListener', 
+        'Set-AWSResponseLogging', 
+        'Enable-AWSMetricsLogging', 
+        'Disable-AWSMetricsLogging', 
+        'Set-AWSProxy', 
+        'Clear-AWSProxy', 
         'Set-DefaultAWSRegion', 
         'Clear-DefaultAWSRegion', 
         'Get-DefaultAWSRegion', 
@@ -109,24 +126,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Clear-AWSCredential', 
         'Get-AWSCredential', 
         'Set-AWSSamlEndpoint', 
-        'Set-AWSSamlRoleProfile', 
-        'Set-AWSProxy', 
-        'Clear-AWSProxy', 
-        'Remove-AWSCredentialProfile', 
-        'Invoke-AWSLogin', 
-        'Invoke-AWSLogout', 
-        'Get-AWSPublicIpAddressRange', 
-        'Get-AWSService', 
-        'Get-AWSCmdletName', 
-        'Invoke-AWSSSOLogin', 
-        'Initialize-AWSSSOConfiguration', 
-        'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout', 
-        'Add-AWSLoggingListener', 
-        'Remove-AWSLoggingListener', 
-        'Set-AWSResponseLogging', 
-        'Enable-AWSMetricsLogging', 
-        'Disable-AWSMetricsLogging')
+        'Set-AWSSamlRoleProfile')
 
     # Variables to export from this module
     VariablesToExport = '*'

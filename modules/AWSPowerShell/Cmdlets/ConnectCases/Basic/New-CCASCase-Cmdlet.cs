@@ -30,7 +30,19 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Amazon.ConnectCases.IAmazonConnectCases.CreateCase
+    /// <note><para>
+    /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
+    /// permission on the User ARN resource that you provide
+    /// </para></note><para>
+    /// Creates a case in the specified Cases domain. Case system and custom fields are taken
+    /// as an array id/value pairs with a declared data types.
+    /// </para><para>
+    /// When creating a case from a template that has tag propagation configurations, the
+    /// specified tags are automatically applied to the case.
+    /// </para><para>
+    /// The following fields are required when creating a case:
+    /// </para><ul><li><para><c>customer_id</c> - You must provide the full customer profile ARN in this format:
+    /// <c>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</c></para></li><li><para><c>title</c></para></li></ul>
     /// </summary>
     [Cmdlet("New", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateCaseResponse")]
@@ -76,9 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         /// <para>
         /// <para>An array of objects with field ID (matching ListFields/DescribeField) and value union
         /// data.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -99,9 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         /// <para>
         /// <para>A map of of key-value pairs that represent tags on a resource. Tags are used to organize,
         /// track, or control access for this resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

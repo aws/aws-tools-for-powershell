@@ -85,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         /// <para>The vector data as 32-bit floating point numbers. The number of elements in this array
         /// must exactly match the dimension of the vector index where the operation is being
         /// performed.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -113,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IndexName { get; set; }
+        #endregion
+        
+        #region Parameter QueryMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode to use to process the query. If you don't specify a query mode, the operation
+        /// uses the mode that's currently configured for the vector index.</para><para>Valid values:</para><ul><li><para><c>CLASSIC</c> - Applies metadata filters during the vector search. You can't specify
+        /// <c>CLASSIC</c> for an <c>ENHANCED</c> index.</para></li><li><para><c>ENHANCED</c> - Applies metadata filters before the vector search.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Vectors.IndexMode")]
+        public Amazon.S3Vectors.IndexMode QueryMode { get; set; }
         #endregion
         
         #region Parameter ReturnDistance
@@ -237,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             context.IndexArn = this.IndexArn;
             context.IndexName = this.IndexName;
             context.NextToken = this.NextToken;
+            context.QueryMode = this.QueryMode;
             if (this.QueryVector_Float32 != null)
             {
                 context.QueryVector_Float32 = new List<System.Single>(this.QueryVector_Float32);
@@ -280,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (cmdletContext.IndexName != null)
             {
                 request.IndexName = cmdletContext.IndexName;
+            }
+            if (cmdletContext.QueryMode != null)
+            {
+                request.QueryMode = cmdletContext.QueryMode;
             }
             
              // populate QueryVector
@@ -399,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public System.String IndexArn { get; set; }
             public System.String IndexName { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.S3Vectors.IndexMode QueryMode { get; set; }
             public List<System.Single> QueryVector_Float32 { get; set; }
             public System.Boolean? ReturnDistance { get; set; }
             public System.Boolean? ReturnMetadata { get; set; }

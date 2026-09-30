@@ -125,6 +125,79 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.ExportViewType IncrementalExportSpecification_ExportViewType { get; set; }
         #endregion
         
+        #region Parameter FilterSpecification_ExpressionAttributeName
+        /// <summary>
+        /// <para>
+        /// <para>One or more substitution tokens for attribute names in an expression. For more information,
+        /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression
+        /// Attribute Names</a> in the Amazon DynamoDB Developer Guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterSpecification_ExpressionAttributeNames")]
+        public System.Collections.Hashtable FilterSpecification_ExpressionAttributeName { get; set; }
+        #endregion
+        
+        #region Parameter FilterSpecification_ExpressionAttributeValue
+        /// <summary>
+        /// <para>
+        /// <para>One or more values that can be substituted in an expression. For more information,
+        /// see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeValues.html">Expression
+        /// Attribute Values</a> in the Amazon DynamoDB Developer Guide.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterSpecification_ExpressionAttributeValues")]
+        public System.Collections.Hashtable FilterSpecification_ExpressionAttributeValue { get; set; }
+        #endregion
+        
+        #region Parameter FilterSpecification_FilterExpression
+        /// <summary>
+        /// <para>
+        /// <para>A condition that filters which items are included in the export. This parameter uses
+        /// the same syntax as <c>FilterExpression</c> in <c>Query</c> and <c>Scan</c>. If you
+        /// don't provide <c>KeyConditionExpression</c>, this expression can also reference key
+        /// attributes. If you don't specify this parameter, all items are included in the export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterSpecification_FilterExpression { get; set; }
+        #endregion
+        
+        #region Parameter FilterSpecification_KeyConditionExpression
+        /// <summary>
+        /// <para>
+        /// <para>A condition expression that filters items by key values. The expression must test
+        /// equality on a single partition key value and can optionally compare a sort key value.
+        /// This parameter uses the same syntax as <c>KeyConditionExpression</c> in <c>Query</c>.
+        /// When you provide this parameter, <c>FilterExpression</c> can only reference non-key
+        /// attributes. If you don't specify this parameter, all items are eligible for export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterSpecification_KeyConditionExpression { get; set; }
+        #endregion
+        
+        #region Parameter FilterSpecification_ProjectionExpression
+        /// <summary>
+        /// <para>
+        /// <para>The attributes you want to retrieve for items included in the export. Separate attribute
+        /// names in the expression with commas. If you don't specify this parameter, all attributes
+        /// are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterSpecification_ProjectionExpression { get; set; }
+        #endregion
+        
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
@@ -269,6 +342,25 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.ExportFormat = this.ExportFormat;
             context.ExportTime = this.ExportTime;
             context.ExportType = this.ExportType;
+            if (this.FilterSpecification_ExpressionAttributeName != null)
+            {
+                context.FilterSpecification_ExpressionAttributeName = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FilterSpecification_ExpressionAttributeName.Keys)
+                {
+                    context.FilterSpecification_ExpressionAttributeName.Add((String)hashKey, (System.String)(this.FilterSpecification_ExpressionAttributeName[hashKey]));
+                }
+            }
+            if (this.FilterSpecification_ExpressionAttributeValue != null)
+            {
+                context.FilterSpecification_ExpressionAttributeValue = new Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FilterSpecification_ExpressionAttributeValue.Keys)
+                {
+                    context.FilterSpecification_ExpressionAttributeValue.Add((String)hashKey, (Amazon.DynamoDBv2.Model.AttributeValue)(this.FilterSpecification_ExpressionAttributeValue[hashKey]));
+                }
+            }
+            context.FilterSpecification_FilterExpression = this.FilterSpecification_FilterExpression;
+            context.FilterSpecification_KeyConditionExpression = this.FilterSpecification_KeyConditionExpression;
+            context.FilterSpecification_ProjectionExpression = this.FilterSpecification_ProjectionExpression;
             context.IncrementalExportSpecification_ExportFromTime = this.IncrementalExportSpecification_ExportFromTime;
             context.IncrementalExportSpecification_ExportToTime = this.IncrementalExportSpecification_ExportToTime;
             context.IncrementalExportSpecification_ExportViewType = this.IncrementalExportSpecification_ExportViewType;
@@ -321,6 +413,65 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ExportType != null)
             {
                 request.ExportType = cmdletContext.ExportType;
+            }
+            
+             // populate FilterSpecification
+            var requestFilterSpecificationIsNull = true;
+            request.FilterSpecification = new Amazon.DynamoDBv2.Model.FilterSpecification();
+            Dictionary<System.String, System.String> requestFilterSpecification_filterSpecification_ExpressionAttributeName = null;
+            if (cmdletContext.FilterSpecification_ExpressionAttributeName != null)
+            {
+                requestFilterSpecification_filterSpecification_ExpressionAttributeName = cmdletContext.FilterSpecification_ExpressionAttributeName;
+            }
+            if (requestFilterSpecification_filterSpecification_ExpressionAttributeName != null)
+            {
+                request.FilterSpecification.ExpressionAttributeNames = requestFilterSpecification_filterSpecification_ExpressionAttributeName;
+                requestFilterSpecificationIsNull = false;
+            }
+            Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> requestFilterSpecification_filterSpecification_ExpressionAttributeValue = null;
+            if (cmdletContext.FilterSpecification_ExpressionAttributeValue != null)
+            {
+                requestFilterSpecification_filterSpecification_ExpressionAttributeValue = cmdletContext.FilterSpecification_ExpressionAttributeValue;
+            }
+            if (requestFilterSpecification_filterSpecification_ExpressionAttributeValue != null)
+            {
+                request.FilterSpecification.ExpressionAttributeValues = requestFilterSpecification_filterSpecification_ExpressionAttributeValue;
+                requestFilterSpecificationIsNull = false;
+            }
+            System.String requestFilterSpecification_filterSpecification_FilterExpression = null;
+            if (cmdletContext.FilterSpecification_FilterExpression != null)
+            {
+                requestFilterSpecification_filterSpecification_FilterExpression = cmdletContext.FilterSpecification_FilterExpression;
+            }
+            if (requestFilterSpecification_filterSpecification_FilterExpression != null)
+            {
+                request.FilterSpecification.FilterExpression = requestFilterSpecification_filterSpecification_FilterExpression;
+                requestFilterSpecificationIsNull = false;
+            }
+            System.String requestFilterSpecification_filterSpecification_KeyConditionExpression = null;
+            if (cmdletContext.FilterSpecification_KeyConditionExpression != null)
+            {
+                requestFilterSpecification_filterSpecification_KeyConditionExpression = cmdletContext.FilterSpecification_KeyConditionExpression;
+            }
+            if (requestFilterSpecification_filterSpecification_KeyConditionExpression != null)
+            {
+                request.FilterSpecification.KeyConditionExpression = requestFilterSpecification_filterSpecification_KeyConditionExpression;
+                requestFilterSpecificationIsNull = false;
+            }
+            System.String requestFilterSpecification_filterSpecification_ProjectionExpression = null;
+            if (cmdletContext.FilterSpecification_ProjectionExpression != null)
+            {
+                requestFilterSpecification_filterSpecification_ProjectionExpression = cmdletContext.FilterSpecification_ProjectionExpression;
+            }
+            if (requestFilterSpecification_filterSpecification_ProjectionExpression != null)
+            {
+                request.FilterSpecification.ProjectionExpression = requestFilterSpecification_filterSpecification_ProjectionExpression;
+                requestFilterSpecificationIsNull = false;
+            }
+             // determine if request.FilterSpecification should be set to null
+            if (requestFilterSpecificationIsNull)
+            {
+                request.FilterSpecification = null;
             }
             
              // populate IncrementalExportSpecification
@@ -444,6 +595,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.ExportFormat ExportFormat { get; set; }
             public System.DateTime? ExportTime { get; set; }
             public Amazon.DynamoDBv2.ExportType ExportType { get; set; }
+            public Dictionary<System.String, System.String> FilterSpecification_ExpressionAttributeName { get; set; }
+            public Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> FilterSpecification_ExpressionAttributeValue { get; set; }
+            public System.String FilterSpecification_FilterExpression { get; set; }
+            public System.String FilterSpecification_KeyConditionExpression { get; set; }
+            public System.String FilterSpecification_ProjectionExpression { get; set; }
             public System.DateTime? IncrementalExportSpecification_ExportFromTime { get; set; }
             public System.DateTime? IncrementalExportSpecification_ExportToTime { get; set; }
             public Amazon.DynamoDBv2.ExportViewType IncrementalExportSpecification_ExportViewType { get; set; }

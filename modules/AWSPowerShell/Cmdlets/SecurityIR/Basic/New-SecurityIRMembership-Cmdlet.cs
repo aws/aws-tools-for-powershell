@@ -65,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <para>
         /// <para>Required element used in combination with CreateMembership to add customer incident
         /// response team members and trusted partners to the membership. </para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -105,9 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <para>
         /// <para>Optional element to enable the monitoring and investigation opt-in features for the
         /// service.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -120,9 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Optional element for customer configured tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -134,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para><note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
+        /// <note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
         /// for a single action will be ignored by the server during retries. A caller supplied
-        /// unique ID (typically a UUID) should be provided. </para></note></para>
+        /// unique ID (typically a UUID) should be provided. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

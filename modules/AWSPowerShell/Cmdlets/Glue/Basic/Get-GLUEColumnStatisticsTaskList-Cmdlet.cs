@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CatalogID
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon
+        /// Web Services account ID is used by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CatalogID { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetColumnStatisticsTaskRunsResponse, GetGLUEColumnStatisticsTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CatalogID = this.CatalogID;
             context.DatabaseName = this.DatabaseName;
             #if MODULAR
             if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
@@ -178,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request and set iteration invariants
             var request = new Amazon.Glue.Model.GetColumnStatisticsTaskRunsRequest();
             
+            if (cmdletContext.CatalogID != null)
+            {
+                request.CatalogID = cmdletContext.CatalogID;
+            }
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
@@ -269,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CatalogID { get; set; }
             public System.String DatabaseName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

@@ -107,13 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The types of connection information to return in the response. This parameter is optional.</para><para>Specify <c>CONNECTION_CREDENTIALS</c> to receive a connection token. Specify <c>WEBSOCKET</c>
-        /// to receive a websocket URL. You can specify both. No other value returns connection
-        /// information.</para><para>Request <c>WEBSOCKET</c> to get a URL the participant connects to directly. You do
+        /// <para>The types of connection information to return in the response. This parameter is optional.</para><para>To receive connection information, specify one or both of the following values:</para><ul><li><para><c>CONNECTION_CREDENTIALS</c>: Returns a connection token.</para></li><li><para><c>WEBSOCKET</c>: Returns a websocket URL.</para></li></ul><para><c>WEBSOCKET</c> and <c>CONNECTION_CREDENTIALS</c> are the values this operation
+        /// acts on. No other value returns connection information.</para><para>Request <c>WEBSOCKET</c> to get a URL the participant connects to directly. You do
         /// not need to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
         /// for it. Request <c>CONNECTION_CREDENTIALS</c> on its own and the response returns
-        /// a connection token but no websocket URL.</para><para>If you omit this parameter, the response has no connection information.</para><note><para>If the information you request cannot be returned, StartChatContact returns an error
-        /// rather than a response that omits it.</para></note><para />
+        /// a connection token but no websocket URL.</para><para>If you omit this parameter, the response has no connection information.</para><note><para>When you start a new chat contact and the information you request cannot be returned,
+        /// StartChatContact returns an error rather than a response that omits it. When you retry
+        /// a request with the same <c>ClientToken</c>, the response repeats the original contact
+        /// and can omit a websocket URL if the chat has already ended.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

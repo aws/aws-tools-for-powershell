@@ -100,7 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>A commit message describing the changes in this version.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CommitMessage { get; set; }
         #endregion
         
@@ -247,6 +254,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.BundleName = this.BundleName;
             context.ClientToken = this.ClientToken;
             context.CommitMessage = this.CommitMessage;
+            #if MODULAR
+            if (this.CommitMessage == null && ParameterWasBound(nameof(this.CommitMessage)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CommitMessage which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Component != null)
             {
                 context.Component = new Dictionary<System.String, Amazon.BedrockAgentCoreControl.Model.ComponentConfiguration>(StringComparer.Ordinal);

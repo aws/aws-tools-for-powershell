@@ -133,12 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CpuArchitecture
         /// <summary>
         /// <para>
-        /// <para>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies
-        /// this value to the task definition revision that it registers for the service. If you
-        /// don't specify a value, the default is <c>X86_64</c>.</para><para>Valid values:</para><ul><li><para><c>X86_64</c> - The x86 64-bit architecture.</para></li><li><para><c>ARM64</c> - The 64-bit ARM architecture.</para></li></ul><para>Make sure that the container image that you specify supports the architecture that
-        /// you choose. The operating system family for an Express service is always <c>LINUX</c>.</para><para>You can't specify <c>cpuArchitecture</c> when you also specify <c>taskDefinitionArn</c>,
-        /// because this value applies only to a task definition that Amazon ECS registers on
-        /// your behalf.</para>
+        /// <para>The CPU architecture that the task runs on. If you don't specify a value, the default
+        /// is <c>X86_64</c>.</para><para>Valid values:</para><ul><li><para><c>X86_64</c> - The x86 64-bit architecture.</para></li><li><para><c>ARM64</c> - The 64-bit ARM architecture.</para></li></ul><para>Ensure that the container image you specify supports the architecture you choose.
+        /// The operating system family for an Express service is always <c>LINUX</c>.</para><para>You can't specify <c>cpuArchitecture</c> together with <c>taskDefinitionArn</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

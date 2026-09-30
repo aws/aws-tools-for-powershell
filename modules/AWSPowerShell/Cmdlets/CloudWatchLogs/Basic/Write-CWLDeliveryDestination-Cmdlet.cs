@@ -134,6 +134,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public Amazon.CloudWatchLogs.OutputFormat OutputFormat { get; set; }
         #endregion
         
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role in your account that CloudWatch Logs assumes to deliver to
+        /// this delivery destination. The trust policy of the role must allow CloudWatch Logs
+        /// to assume it. This parameter is supported only for X-Ray trace delivery destinations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -206,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.OutputFormat = this.OutputFormat;
+            context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -260,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.OutputFormat != null)
             {
                 request.OutputFormat = cmdletContext.OutputFormat;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -324,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public Amazon.CloudWatchLogs.DeliveryDestinationType DeliveryDestinationType { get; set; }
             public System.String Name { get; set; }
             public Amazon.CloudWatchLogs.OutputFormat OutputFormat { get; set; }
+            public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.PutDeliveryDestinationResponse, WriteCWLDeliveryDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeliveryDestination;

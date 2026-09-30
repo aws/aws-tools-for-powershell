@@ -40,7 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// returns an HTTP status code of <c>200</c> even when some service jobs encountered
     /// errors, so check the <c>errors</c> list. Service jobs that can't be found are treated
     /// as successfully processed.
-    /// </para>
+    /// </para><important><para>
+    /// This operation requires <c>batch:TerminateServiceJob</c> permission for each service
+    /// job in the request. There is no separate <c>batch:TerminateServiceJobs</c> IAM action.
+    /// If a caller's IAM policy grants <c>batch:TerminateServiceJob</c>, they can use both
+    /// the singular <c>TerminateServiceJob</c> and bulk <c>TerminateServiceJobs</c> operations.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Stop", "BATServiceJobCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.TerminateServiceJobsResponse")]

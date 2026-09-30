@@ -168,7 +168,9 @@ $ACCT_SelectMap = @{
                "Write-ACCTAccountName",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation",
-               "Start-ACCTPrimaryEmailUpdate")
+               "Send-ACCTPhoneNumberVerification",
+               "Start-ACCTPrimaryEmailUpdate",
+               "Confirm-ACCTPhoneNumber")
 }
 
 _awsArgumentCompleterRegistration $ACCT_SelectCompleters $ACCT_SelectMap

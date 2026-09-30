@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterRole { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Slurm_AccountingDatabase_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The hostname or endpoint of the accounting database, such as the endpoint of an Amazon
+        /// RDS for MySQL or Aurora MySQL database. The database must be reachable from the subnets
+        /// and security groups that you configure for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Orchestrator_Slurm_AccountingDatabase_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreDeletionPolicy
         /// <summary>
         /// <para>
@@ -165,6 +177,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Slurm_AccountingDatabase_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database schema that stores the Slurm accounting data. The default
+        /// is <c>slurm_acct_db_</c> followed by the cluster ID from the cluster ARN, for example
+        /// <c>slurm_acct_db_a1b2c3d4e5f6</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Orchestrator_Slurm_AccountingDatabase_Name { get; set; }
+        #endregion
+        
         #region Parameter NodeProvisioningMode
         /// <summary>
         /// <para>
@@ -205,6 +229,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput { get; set; }
         #endregion
         
+        #region Parameter Orchestrator_Slurm_AccountingDatabase_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port that the accounting database listens on. The default is <c>3306</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Orchestrator_Slurm_AccountingDatabase_Port { get; set; }
+        #endregion
+        
         #region Parameter RestrictedInstanceGroup
         /// <summary>
         /// <para>
@@ -219,6 +253,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RestrictedInstanceGroups")]
         public Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification[] RestrictedInstanceGroup { get; set; }
+        #endregion
+        
+        #region Parameter Orchestrator_Slurm_AccountingDatabase_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// contains the user name and password for the accounting database. The database user
+        /// must be able to create the schema and to read from and write to it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Orchestrator_Slurm_AccountingDatabase_SecretArn { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -359,6 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NodeProvisioningMode = this.NodeProvisioningMode;
             context.NodeRecovery = this.NodeRecovery;
             context.Eks_ClusterArn = this.Eks_ClusterArn;
+            context.Orchestrator_Slurm_AccountingDatabase_Endpoint = this.Orchestrator_Slurm_AccountingDatabase_Endpoint;
+            context.Orchestrator_Slurm_AccountingDatabase_Name = this.Orchestrator_Slurm_AccountingDatabase_Name;
+            context.Orchestrator_Slurm_AccountingDatabase_Port = this.Orchestrator_Slurm_AccountingDatabase_Port;
+            context.Orchestrator_Slurm_AccountingDatabase_SecretArn = this.Orchestrator_Slurm_AccountingDatabase_SecretArn;
             context.Orchestrator_Slurm_SlurmConfigStrategy = this.Orchestrator_Slurm_SlurmConfigStrategy;
             if (this.RestrictedInstanceGroup != null)
             {
@@ -488,6 +538,61 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy != null)
             {
                 requestOrchestrator_orchestrator_Slurm.SlurmConfigStrategy = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_SlurmConfigStrategy;
+                requestOrchestrator_orchestrator_SlurmIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClusterAccountingDatabase requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase = null;
+            
+             // populate AccountingDatabase
+            var requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull = true;
+            requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase = new Amazon.SageMaker.Model.ClusterAccountingDatabase();
+            System.String requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Endpoint = null;
+            if (cmdletContext.Orchestrator_Slurm_AccountingDatabase_Endpoint != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Endpoint = cmdletContext.Orchestrator_Slurm_AccountingDatabase_Endpoint;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Endpoint != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase.Endpoint = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Endpoint;
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull = false;
+            }
+            System.String requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Name = null;
+            if (cmdletContext.Orchestrator_Slurm_AccountingDatabase_Name != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Name = cmdletContext.Orchestrator_Slurm_AccountingDatabase_Name;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Name != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase.Name = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Name;
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull = false;
+            }
+            System.Int32? requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Port = null;
+            if (cmdletContext.Orchestrator_Slurm_AccountingDatabase_Port != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Port = cmdletContext.Orchestrator_Slurm_AccountingDatabase_Port.Value;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Port != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase.Port = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_Port.Value;
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull = false;
+            }
+            System.String requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_SecretArn = null;
+            if (cmdletContext.Orchestrator_Slurm_AccountingDatabase_SecretArn != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_SecretArn = cmdletContext.Orchestrator_Slurm_AccountingDatabase_SecretArn;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_SecretArn != null)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase.SecretArn = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase_orchestrator_Slurm_AccountingDatabase_SecretArn;
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull = false;
+            }
+             // determine if requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase should be set to null
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabaseIsNull)
+            {
+                requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase = null;
+            }
+            if (requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase != null)
+            {
+                requestOrchestrator_orchestrator_Slurm.AccountingDatabase = requestOrchestrator_orchestrator_Slurm_orchestrator_Slurm_AccountingDatabase;
                 requestOrchestrator_orchestrator_SlurmIsNull = false;
             }
              // determine if requestOrchestrator_orchestrator_Slurm should be set to null
@@ -703,6 +808,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public System.String Eks_ClusterArn { get; set; }
+            public System.String Orchestrator_Slurm_AccountingDatabase_Endpoint { get; set; }
+            public System.String Orchestrator_Slurm_AccountingDatabase_Name { get; set; }
+            public System.Int32? Orchestrator_Slurm_AccountingDatabase_Port { get; set; }
+            public System.String Orchestrator_Slurm_AccountingDatabase_SecretArn { get; set; }
             public Amazon.SageMaker.ClusterSlurmConfigStrategy Orchestrator_Slurm_SlurmConfigStrategy { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public System.Int32? RestrictedInstanceGroupsConfig_SharedEnvironmentConfig_FSxLustreConfig_PerUnitStorageThroughput { get; set; }

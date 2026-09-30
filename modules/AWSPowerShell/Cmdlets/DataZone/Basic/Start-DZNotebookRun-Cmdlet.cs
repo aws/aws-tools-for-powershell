@@ -140,6 +140,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String NotebookIdentifier { get; set; }
         #endregion
         
+        #region Parameter NotificationConfiguration_NotifyOn
+        /// <summary>
+        /// <para>
+        /// Notebook run states that trigger notifications.
+        /// Ordering is not significant.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] NotificationConfiguration_NotifyOn { get; set; }
+        #endregion
+        
         #region Parameter OwningProjectIdentifier
         /// <summary>
         /// <para>
@@ -351,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter NotebookIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NotificationConfiguration_NotifyOn != null)
+            {
+                context.NotificationConfiguration_NotifyOn = new List<System.String>(this.NotificationConfiguration_NotifyOn);
+            }
             context.OwningProjectIdentifier = this.OwningProjectIdentifier;
             #if MODULAR
             if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
@@ -480,6 +501,25 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.NotebookIdentifier = cmdletContext.NotebookIdentifier;
             }
+            
+             // populate NotificationConfiguration
+            var requestNotificationConfigurationIsNull = true;
+            request.NotificationConfiguration = new Amazon.DataZone.Model.NotificationConfig();
+            List<System.String> requestNotificationConfiguration_notificationConfiguration_NotifyOn = null;
+            if (cmdletContext.NotificationConfiguration_NotifyOn != null)
+            {
+                requestNotificationConfiguration_notificationConfiguration_NotifyOn = cmdletContext.NotificationConfiguration_NotifyOn;
+            }
+            if (requestNotificationConfiguration_notificationConfiguration_NotifyOn != null)
+            {
+                request.NotificationConfiguration.NotifyOn = requestNotificationConfiguration_notificationConfiguration_NotifyOn;
+                requestNotificationConfigurationIsNull = false;
+            }
+             // determine if request.NotificationConfiguration should be set to null
+            if (requestNotificationConfigurationIsNull)
+            {
+                request.NotificationConfiguration = null;
+            }
             if (cmdletContext.OwningProjectIdentifier != null)
             {
                 request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
@@ -605,6 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> NetworkConfiguration_SubnetId { get; set; }
             public System.String NetworkConfiguration_VpcId { get; set; }
             public System.String NotebookIdentifier { get; set; }
+            public List<System.String> NotificationConfiguration_NotifyOn { get; set; }
             public System.String OwningProjectIdentifier { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public System.String ScheduleIdentifier { get; set; }

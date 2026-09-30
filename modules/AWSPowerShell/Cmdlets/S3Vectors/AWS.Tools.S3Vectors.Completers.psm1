@@ -94,6 +94,17 @@ $S3V_Completers = {
             break
         }
 
+        # Amazon.S3Vectors.IndexMode
+        {
+            ($_ -eq "Write-S3VVectorBucketDefaultIndexMode/DefaultIndexMode") -Or
+            ($_ -eq "Update-S3VIndexMode/IndexMode") -Or
+            ($_ -eq "Search-S3VVector/QueryMode")
+        }
+        {
+            $v = "CLASSIC","ENHANCED"
+            break
+        }
+
         # Amazon.S3Vectors.SseType
         {
             ($_ -eq "New-S3VIndex/EncryptionConfiguration_SseType") -Or
@@ -114,8 +125,11 @@ $S3V_Completers = {
 
 $S3V_map = @{
     "DataType"=@("New-S3VIndex")
+    "DefaultIndexMode"=@("Write-S3VVectorBucketDefaultIndexMode")
     "DistanceMetric"=@("New-S3VIndex")
     "EncryptionConfiguration_SseType"=@("New-S3VIndex","New-S3VVectorBucket")
+    "IndexMode"=@("Update-S3VIndexMode")
+    "QueryMode"=@("Search-S3VVector")
 }
 
 _awsArgumentCompleterRegistration $S3V_Completers $S3V_map
@@ -182,11 +196,13 @@ $S3V_SelectMap = @{
                "Get-S3VResourceTag",
                "Get-S3VVectorBucketList",
                "Get-S3VVectorList",
+               "Write-S3VVectorBucketDefaultIndexMode",
                "Write-S3VVectorBucketPolicy",
                "Write-S3VVector",
                "Search-S3VVector",
                "Add-S3VResourceTag",
-               "Remove-S3VResourceTag")
+               "Remove-S3VResourceTag",
+               "Update-S3VIndexMode")
 }
 
 _awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap

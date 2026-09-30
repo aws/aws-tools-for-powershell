@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String LakeFormationConfiguration_AccountId { get; set; }
         #endregion
         
+        #region Parameter CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Data Catalog in which to store the crawler's output. If you omit this
+        /// value, the existing value on the crawler is preserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CatalogId { get; set; }
+        #endregion
+        
         #region Parameter Classifier
         /// <summary>
         /// <para>
@@ -270,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.UpdateCrawlerResponse, UpdateGLUECrawlerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CatalogId = this.CatalogId;
             if (this.Classifier != null)
             {
                 context.Classifier = new List<System.String>(this.Classifier);
@@ -310,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.UpdateCrawlerRequest();
             
+            if (cmdletContext.CatalogId != null)
+            {
+                request.CatalogId = cmdletContext.CatalogId;
+            }
             if (cmdletContext.Classifier != null)
             {
                 request.Classifiers = cmdletContext.Classifier;
@@ -476,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CatalogId { get; set; }
             public List<System.String> Classifier { get; set; }
             public System.String Configuration { get; set; }
             public System.String CrawlerSecurityConfiguration { get; set; }

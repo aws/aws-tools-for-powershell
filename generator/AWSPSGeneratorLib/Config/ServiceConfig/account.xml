@@ -79,7 +79,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendPhoneNumberVerification" OutputProperty="Status" Verb="Send" Noun="PhoneNumberVerification" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartPrimaryEmailUpdate" OutputProperty="Status" Verb="Start" Noun="PrimaryEmailUpdate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyPhoneNumber" OutputProperty="Status" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="Otp" PipelineParameter="Otp" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

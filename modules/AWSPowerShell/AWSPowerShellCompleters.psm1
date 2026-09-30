@@ -424,7 +424,9 @@ $ACCT_SelectMap = @{
                "Write-ACCTAccountName",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation",
-               "Start-ACCTPrimaryEmailUpdate")
+               "Send-ACCTPhoneNumberVerification",
+               "Start-ACCTPrimaryEmailUpdate",
+               "Confirm-ACCTPhoneNumber")
 }
 
 _awsArgumentCompleterRegistration $ACCT_SelectCompleters $ACCT_SelectMap
@@ -7439,6 +7441,26 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.EksAccessEntryDesiredState
+        {
+            ($_ -eq "New-BATComputeEnvironment/EksConfiguration_AccessEntry_DesiredState") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EksConfiguration_AccessEntry_DesiredState")
+        }
+        {
+            $v = "DISABLED","ENABLED","INHERIT_FROM_CLUSTER"
+            break
+        }
+
+        # Amazon.Batch.EksAccessEntryStatus
+        {
+            ($_ -eq "New-BATComputeEnvironment/EksConfiguration_AccessEntry_Status") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EksConfiguration_AccessEntry_Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Batch.JobDefinitionType
         "Register-BATJobDefinition/Type"
         {
@@ -7570,6 +7592,8 @@ $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksConfiguration_AccessEntry_DesiredState"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksConfiguration_AccessEntry_Status"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
@@ -16454,9 +16478,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
-               "Get-CSDSuggestion")
+    "Select"=@("Get-CSDSuggestion",
+               "Search-CSDDocument",
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -30427,12 +30451,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "ConvertTo-DDBItem",
-               "New-DDBTableSchema",
                "Add-DDBKeySchema",
-               "ConvertFrom-DDBItem",
+               "Add-DDBIndexSchema",
                "New-DDBTable",
-               "Add-DDBIndexSchema")
+               "New-DDBTableSchema",
+               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33272,8 +33296,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -63672,7 +63696,7 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
+            $v = "AWS::Bedrock::KnowledgeBase","AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Gateway","AWS::BedrockAgentCore::Memory","AWS::BedrockAgentCore::PaymentManager","AWS::BedrockAgentCore::Runtime","AWS::BedrockAgentCore::WorkloadIdentity","AWS::CloudFront::Distribution","AWS::CloudTrail","AWS::CloudWatch::OTelEnrichment","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::Route53Resolver::ResolverEndpoint","AWS::S3::Bucket","AWS::SecurityHub::Hub","AWS::SecurityHub::HubV2","AWS::WAFv2::WebACL"
             break
         }
 
@@ -65532,7 +65556,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","S3_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","S3_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -65572,7 +65596,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","GUARDDUTY_POLICY","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -79232,18 +79256,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Copy-S3Object",
-               "Remove-S3Object",
-               "Get-S3PreSignedURL",
-               "New-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Test-S3Bucket",
-               "Get-S3MultipartUpload",
                "Mount-S3PSDrive",
+               "Write-S3Object",
+               "Test-S3Bucket",
+               "Read-S3Object",
                "Remove-S3Bucket",
                "Dismount-S3PSDrive",
-               "Read-S3Object",
-               "Write-S3Object")
+               "Get-S3PreSignedURL",
+               "Remove-S3MultipartUpload",
+               "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Copy-S3Object",
+               "Remove-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -80093,6 +80117,17 @@ $S3V_Completers = {
             break
         }
 
+        # Amazon.S3Vectors.IndexMode
+        {
+            ($_ -eq "Write-S3VVectorBucketDefaultIndexMode/DefaultIndexMode") -Or
+            ($_ -eq "Update-S3VIndexMode/IndexMode") -Or
+            ($_ -eq "Search-S3VVector/QueryMode")
+        }
+        {
+            $v = "CLASSIC","ENHANCED"
+            break
+        }
+
         # Amazon.S3Vectors.SseType
         {
             ($_ -eq "New-S3VIndex/EncryptionConfiguration_SseType") -Or
@@ -80113,8 +80148,11 @@ $S3V_Completers = {
 
 $S3V_map = @{
     "DataType"=@("New-S3VIndex")
+    "DefaultIndexMode"=@("Write-S3VVectorBucketDefaultIndexMode")
     "DistanceMetric"=@("New-S3VIndex")
     "EncryptionConfiguration_SseType"=@("New-S3VIndex","New-S3VVectorBucket")
+    "IndexMode"=@("Update-S3VIndexMode")
+    "QueryMode"=@("Search-S3VVector")
 }
 
 _awsArgumentCompleterRegistration $S3V_Completers $S3V_map
@@ -80181,11 +80219,13 @@ $S3V_SelectMap = @{
                "Get-S3VResourceTag",
                "Get-S3VVectorBucketList",
                "Get-S3VVectorList",
+               "Write-S3VVectorBucketDefaultIndexMode",
                "Write-S3VVectorBucketPolicy",
                "Write-S3VVector",
                "Search-S3VVector",
                "Add-S3VResourceTag",
-               "Remove-S3VResourceTag")
+               "Remove-S3VResourceTag",
+               "Update-S3VIndexMode")
 }
 
 _awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap
@@ -95949,6 +95989,44 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -95988,41 +96066,3 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }

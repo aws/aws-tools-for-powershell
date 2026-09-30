@@ -104,7 +104,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-S3VVectorBucket', 
         'Remove-S3VVectorBucketPolicy', 
         'Search-S3VVector', 
+        'Update-S3VIndexMode', 
         'Write-S3VVector', 
+        'Write-S3VVectorBucketDefaultIndexMode', 
         'Write-S3VVectorBucketPolicy')
 
     # Variables to export from this module

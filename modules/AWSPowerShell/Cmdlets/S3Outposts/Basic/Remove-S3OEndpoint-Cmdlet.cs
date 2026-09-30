@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     /// 
     ///  <note><para>
     /// It can take up to 5 minutes for this action to finish.
-    /// </para></note><para>
+    /// </para></note><para></para><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html">ListEndpoints</a></para></li></ul>
     /// </summary>

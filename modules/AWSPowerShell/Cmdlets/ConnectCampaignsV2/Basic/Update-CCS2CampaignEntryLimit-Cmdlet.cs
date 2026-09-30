@@ -65,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         #region Parameter EntryLimitsConfig_MaxEntryCount
         /// <summary>
         /// <para>
-        /// <para>Maximum number of times a participant can enter the campaign. A value of 0 indicates
-        /// unlimited entries. Values of 1 or greater specify the exact number of entries allowed.</para>
+        /// Maximum number of times a participant can
+        /// enter the campaign. A value of 0 indicates unlimited entries. Values of 1 or greater
+        /// specify the exact number of entries allowed.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         #region Parameter EntryLimitsConfig_MinEntryInterval
         /// <summary>
         /// <para>
-        /// <para>Minimum time interval that must pass before a participant can enter the campaign again.</para>
+        /// Minimum time interval that must pass
+        /// before a participant can enter the campaign again.
         /// </para>
         /// </summary>
         #if !MODULAR

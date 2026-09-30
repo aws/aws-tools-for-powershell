@@ -178,6 +178,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String SmithyModel_S3_BucketOwnerAccountId { get; set; }
         #endregion
         
+        #region Parameter CertificateConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The private certificate authority (CA) configurations for the gateway target. Use
+        /// this to have the gateway trust a private CA when it establishes TLS connections to
+        /// the target endpoint. Provide each certificate by reference to an Amazon S3 object
+        /// or an Amazon Web Services Secrets Manager secret. You can specify only one certificate
+        /// authority configuration in this list. To remove a previously configured certificate
+        /// authority, omit this field on update.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CertificateConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration[] CertificateConfiguration { get; set; }
+        #endregion
+        
         #region Parameter TargetConfiguration_Http_Passthrough_StickinessConfiguration_CompositeIdentifier
         /// <summary>
         /// <para>
@@ -860,6 +880,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdateGatewayTargetResponse, UpdateBACCGatewayTargetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.CertificateConfiguration != null)
+            {
+                context.CertificateConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration>(this.CertificateConfiguration);
+            }
             if (this.CredentialProviderConfiguration != null)
             {
                 context.CredentialProviderConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.CredentialProviderConfiguration>(this.CredentialProviderConfiguration);
@@ -1009,6 +1033,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request
             var request = new Amazon.BedrockAgentCoreControl.Model.UpdateGatewayTargetRequest();
             
+            if (cmdletContext.CertificateConfiguration != null)
+            {
+                request.CertificateConfigurations = cmdletContext.CertificateConfiguration;
+            }
             if (cmdletContext.CredentialProviderConfiguration != null)
             {
                 request.CredentialProviderConfigurations = cmdletContext.CredentialProviderConfiguration;
@@ -2196,6 +2224,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.BedrockAgentCoreControl.Model.CertificateConfiguration> CertificateConfiguration { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.CredentialProviderConfiguration> CredentialProviderConfiguration { get; set; }
             public System.String Description { get; set; }
             public System.String GatewayIdentifier { get; set; }

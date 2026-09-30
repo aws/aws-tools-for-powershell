@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The type of attribute.</para><note><para>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
         /// contact Amazon Web Services Support for allowlisting.</para></note><note><para>If you set the attribute type as <c>MESSAGE_STREAMING</c>, you need to update the
         /// Lex bot alias resource based policy to include the <c>lex:RecognizeMessageAsync</c>
-        /// action for the connect instance ARN resource.</para></note>
+        /// action for the connect instance ARN resource.</para></note><note><para>If you set the attribute type <c>AUTO_MUTE_AGENT_ON_HOLD</c> to <c>true</c>, the system
+        /// automatically mutes agents while they're on hold and unmutes them when they resume
+        /// the contact. Agents can't change their mute state while on hold.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

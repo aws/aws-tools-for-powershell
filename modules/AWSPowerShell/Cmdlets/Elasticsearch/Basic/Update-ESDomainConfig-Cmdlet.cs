@@ -63,9 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <para>Modifies the advanced option to allow references to indices in an HTTP request body.
         /// Must be <c>false</c> when configuring access to individual sub-resources. By default,
         /// the value is <c>true</c>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -407,9 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <para>
         /// <para>Map of <c>LogType</c> and <c>LogPublishingOption</c>, each containing options to publish
         /// a given type of Elasticsearch log.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -422,9 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -540,9 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Specifies the security groups for VPC endpoint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -588,9 +592,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Specifies the subnets for VPC endpoint.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -613,7 +618,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <summary>
         /// <para>
         /// <para>Specify the TLS security policy that needs to be applied to the HTTPS endpoint of
-        /// Elasticsearch domain. <br /> It can be one of the following values: <ul><li><b>Policy-Min-TLS-1-0-2019-07:
+        /// Elasticsearch domain. &lt;/br&gt; It can be one of the following values: <ul><li><b>Policy-Min-TLS-1-0-2019-07:
         /// </b> TLS security policy that supports TLS version 1.0 to TLS version 1.2</li><li><b>Policy-Min-TLS-1-2-2019-07:
         /// </b> TLS security policy that supports only TLS version 1.2</li><li><b>Policy-Min-TLS-1-2-PFS-2023-10:
         /// </b> TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect
@@ -778,15 +783,15 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
-            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
-            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
-            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
                 context.AutoTuneOptions_MaintenanceSchedule = new List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule>(this.AutoTuneOptions_MaintenanceSchedule);
             }
             context.AutoTuneOptions_RollbackOnDisable = this.AutoTuneOptions_RollbackOnDisable;
+            context.AutomatedSnapshotPauseOptions_Enabled = this.AutomatedSnapshotPauseOptions_Enabled;
+            context.AutomatedSnapshotPauseOptions_EndTime = this.AutomatedSnapshotPauseOptions_EndTime;
+            context.AutomatedSnapshotPauseOptions_StartTime = this.AutomatedSnapshotPauseOptions_StartTime;
             context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
@@ -1061,45 +1066,6 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.AdvancedSecurityOptions = null;
             }
             
-             // populate AutomatedSnapshotPauseOptions
-            var requestAutomatedSnapshotPauseOptionsIsNull = true;
-            request.AutomatedSnapshotPauseOptions = new Amazon.Elasticsearch.Model.AutomatedSnapshotPauseRequestOptions();
-            System.Boolean? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = null;
-            if (cmdletContext.AutomatedSnapshotPauseOptions_Enabled != null)
-            {
-                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = cmdletContext.AutomatedSnapshotPauseOptions_Enabled.Value;
-            }
-            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled != null)
-            {
-                request.AutomatedSnapshotPauseOptions.Enabled = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled.Value;
-                requestAutomatedSnapshotPauseOptionsIsNull = false;
-            }
-            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = null;
-            if (cmdletContext.AutomatedSnapshotPauseOptions_EndTime != null)
-            {
-                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = cmdletContext.AutomatedSnapshotPauseOptions_EndTime.Value;
-            }
-            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime != null)
-            {
-                request.AutomatedSnapshotPauseOptions.EndTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime.Value;
-                requestAutomatedSnapshotPauseOptionsIsNull = false;
-            }
-            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = null;
-            if (cmdletContext.AutomatedSnapshotPauseOptions_StartTime != null)
-            {
-                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = cmdletContext.AutomatedSnapshotPauseOptions_StartTime.Value;
-            }
-            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime != null)
-            {
-                request.AutomatedSnapshotPauseOptions.StartTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime.Value;
-                requestAutomatedSnapshotPauseOptionsIsNull = false;
-            }
-             // determine if request.AutomatedSnapshotPauseOptions should be set to null
-            if (requestAutomatedSnapshotPauseOptionsIsNull)
-            {
-                request.AutomatedSnapshotPauseOptions = null;
-            }
-            
              // populate AutoTuneOptions
             var requestAutoTuneOptionsIsNull = true;
             request.AutoTuneOptions = new Amazon.Elasticsearch.Model.AutoTuneOptions();
@@ -1137,6 +1103,45 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestAutoTuneOptionsIsNull)
             {
                 request.AutoTuneOptions = null;
+            }
+            
+             // populate AutomatedSnapshotPauseOptions
+            var requestAutomatedSnapshotPauseOptionsIsNull = true;
+            request.AutomatedSnapshotPauseOptions = new Amazon.Elasticsearch.Model.AutomatedSnapshotPauseRequestOptions();
+            System.Boolean? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_Enabled != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled = cmdletContext.AutomatedSnapshotPauseOptions_Enabled.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled != null)
+            {
+                request.AutomatedSnapshotPauseOptions.Enabled = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_Enabled.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_EndTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime = cmdletContext.AutomatedSnapshotPauseOptions_EndTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.EndTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_EndTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+            System.DateTime? requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = null;
+            if (cmdletContext.AutomatedSnapshotPauseOptions_StartTime != null)
+            {
+                requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime = cmdletContext.AutomatedSnapshotPauseOptions_StartTime.Value;
+            }
+            if (requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime != null)
+            {
+                request.AutomatedSnapshotPauseOptions.StartTime = requestAutomatedSnapshotPauseOptions_automatedSnapshotPauseOptions_StartTime.Value;
+                requestAutomatedSnapshotPauseOptionsIsNull = false;
+            }
+             // determine if request.AutomatedSnapshotPauseOptions should be set to null
+            if (requestAutomatedSnapshotPauseOptionsIsNull)
+            {
+                request.AutomatedSnapshotPauseOptions = null;
             }
             
              // populate CognitoOptions
@@ -1635,12 +1640,12 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.String SAMLOptions_RolesKey { get; set; }
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
-            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
-            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
-            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public Amazon.Elasticsearch.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.Elasticsearch.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public Amazon.Elasticsearch.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }
+            public System.Boolean? AutomatedSnapshotPauseOptions_Enabled { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_EndTime { get; set; }
+            public System.DateTime? AutomatedSnapshotPauseOptions_StartTime { get; set; }
             public System.Boolean? CognitoOptions_Enabled { get; set; }
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }

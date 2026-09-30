@@ -265,9 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <para>
         /// <para>Specifies the location of the LDAP server such as Directory Service for Microsoft
         /// Active Directory. Optional failover server.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -319,8 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>The distinguished name of the node in the directory information tree (DIT) to search
-        /// for roles or groups. For example, ou=group, ou=corp, dc=corp,                  dc=example,
-        /// dc=com.</para>
+        /// for roles or groups. For example, ou=group, ou=corp, dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,9 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -384,8 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>Service account password. A service account is an account in your LDAP server that
-        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,  
-        ///                dc=com.</para>
+        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,8 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>Service account username. A service account is an account in your LDAP server that
-        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,  
-        ///                dc=com.</para>
+        /// has access to initiate a connection. For example, cn=admin,dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,9 +438,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong
         /// must be owned by your Amazon Web Services account. Amazon MQ will not be able to create
         /// VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</para></important><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -454,9 +454,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>Create tags when creating the broker.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -481,9 +482,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <para>
         /// <para>Select a particular subtree of the directory information tree (DIT) to search for
         /// user entries. The subtree is specified by a DN, which specifies the base node of the
-        /// subtree. For example, by setting this option to ou=Users,ou=corp, dc=corp,       
-        ///           dc=example, dc=com, the search for user entries is restricted to the subtree
-        /// beneath ou=Users, ou=corp, dc=corp, dc=example, dc=com.</para>
+        /// subtree. For example, by setting this option to ou=Users,ou=corp, dc=corp, dc=example,
+        /// dc=com, the search for user entries is restricted to the subtree beneath ou=Users,
+        /// ou=corp, dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,9 +510,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// When provided, one and only one administrative user is accepted and created when a
         /// broker is first provisioned. All subsequent broker users are created by making RabbitMQ
         /// API calls directly to brokers or via the RabbitMQ web console.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -527,7 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// is substituted into the {0} placeholder in the search filter. For example, if this
         /// option is set to (uid={0}) and the received username is janedoe, the search filter
         /// becomes (uid=janedoe) after string substitution. It will result in matching an entry
-        /// like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,                  dc=com.</para>
+        /// like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example, dc=com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

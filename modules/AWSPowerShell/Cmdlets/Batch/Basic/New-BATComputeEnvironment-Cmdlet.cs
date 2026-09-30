@@ -244,6 +244,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String Context { get; set; }
         #endregion
         
+        #region Parameter EksConfiguration_AccessEntry_DesiredState
+        /// <summary>
+        /// <para>
+        /// <para>The desired access entry state for the compute environment. Valid values:</para><dl><dt>ENABLED</dt><dd><para>Batch manages an access entry on the cluster for the compute environment.</para></dd><dt>DISABLED</dt><dd><para>Batch deletes the Batch-managed access entry for the cluster. This value is rejected
+        /// if the cluster's <c>authenticationMode</c> is <c>API</c>, because such a cluster doesn't
+        /// support the <c>aws-auth</c> ConfigMap.</para></dd><dt>INHERIT_FROM_CLUSTER</dt><dd><para>Batch defers to the cluster's current access entry <c>status</c>. On a cluster whose
+        /// authentication mode is <c>API</c>, Batch creates and manages an access entry. On a
+        /// cluster whose authentication mode is <c>API_AND_CONFIG_MAP</c> or <c>CONFIG_MAP</c>,
+        /// Batch neither adds nor removes an access entry.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.EksAccessEntryDesiredState")]
+        public Amazon.Batch.EksAccessEntryDesiredState EksConfiguration_AccessEntry_DesiredState { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
@@ -676,6 +692,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.CEState State { get; set; }
         #endregion
         
+        #region Parameter EksConfiguration_AccessEntry_Status
+        /// <summary>
+        /// <para>
+        /// <para>The observed state of the access entry on the cluster. <c>ACTIVE</c> means that an
+        /// access entry for the compute environment exists on the cluster and takes precedence
+        /// over the <c>aws-auth</c> ConfigMap. <c>INACTIVE</c> means that no Batch-managed access
+        /// entry is present. This is a read-only field returned by <c>DescribeComputeEnvironments</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Batch.EksAccessEntryStatus")]
+        public Amazon.Batch.EksAccessEntryStatus EksConfiguration_AccessEntry_Status { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_ManagedInstancesProvider_InstanceLaunchTemplate_StorageConfiguration_StorageSizeGiB
         /// <summary>
         /// <para>
@@ -1027,6 +1057,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.ComputeResources_Type = this.ComputeResources_Type;
             context.Context = this.Context;
             context.EcsSettings_ContainerInsight = this.EcsSettings_ContainerInsight;
+            context.EksConfiguration_AccessEntry_DesiredState = this.EksConfiguration_AccessEntry_DesiredState;
+            context.EksConfiguration_AccessEntry_Status = this.EksConfiguration_AccessEntry_Status;
             context.EksConfiguration_EksClusterArn = this.EksConfiguration_EksClusterArn;
             context.EksConfiguration_KubernetesNamespace = this.EksConfiguration_KubernetesNamespace;
             context.ServiceRole = this.ServiceRole;
@@ -1653,6 +1685,41 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.EksConfiguration.KubernetesNamespace = requestEksConfiguration_eksConfiguration_KubernetesNamespace;
                 requestEksConfigurationIsNull = false;
             }
+            Amazon.Batch.Model.EksAccessEntry requestEksConfiguration_eksConfiguration_AccessEntry = null;
+            
+             // populate AccessEntry
+            var requestEksConfiguration_eksConfiguration_AccessEntryIsNull = true;
+            requestEksConfiguration_eksConfiguration_AccessEntry = new Amazon.Batch.Model.EksAccessEntry();
+            Amazon.Batch.EksAccessEntryDesiredState requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_DesiredState = null;
+            if (cmdletContext.EksConfiguration_AccessEntry_DesiredState != null)
+            {
+                requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_DesiredState = cmdletContext.EksConfiguration_AccessEntry_DesiredState;
+            }
+            if (requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_DesiredState != null)
+            {
+                requestEksConfiguration_eksConfiguration_AccessEntry.DesiredState = requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_DesiredState;
+                requestEksConfiguration_eksConfiguration_AccessEntryIsNull = false;
+            }
+            Amazon.Batch.EksAccessEntryStatus requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_Status = null;
+            if (cmdletContext.EksConfiguration_AccessEntry_Status != null)
+            {
+                requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_Status = cmdletContext.EksConfiguration_AccessEntry_Status;
+            }
+            if (requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_Status != null)
+            {
+                requestEksConfiguration_eksConfiguration_AccessEntry.Status = requestEksConfiguration_eksConfiguration_AccessEntry_eksConfiguration_AccessEntry_Status;
+                requestEksConfiguration_eksConfiguration_AccessEntryIsNull = false;
+            }
+             // determine if requestEksConfiguration_eksConfiguration_AccessEntry should be set to null
+            if (requestEksConfiguration_eksConfiguration_AccessEntryIsNull)
+            {
+                requestEksConfiguration_eksConfiguration_AccessEntry = null;
+            }
+            if (requestEksConfiguration_eksConfiguration_AccessEntry != null)
+            {
+                request.EksConfiguration.AccessEntry = requestEksConfiguration_eksConfiguration_AccessEntry;
+                requestEksConfigurationIsNull = false;
+            }
              // determine if request.EksConfiguration should be set to null
             if (requestEksConfigurationIsNull)
             {
@@ -1775,6 +1842,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Amazon.Batch.CRType ComputeResources_Type { get; set; }
             public System.String Context { get; set; }
             public Amazon.Batch.ContainerInsights EcsSettings_ContainerInsight { get; set; }
+            public Amazon.Batch.EksAccessEntryDesiredState EksConfiguration_AccessEntry_DesiredState { get; set; }
+            public Amazon.Batch.EksAccessEntryStatus EksConfiguration_AccessEntry_Status { get; set; }
             public System.String EksConfiguration_EksClusterArn { get; set; }
             public System.String EksConfiguration_KubernetesNamespace { get; set; }
             public System.String ServiceRole { get; set; }

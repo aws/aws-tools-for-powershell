@@ -111,7 +111,10 @@ Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
 Set-Alias -Name ACCT-PutContactInformation -Value Write-ACCTContactInformation
+Set-Alias -Name ACCT-SendPhoneNumberVerification -Value Send-ACCTPhoneNumberVerification
 Set-Alias -Name ACCT-StartPrimaryEmailUpdate -Value Start-ACCTPrimaryEmailUpdate
+Set-Alias -Name Verify-ACCTPhoneNumber -Value Confirm-ACCTPhoneNumber
+Set-Alias -Name ACCT-VerifyPhoneNumber -Value Confirm-ACCTPhoneNumber
 Set-Alias -Name Create-PCACertificateAuthority -Value New-PCACertificateAuthority
 Set-Alias -Name PCA-CreateCertificateAuthority -Value New-PCACertificateAuthority
 Set-Alias -Name Create-PCACertificateAuthorityAuditReport -Value New-PCACertificateAuthorityAuditReport
@@ -31204,6 +31207,8 @@ Set-Alias -Name S3V-ListVectorBuckets -Value Get-S3VVectorBucketList
 Set-Alias -Name List-S3VVectors -Value Get-S3VVectorList
 Set-Alias -Name List-S3VVectorList -Value Get-S3VVectorList
 Set-Alias -Name S3V-ListVectors -Value Get-S3VVectorList
+Set-Alias -Name Put-S3VVectorBucketDefaultIndexMode -Value Write-S3VVectorBucketDefaultIndexMode
+Set-Alias -Name S3V-PutVectorBucketDefaultIndexMode -Value Write-S3VVectorBucketDefaultIndexMode
 Set-Alias -Name Put-S3VVectorBucketPolicy -Value Write-S3VVectorBucketPolicy
 Set-Alias -Name S3V-PutVectorBucketPolicy -Value Write-S3VVectorBucketPolicy
 Set-Alias -Name Put-S3VVectors -Value Write-S3VVector
@@ -31214,6 +31219,7 @@ Set-Alias -Name Query-S3VVector -Value Search-S3VVector
 Set-Alias -Name S3V-QueryVectors -Value Search-S3VVector
 Set-Alias -Name S3V-TagResource -Value Add-S3VResourceTag
 Set-Alias -Name S3V-UntagResource -Value Remove-S3VResourceTag
+Set-Alias -Name S3V-UpdateIndexMode -Value Update-S3VIndexMode
 Set-Alias -Name Delete-A2IRHumanLoop -Value Remove-A2IRHumanLoop
 Set-Alias -Name A2IR-DeleteHumanLoop -Value Remove-A2IRHumanLoop
 Set-Alias -Name Describe-A2IRHumanLoop -Value Get-A2IRHumanLoop

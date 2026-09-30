@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         #region Parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt
         /// <summary>
         /// <para>
-        /// <para>Enable or disable await answer machine prompt</para>
+        /// Enable or disable await answer
+        /// machine prompt
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         #region Parameter AnswerMachineDetectionConfig_EnableAnswerMachineDetection
         /// <summary>
         /// <para>
-        /// <para>Enable or disable answering machine detection</para>
+        /// Enable or disable answering
+        /// machine detection
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,7 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// errors are reported in the <c>errors</c> list. The response returns an HTTP status
     /// code of <c>200</c> even when some jobs encountered errors, so check the <c>errors</c>
     /// list. Jobs that can't be found are treated as successfully processed.
-    /// </para>
+    /// </para><important><para>
+    /// This operation requires <c>batch:CancelJob</c> permission for each job in the request.
+    /// There is no separate <c>batch:CancelJobs</c> IAM action. If a caller's IAM policy
+    /// grants <c>batch:CancelJob</c>, they can use both the singular <a>CancelJob</a> and
+    /// bulk <c>CancelJobs</c> operations.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Stop", "BATJobCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.CancelJobsResponse")]

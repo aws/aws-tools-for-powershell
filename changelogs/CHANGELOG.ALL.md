@@ -1,4 +1,38 @@
-﻿### 5.0.309 (2026-09-29 19:27Z)
+﻿### 5.0.310 (2026-09-30 19:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.345.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account
+    * Added cmdlet Confirm-ACCTPhoneNumber leveraging the VerifyPhoneNumber service API.
+    * Added cmdlet Send-ACCTPhoneNumberVerification leveraging the SendPhoneNumberVerification service API.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameters EksConfiguration_AccessEntry_DesiredState and EksConfiguration_AccessEntry_Status.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameters EksConfiguration_AccessEntry_DesiredState and EksConfiguration_AccessEntry_Status.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGatewayTarget: added parameter CertificateConfiguration.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter CertificateConfiguration.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLDeliveryDestination: added parameter RoleArn.
+  * Amazon DataZone
+    * Modified cmdlet Start-DZNotebookRun: added parameter NotificationConfiguration_NotifyOn.
+  * Amazon DynamoDB
+    * Modified cmdlet Export-DDBTableToPointInTime: added parameters FilterSpecification_ExpressionAttributeName, FilterSpecification_ExpressionAttributeValue, FilterSpecification_FilterExpression, FilterSpecification_KeyConditionExpression and FilterSpecification_ProjectionExpression.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEColumnStatisticsTaskList: added parameter CatalogID.
+    * Modified cmdlet Get-GLUEColumnStatisticsTaskSetting: added parameter CatalogID.
+    * Modified cmdlet New-GLUECrawler: added parameter CatalogId.
+    * Modified cmdlet Remove-GLUEColumnStatisticsTaskSetting: added parameter CatalogID.
+    * Modified cmdlet Start-GLUEColumnStatisticsTaskRunSchedule: added parameter CatalogID.
+    * Modified cmdlet Stop-GLUEColumnStatisticsTaskRun: added parameter CatalogID.
+    * Modified cmdlet Stop-GLUEColumnStatisticsTaskRunSchedule: added parameter CatalogID.
+    * Modified cmdlet Update-GLUECrawler: added parameter CatalogId.
+  * Amazon S3 Vectors
+    * Added cmdlet Update-S3VIndexMode leveraging the UpdateIndexMode service API.
+    * Added cmdlet Write-S3VVectorBucketDefaultIndexMode leveraging the PutVectorBucketDefaultIndexMode service API.
+    * Modified cmdlet Search-S3VVector: added parameter QueryMode.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameters Orchestrator_Slurm_AccountingDatabase_Endpoint, Orchestrator_Slurm_AccountingDatabase_Name, Orchestrator_Slurm_AccountingDatabase_Port and Orchestrator_Slurm_AccountingDatabase_SecretArn.
+    * Modified cmdlet Update-SMCluster: added parameters Orchestrator_Slurm_AccountingDatabase_Endpoint, Orchestrator_Slurm_AccountingDatabase_Name, Orchestrator_Slurm_AccountingDatabase_Port and Orchestrator_Slurm_AccountingDatabase_SecretArn.
+
+### 5.0.309 (2026-09-29 19:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.344.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFleet: added parameter Configuration_ServiceManagedEc2_InstanceCapabilities_SoftwareAddOn.

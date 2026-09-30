@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutVectorBucketDefaultIndexMode" Verb="Write" Noun="VectorBucketDefaultIndexMode" ShouldProcessTarget="DefaultIndexMode" PipelineParameter="DefaultIndexMode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutVectorBucketPolicy" Verb="Write" Noun="VectorBucketPolicy" ShouldProcessTarget="" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndexMode" Verb="Update" Noun="IndexMode" ShouldProcessTarget="IndexMode" PipelineParameter="IndexMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

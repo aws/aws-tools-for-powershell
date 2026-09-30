@@ -138,6 +138,26 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.EksAccessEntryDesiredState
+        {
+            ($_ -eq "New-BATComputeEnvironment/EksConfiguration_AccessEntry_DesiredState") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EksConfiguration_AccessEntry_DesiredState")
+        }
+        {
+            $v = "DISABLED","ENABLED","INHERIT_FROM_CLUSTER"
+            break
+        }
+
+        # Amazon.Batch.EksAccessEntryStatus
+        {
+            ($_ -eq "New-BATComputeEnvironment/EksConfiguration_AccessEntry_Status") -Or
+            ($_ -eq "Update-BATComputeEnvironment/EksConfiguration_AccessEntry_Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Batch.JobDefinitionType
         "Register-BATJobDefinition/Type"
         {
@@ -269,6 +289,8 @@ $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "EcsSettings_ContainerInsight"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksConfiguration_AccessEntry_DesiredState"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
+    "EksConfiguration_AccessEntry_Status"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "JobQueueType"=@("New-BATJobQueue")
     "JobStatus"=@("Get-BATJobList","Get-BATServiceJobList")
     "LaunchTemplate_UserdataType"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
