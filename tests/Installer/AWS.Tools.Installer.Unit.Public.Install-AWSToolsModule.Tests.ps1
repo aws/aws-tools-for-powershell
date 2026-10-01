@@ -730,6 +730,173 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             Should -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule -Times 1
         }
         
+        It "Should write the install-all tip on a named (subset) install" {
+            # A named install nudges toward the default of installing all modules via one host line.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.S3";     Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act
+            Install-AWSToolsModule -Name 'S3' -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter {
+                $Object -match 'Installing all modules is the recommended default'
+            } -Times 1
+        }
+
+        It "Should not write the install-all tip on an install-all install" {
+            # No -Name means all modules are already being installed, so the tip would be redundant.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act
+            Install-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter {
+                $Object -match 'Installing all modules is the recommended default'
+            }
+        }
+
+        It "Should warn that AWS.Tools.Common was not cleaned up when named cleanup omits it" {
+            # -Name S3 with -Cleanup: cleanup only removes other versions of the named modules, so
+            # the auto-installed AWS.Tools.Common is left in place. Warn since customers may not know.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.S3";     Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'S3' -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable commonWarn @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule -Times 1
+            ($commonWarn -join "`n") | Should -Match 'was not specified with -Name'
+        }
+
+        It "Should not warn about AWS.Tools.Common when it is among the named modules in the cleanup" {
+            # Naming AWS.Tools.Common puts its other versions in cleanup scope, so no warning.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.S3";     Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'Common','S3' -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable commonWarn @script:InformationActionSplat
+
+            # Assert
+            ($commonWarn -join "`n") | Should -Not -Match 'was not specified with -Name'
+        }
+
+        It "Should not warn about AWS.Tools.Common for an install-all cleanup" {
+            # No -Name means cleanup covers every module including AWS.Tools.Common; no warning expected.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Cleanup -Confirm:$false -WarningAction SilentlyContinue -WarningVariable commonWarn @script:InformationActionSplat
+
+            # Assert
+            ($commonWarn -join "`n") | Should -Not -Match 'was not specified with -Name'
+        }
+
+        It "Should not warn about AWS.Tools.Common when -Name is used without -Cleanup" {
+            # No -Cleanup means no cleanup runs, so there is nothing to warn about leaving behind.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.S3";     Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+
+            # Act
+            Install-AWSToolsModule -Name 'S3' -Confirm:$false -WarningAction SilentlyContinue -WarningVariable commonWarn @script:InformationActionSplat
+
+            # Assert - cleanup never ran, so no Common warning
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule
+            ($commonWarn -join "`n") | Should -Not -Match 'was not specified with -Name'
+        }
+
+        It "Should not write the install-all tip when invoked via Update-AWSToolsModule" {
+            # Update-AWSToolsModule delegates to Install-AWSToolsModule with -Name, but the tip is
+            # Update's own concern to suppress. Install detects the Update-AWSToolsModule ancestor
+            # frame via Get-PSCallStack; call the real Update here (Install is not mocked in this
+            # file) so the genuine call stack exercises that detection.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.EC2";    Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act - real Update -> real Install delegation
+            Update-AWSToolsModule -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Write-Host -ParameterFilter {
+                $Object -match 'Installing all modules is the recommended default'
+            }
+        }
+
         It "Should not accept -SkipCleanup parameter" {
             # Act & Assert
             { Install-AWSToolsModule -SkipCleanup -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat} | Should -Throw
