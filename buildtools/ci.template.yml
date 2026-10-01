@@ -19,10 +19,6 @@ Parameters:
     Description: Name of the buckets where the CodeBuild artifacts will be stored.
     Default: "aws-tools-for-powershell-codebuild-artifacts"
     Type: String
-  TestRunnerRoleArn:
-    Description: Role to run tests with.
-    Default: ""
-    Type: String
   OidcRoleRoleName:
     Description: Name of the role to use for the OIDC provider.
     Default: "aws-tools-for-powershell-ci-role"
@@ -91,14 +87,11 @@ Resources:
       Name: !Sub ${CodeBuildProjectName}
       ServiceRole: !GetAtt CodeBuildProjectRole.Arn
       Environment:
-        ComputeType: BUILD_GENERAL1_LARGE
-        Type: WINDOWS_SERVER_2019_CONTAINER
+        # Matches the environment used by the release build.
+        ComputeType: BUILD_GENERAL1_XLARGE
+        Type: LINUX_CONTAINER
         ImagePullCredentialsType: CODEBUILD
-        Image: aws/codebuild/windows-base:2019-3.0
-        EnvironmentVariables:
-        - Name: TEST_RUNNER_ROLE_ARN
-          Type: PLAINTEXT
-          Value: !Ref TestRunnerRoleArn
+        Image: aws/codebuild/standard:7.0
       Source:
         Type: GITHUB
         Location: !Sub https://github.com/${GitHubOrg}/${GitHubRepositoryName}
@@ -135,11 +128,6 @@ Resources:
                 Resource:
                   - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${CodeBuildProjectName}"
                   - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${CodeBuildProjectName}:*"
-              - Action:
-                - 'sts:AssumeRole'
-                Effect: Allow
-                Resource:
-                  - !Ref TestRunnerRoleArn
               - Action:
                 - 's3:PutObject'
                 Effect: Allow
