@@ -202,7 +202,10 @@ namespace Common.Tests
         [TestMethod]
         public void FormatParameterValuesForConfirmationMsg_UnboundSensitiveParameter_ReturnsEmpty()
         {
-            // Arrange - the sensitive parameter is not present in bound parameters
+            // Arrange - bind an unrelated parameter so boundParameters is non-empty and
+            // the method does not short-circuit at the Keys.Count == 0 guard
+            // (BaseCmdlets.cs:213). The sensitive parameter itself is left unbound.
+            _boundParameters["UserName"] = "alice";
 
             // Act
             var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
@@ -210,6 +213,23 @@ namespace Common.Tests
 
             // Assert - no value was supplied, so it must render empty rather than imply a value
             Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void FormatParameterValuesForConfirmationMsg_MultipleParametersBoundNonSensitivePlusUnboundSensitive_ReturnsBoundValueOnly()
+        {
+            // Arrange - a bound non-sensitive parameter plus an unbound sensitive one.
+            // The unbound sensitive parameter is skipped (never bound), so no redaction
+            // marker should appear and only the bound value remains.
+            _boundParameters["UserName"] = "alice";
+
+            // Act
+            var result = _cmdlet.TestFormatParameterValuesForConfirmationMsg(
+                new[] { "UserName", "OldPassword" }, _boundParameters, new HashSet<string> { "OldPassword" });
+
+            // Assert
+            Assert.AreEqual("alice", result);
+            Assert.IsFalse(result.Contains(BaseCmdlet.SensitiveDataRedactionMessage));
         }
 
         [TestMethod]

@@ -71,7 +71,7 @@
     <!-- Import default code signing properties and the task -->
     <Import Project="$(InternalBuildTools)/CodeSign.proj" Condition="'$(InternalBuildTools)'!='' And '$(SignModules)'=='true' And Exists('$(InternalBuildTools)/CodeSign.proj')" />
 
-    <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;build-test-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-test-module-artifacts;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
+    <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;run-common-tests;build-test-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-test-module-artifacts;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
             <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
@@ -172,6 +172,12 @@
         <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../tests/modules/TestModule.sln"/>
         <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -v:quiet ../tests/modules/TestModule.sln"/>
     </Target>
+
+    <Target Name="run-common-tests" DependsOnTargets="build-modular-modules">
+        <Message Text="Running .NET Common unit tests"/>
+        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShellCommonTests.sln" />
+        <Exec Command="dotnet test -c $(Configuration) --no-restore -v:quiet ../solutions/AWSPowerShellCommonTests.sln" />
+    </Target>
 	
     <Target Name="run-tests" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
@@ -181,8 +187,6 @@
 
         <Message Text="Running .NET unit tests"/>
         <Exec Command="dotnet test -c $(Configuration) --no-restore -v:quiet ../solutions/AWSPowerShellGenerator.sln" />
-        <Exec Command="dotnet restore --disable-parallel --verbosity quiet ../solutions/AWSPowerShellCommonTests.sln" />
-        <Exec Command="dotnet test -c $(Configuration) --no-restore -v:quiet ../solutions/AWSPowerShellCommonTests.sln" />
 
         <Exec Command="pwsh -NoProfile -Command Invoke-Pester -EnableExit -OutputFile results/PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled -Show All" WorkingDirectory="$(RootPath)/tests" />
 
