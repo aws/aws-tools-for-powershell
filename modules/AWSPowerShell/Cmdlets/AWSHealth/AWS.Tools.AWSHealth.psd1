@@ -100,7 +100,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-HLTHEventDetailsForOrganization', 
         'Get-HLTHEventsForOrganization', 
         'Get-HLTHEventType', 
-        'Get-HLTHHealthServiceStatusForOrganization')
+        'Get-HLTHHealthServiceStatusForOrganization', 
+        'Get-HLTHServiceLifecycleDetail')
 
     # Variables to export from this module
     VariablesToExport = '*'

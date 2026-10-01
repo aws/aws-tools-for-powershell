@@ -499,7 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the log groups to which your server logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
-        /// case, the format of the log group is as follows:</para><para><c>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para>If you have previously specified a log group for a server, you can clear it, and in
+        /// case, the format of the log group is as follows:</para><para><c>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para>If you have previously specified a log group for a server, you can clear it, and in
         /// effect turn off structured logging, by providing an empty value for this parameter
         /// in an <c>update-server</c> call. For example:</para><para><c>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

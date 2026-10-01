@@ -100,6 +100,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.Model.WorkflowStep[] Step { get; set; }
         #endregion
         
+        #region Parameter StructuredLogDestination
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the log groups to which your workflow logs are sent.</para><para>To specify a log group, you must provide the ARN for an existing log group. In this
+        /// case, the format of the log group is as follows:</para><para><c>arn:partition:logs:region-name:amazon-account-id:log-group:log-group-name:*</c></para><para>For example, <c>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</c></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StructuredLogDestinations")]
+        public System.String[] StructuredLogDestination { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -177,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter Step which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StructuredLogDestination != null)
+            {
+                context.StructuredLogDestination = new List<System.String>(this.StructuredLogDestination);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -208,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.Step != null)
             {
                 request.Steps = cmdletContext.Step;
+            }
+            if (cmdletContext.StructuredLogDestination != null)
+            {
+                request.StructuredLogDestinations = cmdletContext.StructuredLogDestination;
             }
             if (cmdletContext.Tag != null)
             {
@@ -271,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String Description { get; set; }
             public List<Amazon.Transfer.Model.WorkflowStep> OnExceptionStep { get; set; }
             public List<Amazon.Transfer.Model.WorkflowStep> Step { get; set; }
+            public List<System.String> StructuredLogDestination { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateWorkflowResponse, NewTFRWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WorkflowId;

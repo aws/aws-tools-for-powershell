@@ -287,7 +287,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_SigningBehavior")
         }
         {
-            $v = "always","never","no-override"
+            $v = "always","always-amz-auth","never","no-override"
             break
         }
 

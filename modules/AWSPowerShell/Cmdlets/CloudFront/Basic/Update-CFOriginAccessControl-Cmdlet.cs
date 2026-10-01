@@ -132,6 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// To pass along the <c>Authorization</c> header from the viewer request, you <i>must</i>
         /// add the <c>Authorization</c> header to a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">cache
         /// policy</a> for all cache behaviors that use origins associated with this origin access
+        /// control.</b></para></li><li><para><c>always-amz-auth</c> – CloudFront signs all origin requests with Amazon authentication
+        /// headers. If the viewer request contains the <c>Authorization</c> header, then CloudFront
+        /// also forwards that header to the origin. This value is only valid with Lambda-Web
+        /// origins. <b>WARNING: To forward the <c>Authorization</c> header from the viewer request,
+        /// you <i>must</i> add the <c>Authorization</c> header to a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">cache
+        /// policy</a> for all cache behaviors that use origins associated with this origin access
         /// control.</b></para></li></ul>
         /// </para>
         /// </summary>

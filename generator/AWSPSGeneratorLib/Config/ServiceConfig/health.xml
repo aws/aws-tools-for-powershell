@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceLifecycle" OutputProperty="ServiceLifecycles" Verb="Get" Noun="ServiceLifecycleDetail" PipelineParameter="Filter_Service" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableHealthServiceAccessForOrganization" Verb="Disable" Noun="HealthServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

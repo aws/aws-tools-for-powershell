@@ -184,6 +184,13 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.GuidanceFormat
+        "Get-SHUBRemediationsV2/GuidanceFormat"
+        {
+            $v = "All","AwsCli","Cdk","Cli","CloudFormation","IaC","Python","Template","Terraform"
+            break
+        }
+
         # Amazon.SecurityHub.OrganizationConfigurationConfigurationType
         "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_ConfigurationType"
         {
@@ -302,6 +309,7 @@ $SHUB_map = @{
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "GuidanceFormat"=@("Get-SHUBRemediationsV2")
     "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
@@ -444,6 +452,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
                "Get-SHUBRecommendedPolicyV2",
+               "Get-SHUBRemediationsV2",
                "Get-SHUBResourcesStatisticsV2",
                "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
@@ -457,6 +466,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorList",
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
+               "Get-SHUBExposuresByRemediationV2List",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBFreeTrialStatusesV2List",
                "Get-SHUBInvitationList",

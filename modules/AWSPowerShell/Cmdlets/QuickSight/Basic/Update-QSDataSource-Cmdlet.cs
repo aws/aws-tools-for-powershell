@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String QBusinessParameters_ApplicationArn { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_DatabricksParameters_AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type that you want to use for your connection. This parameter accepts
+        /// OAuth and non-OAuth authentication types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthenticationType")]
+        public Amazon.QuickSight.AuthenticationType DataSourceParameters_DatabricksParameters_AuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter SnowflakeParameters_AuthenticationType
         /// <summary>
         /// <para>
@@ -796,6 +808,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TrinoParameters_Host { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this
+        /// parameter to provide a custom CA certificate bundle for the identity provider when
+        /// the default trust store does not include the required certificates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri
         /// <summary>
         /// <para>
@@ -818,6 +842,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri
+        /// <summary>
+        /// <para>
+        /// <para>The resource uri of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
         #endregion
         
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri
@@ -950,6 +984,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope { get; set; }
         #endregion
         
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope
@@ -1393,6 +1437,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DataSourceParameters_SharePointParameters_TenantId { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl
+        /// <summary>
+        /// <para>
+        /// <para>The token endpoint URL of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl
         /// <summary>
         /// <para>
@@ -1468,6 +1522,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_OracleParameters_UseServiceName")]
         public System.Boolean? OracleParameters_UseServiceName { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the VPC connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
         #endregion
         
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn
@@ -1671,7 +1735,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.BigQueryParameters_ProjectId = this.BigQueryParameters_ProjectId;
             context.ConfluenceParameters_ConfluenceUrl = this.ConfluenceParameters_ConfluenceUrl;
             context.CustomConnectionParameters_ConnectionType = this.CustomConnectionParameters_ConnectionType;
+            context.DataSourceParameters_DatabricksParameters_AuthenticationType = this.DataSourceParameters_DatabricksParameters_AuthenticationType;
             context.DatabricksParameters_Host = this.DatabricksParameters_Host;
+            context.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = this.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+            context.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri = this.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri;
+            context.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = this.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            context.DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope = this.DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope;
+            context.DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl = this.DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl;
             context.DatabricksParameters_Port = this.DatabricksParameters_Port;
             context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
             context.ExasolParameters_Host = this.ExasolParameters_Host;
@@ -2621,51 +2691,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.AuroraPostgreSqlParameters = requestDataSourceParameters_dataSourceParameters_AuroraPostgreSqlParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.DatabricksParameters requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
-            
-             // populate DatabricksParameters
-            var requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_DatabricksParameters = new Amazon.QuickSight.Model.DatabricksParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = null;
-            if (cmdletContext.DatabricksParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = cmdletContext.DatabricksParameters_Host;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Host = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host;
-                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
-            }
-            System.Int32? requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = null;
-            if (cmdletContext.DatabricksParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = cmdletContext.DatabricksParameters_Port.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Port = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port.Value;
-                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = null;
-            if (cmdletContext.DatabricksParameters_SqlEndpointPath != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = cmdletContext.DatabricksParameters_SqlEndpointPath;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.SqlEndpointPath = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath;
-                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_DatabricksParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters != null)
-            {
-                request.DataSourceParameters.DatabricksParameters = requestDataSourceParameters_dataSourceParameters_DatabricksParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.MariaDbParameters requestDataSourceParameters_dataSourceParameters_MariaDbParameters = null;
             
              // populate MariaDbParameters
@@ -3304,6 +3329,141 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_SharePointParameters != null)
             {
                 request.DataSourceParameters.SharePointParameters = requestDataSourceParameters_dataSourceParameters_SharePointParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.DatabricksParameters requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
+            
+             // populate DatabricksParameters
+            var requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_DatabricksParameters = new Amazon.QuickSight.Model.DatabricksParameters();
+            Amazon.QuickSight.AuthenticationType requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_AuthenticationType = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_AuthenticationType = cmdletContext.DataSourceParameters_DatabricksParameters_AuthenticationType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.AuthenticationType = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_AuthenticationType;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = null;
+            if (cmdletContext.DatabricksParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = cmdletContext.DatabricksParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Host = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = null;
+            if (cmdletContext.DatabricksParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = cmdletContext.DatabricksParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Port = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = null;
+            if (cmdletContext.DatabricksParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = cmdletContext.DatabricksParameters_SqlEndpointPath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.SqlEndpointPath = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.OAuthParameters requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters = null;
+            
+             // populate OAuthParameters
+            var requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters = new Amazon.QuickSight.Model.OAuthParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri = cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters.IdentityProviderCACertificatesBundleS3Uri = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri = cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters.IdentityProviderResourceUri = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope = cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters.OAuthScope = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl = cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters.TokenProviderUrl = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.VpcConnectionProperties requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            
+             // populate IdentityProviderVpcConnectionProperties
+            var requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = new Amazon.QuickSight.Model.VpcConnectionProperties();
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = null;
+            if (cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = cmdletContext.DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties.VpcConnectionArn = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters.IdentityProviderVpcConnectionProperties = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_dataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.OAuthParameters = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_dataSourceParameters_DatabricksParameters_OAuthParameters;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_DatabricksParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters != null)
+            {
+                request.DataSourceParameters.DatabricksParameters = requestDataSourceParameters_dataSourceParameters_DatabricksParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
@@ -3970,7 +4130,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String BigQueryParameters_ProjectId { get; set; }
             public System.String ConfluenceParameters_ConfluenceUrl { get; set; }
             public System.String CustomConnectionParameters_ConnectionType { get; set; }
+            public Amazon.QuickSight.AuthenticationType DataSourceParameters_DatabricksParameters_AuthenticationType { get; set; }
             public System.String DatabricksParameters_Host { get; set; }
+            public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri { get; set; }
+            public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
+            public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
+            public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope { get; set; }
+            public System.String DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl { get; set; }
             public System.Int32? DatabricksParameters_Port { get; set; }
             public System.String DatabricksParameters_SqlEndpointPath { get; set; }
             public System.String ExasolParameters_Host { get; set; }

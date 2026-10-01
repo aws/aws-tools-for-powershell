@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>endusermessaging</C2jFilename>
+    <AssemblyName>EndUserMessaging</AssemblyName>
+    <ServiceNounPrefix>EUM</ServiceNounPrefix>
+    <ServiceName>AWS End User Messaging</ServiceName>
+    <ServiceId>EndUserMessaging</ServiceId>
+    <ServiceClientInterface>IAmazonEndUserMessaging</ServiceClientInterface>
+    <ServiceClient>AmazonEndUserMessagingClient</ServiceClient>
+    <ServiceModuleGuid>f04b1531-6f93-473c-bd0c-c756866b7ccd</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBrandProfile" OutputProperty="*" Verb="New" Noun="BrandProfile" ShouldProcessTarget="BrandProfileName" PipelineParameter="BrandProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBrandProfileAttributes" OutputProperty="Attributes" Verb="New" Noun="BrandProfileAttribute" ShouldProcessTarget="BrandProfileId" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBrandProfileFromRegistration" OutputProperty="Results" Verb="New" Noun="BrandProfileFromRegistration" ShouldProcessTarget="RegistrationId,BrandProfileName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotifyCodeConfiguration" OutputProperty="NotifyCodeConfiguration" Verb="New" Noun="NotifyCodeConfiguration" ShouldProcessTarget="NotifyCodeConfigurationName" PipelineParameter="NotifyCodeConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegistrationsFromBrandProfile" OutputProperty="Results" Verb="New" Noun="RegistrationsFromBrandProfile" ShouldProcessTarget="BrandProfileId" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrandProfile" OutputProperty="*" Verb="Remove" Noun="BrandProfile" ShouldProcessTarget="BrandProfileId" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrandProfileAttribute" OutputProperty="*" Verb="Remove" Noun="BrandProfileAttribute" ShouldProcessTarget="BrandProfileId,AttributeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotifyCodeConfiguration" Verb="Remove" Noun="NotifyCodeConfiguration" ShouldProcessTarget="NotifyCodeConfigurationId" PipelineParameter="NotifyCodeConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBrandProfile" OutputProperty="*" Verb="Get" Noun="BrandProfile" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBrandProfileAttribute" OutputProperty="*" Verb="Get" Noun="BrandProfileAttribute" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJob" OutputProperty="*" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNotifyCodeConfiguration" OutputProperty="NotifyCodeConfiguration" Verb="Get" Noun="NotifyCodeConfiguration" PipelineParameter="NotifyCodeConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBrandProfileAttributes" OutputProperty="BrandProfileAttributes" Verb="Get" Noun="BrandProfileAttributeList" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBrandProfiles" OutputProperty="BrandProfiles" Verb="Get" Noun="BrandProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotifyCodeConfigurations" OutputProperty="NotifyCodeConfigurations" Verb="Get" Noun="NotifyCodeConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegistrationsFromBrandProfile" OutputProperty="RegistrationAssociations" Verb="Get" Noun="RegistrationsFromBrandProfileList" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendNotifyCodeVerification" OutputProperty="*" Verb="Send" Noun="NotifyCodeVerification" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrandProfile" OutputProperty="*" Verb="Update" Noun="BrandProfile" ShouldProcessTarget="BrandProfileId" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrandProfileAttribute" OutputProperty="*" Verb="Update" Noun="BrandProfileAttribute" ShouldProcessTarget="BrandProfileId,AttributeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrandProfileFromRegistration" OutputProperty="Results" Verb="Update" Noun="BrandProfileFromRegistration" ShouldProcessTarget="BrandProfileId,RegistrationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotifyCodeConfiguration" OutputProperty="NotifyCodeConfiguration" Verb="Update" Noun="NotifyCodeConfiguration" ShouldProcessTarget="NotifyCodeConfigurationId" PipelineParameter="NotifyCodeConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegistrationsFromBrandProfile" OutputProperty="Results" Verb="Update" Noun="RegistrationsFromBrandProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="BrandProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateNotifyCodeVerification" OutputProperty="Status" Verb="Confirm" Noun="NotifyCodeVerification" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

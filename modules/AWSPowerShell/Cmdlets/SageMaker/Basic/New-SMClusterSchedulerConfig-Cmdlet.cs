@@ -100,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name for the cluster policy.</para>
+        /// <para>The name for the cluster policy. The name must be unique within the SageMaker AI HyperPod
+        /// cluster specified by <c>ClusterArn</c>. You can use the same name in other clusters
+        /// within a Region or across Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

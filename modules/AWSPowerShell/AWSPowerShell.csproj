@@ -554,6 +554,9 @@
     <Reference Include="AWSSDK.EMRServerless">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EndUserMessaging">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EndUserMessaging.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EntityResolution">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.EntityResolution.dll</HintPath>
     </Reference>
@@ -766,6 +769,9 @@
     </Reference>
     <Reference Include="AWSSDK.LambdaMicrovms">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LambdaMicrovms.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LambdaWeb">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LambdaWeb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LaunchWizard">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.LaunchWizard.dll</HintPath>
@@ -1856,6 +1862,9 @@
     <Reference Include="AWSSDK.EMRServerless">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EMRServerless.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EndUserMessaging">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EndUserMessaging.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EntityResolution">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EntityResolution.dll</HintPath>
     </Reference>
@@ -2068,6 +2077,9 @@
     </Reference>
     <Reference Include="AWSSDK.LambdaMicrovms">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LambdaMicrovms.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.LambdaWeb">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LambdaWeb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LaunchWizard">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LaunchWizard.dll</HintPath>

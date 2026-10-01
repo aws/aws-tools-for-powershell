@@ -155,6 +155,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.AuthenticationType
         {
+            ($_ -eq "New-QSDataSource/DataSourceParameters_DatabricksParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_DatabricksParameters_AuthenticationType") -Or
             ($_ -eq "New-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
             ($_ -eq "Update-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
             ($_ -eq "New-QSDataSource/StarburstParameters_AuthenticationType") -Or
@@ -2169,6 +2171,7 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSourceParameters_DatabricksParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_GoogleDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_OneDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_SharePointParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")

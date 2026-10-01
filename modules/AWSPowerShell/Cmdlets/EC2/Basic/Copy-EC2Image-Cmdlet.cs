@@ -105,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether to copy your user-defined AMI tags to the new AMI.</para><para>The following tags are not be copied:</para><ul><li><para>System tags (prefixed with <c>aws:</c>)</para></li><li><para>For public and shared AMIs, user-defined tags that are attached by other Amazon Web
-        /// Services accounts</para></li></ul><para>Default: Your user-defined AMI tags are not copied.</para>
+        /// Services accounts, except tags with the <c>ec2:SharedTag/</c> prefix. For more information
+        /// about tag sharing, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#sharing-tags">Sharing
+        /// tags</a> in the <i>Amazon EC2 User Guide</i>.</para></li></ul><para>Default: Your user-defined AMI tags are not copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -161,6 +161,7 @@ $HLTH_SelectMap = @{
                "Get-HLTHEventsForOrganization",
                "Get-HLTHEventType",
                "Get-HLTHHealthServiceStatusForOrganization",
+               "Get-HLTHServiceLifecycleDetail",
                "Disable-HLTHHealthServiceAccessForOrganization",
                "Enable-HLTHHealthServiceAccessForOrganization")
 }

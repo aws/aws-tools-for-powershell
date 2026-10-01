@@ -1,4 +1,19 @@
-﻿### 5.0.310 (2026-09-30 19:30Z)
+﻿### 5.0.311 (2026-10-01 19:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.346.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon End User Messaging. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EUM and can be listed using the command 'Get-AWSCmdletName -Service EUM'.
+  * Amazon Health
+    * Added cmdlet Get-HLTHServiceLifecycleDetail leveraging the DescribeServiceLifecycle service API.
+  * Amazon Lambda Web. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LWEB and can be listed using the command 'Get-AWSCmdletName -Service LWEB'.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameters DataSourceParameters_DatabricksParameters_AuthenticationType, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope and DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl.
+    * Modified cmdlet Update-QSDataSource: added parameters DataSourceParameters_DatabricksParameters_AuthenticationType, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderCACertificatesBundleS3Uri, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_DatabricksParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_DatabricksParameters_OAuthParameters_OAuthScope and DataSourceParameters_DatabricksParameters_OAuthParameters_TokenProviderUrl.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBExposuresByRemediationV2List leveraging the ListExposuresByRemediationV2 service API.
+    * Added cmdlet Get-SHUBRemediationsV2 leveraging the GetRemediationsV2 service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRWorkflow: added parameter StructuredLogDestination.
+
+### 5.0.310 (2026-09-30 19:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.345.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Confirm-ACCTPhoneNumber leveraging the VerifyPhoneNumber service API.

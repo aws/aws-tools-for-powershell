@@ -15334,8 +15334,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -15614,7 +15614,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_SigningBehavior")
         }
         {
-            $v = "always","never","no-override"
+            $v = "always","always-amz-auth","never","no-override"
             break
         }
 
@@ -30451,12 +30451,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
-               "Add-DDBIndexSchema",
-               "New-DDBTable",
                "New-DDBTableSchema",
+               "Add-DDBIndexSchema",
                "ConvertFrom-DDBItem",
-               "ConvertTo-DDBItem")
+               "Add-DDBKeySchema",
+               "ConvertTo-DDBItem",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -36426,6 +36426,158 @@ $EMRServerless_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMRServerless_SelectCompleters $EMRServerless_SelectMap
+# Argument completions for service AWS End User Messaging
+
+
+$EUM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EndUserMessaging.CodeType
+        {
+            ($_ -eq "New-EUMNotifyCodeConfiguration/CodeConfigurationParameters_CodeType") -Or
+            ($_ -eq "Update-EUMNotifyCodeConfiguration/CodeConfigurationParameters_CodeType") -Or
+            ($_ -eq "Send-EUMNotifyCodeVerification/OverrideCodeConfigurationParameters_CodeType")
+        }
+        {
+            $v = "ALPHA","ALPHANUMERIC","NUMERIC"
+            break
+        }
+
+        # Amazon.EndUserMessaging.JobStatus
+        "Get-EUMJobList/Status"
+        {
+            $v = "FAILED","PROCESSING","SUCCESS"
+            break
+        }
+
+        # Amazon.EndUserMessaging.NotifyChannel
+        "Send-EUMNotifyCodeVerification/Channel"
+        {
+            $v = "TEXT","VOICE","WHATSAPP"
+            break
+        }
+
+        # Amazon.EndUserMessaging.OnAttributeConflict
+        {
+            ($_ -eq "Update-EUMBrandProfileFromRegistration/OnAttributeConflict") -Or
+            ($_ -eq "Update-EUMRegistrationsFromBrandProfile/OnAttributeConflict")
+        }
+        {
+            $v = "PRESERVE","REPLACE"
+            break
+        }
+
+        # Amazon.EndUserMessaging.VoiceMessageBodyTextType
+        {
+            ($_ -eq "New-EUMNotifyCodeConfiguration/ChannelParameters_Voice_VoiceMessageBodyTextType") -Or
+            ($_ -eq "Update-EUMNotifyCodeConfiguration/ChannelParameters_Voice_VoiceMessageBodyTextType") -Or
+            ($_ -eq "Send-EUMNotifyCodeVerification/OverrideChannelParameters_Voice_VoiceMessageBodyTextType")
+        }
+        {
+            $v = "SSML","TEXT"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EUM_map = @{
+    "Channel"=@("Send-EUMNotifyCodeVerification")
+    "ChannelParameters_Voice_VoiceMessageBodyTextType"=@("New-EUMNotifyCodeConfiguration","Update-EUMNotifyCodeConfiguration")
+    "CodeConfigurationParameters_CodeType"=@("New-EUMNotifyCodeConfiguration","Update-EUMNotifyCodeConfiguration")
+    "OnAttributeConflict"=@("Update-EUMBrandProfileFromRegistration","Update-EUMRegistrationsFromBrandProfile")
+    "OverrideChannelParameters_Voice_VoiceMessageBodyTextType"=@("Send-EUMNotifyCodeVerification")
+    "OverrideCodeConfigurationParameters_CodeType"=@("Send-EUMNotifyCodeVerification")
+    "Status"=@("Get-EUMJobList")
+}
+
+_awsArgumentCompleterRegistration $EUM_Completers $EUM_map
+
+$EUM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.EUM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EUM_SelectMap = @{
+    "Select"=@("New-EUMBrandProfile",
+               "New-EUMBrandProfileAttribute",
+               "New-EUMBrandProfileFromRegistration",
+               "New-EUMNotifyCodeConfiguration",
+               "New-EUMRegistrationsFromBrandProfile",
+               "Remove-EUMBrandProfile",
+               "Remove-EUMBrandProfileAttribute",
+               "Remove-EUMNotifyCodeConfiguration",
+               "Get-EUMBrandProfile",
+               "Get-EUMBrandProfileAttribute",
+               "Get-EUMJob",
+               "Get-EUMNotifyCodeConfiguration",
+               "Get-EUMBrandProfileAttributeList",
+               "Get-EUMBrandProfileList",
+               "Get-EUMJobList",
+               "Get-EUMNotifyCodeConfigurationList",
+               "Get-EUMRegistrationsFromBrandProfileList",
+               "Get-EUMResourceTag",
+               "Send-EUMNotifyCodeVerification",
+               "Add-EUMResourceTag",
+               "Remove-EUMResourceTag",
+               "Update-EUMBrandProfile",
+               "Update-EUMBrandProfileAttribute",
+               "Update-EUMBrandProfileFromRegistration",
+               "Update-EUMNotifyCodeConfiguration",
+               "Update-EUMRegistrationsFromBrandProfile",
+               "Confirm-EUMNotifyCodeVerification")
+}
+
+_awsArgumentCompleterRegistration $EUM_SelectCompleters $EUM_SelectMap
 # Argument completions for service AWS Marketplace Entitlement Service
 
 
@@ -41097,8 +41249,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -43475,6 +43627,7 @@ $HLTH_SelectMap = @{
                "Get-HLTHEventsForOrganization",
                "Get-HLTHEventType",
                "Get-HLTHHealthServiceStatusForOrganization",
+               "Get-HLTHServiceLifecycleDetail",
                "Disable-HLTHHealthServiceAccessForOrganization",
                "Enable-HLTHHealthServiceAccessForOrganization")
 }
@@ -52090,6 +52243,160 @@ $LMVM2_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $LMVM2_SelectCompleters $LMVM2_SelectMap
+# Argument completions for service Lambda Web
+
+
+$LWEB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LambdaWeb.ApplicationLogLevel
+        {
+            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel") -Or
+            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel")
+        }
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+
+        # Amazon.LambdaWeb.AuthType
+        {
+            ($_ -eq "New-LWEBWebFunctionEndpoint/AuthType") -Or
+            ($_ -eq "Update-LWEBWebFunctionEndpoint/AuthType") -Or
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AuthType")
+        }
+        {
+            $v = "ApplicationManaged","IamAuth"
+            break
+        }
+
+        # Amazon.LambdaWeb.AutoDeploymentMode
+        {
+            ($_ -eq "New-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
+            ($_ -eq "Update-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AutoDeploymentMode")
+        }
+        {
+            $v = "Disabled","LatestRevision"
+            break
+        }
+
+        # Amazon.LambdaWeb.EndpointType
+        {
+            ($_ -eq "New-LWEBWebFunction/EndpointConfig_EndpointType") -Or
+            ($_ -eq "New-LWEBWebFunctionEndpoint/EndpointType")
+        }
+        {
+            $v = "HomeRegion","MultiRegion","PerRegion"
+            break
+        }
+
+        # Amazon.LambdaWeb.SystemLogLevel
+        {
+            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel") -Or
+            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel")
+        }
+        {
+            $v = "DEBUG","INFO","WARN"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LWEB_map = @{
+    "AuthType"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
+    "AutoDeploymentMode"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
+    "EndpointConfig_AuthType"=@("New-LWEBWebFunction")
+    "EndpointConfig_AutoDeploymentMode"=@("New-LWEBWebFunction")
+    "EndpointConfig_EndpointType"=@("New-LWEBWebFunction")
+    "EndpointType"=@("New-LWEBWebFunctionEndpoint")
+    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunction")
+    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunction")
+    "ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunctionRevision")
+    "ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunctionRevision")
+}
+
+_awsArgumentCompleterRegistration $LWEB_Completers $LWEB_map
+
+$LWEB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LWEB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LWEB_SelectMap = @{
+    "Select"=@("New-LWEBWebFunction",
+               "New-LWEBWebFunctionEndpoint",
+               "New-LWEBWebFunctionRevision",
+               "Remove-LWEBResourcePolicy",
+               "Remove-LWEBWebFunction",
+               "Remove-LWEBWebFunctionEndpoint",
+               "Remove-LWEBWebFunctionRevision",
+               "Get-LWEBResourcePolicy",
+               "Get-LWEBWebAccountSetting",
+               "Get-LWEBWebFunction",
+               "Get-LWEBWebFunctionEndpoint",
+               "Get-LWEBWebFunctionRevision",
+               "Get-LWEBTag",
+               "Get-LWEBWebFunctionEndpointList",
+               "Get-LWEBWebFunctionRevisionList",
+               "Get-LWEBWebFunctionList",
+               "Write-LWEBResourcePolicy",
+               "Add-LWEBResourceTag",
+               "Remove-LWEBResourceTag",
+               "Update-LWEBWebFunctionEndpoint")
+}
+
+_awsArgumentCompleterRegistration $LWEB_SelectCompleters $LWEB_SelectMap
 # Argument completions for service AWS Lambda
 
 
@@ -71641,6 +71948,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.AuthenticationType
         {
+            ($_ -eq "New-QSDataSource/DataSourceParameters_DatabricksParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/DataSourceParameters_DatabricksParameters_AuthenticationType") -Or
             ($_ -eq "New-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
             ($_ -eq "Update-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
             ($_ -eq "New-QSDataSource/StarburstParameters_AuthenticationType") -Or
@@ -73655,6 +73964,7 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSourceParameters_DatabricksParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_GoogleDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_OneDriveParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
     "DataSourceParameters_SharePointParameters_AuthType"=@("New-QSDataSource","Update-QSDataSource")
@@ -79257,17 +79567,17 @@ $S3_SelectMap = @{
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
                "Mount-S3PSDrive",
+               "Dismount-S3PSDrive",
+               "New-S3Bucket",
+               "Read-S3Object",
+               "Copy-S3Object",
                "Write-S3Object",
                "Test-S3Bucket",
-               "Read-S3Object",
+               "Remove-S3Object",
                "Remove-S3Bucket",
-               "Dismount-S3PSDrive",
-               "Get-S3PreSignedURL",
-               "Remove-S3MultipartUpload",
                "Get-S3MultipartUpload",
-               "New-S3Bucket",
-               "Copy-S3Object",
-               "Remove-S3Object")
+               "Remove-S3MultipartUpload",
+               "Get-S3PreSignedURL")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -84495,6 +84805,13 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.GuidanceFormat
+        "Get-SHUBRemediationsV2/GuidanceFormat"
+        {
+            $v = "All","AwsCli","Cdk","Cli","CloudFormation","IaC","Python","Template","Terraform"
+            break
+        }
+
         # Amazon.SecurityHub.OrganizationConfigurationConfigurationType
         "Update-SHUBOrganizationConfiguration/OrganizationConfiguration_ConfigurationType"
         {
@@ -84613,6 +84930,7 @@ $SHUB_map = @{
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "GuidanceFormat"=@("Get-SHUBRemediationsV2")
     "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
@@ -84755,6 +85073,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
                "Get-SHUBRecommendedPolicyV2",
+               "Get-SHUBRemediationsV2",
                "Get-SHUBResourcesStatisticsV2",
                "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
@@ -84768,6 +85087,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorList",
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
+               "Get-SHUBExposuresByRemediationV2List",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBFreeTrialStatusesV2List",
                "Get-SHUBInvitationList",
@@ -95989,44 +96309,6 @@ $XR_SelectMap = @{
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap
 
 
-$AWS_EC2ImageByNameCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
-
-	$keys |
-	Sort-Object -Descending |
-	Where-Object { $_ -like "$wordToComplete*" } |
-	ForEach-Object {
-		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
-	}
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
-
-# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
-# in the service model rather than an enum type, which means by default we cannot auto-generate
-# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
-# and so don't have this problem.
-$AWS_EC2ImageAttributeCompleter = {
-	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Taken from Amazon.EC2.ImageAttributeName
-        "Edit-EC2ImageAttribute/Attribute"
-        {
-            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
-            break
-        }
-    }
-
-    $v |
-    Where-Object { $_ -like "$wordToComplete*" } |
-    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 $AWS_RegionCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -96066,3 +96348,41 @@ $AWS_ProfileNameCompleter = {
 }
 
 _awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+# The attribute name parameter for EC2 apis such as ModifyImageAttribute is modeled as a string
+# in the service model rather than an enum type, which means by default we cannot auto-generate
+# an argument completer. Api's use as DescribeImageAttribute do use an enum type (ImageAttributeName)
+# and so don't have this problem.
+$AWS_EC2ImageAttributeCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Taken from Amazon.EC2.ImageAttributeName
+        "Edit-EC2ImageAttribute/Attribute"
+        {
+            $v = "description","kernel","ramdisk","launchPermission","productCodes","blockDeviceMapping","sriovNetSupport"
+            break
+        }
+    }
+
+    $v |
+    Where-Object { $_ -like "$wordToComplete*" } |
+    ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
