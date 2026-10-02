@@ -57,6 +57,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AcrMapping
+        /// <summary>
+        /// <para>
+        /// <para>A mapping between the authentication context class reference (ACR) levels of your
+        /// user pool and the ACR values of the external OpenID Connect (OIDC) identity provider
+        /// (IdP). This mapping has the same behavior as it does when you create an identity provider.
+        /// Only OIDC IdPs support ACR mapping.</para><para>Setting <c>AcrMapping</c> is available in all feature plans. It isn't restricted to
+        /// the Essentials or Plus feature plan.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AcrMapping { get; set; }
+        #endregion
+        
         #region Parameter AttributeMapping
         /// <summary>
         /// <para>
@@ -238,6 +256,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderResponse, UpdateCGIPIdentityProviderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AcrMapping != null)
+            {
+                context.AcrMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AcrMapping.Keys)
+                {
+                    context.AcrMapping.Add((String)hashKey, (System.String)(this.AcrMapping[hashKey]));
+                }
+            }
             if (this.AttributeMapping != null)
             {
                 context.AttributeMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -288,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderRequest();
             
+            if (cmdletContext.AcrMapping != null)
+            {
+                request.AcrMapping = cmdletContext.AcrMapping;
+            }
             if (cmdletContext.AttributeMapping != null)
             {
                 request.AttributeMapping = cmdletContext.AttributeMapping;
@@ -363,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> AcrMapping { get; set; }
             public Dictionary<System.String, System.String> AttributeMapping { get; set; }
             public List<System.String> IdpIdentifier { get; set; }
             public Dictionary<System.String, System.String> ProviderDetail { get; set; }

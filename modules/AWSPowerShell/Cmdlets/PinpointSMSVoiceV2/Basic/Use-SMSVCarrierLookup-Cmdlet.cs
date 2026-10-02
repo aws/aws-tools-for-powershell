@@ -45,6 +45,20 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EnableCleansing
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the service cleanses the phone number that you provide. When set
+        /// to <c>true</c>, the service normalizes the phone number according to the destination
+        /// country's national numbering plan and dialing rules. The service returns the cleansed
+        /// number in E.164 format in the <c>E164PhoneNumber</c> field and returns the number
+        /// that you provided in the <c>OriginalPhoneNumber</c> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCleansing { get; set; }
+        #endregion
+        
         #region Parameter PhoneNumber
         /// <summary>
         /// <para>
@@ -111,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EnableCleansing = this.EnableCleansing;
             context.PhoneNumber = this.PhoneNumber;
             #if MODULAR
             if (this.PhoneNumber == null && ParameterWasBound(nameof(this.PhoneNumber)))
@@ -134,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             // create request
             var request = new Amazon.PinpointSMSVoiceV2.Model.CarrierLookupRequest();
             
+            if (cmdletContext.EnableCleansing != null)
+            {
+                request.EnableCleansing = cmdletContext.EnableCleansing.Value;
+            }
             if (cmdletContext.PhoneNumber != null)
             {
                 request.PhoneNumber = cmdletContext.PhoneNumber;
@@ -193,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableCleansing { get; set; }
             public System.String PhoneNumber { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

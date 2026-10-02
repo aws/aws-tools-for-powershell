@@ -30,10 +30,16 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Search available phone numbers from aggregator inventory, optionally filtered by pattern.
-    /// If NumberPreference is omitted, returns unfiltered available numbers. Returns empty
-    /// list (not an exception) when no numbers match. ResourceNotFoundException is thrown
-    /// only for invalid RegistrationId (campaign not found).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of phone numbers that are available to request, based on the country,
+    /// capabilities, and number type that you specify. You can optionally provide a number
+    /// preference to return only numbers that match a specific digit pattern.
+    /// 
+    ///  
+    /// <para>
+    /// If no numbers match your search, this operation returns an empty list rather than
+    /// an error. This operation currently supports only <c>TEN_DLC</c> number types in the
+    /// <c>US</c>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVAvailablePhoneNumberList")]
     [OutputType("System.String")]
@@ -93,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter NumberPreference
         /// <summary>
         /// <para>
-        /// <para>Optional. If omitted, returns unfiltered available numbers. Max 1 element for List
-        /// API.</para><para />
+        /// <para>An optional selection preference used to return only phone numbers that match a specific
+        /// digit pattern, such as numbers that start with, end with, or contain a particular
+        /// sequence. You can specify at most one preference. Number preferences apply only to
+        /// <c>TEN_DLC</c> numbers in the <c>US</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.INV
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MarketplacePunchOutPreference_ApprovalRequestRedirectUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL that buyers are redirected to for approval requests in the procurement portal.
+        /// This is only supported for Coupa. When provided together with the procurement portal
+        /// instance endpoint, its host must match the host of that endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MarketplacePunchOutPreference_ApprovalRequestRedirectUrl { get; set; }
+        #endregion
+        
         #region Parameter TestEnvPreference_BuyerDomain
         /// <summary>
         /// <para>
@@ -175,6 +187,17 @@ namespace Amazon.PowerShell.Cmdlets.INV
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Selector_InvoiceUnitArns")]
         public System.String[] Selector_InvoiceUnitArn { get; set; }
+        #endregion
+        
+        #region Parameter MarketplacePunchOutEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether Marketplace PunchOut is enabled for this connection. Defaults to false if
+        /// not provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MarketplacePunchOutEnabled { get; set; }
         #endregion
         
         #region Parameter ProcurementPortalInstanceEndpoint
@@ -406,6 +429,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
             {
                 context.EinvoiceDeliveryPreference_PurchaseOrderDataSource = new List<Amazon.Invoicing.Model.PurchaseOrderDataSource>(this.EinvoiceDeliveryPreference_PurchaseOrderDataSource);
             }
+            context.MarketplacePunchOutEnabled = this.MarketplacePunchOutEnabled;
+            context.MarketplacePunchOutPreference_ApprovalRequestRedirectUrl = this.MarketplacePunchOutPreference_ApprovalRequestRedirectUrl;
             context.ProcurementPortalInstanceEndpoint = this.ProcurementPortalInstanceEndpoint;
             context.ProcurementPortalPreferenceArn = this.ProcurementPortalPreferenceArn;
             #if MODULAR
@@ -532,6 +557,29 @@ namespace Amazon.PowerShell.Cmdlets.INV
             if (requestEinvoiceDeliveryPreferenceIsNull)
             {
                 request.EinvoiceDeliveryPreference = null;
+            }
+            if (cmdletContext.MarketplacePunchOutEnabled != null)
+            {
+                request.MarketplacePunchOutEnabled = cmdletContext.MarketplacePunchOutEnabled.Value;
+            }
+            
+             // populate MarketplacePunchOutPreference
+            var requestMarketplacePunchOutPreferenceIsNull = true;
+            request.MarketplacePunchOutPreference = new Amazon.Invoicing.Model.MarketplacePunchOutPreference();
+            System.String requestMarketplacePunchOutPreference_marketplacePunchOutPreference_ApprovalRequestRedirectUrl = null;
+            if (cmdletContext.MarketplacePunchOutPreference_ApprovalRequestRedirectUrl != null)
+            {
+                requestMarketplacePunchOutPreference_marketplacePunchOutPreference_ApprovalRequestRedirectUrl = cmdletContext.MarketplacePunchOutPreference_ApprovalRequestRedirectUrl;
+            }
+            if (requestMarketplacePunchOutPreference_marketplacePunchOutPreference_ApprovalRequestRedirectUrl != null)
+            {
+                request.MarketplacePunchOutPreference.ApprovalRequestRedirectUrl = requestMarketplacePunchOutPreference_marketplacePunchOutPreference_ApprovalRequestRedirectUrl;
+                requestMarketplacePunchOutPreferenceIsNull = false;
+            }
+             // determine if request.MarketplacePunchOutPreference should be set to null
+            if (requestMarketplacePunchOutPreferenceIsNull)
+            {
+                request.MarketplacePunchOutPreference = null;
             }
             if (cmdletContext.ProcurementPortalInstanceEndpoint != null)
             {
@@ -711,6 +759,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
             public List<System.String> EinvoiceDeliveryPreference_EinvoiceDeliveryDocumentType { get; set; }
             public Amazon.Invoicing.Protocol EinvoiceDeliveryPreference_Protocol { get; set; }
             public List<Amazon.Invoicing.Model.PurchaseOrderDataSource> EinvoiceDeliveryPreference_PurchaseOrderDataSource { get; set; }
+            public System.Boolean? MarketplacePunchOutEnabled { get; set; }
+            public System.String MarketplacePunchOutPreference_ApprovalRequestRedirectUrl { get; set; }
             public System.String ProcurementPortalInstanceEndpoint { get; set; }
             public System.String ProcurementPortalPreferenceArn { get; set; }
             public System.String ProcurementPortalSharedSecret { get; set; }

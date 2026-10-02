@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.100.0",
-    "ProductVersion"    : "4.0.346.0",
+    "ProductVersion"    : "4.0.347.0",
     "CoreVersion"       : "4.0.102.8",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -532,7 +532,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.105.4",
+            "Version" : "4.0.106.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.111.0",
+            "Version" : "4.0.112.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -1468,7 +1468,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "4.0.100.16",
+            "Version" : "4.0.100.17",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -2236,7 +2236,7 @@
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "4.0.102.3",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -2540,7 +2540,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "4.0.104.1",
+            "Version" : "4.0.105.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -3052,7 +3052,7 @@
             "InPreview"               : false
         },
         "Invoicing"                           : {
-            "Version" : "4.0.102.2",
+            "Version" : "4.0.103.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -3356,7 +3356,7 @@
             "InPreview"               : false
         },
         "SecurityAgent"                       : {
-            "Version" : "4.0.109.1",
+            "Version" : "4.0.110.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"
@@ -3516,7 +3516,7 @@
             "InPreview"               : false
         },
         "LambdaWeb"                           : {
-            "Version" : "4.0.100.0",
+            "Version" : "4.0.100.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.102.8"

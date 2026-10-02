@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
 {
     /// <summary>
     /// Removes tags from a web function.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LWEBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

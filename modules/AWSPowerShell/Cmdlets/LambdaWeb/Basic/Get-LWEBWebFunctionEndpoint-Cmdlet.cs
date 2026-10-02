@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// <summary>
     /// Retrieves details about a web function endpoint, including its current state, configuration,
     /// and domain name.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LWEBWebFunctionEndpoint")]
     [OutputType("Amazon.LambdaWeb.Model.GetWebFunctionEndpointResponse")]

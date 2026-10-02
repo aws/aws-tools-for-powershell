@@ -37,10 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     ///  
     /// <para>
     /// To call <c>DescribeTermsByClient</c>, you must have the <c>cognito-idp:DescribeTermsByClient</c>
-    /// Identity and Access Management (IAM) permission. This operation additionally validates
-    /// your permission for <c>cognito-idp:DescribeTerms</c>, the action for . As a result,
-    /// an IAM policy that denies <c>cognito-idp:DescribeTerms</c> also denies requests to
-    /// <c>DescribeTermsByClient</c>.
+    /// Identity and Access Management (IAM) permission. An IAM policy that denies <c>cognito-idp:DescribeTerms</c>
+    /// also denies requests to <c>DescribeTermsByClient</c>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize

@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// <summary>
     /// Adds tags to a web function. If a tag key already exists, the existing value is overwritten
     /// with the new value.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "LWEBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

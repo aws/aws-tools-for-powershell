@@ -347,7 +347,7 @@ $GLUE_Completers = {
         # Amazon.Glue.OAuth2GrantType
         "Test-GLUEConnection/OAuth2Properties_OAuth2GrantType"
         {
-            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
+            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER","REFRESH_TOKEN"
             break
         }
 

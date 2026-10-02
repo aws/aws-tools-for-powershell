@@ -33,6 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// Adds or updates a resource-based policy on a web function. A resource-based policy
     /// grants permissions to other AWS accounts or services to perform actions on the web
     /// function.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "LWEBResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LambdaWeb.Model.PutResourcePolicyResponse")]

@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// <summary>
     /// Deletes a web function revision. You cannot delete a revision that is currently serving
     /// traffic on an endpoint.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LWEBWebFunctionRevision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

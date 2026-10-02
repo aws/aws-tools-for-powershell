@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// <para>
     /// To use this operation, you must have the <c>CreateWebFunction</c> permission on the
     /// web function. You don't need separate permissions for the initial revision or endpoint.
-    /// </para>
+    /// </para><note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "LWEBWebFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LambdaWeb.Model.CreateWebFunctionResponse")]

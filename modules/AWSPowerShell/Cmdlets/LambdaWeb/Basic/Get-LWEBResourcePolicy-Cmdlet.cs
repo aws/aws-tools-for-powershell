@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
 {
     /// <summary>
     /// Retrieves the resource-based policy attached to a web function.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LWEBResourcePolicy")]
     [OutputType("Amazon.LambdaWeb.Model.GetResourcePolicyResponse")]

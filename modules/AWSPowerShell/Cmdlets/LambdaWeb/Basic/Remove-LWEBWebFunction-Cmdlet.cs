@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// To use this operation, you must have the <c>DeleteWebFunction</c> permission on the
     /// web function. You don't need the <c>DeleteWebFunctionRevision</c> or <c>DeleteWebFunctionEndpoint</c>
     /// permission.
-    /// </para>
+    /// </para><note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "LWEBWebFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

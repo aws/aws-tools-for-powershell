@@ -74,6 +74,31 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AcrConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The custom names for the authentication context class reference (ACR) levels in your
+        /// user pool. Amazon Cognito defines four fixed ACR levels that represent increasing
+        /// authentication assurance. The combination of authentication factors that satisfies
+        /// each level is fixed and you can't change it. With this configuration, you customize
+        /// only the URI name that Amazon Cognito reports for each level in the <c>acr</c> token
+        /// claim.</para><para>You can override a subset of the levels. By default, the levels are named <c>urn:cognito:loa:1</c>
+        /// through <c>urn:cognito:loa:4</c>, and Amazon Cognito applies the default name to any
+        /// level that you don't specify. Each name must be unique across all four levels, including
+        /// any default names that apply to levels you don't override. A name can contain any
+        /// character that is valid in a URL or a URN.</para><para>Configuring custom ACR level names requires the Essentials or Plus feature plan. To
+        /// activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+        /// Essentials tier</a> or higher.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AcrConfiguration { get; set; }
+        #endregion
+        
         #region Parameter UserPoolAddOns_AdvancedSecurityMode
         /// <summary>
         /// <para>
@@ -1182,6 +1207,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AccountRecoverySetting_RecoveryMechanism = new List<Amazon.CognitoIdentityProvider.Model.RecoveryOptionType>(this.AccountRecoverySetting_RecoveryMechanism);
             }
+            if (this.AcrConfiguration != null)
+            {
+                context.AcrConfiguration = new Dictionary<System.String, Amazon.CognitoIdentityProvider.Model.AcrLevelConfigType>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AcrConfiguration.Keys)
+                {
+                    context.AcrConfiguration.Add((String)hashKey, (Amazon.CognitoIdentityProvider.Model.AcrLevelConfigType)(this.AcrConfiguration[hashKey]));
+                }
+            }
             context.AdminCreateUserConfig_AllowAdminCreateUserOnly = this.AdminCreateUserConfig_AllowAdminCreateUserOnly;
             context.InviteMessageTemplate_EmailMessage = this.InviteMessageTemplate_EmailMessage;
             context.InviteMessageTemplate_EmailSubject = this.InviteMessageTemplate_EmailSubject;
@@ -1322,6 +1355,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestAccountRecoverySettingIsNull)
             {
                 request.AccountRecoverySetting = null;
+            }
+            if (cmdletContext.AcrConfiguration != null)
+            {
+                request.AcrConfiguration = cmdletContext.AcrConfiguration;
             }
             
              // populate AdminCreateUserConfig
@@ -2294,6 +2331,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CognitoIdentityProvider.Model.RecoveryOptionType> AccountRecoverySetting_RecoveryMechanism { get; set; }
+            public Dictionary<System.String, Amazon.CognitoIdentityProvider.Model.AcrLevelConfigType> AcrConfiguration { get; set; }
             public System.Boolean? AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
             public System.String InviteMessageTemplate_EmailMessage { get; set; }
             public System.String InviteMessageTemplate_EmailSubject { get; set; }

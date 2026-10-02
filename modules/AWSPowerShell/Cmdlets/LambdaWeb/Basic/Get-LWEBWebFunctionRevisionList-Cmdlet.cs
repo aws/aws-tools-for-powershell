@@ -31,7 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
 {
     /// <summary>
     /// Lists revisions for a web function. We recommend using pagination to ensure that the
-    /// operation returns quickly and successfully.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// operation returns quickly and successfully.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LWEBWebFunctionRevisionList")]
     [OutputType("Amazon.LambdaWeb.Model.FunctionRevisionSummary")]

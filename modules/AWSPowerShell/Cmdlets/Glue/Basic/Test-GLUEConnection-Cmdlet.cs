@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The OAuth2 grant type in the CreateConnection request. For example, <c>AUTHORIZATION_CODE</c>,
-        /// <c>JWT_BEARER</c>, or <c>CLIENT_CREDENTIALS</c>.</para>
+        /// <c>JWT_BEARER</c>, <c>REFRESH_TOKEN</c>, or <c>CLIENT_CREDENTIALS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

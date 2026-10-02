@@ -1,4 +1,17 @@
-﻿### 5.0.311 (2026-10-01 19:10Z)
+﻿### 5.0.312 (2026-10-02 19:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.347.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPIdentityProvider: added parameter AcrMapping.
+    * Modified cmdlet New-CGIPUserPool: added parameter AcrConfiguration.
+    * Modified cmdlet Update-CGIPIdentityProvider: added parameter AcrMapping.
+    * Modified cmdlet Update-CGIPUserPool: added parameter AcrConfiguration.
+  * Amazon Invoicing
+    * Modified cmdlet New-INVProcurementPortalPreference: added parameters MarketplacePunchOutEnabled and MarketplacePunchOutPreference_ApprovalRequestRedirectUrl.
+    * Modified cmdlet Write-INVProcurementPortalPreference: added parameters MarketplacePunchOutEnabled and MarketplacePunchOutPreference_ApprovalRequestRedirectUrl.
+  * Amazon Pinpoint SMS Voice V2
+    * Modified cmdlet Use-SMSVCarrierLookup: added parameter EnableCleansing.
+
+### 5.0.311 (2026-10-01 19:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.346.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon End User Messaging. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EUM and can be listed using the command 'Get-AWSCmdletName -Service EUM'.
   * Amazon Health

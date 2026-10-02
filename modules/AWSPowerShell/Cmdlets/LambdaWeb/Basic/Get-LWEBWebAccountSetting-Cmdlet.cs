@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.LWEB
     /// <summary>
     /// Retrieves details about your AWS Lambda Web Functions account settings for the current
     /// AWS Region, including the quotas that apply to web functions and your current usage.
+    /// 
+    ///  <note><para>
+    /// This API is experimental and for internal AWS use only. It is not yet available to
+    /// external customers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LWEBWebAccountSetting")]
     [OutputType("Amazon.LambdaWeb.Model.GetWebAccountSettingsResponse")]

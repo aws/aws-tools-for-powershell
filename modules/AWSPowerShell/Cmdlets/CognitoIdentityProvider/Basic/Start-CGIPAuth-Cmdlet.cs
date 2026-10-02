@@ -125,7 +125,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// parameter if your app client has a client secret. Add <c>DEVICE_KEY</c> if you want
         /// to bypass multi-factor authentication with a remembered device. </para><dl><dt>USER_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PREFERRED_CHALLENGE</c>. If you don't provide a value for <c>PREFERRED_CHALLENGE</c>,
         /// Amazon Cognito responds with the <c>AvailableChallenges</c> parameter that specifies
-        /// the available sign-in methods.</para></li></ul></dd><dt>USER_SRP_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>SRP_A</c> (required)</para></li></ul></dd><dt>USER_PASSWORD_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PASSWORD</c> (required)</para></li></ul></dd><dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt><dd><ul><li><para><c>REFRESH_TOKEN</c>(required)</para></li></ul></dd><dt>CUSTOM_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>ChallengeName: SRP_A</c> (when doing SRP authentication before custom challenges)</para></li><li><para><c>SRP_A: (An SRP_A value)</c> (when doing SRP authentication before custom challenges)</para></li></ul></dd></dl><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// the available sign-in methods.</para></li><li><para><c>TARGET_ACR_VALUES</c>. An optional, space-separated list of the authentication
+        /// context class reference (ACR) level URIs that you want the user to reach. List the
+        /// levels in priority order, from highest to lowest. Amazon Cognito attempts the highest-priority
+        /// level that the user can satisfy, and falls back through the list. Amazon Cognito ignores
+        /// any value that it doesn't recognize. If none of the requested values are valid, Amazon
+        /// Cognito returns an error.</para><para>Requesting step-up authentication with this parameter requires the Essentials or Plus
+        /// feature plan. On a lower feature plan, InitiateAuth returns a FeatureUnavailableInTierException.
+        /// <c>USERNAME</c> is required. When you provide an <c>ACCESS_TOKEN</c>, you must also
+        /// provide <c>TARGET_ACR_VALUES</c>. Amazon Cognito returns an error if you provide an
+        /// <c>ACCESS_TOKEN</c> without <c>TARGET_ACR_VALUES</c>. The <c>USERNAME</c> that you
+        /// provide must match the user that the <c>ACCESS_TOKEN</c> was issued for.</para><para>For more information about step-up authentication and how Amazon Cognito handles multi-factor
+        /// authentication requirements, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-step-up-authentication.html">Step-up
+        /// authentication with ACR and AMR</a> in the <i>Amazon Cognito Developer Guide</i>.</para></li><li><para><c>MAX_AGE</c>. An optional integer that sets the maximum number of seconds allowed
+        /// since the user last authenticated. If the user's most recent authentication is older
+        /// than this value, Amazon Cognito discards the authentication-methods credit from any
+        /// access token that you provide and processes the request as a fresh authentication
+        /// toward the target level. The access token itself remains valid.</para></li></ul></dd><dt>USER_SRP_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>SRP_A</c> (required)</para></li></ul></dd><dt>USER_PASSWORD_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PASSWORD</c> (required)</para></li></ul></dd><dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt><dd><ul><li><para><c>REFRESH_TOKEN</c>(required)</para></li></ul></dd><dt>CUSTOM_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>ChallengeName: SRP_A</c> (when doing SRP authentication before custom challenges)</para></li><li><para><c>SRP_A: (An SRP_A value)</c> (when doing SRP authentication before custom challenges)</para></li></ul></dd></dl><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
         /// secret hash values</a>. For information about <c>DEVICE_KEY</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
         /// with user devices in your user pool</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
