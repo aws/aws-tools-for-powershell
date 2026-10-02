@@ -32,6 +32,8 @@ namespace AWSPowerShellGenerator.Generators
 
         private const string AwsToolsPrefix = "AWS.Tools.";
 
+        // Keep in sync with Amazon.PowerShell.Common.BaseCmdlet.SensitiveDataRedactionMessage
+        // (separate assembly, so it cannot be shared directly).
         private const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
         #endregion
 
