@@ -897,6 +897,68 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             }
         }
 
+        It "Should warn exactly once that MaximumVersion is deprecated when invoked via Update-AWSToolsModule" {
+            # Update-AWSToolsModule emits the deprecation warning itself and forwards -MaximumVersion;
+            # Install detects the Update-AWSToolsModule ancestor frame and suppresses its copy. Call
+            # the real Update so the genuine call stack exercises that detection.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.EC2";    Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act - real Update -> real Install delegation. Redirect the warning stream so warnings
+            # from both Update and the nested Install are captured.
+            $warnings = Update-AWSToolsModule -MaximumVersion ([Version]"5.9999.0") -Confirm:$false -WarningAction Continue @script:InformationActionSplat 3>&1 |
+                Where-Object { $_ -is [System.Management.Automation.WarningRecord] }
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip -Times 1
+            @($warnings | Where-Object { $_.Message -match 'MaximumVersion parameter is deprecated' }).Count | Should -Be 1
+        }
+
+        It "Should not report a cleanup failure when the AWS.Tools.Common warning is stopped by -WarningAction Stop" {
+            # The warning is emitted after the cleanup try/catch, so a stopping warning surfaces as
+            # itself rather than being caught and misreported as "Failed to clean up".
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.S3";     Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act - -Version avoids the earlier unversioned-install warning so Stop hits the Common warning
+            $cleanupErrors = @()
+            $stopped = $null
+            try {
+                Install-AWSToolsModule -Name 'S3' -Version '5.0.286' -Cleanup -Confirm:$false -WarningAction Stop -ErrorAction SilentlyContinue -ErrorVariable cleanupErrors @script:InformationActionSplat
+            }
+            catch {
+                $stopped = $_
+            }
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule -Times 1
+            $stopped | Should -Not -BeNullOrEmpty
+            "$stopped" | Should -Match 'was not specified with -Name'
+            ($cleanupErrors -join "`n") | Should -Not -Match 'Failed to clean up'
+        }
+
         It "Should not accept -SkipCleanup parameter" {
             # Act & Assert
             { Install-AWSToolsModule -SkipCleanup -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat} | Should -Throw

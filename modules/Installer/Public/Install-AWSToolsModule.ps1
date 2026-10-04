@@ -365,7 +365,9 @@ function Install-AWSToolsModule {
                 Write-Warning "The MinimumVersion parameter is deprecated and should no longer be used as it will be removed in the next major version."
             }
             
-            if ($MaximumVersion) {
+            # Update-AWSToolsModule emits this warning itself so it also appears when Update returns
+            # without delegating; skip it here when invoked under Update to avoid printing it twice.
+            if ($MaximumVersion -and (Get-PSCallStack).Command -notcontains 'Update-AWSToolsModule') {
                 Write-Warning "The MaximumVersion parameter is deprecated and should no longer be used as it will be removed in the next major version."
             }
             
@@ -853,6 +855,8 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
             
             # Only call cleanup if we have installed modules and cleanup is requested
             if ($installedModules -and $installedModules.Count -gt 0 -and $Cleanup) {
+                $commonNotSpecified = $false
+                $cleanupSucceeded = $false
                 try {
                     # Use the Modules array directly as ExceptModules (already in correct format)
                     Write-Verbose ("[$($MyInvocation.MyCommand)] Using ExceptModules for cleanup " +
@@ -865,7 +869,6 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     
                     # If Name was specified, only clean up those specific modules
                     # This aligns with V1 behavior and avoids surprising destructive cleanup
-                    $commonNotSpecified = $false
                     if ($Name) {
                         $uninstallParams.Name = $Name
                         Write-Verbose ("[$($MyInvocation.MyCommand)] Cleanup constrained to " +
@@ -875,10 +878,7 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                         # AWS.Tools.Common is automatically included as a shared dependency but,
                         # when not specified, is excluded from cleanup. Customers often don't know
                         # AWS.Tools.Common exists; warn after cleanup runs when it was not specified.
-                        $commonNotSpecified = -not ($Name | Where-Object {
-                            $normalized = if ($_.Contains('.')) { $_ } else { "AWS.Tools.$_" }
-                            $normalized -eq 'AWS.Tools.Common'
-                        })
+                        $commonNotSpecified = (ConvertTo-AWSToolsModuleName -Name $Name) -notcontains 'AWS.Tools.Common'
                     }
                     
                     # Pass WhatIf preference if it's set
@@ -901,11 +901,7 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                     
                     # Call Uninstall-AWSToolsModule for cleanup
                     Uninstall-AWSToolsModule @uninstallParams | Out-Null
-
-                    # Warn after cleanup completes so the message follows the removal summary.
-                    if ($commonNotSpecified) {
-                        Write-Warning "AWS.Tools.Common, a shared dependency installed automatically, was excluded from cleanup because it was not specified with -Name. To clean up its other versions, install all modules with Install-AWSToolsModule, or include AWS.Tools.Common in -Name."
-                    }
+                    $cleanupSucceeded = $true
                 }
                 catch {
                     # Cleanup errors are non-terminating - write error but continue
@@ -913,6 +909,13 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
                         "$($_.Exception.Message)") -ErrorAction Continue
                     Write-Verbose ("[$($MyInvocation.MyCommand)] Cleanup error details: " +
                         "$($_.Exception.ToString())")
+                }
+
+                # Warn after cleanup completes so the message follows the removal summary. Kept
+                # outside the try so a stopping warning (e.g. -WarningAction Stop) is not
+                # misreported as a cleanup failure.
+                if ($cleanupSucceeded -and $commonNotSpecified) {
+                    Write-Warning "AWS.Tools.Common, a shared dependency installed automatically, was excluded from cleanup because it was not specified with -Name. To clean up its other versions, install all modules with Install-AWSToolsModule, or include AWS.Tools.Common in -Name."
                 }
             }
             elseif ($CleanUpLegacyModuleScope) {

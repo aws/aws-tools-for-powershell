@@ -52,6 +52,9 @@ BeforeAll {
             return $null
         }
     }
+}
+
+Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Installer - Update-AWSToolsModule Unit Tests" {
     
     Context "MaximumVersion Parameter Validation" {
         It "Should allow Version and MaximumVersion to be used together when Version <= MaximumVersion" {
@@ -87,8 +90,7 @@ BeforeAll {
         
         It "Should NOT have MinimumVersion parameter" {
             # Act & Assert - MinimumVersion should not be available for Update-AWSToolsModule
-            { Get-Command Update-AWSToolsModule -ParameterName MinimumVersion } | 
-                Should -Throw "*does not have a parameter with the name 'MinimumVersion'*"
+            (Get-Command Update-AWSToolsModule).Parameters.Keys | Should -Not -Contain 'MinimumVersion'
         }
         
         It "Should pass MaximumVersion to Install-AWSToolsModule" {
@@ -104,14 +106,45 @@ BeforeAll {
             Update-AWSToolsModule -MaximumVersion $maxVersion -Confirm:$false -WarningAction SilentlyContinue @script:InformationActionSplat
             
             # Assert
-            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModule -Times 1 -ParameterFilter { 
-                $MaximumVersion -eq $maxVersion 
+            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModule -Times 1 -ParameterFilter {
+                $MaximumVersion -eq $maxVersion
             }
         }
-    }
-}
 
-Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Installer - Update-AWSToolsModule Unit Tests" {
+        It "Should emit the MaximumVersion deprecation warning from Update when delegating" {
+            # Install-AWSToolsModule is mocked in this file, so this only covers Update's own warning.
+            # The Install-AWSToolsModule tests cover real Update -> real Install suppression.
+            # Arrange
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule {
+                @([PSCustomObject]@{ Name = "AWS.Tools.EC2"; Version = [Version]"4.1.850" })
+            }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"4.1.853" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act
+            Update-AWSToolsModule -MaximumVersion ([Version]"5.0.0") -Confirm:$false -WarningAction SilentlyContinue -WarningVariable maxWarn @script:InformationActionSplat
+
+            # Assert
+            Should -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModule -Times 1
+            @($maxWarn | Where-Object { "$_" -match 'MaximumVersion parameter is deprecated' }).Count | Should -Be 1
+        }
+
+        It "Should warn exactly once that MaximumVersion is deprecated when returning early with no installed modules" {
+            # Arrange - no installed modules, so Install-AWSToolsModule is never called
+            Mock -ModuleName AWS.Tools.Installer Get-InstalledAWSToolsModule { $null }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsVersion { return [Version]"4.1.853" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act
+            Update-AWSToolsModule -MaximumVersion ([Version]"5.0.0") -Confirm:$false -WarningAction SilentlyContinue -WarningVariable maxWarn @script:InformationActionSplat
+
+            # Assert
+            Should -Not -Invoke -ModuleName AWS.Tools.Installer Install-AWSToolsModule
+            @($maxWarn | Where-Object { "$_" -match 'MaximumVersion parameter is deprecated' }).Count | Should -Be 1
+        }
+    }
     
     Context "Parameter Set Validation" {
         It "Should prevent using Version and SourceZipPath parameters together" {
