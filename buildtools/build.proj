@@ -173,7 +173,7 @@
         <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore -v:quiet ../tests/modules/TestModule.sln"/>
     </Target>
 
-    <Target Name="run-common-tests" DependsOnTargets="build-modular-modules">
+    <Target Name="run-common-tests" DependsOnTargets="build-modular-modules" Condition="'$(RunTests)'">
         <Message Text="Running .NET generator unit tests"/>
         <Exec Command="dotnet test -c $(Configuration) --no-build -v:quiet ../solutions/AWSPowerShellGenerator.sln" />
 
