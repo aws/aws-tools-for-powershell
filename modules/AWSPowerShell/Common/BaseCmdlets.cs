@@ -164,6 +164,7 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// Redaction text substituted for a Sensitive parameter's value in ShouldProcess confirmation targets so it is never written to host/transcripts/logs.
+        /// Keep in sync with the same literal in AWSPSGeneratorLib FormatGenerator.SensitiveDataRedactionMessage (separate assembly, so it cannot be shared directly).
         /// </summary>
         public const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
 
@@ -219,12 +220,12 @@ namespace Amazon.PowerShell.Common
                     if (string.IsNullOrEmpty(parameterName))
                         return string.Empty;
 
-                    if (IsSensitiveParameter(parameterName, sensitiveParameterNames))
-                        return SensitiveDataRedactionMessage;
-
                     object paramValue;
                     if (!boundParameters.TryGetValue(parameterName, out paramValue) || paramValue == null)
                         return string.Empty;
+
+                    if (IsSensitiveParameter(parameterName, sensitiveParameterNames))
+                        return SensitiveDataRedactionMessage;
 
                     return FormatSingleParameterValue(paramValue, parameterName);
                 }
@@ -237,28 +238,27 @@ namespace Amazon.PowerShell.Common
                     if (string.IsNullOrEmpty(paramName))
                         continue;
 
-                    // Redact sensitive parameters per-field, keeping non-sensitive context intact.
-                    if (IsSensitiveParameter(paramName, sensitiveParameterNames))
-                    {
-                        parameterValues.Add(SensitiveDataRedactionMessage);
-                        continue;
-                    }
-
                     object paramValue;
                     if (boundParameters.TryGetValue(paramName, out paramValue) && paramValue != null)
                     {
+                        if (IsSensitiveParameter(paramName, sensitiveParameterNames))
+                        {
+                            parameterValues.Add(SensitiveDataRedactionMessage);
+                            continue;
+                        }
+
                         // For multiple parameters, if any parameter is an array, use only the first parameter
                         var asEnumerable = paramValue as IEnumerable;
                         if (asEnumerable != null && !(paramValue is string))
                         {
                             // Found an array parameter - use only the first parameter's value
                             var firstParamName = targetParameterNames[0];
-                            if (IsSensitiveParameter(firstParamName, sensitiveParameterNames))
-                                return SensitiveDataRedactionMessage;
-
                             object firstParamValue;
                             if (boundParameters.TryGetValue(firstParamName, out firstParamValue) && firstParamValue != null)
                             {
+                                if (IsSensitiveParameter(firstParamName, sensitiveParameterNames))
+                                    return SensitiveDataRedactionMessage;
+
                                 return FormatSingleParameterValue(firstParamValue, firstParamName);
                             }
                             return string.Empty;
