@@ -87,26 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-LWEBResourceTag', 
-        'Get-LWEBResourcePolicy', 
-        'Get-LWEBTag', 
-        'Get-LWEBWebAccountSetting', 
-        'Get-LWEBWebFunction', 
-        'Get-LWEBWebFunctionEndpoint', 
-        'Get-LWEBWebFunctionEndpointList', 
-        'Get-LWEBWebFunctionList', 
-        'Get-LWEBWebFunctionRevision', 
-        'Get-LWEBWebFunctionRevisionList', 
-        'New-LWEBWebFunction', 
-        'New-LWEBWebFunctionEndpoint', 
-        'New-LWEBWebFunctionRevision', 
-        'Remove-LWEBResourcePolicy', 
-        'Remove-LWEBResourceTag', 
-        'Remove-LWEBWebFunction', 
-        'Remove-LWEBWebFunctionEndpoint', 
-        'Remove-LWEBWebFunctionRevision', 
-        'Update-LWEBWebFunctionEndpoint', 
-        'Write-LWEBResourcePolicy')
+        'Get-LWEBWebAccountSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -75,86 +75,6 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Lambda Web
 
 
-$LWEB_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.LambdaWeb.ApplicationLogLevel
-        {
-            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel") -Or
-            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel")
-        }
-        {
-            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
-            break
-        }
-
-        # Amazon.LambdaWeb.AuthType
-        {
-            ($_ -eq "New-LWEBWebFunctionEndpoint/AuthType") -Or
-            ($_ -eq "Update-LWEBWebFunctionEndpoint/AuthType") -Or
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AuthType")
-        }
-        {
-            $v = "ApplicationManaged","IamAuth"
-            break
-        }
-
-        # Amazon.LambdaWeb.AutoDeploymentMode
-        {
-            ($_ -eq "New-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
-            ($_ -eq "Update-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AutoDeploymentMode")
-        }
-        {
-            $v = "Disabled","LatestRevision"
-            break
-        }
-
-        # Amazon.LambdaWeb.EndpointType
-        {
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_EndpointType") -Or
-            ($_ -eq "New-LWEBWebFunctionEndpoint/EndpointType")
-        }
-        {
-            $v = "HomeRegion","MultiRegion","PerRegion"
-            break
-        }
-
-        # Amazon.LambdaWeb.SystemLogLevel
-        {
-            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel") -Or
-            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel")
-        }
-        {
-            $v = "DEBUG","INFO","WARN"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$LWEB_map = @{
-    "AuthType"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
-    "AutoDeploymentMode"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
-    "EndpointConfig_AuthType"=@("New-LWEBWebFunction")
-    "EndpointConfig_AutoDeploymentMode"=@("New-LWEBWebFunction")
-    "EndpointConfig_EndpointType"=@("New-LWEBWebFunction")
-    "EndpointType"=@("New-LWEBWebFunctionEndpoint")
-    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunction")
-    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunction")
-    "ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunctionRevision")
-    "ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunctionRevision")
-}
-
-_awsArgumentCompleterRegistration $LWEB_Completers $LWEB_map
-
 $LWEB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -203,26 +123,7 @@ $LWEB_SelectCompleters = {
 }
 
 $LWEB_SelectMap = @{
-    "Select"=@("New-LWEBWebFunction",
-               "New-LWEBWebFunctionEndpoint",
-               "New-LWEBWebFunctionRevision",
-               "Remove-LWEBResourcePolicy",
-               "Remove-LWEBWebFunction",
-               "Remove-LWEBWebFunctionEndpoint",
-               "Remove-LWEBWebFunctionRevision",
-               "Get-LWEBResourcePolicy",
-               "Get-LWEBWebAccountSetting",
-               "Get-LWEBWebFunction",
-               "Get-LWEBWebFunctionEndpoint",
-               "Get-LWEBWebFunctionRevision",
-               "Get-LWEBTag",
-               "Get-LWEBWebFunctionEndpointList",
-               "Get-LWEBWebFunctionRevisionList",
-               "Get-LWEBWebFunctionList",
-               "Write-LWEBResourcePolicy",
-               "Add-LWEBResourceTag",
-               "Remove-LWEBResourceTag",
-               "Update-LWEBWebFunctionEndpoint")
+    "Select"=@("Get-LWEBWebAccountSetting")
 }
 
 _awsArgumentCompleterRegistration $LWEB_SelectCompleters $LWEB_SelectMap

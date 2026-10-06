@@ -1,4 +1,9 @@
-﻿### 5.0.312 (2026-10-02 19:21Z)
+﻿### 5.0.313 (2026-10-06 23:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.348.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * LWEB
+    * [Breaking Change] Removed cmdlets Add-LWEBResourceTag, Get-LWEBResourcePolicy, Get-LWEBTag, Get-LWEBWebFunction, Get-LWEBWebFunctionEndpoint, Get-LWEBWebFunctionEndpointList, Get-LWEBWebFunctionList, Get-LWEBWebFunctionRevision, Get-LWEBWebFunctionRevisionList, New-LWEBWebFunction, New-LWEBWebFunctionEndpoint, New-LWEBWebFunctionRevision, Remove-LWEBResourcePolicy, Remove-LWEBResourceTag, Remove-LWEBWebFunction, Remove-LWEBWebFunctionEndpoint, Remove-LWEBWebFunctionRevision, Update-LWEBWebFunctionEndpoint and Write-LWEBResourcePolicy.
+
+### 5.0.312 (2026-10-02 19:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.347.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPIdentityProvider: added parameter AcrMapping.

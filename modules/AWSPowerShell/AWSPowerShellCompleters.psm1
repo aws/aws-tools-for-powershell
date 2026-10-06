@@ -15334,8 +15334,8 @@ $CFN_SelectMap = @{
                "Update-CFNStackSet",
                "Update-CFNTerminationProtection",
                "Test-CFNTemplate",
-               "Test-CFNStack",
-               "Wait-CFNStack")
+               "Wait-CFNStack",
+               "Test-CFNStack")
 }
 
 _awsArgumentCompleterRegistration $CFN_SelectCompleters $CFN_SelectMap
@@ -16478,8 +16478,8 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Search-CSDDocument",
-               "Write-CSDDocument",
+    "Select"=@("Write-CSDDocument",
+               "Search-CSDDocument",
                "Get-CSDSuggestion")
 }
 
@@ -30451,12 +30451,12 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "Add-DDBKeySchema",
                "New-DDBTableSchema",
+               "ConvertFrom-DDBItem",
                "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
-               "New-DDBTable",
-               "ConvertFrom-DDBItem")
+               "Add-DDBKeySchema",
+               "New-DDBTable")
 }
 
 _awsArgumentCompleterRegistration $DDB_SelectCompleters $DDB_SelectMap
@@ -33296,8 +33296,8 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Test-EC2SecurityGroupQuotasForInterface",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2PasswordData",
-               "Get-EC2InstanceMetadata")
+               "Get-EC2InstanceMetadata",
+               "Get-EC2PasswordData")
 }
 
 _awsArgumentCompleterRegistration $EC2_SelectCompleters $EC2_SelectMap
@@ -41249,8 +41249,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Write-GLCArchive",
-               "Read-GLCJobOutput")
+               "Read-GLCJobOutput",
+               "Write-GLCArchive")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -52246,86 +52246,6 @@ _awsArgumentCompleterRegistration $LMVM2_SelectCompleters $LMVM2_SelectMap
 # Argument completions for service Lambda Web
 
 
-$LWEB_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.LambdaWeb.ApplicationLogLevel
-        {
-            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel") -Or
-            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel")
-        }
-        {
-            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
-            break
-        }
-
-        # Amazon.LambdaWeb.AuthType
-        {
-            ($_ -eq "New-LWEBWebFunctionEndpoint/AuthType") -Or
-            ($_ -eq "Update-LWEBWebFunctionEndpoint/AuthType") -Or
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AuthType")
-        }
-        {
-            $v = "ApplicationManaged","IamAuth"
-            break
-        }
-
-        # Amazon.LambdaWeb.AutoDeploymentMode
-        {
-            ($_ -eq "New-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
-            ($_ -eq "Update-LWEBWebFunctionEndpoint/AutoDeploymentMode") -Or
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_AutoDeploymentMode")
-        }
-        {
-            $v = "Disabled","LatestRevision"
-            break
-        }
-
-        # Amazon.LambdaWeb.EndpointType
-        {
-            ($_ -eq "New-LWEBWebFunction/EndpointConfig_EndpointType") -Or
-            ($_ -eq "New-LWEBWebFunctionEndpoint/EndpointType")
-        }
-        {
-            $v = "HomeRegion","MultiRegion","PerRegion"
-            break
-        }
-
-        # Amazon.LambdaWeb.SystemLogLevel
-        {
-            ($_ -eq "New-LWEBWebFunction/RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel") -Or
-            ($_ -eq "New-LWEBWebFunctionRevision/ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel")
-        }
-        {
-            $v = "DEBUG","INFO","WARN"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$LWEB_map = @{
-    "AuthType"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
-    "AutoDeploymentMode"=@("New-LWEBWebFunctionEndpoint","Update-LWEBWebFunctionEndpoint")
-    "EndpointConfig_AuthType"=@("New-LWEBWebFunction")
-    "EndpointConfig_AutoDeploymentMode"=@("New-LWEBWebFunction")
-    "EndpointConfig_EndpointType"=@("New-LWEBWebFunction")
-    "EndpointType"=@("New-LWEBWebFunctionEndpoint")
-    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunction")
-    "RevisionConfig_ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunction")
-    "ServiceConfig_TelemetryConfig_LoggingConfig_ApplicationLogLevel"=@("New-LWEBWebFunctionRevision")
-    "ServiceConfig_TelemetryConfig_LoggingConfig_SystemLogLevel"=@("New-LWEBWebFunctionRevision")
-}
-
-_awsArgumentCompleterRegistration $LWEB_Completers $LWEB_map
-
 $LWEB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -52374,26 +52294,7 @@ $LWEB_SelectCompleters = {
 }
 
 $LWEB_SelectMap = @{
-    "Select"=@("New-LWEBWebFunction",
-               "New-LWEBWebFunctionEndpoint",
-               "New-LWEBWebFunctionRevision",
-               "Remove-LWEBResourcePolicy",
-               "Remove-LWEBWebFunction",
-               "Remove-LWEBWebFunctionEndpoint",
-               "Remove-LWEBWebFunctionRevision",
-               "Get-LWEBResourcePolicy",
-               "Get-LWEBWebAccountSetting",
-               "Get-LWEBWebFunction",
-               "Get-LWEBWebFunctionEndpoint",
-               "Get-LWEBWebFunctionRevision",
-               "Get-LWEBTag",
-               "Get-LWEBWebFunctionEndpointList",
-               "Get-LWEBWebFunctionRevisionList",
-               "Get-LWEBWebFunctionList",
-               "Write-LWEBResourcePolicy",
-               "Add-LWEBResourceTag",
-               "Remove-LWEBResourceTag",
-               "Update-LWEBWebFunctionEndpoint")
+    "Select"=@("Get-LWEBWebAccountSetting")
 }
 
 _awsArgumentCompleterRegistration $LWEB_SelectCompleters $LWEB_SelectMap
@@ -79566,18 +79467,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Test-S3Bucket",
-               "Remove-S3MultipartUpload",
-               "Write-S3Object",
-               "Read-S3Object",
-               "Get-S3PreSignedURL",
-               "Copy-S3Object",
-               "New-S3Bucket",
-               "Remove-S3Bucket",
+               "Mount-S3PSDrive",
                "Get-S3MultipartUpload",
+               "New-S3Bucket",
+               "Copy-S3Object",
+               "Test-S3Bucket",
                "Remove-S3Object",
-               "Dismount-S3PSDrive",
-               "Mount-S3PSDrive")
+               "Get-S3PreSignedURL",
+               "Write-S3Object",
+               "Remove-S3Bucket",
+               "Remove-S3MultipartUpload",
+               "Read-S3Object",
+               "Dismount-S3PSDrive")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -89415,8 +89316,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSRoleWithSAML",
-               "Use-STSWebIdentityRole")
+               "Use-STSWebIdentityRole",
+               "Use-STSRoleWithSAML")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
