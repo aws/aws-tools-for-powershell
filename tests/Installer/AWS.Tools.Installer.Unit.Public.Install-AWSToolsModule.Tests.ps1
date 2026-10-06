@@ -897,6 +897,35 @@ Describe -Skip:$SkipInstallerTests -Tag "Smoke", "Low", "Medium", "High" "Instal
             }
         }
 
+        It "Should not warn about AWS.Tools.Common when cleanup is invoked via Update-AWSToolsModule" {
+            # Update-AWSToolsModule passes the installed module names as -Name. The default mock
+            # reports only AWS.Tools.EC2 installed, so Common is not among them, but Update has no
+            # -Name parameter for the warning's advice to apply to. Call the real Update so the
+            # genuine call stack exercises the detection.
+            Mock -ModuleName AWS.Tools.Installer Test-AWSToolsVersionInstalled { $false }
+            Mock -ModuleName AWS.Tools.Installer Resolve-AWSToolsZipSource { Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "AWS.Tools.zip" }
+            Mock -ModuleName AWS.Tools.Installer Install-AWSToolsModuleFromZip {
+                @{
+                    Version = "5.0.286"
+                    Modules = @(
+                        @{ Name = "AWS.Tools.Common"; Version = "5.0.286" }
+                        @{ Name = "AWS.Tools.EC2";    Version = "5.0.286" }
+                    )
+                }
+            }
+            Mock -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule { }
+            Mock -ModuleName AWS.Tools.Installer Write-Host { }
+
+            # Act - real Update -> real Install delegation. Redirect the warning stream so warnings
+            # from both Update and the nested Install are captured.
+            $warnings = Update-AWSToolsModule -Cleanup -Confirm:$false -WarningAction Continue @script:InformationActionSplat 3>&1 |
+                Where-Object { $_ -is [System.Management.Automation.WarningRecord] }
+
+            # Assert - cleanup ran, but no Common warning
+            Should -Invoke -ModuleName AWS.Tools.Installer Uninstall-AWSToolsModule -Times 1
+            ($warnings.Message -join "`n") | Should -Not -Match 'was not specified with -Name'
+        }
+
         It "Should warn exactly once that MaximumVersion is deprecated when invoked via Update-AWSToolsModule" {
             # Update-AWSToolsModule emits the deprecation warning itself and forwards -MaximumVersion;
             # Install detects the Update-AWSToolsModule ancestor frame and suppresses its copy. Call

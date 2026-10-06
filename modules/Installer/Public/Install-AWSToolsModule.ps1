@@ -913,8 +913,9 @@ To suppress this warning, specify a version constraint. Alternatively, you can s
 
                 # Warn after cleanup completes so the message follows the removal summary. Kept
                 # outside the try so a stopping warning (e.g. -WarningAction Stop) is not
-                # misreported as a cleanup failure.
-                if ($cleanupSucceeded -and $commonNotSpecified) {
+                # misreported as a cleanup failure. Skip when invoked under Update-AWSToolsModule,
+                # which builds -Name from installed modules and has no -Name parameter of its own.
+                if ($cleanupSucceeded -and $commonNotSpecified -and (Get-PSCallStack).Command -notcontains 'Update-AWSToolsModule') {
                     Write-Warning "AWS.Tools.Common, a shared dependency installed automatically, was excluded from cleanup because it was not specified with -Name. To clean up its other versions, install all modules with Install-AWSToolsModule, or include AWS.Tools.Common in -Name."
                 }
             }
