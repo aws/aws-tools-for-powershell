@@ -172,6 +172,21 @@ namespace Amazon.PowerShell.Common
     /// </summary>
     internal static class ICredentialsArgumentsMethods
     {
+        /// <summary>
+        /// Fills a missing login profile region in memory from PowerShell region resolution, which the SDK cannot see.
+        /// SAML profiles also read Region, as their STS region, so profiles with a SAML endpoint are not filled.
+        /// </summary>
+        internal static AWSCredentials GetProfileCredentials(CredentialProfile profile,
+            ICredentialProfileSource profileSource, IAWSRegionArguments regionArguments, SessionState sessionState)
+        {
+            if (profile.Region == null
+                && !string.IsNullOrEmpty(profile.Options?.LoginSession)
+                && string.IsNullOrEmpty(profile.Options.EndpointName))
+                profile.Region = regionArguments.GetRegion(useSDKFallback: false, sessionState);
+
+            return AWSCredentialsFactory.GetAWSCredentials(profile, profileSource);
+        }
+
         public static bool TryGetCredentials(this IAWSCredentialsArguments self, PSHost psHost, out AWSPSCredentials credentials, SessionState sessionState)
         {
             if (self == null) throw new ArgumentNullException("self");
@@ -200,7 +215,9 @@ namespace Amazon.PowerShell.Common
                 CredentialProfile credentialProfile;
                 if (profileChain.TryGetProfile(self.ProfileName, out credentialProfile))
                 {
-                    innerCredentials = AWSCredentialsFactory.GetAWSCredentials(credentialProfile, profileChain);
+                    var regionArguments = self as IAWSRegionArguments
+                        ?? new StandaloneRegionArguments { ProfileLocation = self.ProfileLocation };
+                    innerCredentials = GetProfileCredentials(credentialProfile, profileChain, regionArguments, sessionState);
                     source = CredentialsSource.Profile;
                     name = self.ProfileName;
                     credentialsFilePath = (credentialProfile.CredentialProfileStore as SharedCredentialsFile)?.FilePath;

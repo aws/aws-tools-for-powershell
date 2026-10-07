@@ -17,6 +17,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\modules\ModularAWSPowerShell\AWS.Tools.Common.csproj" />
+    <!-- AWSSDK.Signin is loaded by name at runtime, so it must be copied next to the tests. -->
+    <Reference Include="AWSSDK.Core">
+      <HintPath>..\..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>..\..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.Signin.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

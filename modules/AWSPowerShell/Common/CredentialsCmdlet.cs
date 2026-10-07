@@ -389,7 +389,9 @@ namespace Amazon.PowerShell.Common
                 CredentialProfile profile;
                 if (SettingsStore.TryGetProfile(ProfileName, ProfileLocation, out profile))
                 {
-                    var profileCreds = profile.GetAWSCredentials(profile.CredentialProfileStore);
+                    var regionArguments = new StandaloneRegionArguments { ProfileLocation = ProfileLocation };
+                    var profileCreds = ICredentialsArgumentsMethods.GetProfileCredentials(
+                        profile, profile.CredentialProfileStore, regionArguments, SessionState);
                     if (profileCreds is SSOAWSCredentials ssoAWSCredentials)
                     {
                         ssoAWSCredentials.Options.SupportsGettingNewToken = false;
