@@ -1,0 +1,4 @@
+name: "aws-tools-for-powershell CodeQL config"
+
+paths-ignore:
+  - 'modules/AWSPowerShell/Cmdlets/*/Basic'
