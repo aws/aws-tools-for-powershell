@@ -23,37 +23,45 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.SecurityHub;
+using Amazon.SecurityHub.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> Anywhere
+    /// Cancels a findings export job that is in progress. Security Hub transitions a running
+    /// job to the <c>CANCELLED</c> state and returns the <c>ExportJobId</c> and its new <c>Status</c>.
+    /// Canceling a job that is already in the <c>CANCELLED</c> state succeeds and returns
+    /// the same result, so you can safely retry a cancel request.
     /// 
     ///  
     /// <para>
-    /// Creates a custom location for use in an Anywhere fleet.
+    /// You can't cancel an export job that has already reached a terminal <c>SUCCEEDED</c>
+    /// or <c>FAILED</c> state; in that case, this operation returns a <c>ConflictException</c>.
+    /// If no export job matches the <c>ExportJobId</c> that you provide, this operation returns
+    /// a <c>ResourceNotFoundException</c>.
+    /// </para><para>
+    /// The <c>Status</c> value returned by this operation reflects the cancellation immediately,
+    /// even though the job can take a short time to stop completely.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "GMLLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.GameLift.Model.LocationModel")]
-    [AWSCmdlet("Calls the Amazon GameLift Service CreateLocation API operation.", Operation = new[] {"CreateLocation"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateLocationResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.LocationModel or Amazon.GameLift.Model.CreateLocationResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.LocationModel object.",
-        "The service call response (type Amazon.GameLift.Model.CreateLocationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "SHUBExportJobV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityHub.Model.CancelExportJobV2Response")]
+    [AWSCmdlet("Calls the AWS Security Hub CancelExportJobV2 API operation.", Operation = new[] {"CancelExportJobV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CancelExportJobV2Response))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.CancelExportJobV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.CancelExportJobV2Response object containing multiple properties."
     )]
-    public partial class NewGMLLocationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class StopSHUBExportJobV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter LocationName
+        #region Parameter ExportJobId
         /// <summary>
         /// <para>
-        /// <para>A descriptive name for the custom location.</para>
+        /// <para>The unique identifier of the export job to cancel. This is the value returned by <c>StartExportJobV2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,36 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LocationName { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of labels to assign to the new resource. Tags are developer-defined key-value
-        /// pairs. Tagging Amazon Web Services resources is useful for resource management, access
-        /// management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
+        public System.String ExportJobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Location'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.CreateLocationResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.CreateLocationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.CancelExportJobV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.CancelExportJobV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Location";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -115,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocationName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GMLLocation (CreateLocation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExportJobId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SHUBExportJobV2 (CancelExportJobV2)"))
             {
                 return;
             }
@@ -128,20 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.CreateLocationResponse, NewGMLLocationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.CancelExportJobV2Response, StopSHUBExportJobV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.LocationName = this.LocationName;
+            context.ExportJobId = this.ExportJobId;
             #if MODULAR
-            if (this.LocationName == null && ParameterWasBound(nameof(this.LocationName)))
+            if (this.ExportJobId == null && ParameterWasBound(nameof(this.ExportJobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LocationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExportJobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.CreateLocationRequest();
+            var request = new Amazon.SecurityHub.Model.CancelExportJobV2Request();
             
-            if (cmdletContext.LocationName != null)
+            if (cmdletContext.ExportJobId != null)
             {
-                request.LocationName = cmdletContext.LocationName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.ExportJobId = cmdletContext.ExportJobId;
             }
             
             CmdletOutput output;
@@ -199,12 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.CreateLocationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreateLocationRequest request)
+        private Amazon.SecurityHub.Model.CancelExportJobV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.CancelExportJobV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "CreateLocation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "CancelExportJobV2");
             try
             {
-                return client.CreateLocationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CancelExportJobV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -221,10 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LocationName { get; set; }
-            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.GameLift.Model.CreateLocationResponse, NewGMLLocationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Location;
+            public System.String ExportJobId { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.CancelExportJobV2Response, StopSHUBExportJobV2Cmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

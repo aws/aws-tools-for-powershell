@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
+        /// <para>An Amazon S3 bucket identifier. The name of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
         /// that contain a dot (.).</para></note>
         /// </para>
         /// </summary>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new script resource. Tags are developer-defined
-        /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+        /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
         /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
         /// Once the resource is created, you can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">TagResource</a>,

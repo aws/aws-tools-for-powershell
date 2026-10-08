@@ -383,8 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
         /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
-        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
-        /// specified time period.</para>
+        /// (identified by <c>CreatorId</c>) has created fewer than the game session limit in
+        /// the specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,7 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Configures player gateway for your fleet. Player gateway provides benefits such as
-        /// DDoS protection by rate limiting and validating traﬃc before it reaches game servers,
+        /// DDoS protection by rate limiting and validating traffic before it reaches game servers,
         /// hiding game server IP addresses from players, and providing updated endpoints when
         /// relay endpoints become unhealthy. Note, player gateway is only available for fleets
         /// using server SDK 5.x or later game server builds.</para><para><b>How it works:</b> When enabled, game clients connect to relay endpoints instead
@@ -511,7 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value
-        /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
+        /// pairs. Tagging Amazon Web Services resources is useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

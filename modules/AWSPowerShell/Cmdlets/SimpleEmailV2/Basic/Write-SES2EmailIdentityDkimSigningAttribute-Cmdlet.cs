@@ -65,58 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>The attribute to use for configuring DKIM for the identity depends on the operation:
         /// </para><ol><li><para>For <c>PutEmailIdentityDkimSigningAttributes</c>: </para><ul><li><para>None of the values are allowed - use the <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutEmailIdentityDkimSigningAttributes.html#SES-PutEmailIdentityDkimSigningAttributes-request-SigningAttributesOrigin"><c>SigningAttributesOrigin</c></a> parameter instead </para></li></ul></li><li><para>For <c>CreateEmailIdentity</c> when replicating a parent identity's DKIM configuration:
         /// </para><ul><li><para>Allowed values: All values except <c>AWS_SES</c> and <c>EXTERNAL</c></para></li></ul></li></ol><ul><li><para><c>AWS_SES</c> – Configure DKIM for the identity by using Easy DKIM. </para></li><li><para><c>EXTERNAL</c> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).
-        /// </para></li><li><para><c>AWS_SES_AF_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Africa (Cape Town) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_EU_NORTH_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Europe (Stockholm) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Asia Pacific (Mumbai) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_SOUTH_2</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Asia Pacific (Hyderabad) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_EU_WEST_3</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_WEST_2</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Europe (London) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Europe (Milan) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_WEST_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Europe (Ireland) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_AP_NORTHEAST_3</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Osaka) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_2</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_ME_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Middle East (UAE) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_ME_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Middle East (Bahrain) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Tokyo) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_IL_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Israel (Tel Aviv) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_SA_EAST_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in South America (São Paulo) region using Deterministic Easy-DKIM
-        /// (DEED). </para></li><li><para><c>AWS_SES_CA_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Canada (Central) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_CA_WEST_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in Canada (Calgary) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Singapore) region using Deterministic Easy-DKIM
-        /// (DEED). </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_2</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Sydney) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_3</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Jakarta) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_5</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Asia Pacific (Malaysia) region using Deterministic Easy-DKIM
-        /// (DEED). </para></li><li><para><c>AWS_SES_EU_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_EU_CENTRAL_2</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in Europe (Zurich) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_US_EAST_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in US East (N. Virginia) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_US_EAST_2</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in US East (Ohio) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_US_WEST_1</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_US_WEST_2</c> – Configure DKIM for the identity by replicating from a
-        /// parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_US_GOV_EAST_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in AWS GovCloud (US-East) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li><li><para><c>AWS_SES_US_GOV_WEST_1</c> – Configure DKIM for the identity by replicating from
-        /// a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).
-        /// </para></li></ul>
+        /// </para></li><li><para><c>AWS_SES_&lt;REGION&gt;</c> – Configure DKIM for the identity by replicating the
+        /// signing attributes of a parent identity in another Amazon Web Services Region, using
+        /// <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-deed.html">Deterministic
+        /// Easy-DKIM (DEED)</a>. Replace <c>&lt;REGION&gt;</c> with the Amazon Web Services Region
+        /// of the parent identity, in uppercase with each hyphen replaced by an underscore. You
+        /// can specify any Amazon Web Services Region in which Amazon SES supports DEED. For
+        /// example, to replicate from a parent identity in <c>us-east-1</c>, specify <c>AWS_SES_US_EAST_1</c>.</para><note><para>The parent identity must already exist in the specified Amazon Web Services Region
+        /// and have Easy DKIM configured.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

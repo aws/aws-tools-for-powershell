@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Required parameters <c>GameSessionQueueName</c>, <c>MaximumPlayerSessionCount</c>,
     /// <c>PlacementID</c>.
     /// </para></li><li><para><c>PlayerLatencies</c>. Include a set of latency values for destinations in the queue.
-    /// When a request includes latency data, Amazon GameLift Servers automatically reorder
+    /// When a request includes latency data, Amazon GameLift Servers automatically reorders
     /// the queue's locations priority list based on lowest available latency values. If a
     /// request includes latency data for multiple players, Amazon GameLift Servers calculates
     /// each location's average latency for all players and reorders to find the lowest latency
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to use in the event that Amazon GameLift Servers fails to place the game session in
     /// any of the locations on the override list. 
     /// </para></li></ul></li><li><para>
-    /// Request a placement and prioritized based on a custom list of locations. 
+    /// Request a placement and prioritize based on a custom list of locations. 
     /// </para></li><li><para>
     /// You can request new player sessions for a group of players. Include the <i>DesiredPlayerSessions</i>
     /// parameter and include at minimum a unique player ID for each. You can also include

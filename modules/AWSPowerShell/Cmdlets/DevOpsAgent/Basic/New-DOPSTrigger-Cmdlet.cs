@@ -78,14 +78,76 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public System.String AgentSpaceId { get; set; }
         #endregion
         
+        #region Parameter Condition_Schedule_Spec_TimeRange_Recurrence_Daily
+        /// <summary>
+        /// <para>
+        /// <para>The window recurs every day</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DevOpsAgent.Model.DailyRecurrence Condition_Schedule_Spec_TimeRange_Recurrence_Daily { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth
+        /// <summary>
+        /// <para>
+        /// <para>Day of month the window recurs on</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek
+        /// <summary>
+        /// <para>
+        /// <para>Day of week the window recurs on</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DevOpsAgent.DayOfWeek")]
+        public Amazon.DevOpsAgent.DayOfWeek Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek { get; set; }
+        #endregion
+        
         #region Parameter Condition_Schedule_Expression
         /// <summary>
         /// <para>
-        /// <para>The schedule expression</para>
+        /// <para>EventBridge cron or rate expression. Required for existing request and response compatibility.
+        /// For a structured schedule response, this is the expression derived by Backlog.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Condition_Schedule_Expression { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Schedule_Spec_Cron_Expression
+        /// <summary>
+        /// <para>
+        /// <para>EventBridge cron or rate expression that anchors the flexible window</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Condition_Schedule_Spec_Cron_Expression { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Schedule_Spec_TimeRange_StartAfter
+        /// <summary>
+        /// <para>
+        /// <para>Earliest time of day the trigger may fire</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Condition_Schedule_Spec_TimeRange_StartAfter { get; set; }
+        #endregion
+        
+        #region Parameter Condition_Schedule_Spec_TimeRange_StartBefore
+        /// <summary>
+        /// <para>
+        /// <para>Latest time of day the trigger may fire</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Condition_Schedule_Spec_TimeRange_StartBefore { get; set; }
         #endregion
         
         #region Parameter Status
@@ -187,6 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             #endif
             context.ClientToken = this.ClientToken;
             context.Condition_Schedule_Expression = this.Condition_Schedule_Expression;
+            context.Condition_Schedule_Spec_Cron_Expression = this.Condition_Schedule_Spec_Cron_Expression;
+            context.Condition_Schedule_Spec_TimeRange_Recurrence_Daily = this.Condition_Schedule_Spec_TimeRange_Recurrence_Daily;
+            context.Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth = this.Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth;
+            context.Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek = this.Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek;
+            context.Condition_Schedule_Spec_TimeRange_StartAfter = this.Condition_Schedule_Spec_TimeRange_StartAfter;
+            context.Condition_Schedule_Spec_TimeRange_StartBefore = this.Condition_Schedule_Spec_TimeRange_StartBefore;
             context.Status = this.Status;
             context.Type = this.Type;
             #if MODULAR
@@ -240,6 +308,156 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestCondition_condition_Schedule_condition_Schedule_Expression != null)
             {
                 requestCondition_condition_Schedule.Expression = requestCondition_condition_Schedule_condition_Schedule_Expression;
+                requestCondition_condition_ScheduleIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.ScheduleSpec requestCondition_condition_Schedule_condition_Schedule_Spec = null;
+            
+             // populate Spec
+            var requestCondition_condition_Schedule_condition_Schedule_SpecIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec = new Amazon.DevOpsAgent.Model.ScheduleSpec();
+            Amazon.DevOpsAgent.Model.CronSchedule requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron = null;
+            
+             // populate Cron
+            var requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_CronIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron = new Amazon.DevOpsAgent.Model.CronSchedule();
+            System.String requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron_condition_Schedule_Spec_Cron_Expression = null;
+            if (cmdletContext.Condition_Schedule_Spec_Cron_Expression != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron_condition_Schedule_Spec_Cron_Expression = cmdletContext.Condition_Schedule_Spec_Cron_Expression;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron_condition_Schedule_Spec_Cron_Expression != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron.Expression = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron_condition_Schedule_Spec_Cron_Expression;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_CronIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_CronIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec.Cron = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_Cron;
+                requestCondition_condition_Schedule_condition_Schedule_SpecIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.TimeRangeSchedule requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange = null;
+            
+             // populate TimeRange
+            var requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRangeIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange = new Amazon.DevOpsAgent.Model.TimeRangeSchedule();
+            System.String requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartAfter = null;
+            if (cmdletContext.Condition_Schedule_Spec_TimeRange_StartAfter != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartAfter = cmdletContext.Condition_Schedule_Spec_TimeRange_StartAfter;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartAfter != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange.StartAfter = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartAfter;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRangeIsNull = false;
+            }
+            System.String requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartBefore = null;
+            if (cmdletContext.Condition_Schedule_Spec_TimeRange_StartBefore != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartBefore = cmdletContext.Condition_Schedule_Spec_TimeRange_StartBefore;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartBefore != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange.StartBefore = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_StartBefore;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRangeIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.Recurrence requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence = null;
+            
+             // populate Recurrence
+            var requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_RecurrenceIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence = new Amazon.DevOpsAgent.Model.Recurrence();
+            Amazon.DevOpsAgent.Model.DailyRecurrence requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Daily = null;
+            if (cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Daily != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Daily = cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Daily;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Daily != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence.Daily = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Daily;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_RecurrenceIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.MonthlyRecurrence requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly = null;
+            
+             // populate Monthly
+            var requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_MonthlyIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly = new Amazon.DevOpsAgent.Model.MonthlyRecurrence();
+            System.Int32? requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth = null;
+            if (cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth = cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth.Value;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly.DayOfMonth = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth.Value;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_MonthlyIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_MonthlyIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence.Monthly = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Monthly;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_RecurrenceIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.WeeklyRecurrence requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly = null;
+            
+             // populate Weekly
+            var requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_WeeklyIsNull = true;
+            requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly = new Amazon.DevOpsAgent.Model.WeeklyRecurrence();
+            Amazon.DevOpsAgent.DayOfWeek requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek = null;
+            if (cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek = cmdletContext.Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly.DayOfWeek = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_WeeklyIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_WeeklyIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence.Weekly = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence_condition_Schedule_Spec_TimeRange_Recurrence_Weekly;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_RecurrenceIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_RecurrenceIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange.Recurrence = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange_condition_Schedule_Spec_TimeRange_Recurrence;
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRangeIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRangeIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange != null)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec.TimeRange = requestCondition_condition_Schedule_condition_Schedule_Spec_condition_Schedule_Spec_TimeRange;
+                requestCondition_condition_Schedule_condition_Schedule_SpecIsNull = false;
+            }
+             // determine if requestCondition_condition_Schedule_condition_Schedule_Spec should be set to null
+            if (requestCondition_condition_Schedule_condition_Schedule_SpecIsNull)
+            {
+                requestCondition_condition_Schedule_condition_Schedule_Spec = null;
+            }
+            if (requestCondition_condition_Schedule_condition_Schedule_Spec != null)
+            {
+                requestCondition_condition_Schedule.Spec = requestCondition_condition_Schedule_condition_Schedule_Spec;
                 requestCondition_condition_ScheduleIsNull = false;
             }
              // determine if requestCondition_condition_Schedule should be set to null
@@ -324,6 +542,12 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String AgentSpaceId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Condition_Schedule_Expression { get; set; }
+            public System.String Condition_Schedule_Spec_Cron_Expression { get; set; }
+            public Amazon.DevOpsAgent.Model.DailyRecurrence Condition_Schedule_Spec_TimeRange_Recurrence_Daily { get; set; }
+            public System.Int32? Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth { get; set; }
+            public Amazon.DevOpsAgent.DayOfWeek Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek { get; set; }
+            public System.String Condition_Schedule_Spec_TimeRange_StartAfter { get; set; }
+            public System.String Condition_Schedule_Spec_TimeRange_StartBefore { get; set; }
             public System.String Status { get; set; }
             public System.String Type { get; set; }
             public System.Func<Amazon.DevOpsAgent.Model.CreateTriggerResponse, NewDOPSTriggerCmdlet, object> Select { get; set; } =

@@ -409,6 +409,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
         #endregion
         
+        #region Parameter Configuration_ReleaseManagement_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name for this release management environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ReleaseManagement_Name { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Mcpservergrafana_OrganizationId
         /// <summary>
         /// <para>
@@ -450,6 +460,17 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         public Amazon.DevOpsAgent.GithubRepoOwnerType Configuration_Github_OwnerType { get; set; }
         #endregion
         
+        #region Parameter Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the private connection that supplies the VPC configuration for this release
+        /// management environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Azuredevops_ProjectId
         /// <summary>
         /// <para>
@@ -488,6 +509,28 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Gitlab_ProjectPath { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Github_ReleaseManagementAssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the release management association that this repository maps to
+        /// for automatic verification testing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Github_ReleaseManagementAssociationId { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Gitlab_ReleaseManagementAssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the release management association that this project maps to for
+        /// automatic verification testing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_Gitlab_ReleaseManagementAssociationId { get; set; }
         #endregion
         
         #region Parameter Configuration_Remoteagent
@@ -555,6 +598,16 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Configuration_Slack_Bidirectional_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Role ARN that AWS DevOps Agent assumes at runtime to connect to your VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn { get; set; }
         #endregion
         
         #region Parameter ServiceId
@@ -807,12 +860,14 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             context.Configuration_Github_InstanceIdentifier = this.Configuration_Github_InstanceIdentifier;
             context.Configuration_Github_Owner = this.Configuration_Github_Owner;
             context.Configuration_Github_OwnerType = this.Configuration_Github_OwnerType;
+            context.Configuration_Github_ReleaseManagementAssociationId = this.Configuration_Github_ReleaseManagementAssociationId;
             context.Configuration_Github_RepoId = this.Configuration_Github_RepoId;
             context.Configuration_Github_RepoName = this.Configuration_Github_RepoName;
             context.Configuration_Github_RuntimeRoleArn = this.Configuration_Github_RuntimeRoleArn;
             context.Configuration_Gitlab_InstanceIdentifier = this.Configuration_Gitlab_InstanceIdentifier;
             context.Configuration_Gitlab_ProjectId = this.Configuration_Gitlab_ProjectId;
             context.Configuration_Gitlab_ProjectPath = this.Configuration_Gitlab_ProjectPath;
+            context.Configuration_Gitlab_ReleaseManagementAssociationId = this.Configuration_Gitlab_ReleaseManagementAssociationId;
             context.Configuration_Gitlab_RuntimeRoleArn = this.Configuration_Gitlab_RuntimeRoleArn;
             if (this.Configuration_Mcpserver_ToolDetail != null)
             {
@@ -852,6 +907,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             {
                 context.Configuration_Pagerduty_Service = new List<System.String>(this.Configuration_Pagerduty_Service);
             }
+            context.Configuration_ReleaseManagement_Name = this.Configuration_ReleaseManagement_Name;
+            context.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName = this.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName;
+            context.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn = this.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn;
             context.Configuration_Remoteagent = this.Configuration_Remoteagent;
             context.Configuration_Remoteagentsigv4 = this.Configuration_Remoteagentsigv4;
             if (this.Configuration_Servicenow_AuthScope != null)
@@ -1173,6 +1231,81 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Pagerduty = requestConfiguration_configuration_Pagerduty;
                 requestConfigurationIsNull = false;
             }
+            Amazon.DevOpsAgent.Model.ReleaseManagementConfiguration requestConfiguration_configuration_ReleaseManagement = null;
+            
+             // populate ReleaseManagement
+            var requestConfiguration_configuration_ReleaseManagementIsNull = true;
+            requestConfiguration_configuration_ReleaseManagement = new Amazon.DevOpsAgent.Model.ReleaseManagementConfiguration();
+            System.String requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_Name = null;
+            if (cmdletContext.Configuration_ReleaseManagement_Name != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_Name = cmdletContext.Configuration_ReleaseManagement_Name;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_Name != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement.Name = requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_Name;
+                requestConfiguration_configuration_ReleaseManagementIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.NetworkAccessConfiguration requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess = null;
+            
+             // populate NetworkAccess
+            var requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccessIsNull = true;
+            requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess = new Amazon.DevOpsAgent.Model.NetworkAccessConfiguration();
+            Amazon.DevOpsAgent.Model.PrivateNetworkAccess requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess = null;
+            
+             // populate PrivateAccess
+            var requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccessIsNull = true;
+            requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess = new Amazon.DevOpsAgent.Model.PrivateNetworkAccess();
+            System.String requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName = null;
+            if (cmdletContext.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName = cmdletContext.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess.PrivateConnectionName = requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName;
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccessIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn = null;
+            if (cmdletContext.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn = cmdletContext.Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess.RuntimeRoleArn = requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn;
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccessIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess should be set to null
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccessIsNull)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess = null;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess.PrivateAccess = requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess_configuration_ReleaseManagement_NetworkAccess_PrivateAccess;
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccessIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess should be set to null
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccessIsNull)
+            {
+                requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess = null;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess != null)
+            {
+                requestConfiguration_configuration_ReleaseManagement.NetworkAccess = requestConfiguration_configuration_ReleaseManagement_configuration_ReleaseManagement_NetworkAccess;
+                requestConfiguration_configuration_ReleaseManagementIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ReleaseManagement should be set to null
+            if (requestConfiguration_configuration_ReleaseManagementIsNull)
+            {
+                requestConfiguration_configuration_ReleaseManagement = null;
+            }
+            if (requestConfiguration_configuration_ReleaseManagement != null)
+            {
+                request.Configuration.ReleaseManagement = requestConfiguration_configuration_ReleaseManagement;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DevOpsAgent.Model.ServiceNowConfiguration requestConfiguration_configuration_Servicenow = null;
             
              // populate Servicenow
@@ -1251,61 +1384,6 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_Azuredevops != null)
             {
                 request.Configuration.Azuredevops = requestConfiguration_configuration_Azuredevops;
-                requestConfigurationIsNull = false;
-            }
-            Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
-            
-             // populate Gitlab
-            var requestConfiguration_configuration_GitlabIsNull = true;
-            requestConfiguration_configuration_Gitlab = new Amazon.DevOpsAgent.Model.GitLabConfiguration();
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = null;
-            if (cmdletContext.Configuration_Gitlab_InstanceIdentifier != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = cmdletContext.Configuration_Gitlab_InstanceIdentifier;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier != null)
-            {
-                requestConfiguration_configuration_Gitlab.InstanceIdentifier = requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = null;
-            if (cmdletContext.Configuration_Gitlab_ProjectId != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = cmdletContext.Configuration_Gitlab_ProjectId;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId != null)
-            {
-                requestConfiguration_configuration_Gitlab.ProjectId = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = null;
-            if (cmdletContext.Configuration_Gitlab_ProjectPath != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = cmdletContext.Configuration_Gitlab_ProjectPath;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath != null)
-            {
-                requestConfiguration_configuration_Gitlab.ProjectPath = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = null;
-            if (cmdletContext.Configuration_Gitlab_RuntimeRoleArn != null)
-            {
-                requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = cmdletContext.Configuration_Gitlab_RuntimeRoleArn;
-            }
-            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn != null)
-            {
-                requestConfiguration_configuration_Gitlab.RuntimeRoleArn = requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn;
-                requestConfiguration_configuration_GitlabIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Gitlab should be set to null
-            if (requestConfiguration_configuration_GitlabIsNull)
-            {
-                requestConfiguration_configuration_Gitlab = null;
-            }
-            if (requestConfiguration_configuration_Gitlab != null)
-            {
-                request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.MCPServerGrafanaConfiguration requestConfiguration_configuration_Mcpservergrafana = null;
@@ -1583,79 +1661,69 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
                 request.Configuration.Aws = requestConfiguration_configuration_Aws;
                 requestConfigurationIsNull = false;
             }
-            Amazon.DevOpsAgent.Model.GitHubConfiguration requestConfiguration_configuration_Github = null;
+            Amazon.DevOpsAgent.Model.GitLabConfiguration requestConfiguration_configuration_Gitlab = null;
             
-             // populate Github
-            var requestConfiguration_configuration_GithubIsNull = true;
-            requestConfiguration_configuration_Github = new Amazon.DevOpsAgent.Model.GitHubConfiguration();
-            System.String requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier = null;
-            if (cmdletContext.Configuration_Github_InstanceIdentifier != null)
+             // populate Gitlab
+            var requestConfiguration_configuration_GitlabIsNull = true;
+            requestConfiguration_configuration_Gitlab = new Amazon.DevOpsAgent.Model.GitLabConfiguration();
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = null;
+            if (cmdletContext.Configuration_Gitlab_InstanceIdentifier != null)
             {
-                requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier = cmdletContext.Configuration_Github_InstanceIdentifier;
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier = cmdletContext.Configuration_Gitlab_InstanceIdentifier;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier != null)
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier != null)
             {
-                requestConfiguration_configuration_Github.InstanceIdentifier = requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier;
-                requestConfiguration_configuration_GithubIsNull = false;
+                requestConfiguration_configuration_Gitlab.InstanceIdentifier = requestConfiguration_configuration_Gitlab_configuration_Gitlab_InstanceIdentifier;
+                requestConfiguration_configuration_GitlabIsNull = false;
             }
-            System.String requestConfiguration_configuration_Github_configuration_Github_Owner = null;
-            if (cmdletContext.Configuration_Github_Owner != null)
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = null;
+            if (cmdletContext.Configuration_Gitlab_ProjectId != null)
             {
-                requestConfiguration_configuration_Github_configuration_Github_Owner = cmdletContext.Configuration_Github_Owner;
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId = cmdletContext.Configuration_Gitlab_ProjectId;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_Owner != null)
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId != null)
             {
-                requestConfiguration_configuration_Github.Owner = requestConfiguration_configuration_Github_configuration_Github_Owner;
-                requestConfiguration_configuration_GithubIsNull = false;
+                requestConfiguration_configuration_Gitlab.ProjectId = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectId;
+                requestConfiguration_configuration_GitlabIsNull = false;
             }
-            Amazon.DevOpsAgent.GithubRepoOwnerType requestConfiguration_configuration_Github_configuration_Github_OwnerType = null;
-            if (cmdletContext.Configuration_Github_OwnerType != null)
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = null;
+            if (cmdletContext.Configuration_Gitlab_ProjectPath != null)
             {
-                requestConfiguration_configuration_Github_configuration_Github_OwnerType = cmdletContext.Configuration_Github_OwnerType;
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath = cmdletContext.Configuration_Gitlab_ProjectPath;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_OwnerType != null)
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath != null)
             {
-                requestConfiguration_configuration_Github.OwnerType = requestConfiguration_configuration_Github_configuration_Github_OwnerType;
-                requestConfiguration_configuration_GithubIsNull = false;
+                requestConfiguration_configuration_Gitlab.ProjectPath = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ProjectPath;
+                requestConfiguration_configuration_GitlabIsNull = false;
             }
-            System.String requestConfiguration_configuration_Github_configuration_Github_RepoId = null;
-            if (cmdletContext.Configuration_Github_RepoId != null)
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_ReleaseManagementAssociationId = null;
+            if (cmdletContext.Configuration_Gitlab_ReleaseManagementAssociationId != null)
             {
-                requestConfiguration_configuration_Github_configuration_Github_RepoId = cmdletContext.Configuration_Github_RepoId;
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_ReleaseManagementAssociationId = cmdletContext.Configuration_Gitlab_ReleaseManagementAssociationId;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_RepoId != null)
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_ReleaseManagementAssociationId != null)
             {
-                requestConfiguration_configuration_Github.RepoId = requestConfiguration_configuration_Github_configuration_Github_RepoId;
-                requestConfiguration_configuration_GithubIsNull = false;
+                requestConfiguration_configuration_Gitlab.ReleaseManagementAssociationId = requestConfiguration_configuration_Gitlab_configuration_Gitlab_ReleaseManagementAssociationId;
+                requestConfiguration_configuration_GitlabIsNull = false;
             }
-            System.String requestConfiguration_configuration_Github_configuration_Github_RepoName = null;
-            if (cmdletContext.Configuration_Github_RepoName != null)
+            System.String requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = null;
+            if (cmdletContext.Configuration_Gitlab_RuntimeRoleArn != null)
             {
-                requestConfiguration_configuration_Github_configuration_Github_RepoName = cmdletContext.Configuration_Github_RepoName;
+                requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn = cmdletContext.Configuration_Gitlab_RuntimeRoleArn;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_RepoName != null)
+            if (requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn != null)
             {
-                requestConfiguration_configuration_Github.RepoName = requestConfiguration_configuration_Github_configuration_Github_RepoName;
-                requestConfiguration_configuration_GithubIsNull = false;
+                requestConfiguration_configuration_Gitlab.RuntimeRoleArn = requestConfiguration_configuration_Gitlab_configuration_Gitlab_RuntimeRoleArn;
+                requestConfiguration_configuration_GitlabIsNull = false;
             }
-            System.String requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = null;
-            if (cmdletContext.Configuration_Github_RuntimeRoleArn != null)
+             // determine if requestConfiguration_configuration_Gitlab should be set to null
+            if (requestConfiguration_configuration_GitlabIsNull)
             {
-                requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = cmdletContext.Configuration_Github_RuntimeRoleArn;
+                requestConfiguration_configuration_Gitlab = null;
             }
-            if (requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn != null)
+            if (requestConfiguration_configuration_Gitlab != null)
             {
-                requestConfiguration_configuration_Github.RuntimeRoleArn = requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn;
-                requestConfiguration_configuration_GithubIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Github should be set to null
-            if (requestConfiguration_configuration_GithubIsNull)
-            {
-                requestConfiguration_configuration_Github = null;
-            }
-            if (requestConfiguration_configuration_Github != null)
-            {
-                request.Configuration.Github = requestConfiguration_configuration_Github;
+                request.Configuration.Gitlab = requestConfiguration_configuration_Gitlab;
                 requestConfigurationIsNull = false;
             }
             Amazon.DevOpsAgent.Model.SourceAwsConfiguration requestConfiguration_configuration_SourceAws = null;
@@ -1731,6 +1799,91 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             if (requestConfiguration_configuration_SourceAws != null)
             {
                 request.Configuration.SourceAws = requestConfiguration_configuration_SourceAws;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DevOpsAgent.Model.GitHubConfiguration requestConfiguration_configuration_Github = null;
+            
+             // populate Github
+            var requestConfiguration_configuration_GithubIsNull = true;
+            requestConfiguration_configuration_Github = new Amazon.DevOpsAgent.Model.GitHubConfiguration();
+            System.String requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier = null;
+            if (cmdletContext.Configuration_Github_InstanceIdentifier != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier = cmdletContext.Configuration_Github_InstanceIdentifier;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier != null)
+            {
+                requestConfiguration_configuration_Github.InstanceIdentifier = requestConfiguration_configuration_Github_configuration_Github_InstanceIdentifier;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Github_configuration_Github_Owner = null;
+            if (cmdletContext.Configuration_Github_Owner != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_Owner = cmdletContext.Configuration_Github_Owner;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_Owner != null)
+            {
+                requestConfiguration_configuration_Github.Owner = requestConfiguration_configuration_Github_configuration_Github_Owner;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            Amazon.DevOpsAgent.GithubRepoOwnerType requestConfiguration_configuration_Github_configuration_Github_OwnerType = null;
+            if (cmdletContext.Configuration_Github_OwnerType != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_OwnerType = cmdletContext.Configuration_Github_OwnerType;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_OwnerType != null)
+            {
+                requestConfiguration_configuration_Github.OwnerType = requestConfiguration_configuration_Github_configuration_Github_OwnerType;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Github_configuration_Github_ReleaseManagementAssociationId = null;
+            if (cmdletContext.Configuration_Github_ReleaseManagementAssociationId != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_ReleaseManagementAssociationId = cmdletContext.Configuration_Github_ReleaseManagementAssociationId;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_ReleaseManagementAssociationId != null)
+            {
+                requestConfiguration_configuration_Github.ReleaseManagementAssociationId = requestConfiguration_configuration_Github_configuration_Github_ReleaseManagementAssociationId;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Github_configuration_Github_RepoId = null;
+            if (cmdletContext.Configuration_Github_RepoId != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_RepoId = cmdletContext.Configuration_Github_RepoId;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_RepoId != null)
+            {
+                requestConfiguration_configuration_Github.RepoId = requestConfiguration_configuration_Github_configuration_Github_RepoId;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Github_configuration_Github_RepoName = null;
+            if (cmdletContext.Configuration_Github_RepoName != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_RepoName = cmdletContext.Configuration_Github_RepoName;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_RepoName != null)
+            {
+                requestConfiguration_configuration_Github.RepoName = requestConfiguration_configuration_Github_configuration_Github_RepoName;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+            System.String requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = null;
+            if (cmdletContext.Configuration_Github_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn = cmdletContext.Configuration_Github_RuntimeRoleArn;
+            }
+            if (requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn != null)
+            {
+                requestConfiguration_configuration_Github.RuntimeRoleArn = requestConfiguration_configuration_Github_configuration_Github_RuntimeRoleArn;
+                requestConfiguration_configuration_GithubIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Github should be set to null
+            if (requestConfiguration_configuration_GithubIsNull)
+            {
+                requestConfiguration_configuration_Github = null;
+            }
+            if (requestConfiguration_configuration_Github != null)
+            {
+                request.Configuration.Github = requestConfiguration_configuration_Github;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -1814,6 +1967,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Configuration_Github_InstanceIdentifier { get; set; }
             public System.String Configuration_Github_Owner { get; set; }
             public Amazon.DevOpsAgent.GithubRepoOwnerType Configuration_Github_OwnerType { get; set; }
+            public System.String Configuration_Github_ReleaseManagementAssociationId { get; set; }
             public System.String Configuration_Github_RepoId { get; set; }
             public System.String Configuration_Github_RepoName { get; set; }
             [System.ObsoleteAttribute]
@@ -1821,6 +1975,7 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public System.String Configuration_Gitlab_InstanceIdentifier { get; set; }
             public System.String Configuration_Gitlab_ProjectId { get; set; }
             public System.String Configuration_Gitlab_ProjectPath { get; set; }
+            public System.String Configuration_Gitlab_ReleaseManagementAssociationId { get; set; }
             [System.ObsoleteAttribute]
             public System.String Configuration_Gitlab_RuntimeRoleArn { get; set; }
             public List<Amazon.DevOpsAgent.Model.MCPToolDetail> Configuration_Mcpserver_ToolDetail { get; set; }
@@ -1837,6 +1992,9 @@ namespace Amazon.PowerShell.Cmdlets.DOPS
             public Amazon.DevOpsAgent.Model.MCPServerSplunkConfiguration Configuration_Mcpserversplunk { get; set; }
             public System.String Configuration_Pagerduty_CustomerEmail { get; set; }
             public List<System.String> Configuration_Pagerduty_Service { get; set; }
+            public System.String Configuration_ReleaseManagement_Name { get; set; }
+            public System.String Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName { get; set; }
+            public System.String Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn { get; set; }
             public Amazon.DevOpsAgent.Model.RemoteAgentConfiguration Configuration_Remoteagent { get; set; }
             public Amazon.DevOpsAgent.Model.RemoteAgentSigV4Configuration Configuration_Remoteagentsigv4 { get; set; }
             public List<System.String> Configuration_Servicenow_AuthScope { get; set; }

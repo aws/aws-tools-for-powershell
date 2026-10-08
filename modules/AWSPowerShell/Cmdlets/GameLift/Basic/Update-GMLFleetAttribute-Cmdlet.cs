@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the updated fleet.
     /// </para><note><para>
     /// A managed fleet's runtime environment, which depends on the fleet's Amazon Machine
-    /// Image {AMI} version, can't be updated. You must create a new fleet. As a best practice,
+    /// Image (AMI) version, can't be updated. You must create a new fleet. As a best practice,
     /// we recommend replacing your managed fleets every 30 days to maintain a secure and
     /// up-to-date runtime environment for your hosted game servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
     /// Security best practices for Amazon GameLift Servers</a>.
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
         /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
-        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
-        /// specified time period.</para>
+        /// (identified by <c>CreatorId</c>) has created fewer than the game session limit in
+        /// the specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// rolling back an update</a> in the <i>CloudFormation User Guide</i>. For information
     /// for troubleshooting a failed update rollback, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">Update
     /// rollback failed</a>.
+    /// </para><para><c>ForceRollback</c> and <c>ResourcesToSkip</c> are mutually exclusive. For details,
+    /// see <a>ContinueUpdateRollbackInput$ForceRollback</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Resume", "CFNUpdateRollback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,6 +75,29 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter ForceRollback
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether CloudFormation forces the rollback to continue by skipping resources
+        /// currently in the <c>UPDATE_FAILED</c> state. Use this instead of listing each resource
+        /// individually in <c>ResourcesToSkip</c>. Only resources that entered the <c>UPDATE_FAILED</c>
+        /// state because a rollback failed are skipped. If you don't specify a value, the default
+        /// is <c>false</c> and CloudFormation doesn't skip any resources.</para><para><c>ForceRollback</c> and <c>ResourcesToSkip</c> are mutually exclusive. Specifying
+        /// both in the same request returns a validation error.</para><important><para>We recommend that you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">troubleshoot</a>
+        /// resources before skipping them. CloudFormation sets the status of the skipped resources
+        /// to <c>UPDATE_COMPLETE</c> and continues to roll back the stack, including resources
+        /// in nested stacks. After the rollback completes, the skipped resources no longer match
+        /// the resources in the stack template. Before performing another stack update, you must
+        /// update the stack or resources to be consistent with each other. If you don't, subsequent
+        /// stack updates might fail, and the stack will become unrecoverable.</para><para>Drift detection reports skipped resources as <c>NOT_CHECKED</c>. For guidance, see
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue
+        /// rolling back an update</a> in the <i>CloudFormation User Guide</i>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceRollback { get; set; }
         #endregion
         
         #region Parameter ResourcesToSkip
@@ -192,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ForceRollback = this.ForceRollback;
             if (this.ResourcesToSkip != null)
             {
                 context.ResourcesToSkip = new List<System.String>(this.ResourcesToSkip);
@@ -223,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ForceRollback != null)
+            {
+                request.ForceRollback = cmdletContext.ForceRollback.Value;
             }
             if (cmdletContext.ResourcesToSkip != null)
             {
@@ -292,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? ForceRollback { get; set; }
             public List<System.String> ResourcesToSkip { get; set; }
             public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }

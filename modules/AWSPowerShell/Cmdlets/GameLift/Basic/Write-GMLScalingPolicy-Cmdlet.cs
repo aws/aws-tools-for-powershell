@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Name of the Amazon GameLift Servers-defined metric that is used to trigger a scaling
         /// adjustment. For detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor
         /// Amazon GameLift Servers with Amazon CloudWatch</a>. </para><ul><li><para><b>ActivatingGameSessions</b> -- Game sessions in the process of being created.</para></li><li><para><b>ActiveGameSessions</b> -- Game sessions that are currently running.</para></li><li><para><b>ActiveInstances</b> -- Fleet instances that are currently running at least one
-        /// game session.</para></li><li><para><b>AvailableGameSessions</b> -- Additional game sessions that fleet could host simultaneously,
-        /// given current capacity.</para></li><li><para><b>AvailablePlayerSessions</b> -- Empty player slots in currently active game sessions.
+        /// game session.</para></li><li><para><b>AvailableGameSessions</b> -- Additional game sessions that a fleet could host
+        /// simultaneously, given current capacity.</para></li><li><para><b>AvailablePlayerSessions</b> -- Empty player slots in currently active game sessions.
         /// This includes game sessions that are not currently accepting players. Reserved player
         /// slots are not included.</para></li><li><para><b>CurrentPlayerSessions</b> -- Player slots in active game sessions that are being
         /// used by a player or are reserved for a player. </para></li><li><para><b>IdleInstances</b> -- Active instances that are currently hosting zero game sessions.

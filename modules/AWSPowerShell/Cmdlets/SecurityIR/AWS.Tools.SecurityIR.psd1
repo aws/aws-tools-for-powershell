@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SecurityIRCaseEditList', 
         'Get-SecurityIRCaseList', 
         'Get-SecurityIRCommentList', 
+        'Get-SecurityIRFindingMetric', 
         'Get-SecurityIRGetMemberAccountDetail', 
         'Get-SecurityIRInvestigationList', 
         'Get-SecurityIRMembership', 

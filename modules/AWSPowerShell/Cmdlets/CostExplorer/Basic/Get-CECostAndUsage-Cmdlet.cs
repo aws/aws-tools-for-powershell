@@ -77,9 +77,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <c>SERVICE</c> and <c>LINKED_ACCOUNT</c> and get the costs that are associated with
         /// that account's usage of that service. You can nest <c>Expression</c> objects to define
         /// any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
-        /// </para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c> and <c>Tags</c> are
-        /// <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
-        /// and <c>CASE_SENSITIVE</c>.</para>
+        /// </para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c>, <c>Tags</c>, and <c>ProductAttributes</c>
+        /// are <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
+        /// and <c>CASE_SENSITIVE</c>.</para><para>You can filter by product attributes with or without grouping by them. If you filter
+        /// or group by product attributes, the results include only the costs of supported services,
+        /// and a <c>SERVICE</c> filter is optional. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>.</para><para>If you include a <c>SERVICE</c> filter, it must apply to the whole request: combine
+        /// it with other filters by using <c>And</c>, and include it in every branch of an <c>Or</c>.
+        /// A <c>SERVICE</c> filter inside <c>Not</c> doesn't meet this requirement, and the request
+        /// fails with a <c>ValidationException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group Amazon Web Services costs using up to two different groups, either dimensions,
-        /// tag keys, cost categories, or any two group by types.</para><para>Valid values for the <c>DIMENSION</c> type are <c>AZ</c>, <c>INSTANCE_TYPE</c>, <c>LEGAL_ENTITY_NAME</c>,
+        /// tag keys, cost categories, product attributes, or any two group by types.</para><para>Valid values for the <c>DIMENSION</c> type are <c>AZ</c>, <c>INSTANCE_TYPE</c>, <c>LEGAL_ENTITY_NAME</c>,
         /// <c>INVOICING_ENTITY</c>, <c>LINKED_ACCOUNT</c>, <c>OPERATION</c>, <c>PLATFORM</c>,
         /// <c>PURCHASE_TYPE</c>, <c>SERVICE</c>, <c>TENANCY</c>, <c>RECORD_TYPE</c>, and <c>USAGE_TYPE</c>.</para><para>When you group by the <c>TAG</c> type and include a valid tag key, you get all tag
-        /// values, including empty strings.</para><para />
+        /// values, including empty strings.</para><para>To group by the <c>PRODUCT_ATTRIBUTE</c> type, set <c>Key</c> to a product attribute
+        /// key, such as <c>model</c>. For the keys of each supported service, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>.
+        /// The results include only the costs of supported services, and if you have no such
+        /// costs, the response contains no groups.</para><para>In the response, each group key has the format <c>key$value</c>, for example, <c>model$Claude
+        /// Sonnet 5</c>. Costs that have no value for the key are in the group <c>key$</c>, for
+        /// example, <c>model$</c>. Remove the <c>key$</c> prefix before you use a value in a
+        /// <c>ProductAttributes</c> filter. Keys are case-sensitive: if you group by a key that
+        /// doesn't exist, such as <c>Model</c>, all of your costs of supported services are in
+        /// the group <c>Model$</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

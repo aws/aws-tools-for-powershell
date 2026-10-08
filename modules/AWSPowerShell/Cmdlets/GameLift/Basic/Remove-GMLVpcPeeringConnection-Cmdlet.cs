@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Removes a VPC peering connection. To delete the connection, you must have a valid
-    /// authorization for the VPC peering connection that you want to delete.. 
+    /// authorization for the VPC peering connection that you want to delete. 
     /// </para><para>
     /// Once a valid authorization exists, call this operation from the Amazon Web Services
     /// account that is used to manage the Amazon GameLift Servers fleets. Identify the connection

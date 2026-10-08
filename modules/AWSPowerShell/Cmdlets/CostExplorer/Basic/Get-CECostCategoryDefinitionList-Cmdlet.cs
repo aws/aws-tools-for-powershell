@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para> Filter cost category definitions that are supported by given resource types based
         /// on the latest version. If the filter is present, the result only includes Cost Categories
         /// that supports input resource type. If the filter isn't provided, no filtering is applied.
-        /// The valid values are <c>billing:rispgroupsharing</c> and <c>billing:billingview</c>.
-        /// </para><para />
+        /// The valid values are <c>billing:rispgroupsharing</c>, <c>billing:billingview</c>,
+        /// and <c>billing:creditsharing</c>. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

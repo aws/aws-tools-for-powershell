@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// build or script. For fleets that have multiple locations, this operation retrieves
     /// fleets based on their home Region only.
     /// </para><para>
-    /// You can use operation in the following ways: 
+    /// You can use this operation in the following ways: 
     /// </para><ul><li><para>
     /// To get a list of all fleets in a Region, don't provide a build or script identifier.
     /// </para></li><li><para>

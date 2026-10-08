@@ -986,6 +986,8 @@ $GLUE_SelectMap = @{
                "Get-GLUESession",
                "Get-GLUESessionEndpoint",
                "Get-GLUEStatement",
+               "Get-GLUESystemLogsForJobRun",
+               "Get-GLUESystemLogsForSession",
                "Get-GLUETable",
                "Get-GLUETableOptimizer",
                "Get-GLUETableList",

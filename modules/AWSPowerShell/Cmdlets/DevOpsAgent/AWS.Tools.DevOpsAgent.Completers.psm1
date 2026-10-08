@@ -100,6 +100,13 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.DayOfWeek
+        "New-DOPSTrigger/Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.DevOpsAgent.EventChannelType
         "Register-DOPSService/ServiceDetails_EventChannel_Type"
         {
@@ -289,6 +296,7 @@ $DOPS_Completers = {
 $DOPS_map = @{
     "Action"=@("Update-DOPSApprovalAction")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
+    "Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"=@("New-DOPSTrigger")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Aws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")

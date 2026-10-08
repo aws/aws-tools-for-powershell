@@ -23,47 +23,45 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.SecurityHub;
+using Amazon.SecurityHub.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// Returns the details of a single findings export job, including its current <c>Status</c>,
+    /// the <c>Destination</c> it writes to, the <c>OutputConfiguration</c> it was started
+    /// with, and its <c>StartedAt</c> and <c>EndedAt</c> timestamps. Use this operation to
+    /// poll an export job that you started with <c>StartExportJobV2</c> until it reaches
+    /// a terminal state (<c>SUCCEEDED</c>, <c>FAILED</c>, or <c>CANCELLED</c>).
     /// 
     ///  
     /// <para>
-    /// Cancels a game session placement that's in <c>PENDING</c> status. To stop a placement,
-    /// provide the placement ID value. 
-    /// </para><para>
-    /// Results
-    /// </para><para>
-    /// If successful, this operation removes the placement request from the queue and moves
-    /// the <c>GameSessionPlacement</c> to <c>CANCELLED</c> status.
-    /// </para><para>
-    /// This operation results in an <c>InvalidRequestException</c> (400) error if a game
-    /// session has already been created for this placement. You can clean up an unneeded
-    /// game session by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession">TerminateGameSession</a>.
+    /// If the job failed, the response includes a <c>FailureCode</c> and <c>FailureMessage</c>
+    /// that describe the reason. Input values such as <c>Scopes</c> and <c>Filters</c> are
+    /// echoed back as they were submitted, with relative date ranges returned unresolved.
+    /// If no export job matches the <c>ExportJobId</c> that you provide, this operation returns
+    /// a <c>ResourceNotFoundException</c>.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
-    [AWSCmdlet("Calls the Amazon GameLift Service StopGameSessionPlacement API operation.", Operation = new[] {"StopGameSessionPlacement"}, SelectReturnType = typeof(Amazon.GameLift.Model.StopGameSessionPlacementResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionPlacement or Amazon.GameLift.Model.StopGameSessionPlacementResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.GameSessionPlacement object.",
-        "The service call response (type Amazon.GameLift.Model.StopGameSessionPlacementResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SHUBExportJobV2")]
+    [OutputType("Amazon.SecurityHub.Model.GetExportJobV2Response")]
+    [AWSCmdlet("Calls the AWS Security Hub GetExportJobV2 API operation.", Operation = new[] {"GetExportJobV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetExportJobV2Response))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.GetExportJobV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.GetExportJobV2Response object containing multiple properties."
     )]
-    public partial class StopGMLGameSessionPlacementCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetSHUBExportJobV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PlacementId
+        #region Parameter ExportJobId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a game session placement to stop.</para>
+        /// <para>The unique identifier of the export job to retrieve. This is the value returned by
+        /// <c>StartExportJobV2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,28 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PlacementId { get; set; }
+        public System.String ExportJobId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'GameSessionPlacement'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.StopGameSessionPlacementResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.StopGameSessionPlacementResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.GetExportJobV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.GetExportJobV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "GameSessionPlacement";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -107,12 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PlacementId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-GMLGameSessionPlacement (StopGameSessionPlacement)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -120,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.StopGameSessionPlacementResponse, StopGMLGameSessionPlacementCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.GetExportJobV2Response, GetSHUBExportJobV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.PlacementId = this.PlacementId;
+            context.ExportJobId = this.ExportJobId;
             #if MODULAR
-            if (this.PlacementId == null && ParameterWasBound(nameof(this.PlacementId)))
+            if (this.ExportJobId == null && ParameterWasBound(nameof(this.ExportJobId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PlacementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExportJobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -144,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.StopGameSessionPlacementRequest();
+            var request = new Amazon.SecurityHub.Model.GetExportJobV2Request();
             
-            if (cmdletContext.PlacementId != null)
+            if (cmdletContext.ExportJobId != null)
             {
-                request.PlacementId = cmdletContext.PlacementId;
+                request.ExportJobId = cmdletContext.ExportJobId;
             }
             
             CmdletOutput output;
@@ -183,12 +165,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.StopGameSessionPlacementResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.StopGameSessionPlacementRequest request)
+        private Amazon.SecurityHub.Model.GetExportJobV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetExportJobV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "StopGameSessionPlacement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetExportJobV2");
             try
             {
-                return client.StopGameSessionPlacementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetExportJobV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -205,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PlacementId { get; set; }
-            public System.Func<Amazon.GameLift.Model.StopGameSessionPlacementResponse, StopGMLGameSessionPlacementCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.GameSessionPlacement;
+            public System.String ExportJobId { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.GetExportJobV2Response, GetSHUBExportJobV2Cmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

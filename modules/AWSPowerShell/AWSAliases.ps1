@@ -16577,6 +16577,8 @@ Set-Alias -Name GLUE-GetSecurityConfigurations -Value Get-GLUESecurityConfigurat
 Set-Alias -Name GLUE-GetSession -Value Get-GLUESession
 Set-Alias -Name GLUE-GetSessionEndpoint -Value Get-GLUESessionEndpoint
 Set-Alias -Name GLUE-GetStatement -Value Get-GLUEStatement
+Set-Alias -Name GLUE-GetSystemLogsForJobRun -Value Get-GLUESystemLogsForJobRun
+Set-Alias -Name GLUE-GetSystemLogsForSession -Value Get-GLUESystemLogsForSession
 Set-Alias -Name GLUE-GetTable -Value Get-GLUETable
 Set-Alias -Name GLUE-GetTableOptimizer -Value Get-GLUETableOptimizer
 Set-Alias -Name Get-GLUETables -Value Get-GLUETableList
@@ -32322,6 +32324,8 @@ Set-Alias -Name SecurityIR-CreateMembership -Value New-SecurityIRMembership
 Set-Alias -Name SecurityIR-GetCase -Value Get-SecurityIRCase
 Set-Alias -Name SecurityIR-GetCaseAttachmentDownloadUrl -Value Get-SecurityIRCaseAttachmentDownloadUrl
 Set-Alias -Name SecurityIR-GetCaseAttachmentUploadUrl -Value Get-SecurityIRCaseAttachmentUploadUrl
+Set-Alias -Name Get-SecurityIRFindingMetrics -Value Get-SecurityIRFindingMetric
+Set-Alias -Name SecurityIR-GetFindingMetrics -Value Get-SecurityIRFindingMetric
 Set-Alias -Name SecurityIR-GetMembership -Value Get-SecurityIRMembership
 Set-Alias -Name List-SecurityIRCaseEdits -Value Get-SecurityIRCaseEditList
 Set-Alias -Name List-SecurityIRCaseEditList -Value Get-SecurityIRCaseEditList
@@ -32570,6 +32574,8 @@ Set-Alias -Name SHUB-BatchUpdateFindingsV2 -Value Set-SHUBBatchFindingsV2
 Set-Alias -Name Update-SHUBStandardsControlAssociations -Value Edit-SHUBUpdateStandardsControlAssociation
 Set-Alias -Name Update-SHUBUpdateStandardsControlAssociation -Value Edit-SHUBUpdateStandardsControlAssociation
 Set-Alias -Name SHUB-BatchUpdateStandardsControlAssociations -Value Edit-SHUBUpdateStandardsControlAssociation
+Set-Alias -Name Cancel-SHUBExportJobV2 -Value Stop-SHUBExportJobV2
+Set-Alias -Name SHUB-CancelExportJobV2 -Value Stop-SHUBExportJobV2
 Set-Alias -Name Create-SHUBActionTarget -Value New-SHUBActionTarget
 Set-Alias -Name SHUB-CreateActionTarget -Value New-SHUBActionTarget
 Set-Alias -Name Create-SHUBAggregatorV2 -Value New-SHUBAggregatorV2
@@ -32667,6 +32673,7 @@ Set-Alias -Name SHUB-GetConnector -Value Get-SHUBConnector
 Set-Alias -Name SHUB-GetConnectorV2 -Value Get-SHUBConnectorV2
 Set-Alias -Name Get-SHUBEnabledStandards -Value Get-SHUBEnabledStandard
 Set-Alias -Name SHUB-GetEnabledStandards -Value Get-SHUBEnabledStandard
+Set-Alias -Name SHUB-GetExportJobV2 -Value Get-SHUBExportJobV2
 Set-Alias -Name SHUB-GetFindingAggregator -Value Get-SHUBFindingAggregator
 Set-Alias -Name SHUB-GetFindingHistory -Value Get-SHUBFindingHistory
 Set-Alias -Name Get-SHUBFindings -Value Get-SHUBFinding
@@ -32715,6 +32722,9 @@ Set-Alias -Name SHUB-ListConnectorsV2 -Value Get-SHUBConnectorsV2List
 Set-Alias -Name List-SHUBEnabledProductsForImport -Value Get-SHUBEnabledProductsForImportList
 Set-Alias -Name List-SHUBEnabledProductsForImportList -Value Get-SHUBEnabledProductsForImportList
 Set-Alias -Name SHUB-ListEnabledProductsForImport -Value Get-SHUBEnabledProductsForImportList
+Set-Alias -Name List-SHUBExportJobsV2 -Value Get-SHUBExportJobsV2List
+Set-Alias -Name List-SHUBExportJobsV2List -Value Get-SHUBExportJobsV2List
+Set-Alias -Name SHUB-ListExportJobsV2 -Value Get-SHUBExportJobsV2List
 Set-Alias -Name List-SHUBExposuresByRemediationV2 -Value Get-SHUBExposuresByRemediationV2List
 Set-Alias -Name List-SHUBExposuresByRemediationV2List -Value Get-SHUBExposuresByRemediationV2List
 Set-Alias -Name SHUB-ListExposuresByRemediationV2 -Value Get-SHUBExposuresByRemediationV2List
@@ -32743,6 +32753,7 @@ Set-Alias -Name SHUB-ListTagsForResource -Value Get-SHUBResourceTag
 Set-Alias -Name SHUB-RegisterConnectorV2 -Value Register-SHUBConnectorV2
 Set-Alias -Name SHUB-StartConfigurationPolicyAssociation -Value Start-SHUBConfigurationPolicyAssociation
 Set-Alias -Name SHUB-StartConfigurationPolicyDisassociation -Value Start-SHUBConfigurationPolicyDisassociation
+Set-Alias -Name SHUB-StartExportJobV2 -Value Start-SHUBExportJobV2
 Set-Alias -Name SHUB-TagResource -Value Add-SHUBResourceTag
 Set-Alias -Name SHUB-UntagResource -Value Remove-SHUBResourceTag
 Set-Alias -Name SHUB-UpdateActionTarget -Value Update-SHUBActionTarget

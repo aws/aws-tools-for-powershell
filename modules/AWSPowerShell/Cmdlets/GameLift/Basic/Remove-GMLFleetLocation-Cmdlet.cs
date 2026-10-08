@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Removes locations from a multi-location fleet. When deleting a location, all game
-    /// server process and all instances that are still active in the location are shut down.
-    /// 
+    /// server processes and all instances that are still active in the location are shut
+    /// down. 
     /// </para><para>
     /// To delete fleet locations, identify the fleet ID and provide a list of the locations
     /// to be deleted. 

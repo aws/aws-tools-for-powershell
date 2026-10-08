@@ -12026,7 +12026,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AGREEMENT_END_DATE_TIME_AFTER","AGREEMENT_END_DATE_TIME_BEFORE","ANOMALY_TOTAL_IMPACT_ABSOLUTE","ANOMALY_TOTAL_IMPACT_PERCENTAGE","AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","INVOICING_ENTITY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYER_ACCOUNT","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AGREEMENT_END_DATE_TIME_AFTER","AGREEMENT_END_DATE_TIME_BEFORE","ANOMALY_TOTAL_IMPACT_ABSOLUTE","ANOMALY_TOTAL_IMPACT_PERCENTAGE","AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","INVOICING_ENTITY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYER_ACCOUNT","PAYMENT_OPTION","PLATFORM","PRODUCT_ATTRIBUTE","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
 
@@ -16478,9 +16478,9 @@ $CSD_SelectCompleters = {
 }
 
 $CSD_SelectMap = @{
-    "Select"=@("Write-CSDDocument",
+    "Select"=@("Get-CSDSuggestion",
                "Search-CSDDocument",
-               "Get-CSDSuggestion")
+               "Write-CSDDocument")
 }
 
 _awsArgumentCompleterRegistration $CSD_SelectCompleters $CSD_SelectMap
@@ -25747,6 +25747,7 @@ $DZ_Completers = {
         {
             ($_ -eq "Get-DZNotebookList/Type") -Or
             ($_ -eq "New-DZNotebook/Type") -Or
+            ($_ -eq "Start-DZNotebookImport/Type") -Or
             ($_ -eq "Update-DZNotebook/Type")
         }
         {
@@ -26092,7 +26093,7 @@ $DZ_map = @{
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "TriggerSource_Type"=@("Start-DZNotebookRun")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Update-DZNotebook","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Start-DZNotebookImport","Update-DZNotebook","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -27315,6 +27316,13 @@ $DOPS_Completers = {
             break
         }
 
+        # Amazon.DevOpsAgent.DayOfWeek
+        "New-DOPSTrigger/Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.DevOpsAgent.EventChannelType
         "Register-DOPSService/ServiceDetails_EventChannel_Type"
         {
@@ -27504,6 +27512,7 @@ $DOPS_Completers = {
 $DOPS_map = @{
     "Action"=@("Update-DOPSApprovalAction")
     "AuthFlow"=@("Disable-DOPSOperatorApp","Enable-DOPSOperatorApp")
+    "Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek"=@("New-DOPSTrigger")
     "Configuration_Aws_AccountType"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Aws_AgentElevatedRoleArnStatus"=@("Add-DOPSService","Update-DOPSAssociation")
     "Configuration_Github_OwnerType"=@("Add-DOPSService","Update-DOPSAssociation")
@@ -30451,10 +30460,10 @@ $DDB_SelectMap = @{
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
-               "New-DDBTableSchema",
-               "ConvertFrom-DDBItem",
-               "Add-DDBIndexSchema",
                "ConvertTo-DDBItem",
+               "Add-DDBIndexSchema",
+               "ConvertFrom-DDBItem",
+               "New-DDBTableSchema",
                "Add-DDBKeySchema",
                "New-DDBTable")
 }
@@ -41249,8 +41258,8 @@ $GLC_SelectMap = @{
                "Set-GLCDataRetrievalPolicy",
                "Set-GLCVaultAccessPolicy",
                "Set-GLCVaultNotification",
-               "Read-GLCJobOutput",
-               "Write-GLCArchive")
+               "Write-GLCArchive",
+               "Read-GLCJobOutput")
 }
 
 _awsArgumentCompleterRegistration $GLC_SelectCompleters $GLC_SelectMap
@@ -42342,6 +42351,8 @@ $GLUE_SelectMap = @{
                "Get-GLUESession",
                "Get-GLUESessionEndpoint",
                "Get-GLUEStatement",
+               "Get-GLUESystemLogsForJobRun",
+               "Get-GLUESystemLogsForSession",
                "Get-GLUETable",
                "Get-GLUETableOptimizer",
                "Get-GLUETableList",
@@ -57571,7 +57582,7 @@ $EML_Completers = {
             ($_ -eq "Update-EMLCloudWatchAlarmTemplate/TargetResourceType")
         }
         {
-            $v = "CLOUDFRONT_DISTRIBUTION","MEDIACONNECT_FLOW","MEDIALIVE_CHANNEL","MEDIALIVE_INPUT_DEVICE","MEDIALIVE_MULTIPLEX","MEDIAPACKAGE_CHANNEL","MEDIAPACKAGE_ORIGIN_ENDPOINT","MEDIATAILOR_PLAYBACK_CONFIGURATION","S3_BUCKET"
+            $v = "CLOUDFRONT_DISTRIBUTION","ELEMENTAL_INFERENCE_FEED","MEDIACONNECT_FLOW","MEDIALIVE_CHANNEL","MEDIALIVE_INPUT_DEVICE","MEDIALIVE_MULTIPLEX","MEDIAPACKAGE_CHANNEL","MEDIAPACKAGE_ORIGIN_ENDPOINT","MEDIATAILOR_PLAYBACK_CONFIGURATION","S3_BUCKET"
             break
         }
 
@@ -65088,6 +65099,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.EncryptionMode
+        {
+            ($_ -eq "New-OSDomain/EncryptionAtRestOptions_EncryptionMode") -Or
+            ($_ -eq "Update-OSDomainConfig/EncryptionAtRestOptions_EncryptionMode")
+        }
+        {
+            $v = "DISK","NATIVE"
+            break
+        }
+
         # Amazon.OpenSearchService.EngineMode
         {
             ($_ -eq "New-OSDomain/EngineMode") -Or
@@ -65308,6 +65329,7 @@ $OS_map = @{
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
+    "EncryptionAtRestOptions_EncryptionMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList","Send-OSInsightFeedback")
@@ -79467,18 +79489,18 @@ $S3_SelectMap = @{
                "Update-S3BucketMetadataJournalTableConfiguration",
                "Update-S3ObjectEncryption",
                "Write-S3GetObjectResponse",
-               "Mount-S3PSDrive",
-               "Get-S3MultipartUpload",
                "New-S3Bucket",
-               "Copy-S3Object",
-               "Test-S3Bucket",
                "Remove-S3Object",
-               "Get-S3PreSignedURL",
-               "Write-S3Object",
-               "Remove-S3Bucket",
+               "Test-S3Bucket",
+               "Copy-S3Object",
                "Remove-S3MultipartUpload",
-               "Read-S3Object",
-               "Dismount-S3PSDrive")
+               "Remove-S3Bucket",
+               "Get-S3PreSignedURL",
+               "Get-S3MultipartUpload",
+               "Write-S3Object",
+               "Mount-S3PSDrive",
+               "Dismount-S3PSDrive",
+               "Read-S3Object")
 }
 
 _awsArgumentCompleterRegistration $S3_SelectCompleters $S3_SelectMap
@@ -84190,6 +84212,7 @@ $SecurityIR_SelectMap = @{
                "Get-SecurityIRCase",
                "Get-SecurityIRCaseAttachmentDownloadUrl",
                "Get-SecurityIRCaseAttachmentUploadUrl",
+               "Get-SecurityIRFindingMetric",
                "Get-SecurityIRMembership",
                "Get-SecurityIRCaseEditList",
                "Get-SecurityIRCaseList",
@@ -84609,7 +84632,8 @@ $SHUB_Completers = {
             ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
-            ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator")
+            ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
+            ($_ -eq "Start-SHUBExportJobV2/OutputConfiguration_Findings_Filters_CompositeOperator")
         }
         {
             $v = "AND","OR"
@@ -84696,6 +84720,20 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.ExportDataType
+        "Get-SHUBExportJobsV2List/DataType"
+        {
+            $v = "FINDINGS"
+            break
+        }
+
+        # Amazon.SecurityHub.ExportStatus
+        "Get-SHUBExportJobsV2List/Status"
+        {
+            $v = "CANCELLED","FAILED","RUNNING","SUCCEEDED"
+            break
+        }
+
         # Amazon.SecurityHub.FeatureName
         {
             ($_ -eq "Disable-SHUBSecurityHubFeatureV2/FeatureName") -Or
@@ -84703,6 +84741,13 @@ $SHUB_Completers = {
         }
         {
             $v = "NETWORK_SCANNING"
+            break
+        }
+
+        # Amazon.SecurityHub.FindingsExportFormat
+        "Start-SHUBExportJobV2/OutputConfiguration_Findings_Format"
+        {
+            $v = "CSV","OCSF_JSON"
             break
         }
 
@@ -84825,6 +84870,7 @@ $SHUB_map = @{
     "ConnectorStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "DataType"=@("Get-SHUBExportJobsV2List")
     "EnablementStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
     "FeatureName"=@("Disable-SHUBSecurityHubFeatureV2","Enable-SHUBSecurityHubFeatureV2")
@@ -84836,12 +84882,15 @@ $SHUB_map = @{
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
+    "OutputConfiguration_Findings_Filters_CompositeOperator"=@("Start-SHUBExportJobV2")
+    "OutputConfiguration_Findings_Format"=@("Start-SHUBExportJobV2")
     "Provider_Azure_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
     "ProviderName"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
     "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2")
+    "Status"=@("Get-SHUBExportJobsV2List")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
 }
@@ -84910,6 +84959,7 @@ $SHUB_SelectMap = @{
                "Update-SHUBFindingsBatch",
                "Set-SHUBBatchFindingsV2",
                "Edit-SHUBUpdateStandardsControlAssociation",
+               "Stop-SHUBExportJobV2",
                "New-SHUBActionTarget",
                "New-SHUBAggregatorV2",
                "New-SHUBAutomationRule",
@@ -84962,6 +85012,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnector",
                "Get-SHUBConnectorV2",
                "Get-SHUBEnabledStandard",
+               "Get-SHUBExportJobV2",
                "Get-SHUBFindingAggregator",
                "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
@@ -84988,6 +85039,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorList",
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
+               "Get-SHUBExportJobsV2List",
                "Get-SHUBExposuresByRemediationV2List",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBFreeTrialStatusesV2List",
@@ -85000,6 +85052,7 @@ $SHUB_SelectMap = @{
                "Register-SHUBConnectorV2",
                "Start-SHUBConfigurationPolicyAssociation",
                "Start-SHUBConfigurationPolicyDisassociation",
+               "Start-SHUBExportJobV2",
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",
@@ -89316,8 +89369,8 @@ $STS_SelectMap = @{
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Get-STSWebIdentityToken",
-               "Use-STSWebIdentityRole",
-               "Use-STSRoleWithSAML")
+               "Use-STSRoleWithSAML",
+               "Use-STSWebIdentityRole")
 }
 
 _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap

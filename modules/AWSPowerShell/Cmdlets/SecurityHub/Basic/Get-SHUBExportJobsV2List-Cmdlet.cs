@@ -23,48 +23,84 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.SecurityHub;
+using Amazon.SecurityHub.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// Returns the findings export jobs in your account as a paginated list of <c>ExportSummary</c>
+    /// objects. You can filter the results by job <c>Status</c> or <c>DataType</c>.
     /// 
     ///  
     /// <para>
-    /// Lists game server groups.
+    /// To page through the results, use the <c>MaxResults</c> and <c>NextToken</c> parameters.
+    /// If the response includes a <c>NextToken</c> value, pass it in a subsequent request
+    /// to retrieve the next page of results.
+    /// </para><para>
+    /// Each <c>ExportSummary</c> reports the output <c>Format</c> of the job but not its
+    /// full <c>OutputConfiguration</c>. To retrieve the filters and selected fields that
+    /// a job was started with, call <c>GetExportJobV2</c>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GMLGameServerGroupList")]
-    [OutputType("Amazon.GameLift.Model.GameServerGroup")]
-    [AWSCmdlet("Calls the Amazon GameLift Service ListGameServerGroups API operation.", Operation = new[] {"ListGameServerGroups"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListGameServerGroupsResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GameServerGroup or Amazon.GameLift.Model.ListGameServerGroupsResponse",
-        "This cmdlet returns a collection of Amazon.GameLift.Model.GameServerGroup objects.",
-        "The service call response (type Amazon.GameLift.Model.ListGameServerGroupsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SHUBExportJobsV2List")]
+    [OutputType("Amazon.SecurityHub.Model.ExportSummary")]
+    [AWSCmdlet("Calls the AWS Security Hub ListExportJobsV2 API operation.", Operation = new[] {"ListExportJobsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ListExportJobsV2Response))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.ExportSummary or Amazon.SecurityHub.Model.ListExportJobsV2Response",
+        "This cmdlet returns a collection of Amazon.SecurityHub.Model.ExportSummary objects.",
+        "The service call response (type Amazon.SecurityHub.Model.ListExportJobsV2Response) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGMLGameServerGroupListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetSHUBExportJobsV2ListCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Limit
+        #region Parameter DataType
         /// <summary>
         /// <para>
-        /// <para>The game server groups' limit.</para>
+        /// <para>Filters the results to export jobs that produce the specified data type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        [AWSConstantClassSource("Amazon.SecurityHub.ExportDataType")]
+        public Amazon.SecurityHub.ExportDataType DataType { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results to export jobs that have the specified status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.ExportStatus")]
+        public Amazon.SecurityHub.ExportStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return in a single call. Valid range is 1–20.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token from a previous request to retrieve the next page of
-        /// results.</para>
+        /// <para>The token required for pagination. On your first call, set the value of this parameter
+        /// to <c>NULL</c>. For subsequent calls, to continue listing data, set the value of this
+        /// parameter to the value returned in the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -77,13 +113,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'GameServerGroups'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ListGameServerGroupsResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.ListGameServerGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.ListExportJobsV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.ListExportJobsV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "GameServerGroups";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -112,11 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ListGameServerGroupsResponse, GetGMLGameServerGroupListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.ListExportJobsV2Response, GetSHUBExportJobsV2ListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Limit = this.Limit;
+            context.DataType = this.DataType;
+            context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,11 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListGameServerGroupsRequest();
+            var request = new Amazon.SecurityHub.Model.ListExportJobsV2Request();
             
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.DataType != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
+                request.DataType = cmdletContext.DataType;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -196,12 +251,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListGameServerGroupsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListGameServerGroupsRequest request)
+        private Amazon.SecurityHub.Model.ListExportJobsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ListExportJobsV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListGameServerGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ListExportJobsV2");
             try
             {
-                return client.ListGameServerGroupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListExportJobsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -218,10 +273,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? Limit { get; set; }
+            public Amazon.SecurityHub.ExportDataType DataType { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.GameLift.Model.ListGameServerGroupsResponse, GetGMLGameServerGroupListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.GameServerGroups;
+            public Amazon.SecurityHub.ExportStatus Status { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.ListExportJobsV2Response, GetSHUBExportJobsV2ListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

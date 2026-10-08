@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>An object that contains filters to apply when listing configuration sets. You can
-        /// filter by configuration set name.</para><para />
+        /// filter by a substring of the configuration set name.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

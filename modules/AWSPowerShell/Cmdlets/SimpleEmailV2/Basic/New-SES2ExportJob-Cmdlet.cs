@@ -34,6 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  
     /// <para>
+    /// Export jobs run asynchronously. This operation returns a <c>JobId</c>. Call <c>GetExportJob</c>
+    /// with that ID until <c>JobStatus</c> is <c>COMPLETED</c>, <c>FAILED</c>, or <c>CANCELLED</c>.
+    /// When the status is <c>COMPLETED</c>, download the export file from the pre-signed
+    /// URL in <c>ExportDestination.S3Url</c>. When the status is <c>FAILED</c>, see <c>FailureInfo</c>.
+    /// To store a copy in your own bucket, upload the downloaded file to your bucket. Do
+    /// not include <c>S3Url</c> in the request.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
@@ -314,7 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter ExportDestination_S3Url
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 pre-signed URL that points to the generated export file.</para>
+        /// <para>An Amazon S3 pre-signed URL that points to the generated export file.</para><para>SES sets this value. It's returned only in the <c>GetExportJob</c> response, after
+        /// the export job status is <c>COMPLETED</c>. The URL expires five minutes after <c>GetExportJob</c>
+        /// returns it. Call <c>GetExportJob</c> again to get a new URL. If you include this field
+        /// in a <c>CreateExportJob</c> request, the request fails with a <c>BadRequestException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

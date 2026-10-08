@@ -183,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The number of times to replicate the game server container group on each fleet instance.
         /// </para><para>By default, Amazon GameLift Servers calculates the maximum number of game server container
         /// groups that can fit on each instance. This calculation is based on the CPU and memory
-        /// resources of the fleet's instance type). To use the calculated maximum, don't set
-        /// this parameter. If you set this number manually, Amazon GameLift Servers uses your
-        /// value as long as it's less than the calculated maximum.</para>
+        /// resources of the fleet's instance type. To use the calculated maximum, don't set this
+        /// parameter. If you set this number manually, Amazon GameLift Servers uses your value
+        /// as long as it's less than the calculated maximum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The Amazon EC2 instance type to use for all instances in the fleet. For multi-location
         /// fleets, the instance type must be available in the home region and all remote locations.
         /// Instance type determines the computing resources and processing power that's available
-        /// to host your game servers. This includes including CPU, memory, storage, and networking
-        /// capacity. </para><para>By default, Amazon GameLift Servers uses the <c>c5.large</c> instance type. If this
+        /// to host your game servers. This includes CPU, memory, storage, and networking capacity.
+        /// </para><para>By default, Amazon GameLift Servers uses the <c>c5.large</c> instance type. If this
         /// instance type does not have sufficient resources for your container groups, you can
         /// choose a different instance type that better fits your needs. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
         /// Elastic Compute Cloud Instance Types</a> for detailed descriptions of Amazon EC2 instance
@@ -321,8 +321,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy evaluates when a player tries to create a new game session. On receiving
         /// a <c>CreateGameSession</c> request, Amazon GameLift Servers checks that the player
-        /// (identified by <c>CreatorId</c>) has created fewer than game session limit in the
-        /// specified time period.</para>
+        /// (identified by <c>CreatorId</c>) has created fewer than the game session limit in
+        /// the specified time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PerInstanceContainerGroupDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The name of a container group definition resource that describes a set of axillary
+        /// <para>The name of a container group definition resource that describes a set of auxiliary
         /// software. A fleet instance has one process for executables in this container group.
         /// A per-instance container group is optional. You can update the fleet to add or remove
         /// a per-instance container group at any time. You can specify the container group definition's
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Configures player gateway for your fleet. Player gateway provides benefits such as
-        /// DDoS protection by rate limiting and validating traﬃc before it reaches game servers,
+        /// DDoS protection by rate limiting and validating traffic before it reaches game servers,
         /// hiding game server IP addresses from players, and providing updated endpoints when
         /// relay endpoints become unhealthy.</para><para><b>How it works:</b> When enabled, game clients connect to relay endpoints instead
         /// of to your game servers. Player gateway validates player gateway tokens and routes
@@ -396,7 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value
-        /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
+        /// pairs. Tagging Amazon Web Services resources is useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

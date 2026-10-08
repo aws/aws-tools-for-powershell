@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An object that contains filters to apply when listing tenants. You can filter by tenant
-        /// name or sending status.</para><para />
+        /// <para>An object that contains filters to apply when listing tenants. You can filter by a
+        /// substring of the tenant name or by sending status.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingMetrics" OutputProperty="*" Verb="Get" Noun="FindingMetric" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMembership" OutputProperty="*" Verb="Get" Noun="Membership" PipelineParameter="MembershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

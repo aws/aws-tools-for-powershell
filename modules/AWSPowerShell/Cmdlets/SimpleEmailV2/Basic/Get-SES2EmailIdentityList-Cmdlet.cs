@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>An object that contains filters to apply when listing email identities. You can filter
-        /// by identity name, identity type, or verification status.</para><para />
+        /// by a substring of the identity name, by identity type, or by verification status.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data
         /// for this property is returned from the service the property will also be null. This
         /// was changed to improve performance and allow the SDK and caller to distinguish between

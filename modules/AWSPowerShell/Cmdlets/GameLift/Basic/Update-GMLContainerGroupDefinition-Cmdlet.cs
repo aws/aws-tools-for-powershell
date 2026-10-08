@@ -59,13 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Remove a support container definition. Provide a complete set of container definitions,
     /// excluding the definition to remove. If the container group has only one support container
     /// definition, provide an empty set.
+    /// </para></li><li><para>
+    /// Remove the total vCPU limit from a game server container group so that its containers
+    /// can use up to the instance's available vCPU. Set <c>RemoveAttributes</c> to <c>TOTAL_VCPU_LIMIT</c>.
+    /// The game server container must have a <c>Vcpu</c> value, because a game server container
+    /// group needs either a total vCPU limit or a game server <c>Vcpu</c> value.
     /// </para></li></ul><para><b>Results:</b></para><para>
     /// If successful, this operation returns the complete properties of the new container
     /// group definition version.
     /// </para><para>
-    /// If the container group definition version is used in an active fleets, the update
-    /// automatically initiates a new fleet deployment of the new version. You can track a
-    /// fleet's deployments using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.
+    /// If the container group definition version is used in an active fleet, the update automatically
+    /// initiates a new fleet deployment of the new version. You can track a fleet's deployments
+    /// using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -228,6 +233,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.ContainerOperatingSystem OperatingSystem { get; set; }
         #endregion
         
+        #region Parameter RemoveAttribute
+        /// <summary>
+        /// <para>
+        /// <para>If set, this update removes the container group's total vCPU limit, and the group's
+        /// containers can use up to the instance's available vCPU. You can't remove the total
+        /// vCPU limit from a per-instance container group. A game server container group needs
+        /// either a total vCPU limit or a <c>Vcpu</c> value for the game server container. You
+        /// can't set <c>TotalVcpuLimit</c> in the same request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveAttributes")]
+        public System.String[] RemoveAttribute { get; set; }
+        #endregion
+        
         #region Parameter GameServerContainerDefinition_ServerSdkVersion
         /// <summary>
         /// <para>
@@ -284,13 +308,39 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal
-        /// to 1024 CPU units). All containers in the group share this memory. If you specify
-        /// vCPU limits for individual containers, the total value must be equal to or greater
-        /// than the sum of the CPU limits for all containers in the group.</para>
+        /// to 1024 CPU units). All containers in the group share these resources. If you set
+        /// vCPU reservations for individual containers, the total value must be equal to or greater
+        /// than the sum of the <c>Vcpu</c> values for all containers in the group.</para><para>For a game server container group, Amazon GameLift Servers requires either a total
+        /// vCPU limit or a <c>Vcpu</c> value for the game server container. If the container
+        /// group has a total vCPU limit, Amazon GameLift Servers uses this value to calculate
+        /// how many game server container groups fit on an instance. If the container group doesn't
+        /// have a total vCPU limit, its containers can use up to the instance's available vCPU,
+        /// and Amazon GameLift Servers uses the sum of the containers' <c>Vcpu</c> values to
+        /// calculate how many game server container groups fit on an instance. To remove the
+        /// total vCPU limit, omit this parameter and set <c>RemoveAttributes</c> to <c>TOTAL_VCPU_LIMIT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Double? TotalVcpuLimit { get; set; }
+        #endregion
+        
+        #region Parameter GameServerContainerDefinition_Vcpu
+        /// <summary>
+        /// <para>
+        /// <para>The number of vCPU units reserved for the game server container. The container can
+        /// use more vCPU when it's available, up to the container group's total vCPU limit if
+        /// one is set. If the container group has a total vCPU limit and the request doesn't
+        /// set this value, Amazon GameLift Servers calculates the game server container's vCPU
+        /// as the total vCPU limit minus the sum of the vCPU units reserved for the group's support
+        /// containers.</para><para>A game server container group needs either a total vCPU limit or this value. If the
+        /// container group doesn't have a total vCPU limit, the group's containers can use up
+        /// to the instance's available vCPU, and Amazon GameLift Servers uses the sum of the
+        /// group's container <c>Vcpu</c> values to calculate how many game server container groups
+        /// fit on an instance.</para><para><b>Related data type: </b><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a><c>TotalVcpuLimit</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? GameServerContainerDefinition_Vcpu { get; set; }
         #endregion
         
         #region Parameter VersionDescription
@@ -372,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.PortConfiguration_ContainerPortRange = new List<Amazon.GameLift.Model.ContainerPortRange>(this.PortConfiguration_ContainerPortRange);
             }
             context.GameServerContainerDefinition_ServerSdkVersion = this.GameServerContainerDefinition_ServerSdkVersion;
+            context.GameServerContainerDefinition_Vcpu = this.GameServerContainerDefinition_Vcpu;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -380,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #endif
             context.OperatingSystem = this.OperatingSystem;
+            if (this.RemoveAttribute != null)
+            {
+                context.RemoveAttribute = new List<System.String>(this.RemoveAttribute);
+            }
             context.SourceVersionNumber = this.SourceVersionNumber;
             if (this.SupportContainerDefinition != null)
             {
@@ -468,6 +523,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 request.GameServerContainerDefinition.ServerSdkVersion = requestGameServerContainerDefinition_gameServerContainerDefinition_ServerSdkVersion;
                 requestGameServerContainerDefinitionIsNull = false;
             }
+            System.Double? requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu = null;
+            if (cmdletContext.GameServerContainerDefinition_Vcpu != null)
+            {
+                requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu = cmdletContext.GameServerContainerDefinition_Vcpu.Value;
+            }
+            if (requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu != null)
+            {
+                request.GameServerContainerDefinition.Vcpu = requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu.Value;
+                requestGameServerContainerDefinitionIsNull = false;
+            }
             Amazon.GameLift.Model.LinuxCapabilities requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities = null;
             
              // populate LinuxCapabilities
@@ -530,6 +595,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.OperatingSystem != null)
             {
                 request.OperatingSystem = cmdletContext.OperatingSystem;
+            }
+            if (cmdletContext.RemoveAttribute != null)
+            {
+                request.RemoveAttributes = cmdletContext.RemoveAttribute;
             }
             if (cmdletContext.SourceVersionNumber != null)
             {
@@ -614,8 +683,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<Amazon.GameLift.Model.ContainerMountPoint> GameServerContainerDefinition_MountPoint { get; set; }
             public List<Amazon.GameLift.Model.ContainerPortRange> PortConfiguration_ContainerPortRange { get; set; }
             public System.String GameServerContainerDefinition_ServerSdkVersion { get; set; }
+            public System.Double? GameServerContainerDefinition_Vcpu { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ContainerOperatingSystem OperatingSystem { get; set; }
+            public List<System.String> RemoveAttribute { get; set; }
             public System.Int32? SourceVersionNumber { get; set; }
             public List<Amazon.GameLift.Model.SupportContainerDefinitionInput> SupportContainerDefinition { get; set; }
             public System.Int32? TotalMemoryLimitMebibyte { get; set; }

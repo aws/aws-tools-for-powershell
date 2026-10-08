@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
     /// to change the game session's player session creation policy.
     /// </para><para>
-    /// Amazon GameLift Servers retains logs for active for 14 days. To access the logs, call
-    /// <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a>
+    /// Amazon GameLift Servers retains logs for active game sessions for 14 days. To access
+    /// the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a>
     /// to download the log files.
     /// </para><para><i>Available in Amazon GameLift Servers Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
     /// a game session</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -101,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A unique identifier for a player or entity creating the game session. </para><para>If you add a resource creation limit policy to a fleet, the <c>CreateGameSession</c>
         /// operation requires a <c>CreatorId</c>. Amazon GameLift Servers limits the number of
         /// game session creation requests with the same <c>CreatorId</c> in a specified time
-        /// period.</para><para>If you your fleet doesn't have a resource creation limit policy and you provide a
-        /// <c>CreatorId</c> in your <c>CreateGameSession</c> requests, Amazon GameLift Servers
-        /// limits requests to one request per <c>CreatorId</c> per second.</para><para>To not limit <c>CreateGameSession</c> requests with the same <c>CreatorId</c>, don't
+        /// period.</para><para>If your fleet doesn't have a resource creation limit policy and you provide a <c>CreatorId</c>
+        /// in your <c>CreateGameSession</c> requests, Amazon GameLift Servers limits requests
+        /// to one request per <c>CreatorId</c> per second.</para><para>To not limit <c>CreateGameSession</c> requests with the same <c>CreatorId</c>, don't
         /// provide a <c>CreatorId</c> in your <c>CreateGameSession</c> request.</para>
         /// </para>
         /// </summary>

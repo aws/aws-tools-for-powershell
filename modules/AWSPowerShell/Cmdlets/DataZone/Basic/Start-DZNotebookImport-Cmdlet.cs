@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SourceLocation_S3Files_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Simple Storage Service bucket that contains the files to import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceLocation_S3Files_Bucket { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -71,6 +81,22 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SourceLocation_S3Files_FileList
+        /// <summary>
+        /// <para>
+        /// <para>The files to import. Cells are created in the order in which you list the files. You
+        /// can specify between 1 and 100 files.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DataZone.Model.S3File[] SourceLocation_S3Files_FileList { get; set; }
         #endregion
         
         #region Parameter Name
@@ -115,6 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SourceLocation_S3 { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the notebook to import. If not specified, defaults to <c>DATA</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.NotebookType")]
+        public Amazon.DataZone.NotebookType Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -204,6 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.SourceLocation_S3 = this.SourceLocation_S3;
+            context.SourceLocation_S3Files_Bucket = this.SourceLocation_S3Files_Bucket;
+            if (this.SourceLocation_S3Files_FileList != null)
+            {
+                context.SourceLocation_S3Files_FileList = new List<Amazon.DataZone.Model.S3File>(this.SourceLocation_S3Files_FileList);
+            }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -254,10 +297,49 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 request.SourceLocation.S3 = requestSourceLocation_sourceLocation_S3;
                 requestSourceLocationIsNull = false;
             }
+            Amazon.DataZone.Model.S3FilesLocation requestSourceLocation_sourceLocation_S3Files = null;
+            
+             // populate S3Files
+            var requestSourceLocation_sourceLocation_S3FilesIsNull = true;
+            requestSourceLocation_sourceLocation_S3Files = new Amazon.DataZone.Model.S3FilesLocation();
+            System.String requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_Bucket = null;
+            if (cmdletContext.SourceLocation_S3Files_Bucket != null)
+            {
+                requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_Bucket = cmdletContext.SourceLocation_S3Files_Bucket;
+            }
+            if (requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_Bucket != null)
+            {
+                requestSourceLocation_sourceLocation_S3Files.Bucket = requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_Bucket;
+                requestSourceLocation_sourceLocation_S3FilesIsNull = false;
+            }
+            List<Amazon.DataZone.Model.S3File> requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_FileList = null;
+            if (cmdletContext.SourceLocation_S3Files_FileList != null)
+            {
+                requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_FileList = cmdletContext.SourceLocation_S3Files_FileList;
+            }
+            if (requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_FileList != null)
+            {
+                requestSourceLocation_sourceLocation_S3Files.FileList = requestSourceLocation_sourceLocation_S3Files_sourceLocation_S3Files_FileList;
+                requestSourceLocation_sourceLocation_S3FilesIsNull = false;
+            }
+             // determine if requestSourceLocation_sourceLocation_S3Files should be set to null
+            if (requestSourceLocation_sourceLocation_S3FilesIsNull)
+            {
+                requestSourceLocation_sourceLocation_S3Files = null;
+            }
+            if (requestSourceLocation_sourceLocation_S3Files != null)
+            {
+                request.SourceLocation.S3Files = requestSourceLocation_sourceLocation_S3Files;
+                requestSourceLocationIsNull = false;
+            }
              // determine if request.SourceLocation should be set to null
             if (requestSourceLocationIsNull)
             {
                 request.SourceLocation = null;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -320,6 +402,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Name { get; set; }
             public System.String OwningProjectIdentifier { get; set; }
             public System.String SourceLocation_S3 { get; set; }
+            public System.String SourceLocation_S3Files_Bucket { get; set; }
+            public List<Amazon.DataZone.Model.S3File> SourceLocation_S3Files_FileList { get; set; }
+            public Amazon.DataZone.NotebookType Type { get; set; }
             public System.Func<Amazon.DataZone.Model.StartNotebookImportResponse, StartDZNotebookImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

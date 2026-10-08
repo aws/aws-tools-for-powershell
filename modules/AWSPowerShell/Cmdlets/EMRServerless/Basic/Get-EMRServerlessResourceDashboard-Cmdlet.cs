@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccessSystemProfileLog
+        /// <summary>
+        /// <para>
+        /// <para>Allows access to system profile logs for Lake Formation-enabled sessions. Default
+        /// is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessSystemProfileLogs")]
+        public System.Boolean? AccessSystemProfileLog { get; set; }
+        #endregion
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
@@ -138,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.GetResourceDashboardResponse, GetEMRServerlessResourceDashboardCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccessSystemProfileLog = this.AccessSystemProfileLog;
             context.ApplicationId = this.ApplicationId;
             #if MODULAR
             if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
@@ -175,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             // create request
             var request = new Amazon.EMRServerless.Model.GetResourceDashboardRequest();
             
+            if (cmdletContext.AccessSystemProfileLog != null)
+            {
+                request.AccessSystemProfileLogs = cmdletContext.AccessSystemProfileLog.Value;
+            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
@@ -242,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccessSystemProfileLog { get; set; }
             public System.String ApplicationId { get; set; }
             public System.String ResourceId { get; set; }
             public Amazon.EMRServerless.ResourceType ResourceType { get; set; }

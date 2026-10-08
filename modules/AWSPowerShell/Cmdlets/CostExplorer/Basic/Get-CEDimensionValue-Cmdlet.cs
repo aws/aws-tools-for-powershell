@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// and <c>R6g</c>).</para></li><li><para>INVOICING_ENTITY - The name of the entity that issues the Amazon Web Services invoice.</para></li><li><para>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
         /// services, such as Amazon Web Services.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the Amazon Web Services ID of the
-        /// member account.</para></li><li><para>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</para></li><li><para>OPERATION - The action performed. Examples include <c>RunInstance</c> and <c>CreateBucket</c>.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
+        /// member account.</para></li><li><para>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</para></li><li><para>OPERATION - The action performed. Examples include <c>RunInstance</c> and <c>CreateBucket</c>.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>PRODUCT_ATTRIBUTE - The product attributes of supported services, such as the model
+        /// provider or the model for Amazon Bedrock.</para></li><li><para>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
         /// Examples include On-Demand Instances and Standard Reserved Instances.</para></li><li><para>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</para></li><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute).</para></li><li><para>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li><li><para>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
         /// for the <c>GetDimensionValues</c> operation includes a unit attribute. Examples include
         /// GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
@@ -108,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>The name of the dimension. Each <c>Dimension</c> is available for a different <c>Context</c>.
         /// For more information, see <c>Context</c>. <c>LINK_ACCOUNT_NAME</c> and <c>SERVICE_CODE</c>
         /// can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.
-        /// </para>
+        /// </para><para><c>PRODUCT_ATTRIBUTE</c> returns the product attribute keys that are available for
+        /// your costs of supported services, or the values of the key that you specify in <c>DimensionKey</c>.
+        /// <c>PRODUCT_ATTRIBUTE</c> is supported only in the <c>COST_AND_USAGE</c> context.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,6 +123,23 @@ namespace Amazon.PowerShell.Cmdlets.CE
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CostExplorer.Dimension")]
         public Amazon.CostExplorer.Dimension Dimension { get; set; }
+        #endregion
+        
+        #region Parameter DimensionKey
+        /// <summary>
+        /// <para>
+        /// <para>The product attribute key to return values for, such as <c>model</c>. If you omit
+        /// <c>DimensionKey</c> or set it to an empty string, the response lists the product attribute
+        /// keys that are available for your costs of supported services instead. For the supported
+        /// services, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>.</para><para>If you specify a key, the response lists the values of that key. If some of your costs
+        /// have no value for the key, the response includes an empty-string value. Keys are case-sensitive,
+        /// and a key that doesn't exist returns no values other than an empty string.</para><para>You can specify <c>DimensionKey</c> only when <c>Dimension</c> is <c>PRODUCT_ATTRIBUTE</c>.
+        /// If you also specify <c>SortBy</c>, <c>DimensionKey</c> is required. As a result, you
+        /// can't list product attribute keys when you use <c>SortBy</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DimensionKey { get; set; }
         #endregion
         
         #region Parameter Filter
@@ -257,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter Dimension which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DimensionKey = this.DimensionKey;
             context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             context.NextPageToken = this.NextPageToken;
@@ -302,6 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.Dimension != null)
             {
                 request.Dimension = cmdletContext.Dimension;
+            }
+            if (cmdletContext.DimensionKey != null)
+            {
+                request.DimensionKey = cmdletContext.DimensionKey;
             }
             if (cmdletContext.Filter != null)
             {
@@ -389,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.Dimension = cmdletContext.Dimension;
             }
+            if (cmdletContext.DimensionKey != null)
+            {
+                request.DimensionKey = cmdletContext.DimensionKey;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
@@ -472,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public System.String BillingViewArn { get; set; }
             public Amazon.CostExplorer.Context Context { get; set; }
             public Amazon.CostExplorer.Dimension Dimension { get; set; }
+            public System.String DimensionKey { get; set; }
             public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextPageToken { get; set; }

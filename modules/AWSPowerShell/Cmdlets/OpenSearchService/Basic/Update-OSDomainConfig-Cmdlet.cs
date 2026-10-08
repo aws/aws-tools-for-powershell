@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>
         /// <para>A list of advisory warning codes to accept for this configuration change. By default,
         /// any advisory warning blocks the change. Include the code of each warning you want
-        /// to accept so the change can proceed. You can find warning codes in the<c>ValidationFailures</c>
-        /// list returned by <c>DescribeDomainChangeProgress</c>and <c>DescribeDryRunProgress</c>.
+        /// to accept so the change can proceed. You can find warning codes in the <c>ValidationFailures</c>
+        /// list returned by <c>DescribeDomainChangeProgress</c> and <c>DescribeDryRunProgress</c>.
         /// Critical validation failures cannot be accepted and always block the change. If you
         /// omit this parameter or pass an empty list, all warnings block the change. For more
         /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating
@@ -457,6 +457,21 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionAtRestOptions_EncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption at rest applied to the domain's data. Valid values are <c>DISK</c>
+        /// and <c>NATIVE</c>. <c>DISK</c> is the default and uses volume-level encryption. <c>NATIVE</c>
+        /// uses engine-native, index-level encryption and requires encryption at rest to be enabled
+        /// and OpenSearch version 3.3 or later. After the mode is set to <c>NATIVE</c>, it can't
+        /// be changed back to <c>DISK</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.EncryptionMode")]
+        public Amazon.OpenSearchService.EncryptionMode EncryptionAtRestOptions_EncryptionMode { get; set; }
         #endregion
         
         #region Parameter AutomatedSnapshotPauseOptions_EndTime
@@ -1222,6 +1237,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EBSOptions_VolumeSize = this.EBSOptions_VolumeSize;
             context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
             context.EncryptionAtRestOptions_Enabled = this.EncryptionAtRestOptions_Enabled;
+            context.EncryptionAtRestOptions_EncryptionMode = this.EncryptionAtRestOptions_EncryptionMode;
             context.EncryptionAtRestOptions_KmsKeyId = this.EncryptionAtRestOptions_KmsKeyId;
             context.EngineMode = this.EngineMode;
             context.IPAddressType = this.IPAddressType;
@@ -2140,6 +2156,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.EncryptionAtRestOptions.Enabled = requestEncryptionAtRestOptions_encryptionAtRestOptions_Enabled.Value;
                 requestEncryptionAtRestOptionsIsNull = false;
             }
+            Amazon.OpenSearchService.EncryptionMode requestEncryptionAtRestOptions_encryptionAtRestOptions_EncryptionMode = null;
+            if (cmdletContext.EncryptionAtRestOptions_EncryptionMode != null)
+            {
+                requestEncryptionAtRestOptions_encryptionAtRestOptions_EncryptionMode = cmdletContext.EncryptionAtRestOptions_EncryptionMode;
+            }
+            if (requestEncryptionAtRestOptions_encryptionAtRestOptions_EncryptionMode != null)
+            {
+                request.EncryptionAtRestOptions.EncryptionMode = requestEncryptionAtRestOptions_encryptionAtRestOptions_EncryptionMode;
+                requestEncryptionAtRestOptionsIsNull = false;
+            }
             System.String requestEncryptionAtRestOptions_encryptionAtRestOptions_KmsKeyId = null;
             if (cmdletContext.EncryptionAtRestOptions_KmsKeyId != null)
             {
@@ -2527,6 +2553,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Int32? EBSOptions_VolumeSize { get; set; }
             public Amazon.OpenSearchService.VolumeType EBSOptions_VolumeType { get; set; }
             public System.Boolean? EncryptionAtRestOptions_Enabled { get; set; }
+            public Amazon.OpenSearchService.EncryptionMode EncryptionAtRestOptions_EncryptionMode { get; set; }
             public System.String EncryptionAtRestOptions_KmsKeyId { get; set; }
             public Amazon.OpenSearchService.EngineMode EngineMode { get; set; }
             public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }

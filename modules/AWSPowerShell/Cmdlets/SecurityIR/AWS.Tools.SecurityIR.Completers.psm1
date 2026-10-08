@@ -188,6 +188,7 @@ $SecurityIR_SelectMap = @{
                "Get-SecurityIRCase",
                "Get-SecurityIRCaseAttachmentDownloadUrl",
                "Get-SecurityIRCaseAttachmentUploadUrl",
+               "Get-SecurityIRFindingMetric",
                "Get-SecurityIRMembership",
                "Get-SecurityIRCaseEditList",
                "Get-SecurityIRCaseList",

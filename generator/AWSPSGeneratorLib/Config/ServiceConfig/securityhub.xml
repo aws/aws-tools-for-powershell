@@ -76,6 +76,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelExportJobV2" OutputProperty="*" Verb="Stop" Noun="ExportJobV2" ShouldProcessTarget="ExportJobId" PipelineParameter="ExportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateActionTarget" OutputProperty="ActionTargetArn" Verb="New" Noun="ActionTarget" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -299,6 +303,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExportJobV2" OutputProperty="*" Verb="Get" Noun="ExportJobV2" PipelineParameter="ExportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindingAggregator" OutputProperty="*" Verb="Get" Noun="FindingAggregator" PipelineParameter="FindingAggregatorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -403,6 +411,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListExportJobsV2" OutputProperty="Items" Verb="Get" Noun="ExportJobsV2List" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListExposuresByRemediationV2" OutputProperty="*" Verb="Get" Noun="ExposuresByRemediationV2List" PipelineParameter="TargetUid" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -450,6 +462,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartConfigurationPolicyDisassociation" Verb="Start" Noun="ConfigurationPolicyDisassociation" ShouldProcessTarget="ConfigurationPolicyIdentifier" PipelineParameter="ConfigurationPolicyIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExportJobV2" OutputProperty="ExportJobId" Verb="Start" Noun="ExportJobV2" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

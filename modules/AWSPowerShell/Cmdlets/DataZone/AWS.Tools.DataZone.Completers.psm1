@@ -406,6 +406,7 @@ $DZ_Completers = {
         {
             ($_ -eq "Get-DZNotebookList/Type") -Or
             ($_ -eq "New-DZNotebook/Type") -Or
+            ($_ -eq "Start-DZNotebookImport/Type") -Or
             ($_ -eq "Update-DZNotebook/Type")
         }
         {
@@ -751,7 +752,7 @@ $DZ_map = @{
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "TriggerSource_Type"=@("Start-DZNotebookRun")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Update-DZNotebook","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotebookList","Get-DZNotificationList","Get-DZUserProfile","New-DZNotebook","Start-DZMetadataGenerationRun","Start-DZNotebookImport","Update-DZNotebook","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 

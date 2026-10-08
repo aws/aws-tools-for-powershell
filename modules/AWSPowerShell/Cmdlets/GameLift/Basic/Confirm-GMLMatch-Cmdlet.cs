@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// is handled as follows: 
     /// </para><ul><li><para>
     /// If the ticket has one or more players who rejected the match or failed to respond,
-    /// the ticket status is set <c>CANCELLED</c> and processing is terminated.
+    /// the ticket status is set to <c>CANCELLED</c> and processing is terminated.
     /// </para></li><li><para>
     /// If all players in the ticket accepted the match, the ticket status is returned to
     /// <c>SEARCHING</c> to find a new match. 

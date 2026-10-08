@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
+    /// Defines a new matchmaking configuration for use with FlexMatch. Whether you are using
     /// FlexMatch with Amazon GameLift Servers hosting or as a standalone matchmaking service,
     /// the matchmaking configuration sets out rules for matching players and forming teams.
     /// If you're also using Amazon GameLift Servers hosting, it defines how to start game
@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// identifies it. ARNs are unique across all Regions. Format is <c>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
         /// name&gt;</c>. Queues can be located in any Region. Queues are used to start new Amazon
         /// GameLift Servers-hosted game sessions for matches that are created with this matchmaking
-        /// configuration. If <c>FlexMatchMode</c> is set to <c>STANDALONE</c>, do not set this
-        /// parameter. </para><para />
+        /// configuration. A matchmaking configuration supports only one queue; if you specify
+        /// more than one ARN, the request fails with an <c>InvalidRequestException</c>. If <c>FlexMatchMode</c>
+        /// is set to <c>STANDALONE</c>, do not set this parameter. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -293,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new matchmaking configuration resource. Tags are
-        /// developer-defined key-value pairs. Tagging Amazon Web Services resources are useful
+        /// developer-defined key-value pairs. Tagging Amazon Web Services resources is useful
         /// for resource management, access management and cost allocation. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging
         /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para><para />

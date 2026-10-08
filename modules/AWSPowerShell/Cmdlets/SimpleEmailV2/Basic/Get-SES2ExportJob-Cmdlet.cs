@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Provides information about an export job.
+    /// 
+    ///  
+    /// <para>
+    /// When the job status is <c>COMPLETED</c>, the response includes a pre-signed URL in
+    /// <c>ExportDestination.S3Url</c> that you use to download the export file.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SES2ExportJob")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetExportJobResponse")]

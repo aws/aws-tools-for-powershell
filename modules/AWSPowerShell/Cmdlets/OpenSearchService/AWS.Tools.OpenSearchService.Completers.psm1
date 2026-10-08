@@ -148,6 +148,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.EncryptionMode
+        {
+            ($_ -eq "New-OSDomain/EncryptionAtRestOptions_EncryptionMode") -Or
+            ($_ -eq "Update-OSDomainConfig/EncryptionAtRestOptions_EncryptionMode")
+        }
+        {
+            $v = "DISK","NATIVE"
+            break
+        }
+
         # Amazon.OpenSearchService.EngineMode
         {
             ($_ -eq "New-OSDomain/EngineMode") -Or
@@ -368,6 +378,7 @@ $OS_map = @{
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
+    "EncryptionAtRestOptions_EncryptionMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineMode"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "Entity_Type"=@("Get-OSInsightDetailDetail","Get-OSInsightList","Send-OSInsightFeedback")

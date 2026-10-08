@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
+        /// <para>An Amazon S3 bucket identifier. The name of the S3 bucket.</para><note><para>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names
         /// that contain a dot (.).</para></note>
         /// </para>
         /// </summary>

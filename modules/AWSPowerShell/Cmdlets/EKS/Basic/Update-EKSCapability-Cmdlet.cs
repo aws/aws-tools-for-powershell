@@ -130,6 +130,38 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.CapabilityDeletePropagationPolicy DeletePropagationPolicy { get; set; }
         #endregion
         
+        #region Parameter Configuration_Ack_DisabledService
+        /// <summary>
+        /// <para>
+        /// <para>An updated list of ACK service names whose controllers are turned off for this capability.
+        /// This list replaces the previous list instead of merging with it, so specify the complete
+        /// set of services that you want turned off. If you omit this field, the previous list
+        /// is unchanged. To turn all services back on, specify an empty list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Ack_DisabledServices")]
+        public System.String[] Configuration_Ack_DisabledService { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_Ack_EnableCrossNamespace
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether ACK controllers resolve resource references to resources in a different
+        /// Kubernetes namespace. Set this value to <c>false</c> to require references to remain
+        /// within the same namespace, or <c>true</c> to allow cross-namespace references. If
+        /// you omit this field, the current value is unchanged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_Ack_EnableCrossNamespace { get; set; }
+        #endregion
+        
         #region Parameter RbacRoleMappings_RemoveRoleMapping
         /// <summary>
         /// <para>
@@ -239,6 +271,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Configuration_Ack_DisabledService != null)
+            {
+                context.Configuration_Ack_DisabledService = new List<System.String>(this.Configuration_Ack_DisabledService);
+            }
+            context.Configuration_Ack_EnableCrossNamespace = this.Configuration_Ack_EnableCrossNamespace;
             if (this.NetworkAccess_VpceId != null)
             {
                 context.NetworkAccess_VpceId = new List<System.String>(this.NetworkAccess_VpceId);
@@ -285,6 +322,41 @@ namespace Amazon.PowerShell.Cmdlets.EKS
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.EKS.Model.UpdateCapabilityConfiguration();
+            Amazon.EKS.Model.UpdateAckConfig requestConfiguration_configuration_Ack = null;
+            
+             // populate Ack
+            var requestConfiguration_configuration_AckIsNull = true;
+            requestConfiguration_configuration_Ack = new Amazon.EKS.Model.UpdateAckConfig();
+            List<System.String> requestConfiguration_configuration_Ack_configuration_Ack_DisabledService = null;
+            if (cmdletContext.Configuration_Ack_DisabledService != null)
+            {
+                requestConfiguration_configuration_Ack_configuration_Ack_DisabledService = cmdletContext.Configuration_Ack_DisabledService;
+            }
+            if (requestConfiguration_configuration_Ack_configuration_Ack_DisabledService != null)
+            {
+                requestConfiguration_configuration_Ack.DisabledServices = requestConfiguration_configuration_Ack_configuration_Ack_DisabledService;
+                requestConfiguration_configuration_AckIsNull = false;
+            }
+            System.Boolean? requestConfiguration_configuration_Ack_configuration_Ack_EnableCrossNamespace = null;
+            if (cmdletContext.Configuration_Ack_EnableCrossNamespace != null)
+            {
+                requestConfiguration_configuration_Ack_configuration_Ack_EnableCrossNamespace = cmdletContext.Configuration_Ack_EnableCrossNamespace.Value;
+            }
+            if (requestConfiguration_configuration_Ack_configuration_Ack_EnableCrossNamespace != null)
+            {
+                requestConfiguration_configuration_Ack.EnableCrossNamespace = requestConfiguration_configuration_Ack_configuration_Ack_EnableCrossNamespace.Value;
+                requestConfiguration_configuration_AckIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Ack should be set to null
+            if (requestConfiguration_configuration_AckIsNull)
+            {
+                requestConfiguration_configuration_Ack = null;
+            }
+            if (requestConfiguration_configuration_Ack != null)
+            {
+                request.Configuration.Ack = requestConfiguration_configuration_Ack;
+                requestConfigurationIsNull = false;
+            }
             Amazon.EKS.Model.UpdateArgoCdConfig requestConfiguration_configuration_ArgoCd = null;
             
              // populate ArgoCd
@@ -431,6 +503,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String CapabilityName { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
+            public List<System.String> Configuration_Ack_DisabledService { get; set; }
+            public System.Boolean? Configuration_Ack_EnableCrossNamespace { get; set; }
             public List<System.String> NetworkAccess_VpceId { get; set; }
             public List<Amazon.EKS.Model.ArgoCdRoleMapping> RbacRoleMappings_AddOrUpdateRoleMapping { get; set; }
             public List<Amazon.EKS.Model.ArgoCdRoleMapping> RbacRoleMappings_RemoveRoleMapping { get; set; }

@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a <c>FleetAttributes</c> object is returned for each fleet requested,
     /// unless the fleet identifier is not found. 
     /// </para><note><para>
-    /// Some API operations limit the number of fleet IDs that allowed in one request. If
-    /// a request exceeds this limit, the request fails and the error message contains the
-    /// maximum allowed number.
+    /// Some API operations limit the number of fleet IDs that are allowed in one request.
+    /// If a request exceeds this limit, the request fails and the error message contains
+    /// the maximum allowed number.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift Servers fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

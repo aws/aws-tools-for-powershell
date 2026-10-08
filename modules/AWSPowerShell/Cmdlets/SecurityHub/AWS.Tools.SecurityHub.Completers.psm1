@@ -87,7 +87,8 @@ $SHUB_Completers = {
             ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
-            ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator")
+            ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
+            ($_ -eq "Start-SHUBExportJobV2/OutputConfiguration_Findings_Filters_CompositeOperator")
         }
         {
             $v = "AND","OR"
@@ -174,6 +175,20 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.ExportDataType
+        "Get-SHUBExportJobsV2List/DataType"
+        {
+            $v = "FINDINGS"
+            break
+        }
+
+        # Amazon.SecurityHub.ExportStatus
+        "Get-SHUBExportJobsV2List/Status"
+        {
+            $v = "CANCELLED","FAILED","RUNNING","SUCCEEDED"
+            break
+        }
+
         # Amazon.SecurityHub.FeatureName
         {
             ($_ -eq "Disable-SHUBSecurityHubFeatureV2/FeatureName") -Or
@@ -181,6 +196,13 @@ $SHUB_Completers = {
         }
         {
             $v = "NETWORK_SCANNING"
+            break
+        }
+
+        # Amazon.SecurityHub.FindingsExportFormat
+        "Start-SHUBExportJobV2/OutputConfiguration_Findings_Format"
+        {
+            $v = "CSV","OCSF_JSON"
             break
         }
 
@@ -303,6 +325,7 @@ $SHUB_map = @{
     "ConnectorStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
+    "DataType"=@("Get-SHUBExportJobsV2List")
     "EnablementStatus"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
     "FeatureName"=@("Disable-SHUBSecurityHubFeatureV2","Enable-SHUBSecurityHubFeatureV2")
@@ -314,12 +337,15 @@ $SHUB_map = @{
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
+    "OutputConfiguration_Findings_Filters_CompositeOperator"=@("Start-SHUBExportJobV2")
+    "OutputConfiguration_Findings_Format"=@("Start-SHUBExportJobV2")
     "Provider_Azure_ScopeConfiguration_ScopeType"=@("New-SHUBConnector","New-SHUBConnectorV2","Update-SHUBConnector","Update-SHUBConnectorV2")
     "ProviderName"=@("Get-SHUBConnectorList","Get-SHUBConnectorsV2List")
     "RecordState"=@("Update-SHUBFinding")
     "RuleStatus"=@("New-SHUBAutomationRule","New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
     "SortOrder"=@("Get-SHUBFindingStatisticsV2","Get-SHUBResourcesStatisticsV2")
+    "Status"=@("Get-SHUBExportJobsV2List")
     "VerificationState"=@("Update-SHUBFindingsBatch")
     "Workflow_Status"=@("Update-SHUBFindingsBatch")
 }
@@ -388,6 +414,7 @@ $SHUB_SelectMap = @{
                "Update-SHUBFindingsBatch",
                "Set-SHUBBatchFindingsV2",
                "Edit-SHUBUpdateStandardsControlAssociation",
+               "Stop-SHUBExportJobV2",
                "New-SHUBActionTarget",
                "New-SHUBAggregatorV2",
                "New-SHUBAutomationRule",
@@ -440,6 +467,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnector",
                "Get-SHUBConnectorV2",
                "Get-SHUBEnabledStandard",
+               "Get-SHUBExportJobV2",
                "Get-SHUBFindingAggregator",
                "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
@@ -466,6 +494,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBConnectorList",
                "Get-SHUBConnectorsV2List",
                "Get-SHUBEnabledProductsForImportList",
+               "Get-SHUBExportJobsV2List",
                "Get-SHUBExposuresByRemediationV2List",
                "Get-SHUBFindingAggregatorList",
                "Get-SHUBFreeTrialStatusesV2List",
@@ -478,6 +507,7 @@ $SHUB_SelectMap = @{
                "Register-SHUBConnectorV2",
                "Start-SHUBConfigurationPolicyAssociation",
                "Start-SHUBConfigurationPolicyDisassociation",
+               "Start-SHUBExportJobV2",
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",

@@ -23,72 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// <b>This API works with the following fleet types:</b> Container
-    /// 
-    ///  
-    /// <para>
-    /// Retrieves the properties for a container fleet. When requesting attributes for multiple
-    /// fleets, use the pagination parameters to retrieve results as a set of sequential pages.
-    /// 
-    /// </para><para><b>Request options</b></para><ul><li><para>
-    /// Get container fleet properties for a single fleet. Provide either the fleet ID or
-    /// ARN value. 
-    /// </para></li></ul><para><b>Results</b></para><para>
-    /// If successful, a <c>ContainerFleet</c> object is returned. This object includes the
-    /// fleet properties, including information about the most recent deployment.
-    /// </para><note><para>
-    /// Some API operations limit the number of fleet IDs that are allowed in one request.
-    /// If a request exceeds this limit, the request fails and the error message contains
-    /// the maximum allowed number.
-    /// </para></note>
+    /// Retrieves the system logs for a job run.
     /// </summary>
-    [Cmdlet("Get", "GMLContainerFleet")]
-    [OutputType("Amazon.GameLift.Model.ContainerFleet")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DescribeContainerFleet API operation.", Operation = new[] {"DescribeContainerFleet"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeContainerFleetResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerFleet or Amazon.GameLift.Model.DescribeContainerFleetResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.ContainerFleet object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeContainerFleetResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GLUESystemLogsForJobRun")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Glue GetSystemLogsForJobRun API operation.", Operation = new[] {"GetSystemLogsForJobRun"}, SelectReturnType = typeof(Amazon.Glue.Model.GetSystemLogsForJobRunResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Glue.Model.GetSystemLogsForJobRunResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Glue.Model.GetSystemLogsForJobRunResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGMLContainerFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGLUESystemLogsForJobRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter FleetId
+        #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the container fleet to retrieve. You can use either the fleet
-        /// ID or ARN value.</para>
+        /// <para>The name of the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String JobName { get; set; }
+        #endregion
+        
+        #region Parameter RunId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the job run.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RunId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContainerFleet'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeContainerFleetResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeContainerFleetResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SystemLogsUrl'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetSystemLogsForJobRunResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.GetSystemLogsForJobRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContainerFleet";
+        public string Select { get; set; } = "SystemLogsUrl";
         #endregion
         
         protected override void StopProcessing()
@@ -107,14 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeContainerFleetResponse, GetGMLContainerFleetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetSystemLogsForJobRunResponse, GetGLUESystemLogsForJobRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.FleetId = this.FleetId;
+            context.JobName = this.JobName;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.RunId = this.RunId;
+            #if MODULAR
+            if (this.RunId == null && ParameterWasBound(nameof(this.RunId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DescribeContainerFleetRequest();
+            var request = new Amazon.Glue.Model.GetSystemLogsForJobRunRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.JobName != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.RunId != null)
+            {
+                request.RunId = cmdletContext.RunId;
             }
             
             CmdletOutput output;
@@ -170,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeContainerFleetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeContainerFleetRequest request)
+        private Amazon.Glue.Model.GetSystemLogsForJobRunResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetSystemLogsForJobRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeContainerFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetSystemLogsForJobRun");
             try
             {
-                return client.DescribeContainerFleetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetSystemLogsForJobRunAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -192,9 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DescribeContainerFleetResponse, GetGMLContainerFleetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContainerFleet;
+            public System.String JobName { get; set; }
+            public System.String RunId { get; set; }
+            public System.Func<Amazon.Glue.Model.GetSystemLogsForJobRunResponse, GetGLUESystemLogsForJobRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SystemLogsUrl;
         }
         
     }

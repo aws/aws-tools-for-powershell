@@ -82,9 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// that account's usage of that service. You can nest <c>Expression</c> objects to define
         /// any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
         /// </para><para>The <c>GetCostAndUsageWithResources</c> operation requires that you either group by
-        /// or filter by a <c>ResourceId</c>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><c>"SERVICE = Amazon Elastic Compute Cloud - Compute"</c> in the filter.</para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c> and <c>Tags</c> are
-        /// <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
-        /// and <c>CASE_SENSITIVE</c>.</para>
+        /// or filter by a <c>ResourceId</c>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><c>"SERVICE = Amazon Elastic Compute Cloud - Compute"</c> in the filter.</para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c>, <c>Tags</c>, and <c>ProductAttributes</c>
+        /// are <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
+        /// and <c>CASE_SENSITIVE</c>.</para><para>If you filter or group by product attributes, the <c>SERVICE</c> filter rules are
+        /// the same as for <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetCostAndUsage.html">GetCostAndUsage</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group Amazon Web Services costs using up to two different groups: <c>DIMENSION</c>,
-        /// <c>TAG</c>, <c>COST_CATEGORY</c>.</para><para />
+        /// <c>TAG</c>, <c>COST_CATEGORY</c>, and <c>PRODUCT_ATTRIBUTE</c>.</para><para><c>PRODUCT_ATTRIBUTE</c> groups work the same way as in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetCostAndUsage.html">GetCostAndUsage</a>.
+        /// A <c>PRODUCT_ATTRIBUTE</c> group or a <c>ProductAttributes</c> filter doesn't meet
+        /// the requirement to group by or filter by a <c>ResourceId</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

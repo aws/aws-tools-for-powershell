@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>The function version or alias. If not specified, lists executions for the $LATEST
-        /// version.</para>
+        /// <para>The function version to filter executions by. If you don't specify a qualifier, this
+        /// operation returns executions across all versions of the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

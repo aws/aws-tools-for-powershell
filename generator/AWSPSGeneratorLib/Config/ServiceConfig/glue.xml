@@ -761,6 +761,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSystemLogsForJobRun" OutputProperty="SystemLogsUrl" Verb="Get" Noun="SystemLogsForJobRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSystemLogsForSession" OutputProperty="SystemLogsUrl" Verb="Get" Noun="SystemLogsForSession" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

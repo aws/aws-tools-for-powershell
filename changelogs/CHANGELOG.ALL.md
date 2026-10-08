@@ -1,4 +1,39 @@
-﻿### 5.0.313 (2026-10-06 23:09Z)
+﻿### 5.0.314 (2026-10-08 19:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.349.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet Resume-CFNUpdateRollback: added parameter ForceRollback.
+  * Amazon Cost Explorer
+    * Modified cmdlet Get-CEDimensionValue: added parameter DimensionKey.
+  * Amazon DataZone
+    * Modified cmdlet Start-DZNotebookImport: added parameters SourceLocation_S3Files_Bucket, SourceLocation_S3Files_FileList and Type.
+    * Modified cmdlet Start-DZNotebookSync: added parameters SourceLocation_S3Files_Bucket and SourceLocation_S3Files_FileList.
+  * Amazon DevOps Agent Service
+    * Modified cmdlet Add-DOPSService: added parameters Configuration_Github_ReleaseManagementAssociationId, Configuration_Gitlab_ReleaseManagementAssociationId, Configuration_ReleaseManagement_Name, Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName and Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn.
+    * Modified cmdlet New-DOPSTrigger: added parameters Condition_Schedule_Spec_Cron_Expression, Condition_Schedule_Spec_TimeRange_Recurrence_Daily, Condition_Schedule_Spec_TimeRange_Recurrence_Monthly_DayOfMonth, Condition_Schedule_Spec_TimeRange_Recurrence_Weekly_DayOfWeek, Condition_Schedule_Spec_TimeRange_StartAfter and Condition_Schedule_Spec_TimeRange_StartBefore.
+    * Modified cmdlet Update-DOPSAssociation: added parameters Configuration_Github_ReleaseManagementAssociationId, Configuration_Gitlab_ReleaseManagementAssociationId, Configuration_ReleaseManagement_Name, Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_PrivateConnectionName and Configuration_ReleaseManagement_NetworkAccess_PrivateAccess_RuntimeRoleArn.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCapability: added parameters Configuration_Ack_DisabledService and Configuration_Ack_EnableCrossNamespace.
+    * Modified cmdlet Update-EKSCapability: added parameters Configuration_Ack_DisabledService and Configuration_Ack_EnableCrossNamespace.
+  * Amazon EMR Serverless
+    * Modified cmdlet Get-EMRServerlessResourceDashboard: added parameter AccessSystemProfileLog.
+  * Amazon GameLift Service
+    * Modified cmdlet New-GMLContainerGroupDefinition: added parameter GameServerContainerDefinition_Vcpu.
+    * Modified cmdlet Update-GMLContainerGroupDefinition: added parameters GameServerContainerDefinition_Vcpu and RemoveAttribute.
+  * Amazon Glue
+    * Added cmdlet Get-GLUESystemLogsForJobRun leveraging the GetSystemLogsForJobRun service API.
+    * Added cmdlet Get-GLUESystemLogsForSession leveraging the GetSystemLogsForSession service API.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter EncryptionAtRestOptions_EncryptionMode.
+    * Modified cmdlet Update-OSDomainConfig: added parameter EncryptionAtRestOptions_EncryptionMode.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBExportJobsV2List leveraging the ListExportJobsV2 service API.
+    * Added cmdlet Get-SHUBExportJobV2 leveraging the GetExportJobV2 service API.
+    * Added cmdlet Start-SHUBExportJobV2 leveraging the StartExportJobV2 service API.
+    * Added cmdlet Stop-SHUBExportJobV2 leveraging the CancelExportJobV2 service API.
+  * Amazon Security Incident Response
+    * Added cmdlet Get-SecurityIRFindingMetric leveraging the GetFindingMetrics service API.
+
+### 5.0.313 (2026-10-06 23:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.348.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * LWEB
     * [Breaking Change] Removed cmdlets Add-LWEBResourceTag, Get-LWEBResourcePolicy, Get-LWEBTag, Get-LWEBWebFunction, Get-LWEBWebFunctionEndpoint, Get-LWEBWebFunctionEndpointList, Get-LWEBWebFunctionList, Get-LWEBWebFunctionRevision, Get-LWEBWebFunctionRevisionList, New-LWEBWebFunction, New-LWEBWebFunctionEndpoint, New-LWEBWebFunctionRevision, Remove-LWEBResourcePolicy, Remove-LWEBResourceTag, Remove-LWEBWebFunction, Remove-LWEBWebFunctionEndpoint, Remove-LWEBWebFunctionRevision, Update-LWEBWebFunctionEndpoint and Write-LWEBResourcePolicy.

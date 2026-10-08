@@ -81,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Create a game server container group definition. Provide the following required parameter
     /// values:
     /// </para><ul><li><para><c>Name</c></para></li><li><para><c>ContainerGroupType</c> (<c>GAME_SERVER</c>)
-    /// </para></li><li><para><c>OperatingSystem</c></para></li><li><para><c>TotalMemoryLimitMebibytes</c></para></li><li><para><c>TotalVcpuLimit</c></para></li><li><para>
+    /// </para></li><li><para><c>OperatingSystem</c></para></li><li><para><c>TotalMemoryLimitMebibytes</c></para></li><li><para>
+    /// Either <c>TotalVcpuLimit</c> or a <c>Vcpu</c> value for the game server container
+    /// </para></li><li><para>
     /// At least one <c>GameServerContainerDefinition</c></para><ul><li><para><c>ContainerName</c></para></li><li><para><c>ImageUrl</c></para></li><li><para><c>PortConfiguration</c></para></li><li><para><c>ServerSdkVersion</c></para></li></ul></li></ul></li><li><para>
     /// Create a per-instance container group definition. Provide the following required parameter
     /// values:
@@ -304,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the container group definition resource. Tags are developer-defined
-        /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+        /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
         /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para><para />
@@ -342,19 +344,38 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal
-        /// to 1024 CPU units). All containers in the group share this memory. If you specify
-        /// vCPU limits for individual containers, the total value must be equal to or greater
-        /// than the sum of the CPU limits for all containers in the group.</para><para>Default value: 1</para>
+        /// to 1024 CPU units). All containers in the group share these resources. If you set
+        /// vCPU reservations for individual containers, the total value must be equal to or greater
+        /// than the sum of the <c>Vcpu</c> values for all containers in the group.</para><para>This property is required for a per-instance container group.</para><para>For a game server container group, Amazon GameLift Servers requires either a total
+        /// vCPU limit or a <c>Vcpu</c> value for the game server container. If you set a total
+        /// vCPU limit for a game server container group, Amazon GameLift Servers uses this value
+        /// to calculate how many game server container groups fit on an instance. If you don't
+        /// set a total vCPU limit, the group's containers can use up to the instance's available
+        /// vCPU, and Amazon GameLift Servers uses the sum of the containers' <c>Vcpu</c> values
+        /// to calculate how many game server container groups fit on an instance.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Double? TotalVcpuLimit { get; set; }
+        #endregion
+        
+        #region Parameter GameServerContainerDefinition_Vcpu
+        /// <summary>
+        /// <para>
+        /// <para>The number of vCPU units reserved for the game server container. The container can
+        /// use more vCPU when it's available, up to the container group's total vCPU limit if
+        /// one is set. If the container group has a total vCPU limit and the request doesn't
+        /// set this value, Amazon GameLift Servers calculates the game server container's vCPU
+        /// as the total vCPU limit minus the sum of the vCPU units reserved for the group's support
+        /// containers.</para><para>A game server container group needs either a total vCPU limit or this value. If the
+        /// container group doesn't have a total vCPU limit, the group's containers can use up
+        /// to the instance's available vCPU, and Amazon GameLift Servers uses the sum of the
+        /// group's container <c>Vcpu</c> values to calculate how many game server container groups
+        /// fit on an instance.</para><para><b>Related data type: </b><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a><c>TotalVcpuLimit</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? GameServerContainerDefinition_Vcpu { get; set; }
         #endregion
         
         #region Parameter VersionDescription
@@ -437,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.PortConfiguration_ContainerPortRange = new List<Amazon.GameLift.Model.ContainerPortRange>(this.PortConfiguration_ContainerPortRange);
             }
             context.GameServerContainerDefinition_ServerSdkVersion = this.GameServerContainerDefinition_ServerSdkVersion;
+            context.GameServerContainerDefinition_Vcpu = this.GameServerContainerDefinition_Vcpu;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -467,12 +489,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #endif
             context.TotalVcpuLimit = this.TotalVcpuLimit;
-            #if MODULAR
-            if (this.TotalVcpuLimit == null && ParameterWasBound(nameof(this.TotalVcpuLimit)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TotalVcpuLimit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -556,6 +572,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestGameServerContainerDefinition_gameServerContainerDefinition_ServerSdkVersion != null)
             {
                 request.GameServerContainerDefinition.ServerSdkVersion = requestGameServerContainerDefinition_gameServerContainerDefinition_ServerSdkVersion;
+                requestGameServerContainerDefinitionIsNull = false;
+            }
+            System.Double? requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu = null;
+            if (cmdletContext.GameServerContainerDefinition_Vcpu != null)
+            {
+                requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu = cmdletContext.GameServerContainerDefinition_Vcpu.Value;
+            }
+            if (requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu != null)
+            {
+                request.GameServerContainerDefinition.Vcpu = requestGameServerContainerDefinition_gameServerContainerDefinition_Vcpu.Value;
                 requestGameServerContainerDefinitionIsNull = false;
             }
             Amazon.GameLift.Model.LinuxCapabilities requestGameServerContainerDefinition_gameServerContainerDefinition_LinuxCapabilities = null;
@@ -705,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<Amazon.GameLift.Model.ContainerMountPoint> GameServerContainerDefinition_MountPoint { get; set; }
             public List<Amazon.GameLift.Model.ContainerPortRange> PortConfiguration_ContainerPortRange { get; set; }
             public System.String GameServerContainerDefinition_ServerSdkVersion { get; set; }
+            public System.Double? GameServerContainerDefinition_Vcpu { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ContainerOperatingSystem OperatingSystem { get; set; }
             public List<Amazon.GameLift.Model.SupportContainerDefinitionInput> SupportContainerDefinition { get; set; }
