@@ -25,14 +25,7 @@ function Resolve-AWSToolsModuleNames {
             return $null
         }
         
-        $resolvedNames = $Name | ForEach-Object {
-            if ($_.Contains('.')) {
-                $_
-            }
-            else {
-                "AWS.Tools.$_"
-            }
-        } | Sort-Object -Unique
+        $resolvedNames = ConvertTo-AWSToolsModuleName -Name $Name | Sort-Object -Unique
 
         $invalidNames = $resolvedNames | Where-Object { 
             $_ -notlike 'AWS.Tools*' 

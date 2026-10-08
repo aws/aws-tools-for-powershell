@@ -251,7 +251,9 @@ function Update-AWSToolsModule {
         
         # Parameter validation for version constraints
         if ($PSCmdlet.ParameterSetName -eq 'ManagedCloudFront' -or $PSCmdlet.ParameterSetName -eq 'Legacy') {
-            # Deprecation warning for restored parameter
+            # Deprecation warning for restored parameter. Emitted here rather than by the delegated
+            # Install-AWSToolsModule (which suppresses its copy under Update) so it still appears
+            # when delegation never occurs, e.g. no modules installed or confirmation declined.
             if ($MaximumVersion) {
                 Write-Warning "The MaximumVersion parameter is deprecated and should no longer be used as it will be removed in the next major version."
             }
@@ -360,8 +362,9 @@ function Update-AWSToolsModule {
             
             Write-Verbose ("[$($MyInvocation.MyCommand)] Found $($moduleNames.Count) installed AWS.Tools modules to update")
             
-            # Inform users about the number of modules being updated and that Install-AWSToolsModule is needed for new modules
-            Write-Host "Updating $($moduleNames.Count) installed AWS.Tools modules. Note: Use Install-AWSToolsModule to install new AWS modules that may have been released since your last update."
+            # Inform users that Update only touches already-installed modules and that
+            # Install-AWSToolsModule is the recommended way to install and maintain the full set.
+            Write-Host "Updating $($moduleNames.Count) AWS.Tools modules. Update-AWSToolsModule updates installed modules without adding any that are not already installed. Installing all modules with Install-AWSToolsModule is recommended. It keeps every command ready to use, reduces the risk of module import conflicts, and extends cleanup to all AWS Tools modules rather than only those installed."
             
             # Build target description for ShouldProcess
             if ($PSCmdlet.ParameterSetName -eq 'ManagedCloudFront' -or $PSCmdlet.ParameterSetName -eq 'Legacy') {
