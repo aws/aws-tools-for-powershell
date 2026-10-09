@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Updates an existing view's definition and/or description.
-    /// 
-    ///  
-    /// <para>
-    /// Only the fields you provide are changed. Managed views cannot be updated.
-    /// </para>
+    /// Updates an existing view's definition and/or description. Only the fields you provide
+    /// are changed. Managed views cannot be updated.
     /// </summary>
     [Cmdlet("Update", "CWOMView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.UpdateViewResponse")]
@@ -52,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The new SQL query that defines the view. Omit to leave unchanged.</para>
+        /// The new SQL query that defines the view. Omit
+        /// to leave unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The new description of the view. Omit to leave unchanged.</para>
+        /// The new description of the view. Omit to leave
+        /// unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the view to update.</para>
+        /// The name of the view to update.
         /// </para>
         /// </summary>
         #if !MODULAR

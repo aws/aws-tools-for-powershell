@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

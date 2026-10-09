@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_AdobeAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_AdobeAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Adobe Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_AdobeAnalyticsDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_AirtableAction
         /// <summary>
         /// <para>
@@ -189,6 +200,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_AsanaAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_AthenaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon Athena data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_AthenaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_AuroraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon Aurora data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_AuroraDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_Automate
@@ -372,6 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ConfluenceKnowledgeBase { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateAdobeAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Adobe Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAdobeAnalyticsDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_CreateAndUpdateAdobeAction
@@ -706,6 +750,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGmailAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateAndUpdateGongAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create and update Gong actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGongAction { get; set; }
         #endregion
         
         #region Parameter Capabilities_CreateAndUpdateGoogleAnalyticsAction
@@ -1348,6 +1403,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZoomInfoAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateAthenaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon Athena data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAthenaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateAuroraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon Aurora data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateAuroraDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateChatAgent
         /// <summary>
         /// <para>
@@ -1371,6 +1448,369 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateDatabricksDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Databricks data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDatabricksDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateDb2DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Db2 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDb2DataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateDenodoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Denodo data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDenodoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateDocumentDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon DocumentDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDocumentDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateDremioDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Dremio data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDremioDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateDynamoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon DynamoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateDynamoDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateExasolDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Exasol data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateExasolDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateFileDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create file data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateFileDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateGitHubDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create GitHub data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateGitHubDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateGoogleAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Google Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleAnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateGoogleBigQueryDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Google BigQuery data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleBigQueryDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateGoogleSheetsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Google Sheets data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleSheetsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateImpalaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Impala data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateImpalaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateJiraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Jira data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateJiraDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateMariaDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create MariaDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateMariaDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateMongoAtlasDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create MongoDB Atlas data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateMongoAtlasDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateMongoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create MongoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateMongoDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateMySqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create MySQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateMySqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateOpenSearchDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon OpenSearch Service data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateOpenSearchDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateOracleDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Oracle data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateOracleDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreatePayPalDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create PayPal data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreatePayPalDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreatePostgreSqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create PostgreSQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreatePostgreSqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreatePrestoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Presto data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreatePrestoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateRadiantDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon QuickSight data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateRadiantDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateRdsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create auto-discovered Amazon RDS data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateRdsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateRedshiftAutoDiscoveredDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create auto-discovered Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateRedshiftAutoDiscoveredDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateRedshiftManualDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create manually configured Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateRedshiftManualDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateS3AnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon S3 Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateS3AnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateS3DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon S3 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateS3DataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateS3TablesDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon S3 Tables data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateS3TablesDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateSalesforceDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Salesforce data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSalesforceDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateSapHanaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create SAP HANA data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSapHanaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateServiceNowDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create ServiceNow data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateServiceNowDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateSharedFolder
         /// <summary>
         /// <para>
@@ -1381,6 +1821,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("Capabilities_CreateSharedFolders")]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateSnowflakeDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Snowflake data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSnowflakeDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_CreateSpace
@@ -1395,6 +1846,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_CreateSpace { get; set; }
         #endregion
         
+        #region Parameter Capabilities_CreateSparkDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Spark data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSparkDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_CreateSPICEDataset
         /// <summary>
         /// <para>
@@ -1404,6 +1866,83 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateSqlServerDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create SQL Server data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSqlServerDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateSquareDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Square data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateSquareDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateStarburstDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Starburst data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateStarburstDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateTeradataDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Teradata data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateTeradataDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateTimestreamDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Amazon Timestream data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateTimestreamDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateTrinoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Trino data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateTrinoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_CreateTwitterDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create Twitter data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_CreateTwitterDataSource { get; set; }
         #endregion
         
         #region Parameter CustomPermissionsName
@@ -1434,6 +1973,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
         #endregion
         
+        #region Parameter Capabilities_DatabricksDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Databricks data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_DatabricksDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_Db2DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Db2 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Db2DataSource { get; set; }
+        #endregion
+        
         #region Parameter Governance_DefaultCategoryEffect
         /// <summary>
         /// <para>
@@ -1448,6 +2009,39 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Governance_DefaultCategoryEffects")]
         public System.Collections.Hashtable Governance_DefaultCategoryEffect { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_DenodoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Denodo data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_DenodoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_DocumentDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon DocumentDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_DocumentDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_DremioDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Dremio data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_DremioDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_DropboxAction
@@ -1472,6 +2066,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_DunAndBradstreetAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_DynamoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon DynamoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_DynamoDbDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_EditVisualWithQ
         /// <summary>
         /// <para>
@@ -1481,6 +2086,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_EditVisualWithQ { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ExasolDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Exasol data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ExasolDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ExportToCsv
@@ -1585,6 +2201,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_FigmaAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_FileDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share file data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_FileDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_Flow
         /// <summary>
         /// <para>
@@ -1629,6 +2256,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_GithubAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_GitHubDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share GitHub data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GitHubDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_GmailAction
         /// <summary>
         /// <para>
@@ -1640,6 +2278,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_GmailAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_GongAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform actions using Gong connectors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GongAction { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_GoogleAnalyticsAction
         /// <summary>
         /// <para>
@@ -1649,6 +2298,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_GoogleAnalyticsAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_GoogleAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Google Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GoogleAnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_GoogleBigQueryDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Google BigQuery data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GoogleBigQueryDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_GoogleCalendarAction
@@ -1728,6 +2399,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_GoogleSheetsAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_GoogleSheetsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Google Sheets data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_GoogleSheetsDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_GoogleSlidesAction
         /// <summary>
         /// <para>
@@ -1781,6 +2463,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_IDCKnowledgeBase { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ImpalaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Impala data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ImpalaDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_InboundEmailTrigger
@@ -1839,6 +2532,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_JiraAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_JiraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Jira data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_JiraDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_KnowledgeBase
         /// <summary>
         /// <para>
@@ -1876,6 +2580,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
         #endregion
         
+        #region Parameter Capabilities_MariaDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share MariaDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_MariaDbDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_MCPAction
         /// <summary>
         /// <para>
@@ -1896,6 +2611,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_MondayAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_MongoAtlasDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share MongoDB Atlas data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_MongoAtlasDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_MongoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share MongoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_MongoDbDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_MoodysAction
@@ -1929,6 +2666,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_MSTeamsAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_MySqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share MySQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_MySqlDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_NewRelicAction
@@ -1997,6 +2745,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_OpenAPIAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_OpenSearchDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon OpenSearch Service data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_OpenSearchDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_OracleDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Oracle data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_OracleDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_PagerDutyAction
         /// <summary>
         /// <para>
@@ -2019,6 +2789,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_PagerDutyAgentAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_PayPalDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share PayPal data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_PayPalDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_PerformFlowUiTask
         /// <summary>
         /// <para>
@@ -2028,6 +2809,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_PerformFlowUiTask { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_PostgreSqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share PostgreSQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_PostgreSqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_PrestoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Presto data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_PrestoDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_PrintReport
@@ -2087,6 +2890,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_QuickEventTrigger { get; set; }
         #endregion
         
+        #region Parameter Capabilities_RadiantDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon QuickSight data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_RadiantDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_RdsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share auto-discovered Amazon RDS data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_RdsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_RedshiftAutoDiscoveredDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share auto-discovered Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_RedshiftAutoDiscoveredDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_RedshiftManualDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share manually configured Amazon Redshift data
+        /// sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_RedshiftManualDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_RenameSharedFolder
         /// <summary>
         /// <para>
@@ -2110,6 +2958,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_Research { get; set; }
         #endregion
         
+        #region Parameter Capabilities_S3AnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon S3 Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_S3AnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_S3DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon S3 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_S3DataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_S3KnowledgeBase
         /// <summary>
         /// <para>
@@ -2121,6 +2991,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_S3KnowledgeBase { get; set; }
         #endregion
         
+        #region Parameter Capabilities_S3TablesDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon S3 Tables data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_S3TablesDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_SalesforceAction
         /// <summary>
         /// <para>
@@ -2130,6 +3011,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_SalesforceAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SalesforceDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Salesforce data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SalesforceDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_SandPGlobalEnergyAction
@@ -2174,6 +3066,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_SAPBusinessPartnerAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SapHanaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share SAP HANA data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SapHanaDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_SAPMaterialStockAction
@@ -2254,6 +3157,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ServiceNowAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ServiceNowDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share ServiceNow data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ServiceNowDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareAdobeAction
         /// <summary>
         /// <para>
@@ -2263,6 +3177,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareAdobeAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareAdobeAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Adobe Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareAdobeAnalyticsDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareAirtableAction
@@ -2352,6 +3277,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareAsanaAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareAthenaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon Athena data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareAthenaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareAuroraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon Aurora data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareAuroraDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareBambooHRAction
@@ -2510,6 +3457,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareDashboard { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareDatabricksDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Databricks data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDatabricksDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareDataset
         /// <summary>
         /// <para>
@@ -2534,6 +3492,50 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareDataSource { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareDb2DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Db2 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDb2DataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareDenodoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Denodo data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDenodoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareDocumentDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon DocumentDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDocumentDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareDremioDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Dremio data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDremioDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareDropboxAction
         /// <summary>
         /// <para>
@@ -2554,6 +3556,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareDunAndBradstreetAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareDynamoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon DynamoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareDynamoDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareExasolDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Exasol data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareExasolDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareFactSetAction
@@ -2578,6 +3602,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareFigmaAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareFileDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share file data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareFileDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareGenericHTTPAction
         /// <summary>
         /// <para>
@@ -2600,6 +3635,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareGithubAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareGitHubDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share GitHub data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareGitHubDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareGmailAction
         /// <summary>
         /// <para>
@@ -2611,6 +3657,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareGmailAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareGongAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Gong actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareGongAction { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareGoogleAnalyticsAction
         /// <summary>
         /// <para>
@@ -2620,6 +3677,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleAnalyticsAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareGoogleAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Google Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleAnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareGoogleBigQueryDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Google BigQuery data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleBigQueryDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareGoogleCalendarAction
@@ -2699,6 +3778,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleSheetsAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareGoogleSheetsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Google Sheets data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleSheetsDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareGoogleSlidesAction
         /// <summary>
         /// <para>
@@ -2754,6 +3844,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareIDCKnowledgeBase { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareImpalaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Impala data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareImpalaDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareIntercomAction
         /// <summary>
         /// <para>
@@ -2774,6 +3875,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareJiraAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareJiraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Jira data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareJiraDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareKnowledgeBases
@@ -2798,6 +3910,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareLinearAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareMariaDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share MariaDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareMariaDbDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareMCPAction
         /// <summary>
         /// <para>
@@ -2818,6 +3941,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareMondayAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareMongoAtlasDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share MongoDB Atlas data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareMongoAtlasDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareMongoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share MongoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareMongoDbDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareMoodysAction
@@ -2851,6 +3996,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareMSTeamsAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareMySqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share MySQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareMySqlDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareNewRelicAction
@@ -2919,6 +4075,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareOpenAPIAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareOpenSearchDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon OpenSearch Service data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareOpenSearchDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareOracleDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Oracle data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareOracleDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_SharePagerDutyAction
         /// <summary>
         /// <para>
@@ -2939,6 +4117,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_SharePagerDutyAgentAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SharePayPalDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share PayPal data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SharePayPalDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_SharePointAction
@@ -2963,6 +4152,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_SharePointKnowledgeBase { get; set; }
         #endregion
         
+        #region Parameter Capabilities_SharePostgreSqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share PostgreSQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SharePostgreSqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SharePrestoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Presto data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SharePrestoDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareQBusinessKnowledgeBase
         /// <summary>
         /// <para>
@@ -2985,6 +4196,72 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareQuickBooksAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareRadiantDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon QuickSight data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareRadiantDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareRdsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share auto-discovered Amazon RDS data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareRdsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareRedshiftAutoDiscoveredDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share auto-discovered Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareRedshiftAutoDiscoveredDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareRedshiftManualDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share manually configured Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareRedshiftManualDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareS3AnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon S3 Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareS3AnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareS3DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon S3 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareS3DataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareS3KnowledgeBase
         /// <summary>
         /// <para>
@@ -2996,6 +4273,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareS3KnowledgeBase { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareS3TablesDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon S3 Tables data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareS3TablesDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareSalesforceAction
         /// <summary>
         /// <para>
@@ -3005,6 +4293,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareSalesforceDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Salesforce data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareSandPGlobalEnergyAction
@@ -3051,6 +4350,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPBusinessPartnerAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareSapHanaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share SAP HANA data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSapHanaDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareSAPMaterialStockAction
         /// <summary>
         /// <para>
@@ -3093,6 +4403,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareServiceNowAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareServiceNowDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share ServiceNow data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareServiceNowDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareSharePointAction
@@ -3161,6 +4482,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareSnowFlakeAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareSnowflakeDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Snowflake data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSnowflakeDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareSpace
         /// <summary>
         /// <para>
@@ -3173,6 +4505,61 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_ShareSpace { get; set; }
         #endregion
         
+        #region Parameter Capabilities_ShareSparkDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Spark data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSparkDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareSqlServerDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share SQL Server data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSqlServerDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareSquareDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Square data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareSquareDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareStarburstDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Starburst data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareStarburstDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareTeradataDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Teradata data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareTeradataDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_ShareTextractAction
         /// <summary>
         /// <para>
@@ -3182,6 +4569,39 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_ShareTextractAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareTimestreamDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Amazon Timestream data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareTimestreamDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareTrinoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Trino data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareTrinoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_ShareTwitterDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to share Twitter data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_ShareTwitterDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_ShareVisierAgentAction
@@ -3305,6 +4725,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_SnowFlakeAction { get; set; }
         #endregion
         
+        #region Parameter Capabilities_SnowflakeDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Snowflake data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SnowflakeDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_Space
         /// <summary>
         /// <para>
@@ -3314,6 +4745,50 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_Space { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SparkDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Spark data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SparkDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SqlServerDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share SQL Server data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SqlServerDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_SquareDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Square data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_SquareDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_StarburstDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Starburst data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_StarburstDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_Story
@@ -3339,6 +4814,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_SubscribeDashboardEmailReport { get; set; }
         #endregion
         
+        #region Parameter Capabilities_TeradataDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Teradata data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_TeradataDataSource { get; set; }
+        #endregion
+        
         #region Parameter Capabilities_TextractAction
         /// <summary>
         /// <para>
@@ -3348,6 +4834,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_TextractAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_TimestreamDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Amazon Timestream data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_TimestreamDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_Topic
@@ -3370,6 +4867,523 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_Trigger { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_TrinoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Trino data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_TrinoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_TwitterDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to create, update, and share Twitter data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_TwitterDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateAdobeAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Adobe Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateAdobeAnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateAthenaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon Athena data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateAthenaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateAuroraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon Aurora data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateAuroraDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDatabricksDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Databricks data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDatabricksDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDb2DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Db2 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDb2DataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDenodoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Denodo data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDenodoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDocumentDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon DocumentDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDocumentDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDremioDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Dremio data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDremioDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateDynamoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon DynamoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateDynamoDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateExasolDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Exasol data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateExasolDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateFileDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update file data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateFileDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateGitHubDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update GitHub data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateGitHubDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateGoogleAnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Google Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleAnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateGoogleBigQueryDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Google BigQuery data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleBigQueryDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateGoogleSheetsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Google Sheets data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleSheetsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateImpalaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Impala data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateImpalaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateJiraDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Jira data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateJiraDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateMariaDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update MariaDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateMariaDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateMongoAtlasDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update MongoDB Atlas data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateMongoAtlasDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateMongoDbDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update MongoDB data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateMongoDbDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateMySqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update MySQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateMySqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateOpenSearchDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon OpenSearch Service data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateOpenSearchDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateOracleDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Oracle data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateOracleDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdatePayPalDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update PayPal data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdatePayPalDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdatePostgreSqlDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update PostgreSQL data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdatePostgreSqlDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdatePrestoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Presto data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdatePrestoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateRadiantDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon QuickSight data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateRadiantDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateRdsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update auto-discovered Amazon RDS data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateRdsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateRedshiftAutoDiscoveredDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update auto-discovered Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateRedshiftAutoDiscoveredDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateRedshiftManualDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update manually configured Amazon Redshift data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateRedshiftManualDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateS3AnalyticsDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon S3 Analytics data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3AnalyticsDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateS3DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon S3 data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3DataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateS3TablesDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon S3 Tables data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3TablesDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSalesforceDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Salesforce data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSalesforceDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSapHanaDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update SAP HANA data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSapHanaDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateServiceNowDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update ServiceNow data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateServiceNowDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSnowflakeDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Snowflake data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSnowflakeDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSparkDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Spark data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSparkDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSqlServerDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update SQL Server data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSqlServerDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateSquareDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Square data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateSquareDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateStarburstDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Starburst data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateStarburstDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateTeradataDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Teradata data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateTeradataDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateTimestreamDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Amazon Timestream data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateTimestreamDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateTrinoDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Trino data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateTrinoDataSource { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UpdateTwitterDataSource
+        /// <summary>
+        /// <para>
+        /// <para>The ability to update Twitter data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UpdateTwitterDataSource { get; set; }
         #endregion
         
         #region Parameter Capabilities_UseAdobeAction
@@ -3703,6 +5717,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
         public Amazon.QuickSight.CapabilityState Capabilities_UseGmailAction { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_UseGongAction
+        /// <summary>
+        /// <para>
+        /// <para>The ability to use Gong actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_UseGongAction { get; set; }
         #endregion
         
         #region Parameter Capabilities_UseGoogleAnalyticsAction
@@ -4488,6 +6513,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_Action = this.Capabilities_Action;
             context.Capabilities_AddOrRunAnomalyDetectionForAnalyses = this.Capabilities_AddOrRunAnomalyDetectionForAnalyses;
             context.Capabilities_AdobeAction = this.Capabilities_AdobeAction;
+            context.Capabilities_AdobeAnalyticsDataSource = this.Capabilities_AdobeAnalyticsDataSource;
             context.Capabilities_AirtableAction = this.Capabilities_AirtableAction;
             context.Capabilities_AmazonBedrockARSAction = this.Capabilities_AmazonBedrockARSAction;
             context.Capabilities_AmazonBedrockFSAction = this.Capabilities_AmazonBedrockFSAction;
@@ -4497,6 +6523,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ApproveFlowShareRequest = this.Capabilities_ApproveFlowShareRequest;
             context.Capabilities_App = this.Capabilities_App;
             context.Capabilities_AsanaAction = this.Capabilities_AsanaAction;
+            context.Capabilities_AthenaDataSource = this.Capabilities_AthenaDataSource;
+            context.Capabilities_AuroraDataSource = this.Capabilities_AuroraDataSource;
             context.Capabilities_Automate = this.Capabilities_Automate;
             context.Capabilities_BambooHRAction = this.Capabilities_BambooHRAction;
             context.Capabilities_BedrockManagedKnowledgeBase = this.Capabilities_BedrockManagedKnowledgeBase;
@@ -4512,6 +6540,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ComprehendMedicalAction = this.Capabilities_ComprehendMedicalAction;
             context.Capabilities_ConfluenceAction = this.Capabilities_ConfluenceAction;
             context.Capabilities_ConfluenceKnowledgeBase = this.Capabilities_ConfluenceKnowledgeBase;
+            context.Capabilities_CreateAdobeAnalyticsDataSource = this.Capabilities_CreateAdobeAnalyticsDataSource;
             context.Capabilities_CreateAndUpdateAdobeAction = this.Capabilities_CreateAndUpdateAdobeAction;
             context.Capabilities_CreateAndUpdateAirtableAction = this.Capabilities_CreateAndUpdateAirtableAction;
             context.Capabilities_CreateAndUpdateAmazonBedrockARSAction = this.Capabilities_CreateAndUpdateAmazonBedrockARSAction;
@@ -4542,6 +6571,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateGenericHTTPAction = this.Capabilities_CreateAndUpdateGenericHTTPAction;
             context.Capabilities_CreateAndUpdateGithubAction = this.Capabilities_CreateAndUpdateGithubAction;
             context.Capabilities_CreateAndUpdateGmailAction = this.Capabilities_CreateAndUpdateGmailAction;
+            context.Capabilities_CreateAndUpdateGongAction = this.Capabilities_CreateAndUpdateGongAction;
             context.Capabilities_CreateAndUpdateGoogleAnalyticsAction = this.Capabilities_CreateAndUpdateGoogleAnalyticsAction;
             context.Capabilities_CreateAndUpdateGoogleCalendarAction = this.Capabilities_CreateAndUpdateGoogleCalendarAction;
             context.Capabilities_CreateAndUpdateGoogleChatAction = this.Capabilities_CreateAndUpdateGoogleChatAction;
@@ -4600,15 +6630,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateZendeskAction = this.Capabilities_CreateAndUpdateZendeskAction;
             context.Capabilities_CreateAndUpdateZoomAction = this.Capabilities_CreateAndUpdateZoomAction;
             context.Capabilities_CreateAndUpdateZoomInfoAction = this.Capabilities_CreateAndUpdateZoomInfoAction;
+            context.Capabilities_CreateAthenaDataSource = this.Capabilities_CreateAthenaDataSource;
+            context.Capabilities_CreateAuroraDataSource = this.Capabilities_CreateAuroraDataSource;
             context.Capabilities_CreateChatAgent = this.Capabilities_CreateChatAgent;
             context.Capabilities_CreateDashboardExecutiveSummaryWithQ = this.Capabilities_CreateDashboardExecutiveSummaryWithQ;
+            context.Capabilities_CreateDatabricksDataSource = this.Capabilities_CreateDatabricksDataSource;
+            context.Capabilities_CreateDb2DataSource = this.Capabilities_CreateDb2DataSource;
+            context.Capabilities_CreateDenodoDataSource = this.Capabilities_CreateDenodoDataSource;
+            context.Capabilities_CreateDocumentDbDataSource = this.Capabilities_CreateDocumentDbDataSource;
+            context.Capabilities_CreateDremioDataSource = this.Capabilities_CreateDremioDataSource;
+            context.Capabilities_CreateDynamoDbDataSource = this.Capabilities_CreateDynamoDbDataSource;
+            context.Capabilities_CreateExasolDataSource = this.Capabilities_CreateExasolDataSource;
+            context.Capabilities_CreateFileDataSource = this.Capabilities_CreateFileDataSource;
+            context.Capabilities_CreateGitHubDataSource = this.Capabilities_CreateGitHubDataSource;
+            context.Capabilities_CreateGoogleAnalyticsDataSource = this.Capabilities_CreateGoogleAnalyticsDataSource;
+            context.Capabilities_CreateGoogleBigQueryDataSource = this.Capabilities_CreateGoogleBigQueryDataSource;
+            context.Capabilities_CreateGoogleSheetsDataSource = this.Capabilities_CreateGoogleSheetsDataSource;
+            context.Capabilities_CreateImpalaDataSource = this.Capabilities_CreateImpalaDataSource;
+            context.Capabilities_CreateJiraDataSource = this.Capabilities_CreateJiraDataSource;
+            context.Capabilities_CreateMariaDbDataSource = this.Capabilities_CreateMariaDbDataSource;
+            context.Capabilities_CreateMongoAtlasDataSource = this.Capabilities_CreateMongoAtlasDataSource;
+            context.Capabilities_CreateMongoDbDataSource = this.Capabilities_CreateMongoDbDataSource;
+            context.Capabilities_CreateMySqlDataSource = this.Capabilities_CreateMySqlDataSource;
+            context.Capabilities_CreateOpenSearchDataSource = this.Capabilities_CreateOpenSearchDataSource;
+            context.Capabilities_CreateOracleDataSource = this.Capabilities_CreateOracleDataSource;
+            context.Capabilities_CreatePayPalDataSource = this.Capabilities_CreatePayPalDataSource;
+            context.Capabilities_CreatePostgreSqlDataSource = this.Capabilities_CreatePostgreSqlDataSource;
+            context.Capabilities_CreatePrestoDataSource = this.Capabilities_CreatePrestoDataSource;
+            context.Capabilities_CreateRadiantDataSource = this.Capabilities_CreateRadiantDataSource;
+            context.Capabilities_CreateRdsDataSource = this.Capabilities_CreateRdsDataSource;
+            context.Capabilities_CreateRedshiftAutoDiscoveredDataSource = this.Capabilities_CreateRedshiftAutoDiscoveredDataSource;
+            context.Capabilities_CreateRedshiftManualDataSource = this.Capabilities_CreateRedshiftManualDataSource;
+            context.Capabilities_CreateS3AnalyticsDataSource = this.Capabilities_CreateS3AnalyticsDataSource;
+            context.Capabilities_CreateS3DataSource = this.Capabilities_CreateS3DataSource;
+            context.Capabilities_CreateS3TablesDataSource = this.Capabilities_CreateS3TablesDataSource;
             context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
+            context.Capabilities_CreateSalesforceDataSource = this.Capabilities_CreateSalesforceDataSource;
+            context.Capabilities_CreateSapHanaDataSource = this.Capabilities_CreateSapHanaDataSource;
+            context.Capabilities_CreateServiceNowDataSource = this.Capabilities_CreateServiceNowDataSource;
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
+            context.Capabilities_CreateSnowflakeDataSource = this.Capabilities_CreateSnowflakeDataSource;
             context.Capabilities_CreateSpace = this.Capabilities_CreateSpace;
+            context.Capabilities_CreateSparkDataSource = this.Capabilities_CreateSparkDataSource;
+            context.Capabilities_CreateSqlServerDataSource = this.Capabilities_CreateSqlServerDataSource;
+            context.Capabilities_CreateSquareDataSource = this.Capabilities_CreateSquareDataSource;
+            context.Capabilities_CreateStarburstDataSource = this.Capabilities_CreateStarburstDataSource;
+            context.Capabilities_CreateTeradataDataSource = this.Capabilities_CreateTeradataDataSource;
+            context.Capabilities_CreateTimestreamDataSource = this.Capabilities_CreateTimestreamDataSource;
+            context.Capabilities_CreateTrinoDataSource = this.Capabilities_CreateTrinoDataSource;
+            context.Capabilities_CreateTwitterDataSource = this.Capabilities_CreateTwitterDataSource;
             context.Capabilities_Dashboard = this.Capabilities_Dashboard;
+            context.Capabilities_DatabricksDataSource = this.Capabilities_DatabricksDataSource;
+            context.Capabilities_Db2DataSource = this.Capabilities_Db2DataSource;
+            context.Capabilities_DenodoDataSource = this.Capabilities_DenodoDataSource;
+            context.Capabilities_DocumentDbDataSource = this.Capabilities_DocumentDbDataSource;
+            context.Capabilities_DremioDataSource = this.Capabilities_DremioDataSource;
             context.Capabilities_DropboxAction = this.Capabilities_DropboxAction;
             context.Capabilities_DunAndBradstreetAction = this.Capabilities_DunAndBradstreetAction;
+            context.Capabilities_DynamoDbDataSource = this.Capabilities_DynamoDbDataSource;
             context.Capabilities_EditVisualWithQ = this.Capabilities_EditVisualWithQ;
+            context.Capabilities_ExasolDataSource = this.Capabilities_ExasolDataSource;
             context.Capabilities_ExportToCsv = this.Capabilities_ExportToCsv;
             context.Capabilities_ExportToCsvInScheduledReport = this.Capabilities_ExportToCsvInScheduledReport;
             context.Capabilities_ExportToExcel = this.Capabilities_ExportToExcel;
@@ -4618,12 +6699,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_Extension = this.Capabilities_Extension;
             context.Capabilities_FactSetAction = this.Capabilities_FactSetAction;
             context.Capabilities_FigmaAction = this.Capabilities_FigmaAction;
+            context.Capabilities_FileDataSource = this.Capabilities_FileDataSource;
             context.Capabilities_Flow = this.Capabilities_Flow;
             context.Capabilities_GenerateAnalyses = this.Capabilities_GenerateAnalyses;
             context.Capabilities_GenericHTTPAction = this.Capabilities_GenericHTTPAction;
+            context.Capabilities_GitHubDataSource = this.Capabilities_GitHubDataSource;
             context.Capabilities_GithubAction = this.Capabilities_GithubAction;
             context.Capabilities_GmailAction = this.Capabilities_GmailAction;
+            context.Capabilities_GongAction = this.Capabilities_GongAction;
             context.Capabilities_GoogleAnalyticsAction = this.Capabilities_GoogleAnalyticsAction;
+            context.Capabilities_GoogleAnalyticsDataSource = this.Capabilities_GoogleAnalyticsDataSource;
+            context.Capabilities_GoogleBigQueryDataSource = this.Capabilities_GoogleBigQueryDataSource;
             context.Capabilities_GoogleCalendarAction = this.Capabilities_GoogleCalendarAction;
             context.Capabilities_GoogleChatAction = this.Capabilities_GoogleChatAction;
             context.Capabilities_GoogleDocsAction = this.Capabilities_GoogleDocsAction;
@@ -4631,54 +6717,77 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_GoogleDriveKnowledgeBase = this.Capabilities_GoogleDriveKnowledgeBase;
             context.Capabilities_GoogleMeetAction = this.Capabilities_GoogleMeetAction;
             context.Capabilities_GoogleSheetsAction = this.Capabilities_GoogleSheetsAction;
+            context.Capabilities_GoogleSheetsDataSource = this.Capabilities_GoogleSheetsDataSource;
             context.Capabilities_GoogleSlidesAction = this.Capabilities_GoogleSlidesAction;
             context.Capabilities_HGInsightsAction = this.Capabilities_HGInsightsAction;
             context.Capabilities_HubspotAction = this.Capabilities_HubspotAction;
             context.Capabilities_HuggingFaceAction = this.Capabilities_HuggingFaceAction;
             context.Capabilities_IDCKnowledgeBase = this.Capabilities_IDCKnowledgeBase;
+            context.Capabilities_ImpalaDataSource = this.Capabilities_ImpalaDataSource;
             context.Capabilities_InboundEmailTrigger = this.Capabilities_InboundEmailTrigger;
             context.Capabilities_IncludeContentInScheduledReportsEmail = this.Capabilities_IncludeContentInScheduledReportsEmail;
             context.Capabilities_IntercomAction = this.Capabilities_IntercomAction;
             context.Capabilities_InvokeAppsAIInference = this.Capabilities_InvokeAppsAIInference;
             context.Capabilities_JiraAction = this.Capabilities_JiraAction;
+            context.Capabilities_JiraDataSource = this.Capabilities_JiraDataSource;
             context.Capabilities_KnowledgeBase = this.Capabilities_KnowledgeBase;
             context.Capabilities_LinearAction = this.Capabilities_LinearAction;
             context.Capabilities_MCPAction = this.Capabilities_MCPAction;
             context.Capabilities_MSExchangeAction = this.Capabilities_MSExchangeAction;
             context.Capabilities_MSTeamsAction = this.Capabilities_MSTeamsAction;
             context.Capabilities_ManageSharedFolder = this.Capabilities_ManageSharedFolder;
+            context.Capabilities_MariaDbDataSource = this.Capabilities_MariaDbDataSource;
             context.Capabilities_MondayAction = this.Capabilities_MondayAction;
+            context.Capabilities_MongoAtlasDataSource = this.Capabilities_MongoAtlasDataSource;
+            context.Capabilities_MongoDbDataSource = this.Capabilities_MongoDbDataSource;
             context.Capabilities_MoodysAction = this.Capabilities_MoodysAction;
+            context.Capabilities_MySqlDataSource = this.Capabilities_MySqlDataSource;
             context.Capabilities_NewRelicAction = this.Capabilities_NewRelicAction;
             context.Capabilities_NotionAction = this.Capabilities_NotionAction;
             context.Capabilities_OneDriveAction = this.Capabilities_OneDriveAction;
             context.Capabilities_OneDriveKnowledgeBase = this.Capabilities_OneDriveKnowledgeBase;
             context.Capabilities_OneNoteAction = this.Capabilities_OneNoteAction;
             context.Capabilities_OpenAPIAction = this.Capabilities_OpenAPIAction;
+            context.Capabilities_OpenSearchDataSource = this.Capabilities_OpenSearchDataSource;
+            context.Capabilities_OracleDataSource = this.Capabilities_OracleDataSource;
             context.Capabilities_PagerDutyAction = this.Capabilities_PagerDutyAction;
             context.Capabilities_PagerDutyAgentAction = this.Capabilities_PagerDutyAgentAction;
+            context.Capabilities_PayPalDataSource = this.Capabilities_PayPalDataSource;
             context.Capabilities_PerformFlowUiTask = this.Capabilities_PerformFlowUiTask;
+            context.Capabilities_PostgreSqlDataSource = this.Capabilities_PostgreSqlDataSource;
+            context.Capabilities_PrestoDataSource = this.Capabilities_PrestoDataSource;
             context.Capabilities_PrintReport = this.Capabilities_PrintReport;
             context.Capabilities_PublishWithoutApproval = this.Capabilities_PublishWithoutApproval;
             context.Capabilities_QBusinessKnowledgeBase = this.Capabilities_QBusinessKnowledgeBase;
             context.Capabilities_QuickBooksAction = this.Capabilities_QuickBooksAction;
             context.Capabilities_QuickEventTrigger = this.Capabilities_QuickEventTrigger;
+            context.Capabilities_RadiantDataSource = this.Capabilities_RadiantDataSource;
+            context.Capabilities_RdsDataSource = this.Capabilities_RdsDataSource;
+            context.Capabilities_RedshiftAutoDiscoveredDataSource = this.Capabilities_RedshiftAutoDiscoveredDataSource;
+            context.Capabilities_RedshiftManualDataSource = this.Capabilities_RedshiftManualDataSource;
             context.Capabilities_RenameSharedFolder = this.Capabilities_RenameSharedFolder;
             context.Capabilities_Research = this.Capabilities_Research;
+            context.Capabilities_S3AnalyticsDataSource = this.Capabilities_S3AnalyticsDataSource;
+            context.Capabilities_S3DataSource = this.Capabilities_S3DataSource;
             context.Capabilities_S3KnowledgeBase = this.Capabilities_S3KnowledgeBase;
+            context.Capabilities_S3TablesDataSource = this.Capabilities_S3TablesDataSource;
             context.Capabilities_SAPBillOfMaterialAction = this.Capabilities_SAPBillOfMaterialAction;
             context.Capabilities_SAPBusinessPartnerAction = this.Capabilities_SAPBusinessPartnerAction;
             context.Capabilities_SAPMaterialStockAction = this.Capabilities_SAPMaterialStockAction;
             context.Capabilities_SAPPhysicalInventoryAction = this.Capabilities_SAPPhysicalInventoryAction;
             context.Capabilities_SAPProductMasterDataAction = this.Capabilities_SAPProductMasterDataAction;
             context.Capabilities_SalesforceAction = this.Capabilities_SalesforceAction;
+            context.Capabilities_SalesforceDataSource = this.Capabilities_SalesforceDataSource;
             context.Capabilities_SandPGMIAction = this.Capabilities_SandPGMIAction;
             context.Capabilities_SandPGlobalEnergyAction = this.Capabilities_SandPGlobalEnergyAction;
+            context.Capabilities_SapHanaDataSource = this.Capabilities_SapHanaDataSource;
             context.Capabilities_Scenario = this.Capabilities_Scenario;
             context.Capabilities_ScheduleTrigger = this.Capabilities_ScheduleTrigger;
             context.Capabilities_SelfUpgradeUserRole = this.Capabilities_SelfUpgradeUserRole;
             context.Capabilities_ServiceNowAction = this.Capabilities_ServiceNowAction;
+            context.Capabilities_ServiceNowDataSource = this.Capabilities_ServiceNowDataSource;
             context.Capabilities_ShareAdobeAction = this.Capabilities_ShareAdobeAction;
+            context.Capabilities_ShareAdobeAnalyticsDataSource = this.Capabilities_ShareAdobeAnalyticsDataSource;
             context.Capabilities_ShareAirtableAction = this.Capabilities_ShareAirtableAction;
             context.Capabilities_ShareAmazonBedrockARSAction = this.Capabilities_ShareAmazonBedrockARSAction;
             context.Capabilities_ShareAmazonBedrockFSAction = this.Capabilities_ShareAmazonBedrockFSAction;
@@ -4687,6 +6796,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareAnalyses = this.Capabilities_ShareAnalyses;
             context.Capabilities_ShareApp = this.Capabilities_ShareApp;
             context.Capabilities_ShareAsanaAction = this.Capabilities_ShareAsanaAction;
+            context.Capabilities_ShareAthenaDataSource = this.Capabilities_ShareAthenaDataSource;
+            context.Capabilities_ShareAuroraDataSource = this.Capabilities_ShareAuroraDataSource;
             context.Capabilities_ShareBambooHRAction = this.Capabilities_ShareBambooHRAction;
             context.Capabilities_ShareBedrockManagedKnowledgeBase = this.Capabilities_ShareBedrockManagedKnowledgeBase;
             context.Capabilities_ShareBeeAction = this.Capabilities_ShareBeeAction;
@@ -4702,15 +6813,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareConfluenceKnowledgeBase = this.Capabilities_ShareConfluenceKnowledgeBase;
             context.Capabilities_ShareDashboard = this.Capabilities_ShareDashboard;
             context.Capabilities_ShareDataSource = this.Capabilities_ShareDataSource;
+            context.Capabilities_ShareDatabricksDataSource = this.Capabilities_ShareDatabricksDataSource;
             context.Capabilities_ShareDataset = this.Capabilities_ShareDataset;
+            context.Capabilities_ShareDb2DataSource = this.Capabilities_ShareDb2DataSource;
+            context.Capabilities_ShareDenodoDataSource = this.Capabilities_ShareDenodoDataSource;
+            context.Capabilities_ShareDocumentDbDataSource = this.Capabilities_ShareDocumentDbDataSource;
+            context.Capabilities_ShareDremioDataSource = this.Capabilities_ShareDremioDataSource;
             context.Capabilities_ShareDropboxAction = this.Capabilities_ShareDropboxAction;
             context.Capabilities_ShareDunAndBradstreetAction = this.Capabilities_ShareDunAndBradstreetAction;
+            context.Capabilities_ShareDynamoDbDataSource = this.Capabilities_ShareDynamoDbDataSource;
+            context.Capabilities_ShareExasolDataSource = this.Capabilities_ShareExasolDataSource;
             context.Capabilities_ShareFactSetAction = this.Capabilities_ShareFactSetAction;
             context.Capabilities_ShareFigmaAction = this.Capabilities_ShareFigmaAction;
+            context.Capabilities_ShareFileDataSource = this.Capabilities_ShareFileDataSource;
             context.Capabilities_ShareGenericHTTPAction = this.Capabilities_ShareGenericHTTPAction;
+            context.Capabilities_ShareGitHubDataSource = this.Capabilities_ShareGitHubDataSource;
             context.Capabilities_ShareGithubAction = this.Capabilities_ShareGithubAction;
             context.Capabilities_ShareGmailAction = this.Capabilities_ShareGmailAction;
+            context.Capabilities_ShareGongAction = this.Capabilities_ShareGongAction;
             context.Capabilities_ShareGoogleAnalyticsAction = this.Capabilities_ShareGoogleAnalyticsAction;
+            context.Capabilities_ShareGoogleAnalyticsDataSource = this.Capabilities_ShareGoogleAnalyticsDataSource;
+            context.Capabilities_ShareGoogleBigQueryDataSource = this.Capabilities_ShareGoogleBigQueryDataSource;
             context.Capabilities_ShareGoogleCalendarAction = this.Capabilities_ShareGoogleCalendarAction;
             context.Capabilities_ShareGoogleChatAction = this.Capabilities_ShareGoogleChatAction;
             context.Capabilities_ShareGoogleDocsAction = this.Capabilities_ShareGoogleDocsAction;
@@ -4718,50 +6841,81 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_ShareGoogleDriveKnowledgeBase = this.Capabilities_ShareGoogleDriveKnowledgeBase;
             context.Capabilities_ShareGoogleMeetAction = this.Capabilities_ShareGoogleMeetAction;
             context.Capabilities_ShareGoogleSheetsAction = this.Capabilities_ShareGoogleSheetsAction;
+            context.Capabilities_ShareGoogleSheetsDataSource = this.Capabilities_ShareGoogleSheetsDataSource;
             context.Capabilities_ShareGoogleSlidesAction = this.Capabilities_ShareGoogleSlidesAction;
             context.Capabilities_ShareHGInsightsAction = this.Capabilities_ShareHGInsightsAction;
             context.Capabilities_ShareHubspotAction = this.Capabilities_ShareHubspotAction;
             context.Capabilities_ShareHuggingFaceAction = this.Capabilities_ShareHuggingFaceAction;
             context.Capabilities_ShareIDCKnowledgeBase = this.Capabilities_ShareIDCKnowledgeBase;
+            context.Capabilities_ShareImpalaDataSource = this.Capabilities_ShareImpalaDataSource;
             context.Capabilities_ShareIntercomAction = this.Capabilities_ShareIntercomAction;
             context.Capabilities_ShareJiraAction = this.Capabilities_ShareJiraAction;
+            context.Capabilities_ShareJiraDataSource = this.Capabilities_ShareJiraDataSource;
             context.Capabilities_ShareKnowledgeBases = this.Capabilities_ShareKnowledgeBases;
             context.Capabilities_ShareLinearAction = this.Capabilities_ShareLinearAction;
             context.Capabilities_ShareMCPAction = this.Capabilities_ShareMCPAction;
             context.Capabilities_ShareMSExchangeAction = this.Capabilities_ShareMSExchangeAction;
             context.Capabilities_ShareMSTeamsAction = this.Capabilities_ShareMSTeamsAction;
+            context.Capabilities_ShareMariaDbDataSource = this.Capabilities_ShareMariaDbDataSource;
             context.Capabilities_ShareMondayAction = this.Capabilities_ShareMondayAction;
+            context.Capabilities_ShareMongoAtlasDataSource = this.Capabilities_ShareMongoAtlasDataSource;
+            context.Capabilities_ShareMongoDbDataSource = this.Capabilities_ShareMongoDbDataSource;
             context.Capabilities_ShareMoodysAction = this.Capabilities_ShareMoodysAction;
+            context.Capabilities_ShareMySqlDataSource = this.Capabilities_ShareMySqlDataSource;
             context.Capabilities_ShareNewRelicAction = this.Capabilities_ShareNewRelicAction;
             context.Capabilities_ShareNotionAction = this.Capabilities_ShareNotionAction;
             context.Capabilities_ShareOneDriveAction = this.Capabilities_ShareOneDriveAction;
             context.Capabilities_ShareOneDriveKnowledgeBase = this.Capabilities_ShareOneDriveKnowledgeBase;
             context.Capabilities_ShareOneNoteAction = this.Capabilities_ShareOneNoteAction;
             context.Capabilities_ShareOpenAPIAction = this.Capabilities_ShareOpenAPIAction;
+            context.Capabilities_ShareOpenSearchDataSource = this.Capabilities_ShareOpenSearchDataSource;
+            context.Capabilities_ShareOracleDataSource = this.Capabilities_ShareOracleDataSource;
             context.Capabilities_SharePagerDutyAction = this.Capabilities_SharePagerDutyAction;
             context.Capabilities_SharePagerDutyAgentAction = this.Capabilities_SharePagerDutyAgentAction;
+            context.Capabilities_SharePayPalDataSource = this.Capabilities_SharePayPalDataSource;
             context.Capabilities_SharePointAction = this.Capabilities_SharePointAction;
             context.Capabilities_SharePointKnowledgeBase = this.Capabilities_SharePointKnowledgeBase;
+            context.Capabilities_SharePostgreSqlDataSource = this.Capabilities_SharePostgreSqlDataSource;
+            context.Capabilities_SharePrestoDataSource = this.Capabilities_SharePrestoDataSource;
             context.Capabilities_ShareQBusinessKnowledgeBase = this.Capabilities_ShareQBusinessKnowledgeBase;
             context.Capabilities_ShareQuickBooksAction = this.Capabilities_ShareQuickBooksAction;
+            context.Capabilities_ShareRadiantDataSource = this.Capabilities_ShareRadiantDataSource;
+            context.Capabilities_ShareRdsDataSource = this.Capabilities_ShareRdsDataSource;
+            context.Capabilities_ShareRedshiftAutoDiscoveredDataSource = this.Capabilities_ShareRedshiftAutoDiscoveredDataSource;
+            context.Capabilities_ShareRedshiftManualDataSource = this.Capabilities_ShareRedshiftManualDataSource;
+            context.Capabilities_ShareS3AnalyticsDataSource = this.Capabilities_ShareS3AnalyticsDataSource;
+            context.Capabilities_ShareS3DataSource = this.Capabilities_ShareS3DataSource;
             context.Capabilities_ShareS3KnowledgeBase = this.Capabilities_ShareS3KnowledgeBase;
+            context.Capabilities_ShareS3TablesDataSource = this.Capabilities_ShareS3TablesDataSource;
             context.Capabilities_ShareSAPBillOfMaterialAction = this.Capabilities_ShareSAPBillOfMaterialAction;
             context.Capabilities_ShareSAPBusinessPartnerAction = this.Capabilities_ShareSAPBusinessPartnerAction;
             context.Capabilities_ShareSAPMaterialStockAction = this.Capabilities_ShareSAPMaterialStockAction;
             context.Capabilities_ShareSAPPhysicalInventoryAction = this.Capabilities_ShareSAPPhysicalInventoryAction;
             context.Capabilities_ShareSAPProductMasterDataAction = this.Capabilities_ShareSAPProductMasterDataAction;
             context.Capabilities_ShareSalesforceAction = this.Capabilities_ShareSalesforceAction;
+            context.Capabilities_ShareSalesforceDataSource = this.Capabilities_ShareSalesforceDataSource;
             context.Capabilities_ShareSandPGMIAction = this.Capabilities_ShareSandPGMIAction;
             context.Capabilities_ShareSandPGlobalEnergyAction = this.Capabilities_ShareSandPGlobalEnergyAction;
+            context.Capabilities_ShareSapHanaDataSource = this.Capabilities_ShareSapHanaDataSource;
             context.Capabilities_ShareServiceNowAction = this.Capabilities_ShareServiceNowAction;
+            context.Capabilities_ShareServiceNowDataSource = this.Capabilities_ShareServiceNowDataSource;
             context.Capabilities_ShareSharePointAction = this.Capabilities_ShareSharePointAction;
             context.Capabilities_ShareSharePointKnowledgeBase = this.Capabilities_ShareSharePointKnowledgeBase;
             context.Capabilities_ShareShopifyAction = this.Capabilities_ShareShopifyAction;
             context.Capabilities_ShareSlackAction = this.Capabilities_ShareSlackAction;
             context.Capabilities_ShareSmartsheetAction = this.Capabilities_ShareSmartsheetAction;
             context.Capabilities_ShareSnowFlakeAction = this.Capabilities_ShareSnowFlakeAction;
+            context.Capabilities_ShareSnowflakeDataSource = this.Capabilities_ShareSnowflakeDataSource;
             context.Capabilities_ShareSpace = this.Capabilities_ShareSpace;
+            context.Capabilities_ShareSparkDataSource = this.Capabilities_ShareSparkDataSource;
+            context.Capabilities_ShareSqlServerDataSource = this.Capabilities_ShareSqlServerDataSource;
+            context.Capabilities_ShareSquareDataSource = this.Capabilities_ShareSquareDataSource;
+            context.Capabilities_ShareStarburstDataSource = this.Capabilities_ShareStarburstDataSource;
+            context.Capabilities_ShareTeradataDataSource = this.Capabilities_ShareTeradataDataSource;
             context.Capabilities_ShareTextractAction = this.Capabilities_ShareTextractAction;
+            context.Capabilities_ShareTimestreamDataSource = this.Capabilities_ShareTimestreamDataSource;
+            context.Capabilities_ShareTrinoDataSource = this.Capabilities_ShareTrinoDataSource;
+            context.Capabilities_ShareTwitterDataSource = this.Capabilities_ShareTwitterDataSource;
             context.Capabilities_ShareVisierAgentAction = this.Capabilities_ShareVisierAgentAction;
             context.Capabilities_ShareWebCrawlerKnowledgeBase = this.Capabilities_ShareWebCrawlerKnowledgeBase;
             context.Capabilities_ShareWhatsAppAction = this.Capabilities_ShareWhatsAppAction;
@@ -4773,12 +6927,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_SlackAction = this.Capabilities_SlackAction;
             context.Capabilities_SmartsheetAction = this.Capabilities_SmartsheetAction;
             context.Capabilities_SnowFlakeAction = this.Capabilities_SnowFlakeAction;
+            context.Capabilities_SnowflakeDataSource = this.Capabilities_SnowflakeDataSource;
             context.Capabilities_Space = this.Capabilities_Space;
+            context.Capabilities_SparkDataSource = this.Capabilities_SparkDataSource;
+            context.Capabilities_SqlServerDataSource = this.Capabilities_SqlServerDataSource;
+            context.Capabilities_SquareDataSource = this.Capabilities_SquareDataSource;
+            context.Capabilities_StarburstDataSource = this.Capabilities_StarburstDataSource;
             context.Capabilities_Story = this.Capabilities_Story;
             context.Capabilities_SubscribeDashboardEmailReport = this.Capabilities_SubscribeDashboardEmailReport;
+            context.Capabilities_TeradataDataSource = this.Capabilities_TeradataDataSource;
             context.Capabilities_TextractAction = this.Capabilities_TextractAction;
+            context.Capabilities_TimestreamDataSource = this.Capabilities_TimestreamDataSource;
             context.Capabilities_Topic = this.Capabilities_Topic;
             context.Capabilities_Trigger = this.Capabilities_Trigger;
+            context.Capabilities_TrinoDataSource = this.Capabilities_TrinoDataSource;
+            context.Capabilities_TwitterDataSource = this.Capabilities_TwitterDataSource;
+            context.Capabilities_UpdateAdobeAnalyticsDataSource = this.Capabilities_UpdateAdobeAnalyticsDataSource;
+            context.Capabilities_UpdateAthenaDataSource = this.Capabilities_UpdateAthenaDataSource;
+            context.Capabilities_UpdateAuroraDataSource = this.Capabilities_UpdateAuroraDataSource;
+            context.Capabilities_UpdateDatabricksDataSource = this.Capabilities_UpdateDatabricksDataSource;
+            context.Capabilities_UpdateDb2DataSource = this.Capabilities_UpdateDb2DataSource;
+            context.Capabilities_UpdateDenodoDataSource = this.Capabilities_UpdateDenodoDataSource;
+            context.Capabilities_UpdateDocumentDbDataSource = this.Capabilities_UpdateDocumentDbDataSource;
+            context.Capabilities_UpdateDremioDataSource = this.Capabilities_UpdateDremioDataSource;
+            context.Capabilities_UpdateDynamoDbDataSource = this.Capabilities_UpdateDynamoDbDataSource;
+            context.Capabilities_UpdateExasolDataSource = this.Capabilities_UpdateExasolDataSource;
+            context.Capabilities_UpdateFileDataSource = this.Capabilities_UpdateFileDataSource;
+            context.Capabilities_UpdateGitHubDataSource = this.Capabilities_UpdateGitHubDataSource;
+            context.Capabilities_UpdateGoogleAnalyticsDataSource = this.Capabilities_UpdateGoogleAnalyticsDataSource;
+            context.Capabilities_UpdateGoogleBigQueryDataSource = this.Capabilities_UpdateGoogleBigQueryDataSource;
+            context.Capabilities_UpdateGoogleSheetsDataSource = this.Capabilities_UpdateGoogleSheetsDataSource;
+            context.Capabilities_UpdateImpalaDataSource = this.Capabilities_UpdateImpalaDataSource;
+            context.Capabilities_UpdateJiraDataSource = this.Capabilities_UpdateJiraDataSource;
+            context.Capabilities_UpdateMariaDbDataSource = this.Capabilities_UpdateMariaDbDataSource;
+            context.Capabilities_UpdateMongoAtlasDataSource = this.Capabilities_UpdateMongoAtlasDataSource;
+            context.Capabilities_UpdateMongoDbDataSource = this.Capabilities_UpdateMongoDbDataSource;
+            context.Capabilities_UpdateMySqlDataSource = this.Capabilities_UpdateMySqlDataSource;
+            context.Capabilities_UpdateOpenSearchDataSource = this.Capabilities_UpdateOpenSearchDataSource;
+            context.Capabilities_UpdateOracleDataSource = this.Capabilities_UpdateOracleDataSource;
+            context.Capabilities_UpdatePayPalDataSource = this.Capabilities_UpdatePayPalDataSource;
+            context.Capabilities_UpdatePostgreSqlDataSource = this.Capabilities_UpdatePostgreSqlDataSource;
+            context.Capabilities_UpdatePrestoDataSource = this.Capabilities_UpdatePrestoDataSource;
+            context.Capabilities_UpdateRadiantDataSource = this.Capabilities_UpdateRadiantDataSource;
+            context.Capabilities_UpdateRdsDataSource = this.Capabilities_UpdateRdsDataSource;
+            context.Capabilities_UpdateRedshiftAutoDiscoveredDataSource = this.Capabilities_UpdateRedshiftAutoDiscoveredDataSource;
+            context.Capabilities_UpdateRedshiftManualDataSource = this.Capabilities_UpdateRedshiftManualDataSource;
+            context.Capabilities_UpdateS3AnalyticsDataSource = this.Capabilities_UpdateS3AnalyticsDataSource;
+            context.Capabilities_UpdateS3DataSource = this.Capabilities_UpdateS3DataSource;
+            context.Capabilities_UpdateS3TablesDataSource = this.Capabilities_UpdateS3TablesDataSource;
+            context.Capabilities_UpdateSalesforceDataSource = this.Capabilities_UpdateSalesforceDataSource;
+            context.Capabilities_UpdateSapHanaDataSource = this.Capabilities_UpdateSapHanaDataSource;
+            context.Capabilities_UpdateServiceNowDataSource = this.Capabilities_UpdateServiceNowDataSource;
+            context.Capabilities_UpdateSnowflakeDataSource = this.Capabilities_UpdateSnowflakeDataSource;
+            context.Capabilities_UpdateSparkDataSource = this.Capabilities_UpdateSparkDataSource;
+            context.Capabilities_UpdateSqlServerDataSource = this.Capabilities_UpdateSqlServerDataSource;
+            context.Capabilities_UpdateSquareDataSource = this.Capabilities_UpdateSquareDataSource;
+            context.Capabilities_UpdateStarburstDataSource = this.Capabilities_UpdateStarburstDataSource;
+            context.Capabilities_UpdateTeradataDataSource = this.Capabilities_UpdateTeradataDataSource;
+            context.Capabilities_UpdateTimestreamDataSource = this.Capabilities_UpdateTimestreamDataSource;
+            context.Capabilities_UpdateTrinoDataSource = this.Capabilities_UpdateTrinoDataSource;
+            context.Capabilities_UpdateTwitterDataSource = this.Capabilities_UpdateTwitterDataSource;
             context.Capabilities_UseAdobeAction = this.Capabilities_UseAdobeAction;
             context.Capabilities_UseAgentWebSearch = this.Capabilities_UseAgentWebSearch;
             context.Capabilities_UseAirtableAction = this.Capabilities_UseAirtableAction;
@@ -4809,6 +7017,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_UseGenericHTTPAction = this.Capabilities_UseGenericHTTPAction;
             context.Capabilities_UseGithubAction = this.Capabilities_UseGithubAction;
             context.Capabilities_UseGmailAction = this.Capabilities_UseGmailAction;
+            context.Capabilities_UseGongAction = this.Capabilities_UseGongAction;
             context.Capabilities_UseGoogleAnalyticsAction = this.Capabilities_UseGoogleAnalyticsAction;
             context.Capabilities_UseGoogleCalendarAction = this.Capabilities_UseGoogleCalendarAction;
             context.Capabilities_UseGoogleChatAction = this.Capabilities_UseGoogleChatAction;
@@ -4954,6 +7163,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.AdobeAction = requestCapabilities_capabilities_AdobeAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AdobeAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_AdobeAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_AdobeAnalyticsDataSource = cmdletContext.Capabilities_AdobeAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_AdobeAnalyticsDataSource != null)
+            {
+                request.Capabilities.AdobeAnalyticsDataSource = requestCapabilities_capabilities_AdobeAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AirtableAction = null;
             if (cmdletContext.Capabilities_AirtableAction != null)
             {
@@ -5042,6 +7261,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_AsanaAction != null)
             {
                 request.Capabilities.AsanaAction = requestCapabilities_capabilities_AsanaAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AthenaDataSource = null;
+            if (cmdletContext.Capabilities_AthenaDataSource != null)
+            {
+                requestCapabilities_capabilities_AthenaDataSource = cmdletContext.Capabilities_AthenaDataSource;
+            }
+            if (requestCapabilities_capabilities_AthenaDataSource != null)
+            {
+                request.Capabilities.AthenaDataSource = requestCapabilities_capabilities_AthenaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_AuroraDataSource = null;
+            if (cmdletContext.Capabilities_AuroraDataSource != null)
+            {
+                requestCapabilities_capabilities_AuroraDataSource = cmdletContext.Capabilities_AuroraDataSource;
+            }
+            if (requestCapabilities_capabilities_AuroraDataSource != null)
+            {
+                request.Capabilities.AuroraDataSource = requestCapabilities_capabilities_AuroraDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Automate = null;
@@ -5192,6 +7431,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ConfluenceKnowledgeBase != null)
             {
                 request.Capabilities.ConfluenceKnowledgeBase = requestCapabilities_capabilities_ConfluenceKnowledgeBase;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAdobeAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_CreateAdobeAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateAdobeAnalyticsDataSource = cmdletContext.Capabilities_CreateAdobeAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateAdobeAnalyticsDataSource != null)
+            {
+                request.Capabilities.CreateAdobeAnalyticsDataSource = requestCapabilities_capabilities_CreateAdobeAnalyticsDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateAdobeAction = null;
@@ -5492,6 +7741,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateAndUpdateGmailAction != null)
             {
                 request.Capabilities.CreateAndUpdateGmailAction = requestCapabilities_capabilities_CreateAndUpdateGmailAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateGongAction = null;
+            if (cmdletContext.Capabilities_CreateAndUpdateGongAction != null)
+            {
+                requestCapabilities_capabilities_CreateAndUpdateGongAction = cmdletContext.Capabilities_CreateAndUpdateGongAction;
+            }
+            if (requestCapabilities_capabilities_CreateAndUpdateGongAction != null)
+            {
+                request.Capabilities.CreateAndUpdateGongAction = requestCapabilities_capabilities_CreateAndUpdateGongAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateGoogleAnalyticsAction = null;
@@ -6074,6 +8333,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateAndUpdateZoomInfoAction = requestCapabilities_capabilities_CreateAndUpdateZoomInfoAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAthenaDataSource = null;
+            if (cmdletContext.Capabilities_CreateAthenaDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateAthenaDataSource = cmdletContext.Capabilities_CreateAthenaDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateAthenaDataSource != null)
+            {
+                request.Capabilities.CreateAthenaDataSource = requestCapabilities_capabilities_CreateAthenaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAuroraDataSource = null;
+            if (cmdletContext.Capabilities_CreateAuroraDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateAuroraDataSource = cmdletContext.Capabilities_CreateAuroraDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateAuroraDataSource != null)
+            {
+                request.Capabilities.CreateAuroraDataSource = requestCapabilities_capabilities_CreateAuroraDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateChatAgent = null;
             if (cmdletContext.Capabilities_CreateChatAgent != null)
             {
@@ -6094,6 +8373,306 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateDashboardExecutiveSummaryWithQ = requestCapabilities_capabilities_CreateDashboardExecutiveSummaryWithQ;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDatabricksDataSource = null;
+            if (cmdletContext.Capabilities_CreateDatabricksDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDatabricksDataSource = cmdletContext.Capabilities_CreateDatabricksDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDatabricksDataSource != null)
+            {
+                request.Capabilities.CreateDatabricksDataSource = requestCapabilities_capabilities_CreateDatabricksDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDb2DataSource = null;
+            if (cmdletContext.Capabilities_CreateDb2DataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDb2DataSource = cmdletContext.Capabilities_CreateDb2DataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDb2DataSource != null)
+            {
+                request.Capabilities.CreateDb2DataSource = requestCapabilities_capabilities_CreateDb2DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDenodoDataSource = null;
+            if (cmdletContext.Capabilities_CreateDenodoDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDenodoDataSource = cmdletContext.Capabilities_CreateDenodoDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDenodoDataSource != null)
+            {
+                request.Capabilities.CreateDenodoDataSource = requestCapabilities_capabilities_CreateDenodoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDocumentDbDataSource = null;
+            if (cmdletContext.Capabilities_CreateDocumentDbDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDocumentDbDataSource = cmdletContext.Capabilities_CreateDocumentDbDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDocumentDbDataSource != null)
+            {
+                request.Capabilities.CreateDocumentDbDataSource = requestCapabilities_capabilities_CreateDocumentDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDremioDataSource = null;
+            if (cmdletContext.Capabilities_CreateDremioDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDremioDataSource = cmdletContext.Capabilities_CreateDremioDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDremioDataSource != null)
+            {
+                request.Capabilities.CreateDremioDataSource = requestCapabilities_capabilities_CreateDremioDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateDynamoDbDataSource = null;
+            if (cmdletContext.Capabilities_CreateDynamoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateDynamoDbDataSource = cmdletContext.Capabilities_CreateDynamoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateDynamoDbDataSource != null)
+            {
+                request.Capabilities.CreateDynamoDbDataSource = requestCapabilities_capabilities_CreateDynamoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateExasolDataSource = null;
+            if (cmdletContext.Capabilities_CreateExasolDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateExasolDataSource = cmdletContext.Capabilities_CreateExasolDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateExasolDataSource != null)
+            {
+                request.Capabilities.CreateExasolDataSource = requestCapabilities_capabilities_CreateExasolDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateFileDataSource = null;
+            if (cmdletContext.Capabilities_CreateFileDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateFileDataSource = cmdletContext.Capabilities_CreateFileDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateFileDataSource != null)
+            {
+                request.Capabilities.CreateFileDataSource = requestCapabilities_capabilities_CreateFileDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateGitHubDataSource = null;
+            if (cmdletContext.Capabilities_CreateGitHubDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateGitHubDataSource = cmdletContext.Capabilities_CreateGitHubDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateGitHubDataSource != null)
+            {
+                request.Capabilities.CreateGitHubDataSource = requestCapabilities_capabilities_CreateGitHubDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateGoogleAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_CreateGoogleAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateGoogleAnalyticsDataSource = cmdletContext.Capabilities_CreateGoogleAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateGoogleAnalyticsDataSource != null)
+            {
+                request.Capabilities.CreateGoogleAnalyticsDataSource = requestCapabilities_capabilities_CreateGoogleAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateGoogleBigQueryDataSource = null;
+            if (cmdletContext.Capabilities_CreateGoogleBigQueryDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateGoogleBigQueryDataSource = cmdletContext.Capabilities_CreateGoogleBigQueryDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateGoogleBigQueryDataSource != null)
+            {
+                request.Capabilities.CreateGoogleBigQueryDataSource = requestCapabilities_capabilities_CreateGoogleBigQueryDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateGoogleSheetsDataSource = null;
+            if (cmdletContext.Capabilities_CreateGoogleSheetsDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateGoogleSheetsDataSource = cmdletContext.Capabilities_CreateGoogleSheetsDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateGoogleSheetsDataSource != null)
+            {
+                request.Capabilities.CreateGoogleSheetsDataSource = requestCapabilities_capabilities_CreateGoogleSheetsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateImpalaDataSource = null;
+            if (cmdletContext.Capabilities_CreateImpalaDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateImpalaDataSource = cmdletContext.Capabilities_CreateImpalaDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateImpalaDataSource != null)
+            {
+                request.Capabilities.CreateImpalaDataSource = requestCapabilities_capabilities_CreateImpalaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateJiraDataSource = null;
+            if (cmdletContext.Capabilities_CreateJiraDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateJiraDataSource = cmdletContext.Capabilities_CreateJiraDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateJiraDataSource != null)
+            {
+                request.Capabilities.CreateJiraDataSource = requestCapabilities_capabilities_CreateJiraDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateMariaDbDataSource = null;
+            if (cmdletContext.Capabilities_CreateMariaDbDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateMariaDbDataSource = cmdletContext.Capabilities_CreateMariaDbDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateMariaDbDataSource != null)
+            {
+                request.Capabilities.CreateMariaDbDataSource = requestCapabilities_capabilities_CreateMariaDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateMongoAtlasDataSource = null;
+            if (cmdletContext.Capabilities_CreateMongoAtlasDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateMongoAtlasDataSource = cmdletContext.Capabilities_CreateMongoAtlasDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateMongoAtlasDataSource != null)
+            {
+                request.Capabilities.CreateMongoAtlasDataSource = requestCapabilities_capabilities_CreateMongoAtlasDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateMongoDbDataSource = null;
+            if (cmdletContext.Capabilities_CreateMongoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateMongoDbDataSource = cmdletContext.Capabilities_CreateMongoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateMongoDbDataSource != null)
+            {
+                request.Capabilities.CreateMongoDbDataSource = requestCapabilities_capabilities_CreateMongoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateMySqlDataSource = null;
+            if (cmdletContext.Capabilities_CreateMySqlDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateMySqlDataSource = cmdletContext.Capabilities_CreateMySqlDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateMySqlDataSource != null)
+            {
+                request.Capabilities.CreateMySqlDataSource = requestCapabilities_capabilities_CreateMySqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateOpenSearchDataSource = null;
+            if (cmdletContext.Capabilities_CreateOpenSearchDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateOpenSearchDataSource = cmdletContext.Capabilities_CreateOpenSearchDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateOpenSearchDataSource != null)
+            {
+                request.Capabilities.CreateOpenSearchDataSource = requestCapabilities_capabilities_CreateOpenSearchDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateOracleDataSource = null;
+            if (cmdletContext.Capabilities_CreateOracleDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateOracleDataSource = cmdletContext.Capabilities_CreateOracleDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateOracleDataSource != null)
+            {
+                request.Capabilities.CreateOracleDataSource = requestCapabilities_capabilities_CreateOracleDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreatePayPalDataSource = null;
+            if (cmdletContext.Capabilities_CreatePayPalDataSource != null)
+            {
+                requestCapabilities_capabilities_CreatePayPalDataSource = cmdletContext.Capabilities_CreatePayPalDataSource;
+            }
+            if (requestCapabilities_capabilities_CreatePayPalDataSource != null)
+            {
+                request.Capabilities.CreatePayPalDataSource = requestCapabilities_capabilities_CreatePayPalDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreatePostgreSqlDataSource = null;
+            if (cmdletContext.Capabilities_CreatePostgreSqlDataSource != null)
+            {
+                requestCapabilities_capabilities_CreatePostgreSqlDataSource = cmdletContext.Capabilities_CreatePostgreSqlDataSource;
+            }
+            if (requestCapabilities_capabilities_CreatePostgreSqlDataSource != null)
+            {
+                request.Capabilities.CreatePostgreSqlDataSource = requestCapabilities_capabilities_CreatePostgreSqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreatePrestoDataSource = null;
+            if (cmdletContext.Capabilities_CreatePrestoDataSource != null)
+            {
+                requestCapabilities_capabilities_CreatePrestoDataSource = cmdletContext.Capabilities_CreatePrestoDataSource;
+            }
+            if (requestCapabilities_capabilities_CreatePrestoDataSource != null)
+            {
+                request.Capabilities.CreatePrestoDataSource = requestCapabilities_capabilities_CreatePrestoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateRadiantDataSource = null;
+            if (cmdletContext.Capabilities_CreateRadiantDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateRadiantDataSource = cmdletContext.Capabilities_CreateRadiantDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateRadiantDataSource != null)
+            {
+                request.Capabilities.CreateRadiantDataSource = requestCapabilities_capabilities_CreateRadiantDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateRdsDataSource = null;
+            if (cmdletContext.Capabilities_CreateRdsDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateRdsDataSource = cmdletContext.Capabilities_CreateRdsDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateRdsDataSource != null)
+            {
+                request.Capabilities.CreateRdsDataSource = requestCapabilities_capabilities_CreateRdsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateRedshiftAutoDiscoveredDataSource = null;
+            if (cmdletContext.Capabilities_CreateRedshiftAutoDiscoveredDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateRedshiftAutoDiscoveredDataSource = cmdletContext.Capabilities_CreateRedshiftAutoDiscoveredDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateRedshiftAutoDiscoveredDataSource != null)
+            {
+                request.Capabilities.CreateRedshiftAutoDiscoveredDataSource = requestCapabilities_capabilities_CreateRedshiftAutoDiscoveredDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateRedshiftManualDataSource = null;
+            if (cmdletContext.Capabilities_CreateRedshiftManualDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateRedshiftManualDataSource = cmdletContext.Capabilities_CreateRedshiftManualDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateRedshiftManualDataSource != null)
+            {
+                request.Capabilities.CreateRedshiftManualDataSource = requestCapabilities_capabilities_CreateRedshiftManualDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateS3AnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_CreateS3AnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateS3AnalyticsDataSource = cmdletContext.Capabilities_CreateS3AnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateS3AnalyticsDataSource != null)
+            {
+                request.Capabilities.CreateS3AnalyticsDataSource = requestCapabilities_capabilities_CreateS3AnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateS3DataSource = null;
+            if (cmdletContext.Capabilities_CreateS3DataSource != null)
+            {
+                requestCapabilities_capabilities_CreateS3DataSource = cmdletContext.Capabilities_CreateS3DataSource;
+            }
+            if (requestCapabilities_capabilities_CreateS3DataSource != null)
+            {
+                request.Capabilities.CreateS3DataSource = requestCapabilities_capabilities_CreateS3DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateS3TablesDataSource = null;
+            if (cmdletContext.Capabilities_CreateS3TablesDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateS3TablesDataSource = cmdletContext.Capabilities_CreateS3TablesDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateS3TablesDataSource != null)
+            {
+                request.Capabilities.CreateS3TablesDataSource = requestCapabilities_capabilities_CreateS3TablesDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSPICEDataset = null;
             if (cmdletContext.Capabilities_CreateSPICEDataset != null)
             {
@@ -6102,6 +8681,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateSPICEDataset != null)
             {
                 request.Capabilities.CreateSPICEDataset = requestCapabilities_capabilities_CreateSPICEDataset;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSalesforceDataSource = null;
+            if (cmdletContext.Capabilities_CreateSalesforceDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSalesforceDataSource = cmdletContext.Capabilities_CreateSalesforceDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSalesforceDataSource != null)
+            {
+                request.Capabilities.CreateSalesforceDataSource = requestCapabilities_capabilities_CreateSalesforceDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSapHanaDataSource = null;
+            if (cmdletContext.Capabilities_CreateSapHanaDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSapHanaDataSource = cmdletContext.Capabilities_CreateSapHanaDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSapHanaDataSource != null)
+            {
+                request.Capabilities.CreateSapHanaDataSource = requestCapabilities_capabilities_CreateSapHanaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateServiceNowDataSource = null;
+            if (cmdletContext.Capabilities_CreateServiceNowDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateServiceNowDataSource = cmdletContext.Capabilities_CreateServiceNowDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateServiceNowDataSource != null)
+            {
+                request.Capabilities.CreateServiceNowDataSource = requestCapabilities_capabilities_CreateServiceNowDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSharedFolder = null;
@@ -6114,6 +8723,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateSharedFolders = requestCapabilities_capabilities_CreateSharedFolder;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSnowflakeDataSource = null;
+            if (cmdletContext.Capabilities_CreateSnowflakeDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSnowflakeDataSource = cmdletContext.Capabilities_CreateSnowflakeDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSnowflakeDataSource != null)
+            {
+                request.Capabilities.CreateSnowflakeDataSource = requestCapabilities_capabilities_CreateSnowflakeDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSpace = null;
             if (cmdletContext.Capabilities_CreateSpace != null)
             {
@@ -6124,6 +8743,86 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.CreateSpaces = requestCapabilities_capabilities_CreateSpace;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSparkDataSource = null;
+            if (cmdletContext.Capabilities_CreateSparkDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSparkDataSource = cmdletContext.Capabilities_CreateSparkDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSparkDataSource != null)
+            {
+                request.Capabilities.CreateSparkDataSource = requestCapabilities_capabilities_CreateSparkDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSqlServerDataSource = null;
+            if (cmdletContext.Capabilities_CreateSqlServerDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSqlServerDataSource = cmdletContext.Capabilities_CreateSqlServerDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSqlServerDataSource != null)
+            {
+                request.Capabilities.CreateSqlServerDataSource = requestCapabilities_capabilities_CreateSqlServerDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateSquareDataSource = null;
+            if (cmdletContext.Capabilities_CreateSquareDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateSquareDataSource = cmdletContext.Capabilities_CreateSquareDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateSquareDataSource != null)
+            {
+                request.Capabilities.CreateSquareDataSource = requestCapabilities_capabilities_CreateSquareDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateStarburstDataSource = null;
+            if (cmdletContext.Capabilities_CreateStarburstDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateStarburstDataSource = cmdletContext.Capabilities_CreateStarburstDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateStarburstDataSource != null)
+            {
+                request.Capabilities.CreateStarburstDataSource = requestCapabilities_capabilities_CreateStarburstDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateTeradataDataSource = null;
+            if (cmdletContext.Capabilities_CreateTeradataDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateTeradataDataSource = cmdletContext.Capabilities_CreateTeradataDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateTeradataDataSource != null)
+            {
+                request.Capabilities.CreateTeradataDataSource = requestCapabilities_capabilities_CreateTeradataDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateTimestreamDataSource = null;
+            if (cmdletContext.Capabilities_CreateTimestreamDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateTimestreamDataSource = cmdletContext.Capabilities_CreateTimestreamDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateTimestreamDataSource != null)
+            {
+                request.Capabilities.CreateTimestreamDataSource = requestCapabilities_capabilities_CreateTimestreamDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateTrinoDataSource = null;
+            if (cmdletContext.Capabilities_CreateTrinoDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateTrinoDataSource = cmdletContext.Capabilities_CreateTrinoDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateTrinoDataSource != null)
+            {
+                request.Capabilities.CreateTrinoDataSource = requestCapabilities_capabilities_CreateTrinoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateTwitterDataSource = null;
+            if (cmdletContext.Capabilities_CreateTwitterDataSource != null)
+            {
+                requestCapabilities_capabilities_CreateTwitterDataSource = cmdletContext.Capabilities_CreateTwitterDataSource;
+            }
+            if (requestCapabilities_capabilities_CreateTwitterDataSource != null)
+            {
+                request.Capabilities.CreateTwitterDataSource = requestCapabilities_capabilities_CreateTwitterDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Dashboard = null;
             if (cmdletContext.Capabilities_Dashboard != null)
             {
@@ -6132,6 +8831,56 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Dashboard != null)
             {
                 request.Capabilities.Dashboard = requestCapabilities_capabilities_Dashboard;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DatabricksDataSource = null;
+            if (cmdletContext.Capabilities_DatabricksDataSource != null)
+            {
+                requestCapabilities_capabilities_DatabricksDataSource = cmdletContext.Capabilities_DatabricksDataSource;
+            }
+            if (requestCapabilities_capabilities_DatabricksDataSource != null)
+            {
+                request.Capabilities.DatabricksDataSource = requestCapabilities_capabilities_DatabricksDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Db2DataSource = null;
+            if (cmdletContext.Capabilities_Db2DataSource != null)
+            {
+                requestCapabilities_capabilities_Db2DataSource = cmdletContext.Capabilities_Db2DataSource;
+            }
+            if (requestCapabilities_capabilities_Db2DataSource != null)
+            {
+                request.Capabilities.Db2DataSource = requestCapabilities_capabilities_Db2DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DenodoDataSource = null;
+            if (cmdletContext.Capabilities_DenodoDataSource != null)
+            {
+                requestCapabilities_capabilities_DenodoDataSource = cmdletContext.Capabilities_DenodoDataSource;
+            }
+            if (requestCapabilities_capabilities_DenodoDataSource != null)
+            {
+                request.Capabilities.DenodoDataSource = requestCapabilities_capabilities_DenodoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DocumentDbDataSource = null;
+            if (cmdletContext.Capabilities_DocumentDbDataSource != null)
+            {
+                requestCapabilities_capabilities_DocumentDbDataSource = cmdletContext.Capabilities_DocumentDbDataSource;
+            }
+            if (requestCapabilities_capabilities_DocumentDbDataSource != null)
+            {
+                request.Capabilities.DocumentDbDataSource = requestCapabilities_capabilities_DocumentDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DremioDataSource = null;
+            if (cmdletContext.Capabilities_DremioDataSource != null)
+            {
+                requestCapabilities_capabilities_DremioDataSource = cmdletContext.Capabilities_DremioDataSource;
+            }
+            if (requestCapabilities_capabilities_DremioDataSource != null)
+            {
+                request.Capabilities.DremioDataSource = requestCapabilities_capabilities_DremioDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DropboxAction = null;
@@ -6154,6 +8903,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.DunAndBradstreetAction = requestCapabilities_capabilities_DunAndBradstreetAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_DynamoDbDataSource = null;
+            if (cmdletContext.Capabilities_DynamoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_DynamoDbDataSource = cmdletContext.Capabilities_DynamoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_DynamoDbDataSource != null)
+            {
+                request.Capabilities.DynamoDbDataSource = requestCapabilities_capabilities_DynamoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_EditVisualWithQ = null;
             if (cmdletContext.Capabilities_EditVisualWithQ != null)
             {
@@ -6162,6 +8921,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_EditVisualWithQ != null)
             {
                 request.Capabilities.EditVisualWithQ = requestCapabilities_capabilities_EditVisualWithQ;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExasolDataSource = null;
+            if (cmdletContext.Capabilities_ExasolDataSource != null)
+            {
+                requestCapabilities_capabilities_ExasolDataSource = cmdletContext.Capabilities_ExasolDataSource;
+            }
+            if (requestCapabilities_capabilities_ExasolDataSource != null)
+            {
+                request.Capabilities.ExasolDataSource = requestCapabilities_capabilities_ExasolDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToCsv = null;
@@ -6254,6 +9023,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.FigmaAction = requestCapabilities_capabilities_FigmaAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_FileDataSource = null;
+            if (cmdletContext.Capabilities_FileDataSource != null)
+            {
+                requestCapabilities_capabilities_FileDataSource = cmdletContext.Capabilities_FileDataSource;
+            }
+            if (requestCapabilities_capabilities_FileDataSource != null)
+            {
+                request.Capabilities.FileDataSource = requestCapabilities_capabilities_FileDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Flow = null;
             if (cmdletContext.Capabilities_Flow != null)
             {
@@ -6284,6 +9063,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.GenericHTTPAction = requestCapabilities_capabilities_GenericHTTPAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GitHubDataSource = null;
+            if (cmdletContext.Capabilities_GitHubDataSource != null)
+            {
+                requestCapabilities_capabilities_GitHubDataSource = cmdletContext.Capabilities_GitHubDataSource;
+            }
+            if (requestCapabilities_capabilities_GitHubDataSource != null)
+            {
+                request.Capabilities.GitHubDataSource = requestCapabilities_capabilities_GitHubDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GithubAction = null;
             if (cmdletContext.Capabilities_GithubAction != null)
             {
@@ -6304,6 +9093,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.GmailAction = requestCapabilities_capabilities_GmailAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GongAction = null;
+            if (cmdletContext.Capabilities_GongAction != null)
+            {
+                requestCapabilities_capabilities_GongAction = cmdletContext.Capabilities_GongAction;
+            }
+            if (requestCapabilities_capabilities_GongAction != null)
+            {
+                request.Capabilities.GongAction = requestCapabilities_capabilities_GongAction;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleAnalyticsAction = null;
             if (cmdletContext.Capabilities_GoogleAnalyticsAction != null)
             {
@@ -6312,6 +9111,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_GoogleAnalyticsAction != null)
             {
                 request.Capabilities.GoogleAnalyticsAction = requestCapabilities_capabilities_GoogleAnalyticsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_GoogleAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_GoogleAnalyticsDataSource = cmdletContext.Capabilities_GoogleAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_GoogleAnalyticsDataSource != null)
+            {
+                request.Capabilities.GoogleAnalyticsDataSource = requestCapabilities_capabilities_GoogleAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleBigQueryDataSource = null;
+            if (cmdletContext.Capabilities_GoogleBigQueryDataSource != null)
+            {
+                requestCapabilities_capabilities_GoogleBigQueryDataSource = cmdletContext.Capabilities_GoogleBigQueryDataSource;
+            }
+            if (requestCapabilities_capabilities_GoogleBigQueryDataSource != null)
+            {
+                request.Capabilities.GoogleBigQueryDataSource = requestCapabilities_capabilities_GoogleBigQueryDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleCalendarAction = null;
@@ -6384,6 +9203,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.GoogleSheetsAction = requestCapabilities_capabilities_GoogleSheetsAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleSheetsDataSource = null;
+            if (cmdletContext.Capabilities_GoogleSheetsDataSource != null)
+            {
+                requestCapabilities_capabilities_GoogleSheetsDataSource = cmdletContext.Capabilities_GoogleSheetsDataSource;
+            }
+            if (requestCapabilities_capabilities_GoogleSheetsDataSource != null)
+            {
+                request.Capabilities.GoogleSheetsDataSource = requestCapabilities_capabilities_GoogleSheetsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_GoogleSlidesAction = null;
             if (cmdletContext.Capabilities_GoogleSlidesAction != null)
             {
@@ -6434,6 +9263,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.IDCKnowledgeBase = requestCapabilities_capabilities_IDCKnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ImpalaDataSource = null;
+            if (cmdletContext.Capabilities_ImpalaDataSource != null)
+            {
+                requestCapabilities_capabilities_ImpalaDataSource = cmdletContext.Capabilities_ImpalaDataSource;
+            }
+            if (requestCapabilities_capabilities_ImpalaDataSource != null)
+            {
+                request.Capabilities.ImpalaDataSource = requestCapabilities_capabilities_ImpalaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_InboundEmailTrigger = null;
             if (cmdletContext.Capabilities_InboundEmailTrigger != null)
             {
@@ -6482,6 +9321,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_JiraAction != null)
             {
                 request.Capabilities.JiraAction = requestCapabilities_capabilities_JiraAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_JiraDataSource = null;
+            if (cmdletContext.Capabilities_JiraDataSource != null)
+            {
+                requestCapabilities_capabilities_JiraDataSource = cmdletContext.Capabilities_JiraDataSource;
+            }
+            if (requestCapabilities_capabilities_JiraDataSource != null)
+            {
+                request.Capabilities.JiraDataSource = requestCapabilities_capabilities_JiraDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_KnowledgeBase = null;
@@ -6544,6 +9393,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ManageSharedFolders = requestCapabilities_capabilities_ManageSharedFolder;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MariaDbDataSource = null;
+            if (cmdletContext.Capabilities_MariaDbDataSource != null)
+            {
+                requestCapabilities_capabilities_MariaDbDataSource = cmdletContext.Capabilities_MariaDbDataSource;
+            }
+            if (requestCapabilities_capabilities_MariaDbDataSource != null)
+            {
+                request.Capabilities.MariaDbDataSource = requestCapabilities_capabilities_MariaDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MondayAction = null;
             if (cmdletContext.Capabilities_MondayAction != null)
             {
@@ -6554,6 +9413,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.MondayAction = requestCapabilities_capabilities_MondayAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MongoAtlasDataSource = null;
+            if (cmdletContext.Capabilities_MongoAtlasDataSource != null)
+            {
+                requestCapabilities_capabilities_MongoAtlasDataSource = cmdletContext.Capabilities_MongoAtlasDataSource;
+            }
+            if (requestCapabilities_capabilities_MongoAtlasDataSource != null)
+            {
+                request.Capabilities.MongoAtlasDataSource = requestCapabilities_capabilities_MongoAtlasDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MongoDbDataSource = null;
+            if (cmdletContext.Capabilities_MongoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_MongoDbDataSource = cmdletContext.Capabilities_MongoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_MongoDbDataSource != null)
+            {
+                request.Capabilities.MongoDbDataSource = requestCapabilities_capabilities_MongoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MoodysAction = null;
             if (cmdletContext.Capabilities_MoodysAction != null)
             {
@@ -6562,6 +9441,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_MoodysAction != null)
             {
                 request.Capabilities.MoodysAction = requestCapabilities_capabilities_MoodysAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_MySqlDataSource = null;
+            if (cmdletContext.Capabilities_MySqlDataSource != null)
+            {
+                requestCapabilities_capabilities_MySqlDataSource = cmdletContext.Capabilities_MySqlDataSource;
+            }
+            if (requestCapabilities_capabilities_MySqlDataSource != null)
+            {
+                request.Capabilities.MySqlDataSource = requestCapabilities_capabilities_MySqlDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_NewRelicAction = null;
@@ -6624,6 +9513,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.OpenAPIAction = requestCapabilities_capabilities_OpenAPIAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_OpenSearchDataSource = null;
+            if (cmdletContext.Capabilities_OpenSearchDataSource != null)
+            {
+                requestCapabilities_capabilities_OpenSearchDataSource = cmdletContext.Capabilities_OpenSearchDataSource;
+            }
+            if (requestCapabilities_capabilities_OpenSearchDataSource != null)
+            {
+                request.Capabilities.OpenSearchDataSource = requestCapabilities_capabilities_OpenSearchDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_OracleDataSource = null;
+            if (cmdletContext.Capabilities_OracleDataSource != null)
+            {
+                requestCapabilities_capabilities_OracleDataSource = cmdletContext.Capabilities_OracleDataSource;
+            }
+            if (requestCapabilities_capabilities_OracleDataSource != null)
+            {
+                request.Capabilities.OracleDataSource = requestCapabilities_capabilities_OracleDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PagerDutyAction = null;
             if (cmdletContext.Capabilities_PagerDutyAction != null)
             {
@@ -6644,6 +9553,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.PagerDutyAgentAction = requestCapabilities_capabilities_PagerDutyAgentAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PayPalDataSource = null;
+            if (cmdletContext.Capabilities_PayPalDataSource != null)
+            {
+                requestCapabilities_capabilities_PayPalDataSource = cmdletContext.Capabilities_PayPalDataSource;
+            }
+            if (requestCapabilities_capabilities_PayPalDataSource != null)
+            {
+                request.Capabilities.PayPalDataSource = requestCapabilities_capabilities_PayPalDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PerformFlowUiTask = null;
             if (cmdletContext.Capabilities_PerformFlowUiTask != null)
             {
@@ -6652,6 +9571,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_PerformFlowUiTask != null)
             {
                 request.Capabilities.PerformFlowUiTask = requestCapabilities_capabilities_PerformFlowUiTask;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PostgreSqlDataSource = null;
+            if (cmdletContext.Capabilities_PostgreSqlDataSource != null)
+            {
+                requestCapabilities_capabilities_PostgreSqlDataSource = cmdletContext.Capabilities_PostgreSqlDataSource;
+            }
+            if (requestCapabilities_capabilities_PostgreSqlDataSource != null)
+            {
+                request.Capabilities.PostgreSqlDataSource = requestCapabilities_capabilities_PostgreSqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PrestoDataSource = null;
+            if (cmdletContext.Capabilities_PrestoDataSource != null)
+            {
+                requestCapabilities_capabilities_PrestoDataSource = cmdletContext.Capabilities_PrestoDataSource;
+            }
+            if (requestCapabilities_capabilities_PrestoDataSource != null)
+            {
+                request.Capabilities.PrestoDataSource = requestCapabilities_capabilities_PrestoDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_PrintReport = null;
@@ -6704,6 +9643,46 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.QuickEventTrigger = requestCapabilities_capabilities_QuickEventTrigger;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RadiantDataSource = null;
+            if (cmdletContext.Capabilities_RadiantDataSource != null)
+            {
+                requestCapabilities_capabilities_RadiantDataSource = cmdletContext.Capabilities_RadiantDataSource;
+            }
+            if (requestCapabilities_capabilities_RadiantDataSource != null)
+            {
+                request.Capabilities.RadiantDataSource = requestCapabilities_capabilities_RadiantDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RdsDataSource = null;
+            if (cmdletContext.Capabilities_RdsDataSource != null)
+            {
+                requestCapabilities_capabilities_RdsDataSource = cmdletContext.Capabilities_RdsDataSource;
+            }
+            if (requestCapabilities_capabilities_RdsDataSource != null)
+            {
+                request.Capabilities.RdsDataSource = requestCapabilities_capabilities_RdsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RedshiftAutoDiscoveredDataSource = null;
+            if (cmdletContext.Capabilities_RedshiftAutoDiscoveredDataSource != null)
+            {
+                requestCapabilities_capabilities_RedshiftAutoDiscoveredDataSource = cmdletContext.Capabilities_RedshiftAutoDiscoveredDataSource;
+            }
+            if (requestCapabilities_capabilities_RedshiftAutoDiscoveredDataSource != null)
+            {
+                request.Capabilities.RedshiftAutoDiscoveredDataSource = requestCapabilities_capabilities_RedshiftAutoDiscoveredDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RedshiftManualDataSource = null;
+            if (cmdletContext.Capabilities_RedshiftManualDataSource != null)
+            {
+                requestCapabilities_capabilities_RedshiftManualDataSource = cmdletContext.Capabilities_RedshiftManualDataSource;
+            }
+            if (requestCapabilities_capabilities_RedshiftManualDataSource != null)
+            {
+                request.Capabilities.RedshiftManualDataSource = requestCapabilities_capabilities_RedshiftManualDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_RenameSharedFolder = null;
             if (cmdletContext.Capabilities_RenameSharedFolder != null)
             {
@@ -6724,6 +9703,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.Research = requestCapabilities_capabilities_Research;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_S3AnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_S3AnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_S3AnalyticsDataSource = cmdletContext.Capabilities_S3AnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_S3AnalyticsDataSource != null)
+            {
+                request.Capabilities.S3AnalyticsDataSource = requestCapabilities_capabilities_S3AnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_S3DataSource = null;
+            if (cmdletContext.Capabilities_S3DataSource != null)
+            {
+                requestCapabilities_capabilities_S3DataSource = cmdletContext.Capabilities_S3DataSource;
+            }
+            if (requestCapabilities_capabilities_S3DataSource != null)
+            {
+                request.Capabilities.S3DataSource = requestCapabilities_capabilities_S3DataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_S3KnowledgeBase = null;
             if (cmdletContext.Capabilities_S3KnowledgeBase != null)
             {
@@ -6732,6 +9731,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_S3KnowledgeBase != null)
             {
                 request.Capabilities.S3KnowledgeBase = requestCapabilities_capabilities_S3KnowledgeBase;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_S3TablesDataSource = null;
+            if (cmdletContext.Capabilities_S3TablesDataSource != null)
+            {
+                requestCapabilities_capabilities_S3TablesDataSource = cmdletContext.Capabilities_S3TablesDataSource;
+            }
+            if (requestCapabilities_capabilities_S3TablesDataSource != null)
+            {
+                request.Capabilities.S3TablesDataSource = requestCapabilities_capabilities_S3TablesDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SAPBillOfMaterialAction = null;
@@ -6794,6 +9803,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.SalesforceAction = requestCapabilities_capabilities_SalesforceAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SalesforceDataSource = null;
+            if (cmdletContext.Capabilities_SalesforceDataSource != null)
+            {
+                requestCapabilities_capabilities_SalesforceDataSource = cmdletContext.Capabilities_SalesforceDataSource;
+            }
+            if (requestCapabilities_capabilities_SalesforceDataSource != null)
+            {
+                request.Capabilities.SalesforceDataSource = requestCapabilities_capabilities_SalesforceDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SandPGMIAction = null;
             if (cmdletContext.Capabilities_SandPGMIAction != null)
             {
@@ -6812,6 +9831,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_SandPGlobalEnergyAction != null)
             {
                 request.Capabilities.SandPGlobalEnergyAction = requestCapabilities_capabilities_SandPGlobalEnergyAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SapHanaDataSource = null;
+            if (cmdletContext.Capabilities_SapHanaDataSource != null)
+            {
+                requestCapabilities_capabilities_SapHanaDataSource = cmdletContext.Capabilities_SapHanaDataSource;
+            }
+            if (requestCapabilities_capabilities_SapHanaDataSource != null)
+            {
+                request.Capabilities.SapHanaDataSource = requestCapabilities_capabilities_SapHanaDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Scenario = null;
@@ -6854,6 +9883,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ServiceNowAction = requestCapabilities_capabilities_ServiceNowAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ServiceNowDataSource = null;
+            if (cmdletContext.Capabilities_ServiceNowDataSource != null)
+            {
+                requestCapabilities_capabilities_ServiceNowDataSource = cmdletContext.Capabilities_ServiceNowDataSource;
+            }
+            if (requestCapabilities_capabilities_ServiceNowDataSource != null)
+            {
+                request.Capabilities.ServiceNowDataSource = requestCapabilities_capabilities_ServiceNowDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAdobeAction = null;
             if (cmdletContext.Capabilities_ShareAdobeAction != null)
             {
@@ -6862,6 +9901,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareAdobeAction != null)
             {
                 request.Capabilities.ShareAdobeAction = requestCapabilities_capabilities_ShareAdobeAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAdobeAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_ShareAdobeAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareAdobeAnalyticsDataSource = cmdletContext.Capabilities_ShareAdobeAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareAdobeAnalyticsDataSource != null)
+            {
+                request.Capabilities.ShareAdobeAnalyticsDataSource = requestCapabilities_capabilities_ShareAdobeAnalyticsDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAirtableAction = null;
@@ -6942,6 +9991,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareAsanaAction != null)
             {
                 request.Capabilities.ShareAsanaAction = requestCapabilities_capabilities_ShareAsanaAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAthenaDataSource = null;
+            if (cmdletContext.Capabilities_ShareAthenaDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareAthenaDataSource = cmdletContext.Capabilities_ShareAthenaDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareAthenaDataSource != null)
+            {
+                request.Capabilities.ShareAthenaDataSource = requestCapabilities_capabilities_ShareAthenaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareAuroraDataSource = null;
+            if (cmdletContext.Capabilities_ShareAuroraDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareAuroraDataSource = cmdletContext.Capabilities_ShareAuroraDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareAuroraDataSource != null)
+            {
+                request.Capabilities.ShareAuroraDataSource = requestCapabilities_capabilities_ShareAuroraDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareBambooHRAction = null;
@@ -7094,6 +10163,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareDataSources = requestCapabilities_capabilities_ShareDataSource;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDatabricksDataSource = null;
+            if (cmdletContext.Capabilities_ShareDatabricksDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDatabricksDataSource = cmdletContext.Capabilities_ShareDatabricksDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDatabricksDataSource != null)
+            {
+                request.Capabilities.ShareDatabricksDataSource = requestCapabilities_capabilities_ShareDatabricksDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDataset = null;
             if (cmdletContext.Capabilities_ShareDataset != null)
             {
@@ -7102,6 +10181,46 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareDataset != null)
             {
                 request.Capabilities.ShareDatasets = requestCapabilities_capabilities_ShareDataset;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDb2DataSource = null;
+            if (cmdletContext.Capabilities_ShareDb2DataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDb2DataSource = cmdletContext.Capabilities_ShareDb2DataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDb2DataSource != null)
+            {
+                request.Capabilities.ShareDb2DataSource = requestCapabilities_capabilities_ShareDb2DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDenodoDataSource = null;
+            if (cmdletContext.Capabilities_ShareDenodoDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDenodoDataSource = cmdletContext.Capabilities_ShareDenodoDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDenodoDataSource != null)
+            {
+                request.Capabilities.ShareDenodoDataSource = requestCapabilities_capabilities_ShareDenodoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDocumentDbDataSource = null;
+            if (cmdletContext.Capabilities_ShareDocumentDbDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDocumentDbDataSource = cmdletContext.Capabilities_ShareDocumentDbDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDocumentDbDataSource != null)
+            {
+                request.Capabilities.ShareDocumentDbDataSource = requestCapabilities_capabilities_ShareDocumentDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDremioDataSource = null;
+            if (cmdletContext.Capabilities_ShareDremioDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDremioDataSource = cmdletContext.Capabilities_ShareDremioDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDremioDataSource != null)
+            {
+                request.Capabilities.ShareDremioDataSource = requestCapabilities_capabilities_ShareDremioDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDropboxAction = null;
@@ -7124,6 +10243,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareDunAndBradstreetAction = requestCapabilities_capabilities_ShareDunAndBradstreetAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareDynamoDbDataSource = null;
+            if (cmdletContext.Capabilities_ShareDynamoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareDynamoDbDataSource = cmdletContext.Capabilities_ShareDynamoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareDynamoDbDataSource != null)
+            {
+                request.Capabilities.ShareDynamoDbDataSource = requestCapabilities_capabilities_ShareDynamoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareExasolDataSource = null;
+            if (cmdletContext.Capabilities_ShareExasolDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareExasolDataSource = cmdletContext.Capabilities_ShareExasolDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareExasolDataSource != null)
+            {
+                request.Capabilities.ShareExasolDataSource = requestCapabilities_capabilities_ShareExasolDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareFactSetAction = null;
             if (cmdletContext.Capabilities_ShareFactSetAction != null)
             {
@@ -7144,6 +10283,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareFigmaAction = requestCapabilities_capabilities_ShareFigmaAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareFileDataSource = null;
+            if (cmdletContext.Capabilities_ShareFileDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareFileDataSource = cmdletContext.Capabilities_ShareFileDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareFileDataSource != null)
+            {
+                request.Capabilities.ShareFileDataSource = requestCapabilities_capabilities_ShareFileDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGenericHTTPAction = null;
             if (cmdletContext.Capabilities_ShareGenericHTTPAction != null)
             {
@@ -7152,6 +10301,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareGenericHTTPAction != null)
             {
                 request.Capabilities.ShareGenericHTTPAction = requestCapabilities_capabilities_ShareGenericHTTPAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGitHubDataSource = null;
+            if (cmdletContext.Capabilities_ShareGitHubDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareGitHubDataSource = cmdletContext.Capabilities_ShareGitHubDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareGitHubDataSource != null)
+            {
+                request.Capabilities.ShareGitHubDataSource = requestCapabilities_capabilities_ShareGitHubDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGithubAction = null;
@@ -7174,6 +10333,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareGmailAction = requestCapabilities_capabilities_ShareGmailAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGongAction = null;
+            if (cmdletContext.Capabilities_ShareGongAction != null)
+            {
+                requestCapabilities_capabilities_ShareGongAction = cmdletContext.Capabilities_ShareGongAction;
+            }
+            if (requestCapabilities_capabilities_ShareGongAction != null)
+            {
+                request.Capabilities.ShareGongAction = requestCapabilities_capabilities_ShareGongAction;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleAnalyticsAction = null;
             if (cmdletContext.Capabilities_ShareGoogleAnalyticsAction != null)
             {
@@ -7182,6 +10351,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareGoogleAnalyticsAction != null)
             {
                 request.Capabilities.ShareGoogleAnalyticsAction = requestCapabilities_capabilities_ShareGoogleAnalyticsAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_ShareGoogleAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareGoogleAnalyticsDataSource = cmdletContext.Capabilities_ShareGoogleAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareGoogleAnalyticsDataSource != null)
+            {
+                request.Capabilities.ShareGoogleAnalyticsDataSource = requestCapabilities_capabilities_ShareGoogleAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleBigQueryDataSource = null;
+            if (cmdletContext.Capabilities_ShareGoogleBigQueryDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareGoogleBigQueryDataSource = cmdletContext.Capabilities_ShareGoogleBigQueryDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareGoogleBigQueryDataSource != null)
+            {
+                request.Capabilities.ShareGoogleBigQueryDataSource = requestCapabilities_capabilities_ShareGoogleBigQueryDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleCalendarAction = null;
@@ -7254,6 +10443,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareGoogleSheetsAction = requestCapabilities_capabilities_ShareGoogleSheetsAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleSheetsDataSource = null;
+            if (cmdletContext.Capabilities_ShareGoogleSheetsDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareGoogleSheetsDataSource = cmdletContext.Capabilities_ShareGoogleSheetsDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareGoogleSheetsDataSource != null)
+            {
+                request.Capabilities.ShareGoogleSheetsDataSource = requestCapabilities_capabilities_ShareGoogleSheetsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareGoogleSlidesAction = null;
             if (cmdletContext.Capabilities_ShareGoogleSlidesAction != null)
             {
@@ -7304,6 +10503,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareIDCKnowledgeBase = requestCapabilities_capabilities_ShareIDCKnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareImpalaDataSource = null;
+            if (cmdletContext.Capabilities_ShareImpalaDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareImpalaDataSource = cmdletContext.Capabilities_ShareImpalaDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareImpalaDataSource != null)
+            {
+                request.Capabilities.ShareImpalaDataSource = requestCapabilities_capabilities_ShareImpalaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareIntercomAction = null;
             if (cmdletContext.Capabilities_ShareIntercomAction != null)
             {
@@ -7322,6 +10531,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareJiraAction != null)
             {
                 request.Capabilities.ShareJiraAction = requestCapabilities_capabilities_ShareJiraAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareJiraDataSource = null;
+            if (cmdletContext.Capabilities_ShareJiraDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareJiraDataSource = cmdletContext.Capabilities_ShareJiraDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareJiraDataSource != null)
+            {
+                request.Capabilities.ShareJiraDataSource = requestCapabilities_capabilities_ShareJiraDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareKnowledgeBases = null;
@@ -7374,6 +10593,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareMSTeamsAction = requestCapabilities_capabilities_ShareMSTeamsAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMariaDbDataSource = null;
+            if (cmdletContext.Capabilities_ShareMariaDbDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareMariaDbDataSource = cmdletContext.Capabilities_ShareMariaDbDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareMariaDbDataSource != null)
+            {
+                request.Capabilities.ShareMariaDbDataSource = requestCapabilities_capabilities_ShareMariaDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMondayAction = null;
             if (cmdletContext.Capabilities_ShareMondayAction != null)
             {
@@ -7384,6 +10613,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareMondayAction = requestCapabilities_capabilities_ShareMondayAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMongoAtlasDataSource = null;
+            if (cmdletContext.Capabilities_ShareMongoAtlasDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareMongoAtlasDataSource = cmdletContext.Capabilities_ShareMongoAtlasDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareMongoAtlasDataSource != null)
+            {
+                request.Capabilities.ShareMongoAtlasDataSource = requestCapabilities_capabilities_ShareMongoAtlasDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMongoDbDataSource = null;
+            if (cmdletContext.Capabilities_ShareMongoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareMongoDbDataSource = cmdletContext.Capabilities_ShareMongoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareMongoDbDataSource != null)
+            {
+                request.Capabilities.ShareMongoDbDataSource = requestCapabilities_capabilities_ShareMongoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMoodysAction = null;
             if (cmdletContext.Capabilities_ShareMoodysAction != null)
             {
@@ -7392,6 +10641,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareMoodysAction != null)
             {
                 request.Capabilities.ShareMoodysAction = requestCapabilities_capabilities_ShareMoodysAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareMySqlDataSource = null;
+            if (cmdletContext.Capabilities_ShareMySqlDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareMySqlDataSource = cmdletContext.Capabilities_ShareMySqlDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareMySqlDataSource != null)
+            {
+                request.Capabilities.ShareMySqlDataSource = requestCapabilities_capabilities_ShareMySqlDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareNewRelicAction = null;
@@ -7454,6 +10713,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareOpenAPIAction = requestCapabilities_capabilities_ShareOpenAPIAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareOpenSearchDataSource = null;
+            if (cmdletContext.Capabilities_ShareOpenSearchDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareOpenSearchDataSource = cmdletContext.Capabilities_ShareOpenSearchDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareOpenSearchDataSource != null)
+            {
+                request.Capabilities.ShareOpenSearchDataSource = requestCapabilities_capabilities_ShareOpenSearchDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareOracleDataSource = null;
+            if (cmdletContext.Capabilities_ShareOracleDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareOracleDataSource = cmdletContext.Capabilities_ShareOracleDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareOracleDataSource != null)
+            {
+                request.Capabilities.ShareOracleDataSource = requestCapabilities_capabilities_ShareOracleDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SharePagerDutyAction = null;
             if (cmdletContext.Capabilities_SharePagerDutyAction != null)
             {
@@ -7472,6 +10751,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_SharePagerDutyAgentAction != null)
             {
                 request.Capabilities.SharePagerDutyAgentAction = requestCapabilities_capabilities_SharePagerDutyAgentAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SharePayPalDataSource = null;
+            if (cmdletContext.Capabilities_SharePayPalDataSource != null)
+            {
+                requestCapabilities_capabilities_SharePayPalDataSource = cmdletContext.Capabilities_SharePayPalDataSource;
+            }
+            if (requestCapabilities_capabilities_SharePayPalDataSource != null)
+            {
+                request.Capabilities.SharePayPalDataSource = requestCapabilities_capabilities_SharePayPalDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SharePointAction = null;
@@ -7494,6 +10783,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.SharePointKnowledgeBase = requestCapabilities_capabilities_SharePointKnowledgeBase;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SharePostgreSqlDataSource = null;
+            if (cmdletContext.Capabilities_SharePostgreSqlDataSource != null)
+            {
+                requestCapabilities_capabilities_SharePostgreSqlDataSource = cmdletContext.Capabilities_SharePostgreSqlDataSource;
+            }
+            if (requestCapabilities_capabilities_SharePostgreSqlDataSource != null)
+            {
+                request.Capabilities.SharePostgreSqlDataSource = requestCapabilities_capabilities_SharePostgreSqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SharePrestoDataSource = null;
+            if (cmdletContext.Capabilities_SharePrestoDataSource != null)
+            {
+                requestCapabilities_capabilities_SharePrestoDataSource = cmdletContext.Capabilities_SharePrestoDataSource;
+            }
+            if (requestCapabilities_capabilities_SharePrestoDataSource != null)
+            {
+                request.Capabilities.SharePrestoDataSource = requestCapabilities_capabilities_SharePrestoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareQBusinessKnowledgeBase = null;
             if (cmdletContext.Capabilities_ShareQBusinessKnowledgeBase != null)
             {
@@ -7514,6 +10823,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareQuickBooksAction = requestCapabilities_capabilities_ShareQuickBooksAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareRadiantDataSource = null;
+            if (cmdletContext.Capabilities_ShareRadiantDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareRadiantDataSource = cmdletContext.Capabilities_ShareRadiantDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareRadiantDataSource != null)
+            {
+                request.Capabilities.ShareRadiantDataSource = requestCapabilities_capabilities_ShareRadiantDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareRdsDataSource = null;
+            if (cmdletContext.Capabilities_ShareRdsDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareRdsDataSource = cmdletContext.Capabilities_ShareRdsDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareRdsDataSource != null)
+            {
+                request.Capabilities.ShareRdsDataSource = requestCapabilities_capabilities_ShareRdsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareRedshiftAutoDiscoveredDataSource = null;
+            if (cmdletContext.Capabilities_ShareRedshiftAutoDiscoveredDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareRedshiftAutoDiscoveredDataSource = cmdletContext.Capabilities_ShareRedshiftAutoDiscoveredDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareRedshiftAutoDiscoveredDataSource != null)
+            {
+                request.Capabilities.ShareRedshiftAutoDiscoveredDataSource = requestCapabilities_capabilities_ShareRedshiftAutoDiscoveredDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareRedshiftManualDataSource = null;
+            if (cmdletContext.Capabilities_ShareRedshiftManualDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareRedshiftManualDataSource = cmdletContext.Capabilities_ShareRedshiftManualDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareRedshiftManualDataSource != null)
+            {
+                request.Capabilities.ShareRedshiftManualDataSource = requestCapabilities_capabilities_ShareRedshiftManualDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareS3AnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_ShareS3AnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareS3AnalyticsDataSource = cmdletContext.Capabilities_ShareS3AnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareS3AnalyticsDataSource != null)
+            {
+                request.Capabilities.ShareS3AnalyticsDataSource = requestCapabilities_capabilities_ShareS3AnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareS3DataSource = null;
+            if (cmdletContext.Capabilities_ShareS3DataSource != null)
+            {
+                requestCapabilities_capabilities_ShareS3DataSource = cmdletContext.Capabilities_ShareS3DataSource;
+            }
+            if (requestCapabilities_capabilities_ShareS3DataSource != null)
+            {
+                request.Capabilities.ShareS3DataSource = requestCapabilities_capabilities_ShareS3DataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareS3KnowledgeBase = null;
             if (cmdletContext.Capabilities_ShareS3KnowledgeBase != null)
             {
@@ -7522,6 +10891,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareS3KnowledgeBase != null)
             {
                 request.Capabilities.ShareS3KnowledgeBase = requestCapabilities_capabilities_ShareS3KnowledgeBase;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareS3TablesDataSource = null;
+            if (cmdletContext.Capabilities_ShareS3TablesDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareS3TablesDataSource = cmdletContext.Capabilities_ShareS3TablesDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareS3TablesDataSource != null)
+            {
+                request.Capabilities.ShareS3TablesDataSource = requestCapabilities_capabilities_ShareS3TablesDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSAPBillOfMaterialAction = null;
@@ -7584,6 +10963,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareSalesforceAction = requestCapabilities_capabilities_ShareSalesforceAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSalesforceDataSource = null;
+            if (cmdletContext.Capabilities_ShareSalesforceDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSalesforceDataSource = cmdletContext.Capabilities_ShareSalesforceDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSalesforceDataSource != null)
+            {
+                request.Capabilities.ShareSalesforceDataSource = requestCapabilities_capabilities_ShareSalesforceDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSandPGMIAction = null;
             if (cmdletContext.Capabilities_ShareSandPGMIAction != null)
             {
@@ -7604,6 +10993,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareSandPGlobalEnergyAction = requestCapabilities_capabilities_ShareSandPGlobalEnergyAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSapHanaDataSource = null;
+            if (cmdletContext.Capabilities_ShareSapHanaDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSapHanaDataSource = cmdletContext.Capabilities_ShareSapHanaDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSapHanaDataSource != null)
+            {
+                request.Capabilities.ShareSapHanaDataSource = requestCapabilities_capabilities_ShareSapHanaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareServiceNowAction = null;
             if (cmdletContext.Capabilities_ShareServiceNowAction != null)
             {
@@ -7612,6 +11011,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareServiceNowAction != null)
             {
                 request.Capabilities.ShareServiceNowAction = requestCapabilities_capabilities_ShareServiceNowAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareServiceNowDataSource = null;
+            if (cmdletContext.Capabilities_ShareServiceNowDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareServiceNowDataSource = cmdletContext.Capabilities_ShareServiceNowDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareServiceNowDataSource != null)
+            {
+                request.Capabilities.ShareServiceNowDataSource = requestCapabilities_capabilities_ShareServiceNowDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSharePointAction = null;
@@ -7674,6 +11083,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareSnowFlakeAction = requestCapabilities_capabilities_ShareSnowFlakeAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSnowflakeDataSource = null;
+            if (cmdletContext.Capabilities_ShareSnowflakeDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSnowflakeDataSource = cmdletContext.Capabilities_ShareSnowflakeDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSnowflakeDataSource != null)
+            {
+                request.Capabilities.ShareSnowflakeDataSource = requestCapabilities_capabilities_ShareSnowflakeDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSpace = null;
             if (cmdletContext.Capabilities_ShareSpace != null)
             {
@@ -7684,6 +11103,56 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.ShareSpaces = requestCapabilities_capabilities_ShareSpace;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSparkDataSource = null;
+            if (cmdletContext.Capabilities_ShareSparkDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSparkDataSource = cmdletContext.Capabilities_ShareSparkDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSparkDataSource != null)
+            {
+                request.Capabilities.ShareSparkDataSource = requestCapabilities_capabilities_ShareSparkDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSqlServerDataSource = null;
+            if (cmdletContext.Capabilities_ShareSqlServerDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSqlServerDataSource = cmdletContext.Capabilities_ShareSqlServerDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSqlServerDataSource != null)
+            {
+                request.Capabilities.ShareSqlServerDataSource = requestCapabilities_capabilities_ShareSqlServerDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareSquareDataSource = null;
+            if (cmdletContext.Capabilities_ShareSquareDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareSquareDataSource = cmdletContext.Capabilities_ShareSquareDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareSquareDataSource != null)
+            {
+                request.Capabilities.ShareSquareDataSource = requestCapabilities_capabilities_ShareSquareDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareStarburstDataSource = null;
+            if (cmdletContext.Capabilities_ShareStarburstDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareStarburstDataSource = cmdletContext.Capabilities_ShareStarburstDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareStarburstDataSource != null)
+            {
+                request.Capabilities.ShareStarburstDataSource = requestCapabilities_capabilities_ShareStarburstDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTeradataDataSource = null;
+            if (cmdletContext.Capabilities_ShareTeradataDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareTeradataDataSource = cmdletContext.Capabilities_ShareTeradataDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareTeradataDataSource != null)
+            {
+                request.Capabilities.ShareTeradataDataSource = requestCapabilities_capabilities_ShareTeradataDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTextractAction = null;
             if (cmdletContext.Capabilities_ShareTextractAction != null)
             {
@@ -7692,6 +11161,36 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_ShareTextractAction != null)
             {
                 request.Capabilities.ShareTextractAction = requestCapabilities_capabilities_ShareTextractAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTimestreamDataSource = null;
+            if (cmdletContext.Capabilities_ShareTimestreamDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareTimestreamDataSource = cmdletContext.Capabilities_ShareTimestreamDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareTimestreamDataSource != null)
+            {
+                request.Capabilities.ShareTimestreamDataSource = requestCapabilities_capabilities_ShareTimestreamDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTrinoDataSource = null;
+            if (cmdletContext.Capabilities_ShareTrinoDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareTrinoDataSource = cmdletContext.Capabilities_ShareTrinoDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareTrinoDataSource != null)
+            {
+                request.Capabilities.ShareTrinoDataSource = requestCapabilities_capabilities_ShareTrinoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareTwitterDataSource = null;
+            if (cmdletContext.Capabilities_ShareTwitterDataSource != null)
+            {
+                requestCapabilities_capabilities_ShareTwitterDataSource = cmdletContext.Capabilities_ShareTwitterDataSource;
+            }
+            if (requestCapabilities_capabilities_ShareTwitterDataSource != null)
+            {
+                request.Capabilities.ShareTwitterDataSource = requestCapabilities_capabilities_ShareTwitterDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ShareVisierAgentAction = null;
@@ -7804,6 +11303,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.SnowFlakeAction = requestCapabilities_capabilities_SnowFlakeAction;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SnowflakeDataSource = null;
+            if (cmdletContext.Capabilities_SnowflakeDataSource != null)
+            {
+                requestCapabilities_capabilities_SnowflakeDataSource = cmdletContext.Capabilities_SnowflakeDataSource;
+            }
+            if (requestCapabilities_capabilities_SnowflakeDataSource != null)
+            {
+                request.Capabilities.SnowflakeDataSource = requestCapabilities_capabilities_SnowflakeDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Space = null;
             if (cmdletContext.Capabilities_Space != null)
             {
@@ -7812,6 +11321,46 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Space != null)
             {
                 request.Capabilities.Space = requestCapabilities_capabilities_Space;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SparkDataSource = null;
+            if (cmdletContext.Capabilities_SparkDataSource != null)
+            {
+                requestCapabilities_capabilities_SparkDataSource = cmdletContext.Capabilities_SparkDataSource;
+            }
+            if (requestCapabilities_capabilities_SparkDataSource != null)
+            {
+                request.Capabilities.SparkDataSource = requestCapabilities_capabilities_SparkDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SqlServerDataSource = null;
+            if (cmdletContext.Capabilities_SqlServerDataSource != null)
+            {
+                requestCapabilities_capabilities_SqlServerDataSource = cmdletContext.Capabilities_SqlServerDataSource;
+            }
+            if (requestCapabilities_capabilities_SqlServerDataSource != null)
+            {
+                request.Capabilities.SqlServerDataSource = requestCapabilities_capabilities_SqlServerDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_SquareDataSource = null;
+            if (cmdletContext.Capabilities_SquareDataSource != null)
+            {
+                requestCapabilities_capabilities_SquareDataSource = cmdletContext.Capabilities_SquareDataSource;
+            }
+            if (requestCapabilities_capabilities_SquareDataSource != null)
+            {
+                request.Capabilities.SquareDataSource = requestCapabilities_capabilities_SquareDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_StarburstDataSource = null;
+            if (cmdletContext.Capabilities_StarburstDataSource != null)
+            {
+                requestCapabilities_capabilities_StarburstDataSource = cmdletContext.Capabilities_StarburstDataSource;
+            }
+            if (requestCapabilities_capabilities_StarburstDataSource != null)
+            {
+                request.Capabilities.StarburstDataSource = requestCapabilities_capabilities_StarburstDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Story = null;
@@ -7834,6 +11383,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Capabilities.SubscribeDashboardEmailReports = requestCapabilities_capabilities_SubscribeDashboardEmailReport;
                 requestCapabilitiesIsNull = false;
             }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_TeradataDataSource = null;
+            if (cmdletContext.Capabilities_TeradataDataSource != null)
+            {
+                requestCapabilities_capabilities_TeradataDataSource = cmdletContext.Capabilities_TeradataDataSource;
+            }
+            if (requestCapabilities_capabilities_TeradataDataSource != null)
+            {
+                request.Capabilities.TeradataDataSource = requestCapabilities_capabilities_TeradataDataSource;
+                requestCapabilitiesIsNull = false;
+            }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_TextractAction = null;
             if (cmdletContext.Capabilities_TextractAction != null)
             {
@@ -7842,6 +11401,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_TextractAction != null)
             {
                 request.Capabilities.TextractAction = requestCapabilities_capabilities_TextractAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_TimestreamDataSource = null;
+            if (cmdletContext.Capabilities_TimestreamDataSource != null)
+            {
+                requestCapabilities_capabilities_TimestreamDataSource = cmdletContext.Capabilities_TimestreamDataSource;
+            }
+            if (requestCapabilities_capabilities_TimestreamDataSource != null)
+            {
+                request.Capabilities.TimestreamDataSource = requestCapabilities_capabilities_TimestreamDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Topic = null;
@@ -7862,6 +11431,476 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_Trigger != null)
             {
                 request.Capabilities.Trigger = requestCapabilities_capabilities_Trigger;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_TrinoDataSource = null;
+            if (cmdletContext.Capabilities_TrinoDataSource != null)
+            {
+                requestCapabilities_capabilities_TrinoDataSource = cmdletContext.Capabilities_TrinoDataSource;
+            }
+            if (requestCapabilities_capabilities_TrinoDataSource != null)
+            {
+                request.Capabilities.TrinoDataSource = requestCapabilities_capabilities_TrinoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_TwitterDataSource = null;
+            if (cmdletContext.Capabilities_TwitterDataSource != null)
+            {
+                requestCapabilities_capabilities_TwitterDataSource = cmdletContext.Capabilities_TwitterDataSource;
+            }
+            if (requestCapabilities_capabilities_TwitterDataSource != null)
+            {
+                request.Capabilities.TwitterDataSource = requestCapabilities_capabilities_TwitterDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateAdobeAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_UpdateAdobeAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateAdobeAnalyticsDataSource = cmdletContext.Capabilities_UpdateAdobeAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateAdobeAnalyticsDataSource != null)
+            {
+                request.Capabilities.UpdateAdobeAnalyticsDataSource = requestCapabilities_capabilities_UpdateAdobeAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateAthenaDataSource = null;
+            if (cmdletContext.Capabilities_UpdateAthenaDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateAthenaDataSource = cmdletContext.Capabilities_UpdateAthenaDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateAthenaDataSource != null)
+            {
+                request.Capabilities.UpdateAthenaDataSource = requestCapabilities_capabilities_UpdateAthenaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateAuroraDataSource = null;
+            if (cmdletContext.Capabilities_UpdateAuroraDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateAuroraDataSource = cmdletContext.Capabilities_UpdateAuroraDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateAuroraDataSource != null)
+            {
+                request.Capabilities.UpdateAuroraDataSource = requestCapabilities_capabilities_UpdateAuroraDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDatabricksDataSource = null;
+            if (cmdletContext.Capabilities_UpdateDatabricksDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDatabricksDataSource = cmdletContext.Capabilities_UpdateDatabricksDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDatabricksDataSource != null)
+            {
+                request.Capabilities.UpdateDatabricksDataSource = requestCapabilities_capabilities_UpdateDatabricksDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDb2DataSource = null;
+            if (cmdletContext.Capabilities_UpdateDb2DataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDb2DataSource = cmdletContext.Capabilities_UpdateDb2DataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDb2DataSource != null)
+            {
+                request.Capabilities.UpdateDb2DataSource = requestCapabilities_capabilities_UpdateDb2DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDenodoDataSource = null;
+            if (cmdletContext.Capabilities_UpdateDenodoDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDenodoDataSource = cmdletContext.Capabilities_UpdateDenodoDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDenodoDataSource != null)
+            {
+                request.Capabilities.UpdateDenodoDataSource = requestCapabilities_capabilities_UpdateDenodoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDocumentDbDataSource = null;
+            if (cmdletContext.Capabilities_UpdateDocumentDbDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDocumentDbDataSource = cmdletContext.Capabilities_UpdateDocumentDbDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDocumentDbDataSource != null)
+            {
+                request.Capabilities.UpdateDocumentDbDataSource = requestCapabilities_capabilities_UpdateDocumentDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDremioDataSource = null;
+            if (cmdletContext.Capabilities_UpdateDremioDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDremioDataSource = cmdletContext.Capabilities_UpdateDremioDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDremioDataSource != null)
+            {
+                request.Capabilities.UpdateDremioDataSource = requestCapabilities_capabilities_UpdateDremioDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateDynamoDbDataSource = null;
+            if (cmdletContext.Capabilities_UpdateDynamoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateDynamoDbDataSource = cmdletContext.Capabilities_UpdateDynamoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateDynamoDbDataSource != null)
+            {
+                request.Capabilities.UpdateDynamoDbDataSource = requestCapabilities_capabilities_UpdateDynamoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateExasolDataSource = null;
+            if (cmdletContext.Capabilities_UpdateExasolDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateExasolDataSource = cmdletContext.Capabilities_UpdateExasolDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateExasolDataSource != null)
+            {
+                request.Capabilities.UpdateExasolDataSource = requestCapabilities_capabilities_UpdateExasolDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateFileDataSource = null;
+            if (cmdletContext.Capabilities_UpdateFileDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateFileDataSource = cmdletContext.Capabilities_UpdateFileDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateFileDataSource != null)
+            {
+                request.Capabilities.UpdateFileDataSource = requestCapabilities_capabilities_UpdateFileDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateGitHubDataSource = null;
+            if (cmdletContext.Capabilities_UpdateGitHubDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateGitHubDataSource = cmdletContext.Capabilities_UpdateGitHubDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateGitHubDataSource != null)
+            {
+                request.Capabilities.UpdateGitHubDataSource = requestCapabilities_capabilities_UpdateGitHubDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateGoogleAnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_UpdateGoogleAnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateGoogleAnalyticsDataSource = cmdletContext.Capabilities_UpdateGoogleAnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateGoogleAnalyticsDataSource != null)
+            {
+                request.Capabilities.UpdateGoogleAnalyticsDataSource = requestCapabilities_capabilities_UpdateGoogleAnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateGoogleBigQueryDataSource = null;
+            if (cmdletContext.Capabilities_UpdateGoogleBigQueryDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateGoogleBigQueryDataSource = cmdletContext.Capabilities_UpdateGoogleBigQueryDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateGoogleBigQueryDataSource != null)
+            {
+                request.Capabilities.UpdateGoogleBigQueryDataSource = requestCapabilities_capabilities_UpdateGoogleBigQueryDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateGoogleSheetsDataSource = null;
+            if (cmdletContext.Capabilities_UpdateGoogleSheetsDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateGoogleSheetsDataSource = cmdletContext.Capabilities_UpdateGoogleSheetsDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateGoogleSheetsDataSource != null)
+            {
+                request.Capabilities.UpdateGoogleSheetsDataSource = requestCapabilities_capabilities_UpdateGoogleSheetsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateImpalaDataSource = null;
+            if (cmdletContext.Capabilities_UpdateImpalaDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateImpalaDataSource = cmdletContext.Capabilities_UpdateImpalaDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateImpalaDataSource != null)
+            {
+                request.Capabilities.UpdateImpalaDataSource = requestCapabilities_capabilities_UpdateImpalaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateJiraDataSource = null;
+            if (cmdletContext.Capabilities_UpdateJiraDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateJiraDataSource = cmdletContext.Capabilities_UpdateJiraDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateJiraDataSource != null)
+            {
+                request.Capabilities.UpdateJiraDataSource = requestCapabilities_capabilities_UpdateJiraDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateMariaDbDataSource = null;
+            if (cmdletContext.Capabilities_UpdateMariaDbDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateMariaDbDataSource = cmdletContext.Capabilities_UpdateMariaDbDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateMariaDbDataSource != null)
+            {
+                request.Capabilities.UpdateMariaDbDataSource = requestCapabilities_capabilities_UpdateMariaDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateMongoAtlasDataSource = null;
+            if (cmdletContext.Capabilities_UpdateMongoAtlasDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateMongoAtlasDataSource = cmdletContext.Capabilities_UpdateMongoAtlasDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateMongoAtlasDataSource != null)
+            {
+                request.Capabilities.UpdateMongoAtlasDataSource = requestCapabilities_capabilities_UpdateMongoAtlasDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateMongoDbDataSource = null;
+            if (cmdletContext.Capabilities_UpdateMongoDbDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateMongoDbDataSource = cmdletContext.Capabilities_UpdateMongoDbDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateMongoDbDataSource != null)
+            {
+                request.Capabilities.UpdateMongoDbDataSource = requestCapabilities_capabilities_UpdateMongoDbDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateMySqlDataSource = null;
+            if (cmdletContext.Capabilities_UpdateMySqlDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateMySqlDataSource = cmdletContext.Capabilities_UpdateMySqlDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateMySqlDataSource != null)
+            {
+                request.Capabilities.UpdateMySqlDataSource = requestCapabilities_capabilities_UpdateMySqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateOpenSearchDataSource = null;
+            if (cmdletContext.Capabilities_UpdateOpenSearchDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateOpenSearchDataSource = cmdletContext.Capabilities_UpdateOpenSearchDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateOpenSearchDataSource != null)
+            {
+                request.Capabilities.UpdateOpenSearchDataSource = requestCapabilities_capabilities_UpdateOpenSearchDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateOracleDataSource = null;
+            if (cmdletContext.Capabilities_UpdateOracleDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateOracleDataSource = cmdletContext.Capabilities_UpdateOracleDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateOracleDataSource != null)
+            {
+                request.Capabilities.UpdateOracleDataSource = requestCapabilities_capabilities_UpdateOracleDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdatePayPalDataSource = null;
+            if (cmdletContext.Capabilities_UpdatePayPalDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdatePayPalDataSource = cmdletContext.Capabilities_UpdatePayPalDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdatePayPalDataSource != null)
+            {
+                request.Capabilities.UpdatePayPalDataSource = requestCapabilities_capabilities_UpdatePayPalDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdatePostgreSqlDataSource = null;
+            if (cmdletContext.Capabilities_UpdatePostgreSqlDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdatePostgreSqlDataSource = cmdletContext.Capabilities_UpdatePostgreSqlDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdatePostgreSqlDataSource != null)
+            {
+                request.Capabilities.UpdatePostgreSqlDataSource = requestCapabilities_capabilities_UpdatePostgreSqlDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdatePrestoDataSource = null;
+            if (cmdletContext.Capabilities_UpdatePrestoDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdatePrestoDataSource = cmdletContext.Capabilities_UpdatePrestoDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdatePrestoDataSource != null)
+            {
+                request.Capabilities.UpdatePrestoDataSource = requestCapabilities_capabilities_UpdatePrestoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateRadiantDataSource = null;
+            if (cmdletContext.Capabilities_UpdateRadiantDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateRadiantDataSource = cmdletContext.Capabilities_UpdateRadiantDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateRadiantDataSource != null)
+            {
+                request.Capabilities.UpdateRadiantDataSource = requestCapabilities_capabilities_UpdateRadiantDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateRdsDataSource = null;
+            if (cmdletContext.Capabilities_UpdateRdsDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateRdsDataSource = cmdletContext.Capabilities_UpdateRdsDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateRdsDataSource != null)
+            {
+                request.Capabilities.UpdateRdsDataSource = requestCapabilities_capabilities_UpdateRdsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateRedshiftAutoDiscoveredDataSource = null;
+            if (cmdletContext.Capabilities_UpdateRedshiftAutoDiscoveredDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateRedshiftAutoDiscoveredDataSource = cmdletContext.Capabilities_UpdateRedshiftAutoDiscoveredDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateRedshiftAutoDiscoveredDataSource != null)
+            {
+                request.Capabilities.UpdateRedshiftAutoDiscoveredDataSource = requestCapabilities_capabilities_UpdateRedshiftAutoDiscoveredDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateRedshiftManualDataSource = null;
+            if (cmdletContext.Capabilities_UpdateRedshiftManualDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateRedshiftManualDataSource = cmdletContext.Capabilities_UpdateRedshiftManualDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateRedshiftManualDataSource != null)
+            {
+                request.Capabilities.UpdateRedshiftManualDataSource = requestCapabilities_capabilities_UpdateRedshiftManualDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateS3AnalyticsDataSource = null;
+            if (cmdletContext.Capabilities_UpdateS3AnalyticsDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateS3AnalyticsDataSource = cmdletContext.Capabilities_UpdateS3AnalyticsDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateS3AnalyticsDataSource != null)
+            {
+                request.Capabilities.UpdateS3AnalyticsDataSource = requestCapabilities_capabilities_UpdateS3AnalyticsDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateS3DataSource = null;
+            if (cmdletContext.Capabilities_UpdateS3DataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateS3DataSource = cmdletContext.Capabilities_UpdateS3DataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateS3DataSource != null)
+            {
+                request.Capabilities.UpdateS3DataSource = requestCapabilities_capabilities_UpdateS3DataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateS3TablesDataSource = null;
+            if (cmdletContext.Capabilities_UpdateS3TablesDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateS3TablesDataSource = cmdletContext.Capabilities_UpdateS3TablesDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateS3TablesDataSource != null)
+            {
+                request.Capabilities.UpdateS3TablesDataSource = requestCapabilities_capabilities_UpdateS3TablesDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSalesforceDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSalesforceDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSalesforceDataSource = cmdletContext.Capabilities_UpdateSalesforceDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSalesforceDataSource != null)
+            {
+                request.Capabilities.UpdateSalesforceDataSource = requestCapabilities_capabilities_UpdateSalesforceDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSapHanaDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSapHanaDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSapHanaDataSource = cmdletContext.Capabilities_UpdateSapHanaDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSapHanaDataSource != null)
+            {
+                request.Capabilities.UpdateSapHanaDataSource = requestCapabilities_capabilities_UpdateSapHanaDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateServiceNowDataSource = null;
+            if (cmdletContext.Capabilities_UpdateServiceNowDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateServiceNowDataSource = cmdletContext.Capabilities_UpdateServiceNowDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateServiceNowDataSource != null)
+            {
+                request.Capabilities.UpdateServiceNowDataSource = requestCapabilities_capabilities_UpdateServiceNowDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSnowflakeDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSnowflakeDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSnowflakeDataSource = cmdletContext.Capabilities_UpdateSnowflakeDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSnowflakeDataSource != null)
+            {
+                request.Capabilities.UpdateSnowflakeDataSource = requestCapabilities_capabilities_UpdateSnowflakeDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSparkDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSparkDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSparkDataSource = cmdletContext.Capabilities_UpdateSparkDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSparkDataSource != null)
+            {
+                request.Capabilities.UpdateSparkDataSource = requestCapabilities_capabilities_UpdateSparkDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSqlServerDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSqlServerDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSqlServerDataSource = cmdletContext.Capabilities_UpdateSqlServerDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSqlServerDataSource != null)
+            {
+                request.Capabilities.UpdateSqlServerDataSource = requestCapabilities_capabilities_UpdateSqlServerDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateSquareDataSource = null;
+            if (cmdletContext.Capabilities_UpdateSquareDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateSquareDataSource = cmdletContext.Capabilities_UpdateSquareDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateSquareDataSource != null)
+            {
+                request.Capabilities.UpdateSquareDataSource = requestCapabilities_capabilities_UpdateSquareDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateStarburstDataSource = null;
+            if (cmdletContext.Capabilities_UpdateStarburstDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateStarburstDataSource = cmdletContext.Capabilities_UpdateStarburstDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateStarburstDataSource != null)
+            {
+                request.Capabilities.UpdateStarburstDataSource = requestCapabilities_capabilities_UpdateStarburstDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateTeradataDataSource = null;
+            if (cmdletContext.Capabilities_UpdateTeradataDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateTeradataDataSource = cmdletContext.Capabilities_UpdateTeradataDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateTeradataDataSource != null)
+            {
+                request.Capabilities.UpdateTeradataDataSource = requestCapabilities_capabilities_UpdateTeradataDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateTimestreamDataSource = null;
+            if (cmdletContext.Capabilities_UpdateTimestreamDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateTimestreamDataSource = cmdletContext.Capabilities_UpdateTimestreamDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateTimestreamDataSource != null)
+            {
+                request.Capabilities.UpdateTimestreamDataSource = requestCapabilities_capabilities_UpdateTimestreamDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateTrinoDataSource = null;
+            if (cmdletContext.Capabilities_UpdateTrinoDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateTrinoDataSource = cmdletContext.Capabilities_UpdateTrinoDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateTrinoDataSource != null)
+            {
+                request.Capabilities.UpdateTrinoDataSource = requestCapabilities_capabilities_UpdateTrinoDataSource;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UpdateTwitterDataSource = null;
+            if (cmdletContext.Capabilities_UpdateTwitterDataSource != null)
+            {
+                requestCapabilities_capabilities_UpdateTwitterDataSource = cmdletContext.Capabilities_UpdateTwitterDataSource;
+            }
+            if (requestCapabilities_capabilities_UpdateTwitterDataSource != null)
+            {
+                request.Capabilities.UpdateTwitterDataSource = requestCapabilities_capabilities_UpdateTwitterDataSource;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseAdobeAction = null;
@@ -8162,6 +12201,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_UseGmailAction != null)
             {
                 request.Capabilities.UseGmailAction = requestCapabilities_capabilities_UseGmailAction;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseGongAction = null;
+            if (cmdletContext.Capabilities_UseGongAction != null)
+            {
+                requestCapabilities_capabilities_UseGongAction = cmdletContext.Capabilities_UseGongAction;
+            }
+            if (requestCapabilities_capabilities_UseGongAction != null)
+            {
+                request.Capabilities.UseGongAction = requestCapabilities_capabilities_UseGongAction;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_UseGoogleAnalyticsAction = null;
@@ -8912,6 +12961,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_Action { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AddOrRunAnomalyDetectionForAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AdobeAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_AdobeAnalyticsDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AirtableAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonBedrockARSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AmazonBedrockFSAction { get; set; }
@@ -8921,6 +12971,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ApproveFlowShareRequest { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_App { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AsanaAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_AthenaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_AuroraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Automate { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_BambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_BedrockManagedKnowledgeBase { get; set; }
@@ -8936,6 +12988,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ComprehendMedicalAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ConfluenceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ConfluenceKnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAdobeAnalyticsDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAdobeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAirtableAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateAmazonBedrockARSAction { get; set; }
@@ -8966,6 +13019,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGenericHTTPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGithubAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGmailAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGongAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGoogleAnalyticsAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGoogleCalendarAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateGoogleChatAction { get; set; }
@@ -9024,15 +13078,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZendeskAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZoomAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateZoomInfoAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAthenaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateAuroraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateChatAgent { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateDashboardExecutiveSummaryWithQ { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDatabricksDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDb2DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDenodoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDocumentDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDremioDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateDynamoDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateExasolDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateFileDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateGitHubDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleAnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleBigQueryDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateGoogleSheetsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateImpalaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateJiraDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateMariaDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateMongoAtlasDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateMongoDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateMySqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateOpenSearchDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateOracleDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreatePayPalDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreatePostgreSqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreatePrestoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateRadiantDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateRdsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateRedshiftAutoDiscoveredDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateRedshiftManualDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateS3AnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateS3DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateS3TablesDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSalesforceDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSapHanaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateServiceNowDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSnowflakeDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSpace { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSparkDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSqlServerDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateSquareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateStarburstDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateTeradataDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateTimestreamDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateTrinoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_CreateTwitterDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_DatabricksDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Db2DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_DenodoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_DocumentDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_DremioDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_DropboxAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_DunAndBradstreetAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_DynamoDbDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_EditVisualWithQ { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ExasolDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsv { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsvInScheduledReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcel { get; set; }
@@ -9042,12 +13147,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_Extension { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_FactSetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_FigmaAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_FileDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Flow { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GenerateAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GenericHTTPAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GitHubDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GithubAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GmailAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GongAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleAnalyticsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GoogleAnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GoogleBigQueryDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleCalendarAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleChatAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleDocsAction { get; set; }
@@ -9055,54 +13165,77 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleDriveKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleMeetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleSheetsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_GoogleSheetsDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_GoogleSlidesAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_HGInsightsAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_HubspotAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_HuggingFaceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_IDCKnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ImpalaDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_InboundEmailTrigger { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_IncludeContentInScheduledReportsEmail { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_IntercomAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_InvokeAppsAIInference { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_JiraAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_JiraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_KnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_LinearAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MSTeamsAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ManageSharedFolder { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MariaDbDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MongoAtlasDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MongoDbDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_MoodysAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_MySqlDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_NewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_NotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_OneDriveAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_OneDriveKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_OneNoteAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_OpenAPIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_OpenSearchDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_OracleDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_PagerDutyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_PagerDutyAgentAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_PayPalDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_PerformFlowUiTask { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_PostgreSqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_PrestoDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_PrintReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_PublishWithoutApproval { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_QBusinessKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_QuickBooksAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_QuickEventTrigger { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_RadiantDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_RdsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_RedshiftAutoDiscoveredDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_RedshiftManualDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_RenameSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Research { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_S3AnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_S3DataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_S3KnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_S3TablesDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SAPProductMasterDataAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SalesforceDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SandPGlobalEnergyAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SapHanaDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Scenario { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ScheduleTrigger { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SelfUpgradeUserRole { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ServiceNowAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ServiceNowDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAdobeAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareAdobeAnalyticsDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAirtableAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAmazonBedrockARSAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAmazonBedrockFSAction { get; set; }
@@ -9111,6 +13244,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAnalyses { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareApp { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareAsanaAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareAthenaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareAuroraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBambooHRAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBedrockManagedKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareBeeAction { get; set; }
@@ -9126,15 +13261,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareConfluenceKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDashboard { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDatabricksDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDataset { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDb2DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDenodoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDocumentDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDremioDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDropboxAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareDunAndBradstreetAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareDynamoDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareExasolDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareFactSetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareFigmaAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareFileDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGenericHTTPAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareGitHubDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGithubAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGmailAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareGongAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleAnalyticsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleAnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleBigQueryDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleCalendarAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleChatAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleDocsAction { get; set; }
@@ -9142,50 +13289,81 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleDriveKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleMeetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleSheetsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleSheetsDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareGoogleSlidesAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareHGInsightsAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareHubspotAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareHuggingFaceAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareIDCKnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareImpalaDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareIntercomAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareJiraAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareJiraDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareKnowledgeBases { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareLinearAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMCPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMSExchangeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMSTeamsAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMariaDbDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMondayAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMongoAtlasDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMongoDbDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareMoodysAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareMySqlDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareNewRelicAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareNotionAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareOneDriveAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareOneDriveKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareOneNoteAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareOpenAPIAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareOpenSearchDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareOracleDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SharePagerDutyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SharePagerDutyAgentAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SharePayPalDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SharePointKnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SharePostgreSqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SharePrestoDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareQBusinessKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareQuickBooksAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareRadiantDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareRdsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareRedshiftAutoDiscoveredDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareRedshiftManualDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareS3AnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareS3DataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareS3KnowledgeBase { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareS3TablesDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPBillOfMaterialAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPBusinessPartnerAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPMaterialStockAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPPhysicalInventoryAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSAPProductMasterDataAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSalesforceDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGMIAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSandPGlobalEnergyAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSapHanaDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareServiceNowAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareServiceNowDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSharePointAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSharePointKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareShopifyAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSlackAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSmartsheetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSnowFlakeAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSnowflakeDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareSpace { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSparkDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSqlServerDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareSquareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareStarburstDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareTeradataDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareTextractAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareTimestreamDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareTrinoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_ShareTwitterDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareVisierAgentAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareWebCrawlerKnowledgeBase { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ShareWhatsAppAction { get; set; }
@@ -9197,12 +13375,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_SlackAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SmartsheetAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SnowFlakeAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SnowflakeDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Space { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SparkDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SqlServerDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_SquareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_StarburstDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Story { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_SubscribeDashboardEmailReport { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_TeradataDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_TextractAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_TimestreamDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Topic { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_Trigger { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_TrinoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_TwitterDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateAdobeAnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateAthenaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateAuroraDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDatabricksDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDb2DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDenodoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDocumentDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDremioDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateDynamoDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateExasolDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateFileDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateGitHubDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleAnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleBigQueryDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateGoogleSheetsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateImpalaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateJiraDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateMariaDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateMongoAtlasDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateMongoDbDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateMySqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateOpenSearchDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateOracleDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdatePayPalDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdatePostgreSqlDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdatePrestoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateRadiantDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateRdsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateRedshiftAutoDiscoveredDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateRedshiftManualDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3AnalyticsDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3DataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateS3TablesDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSalesforceDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSapHanaDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateServiceNowDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSnowflakeDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSparkDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSqlServerDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateSquareDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateStarburstDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateTeradataDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateTimestreamDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateTrinoDataSource { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UpdateTwitterDataSource { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAdobeAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAgentWebSearch { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseAirtableAction { get; set; }
@@ -9233,6 +13465,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_UseGenericHTTPAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGithubAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGmailAction { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_UseGongAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGoogleAnalyticsAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGoogleCalendarAction { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_UseGoogleChatAction { get; set; }

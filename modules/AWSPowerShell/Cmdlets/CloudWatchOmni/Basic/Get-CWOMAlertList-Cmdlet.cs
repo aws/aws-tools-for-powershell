@@ -31,12 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Lists alerts within a space, optionally filtered by exact name(s), a single name prefix,
-    /// or exact alertId(s), with pagination.
-    /// 
-    ///  
-    /// <para>
-    /// Use GetAlert to retrieve a single alert's full detail.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// or exact alertId(s), with pagination. Use GetAlert to retrieve a single alert's full
+    /// detail.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOMAlertList")]
     [OutputType("Amazon.CloudWatchOmni.Model.AlertSummary")]
@@ -54,11 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter FilterCriteria_Id
         /// <summary>
         /// <para>
-        /// <para>Filter to alerts whose {@link AlertId} exactly matches any entry (OR semantics). Mutually
-        /// exclusive with {@code names} and {@code namePrefix}.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Filter to alerts whose {@link AlertId} exactly matches
+        /// any entry (OR semantics). Mutually exclusive with {@code names} and {@code namePrefix}.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -70,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter FilterCriteria_NamePrefix
         /// <summary>
         /// <para>
-        /// <para>Filter to alerts whose name starts with this prefix. Mutually exclusive with {@code
-        /// names} and {@code ids}.</para>
+        /// Filter to alerts whose name starts with this
+        /// prefix. Mutually exclusive with {@code names} and {@code ids}.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,11 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter FilterCriteria_Name
         /// <summary>
         /// <para>
-        /// <para>Filter to alerts whose name exactly matches any entry (OR semantics). Mutually exclusive
-        /// with {@code namePrefix} and {@code ids}.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Filter to alerts whose name exactly matches any
+        /// entry (OR semantics). Mutually exclusive with {@code namePrefix} and {@code ids}.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -97,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter FilterCriteria_NotificationsEnabled
         /// <summary>
         /// <para>
-        /// <para>Filter to alerts by whether notifications are enabled.</para>
+        /// Filter to alerts by whether notifications
+        /// are enabled.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field to sort results by.</para>
+        /// The field to sort results by.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort results.</para>
+        /// The order in which to sort results.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,10 +147,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter FilterCriteria_StateValue
         /// <summary>
         /// <para>
-        /// <para>Filter to alerts currently in any of these states (OR semantics).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Filter to alerts currently in any of these
+        /// states (OR semantics).
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -160,7 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of alerts to return per page.</para>
+        /// The maximum number of alerts to return per
+        /// page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -176,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next page of results.</para>
+        /// A token to retrieve the next page of results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

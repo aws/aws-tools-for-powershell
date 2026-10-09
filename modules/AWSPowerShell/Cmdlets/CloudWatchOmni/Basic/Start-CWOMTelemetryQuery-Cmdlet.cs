@@ -30,13 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Starts a telemetry query within a session.
-    /// 
-    ///  
-    /// <para>
-    /// Submits the provided query string for execution in the specified session. Use GetTelemetryQueryResults
-    /// to poll for results and check query status.
-    /// </para>
+    /// Starts a telemetry query within a session. Submits the provided query string for execution
+    /// in the specified session. Use GetTelemetryQueryResults to poll for results and check
+    /// query status.
     /// </summary>
     [Cmdlet("Start", "CWOMTelemetryQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.StartTelemetryQueryResponse")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The query string to execute.</para>
+        /// The query string to execute.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the session.</para>
+        /// The unique ID of the session.
         /// </para>
         /// </summary>
         #if !MODULAR

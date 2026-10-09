@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of domains to return per page. Defaults to 100.</para>
+        /// The maximum number of domains to return per
+        /// page. Defaults to 100.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next page of results. Tokens expire after 24 hours.</para>
+        /// A token to retrieve the next page of results.
+        /// Tokens expire after 24 hours.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

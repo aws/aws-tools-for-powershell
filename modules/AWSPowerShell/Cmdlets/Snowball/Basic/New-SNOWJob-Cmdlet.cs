@@ -44,39 +44,39 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// Availability of device types differ by Amazon Web Services Region. For more information
     /// about Region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&amp;loc=4">Amazon
     /// Web Services Regional Services</a>.
-    /// </para></note><para><b>Snow Family devices and their capacities.</b></para><ul><li><para>
+    /// </para></note><para></para><para><b>Snow Family devices and their capacities.</b></para><ul><li><para>
     /// Device type: <b>SNC1_SSD</b></para><ul><li><para>
     /// Capacity: T14
     /// </para></li><li><para>
     /// Description: Snowcone 
-    /// </para></li></ul></li><li><para>
+    /// </para></li></ul><para></para></li><li><para>
     /// Device type: <b>SNC1_HDD</b></para><ul><li><para>
     /// Capacity: T8
     /// </para></li><li><para>
     /// Description: Snowcone 
-    /// </para></li></ul></li><li><para>
+    /// </para></li></ul><para></para></li><li><para>
     /// Device type: <b>EDGE_S</b></para><ul><li><para>
     /// Capacity: T98
     /// </para></li><li><para>
     /// Description: Snowball Edge Storage Optimized for data transfer only 
-    /// </para></li></ul></li><li><para>
+    /// </para></li></ul><para></para></li><li><para>
     /// Device type: <b>EDGE_CG</b></para><ul><li><para>
     /// Capacity: T42
     /// </para></li><li><para>
     /// Description: Snowball Edge Compute Optimized with GPU
-    /// </para></li></ul></li><li><para>
+    /// </para></li></ul><para></para></li><li><para>
     /// Device type: <b>EDGE_C</b></para><ul><li><para>
     /// Capacity: T42
     /// </para></li><li><para>
     /// Description: Snowball Edge Compute Optimized without GPU
-    /// </para></li></ul></li><li><para>
+    /// </para></li></ul><para></para></li><li><para>
     /// Device type: <b>EDGE</b></para><ul><li><para>
     /// Capacity: T100
     /// </para></li><li><para>
     /// Description: Snowball Edge Storage Optimized with EC2 Compute
     /// </para></li></ul><note><para>
     /// This device is replaced with T98.
-    /// </para></note></li><li><para>
+    /// </para></note><para></para></li><li><para>
     /// Device type: <b>STANDARD</b></para><ul><li><para>
     /// Capacity: T50
     /// </para></li><li><para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </para><note><para>
     /// This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services
     /// Region 
-    /// </para></note></li></ul></li><li><para>
+    /// </para></note></li></ul><para></para></li><li><para>
     /// Device type: <b>STANDARD</b></para><ul><li><para>
     /// Capacity: T80
     /// </para></li><li><para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </para><note><para>
     /// This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services
     /// Region. 
-    /// </para></note></li></ul></li><li><para>
+    /// </para></note></li></ul><para></para></li><li><para>
     /// Snow Family device type: <b>RACK_5U_C</b></para><ul><li><para>
     /// Capacity: T13 
     /// </para></li><li><para>
@@ -175,9 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The Amazon Machine Images (AMIs) associated with this job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -210,9 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter S3OnDeviceService_FaultTolerance
         /// <summary>
         /// <para>
-        /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that
-        /// can go down without degrading the performance of the cluster. This additional input
-        /// helps when the specified <c>StorageLimit</c> matches more than one Amazon S3 compatible
+        /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that can
+        /// go down without degrading the performance of the cluster. This additional input helps
+        /// when the specified <c>StorageLimit</c> matches more than one Amazon S3 compatible
         /// storage on Snow family devices service configuration.</para>
         /// </para>
         /// </summary>
@@ -300,9 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The list of job states that will trigger a notification for this job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -348,9 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The Python-language Lambda functions for this job.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -430,9 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>An array of <c>S3Resource</c> objects.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role in the management account used for domain access. You must
-        /// create this role, and its trust policy must allow the service principal to assume
-        /// it.</para>
+        /// The ARN of an IAM role in the management
+        /// account used for domain access. You must create this role, and its trust policy must
+        /// allow the service principal to assume it.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IdentityProviderConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceArn
         /// <summary>
         /// <para>
-        /// <para>Identity Center instance ARN</para>
+        /// Identity Center instance ARN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IdentityProvider
         /// <summary>
         /// <para>
-        /// <para>The identity providers to configure for the domain.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The identity providers to configure
+        /// for the domain.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -100,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name that identifies the organization domain. Must be 3-63 characters: lowercase
-        /// letters, numbers, and hyphens. It must begin and end with a letter or number and cannot
-        /// contain consecutive hyphens.</para>
+        /// A name that identifies the organization domain. Must
+        /// be 3-63 characters: lowercase letters, numbers, and hyphens. It must begin and end
+        /// with a letter or number and cannot contain consecutive hyphens.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,10 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the domain.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the domain.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -134,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeated requests with the same token return the
-        /// original result instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Repeated
+        /// requests with the same token return the original result instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

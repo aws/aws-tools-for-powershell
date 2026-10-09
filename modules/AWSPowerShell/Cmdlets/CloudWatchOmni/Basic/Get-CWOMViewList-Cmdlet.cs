@@ -30,13 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Lists the views in the caller's account and region.
-    /// 
-    ///  
-    /// <para>
-    /// Returns a summary for each view, optionally filtered by view type. View definitions
-    /// are not included — use GetView to retrieve them.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the views in the caller's account and region. Returns a summary for each view,
+    /// optionally filtered by view type. View definitions are not included — use GetView
+    /// to retrieve them.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOMViewList")]
     [OutputType("Amazon.CloudWatchOmni.Model.ViewSummary")]
@@ -54,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Return only views of this ownership category.</para>
+        /// Return only views of this ownership category.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of views to return per page.</para>
+        /// The maximum number of views to return per page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next page of results.</para>
+        /// A token to retrieve the next page of results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

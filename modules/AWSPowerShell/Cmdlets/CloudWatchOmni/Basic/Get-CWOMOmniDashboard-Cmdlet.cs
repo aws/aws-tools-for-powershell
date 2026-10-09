@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the dashboard.</para>
+        /// The unique ID of the dashboard.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

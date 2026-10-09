@@ -31,13 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Updates an organization domain's name or identity provider configuration. Call this
-    /// operation in the Region where the domain was created.
-    /// 
-    ///  
-    /// <para>
-    /// Only the provided fields are changed; omitted fields are left unchanged. Renaming
-    /// a domain also changes the endpoint URLs derived from its name.
-    /// </para>
+    /// operation in the Region where the domain was created. Only the provided fields are
+    /// changed; omitted fields are left unchanged. Renaming a domain also changes the endpoint
+    /// URLs derived from its name.
     /// </summary>
     [Cmdlet("Update", "CWOMDomainForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.OrganizationDomain")]
@@ -55,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the organization domain to update.</para>
+        /// The ID of the organization domain to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IdentityProviderConfiguration_IdentityCenterConfiguration_IdentityCenterInstanceArn
         /// <summary>
         /// <para>
-        /// <para>Identity Center instance ARN</para>
+        /// Identity Center instance ARN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IdentityProvider
         /// <summary>
         /// <para>
-        /// <para>The identity providers to configure for the domain. Omit to leave unchanged.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The identity providers to configure
+        /// for the domain. Omit to leave unchanged.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -97,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A new name for the organization domain. Omit to leave unchanged. Must be 3-63 characters:
-        /// lowercase letters, numbers, and hyphens. It must begin and end with a letter or number
-        /// and cannot contain consecutive hyphens.</para>
+        /// A new name for the organization domain. Omit to leave
+        /// unchanged. Must be 3-63 characters: lowercase letters, numbers, and hyphens. It must
+        /// begin and end with a letter or number and cannot contain consecutive hyphens.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

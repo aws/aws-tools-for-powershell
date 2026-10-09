@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Updates the name or description of an access profile.
-    /// 
-    ///  
-    /// <para>
-    /// Only the provided fields are changed; omitted fields are left unchanged.
-    /// </para>
+    /// Updates the name or description of an access profile. Only the provided fields are
+    /// changed; omitted fields are left unchanged.
     /// </summary>
     [Cmdlet("Update", "CWOMAccessProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.AccessProfile")]
@@ -53,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A new description of the access profile. Omit to leave unchanged.</para>
+        /// A new description of the access profile. Omit
+        /// to leave unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A new name for the access profile. Omit to leave unchanged.</para>
+        /// A new name for the access profile. Omit to leave
+        /// unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the access profile to update.</para>
+        /// The unique ID of the access profile to update.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

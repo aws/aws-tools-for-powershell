@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Credential_ApiKeyCredential_ApiKeyValue
         /// <summary>
         /// <para>
-        /// <para>The API key value used to authenticate with the external system.</para>
+        /// The API key value used to authenticate with
+        /// the external system.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Credential_OauthCodeCredential_AuthCode
         /// <summary>
         /// <para>
-        /// <para>The OAuth 2.0 authorization code returned by the external system's authorization endpoint.</para>
+        /// The OAuth 2.0 authorization code returned by
+        /// the external system's authorization endpoint.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Credential_OauthClientCredential_ClientId
         /// <summary>
         /// <para>
-        /// <para>The OAuth 2.0 client identifier registered with the external system.</para>
+        /// The OAuth 2.0 client identifier registered with
+        /// the external system.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Credential_OauthClientCredential_ClientSecret
         /// <summary>
         /// <para>
-        /// <para>The OAuth 2.0 client secret that pairs with the client identifier.</para>
+        /// The OAuth 2.0 client secret that pairs with
+        /// the client identifier.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the integration.</para>
+        /// The Amazon Resource Name of the integration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +103,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IntegrationAttribute
         /// <summary>
         /// <para>
-        /// <para>The provider-specific attributes to associate with the integration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The provider-specific attributes
+        /// to associate with the integration.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -114,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the integration.</para>
+        /// The unique identifier of the integration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationName
         /// <summary>
         /// <para>
-        /// <para>The name of the integration; unique within the account.</para>
+        /// The name of the integration; unique within
+        /// the account.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Credential_OauthClientCredential_ProviderId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the OAuth provider that issued the client credentials.</para>
+        /// The identifier of the OAuth provider that issued
+        /// the client credentials.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the IAM role assumed to access the integration.</para>
+        /// The Amazon Resource Name of the IAM role assumed
+        /// to access the integration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

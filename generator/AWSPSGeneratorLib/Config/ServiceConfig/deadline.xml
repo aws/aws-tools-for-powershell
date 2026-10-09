@@ -394,6 +394,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMemberships" OutputProperty="Memberships" Verb="Get" Noun="MembershipList" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMeteredProducts" OutputProperty="MeteredProducts" Verb="Get" Noun="MeteredProductList" PipelineParameter="LicenseEndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

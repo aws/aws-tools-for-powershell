@@ -31,14 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Returns temporary credentials for a space in an organization member account. The credentials
-    /// are valid for one hour.
-    /// 
-    ///  
-    /// <para>
-    /// The caller must be the organization's management account or a delegated administrator
-    /// with access to the target space. The target account must be an active member of the
-    /// same organization as the domain, and the space must already exist.
-    /// </para>
+    /// are valid for one hour. The caller must be the organization's management account or
+    /// a delegated administrator with access to the target space. The target account must
+    /// be an active member of the same organization as the domain, and the space must already
+    /// exist.
     /// </summary>
     [Cmdlet("Get", "CWOMSpaceCredentialsForOrganization")]
     [OutputType("Amazon.CloudWatchOmni.Model.AwsCredentials")]
@@ -56,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter CredentialType
         /// <summary>
         /// <para>
-        /// <para>Selects which member-account credential to return. Set this to SPACE_OPERATION.</para>
+        /// Selects which member-account credential
+        /// to return. Set this to SPACE_OPERATION.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Context_DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain, when returning credentials for a target account that does not
-        /// yet have a space.</para>
+        /// The ID of the domain, when returning credentials
+        /// for a target account that does not yet have a space.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Context_SpaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of an existing space to return credentials for.</para>
+        /// The ID of an existing space to return credentials
+        /// for.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Context_TargetAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the target member account. Required when domainId is set.</para>
+        /// The ID of the target member account. Required
+        /// when domainId is set.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

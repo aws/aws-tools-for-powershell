@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Removes an existing organization access grant, revoking the access it granted.
-    /// 
-    ///  
-    /// <para>
-    /// A service-managed grant cannot be deleted.
-    /// </para>
+    /// Removes an existing organization access grant, revoking the access it granted. A service-managed
+    /// grant cannot be deleted.
     /// </summary>
     [Cmdlet("Remove", "CWOMDomainAccessGrantForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter GrantId
         /// <summary>
         /// <para>
-        /// <para>The ID of the access grant to delete.</para>
+        /// The ID of the access grant to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

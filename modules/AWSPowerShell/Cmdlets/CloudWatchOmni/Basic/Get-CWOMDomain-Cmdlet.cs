@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the domain.</para>
+        /// The unique ID of the domain.
         /// </para>
         /// </summary>
         #if !MODULAR

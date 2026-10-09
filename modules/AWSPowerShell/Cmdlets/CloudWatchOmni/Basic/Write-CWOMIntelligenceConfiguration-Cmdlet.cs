@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>Optional KMS key ARN to configure customer-managed encryption for anomaly data.</para>
+        /// Optional KMS key ARN to configure customer-managed
+        /// encryption for anomaly data.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter RemoveKmsKey
         /// <summary>
         /// <para>
-        /// <para>Set to true to disassociate the configured KMS key. Mutually exclusive with kmsKeyArn;
-        /// the service returns ValidationException if both are provided.</para>
+        /// Set to true to disassociate the configured
+        /// KMS key. Mutually exclusive with kmsKeyArn; the service returns ValidationException
+        /// if both are provided.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeating a request with the same token applies
-        /// the update at most once instead of reprocessing it.</para>
+        /// Idempotency token for safe retries. Repeating
+        /// a request with the same token applies the update at most once instead of reprocessing
+        /// it.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

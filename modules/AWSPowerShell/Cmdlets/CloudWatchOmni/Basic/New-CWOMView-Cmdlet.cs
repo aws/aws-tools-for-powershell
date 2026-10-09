@@ -30,14 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Creates a new SQL view.
-    /// 
-    ///  
-    /// <para>
-    /// A view is a named, reusable SQL query that can be referenced from telemetry queries.
-    /// View names must be unique within the account and region. Only USER views can be created
-    /// — MANAGED views are provisioned by AWS.
-    /// </para>
+    /// Creates a new SQL view. A view is a named, reusable SQL query that can be referenced
+    /// from telemetry queries. View names must be unique within the account and region. Only
+    /// USER views can be created — MANAGED views are provisioned by AWS.
     /// </summary>
     [Cmdlet("New", "CWOMView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.CreateViewResponse")]
@@ -54,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The SQL query that defines the view.</para>
+        /// The SQL query that defines the view.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the view.</para>
+        /// A description of the view.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the view. Must begin with the "view." prefix. View names must
-        /// be unique within the account and region.</para>
+        /// The name of the view. Must begin with the "view."
+        /// prefix. View names must be unique within the account and region.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,10 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Resource tags.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Resource tags.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -114,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Retrying with the same token returns the original
-        /// view instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Retrying
+        /// with the same token returns the original view instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

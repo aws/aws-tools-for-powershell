@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Deletes an alert by its identifier.
-    /// 
-    ///  
-    /// <para>
-    /// Idempotent: deleting an alert that has already been removed succeeds without error.
-    /// </para>
+    /// Deletes an alert by its identifier. Idempotent: deleting an alert that has already
+    /// been removed succeeds without error.
     /// </summary>
     [Cmdlet("Remove", "CWOMAlert", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter AlertId
         /// <summary>
         /// <para>
-        /// <para>The alert to delete.</para>
+        /// The alert to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

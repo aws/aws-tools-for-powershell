@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IntegrationType
         /// <summary>
         /// <para>
-        /// <para>Returns only integrations of this provider type.</para>
+        /// Returns only integrations of this provider
+        /// type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Returns only the integration with this exact name.</para>
+        /// Returns only the integration with this exact name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Returns only integrations in this status.</para>
+        /// Returns only integrations in this status.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of integrations to return in one page.</para>
+        /// Maximum number of integrations to return in
+        /// one page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -97,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token from a previous response; omit for the first page.</para>
+        /// Pagination token from a previous response; omit
+        /// for the first page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

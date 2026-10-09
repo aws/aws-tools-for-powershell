@@ -31,13 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Searches Identity Center for users and groups in a domain. The domain must be configured
-    /// with Identity Center.
-    /// 
-    ///  
-    /// <para>
-    /// To grant access to a result, pass its principalId to CreateAccessGrant with a principalType
-    /// of IDC_USER for a user or IDC_GROUP for a group.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// with Identity Center. To grant access to a result, pass its principalId to CreateAccessGrant
+    /// with a principalType of IDC_USER for a user or IDC_GROUP for a group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CWOMPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.PrincipalSearchResult")]
@@ -55,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain to search within.</para>
+        /// The ID of the domain to search within.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SearchQuery
         /// <summary>
         /// <para>
-        /// <para>A search term to match against user names, display names, and IDs. Pass * to list
-        /// all principals. Maximum 128 characters.</para>
+        /// A search term to match against user names,
+        /// display names, and IDs. Pass * to list all principals. Maximum 128 characters.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Defaults to 10. Valid only when searchQuery
-        /// is *; other searches reject this parameter and return at most 10 results.</para>
+        /// The maximum number of results to return. Defaults
+        /// to 10. Valid only when searchQuery is *; other searches reject this parameter and
+        /// return at most 10 results.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -107,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next page of results. Valid only when searchQuery is *; other
-        /// searches do not paginate and reject this parameter. Tokens expire after 24 hours.</para>
+        /// A token to retrieve the next page of results.
+        /// Valid only when searchQuery is *; other searches do not paginate and reject this parameter.
+        /// Tokens expire after 24 hours.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

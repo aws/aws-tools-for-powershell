@@ -225,6 +225,48 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Collections.Hashtable VastRequestConfiguration_Header { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_Cache_Key
+        /// <summary>
+        /// <para>
+        /// <para>A JSONata expression that MediaTailor evaluates to a custom cache key. By default,
+        /// the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request
+        /// headers are not included. You can specify a custom cache key expression to vary caching
+        /// by request headers and more. The evaluated key must be smaller than 1 KB; otherwise
+        /// the HTTP function will fail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsServiceRequestConfiguration_Cache_Key { get; set; }
+        #endregion
+        
+        #region Parameter HttpRequestConfiguration_Cache_Key
+        /// <summary>
+        /// <para>
+        /// <para>A JSONata expression that MediaTailor evaluates to a custom cache key. By default,
+        /// the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request
+        /// headers are not included. You can specify a custom cache key expression to vary caching
+        /// by request headers and more. The evaluated key must be smaller than 1 KB; otherwise
+        /// the HTTP function will fail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpRequestConfiguration_Cache_Key { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_Cache_Key
+        /// <summary>
+        /// <para>
+        /// <para>A JSONata expression that MediaTailor evaluates to a custom cache key. By default,
+        /// the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request
+        /// headers are not included. You can specify a custom cache key expression to vary caching
+        /// by request headers and more. The evaluated key must be smaller than 1 KB; otherwise
+        /// the HTTP function will fail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VastRequestConfiguration_Cache_Key { get; set; }
+        #endregion
+        
         #region Parameter ConcurrentExecutorConfiguration_MaxConcurrency
         /// <summary>
         /// <para>
@@ -570,6 +612,78 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? SequentialExecutorConfiguration_TimeoutMillisecond { get; set; }
         #endregion
         
+        #region Parameter AwsServiceRequestConfiguration_Cache_TtlMaximumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The upper bound, in seconds, on how long MediaTailor caches a response. This value
+        /// must be greater than or equal to <c>TtlMinimumSeconds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsServiceRequestConfiguration_Cache_TtlMaximumSeconds")]
+        public System.Int32? AwsServiceRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+        #endregion
+        
+        #region Parameter HttpRequestConfiguration_Cache_TtlMaximumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The upper bound, in seconds, on how long MediaTailor caches a response. This value
+        /// must be greater than or equal to <c>TtlMinimumSeconds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HttpRequestConfiguration_Cache_TtlMaximumSeconds")]
+        public System.Int32? HttpRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_Cache_TtlMaximumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The upper bound, in seconds, on how long MediaTailor caches a response. This value
+        /// must be greater than or equal to <c>TtlMinimumSeconds</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VastRequestConfiguration_Cache_TtlMaximumSeconds")]
+        public System.Int32? VastRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceRequestConfiguration_Cache_TtlMinimumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor
+        /// also uses this value as the cache duration when a response has no <c>Cache-Control</c><c>max-age</c> directive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsServiceRequestConfiguration_Cache_TtlMinimumSeconds")]
+        public System.Int32? AwsServiceRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
+        #endregion
+        
+        #region Parameter HttpRequestConfiguration_Cache_TtlMinimumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor
+        /// also uses this value as the cache duration when a response has no <c>Cache-Control</c><c>max-age</c> directive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HttpRequestConfiguration_Cache_TtlMinimumSeconds")]
+        public System.Int32? HttpRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
+        #endregion
+        
+        #region Parameter VastRequestConfiguration_Cache_TtlMinimumSecond
+        /// <summary>
+        /// <para>
+        /// <para>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor
+        /// also uses this value as the cache duration when a response has no <c>Cache-Control</c><c>max-age</c> directive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VastRequestConfiguration_Cache_TtlMinimumSeconds")]
+        public System.Int32? VastRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
+        #endregion
+        
         #region Parameter AwsServiceRequestConfiguration_Url
         /// <summary>
         /// <para>
@@ -653,6 +767,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AwsServiceRequestConfiguration_Body = this.AwsServiceRequestConfiguration_Body;
+            context.AwsServiceRequestConfiguration_Cache_Key = this.AwsServiceRequestConfiguration_Cache_Key;
+            context.AwsServiceRequestConfiguration_Cache_TtlMaximumSecond = this.AwsServiceRequestConfiguration_Cache_TtlMaximumSecond;
+            context.AwsServiceRequestConfiguration_Cache_TtlMinimumSecond = this.AwsServiceRequestConfiguration_Cache_TtlMinimumSecond;
             if (this.AwsServiceRequestConfiguration_Header != null)
             {
                 context.AwsServiceRequestConfiguration_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -715,6 +832,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #endif
             context.HttpRequestConfiguration_Body = this.HttpRequestConfiguration_Body;
+            context.HttpRequestConfiguration_Cache_Key = this.HttpRequestConfiguration_Cache_Key;
+            context.HttpRequestConfiguration_Cache_TtlMaximumSecond = this.HttpRequestConfiguration_Cache_TtlMaximumSecond;
+            context.HttpRequestConfiguration_Cache_TtlMinimumSecond = this.HttpRequestConfiguration_Cache_TtlMinimumSecond;
             if (this.HttpRequestConfiguration_Header != null)
             {
                 context.HttpRequestConfiguration_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -758,6 +878,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.VastRequestConfiguration_Body = this.VastRequestConfiguration_Body;
+            context.VastRequestConfiguration_Cache_Key = this.VastRequestConfiguration_Cache_Key;
+            context.VastRequestConfiguration_Cache_TtlMaximumSecond = this.VastRequestConfiguration_Cache_TtlMaximumSecond;
+            context.VastRequestConfiguration_Cache_TtlMinimumSecond = this.VastRequestConfiguration_Cache_TtlMinimumSecond;
             if (this.VastRequestConfiguration_Header != null)
             {
                 context.VastRequestConfiguration_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -886,6 +1009,51 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url != null)
             {
                 request.AwsServiceRequestConfiguration.Url = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Url;
+                requestAwsServiceRequestConfigurationIsNull = false;
+            }
+            Amazon.MediaTailor.Model.HttpRequestCacheConfiguration requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache = null;
+            
+             // populate Cache
+            var requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_CacheIsNull = true;
+            requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache = new Amazon.MediaTailor.Model.HttpRequestCacheConfiguration();
+            System.String requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_Key = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Cache_Key != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_Key = cmdletContext.AwsServiceRequestConfiguration_Cache_Key;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_Key != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache.Key = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_Key;
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMaximumSecond = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMaximumSecond = cmdletContext.AwsServiceRequestConfiguration_Cache_TtlMaximumSecond.Value;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache.TtlMaximumSeconds = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMaximumSecond.Value;
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMinimumSecond = null;
+            if (cmdletContext.AwsServiceRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMinimumSecond = cmdletContext.AwsServiceRequestConfiguration_Cache_TtlMinimumSecond.Value;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache.TtlMinimumSeconds = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache_awsServiceRequestConfiguration_Cache_TtlMinimumSecond.Value;
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_CacheIsNull = false;
+            }
+             // determine if requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache should be set to null
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_CacheIsNull)
+            {
+                requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache = null;
+            }
+            if (requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache != null)
+            {
+                request.AwsServiceRequestConfiguration.Cache = requestAwsServiceRequestConfiguration_awsServiceRequestConfiguration_Cache;
                 requestAwsServiceRequestConfigurationIsNull = false;
             }
              // determine if request.AwsServiceRequestConfiguration should be set to null
@@ -1067,6 +1235,51 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.HttpRequestConfiguration.Url = requestHttpRequestConfiguration_httpRequestConfiguration_Url;
                 requestHttpRequestConfigurationIsNull = false;
             }
+            Amazon.MediaTailor.Model.HttpRequestCacheConfiguration requestHttpRequestConfiguration_httpRequestConfiguration_Cache = null;
+            
+             // populate Cache
+            var requestHttpRequestConfiguration_httpRequestConfiguration_CacheIsNull = true;
+            requestHttpRequestConfiguration_httpRequestConfiguration_Cache = new Amazon.MediaTailor.Model.HttpRequestCacheConfiguration();
+            System.String requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_Key = null;
+            if (cmdletContext.HttpRequestConfiguration_Cache_Key != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_Key = cmdletContext.HttpRequestConfiguration_Cache_Key;
+            }
+            if (requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_Key != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache.Key = requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_Key;
+                requestHttpRequestConfiguration_httpRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMaximumSecond = null;
+            if (cmdletContext.HttpRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMaximumSecond = cmdletContext.HttpRequestConfiguration_Cache_TtlMaximumSecond.Value;
+            }
+            if (requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache.TtlMaximumSeconds = requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMaximumSecond.Value;
+                requestHttpRequestConfiguration_httpRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMinimumSecond = null;
+            if (cmdletContext.HttpRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMinimumSecond = cmdletContext.HttpRequestConfiguration_Cache_TtlMinimumSecond.Value;
+            }
+            if (requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache.TtlMinimumSeconds = requestHttpRequestConfiguration_httpRequestConfiguration_Cache_httpRequestConfiguration_Cache_TtlMinimumSecond.Value;
+                requestHttpRequestConfiguration_httpRequestConfiguration_CacheIsNull = false;
+            }
+             // determine if requestHttpRequestConfiguration_httpRequestConfiguration_Cache should be set to null
+            if (requestHttpRequestConfiguration_httpRequestConfiguration_CacheIsNull)
+            {
+                requestHttpRequestConfiguration_httpRequestConfiguration_Cache = null;
+            }
+            if (requestHttpRequestConfiguration_httpRequestConfiguration_Cache != null)
+            {
+                request.HttpRequestConfiguration.Cache = requestHttpRequestConfiguration_httpRequestConfiguration_Cache;
+                requestHttpRequestConfigurationIsNull = false;
+            }
              // determine if request.HttpRequestConfiguration should be set to null
             if (requestHttpRequestConfigurationIsNull)
             {
@@ -1199,6 +1412,51 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 request.VastRequestConfiguration.Url = requestVastRequestConfiguration_vastRequestConfiguration_Url;
                 requestVastRequestConfigurationIsNull = false;
             }
+            Amazon.MediaTailor.Model.HttpRequestCacheConfiguration requestVastRequestConfiguration_vastRequestConfiguration_Cache = null;
+            
+             // populate Cache
+            var requestVastRequestConfiguration_vastRequestConfiguration_CacheIsNull = true;
+            requestVastRequestConfiguration_vastRequestConfiguration_Cache = new Amazon.MediaTailor.Model.HttpRequestCacheConfiguration();
+            System.String requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_Key = null;
+            if (cmdletContext.VastRequestConfiguration_Cache_Key != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_Key = cmdletContext.VastRequestConfiguration_Cache_Key;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_Key != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache.Key = requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_Key;
+                requestVastRequestConfiguration_vastRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMaximumSecond = null;
+            if (cmdletContext.VastRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMaximumSecond = cmdletContext.VastRequestConfiguration_Cache_TtlMaximumSecond.Value;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMaximumSecond != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache.TtlMaximumSeconds = requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMaximumSecond.Value;
+                requestVastRequestConfiguration_vastRequestConfiguration_CacheIsNull = false;
+            }
+            System.Int32? requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMinimumSecond = null;
+            if (cmdletContext.VastRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMinimumSecond = cmdletContext.VastRequestConfiguration_Cache_TtlMinimumSecond.Value;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMinimumSecond != null)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache.TtlMinimumSeconds = requestVastRequestConfiguration_vastRequestConfiguration_Cache_vastRequestConfiguration_Cache_TtlMinimumSecond.Value;
+                requestVastRequestConfiguration_vastRequestConfiguration_CacheIsNull = false;
+            }
+             // determine if requestVastRequestConfiguration_vastRequestConfiguration_Cache should be set to null
+            if (requestVastRequestConfiguration_vastRequestConfiguration_CacheIsNull)
+            {
+                requestVastRequestConfiguration_vastRequestConfiguration_Cache = null;
+            }
+            if (requestVastRequestConfiguration_vastRequestConfiguration_Cache != null)
+            {
+                request.VastRequestConfiguration.Cache = requestVastRequestConfiguration_vastRequestConfiguration_Cache;
+                requestVastRequestConfigurationIsNull = false;
+            }
              // determine if request.VastRequestConfiguration should be set to null
             if (requestVastRequestConfigurationIsNull)
             {
@@ -1260,6 +1518,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsServiceRequestConfiguration_Body { get; set; }
+            public System.String AwsServiceRequestConfiguration_Cache_Key { get; set; }
+            public System.Int32? AwsServiceRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+            public System.Int32? AwsServiceRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
             public Dictionary<System.String, System.String> AwsServiceRequestConfiguration_Header { get; set; }
             public Amazon.MediaTailor.MethodType AwsServiceRequestConfiguration_MethodType { get; set; }
             public Dictionary<System.String, System.String> AwsServiceRequestConfiguration_Output { get; set; }
@@ -1279,6 +1540,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String FunctionId { get; set; }
             public Amazon.MediaTailor.FunctionType FunctionType { get; set; }
             public System.String HttpRequestConfiguration_Body { get; set; }
+            public System.String HttpRequestConfiguration_Cache_Key { get; set; }
+            public System.Int32? HttpRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+            public System.Int32? HttpRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
             public Dictionary<System.String, System.String> HttpRequestConfiguration_Header { get; set; }
             public Amazon.MediaTailor.MethodType HttpRequestConfiguration_MethodType { get; set; }
             public Dictionary<System.String, System.String> HttpRequestConfiguration_Output { get; set; }
@@ -1291,6 +1555,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.Int32? SequentialExecutorConfiguration_TimeoutMillisecond { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VastRequestConfiguration_Body { get; set; }
+            public System.String VastRequestConfiguration_Cache_Key { get; set; }
+            public System.Int32? VastRequestConfiguration_Cache_TtlMaximumSecond { get; set; }
+            public System.Int32? VastRequestConfiguration_Cache_TtlMinimumSecond { get; set; }
             public Dictionary<System.String, System.String> VastRequestConfiguration_Header { get; set; }
             public Amazon.MediaTailor.MethodType VastRequestConfiguration_MethodType { get; set; }
             public Dictionary<System.String, System.String> VastRequestConfiguration_Output { get; set; }

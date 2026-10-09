@@ -31,12 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Removes an organization domain and all of its resources. Call this operation in the
-    /// Region where the domain was created.
-    /// 
-    ///  
-    /// <para>
-    /// A domain cannot be deleted while it contains spaces.
-    /// </para>
+    /// Region where the domain was created. A domain cannot be deleted while it contains
+    /// spaces.
     /// </summary>
     [Cmdlet("Remove", "CWOMDomainForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -54,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the organization domain to delete.</para>
+        /// The ID of the organization domain to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

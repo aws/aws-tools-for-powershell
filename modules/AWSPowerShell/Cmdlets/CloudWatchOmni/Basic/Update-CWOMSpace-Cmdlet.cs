@@ -30,12 +30,7 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Updates a space.
-    /// 
-    ///  
-    /// <para>
-    /// Only the provided fields are changed; omitted fields are left unchanged.
-    /// </para>
+    /// Updates a space. Only the provided fields are changed; omitted fields are left unchanged.
     /// </summary>
     [Cmdlet("Update", "CWOMSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.Space")]
@@ -53,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EncryptionConfiguration_EncryptionStrategy
         /// <summary>
         /// <para>
-        /// <para>Which kind of key to use. Required.</para>
+        /// Which kind of key to use. Required.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>Customer managed KMS key ARN. Required when <c>encryptionStrategy</c> is CUSTOMER_MANAGED,
-        /// and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key
-        /// in the caller's account and region.</para>
+        /// Customer managed KMS key ARN. Required when
+        /// `encryptionStrategy` is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED.
+        /// Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A new name for the space. Omit to leave unchanged. Must be 3-64 characters: lowercase
-        /// letters, numbers, and hyphens. It must begin and end with a letter or number and cannot
-        /// contain consecutive hyphens.</para>
+        /// A new name for the space. Omit to leave unchanged.
+        /// Must be 3-64 characters: lowercase letters, numbers, and hyphens. It must begin and
+        /// end with a letter or number and cannot contain consecutive hyphens.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space to update.</para>
+        /// The unique ID of the space to update.
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter QueryId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the query.</para>
+        /// The unique ID of the query.
         /// </para>
         /// </summary>
         #if !MODULAR

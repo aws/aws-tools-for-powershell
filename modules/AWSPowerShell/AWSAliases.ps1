@@ -9878,6 +9878,9 @@ Set-Alias -Name ADC-ListLicenseEndpoints -Value Get-ADCLicenseEndpointList
 Set-Alias -Name List-ADCLimits -Value Get-ADCLimitList
 Set-Alias -Name List-ADCLimitList -Value Get-ADCLimitList
 Set-Alias -Name ADC-ListLimits -Value Get-ADCLimitList
+Set-Alias -Name List-ADCMemberships -Value Get-ADCMembershipList
+Set-Alias -Name List-ADCMembershipList -Value Get-ADCMembershipList
+Set-Alias -Name ADC-ListMemberships -Value Get-ADCMembershipList
 Set-Alias -Name List-ADCMeteredProducts -Value Get-ADCMeteredProductList
 Set-Alias -Name List-ADCMeteredProductList -Value Get-ADCMeteredProductList
 Set-Alias -Name ADC-ListMeteredProducts -Value Get-ADCMeteredProductList

@@ -23,43 +23,56 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CloudWatchOmni;
-using Amazon.CloudWatchOmni.Model;
+using Amazon.Deadline;
+using Amazon.Deadline.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CWOM
+namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
-    /// Returns the dashboards in a space, optionally filtered by name prefix.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Deadline Cloud resource memberships associated with a specified IAM Identity
+    /// Center principal, optionally filtered by the requested resource types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWOMOmniDashboardList")]
-    [OutputType("Amazon.CloudWatchOmni.Model.OmniDashboardSummary")]
-    [AWSCmdlet("Calls the CloudWatch Omni ListOmniDashboards API operation.", Operation = new[] {"ListOmniDashboards"}, SelectReturnType = typeof(Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchOmni.Model.OmniDashboardSummary or Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse",
-        "This cmdlet returns a collection of Amazon.CloudWatchOmni.Model.OmniDashboardSummary objects.",
-        "The service call response (type Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "ADCMembershipList")]
+    [OutputType("Amazon.Deadline.Model.MembershipSummary")]
+    [AWSCmdlet("Calls the AWSDeadlineCloud ListMemberships API operation.", Operation = new[] {"ListMemberships"}, SelectReturnType = typeof(Amazon.Deadline.Model.ListMembershipsResponse))]
+    [AWSCmdletOutput("Amazon.Deadline.Model.MembershipSummary or Amazon.Deadline.Model.ListMembershipsResponse",
+        "This cmdlet returns a collection of Amazon.Deadline.Model.MembershipSummary objects.",
+        "The service call response (type Amazon.Deadline.Model.ListMembershipsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCWOMOmniDashboardListCmdlet : AmazonCloudWatchOmniClientCmdlet, IExecutor
+    public partial class GetADCMembershipListCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter NamePrefix
+        #region Parameter IdentityCenterRegion
         /// <summary>
         /// <para>
-        /// Filter to dashboards whose name starts with
-        /// this prefix.
+        /// <para>The Region of the IAM Identity Center instance. If not provided, the service defaults
+        /// to the Amazon Web Services Region in which you make the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NamePrefix { get; set; }
+        public System.String IdentityCenterRegion { get; set; }
         #endregion
         
-        #region Parameter SpaceId
+        #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
-        /// The unique ID of the space.
+        /// <para>The identity store ID that contains the principal. This parameter is required for
+        /// callers that do not use a monitor session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityStoreId { get; set; }
+        #endregion
+        
+        #region Parameter PrincipalId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the IAM Identity Center principal whose Deadline Cloud resource memberships
+        /// you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,15 +83,30 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SpaceId { get; set; }
+        public System.String PrincipalId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The resource types to include when listing the principal's memberships. If not specified,
+        /// memberships for all supported resource types are returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of dashboards to return
-        /// per page. Defaults to 100. A page can contain fewer results than this value even when
-        /// more results remain; continue while nextToken is present.
+        /// <para>The maximum number of results to return. Use this parameter with <c>NextToken</c>
+        /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -94,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A token to retrieve the next page of results.
+        /// <para>The token for the next set of results, or <c>null</c> to start from the beginning.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -107,13 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Memberships'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.ListMembershipsResponse).
+        /// Specifying the name of a property of type Amazon.Deadline.Model.ListMembershipsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Memberships";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -142,9 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse, GetCWOMOmniDashboardListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.ListMembershipsResponse, GetADCMembershipListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IdentityCenterRegion = this.IdentityCenterRegion;
+            context.IdentityStoreId = this.IdentityStoreId;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -155,15 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
-            context.NamePrefix = this.NamePrefix;
             context.NextToken = this.NextToken;
-            context.SpaceId = this.SpaceId;
+            context.PrincipalId = this.PrincipalId;
             #if MODULAR
-            if (this.SpaceId == null && ParameterWasBound(nameof(this.SpaceId)))
+            if (this.PrincipalId == null && ParameterWasBound(nameof(this.PrincipalId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PrincipalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ResourceType != null)
+            {
+                context.ResourceType = new List<System.String>(this.ResourceType);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,19 +213,27 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudWatchOmni.Model.ListOmniDashboardsRequest();
+            var request = new Amazon.Deadline.Model.ListMembershipsRequest();
             
+            if (cmdletContext.IdentityCenterRegion != null)
+            {
+                request.IdentityCenterRegion = cmdletContext.IdentityCenterRegion;
+            }
+            if (cmdletContext.IdentityStoreId != null)
+            {
+                request.IdentityStoreId = cmdletContext.IdentityStoreId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.NamePrefix != null)
+            if (cmdletContext.PrincipalId != null)
             {
-                request.NamePrefix = cmdletContext.NamePrefix;
+                request.PrincipalId = cmdletContext.PrincipalId;
             }
-            if (cmdletContext.SpaceId != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.SpaceId = cmdletContext.SpaceId;
+                request.ResourceTypes = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -251,12 +292,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse CallAWSServiceOperation(IAmazonCloudWatchOmni client, Amazon.CloudWatchOmni.Model.ListOmniDashboardsRequest request)
+        private Amazon.Deadline.Model.ListMembershipsResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.ListMembershipsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CloudWatch Omni", "ListOmniDashboards");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "ListMemberships");
             try
             {
-                return client.ListOmniDashboardsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListMembershipsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -273,12 +314,14 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String IdentityCenterRegion { get; set; }
+            public System.String IdentityStoreId { get; set; }
             public int? MaxResult { get; set; }
-            public System.String NamePrefix { get; set; }
             public System.String NextToken { get; set; }
-            public System.String SpaceId { get; set; }
-            public System.Func<Amazon.CloudWatchOmni.Model.ListOmniDashboardsResponse, GetCWOMOmniDashboardListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.String PrincipalId { get; set; }
+            public List<System.String> ResourceType { get; set; }
+            public System.Func<Amazon.Deadline.Model.ListMembershipsResponse, GetADCMembershipListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Memberships;
         }
         
     }

@@ -30,13 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Generates a one-time code for deep-link authentication.
-    /// 
-    ///  
-    /// <para>
-    /// Direct the user's browser to the returned deepLinkUrl before it expires. The code
-    /// is exchanged for an authenticated, domain-scoped session and can be used only once.
-    /// </para>
+    /// Generates a one-time code for deep-link authentication. Direct the user's browser
+    /// to the returned deepLinkUrl before it expires. The code is exchanged for an authenticated,
+    /// domain-scoped session and can be used only once.
     /// </summary>
     [Cmdlet("New", "CWOMOneTimeDeepLinkCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.CreateOneTimeDeepLinkCodeResponse")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain to generate the code for.</para>
+        /// The ID of the domain to generate the code for.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter RedirectUrl
         /// <summary>
         /// <para>
-        /// <para>The URL to redirect to after the deep-link code is used. Must be an HTTPS URL in the
-        /// domain with a path of /auth/callback, and cannot include a query string or fragment.
-        /// If omitted, no redirect is applied.</para>
+        /// The URL to redirect to after the deep-link
+        /// code is used. Must be an HTTPS URL in the domain with a path of /auth/callback, and
+        /// cannot include a query string or fragment. If omitted, no redirect is applied.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter TtlSecond
         /// <summary>
         /// <para>
-        /// <para>How long the code remains valid, in seconds. Defaults to 300.</para>
+        /// How long the code remains valid, in seconds.
+        /// Defaults to 300.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

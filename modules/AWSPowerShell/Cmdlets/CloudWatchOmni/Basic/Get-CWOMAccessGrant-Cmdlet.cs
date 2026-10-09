@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter GrantId
         /// <summary>
         /// <para>
-        /// <para>The ID of the access grant to retrieve.</para>
+        /// The ID of the access grant to retrieve.
         /// </para>
         /// </summary>
         #if !MODULAR

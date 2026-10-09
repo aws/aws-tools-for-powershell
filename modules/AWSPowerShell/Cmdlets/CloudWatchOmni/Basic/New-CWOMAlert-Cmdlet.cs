@@ -30,13 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Creates a new alert within a space.
-    /// 
-    ///  
-    /// <para>
-    /// Use GetAlert and ListAlerts to retrieve alerts, UpdateAlert to modify one, and DeleteAlert
-    /// to remove it.
-    /// </para>
+    /// Creates a new alert within a space. Use GetAlert and ListAlerts to retrieve alerts,
+    /// UpdateAlert to modify one, and DeleteAlert to remove it.
     /// </summary>
     [Cmdlet("New", "CWOMAlert", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.CreateAlertResponse")]
@@ -53,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Condition_Comparator
         /// <summary>
         /// <para>
-        /// <para>The comparison operator applied to the threshold.</para>
+        /// The comparison operator applied to the threshold.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Condition_CriticalThreshold
         /// <summary>
         /// <para>
-        /// <para>The value at which the alert enters the CRITICAL state.</para>
+        /// The value at which the alert enters
+        /// the CRITICAL state.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description of the alert.</para>
+        /// An optional description of the alert.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Query_Expression
         /// <summary>
         /// <para>
-        /// <para>The query expression to evaluate.</para>
+        /// The query expression to evaluate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Evaluation_IntervalSecond
         /// <summary>
         /// <para>
-        /// <para>The interval between evaluations, in seconds.</para>
+        /// The interval between evaluations, in seconds.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Query_Language
         /// <summary>
         /// <para>
-        /// <para>The query language of the expression.</para>
+        /// The query language of the expression.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Alert name, for display. Max 256 (the AlarmName budget). Not the alert's identity:
-        /// the backend mints a separate uuid as the {@link AlertId}, so the name need not be
-        /// unique within a space and addressing an alert never depends on it. UpdateAlert accepts
-        /// a new name to rename the alert.</para>
+        /// Alert name, for display. Max 256 (the AlarmName budget).
+        /// Not the alert's identity: the backend mints a separate uuid as the {@link AlertId},
+        /// so the name need not be unique within a space and addressing an alert never depends
+        /// on it. UpdateAlert accepts a new name to rename the alert.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,10 +132,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NotificationRule
         /// <summary>
         /// <para>
-        /// <para>The notification rules that determine when and where notifications are sent.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The notification rules that determine
+        /// when and where notifications are sent.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -151,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NotificationsEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether actions (notifications) are enabled for this alert. Defaults to true when
-        /// omitted.</para>
+        /// Whether actions (notifications) are
+        /// enabled for this alert. Defaults to true when omitted.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Evaluation_PendingDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The duration a breach must persist before the alert fires, in seconds.</para>
+        /// The duration a breach must persist
+        /// before the alert fires, in seconds.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The ID of the access profile the alert uses to evaluate its query and execute notifications.
-        /// The caller supplies it: there is no managed alert profile, and the service does not
-        /// pick one on the caller's behalf.</para>
+        /// The ID of the access profile the alert uses
+        /// to evaluate its query and execute notifications. The caller supplies it: there is
+        /// no managed alert profile, and the service does not pick one on the caller's behalf.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,7 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Evaluation_RecoveryDurationSecond
         /// <summary>
         /// <para>
-        /// <para>The duration a recovery must persist before the alert clears, in seconds.</para>
+        /// The duration a recovery must persist
+        /// before the alert clears, in seconds.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space to create the alert in.</para>
+        /// The unique ID of the space to create the alert
+        /// in.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,10 +222,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the alert.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the alert.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -235,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Condition_ThresholdField
         /// <summary>
         /// <para>
-        /// <para>The field the threshold is evaluated against.</para>
+        /// The field the threshold is evaluated against.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Condition_ThresholdMode
         /// <summary>
         /// <para>
-        /// <para>How the threshold is applied to query results.</para>
+        /// How the threshold is applied to query results.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_NoData_TreatAs
         /// <summary>
         /// <para>
-        /// <para>The state to report when an evaluation produces no data.</para>
+        /// The state to report when an evaluation produces
+        /// no data.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Rule_TelemetryRule_Condition_WarningThreshold
         /// <summary>
         /// <para>
-        /// <para>The value at which the alert enters the WARNING state.</para>
+        /// The value at which the alert enters the
+        /// WARNING state.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,8 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Retrying with the same token within the idempotency
-        /// window returns the original alert instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Retrying
+        /// with the same token within the idempotency window returns the original alert instead
+        /// of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,13 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Deletes the specified view.
-    /// 
-    ///  
-    /// <para>
-    /// Queries that reference the view fail after it is deleted. Managed views cannot be
-    /// deleted.
-    /// </para>
+    /// Deletes the specified view. Queries that reference the view fail after it is deleted.
+    /// Managed views cannot be deleted.
     /// </summary>
     [Cmdlet("Remove", "CWOMView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -54,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the view to delete.</para>
+        /// The name of the view to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

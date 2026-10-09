@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Retrieves a single alert by its identifier.
-    /// 
-    ///  
-    /// <para>
-    /// Use ListAlerts to enumerate alerts in the space.
-    /// </para>
+    /// Retrieves a single alert by its identifier. Use ListAlerts to enumerate alerts in
+    /// the space.
     /// </summary>
     [Cmdlet("Get", "CWOMAlert")]
     [OutputType("Amazon.CloudWatchOmni.Model.Alert")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter AlertId
         /// <summary>
         /// <para>
-        /// <para>The alert to retrieve.</para>
+        /// The alert to retrieve.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

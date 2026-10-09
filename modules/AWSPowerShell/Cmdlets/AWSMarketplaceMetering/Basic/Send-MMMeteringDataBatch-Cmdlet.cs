@@ -57,8 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// submission window. After this grace period, we return a <c>TimestampOutOfBoundsException</c>
     /// error.
     /// </para><para><c>BatchMeterUsage</c> can process up to 25 <c>UsageRecords</c> at a time, and each
-    /// request must be less than 1 MB in size. Optionally, you can have multiple usage allocations
-    /// for usage data that's split into buckets according to predefined tags.
+    /// request must be less than 1 MB in size.
+    /// </para><para><b>Vendor-metered tagging</b></para><para><c>BatchMeterUsage</c> supports vendor-metered tagging. Optionally, you can split
+    /// the usage in a <c>UsageRecord</c> into buckets by including <c>UsageAllocations</c>,
+    /// where each <c>UsageAllocation</c> has a set of <c>Tags</c> that you define. Vendor-metered
+    /// tagging doesn't change the price, dimensions, or the total usage that you report.
+    /// It gives buyers a more granular view of their usage of your product so they can perform
+    /// cost allocation in the Amazon Web Services Billing and Cost Management console. For
+    /// more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/metering-for-usage.html#saas-vendor-metered-tagging">Vendor-metered
+    /// tagging</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-tagging">BatchMeterUsage
+    /// with usage allocation tagging code example</a> in the <i>Amazon Web Services Marketplace
+    /// Seller Guide</i>.
     /// </para><para><c>BatchMeterUsage</c> returns a list of <c>UsageRecordResult</c> objects, which
     /// have each <c>UsageRecord</c>. It also returns a list of <c>UnprocessedRecords</c>,
     /// which indicate errors on the service side that should be retried.

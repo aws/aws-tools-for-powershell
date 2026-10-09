@@ -30,13 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Creates a new dashboard within a space.
-    /// 
-    ///  
-    /// <para>
-    /// Use GetOmniDashboard and ListOmniDashboards to retrieve dashboards, UpdateOmniDashboard
-    /// to modify one, and DeleteOmniDashboard to remove it.
-    /// </para>
+    /// Creates a new dashboard within a space. Use GetOmniDashboard and ListOmniDashboards
+    /// to retrieve dashboards, UpdateOmniDashboard to modify one, and DeleteOmniDashboard
+    /// to remove it.
     /// </summary>
     [Cmdlet("New", "CWOMOmniDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.OmniDashboard")]
@@ -54,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The dashboard definition, as a JSON document. Maximum 1 MiB.</para>
+        /// The dashboard definition, as a JSON document. Maximum
+        /// 1 MiB.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description of the dashboard.</para>
+        /// An optional description of the dashboard.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name that identifies the dashboard.</para>
+        /// A name that identifies the dashboard.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space to create the dashboard in.</para>
+        /// The unique ID of the space to create the dashboard
+        /// in.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,10 +113,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the dashboard.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the dashboard.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeated requests with the same token return the
-        /// original result instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Repeated
+        /// requests with the same token return the original result instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

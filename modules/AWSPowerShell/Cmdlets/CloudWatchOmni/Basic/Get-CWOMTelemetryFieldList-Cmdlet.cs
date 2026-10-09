@@ -30,15 +30,10 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Lists fields available for telemetry queries.
-    /// 
-    ///  
-    /// <para>
-    /// Returns a list of fields included in the specified dataset, granular to telemetry
-    /// type. Returned field names reflect the exact stored casing and are case-sensitive
-    /// when referenced in query expressions; the query engine does not normalize identifier
-    /// case.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists fields available for telemetry queries. Returns a list of fields included in
+    /// the specified dataset, granular to telemetry type. Returned field names reflect the
+    /// exact stored casing and are case-sensitive when referenced in query expressions; the
+    /// query engine does not normalize identifier case.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOMTelemetryFieldList")]
     [OutputType("Amazon.CloudWatchOmni.Model.Field")]
@@ -56,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DataSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the dataset to list fields for.</para>
+        /// The name of the dataset to list fields for.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>Inclusive end of the lookback window. When omitted, the service defaults to the current
-        /// time.</para>
+        /// Inclusive end of the lookback window. When omitted,
+        /// the service defaults to the current time.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>Inclusive start of the lookback window. When omitted, the service defaults to the
-        /// configured lookback before endTime.</para>
+        /// Inclusive start of the lookback window. When
+        /// omitted, the service defaults to the configured lookback before endTime.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter TelemetryType
         /// <summary>
         /// <para>
-        /// <para>The type of telemetry to filter fields by.</para>
+        /// The type of telemetry to filter fields by.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to retrieve the next page of results. Reserved for future pagination; the
-        /// service does not paginate at this time and returns null.</para>
+        /// A token to retrieve the next page of results.
+        /// Reserved for future pagination; the service does not paginate at this time and returns
+        /// null.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

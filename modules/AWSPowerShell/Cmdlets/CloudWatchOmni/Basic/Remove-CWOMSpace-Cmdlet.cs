@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space to delete.</para>
+        /// The unique ID of the space to delete.
         /// </para>
         /// </summary>
         #if !MODULAR

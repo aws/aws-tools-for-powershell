@@ -30,15 +30,11 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Queries the context graph with filtering, traversal, and pagination support.
-    /// 
-    ///  
-    /// <para>
-    /// Pagination note: nodes and edges are returned together as a coherent subgraph. Pagination
-    /// cursors advance over nodes (the primary collection); each page includes all edges
-    /// connecting nodes within that page. Callers should treat nodes as the paginated collection
-    /// and edges as supplementary relationship data attached to those nodes.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Queries the context graph with filtering, traversal, and pagination support. Pagination
+    /// note: nodes and edges are returned together as a coherent subgraph. Pagination cursors
+    /// advance over nodes (the primary collection); each page includes all edges connecting
+    /// nodes within that page. Callers should treat nodes as the paginated collection and
+    /// edges as supplementary relationship data attached to those nodes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWOMContextGraph")]
     [OutputType("Amazon.CloudWatchOmni.Model.Node")]
@@ -56,10 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Category
         /// <summary>
         /// <para>
-        /// <para>Match nodes of any of these categories.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes of any of these categories.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -70,10 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_CloudProvider
         /// <summary>
         /// <para>
-        /// <para>Match nodes on any of these cloud providers.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes on any of these cloud providers.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Depth
         /// <summary>
         /// <para>
-        /// <para>How many hops to traverse out from the nodes matched by nodeFilters. 0 returns only
-        /// the matched nodes themselves.</para>
+        /// How many hops to traverse out from the nodes matched
+        /// by nodeFilters. 0 returns only the matched nodes themselves.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_EdgeId
         /// <summary>
         /// <para>
-        /// <para>Match only the edge with this identifier.</para>
+        /// Match only the edge with this identifier.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_EdgeType
         /// <summary>
         /// <para>
-        /// <para>Match only edges of this relationship kind.</para>
+        /// Match only edges of this relationship kind.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>End of the time range (UTC), inclusive.</para>
+        /// End of the time range (UTC), inclusive.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_From
         /// <summary>
         /// <para>
-        /// <para>Match only edges originating from this node identifier.</para>
+        /// Match only edges originating from this node identifier.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter IncludeMetadata
         /// <summary>
         /// <para>
-        /// <para>Whether to return the metadata block, semantics included, on each node and edge. Off
-        /// by default because it costs an extra lookup per returned node.</para>
+        /// Whether to return the metadata block,
+        /// semantics included, on each node and edge. Off by default because it costs an extra
+        /// lookup per returned node.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxEdgesPerNode
         /// <summary>
         /// <para>
-        /// <para>The maximum number of edges to return per node, bounding the fan-out of a densely
-        /// connected node.</para>
+        /// The maximum number of edges to return
+        /// per node, bounding the fan-out of a densely connected node.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Name
         /// <summary>
         /// <para>
-        /// <para>Match only nodes with this name.</para>
+        /// Match only nodes with this name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,10 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Namespace
         /// <summary>
         /// <para>
-        /// <para>Match nodes in any of these logical service groupings.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes in any of these logical service
+        /// groupings.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -188,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_NodeId
         /// <summary>
         /// <para>
-        /// <para>Match only the node with this identifier.</para>
+        /// Match only the node with this identifier.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_NodeType
         /// <summary>
         /// <para>
-        /// <para>Match only nodes of this type.</para>
+        /// Match only nodes of this type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,10 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_Operation
         /// <summary>
         /// <para>
-        /// <para>Match edges carrying any of these operations.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match edges carrying any of these operations.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -224,10 +230,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Region
         /// <summary>
         /// <para>
-        /// <para>Match nodes in any of these regions.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes in any of these regions.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -238,10 +246,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_SourceAccountId
         /// <summary>
         /// <para>
-        /// <para>Match nodes discovered from telemetry produced by any of these accounts.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes discovered from telemetry
+        /// produced by any of these accounts.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -252,10 +263,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_Source
         /// <summary>
         /// <para>
-        /// <para>Match edges contributed by any of these discovery sources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match edges contributed by any of these discovery
+        /// sources.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -267,10 +281,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Source
         /// <summary>
         /// <para>
-        /// <para>Match nodes contributed by any of these discovery sources.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes contributed by any of these discovery
+        /// sources.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -282,10 +299,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Stage
         /// <summary>
         /// <para>
-        /// <para>Match nodes observed in any of these deployment environments.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes observed in any of these deployment
+        /// environments.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -296,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>Start of the time range (UTC), inclusive.</para>
+        /// Start of the time range (UTC), inclusive.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -312,10 +332,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_Tag
         /// <summary>
         /// <para>
-        /// <para>Match nodes by the tags on the underlying resource.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes by the tags on the underlying resource.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -327,11 +349,14 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_TelemetryAttribute
         /// <summary>
         /// <para>
-        /// <para>Match edges by their OpenTelemetry (OTel) telemetry attributes. Not yet enforced:
-        /// currently accepted but ignored (does not filter), matching nodeFilters.telemetryAttributes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match edges by their OpenTelemetry
+        /// (OTel) telemetry attributes. Not yet enforced: currently accepted but ignored (does
+        /// not filter), matching nodeFilters.telemetryAttributes.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -343,10 +368,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NodeFilters_TelemetryAttribute
         /// <summary>
         /// <para>
-        /// <para>Match nodes by their OpenTelemetry (OTel) telemetry attributes.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Match nodes by their OpenTelemetry
+        /// (OTel) telemetry attributes.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -358,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EdgeFilters_To
         /// <summary>
         /// <para>
-        /// <para>Match only edges pointing to this node identifier.</para>
+        /// Match only edges pointing to this node identifier.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,7 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of nodes to return in a single page.</para>
+        /// The maximum number of nodes to return in a
+        /// single page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -384,7 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token from a previous response, to retrieve the next page.</para>
+        /// Pagination token from a previous response, to
+        /// retrieve the next page.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

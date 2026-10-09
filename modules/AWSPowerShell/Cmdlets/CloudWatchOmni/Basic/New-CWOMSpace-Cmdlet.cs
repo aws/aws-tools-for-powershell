@@ -30,13 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Creates a space in a domain.
-    /// 
-    ///  
-    /// <para>
-    /// Use GetSpace to retrieve the space, ListSpaces to enumerate spaces, UpdateSpace to
-    /// modify it, and DeleteSpace to remove it.
-    /// </para>
+    /// Creates a space in a domain. Use GetSpace to retrieve the space, ListSpaces to enumerate
+    /// spaces, UpdateSpace to modify it, and DeleteSpace to remove it.
     /// </summary>
     [Cmdlet("New", "CWOMSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.Space")]
@@ -54,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter AgentCoreEvaluationRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used by AgentCore online evaluation. Must be in the caller's
-        /// account. Omit if the space does not use AgentCore online evaluation.</para>
+        /// The ARN of the IAM role used
+        /// by AgentCore online evaluation. Must be in the caller's account. Omit if the space
+        /// does not use AgentCore online evaluation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used for data access. The role must be in the caller's account.</para>
+        /// The ARN of the IAM role used for data
+        /// access. The role must be in the caller's account.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain to create the space in.</para>
+        /// The ID of the domain to create the space in.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EncryptionConfiguration_EncryptionStrategy
         /// <summary>
         /// <para>
-        /// <para>Which kind of key to use. Required.</para>
+        /// Which kind of key to use. Required.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>Customer managed KMS key ARN. Required when <c>encryptionStrategy</c> is CUSTOMER_MANAGED,
-        /// and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key
-        /// in the caller's account and region.</para>
+        /// Customer managed KMS key ARN. Required when
+        /// `encryptionStrategy` is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED.
+        /// Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name that identifies the space. Must be 3-64 characters: lowercase letters, numbers,
-        /// and hyphens. It must begin and end with a letter or number and cannot contain consecutive
-        /// hyphens.</para>
+        /// A name that identifies the space. Must be 3-64 characters:
+        /// lowercase letters, numbers, and hyphens. It must begin and end with a letter or number
+        /// and cannot contain consecutive hyphens.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,10 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the space.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the space.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -156,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeated requests with the same token return the
-        /// original result instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Repeated
+        /// requests with the same token return the original result instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

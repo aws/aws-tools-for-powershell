@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Removes an access profile.
-    /// 
-    ///  
-    /// <para>
-    /// An access profile cannot be deleted while access grants reference it.
-    /// </para>
+    /// Removes an access profile. An access profile cannot be deleted while access grants
+    /// reference it.
     /// </summary>
     [Cmdlet("Remove", "CWOMAccessProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the access profile to delete.</para>
+        /// The unique ID of the access profile to delete.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

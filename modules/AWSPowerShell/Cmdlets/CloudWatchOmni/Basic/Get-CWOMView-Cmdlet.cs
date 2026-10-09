@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the view.</para>
+        /// The name of the view.
         /// </para>
         /// </summary>
         #if !MODULAR

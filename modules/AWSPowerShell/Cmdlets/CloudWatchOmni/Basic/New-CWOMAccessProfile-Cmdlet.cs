@@ -30,13 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Creates an access profile in a space.
-    /// 
-    ///  
-    /// <para>
-    /// Use GetAccessProfile and ListAccessProfiles to retrieve profiles, and UpdateAccessProfile
-    /// to modify one.
-    /// </para>
+    /// Creates an access profile in a space. Use GetAccessProfile and ListAccessProfiles
+    /// to retrieve profiles, and UpdateAccessProfile to modify one.
     /// </summary>
     [Cmdlet("New", "CWOMAccessProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.AccessProfile")]
@@ -54,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description of the access profile.</para>
+        /// An optional description of the access profile.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name that identifies the access profile.</para>
+        /// A name that identifies the access profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space to create the profile in.</para>
+        /// The unique ID of the space to create the profile
+        /// in.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,10 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the access profile.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the access profile.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -113,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeated requests with the same token return the
-        /// original result instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Repeated
+        /// requests with the same token return the original result instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

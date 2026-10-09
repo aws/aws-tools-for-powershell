@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Stops a telemetry query session.
-    /// 
-    ///  
-    /// <para>
-    /// Terminates the specified session. After a session is stopped it cannot be reused.
-    /// </para>
+    /// Stops a telemetry query session. Terminates the specified session. After a session
+    /// is stopped it cannot be reused.
     /// </summary>
     [Cmdlet("Stop", "CWOMTelemetryQuerySession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -53,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the session.</para>
+        /// The unique ID of the session.
         /// </para>
         /// </summary>
         #if !MODULAR

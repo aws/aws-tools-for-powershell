@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the integration.</para>
+        /// The Amazon Resource Name of the integration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the integration.</para>
+        /// The unique identifier of the integration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Identifier_IntegrationName
         /// <summary>
         /// <para>
-        /// <para>The name of the integration; unique within the account.</para>
+        /// The name of the integration; unique within
+        /// the account.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

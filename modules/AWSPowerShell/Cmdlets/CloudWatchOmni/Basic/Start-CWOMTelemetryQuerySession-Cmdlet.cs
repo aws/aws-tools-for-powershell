@@ -30,13 +30,9 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Starts a new telemetry query session.
-    /// 
-    ///  
-    /// <para>
-    /// A session provides a logical grouping for one or more telemetry queries. The returned
-    /// session ID is required when starting queries via StartTelemetryQuery.
-    /// </para>
+    /// Starts a new telemetry query session. A session provides a logical grouping for one
+    /// or more telemetry queries. The returned session ID is required when starting queries
+    /// via StartTelemetryQuery.
     /// </summary>
     [Cmdlet("Start", "CWOMTelemetryQuerySession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SessionName
         /// <summary>
         /// <para>
-        /// <para>A human-readable name for the session. Names under <c>/aws/</c> are reserved for service
-        /// integrations.</para>
+        /// A human-readable name for the session. Names
+        /// under `/aws/` are reserved for service integrations.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -85,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// parameters, but not both.</para><ul><li><para>If you have one Lambda function that processes metadata and another for reading the
         /// actual data, use the following syntax. Both parameters are required.</para><para><c>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i></c></para></li><li><para> If you have a composite Lambda function that processes both metadata and data, use
         /// the following syntax to specify your Lambda function.</para><para><c>function=<i>lambda_arn</i></c></para></li></ul></li></ul><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>

@@ -237,6 +237,16 @@ $SECAG_Completers = {
             break
         }
 
+        # Amazon.SecurityAgent.TestScopeType
+        {
+            ($_ -eq "New-SECAGPentest/TestScope_Type") -Or
+            ($_ -eq "Update-SECAGPentest/TestScope_Type")
+        }
+        {
+            $v = "GENERATIVE_AI_APP","WEB_APP"
+            break
+        }
+
         # Amazon.SecurityAgent.ThreatSeverity
         {
             ($_ -eq "New-SECAGThreat/Severity") -Or
@@ -306,6 +316,7 @@ $SECAG_map = @{
     "Severity"=@("New-SECAGThreat","Update-SECAGThreat")
     "Status"=@("Get-SECAGFindingList","New-SECAGSecurityRequirementPack","Update-SECAGFinding","Update-SECAGSecurityRequirementPack","Update-SECAGThreat")
     "StepName"=@("Get-SECAGCodeReviewJobTaskList","Get-SECAGPentestJobTaskList")
+    "TestScope_Type"=@("New-SECAGPentest","Update-SECAGPentest")
     "ValidationMode"=@("New-SECAGCodeReview","Update-SECAGCodeReview")
     "VerificationMethod"=@("New-SECAGTargetDomain","Update-SECAGTargetDomain")
     "WebhookAction"=@("Update-SECAGIntegration")

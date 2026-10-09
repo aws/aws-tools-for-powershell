@@ -30,13 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Retrieves an access profile by ID.
-    /// 
-    ///  
-    /// <para>
-    /// The response indicates whether the calling principal is currently allowed to assume
-    /// the profile.
-    /// </para>
+    /// Retrieves an access profile by ID. The response indicates whether the calling principal
+    /// is currently allowed to assume the profile.
     /// </summary>
     [Cmdlet("Get", "CWOMAccessProfile")]
     [OutputType("Amazon.CloudWatchOmni.Model.AccessProfile")]
@@ -54,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the access profile.</para>
+        /// The unique ID of the access profile.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR

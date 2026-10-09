@@ -31,14 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
     /// Creates an AccessGrant that authorizes a principal to perform a set of actions on
-    /// resources in a space.
-    /// 
-    ///  
-    /// <para>
-    /// Optionally narrow the grant with scoped actions that limit it to specific resources
-    /// and fields. Use ListAccessGrants and GetAccessGrant to retrieve grants, and DeleteAccessGrant
-    /// to remove them.
-    /// </para>
+    /// resources in a space. Optionally narrow the grant with scoped actions that limit it
+    /// to specific resources and fields. Use ListAccessGrants and GetAccessGrant to retrieve
+    /// grants, and DeleteAccessGrant to remove them.
     /// </summary>
     [Cmdlet("New", "CWOMAccessGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.AccessGrant")]
@@ -56,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain that contains the space.</para>
+        /// The ID of the domain that contains the space.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name that identifies the access grant.</para>
+        /// A name that identifies the access grant.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>The permission to grant. Exactly one permission is granted per request.</para>
+        /// The permission to grant. Exactly one permission
+        /// is granted per request.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,11 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Principal_PrincipalAttribute
         /// <summary>
         /// <para>
-        /// <para>Attribute conditions for attribute-based access. When provided, the grant targets
-        /// any principal matching all specified conditions. Supported only for IDC_USER principals.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Attribute conditions for attribute-based
+        /// access. When provided, the grant targets any principal matching all specified conditions.
+        /// Supported only for IDC_USER principals.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -123,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Principal_PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The ID of the principal receiving the grant.</para>
+        /// The ID of the principal receiving the grant.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Principal_PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The type of principal receiving the grant.</para>
+        /// The type of principal receiving the grant.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,11 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ScopedAction
         /// <summary>
         /// <para>
-        /// <para>Groups of actions to allow, each with the resource scopes and conditions that limit
-        /// those actions.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// Groups of actions to allow, each with the
+        /// resource scopes and conditions that limit those actions.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -166,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the space to scope the grant to.</para>
+        /// The ID of the space to scope the grant to.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,10 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the access grant.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// The tags to associate with the access grant.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data
+        /// for this property is returned from the service the property will also be null. This
+        /// was changed to improve performance and allow the SDK and caller to distinguish between
+        /// a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
@@ -198,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Idempotency token for safe retries. Repeated requests with the same token return the
-        /// original result instead of creating a duplicate.</para>
+        /// Idempotency token for safe retries. Repeated
+        /// requests with the same token return the original result instead of creating a duplicate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

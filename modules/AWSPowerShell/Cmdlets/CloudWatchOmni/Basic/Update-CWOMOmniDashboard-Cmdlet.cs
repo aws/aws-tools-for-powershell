@@ -30,12 +30,8 @@ using Amazon.CloudWatchOmni.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOM
 {
     /// <summary>
-    /// Updates an existing dashboard within a space.
-    /// 
-    ///  
-    /// <para>
-    /// Only the provided fields are changed; omitted fields are left unchanged.
-    /// </para>
+    /// Updates an existing dashboard within a space. Only the provided fields are changed;
+    /// omitted fields are left unchanged.
     /// </summary>
     [Cmdlet("Update", "CWOMOmniDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchOmni.Model.OmniDashboard")]
@@ -53,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The new dashboard definition, as a JSON document. Maximum 1 MiB. Omit to leave unchanged.</para>
+        /// The new dashboard definition, as a JSON document.
+        /// Maximum 1 MiB. Omit to leave unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the dashboard.</para>
+        /// The unique ID of the dashboard.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A new description of the dashboard. Omit to leave unchanged.</para>
+        /// A new description of the dashboard. Omit to
+        /// leave unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A new name for the dashboard. Omit to leave unchanged.</para>
+        /// A new name for the dashboard. Omit to leave unchanged.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOM
         #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the space.</para>
+        /// The unique ID of the space.
         /// </para>
         /// </summary>
         #if !MODULAR
